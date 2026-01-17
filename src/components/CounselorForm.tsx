@@ -116,20 +116,20 @@ export default function CounselorForm() {
     return (
         <>
             <Toast ref={toast} />
-            <div className="space-y-5">
+            <div className="space-y-3 sm:space-y-5">
                 {/* Name */}
-                <div className="p-inputgroup">
-                    <span className="p-inputgroup-addon bg-white!">
+                <div className="p-inputgroup flex-col sm:flex-row">
+                    <span className="p-inputgroup-addon bg-white! sm:border-r-0">
                         <i className="pi pi-user"></i>
                     </span>
-                    <span className="p-float-label">
+                    <span className="p-float-label flex-1">
                         <InputText
                             id="name"
                             value={form.name}
                             onChange={(e) =>
                                 setForm({ ...form, name: e.target.value })
                             }
-                            className="w-full border-l-0! pl-0!"
+                            className="w-full sm:border-l-0! sm:pl-0!"
                         />
                         <label htmlFor="name" className="text-sm">
                             Full Name*
@@ -138,18 +138,18 @@ export default function CounselorForm() {
                 </div>
 
                 {/* Email */}
-                <div className="p-inputgroup">
-                    <span className="p-inputgroup-addon bg-white!">
+                <div className="p-inputgroup flex-col sm:flex-row">
+                    <span className="p-inputgroup-addon bg-white! sm:border-r-0">
                         <i className="pi pi-envelope"></i>
                     </span>
-                    <span className="p-float-label">
+                    <span className="p-float-label flex-1">
                         <InputText
                             id="email"
                             value={form.email}
                             onChange={(e) =>
                                 setForm({ ...form, email: e.target.value })
                             }
-                            className="w-full border-l-0! pl-0!"
+                            className="w-full sm:border-l-0! sm:pl-0!"
                         />
                         <label htmlFor="email" className="text-sm">
                             Email Address*
@@ -158,11 +158,11 @@ export default function CounselorForm() {
                 </div>
 
                 {/* Mobile */}
-                <div className="p-inputgroup">
-                    <span className="p-inputgroup-addon bg-white!">
+                <div className="p-inputgroup flex-col sm:flex-row">
+                    <span className="p-inputgroup-addon bg-white! sm:border-r-0">
                         <i className="pi pi-phone"></i>
                     </span>
-                    <span className="p-float-label">
+                    <span className="p-float-label flex-1">
                         <InputText
                             id="mobile"
                             value={form.mobile}
@@ -174,7 +174,7 @@ export default function CounselorForm() {
                                     mobile: e.target.value.replace(/\D/g, ''),
                                 })
                             }
-                            className="w-full border-l-0!"
+                            className="w-full sm:border-l-0!"
                             style={{ paddingLeft: 0 }}
                         />
                         <label htmlFor="mobile" className="text-sm">
@@ -184,11 +184,11 @@ export default function CounselorForm() {
                 </div>
 
                 {/* Course */}
-                <div className="p-inputgroup">
-                    <span className="p-inputgroup-addon bg-white!">
+                <div className="p-inputgroup flex-col sm:flex-row">
+                    <span className="p-inputgroup-addon bg-white! sm:border-r-0">
                         <i className="pi pi-book"></i>
                     </span>
-                    <span className="p-float-label w-full">
+                    <span className="p-float-label w-full flex-1">
                         <Dropdown
                             id="course"
                             value={form.course}
@@ -196,7 +196,7 @@ export default function CounselorForm() {
                             onChange={(e) =>
                                 setForm({ ...form, course: e.value })
                             }
-                            className="w-full border-l-0!"
+                            className="w-full sm:border-l-0!"
                         />
                         <label htmlFor="course" className="text-sm">
                             Select Course*
@@ -205,11 +205,11 @@ export default function CounselorForm() {
                 </div>
 
                 {/* State */}
-                <div className="p-inputgroup">
-                    <span className="p-inputgroup-addon bg-white!">
+                <div className="p-inputgroup flex-col sm:flex-row">
+                    <span className="p-inputgroup-addon bg-white! sm:border-r-0">
                         <i className="pi pi-map"></i>
                     </span>
-                    <span className="p-float-label w-full">
+                    <span className="p-float-label w-full flex-1">
                         <Dropdown
                             id="state"
                             value={form.state}
@@ -224,6 +224,17 @@ export default function CounselorForm() {
                         </label>
                     </span>
                 </div>
+                <div className="flex items-start gap-2">
+                    <input 
+                        type="checkbox" 
+                        id="consent" 
+                        className="mt-1"
+                    />
+                    <label htmlFor="consent" className="text-sm text-white">
+                        I consent to receiving Calls, WhatsApp, Email and Google RCS from Edwise to assist with this enquiry.
+                    </label>
+                </div>
+
 
                 <div>
                     <Button
