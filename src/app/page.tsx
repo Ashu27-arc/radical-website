@@ -16,6 +16,7 @@ import { courses } from '@/data/courses';
 import GoogleReviews from '@/components/GoogleReviews';
 import TestimonialSlider from '@/components/TestimonialSlider';
 import CounselorForm from '@/components/CounselorForm';
+import Earth3D from "@/components/Earth3D";
 
 export default function Home() {
   const [value, setValue] = useState<string>('');
@@ -138,17 +139,19 @@ export default function Home() {
         </div>
       </section>
       <section className='pt-16 bg-white'>
-        <div className='container px-3 md:px-4 relative'>
-          <div className='absolute inset-x-0 top-8 fadeUp text-center'>
+        <div className='container px-3 md:px-4'>
+          <div className='fadeUp text-center'>
             <div className='md:w-5/10 w-full mx-auto'>
               <div className='text-black uppercase text-sm font-semibold tracking-widest mb-4 lg:mb-6'>Countries We Offer </div>
               <h2 className='text-black text-5xl font-bold'>Discover Where Your <span className='text-[#287FC4]'>Medical Future</span> Begins</h2>
             </div>
           </div>
-          <Image src="/images/countriesGlobe.webp" width={1439} height={804} alt='' className="w-full lg:w-[90%] mx-auto h-auto" />
+        </div>
+        <div className='overflow-hidden'>
+            <Earth3D/>
         </div>
       </section>
-      <section className='md:py-30 py-20 bg-cover bg-center bg-no-repeat bg-[#005A8B] overflow-hidden' style={{ backgroundImage: "url('/images/whyCus.webp')" }}>
+      <section className='-mt-60 md:py-30 py-20 bg-cover bg-center bg-no-repeat bg-[#005A8B] overflow-hidden relative z-2' style={{ backgroundImage: "url('/images/whyCus.webp')" }}>
         <div className='container px-3 md:px-4'>
           <div className="grid grid-cols-1 grid-cols-2 gap-6 items-center">
             <div className='fadeLeft lg:pr-10'>
