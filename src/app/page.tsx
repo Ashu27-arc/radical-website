@@ -57,7 +57,7 @@ export default function Home() {
           suppressHydrationWarning
         >
           <source
-            src="/next/videos/9659303-hd_1280_720_50fps.mp4"
+            src="/videos/9659303-hd_1280_720_50fps.mp4"
             type="video/mp4"
           />
           Your browser does not support the video tag.
@@ -102,7 +102,7 @@ export default function Home() {
               </div>
             </div>
             <div className='md:w-7/20 w-full fadePopup'>
-              <Image src="/next/images/about-redical.webp" width={516} height={540} alt='' className='w-full' />
+              <Image src="/images/about-redical.webp" width={516} height={540} alt='' className='w-full' />
             </div>
           </div>
           <div className='mb-20'>
@@ -124,7 +124,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className='py-16 bg-cover bg-center bg-no-repeat bg-[#005A8B] overflow-hidden' style={{ backgroundImage: "url('/next/images/courseBg.webp')" }}>
+      <section className='py-16 bg-cover bg-center bg-no-repeat bg-[#005A8B] overflow-hidden' style={{ backgroundImage: "url('/images/courseBg.webp')" }}>
         <div className='container px-3 md:px-4'>
           <div className='mb-10 fadeUp md:w-5/10 w-full mx-auto text-center'>
             <div className='text-white uppercase text-sm font-semibold tracking-widest mb-4 lg:mb-6'>OUR COURSES</div>
@@ -145,10 +145,10 @@ export default function Home() {
               <h2 className='text-black text-5xl font-bold'>Discover Where Your <span className='text-[#287FC4]'>Medical Future</span> Begins</h2>
             </div>
           </div>
-          <Image src="/next/images/countriesGlobe.webp" width={1439} height={804} alt='' className="w-full lg:w-[90%] mx-auto h-auto" />
+          <Image src="/images/countriesGlobe.webp" width={1439} height={804} alt='' className="w-full lg:w-[90%] mx-auto h-auto" />
         </div>
       </section>
-      <section className='md:py-30 py-20 bg-cover bg-center bg-no-repeat bg-[#005A8B] overflow-hidden' style={{ backgroundImage: "url('/next/images/whyCus.webp')" }}>
+      <section className='md:py-30 py-20 bg-cover bg-center bg-no-repeat bg-[#005A8B] overflow-hidden' style={{ backgroundImage: "url('/images/whyCus.webp')" }}>
         <div className='container px-3 md:px-4'>
           <div className="grid grid-cols-1 grid-cols-2 gap-6 items-center">
             <div className='fadeLeft lg:pr-10'>
@@ -196,7 +196,7 @@ export default function Home() {
       </section>
       <section className='bg-white'>
         <div className='container px-3 md:px-4'>
-          <div className="relative z-2 w-full rounded-lg bg-cover bg-center px-10 py-20 bg-black" style={{ backgroundImage: "url('/next/images/testimonialsBg.webp')" }}>
+          <div className="relative z-2 w-full rounded-lg bg-cover bg-center px-10 py-20 bg-black" style={{ backgroundImage: "url('/images/testimonialsBg.webp')" }}>
             <div className="absolute inset-0 bg-black/70 -z-1 rounded-lg" />
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-white'>
               <div>
@@ -219,7 +219,7 @@ export default function Home() {
           </div>
           <div className='relative'>
             <div className='rounded-xl overflow-hidden'>
-              <Image src="/next/images/counselorImg.webp" alt='' height={435} width={1239} className='w-full h-[435px] object-cover object-center' />
+              <Image src="/images/counselorImg.webp" alt='' height={435} width={1239} className='w-full h-[435px] object-cover object-center' />
             </div>
             <div className='absolute left-0 top-[105px] w-full'>
               <div className='p-6 md:p-10 rounded-xl bg-[#005A8B] mx-auto lg:w-4/10 md:w-5/10 w-[90%] fadePopup'>
@@ -232,3 +232,4 @@ export default function Home() {
     </>
   );
 }
+

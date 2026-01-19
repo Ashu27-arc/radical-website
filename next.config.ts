@@ -3,9 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   reactCompiler: true,
   trailingSlash: true,
-  output: 'export',
-  basePath: '/next',
-  assetPrefix: '/next',
+  // output: 'export', // Removed - static export doesn't support API routes
   productionBrowserSourceMaps: false,
   typedRoutes: false,
   typescript: {

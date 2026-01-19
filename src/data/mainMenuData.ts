@@ -321,15 +321,15 @@ export const mainMenuData: MenuItem[] = [
     ],
   },
 
-  {
-    label: 'MBA/PGDM',
-    items: [
-      { label: 'Associated Colleges' },
-      { label: 'Top MBA Colleges' },
-      { label: 'Top PGDM Colleges' },
-      { label: 'MBA-PGDM 2025 News' },
-    ],
-  },
+  // {
+  //   label: 'MBA/PGDM',
+  //   items: [
+  //     { label: 'Associated Colleges' },
+  //     { label: 'Top MBA Colleges' },
+  //     { label: 'Top PGDM Colleges' },
+  //     { label: 'MBA-PGDM 2025 News' },
+  //   ],
+  // },
 
   {
     label: 'Blogs',
@@ -349,3 +349,4 @@ export const mainMenuData: MenuItem[] = [
   },
   
 ];
+

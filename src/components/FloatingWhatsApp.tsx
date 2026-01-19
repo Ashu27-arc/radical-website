@@ -9,7 +9,7 @@ const WHATSAPP_ITEMS = [
   {
     id: 1,
     title: 'Join NEET 2025 Updates Channel',
-    icon: '/next/images/wp-ico1.svg',
+    icon: '/images/wp-ico1.svg',
     experts: [
       { name: 'Amit Sharma', experience: '5+ Years', phone: '919111111111' },
       { name: 'Neha Verma', experience: '6+ Years', phone: '919111111112' },
@@ -19,7 +19,7 @@ const WHATSAPP_ITEMS = [
   {
     id: 2,
     title: 'NEET UG Counselling',
-    icon: '/next/images/wp-ico3.svg',
+    icon: '/images/wp-ico3.svg',
     experts: [
       { name: 'Dr. Kunal Jain', experience: '8+ Years', phone: '919222222221' },
       { name: 'Pooja Singh', experience: '7+ Years', phone: '919222222222' },
@@ -29,7 +29,7 @@ const WHATSAPP_ITEMS = [
   {
     id: 3,
     title: 'NEET PG Counselling',
-    icon: '/next/images/wp-ico3.svg',
+    icon: '/images/wp-ico3.svg',
     experts: [
       { name: 'Dr. Rakesh Kumar', experience: '10+ Years', phone: '919333333331' },
       { name: 'Simran Kaur', experience: '6+ Years', phone: '919333333332' },
@@ -39,7 +39,7 @@ const WHATSAPP_ITEMS = [
   {
     id: 4,
     title: 'MBBS Abroad Counselling',
-    icon: '/next/images/wp-ico4.svg',
+    icon: '/images/wp-ico4.svg',
     experts: [
       { name: 'Rahul Malhotra', experience: '9+ Years', phone: '919444444441' },
       { name: 'Anjali Arora', experience: '7+ Years', phone: '919444444442' },
@@ -49,7 +49,7 @@ const WHATSAPP_ITEMS = [
   {
     id: 5,
     title: 'Support (24/7)',
-    icon: '/next/images/wp-ico5.svg',
+    icon: '/images/wp-ico5.svg',
     experts: [
       { name: 'Support Team 1', experience: '24/7 Available', phone: '919555555551' },
       { name: 'Support Team 2', experience: '24/7 Available', phone: '919555555552' },
@@ -114,7 +114,7 @@ export default function FloatingWhatsApp() {
           `}
         >
           <div className='md:min-w-[90px] md:max-w-[90px] min-w-[60px] max-w-[60px]'>
-            <Image src='/next/images/wpLady.webp' alt='' />
+            <Image src='/images/wpLady.webp' alt='' />
           </div>
           {/* MENU VIEW */}
           {view === 'menu' && (
@@ -205,3 +205,4 @@ export default function FloatingWhatsApp() {
     </>
   );
 }
+

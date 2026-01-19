@@ -12,14 +12,14 @@ export default function Footer() {
 
             <div>
               <Link href="/" className="">
-                <Image src="/next/logo.webp" alt="Logo" width="180" />
+                <Image src="/logo.webp" alt="Logo" width="180" />
               </Link>
               <div className="text-sm my-6 pb-6 border-b border-[#0B2E3C]">
                 Invite your friends and unlock exclusive benefits—earn more with every successful referral. Invite your friends and unlock exclusive benefits—earn more with every successful referral.
               </div>
               <div className='flex items-center gap-4 mb-8'>
                 <div>
-                  <Image src='/next/images/iso.webp' alt='ISO' width='60' height='60' />
+                  <Image src='/images/iso.webp' alt='ISO' width='60' height='60' />
                 </div>
                 <div className='text-xs text-[#0B2E3C] leading-3'>Radical Education<br />is an <span className='text-sm font-semibold'>ISO 9001:2015</span><br />certified company</div>
               </div>
@@ -126,3 +126,4 @@ export default function Footer() {
     </footer>
   );
 }
+

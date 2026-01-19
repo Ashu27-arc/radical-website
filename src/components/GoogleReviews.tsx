@@ -68,7 +68,7 @@ export default function GoogleReviews() {
                 <div className="flex items-center gap-3">
                     <div>
                         <div className="h-[60px] w-[65px]">
-                            <Image src="/next/images/favicon.webp" width={60} height={65} className="w-full h-full" alt=""/>
+                            <Image src="/images/favicon.webp" width={60} height={65} className="w-full h-full" alt=""/>
                         </div>
                     </div>
                     <h2 className="text-2xl font-semibold text-[#005A8B] m-0">{data?.name}</h2>
@@ -140,3 +140,4 @@ export default function GoogleReviews() {
       </div>
   );
 }
+

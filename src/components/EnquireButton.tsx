@@ -20,14 +20,14 @@ const sliderData = [
     id: 1,
     title: 'Himalaya Medical College and Hospital',
     date: 'December 19, 2025',
-    image: '/next/images/college-1.webp',
+    image: '/images/college-1.webp',
     link: '/college/himalaya-medical',
   },
   {
     id: 2,
     title: 'Radical Institute of Medical Sciences',
     date: 'January 10, 2026',
-    image: '/next/images/college-1.webp',
+    image: '/images/college-1.webp',
     link: '/college/radical-medical',
   },
 ];
@@ -36,32 +36,32 @@ const cardsData = [
   {
     id: 1,
     title: 'College Health Report',
-    image: '/next/images/health-report.webp',
+    image: '/images/health-report.webp',
   },
   {
     id: 2,
     title: 'Documentation Reinforcement',
-    image: '/next/images/documentation.webp',
+    image: '/images/documentation.webp',
   },
   {
     id: 3,
     title: 'Cut-off Anatomy',
-    image: '/next/images/cutoff.webp',
+    image: '/images/cutoff.webp',
   },
   {
     id: 4,
     title: 'Admission and Counselling Strategy',
-    image: '/next/images/counselling.webp',
+    image: '/images/counselling.webp',
   },
   {
     id: 5,
     title: 'Cyclic Alerts',
-    image: '/next/images/alerts.webp',
+    image: '/images/alerts.webp',
   },
   {
     id: 6,
     title: 'Dedicated Counsellor',
-    image: '/next/images/counsellor.webp',
+    image: '/images/counsellor.webp',
   },
 ];
 
@@ -369,3 +369,4 @@ export default function EnquireButton() {
     </>
   );
 }
+

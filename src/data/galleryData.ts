@@ -21,27 +21,27 @@ export const galleryData: GalleryData = {
     {
       month: 'JANUARY',
       year: 2024,
-      mainImage: '/next/images/01.webp',
+      mainImage: '/images/01.webp',
       events: [
         {
           title: 'New Year Orientation Program',
           date: '10 Jan 2024',
           images: [
-            '/next/images/01.webp',
-            '/next/images/01.webp',
-            '/next/images/01.webp',
-            '/next/images/01.webp',
-            '/next/images/01.webp',
-            '/next/images/01.webp',
+            '/images/01.webp',
+            '/images/01.webp',
+            '/images/01.webp',
+            '/images/01.webp',
+            '/images/01.webp',
+            '/images/01.webp',
           ],
         },
         {
           title: 'Student Welcome Meet',
           date: '22 Jan 2024',
           images: [
-            '/next/images/01.webp',
-            '/next/images/01.webp',
-            '/next/images/01.webp',
+            '/images/01.webp',
+            '/images/01.webp',
+            '/images/01.webp',
           ],
         },
       ],
@@ -49,24 +49,24 @@ export const galleryData: GalleryData = {
     {
       month: 'FEBRUARY',
       year: 2024,
-      mainImage: '/next/images/01.webp',
+      mainImage: '/images/01.webp',
       events: [
         {
           title: 'Education Expo Delhi',
           date: '05 Feb 2024',
           images: [
-            '/next/images/01.webp',
-            '/next/images/01.webp',
-            '/next/images/01.webp',
+            '/images/01.webp',
+            '/images/01.webp',
+            '/images/01.webp',
           ],
         },
         {
           title: 'Career Guidance Seminar',
           date: '18 Feb 2024',
           images: [
-            '/next/images/01.webp',
-            '/next/images/01.webp',
-            '/next/images/01.webp',
+            '/images/01.webp',
+            '/images/01.webp',
+            '/images/01.webp',
           ],
         },
       ],
@@ -74,15 +74,15 @@ export const galleryData: GalleryData = {
     {
       month: 'MARCH',
       year: 2024,
-      mainImage: '/next/images/01.webp',
+      mainImage: '/images/01.webp',
       events: [
         {
           title: 'Study Abroad Fair',
           date: '12 Mar 2024',
           images: [
-            '/next/images/01.webp',
-            '/next/images/01.webp',
-            '/next/images/01.webp',
+            '/images/01.webp',
+            '/images/01.webp',
+            '/images/01.webp',
           ],
         },
       ],
@@ -90,15 +90,15 @@ export const galleryData: GalleryData = {
     {
       month: 'APRIL',
       year: 2024,
-      mainImage: '/next/images/01.webp',
+      mainImage: '/images/01.webp',
       events: [
         {
           title: 'University Delegation Visit',
           date: '09 Apr 2024',
           images: [
-            '/next/images/01.webp',
-            '/next/images/01.webp',
-            '/next/images/01.webp',
+            '/images/01.webp',
+            '/images/01.webp',
+            '/images/01.webp',
           ],
         },
       ],
@@ -106,14 +106,14 @@ export const galleryData: GalleryData = {
     {
       month: 'MAY',
       year: 2024,
-      mainImage: '/next/images/01.webp',
+      mainImage: '/images/01.webp',
       events: [
         {
           title: 'Counselling Workshop',
           date: '15 May 2024',
           images: [
-            '/next/images/01.webp',
-            '/next/images/01.webp',
+            '/images/01.webp',
+            '/images/01.webp',
           ],
         },
       ],
@@ -121,15 +121,15 @@ export const galleryData: GalleryData = {
     {
       month: 'JUNE',
       year: 2024,
-      mainImage: '/next/images/01.webp',
+      mainImage: '/images/01.webp',
       events: [
         {
           title: 'Admission Guidance Program',
           date: '11 Jun 2024',
           images: [
-            '/next/images/01.webp',
-            '/next/images/01.webp',
-            '/next/images/01.webp',
+            '/images/01.webp',
+            '/images/01.webp',
+            '/images/01.webp',
           ],
         },
       ],
@@ -137,14 +137,14 @@ export const galleryData: GalleryData = {
     {
       month: 'JULY',
       year: 2024,
-      mainImage: '/next/images/01.webp',
+      mainImage: '/images/01.webp',
       events: [
         {
           title: 'International University Meet',
           date: '07 Jul 2024',
           images: [
-            '/next/images/01.webp',
-            '/next/images/01.webp',
+            '/images/01.webp',
+            '/images/01.webp',
           ],
         },
       ],
@@ -152,15 +152,15 @@ export const galleryData: GalleryData = {
     {
       month: 'AUGUST',
       year: 2024,
-      mainImage: '/next/images/01.webp',
+      mainImage: '/images/01.webp',
       events: [
         {
           title: 'Independence Day Celebration',
           date: '15 Aug 2024',
           images: [
-            '/next/images/01.webp',
-            '/next/images/01.webp',
-            '/next/images/01.webp',
+            '/images/01.webp',
+            '/images/01.webp',
+            '/images/01.webp',
           ],
         },
       ],
@@ -168,14 +168,14 @@ export const galleryData: GalleryData = {
     {
       month: 'SEPTEMBER',
       year: 2024,
-      mainImage: '/next/images/01.webp',
+      mainImage: '/images/01.webp',
       events: [
         {
           title: 'Student Interaction Session',
           date: '10 Sep 2024',
           images: [
-            '/next/images/01.webp',
-            '/next/images/01.webp',
+            '/images/01.webp',
+            '/images/01.webp',
           ],
         },
       ],
@@ -183,14 +183,14 @@ export const galleryData: GalleryData = {
     {
       month: 'OCTOBER',
       year: 2024,
-      mainImage: '/next/images/01.webp',
+      mainImage: '/images/01.webp',
       events: [
         {
           title: 'Education Summit',
           date: '14 Oct 2024',
           images: [
-            '/next/images/01.webp',
-            '/next/images/01.webp',
+            '/images/01.webp',
+            '/images/01.webp',
           ],
         },
       ],
@@ -198,14 +198,14 @@ export const galleryData: GalleryData = {
     {
       month: 'NOVEMBER',
       year: 2024,
-      mainImage: '/next/images/01.webp',
+      mainImage: '/images/01.webp',
       events: [
         {
           title: 'Overseas Admission Drive',
           date: '09 Nov 2024',
           images: [
-            '/next/images/01.webp',
-            '/next/images/01.webp',
+            '/images/01.webp',
+            '/images/01.webp',
           ],
         },
       ],
@@ -213,14 +213,14 @@ export const galleryData: GalleryData = {
     {
       month: 'DECEMBER',
       year: 2024,
-      mainImage: '/next/images/01.webp',
+      mainImage: '/images/01.webp',
       events: [
         {
           title: 'Year End Review Meet',
           date: '20 Dec 2024',
           images: [
-            '/next/images/01.webp',
-            '/next/images/01.webp',
+            '/images/01.webp',
+            '/images/01.webp',
           ],
         },
       ],
@@ -232,18 +232,18 @@ export const galleryData: GalleryData = {
     {
       month: 'JANUARY',
       year: 2025,
-      mainImage: '/next/images/01.webp',
+      mainImage: '/images/01.webp',
       events: [
         {
           title: 'New Year Counselling Drive',
           date: '10 Jan 2025',
           images: [
-            '/next/images/01.webp',
-            '/next/images/01.webp',
-            '/next/images/01.webp',
-            '/next/images/01.webp',
-            '/next/images/01.webp',
-            '/next/images/01.webp',
+            '/images/01.webp',
+            '/images/01.webp',
+            '/images/01.webp',
+            '/images/01.webp',
+            '/images/01.webp',
+            '/images/01.webp',
           ],
         },
       ],
@@ -251,15 +251,15 @@ export const galleryData: GalleryData = {
     {
       month: 'FEBRUARY',
       year: 2025,
-      mainImage: '/next/images/01.webp',
+      mainImage: '/images/01.webp',
       events: [
         {
           title: 'University Fair',
           date: '18 Feb 2025',
           images: [
-            '/next/images/01.webp',
-            '/next/images/01.webp',
-            '/next/images/01.webp',
+            '/images/01.webp',
+            '/images/01.webp',
+            '/images/01.webp',
           ],
         },
       ],
@@ -272,15 +272,15 @@ export const galleryData: GalleryData = {
     {
       month: 'JANUARY',
       year: 2026,
-      mainImage: '/next/images/01.webp',
+      mainImage: '/images/01.webp',
       events: [
         {
           title: 'Global Education Orientation',
           date: '12 Jan 2026',
           images: [
-            '/next/images/01.webp',
-            '/next/images/01.webp',
-            '/next/images/01.webp',
+            '/images/01.webp',
+            '/images/01.webp',
+            '/images/01.webp',
           ],
         },
       ],
@@ -288,3 +288,5 @@ export const galleryData: GalleryData = {
     // 👉 Continue same structure for full year
   ],
 };
+
+

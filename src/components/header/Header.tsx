@@ -19,7 +19,7 @@ export default function Header() {
           <div className='container lg:px-3 pl-3 flex items-center justify-between'>
             <div className='flex items-center gap-6'>
               <Link href="/" className="">
-                <Image src="/next/logo.webp" alt="Logo" width="145" />
+                <Image src="/logo.webp" alt="Logo" width="145" />
               </Link>
               <div className='hidden lg:flex items-center gap-3 text-[14px] text-[#121212] topInfo'>
                 <Link className='text-[#121212]' href="mailto:info@radicaleducation.in">info@radicaleducation.in</Link>|
@@ -46,31 +46,31 @@ export default function Header() {
             <div className='flex items-center gap-6'>
               <div className='hidden lg:flex items-center gap-4'>
                 <Link href="https://twitter.com/Radical_Edu_" target='_blank'>
-                  <Image src='/next/images/twitter.svg' width='16' height='16' alt=""/>
+                  <Image src='/images/twitter.svg' width='16' height='16' alt=""/>
                 </Link>
                 <Link href="https://www.facebook.com/profile.php?id=61556350017734" target='_blank'>
-                  <Image src='/next/images/facebook.svg' width='18' height='18' alt=""/>
+                  <Image src='/images/facebook.svg' width='18' height='18' alt=""/>
                 </Link>
                 <Link href="https://www.instagram.com/radicaleducationofficial/" target='_blank'>
-                  <Image src='/next/images/instagram.svg' width='16' height='16' alt=""/>
+                  <Image src='/images/instagram.svg' width='16' height='16' alt=""/>
                 </Link>
                 <Link href="https://www.linkedin.com/company/radical-education-official/about/?viewAsMember=true" target='_blank'>
-                  <Image src='/next/images/linkedin.svg' width='16' height='16' alt=""/>
+                  <Image src='/images/linkedin.svg' width='16' height='16' alt=""/>
                 </Link>
                 <Link href="https://whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P" target='_blank'>
-                  <Image src='/next/images/whatsapp.svg' width='20' height='20' alt=""/>
+                  <Image src='/images/whatsapp.svg' width='20' height='20' alt=""/>
                 </Link>
                 <Link href="https://t.me/radicaleducation" target='_blank'>
-                  <Image src='/next/images/teligram.svg' width='18' height='18' alt=""/>
+                  <Image src='/images/teligram.svg' width='18' height='18' alt=""/>
                 </Link>
                 <Link href="https://www.youtube.com/@radicaleducationofficial" target='_blank'>
-                  <Image src='/next/images/youtube.svg' width='20' height='20' alt=""/>
+                  <Image src='/images/youtube.svg' width='20' height='20' alt=""/>
                 </Link>
               </div>
               <div className='lg:hidden'>
                 <button className='text-sm py-3 pl-4 pr-10 rounded-full cursor-pointer relative text-white! bg-gradient-to-r! from-[#00CFB2]! to-[#005A8B]! border-[#00CFB2]!'>
                   <span>NEET UPDATE</span>  
-                  <Image src='/next/images/mic.webp' width='40' height='50' alt='' className='absolute right-[-8px] top-0 animate-bounce'/>
+                  <Image src='/images/mic.webp' width='40' height='50' alt='' className='absolute right-[-8px] top-0 animate-bounce'/>
                 </button>
               </div>
               <div className='lg:hidden'>
@@ -87,7 +87,7 @@ export default function Header() {
                 <Button size="small" icon="pi pi-youtube" label="YOUTUBE" className='text-white! bg-[#CB1E17]! border-[#CB1E17]!' rounded/>
                 <button className='text-sm pl-4 pr-10 rounded-full cursor-pointer relative text-white! bg-gradient-to-r! from-[#00CFB2]! to-[#005A8B]! border-[#00CFB2]!'>
                   <span>NEET UPDATE</span>  
-                  <Image src='/next/images/mic.webp' width='50' height='60' alt='' className='absolute right-[-15px] top-0 animate-bounce'/>
+                  <Image src='/images/mic.webp' width='50' height='60' alt='' className='absolute right-[-15px] top-0 animate-bounce'/>
                 </button>
               </div>
             </div>
@@ -99,3 +99,4 @@ export default function Header() {
     </>
   );
 }
+

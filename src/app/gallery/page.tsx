@@ -9,15 +9,15 @@ import GalleryModal from "@/components/gallery/GalleryModal";
 import GalleryCard from "@/components/gallery/GalleryCard";
 
 const countries = [
-    { name: 'India', flag: '/next/images/india.webp' },
-    { name: 'Nepal', flag: '/next/images/nepal.webp' },
-    { name: 'Kyrgyzstan', flag: '/next/images/kyrgyzstan.webp' },
-    { name: 'Russia', flag: '/next/images/russia.webp' },
-    { name: 'Kazakhstan', flag: '/next/images/kazakhstan.webp' },
-    { name: 'Georgia', flag: '/next/images/georgia.webp' },
-    { name: 'Singapore', flag: '/next/images/singapore.webp' },
-    { name: 'Bangladesh', flag: '/next/images/bangladesh.webp' },
-    { name: 'Uzbekistan', flag: '/next/images/uzbekistan.webp' },
+    { name: 'India', flag: '/images/india.webp' },
+    { name: 'Nepal', flag: '/images/nepal.webp' },
+    { name: 'Kyrgyzstan', flag: '/images/kyrgyzstan.webp' },
+    { name: 'Russia', flag: '/images/russia.webp' },
+    { name: 'Kazakhstan', flag: '/images/kazakhstan.webp' },
+    { name: 'Georgia', flag: '/images/georgia.webp' },
+    { name: 'Singapore', flag: '/images/singapore.webp' },
+    { name: 'Bangladesh', flag: '/images/bangladesh.webp' },
+    { name: 'Uzbekistan', flag: '/images/uzbekistan.webp' },
 ];
 
 
@@ -47,7 +47,7 @@ export default function GalleryPage() {
     return (
         <>
             <div className="bg-[#F4F7F8]">
-                <section className="lg:py-60 md:py-40 py-20 relative overflow-hidden z-2 bg-[url('/next/images/galleryHero.webp')] bg-cover bg-center bg-no-repeat">
+                <section className="lg:py-60 md:py-40 py-20 relative overflow-hidden z-2 bg-[url('/images/galleryHero.webp')] bg-cover bg-center bg-no-repeat">
                     <div className="absolute inset-0 bg-black/50 -z-1" />
                     <div className="mx-auto px-4 w-full lg:w-4/10 md:8/10 text-center fadeUp">
                         <h1 className="uppercase lg:text-5xl text-4xl font-bold text-white lg:mb-6 mb-4">OUR GALLERY</h1>
@@ -57,7 +57,7 @@ export default function GalleryPage() {
                 <section className='bg-[#F4F7F8]'>
                     <div className='container px-3 md:px-4'>
                         <div className="grid md:grid-cols-2 grid-cols-1 gap-4 mx-auto w-15/20 md:-mt-30 -mt-15 relative z-2">
-                            <div className="lg:px-8 px-6 lg:py-12 py-8 rounded-lg shadow-lg text-white bg-[url('/next/images/semi.webp')]
+                            <div className="lg:px-8 px-6 lg:py-12 py-8 rounded-lg shadow-lg text-white bg-[url('/images/semi.webp')]
                         bg-[length:100%]
                         hover:bg-[length:105%]
                         bg-center
@@ -68,7 +68,7 @@ export default function GalleryPage() {
                                     <p className="p-0 m-0 text-white">I designed a web UI for an AI-powered HR Co-Pilot that helps </p>
                                 </div>
                             </div>
-                            <div className="lg:px-8 px-6 lg:py-12 py-8 rounded-lg shadow-lg text-white bg-[url('/next/images/air.webp')]
+                            <div className="lg:px-8 px-6 lg:py-12 py-8 rounded-lg shadow-lg text-white bg-[url('/images/air.webp')]
                         bg-[length:100%]
                         hover:bg-[length:105%]
                         bg-center
@@ -192,7 +192,7 @@ export default function GalleryPage() {
                             </div>
                             <div className='relative'>
                                 <div className='rounded-xl overflow-hidden'>
-                                    <Image src="/next/images/counselorImg.webp" alt='' className='w-full h-[435px] object-cover object-center' />
+                                    <Image src="/images/counselorImg.webp" alt='' className='w-full h-[435px] object-cover object-center' />
                                 </div>
                                 <div className='absolute left-0 top-[105px] w-full'>
                                     <div className='p-6 md:p-10 rounded-xl bg-[#005A8B] mx-auto lg:w-4/10 md:w-5/10 w-[90%] fadePopup'>

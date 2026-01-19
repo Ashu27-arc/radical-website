@@ -6,7 +6,7 @@ export const services = [
     slug: "data-driven-neet-counselling",
     color: "bg-orange-100",
     text: "text-orange-500",
-    icon: "/next/images/srvIco1.webp",
+    icon: "/images/srvIco1.webp",
     description:
       "Advanced analytics-based counselling using real NEET data to ensure best outcomes."
   },
@@ -15,7 +15,7 @@ export const services = [
     slug: "admission-counselling",
     color: "bg-pink-100",
     text: "text-pink-500",
-    icon: "/next/images/srvIco2.webp",
+    icon: "/images/srvIco2.webp",
     description:
       "Personalized admission counselling to guide students through every step."
   },
@@ -24,7 +24,7 @@ export const services = [
     slug: "expert-guidance",
     color: "bg-blue-100",
     text: "text-blue-500",
-    icon: "/next/images/srcIco3.webp",
+    icon: "/images/srcIco3.webp",
     description:
       "Guidance from industry experts with years of experience."
   },
@@ -33,7 +33,7 @@ export const services = [
     slug: "documentation-assistance",
     color: "bg-green-100",
     text: "text-green-500",
-    icon: "/next/images/srvIco4.webp",
+    icon: "/images/srvIco4.webp",
     description:
       "Complete documentation support for admissions and visas."
   },
@@ -42,7 +42,7 @@ export const services = [
     slug: "career-counselling",
     color: "bg-purple-100",
     text: "text-purple-500",
-    icon: "/next/images/srvIco5.webp",
+    icon: "/images/srvIco5.webp",
     description:
       "Helping students choose the right career path."
   },
@@ -51,7 +51,7 @@ export const services = [
     slug: "universities",
     color: "bg-red-100",
     text: "text-red-500",
-    icon: "/next/images/srvIco6.webp",
+    icon: "/images/srvIco6.webp",
     description:
       "Explore top universities across India and abroad."
   },
@@ -60,7 +60,7 @@ export const services = [
     slug: "notifications",
     color: "bg-teal-100",
     text: "text-teal-500",
-    icon: "/next/images/srvIco7.webp",
+    icon: "/images/srvIco7.webp",
     description:
       "Stay updated with important alerts and deadlines."
   },
@@ -69,8 +69,9 @@ export const services = [
     slug: "study-abroad",
     color: "bg-indigo-100",
     text: "text-indigo-500",
-    icon: "/next/images/srvIco8.webp",
+    icon: "/images/srvIco8.webp",
     description:
       "End-to-end support for studying abroad."
   }
 ];
+

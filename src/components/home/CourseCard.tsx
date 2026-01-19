@@ -36,3 +36,4 @@ export default function CourseCard({ course }: Props) {
     </Link>
   );
 }
+

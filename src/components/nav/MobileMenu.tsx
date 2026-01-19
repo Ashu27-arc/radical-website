@@ -44,7 +44,7 @@ export default function MobileMenu({ visible, setVisible }: MobileMenuProps) {
     const headerTemplate = () => (
         <div className="flex items-center justify-between bg-[#f1f1f1] w-full py-2">
             <Link href="/" className="text-xl font-bold text-blue-600">
-                <Image src="/next/logo.webp" alt="Logo" width="100" />
+                <Image src="/logo.webp" alt="Logo" width="100" />
             </Link>
             <button className="btnico" onClick={() => setVisible(false)}>
                 <i className="pi pi-times text-xl text-black"></i>
@@ -140,7 +140,7 @@ export default function MobileMenu({ visible, setVisible }: MobileMenuProps) {
                     <button className="pl-4 h-[43px] pr-12 rounded-full cursor-pointer relative text-white! bg-gradient-to-r! from-[#00CFB2]! to-[#005A8B]! border-[#00CFB2]!">
                         <span>NEET UPDATE</span>
                         <Image
-                            src="/next/images/mic.webp"
+                            src="/images/mic.webp"
                             width="40"
                             height="50"
                             alt=""
@@ -152,3 +152,4 @@ export default function MobileMenu({ visible, setVisible }: MobileMenuProps) {
         </Sidebar>
     );
 }
+

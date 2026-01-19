@@ -51,3 +51,4 @@ export default function GalleryCard({ item, onClick, isActive }: Props) {
     </div>
   );
 }
+

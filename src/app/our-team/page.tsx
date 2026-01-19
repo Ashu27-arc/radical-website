@@ -6,32 +6,32 @@ export default function OurTeam() {
         {
             name: "Hitashi Agrawal",
             role: "NEET UG/PG COUNSELOR",
-            image: "/next/images/01.webp",
+            image: "/images/01.webp",
         },
         {
             name: "Pooja",
             role: "NNEET UG/PG COUNSELOR",
-            image: "/next/images/02.webp",
+            image: "/images/02.webp",
         },
         {
             name: "Raj Kishore",
             role: "NEET UG/PG COUNSELOR",
-            image: "/next/images/03.webp",
+            image: "/images/03.webp",
         },
         {
             name: "Sudakshina Singh",
             role: "NEET UG/PG COUNSELOR",
-            image: "/next/images/04.webp",
+            image: "/images/04.webp",
         },
         {
             name: "Anupama Chauhan",
             role: "NEET UG/PG COUNSELOR",
-            image: "/next/images/05.webp",
+            image: "/images/05.webp",
         },
         {
             name: "Rangnath Jha",
             role: "NEET UG/PG COUNSELOR",
-            image: "/next/images/06.webp",
+            image: "/images/06.webp",
         },
     ];
 
@@ -40,7 +40,7 @@ export default function OurTeam() {
             {/* Hero Section */}
             <section className="relative h-[500px] md:h-[600px] flex items-center justify-center overflow-hidden">
                 <Image
-                    src="/next/images/homeHero.webp"
+                    src="/images/homeHero.webp"
                     alt="Team Hero"
                     fill
                     className="object-cover w-full h-full"
@@ -78,7 +78,7 @@ export default function OurTeam() {
                         <div className="absolute inset-0 flex items-center justify-center">
                             <div className="relative w-[280px] h-[230px] md:w-[400px] md:h-[330px]">
                                 <Image
-                                    src="/next/images/Rectangle.webp"
+                                    src="/images/Rectangle.webp"
                                     alt="Background"
                                     fill
                                     className="object-contain"
@@ -88,7 +88,7 @@ export default function OurTeam() {
                         
                         {/* Left side image */}
                         <Image
-                            src="/next/images/groups/Group-1.webp"
+                            src="/images/groups/Group-1.webp"
                             alt="Team Member"
                             width={200}
                             height={350}
@@ -97,7 +97,7 @@ export default function OurTeam() {
                         
                         {/* Center main founder image */}
                         <Image
-                            src="/next/images/founder.webp"
+                            src="/images/founder.webp"
                             alt="Founder"
                             width={250}
                             height={400}
@@ -106,7 +106,7 @@ export default function OurTeam() {
                         
                         {/* Right side image */}
                         <Image
-                            src="/next/images/groups/Group-2.webp"
+                            src="/images/groups/Group-2.webp"
                             alt="Team Member"
                             width={200}
                             height={350}
@@ -132,7 +132,7 @@ export default function OurTeam() {
                         <div className="absolute inset-0 flex items-center justify-center">
                             <div className="relative w-[280px] h-[230px] md:w-[400px] md:h-[330px]">
                                 <Image
-                                    src="/next/images/Rectangle-2.webp"
+                                    src="/images/Rectangle-2.webp"
                                     alt="Background"
                                     fill
                                     className="object-contain"
@@ -142,7 +142,7 @@ export default function OurTeam() {
                         
                         {/* Left side up image */}
                         <Image
-                            src="/next/images/groups/Group-4.webp"
+                            src="/images/groups/Group-4.webp"
                             alt="Team Member"
                             width={180}
                             height={300}
@@ -151,7 +151,7 @@ export default function OurTeam() {
                         
                         {/* Left side down image */}
                         <Image
-                            src="/next/images/groups/Group-3.webp"
+                            src="/images/groups/Group-3.webp"
                             alt="Team Member"
                             width={180}
                             height={300}
@@ -160,7 +160,7 @@ export default function OurTeam() {
                         
                         {/* Center main co-founder image */}
                         <Image
-                            src="/next/images/founder-2.webp"
+                            src="/images/founder-2.webp"
                             alt="Co-Founder"
                             width={250}
                             height={500}
@@ -199,14 +199,14 @@ export default function OurTeam() {
             </section>
 
             {/* Connect With Counselor Section */}
-            <section className="py-8 md:py-12 mb-16 md:mb-32 lg:mb-48 bg-gray-50">
+            <section className="py-8 md:py-12 mb-16 md:mb-32 lg:mb-48">
                 <div className="mx-auto px-4 md:px-12 lg:px-24">
                     <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-[#1a2332] mb-8 md:mb-12">
                         Connect With <span className="text-[#3b82f6]">Our Counselor</span>
                     </h2>
                     <div className="relative w-full h-[600px] md:h-[450px]">
                         <Image
-                            src="/next/images/homehero.webp"
+                            src="/images/homehero.webp"
                             alt="Contact Background"
                             fill
                             className="object-cover rounded-2xl md:rounded-3xl"
@@ -225,3 +225,4 @@ export default function OurTeam() {
         </div>
     );
 }
+
