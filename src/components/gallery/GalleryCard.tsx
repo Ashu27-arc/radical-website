@@ -15,37 +15,36 @@ export default function GalleryCard({ item, onClick, isActive }: Props) {
   return (
     <div
       onClick={onClick}
-      className={`relative cursor-pointer rounded-lg overflow-hidden transition
-        ${isActive ? 'ring-2 ring-blue-600' : 'shadow hover:shadow-lg'}
+      className={`relative cursor-pointer transition
+        ${isActive ? '' : ''}
       `}
     >
       {/* IMAGE WITH SKELETON */}
-      <div className="relative w-full h-56">
+      <div className="relative w-full h-[300px] pl-15 rounded-xl">
         {!loaded && (
           <Skeleton
             width="100%"
             height="100%"
-            className="absolute inset-0"
+            className="absolute inset-0 rounded-xl"
           />
         )}
-
         <img
           src={item.mainImage}
           alt={item.month}
           onLoad={() => setLoaded(true)}
-          className={`w-full h-56 object-cover ${loaded ? 'block' : 'hidden'}`}
+          className={`w-full h-[360px] object-cover rounded-xl shadow-lg ${loaded ? 'block' : 'hidden'}`}
         />
       </div>
 
       {/* MONTH */}
-      <div className="absolute left-2 top-2 bottom-2 flex items-center">
-        <span className="vertical-text text-blue-700 font-semibold tracking-widest">
+      <div className="absolute left-2 top-2 -bottom-4 flex items-end">
+        <span className="vertical-text text-[#005A8B] text-4xl uppercase font-semibold tracking-widest">
           {item.month}
         </span>
       </div>
 
       {/* YEAR */}
-      <span className="absolute top-2 right-2 bg-white px-2 py-1 text-xs rounded shadow">
+      <span className="absolute -top-6 font-semibold text-[#005A8B] text-base right-0">
         {item.year}
       </span>
     </div>

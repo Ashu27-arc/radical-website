@@ -167,9 +167,9 @@ body {
 }
 .fadePopup {
     opacity: 0;
-    -webkit-transform: scale(0.95);
-    -ms-transform: scale(0.95);
-    transform: scale(0.95);
+    -webkit-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    transform: scale(0.9);
 }
 .fadePopup.in-view {
     opacity: 1;
@@ -371,4 +371,9 @@ input:autofill {
 }
 .p-component .p-dropdown-item {
     font-size: 14px !important;
+}
+.p-dialog-mask.p-component-overlay{
+    background: #287FC466;
+    background-color: #287FC466 !important;
+    backdrop-filter: blur(14.5px)
 }

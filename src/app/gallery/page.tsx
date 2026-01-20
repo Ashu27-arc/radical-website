@@ -132,35 +132,32 @@ export default function GalleryPage() {
                                 </div>
                             </div>
                             <div className='md:w-7/20 w-full fadePopup'>
-                                <div className='text-nowrap text-[#00CFB212] text-[80px] md:text-[100px] lg:text-[180px] font-bold leading-1 md:mt-16'>2025</div>
+                                <div className='text-nowrap text-[#00CFB212] text-[80px] md:text-[100px] lg:text-[180px] font-bold leading-1 md:mt-16'>{activeYear}</div>
                             </div>
                         </div>
                         <div>
-                            {/* YEAR SWITCH */}
-                            <div className="flex justify-end items-center gap-3 mb-8">
+                            <div className="flex justify-end items-center gap-4 mb-20 -mt-15 relative z-2">
                                 <button
                                     onClick={() => setYearIndex((i) => Math.max(i - 1, 0))}
                                     disabled={yearIndex === 0}
-                                    className="w-8 h-8 rounded-full bg-white shadow flex items-center justify-center disabled:opacity-40"
+                                    className="w-10 h-10 cursor-pointer rounded-full bg-transparent border border-black flex items-center justify-center disabled:opacity-40"
                                 >
-                                    ‹
+                                    <i className="pi pi-arrow-left"></i>
                                 </button>
 
-                                <span className="px-4 py-1 bg-blue-600 text-white rounded text-sm">
+                                <span className="text-[#005A8B] font-semibold text-lg">
                                     {activeYear}
                                 </span>
 
                                 <button
                                     onClick={() => setYearIndex((i) => Math.min(i + 1, years.length - 1))}
                                     disabled={yearIndex === years.length - 1}
-                                    className="w-8 h-8 rounded-full bg-white shadow flex items-center justify-center disabled:opacity-40"
+                                    className="w-10 h-10 cursor-pointer rounded-full bg-transparent border border-black flex items-center justify-center disabled:opacity-40"
                                 >
-                                    ›
+                                    <i className="pi pi-arrow-right"></i>
                                 </button>
                             </div>
-
-                            {/* GALLERY GRID */}
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-30 mb-15 fadeUp">
                                 {galleryData[activeYear].map((item, index) => (
                                     <GalleryCard
                                         key={index}
@@ -172,8 +169,6 @@ export default function GalleryPage() {
                                     />
                                 ))}
                             </div>
-
-                            {/* MODAL */}
                             {modalEvents && (
                                 <GalleryModal
                                     visible

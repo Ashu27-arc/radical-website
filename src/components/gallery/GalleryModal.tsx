@@ -52,28 +52,20 @@ export default function GalleryModal({
             className="gallery-modal"
             header={null}
         >
-            <div className="space-y-16">
+            <div className="space-y-8">
 
                 {events.map((event, index) => (
                     <div key={index}>
-
-                        {/* EVENT TITLE */}
-                        <h3 className="text-center font-semibold text-blue-700 mb-6">
+                        <h3 className="text-center font-semibold text-[#005A8B] mb-6">
                             {event.title} – {event.date}
                         </h3>
-
-                        {/* IMAGE GRID */}
                         <div className="grid grid-cols-3 gap-4">
-
-                            {/* BIG IMAGE */}
-                            <div className="col-span-2 row-span-2">
+                            <div className="col-span-2 row-span-2 pb-4">
                                 <ImageWithSkeleton
                                     src={event.images[0]}
                                     className="w-full h-full object-cover rounded-lg"
                                 />
                             </div>
-
-                            {/* RIGHT STACK */}
                             <div className="grid grid-cols-1 gap-4">
                                 <ImageWithSkeleton
                                     src={event.images[1]}
@@ -85,9 +77,7 @@ export default function GalleryModal({
                                 />
                             </div>
                         </div>
-
                         <div className="grid grid-cols-3 gap-4 mt-4">
-                            {/* BOTTOM ROW */}
                             {event.images.slice(3, 7).map((img: string, i: number) => (
                                 <ImageWithSkeleton
                                     key={i}
@@ -96,7 +86,6 @@ export default function GalleryModal({
                                 />
                             ))}
                         </div>
-
                     </div>
                 ))}
 
