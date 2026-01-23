@@ -64,7 +64,7 @@ export default function Home() {
           Your browser does not support the video tag.
         </video>
         <div className='container px-3 md:px-4 lg:px-40 text-center text-white'>
-          <h1 className='text-white font-bold text-4xl md:text-6xl leading-13 md:leading-18 md:mb-8 mb-4 fadeUp'>Secure Your NEET PG <br className='lg:block hidden' /> ADMISSION with Expert Guidance</h1>
+          <h1 className='text-white font-bold text-4xl md:text-6xl leading-11 md:leading-18 md:mb-8 mb-4 fadeUp'>Secure Your Medical Seat With Expert Assistance</h1>
           <div className='text-lg lg:px-16 px-3 md:mb-12 mb-8 fadeUp'>I designed a web UI for an AI-powered HR Co-Pilot that helps HRs generate job descriptions and screen resumes with AI suggestions, </div>
           <div className="p-inputgroup bannersrch mx-auto lg:max-w-[800px] fadeUp">
             <span className="p-inputgroup-addon pr-0! border-r-0! bg-white! shadow-none! border-[#fff]!">
@@ -80,10 +80,10 @@ export default function Home() {
       <section className='py-16 bg-[#F4F7F8] overflow-hidden'>
         <div className='container px-3 md:px-4'>
           <div className='flex flex-col md:flex-row gap-8'>
-            <div className='md:w-13/20 w-full fadeLeft'>
+            <div className='md:w-13/20 w-full fadeLeft text-center md:text-left'>
               <div className='lg:pr-60 md:pr-10 lg:pl-6 pl-3 relative z-2'>
                 <div className='text-[#0B2E3C] uppercase text-sm font-semibold tracking-widest mb-4 lg:mb-6'>ABOUT US</div>
-                <h2 className='text-black text-5xl font-bold mb-4 lg:mb-6'>About <span className='text-[#287FC4]'>Radical</span></h2>
+                <h2 className='text-black text-4xl md:text-5xl font-bold mb-4 lg:mb-6'>About <span className='text-[#287FC4]'>Radical</span></h2>
                 <div className='text-[#4A4A4A] mb-4 lg:mb-6 leading-7 relative'>
                   <span className="absolute left-[-20px] top-0 bottom-0 w-[2px] bg-[#00CFB2]" />
                   <div>Presenting you a platform that presents different Institutions that offer varied courses for the students. Whether you want to pursue your education in India or abroad, Radical Education..</div>
@@ -102,7 +102,7 @@ export default function Home() {
                 <div className='move-x text-nowrap text-[#00CFB212] text-[180px] md:text-[200px] lg:text-[230px] font-bold absolute left-[1px] top-[55%] left-[-20px] -z-1'>Radical</div>
               </div>
             </div>
-            <div className='md:w-7/20 w-full fadePopup'>
+            <div className='md:w-7/20 w-full fadePopup px-10 md:px-0'>
               <Image src="/images/about-redical.webp" width={516} height={540} alt='' className='w-full' />
             </div>
           </div>
@@ -110,15 +110,15 @@ export default function Home() {
             <StatsCounter />
           </div>
           <div className='flex flex-col md:flex-row gap-6 lg:gap-30 md:items-center mb-30'>
-            <div className='md:w-13/20 w-full lg:pr-40 fadeLeft'>
+            <div className='md:w-13/20 w-full lg:pr-40 fadeLeft text-center md:text-left'>
               <div className='text-[#0B2E3C] uppercase text-sm font-semibold tracking-widest mb-4 lg:mb-6'>OUR SERVICES</div>
-              <h2 className='text-black text-5xl font-bold'>From <span className='text-[#287FC4]'>Rank to Admission,</span> We Handle It All</h2>
+              <h2 className='text-black text-4xl md:text-5xl font-bold'>From <span className='text-[#287FC4]'>Rank to Admission,</span> We Handle It All</h2>
             </div>
-            <div className='md:w-7/20 w-full fadeRight'>
+            <div className='md:w-7/20 w-full fadeRight px-1 md:px-0 text-center md:text-left'>
               <div>With trusted experts and real-time updates, we help you navigate NEET counselling easily</div>
             </div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-y-26 gap-x-10 fadeUp">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-26 md:gap-x-10 gap-x-5 fadeUp">
             {services.map((service) => (
               <ServiceCard key={service.slug} service={service} />
             ))}
@@ -129,7 +129,7 @@ export default function Home() {
         <div className='container px-3 md:px-4'>
           <div className='mb-10 fadeUp md:w-5/10 w-full mx-auto text-center'>
             <div className='text-white uppercase text-sm font-semibold tracking-widest mb-4 lg:mb-6'>OUR COURSES</div>
-            <h2 className='text-white text-5xl font-bold'>Your One Place For <span className='text-[#00CFB2]'>All Medical Courses</span></h2>
+            <h2 className='text-white md:text-5xl text-4xl font-bold'>Your One Place For <span className='text-[#00CFB2]'>All Medical Courses</span></h2>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 fadeUp">
             {courses.map((course) => (
@@ -143,7 +143,7 @@ export default function Home() {
           <div className='fadeUp text-center'>
             <div className='md:w-5/10 w-full mx-auto'>
               <div className='text-black uppercase text-sm font-semibold tracking-widest mb-4 lg:mb-6'>Countries We Offer </div>
-              <h2 className='text-black text-5xl font-bold'>Discover Where Your <span className='text-[#287FC4]'>Medical Future</span> Begins</h2>
+              <h2 className='text-black md:text-5xl text-4xl font-bold'>Discover Where Your <span className='text-[#287FC4]'>Medical Future</span> Begins</h2>
             </div>
           </div>
         </div>
@@ -151,15 +151,15 @@ export default function Home() {
             <Earth3D/>
         </div>
       </section>
-      <section className='-mt-60 md:py-30 py-20 bg-cover bg-center bg-no-repeat bg-[#005A8B] overflow-hidden relative z-2' style={{ backgroundImage: "url('/images/whyCus.webp')" }}>
+      <section className='md:-mt-70 -mt-45 md:py-30 py-10 bg-cover bg-center bg-no-repeat bg-[#005A8B] overflow-hidden relative z-2 whyChoUs' style={{ backgroundImage: "url('/images/whyCus.webp')" }}>
         <div className='container px-3 md:px-4'>
-          <div className="grid grid-cols-1 grid-cols-2 gap-6 items-center">
-            <div className='fadeLeft lg:pr-10'>
+          <div className="grid grid-cols-1 md:grid-cols-2 md:gap-6 gap-2 items-center">
+            <div className='fadeLeft lg:pr-10 text-center md:text-left'>
               <div className='text-white uppercase text-sm font-semibold tracking-widest mb-4 lg:mb-6'>Why Choose Us?</div>
-              <h2 className='text-white text-5xl font-bold'>Secure. <span className='text-[#00CFB2]'>Support. Success</span></h2>
+              <h2 className='text-white md:text-5xl text-4xl font-bold'>Secure. <span className='text-[#00CFB2]'>Support. Success</span></h2>
             </div>
-            <div className='fadeRight'>
-              <div className='text-white text-lg lg:pl-10 pl-5 border-l-5 border-[#00CFB2] md:py-6 py-4'>
+            <div className='fadeRight text-center md:text-left'>
+              <div className='text-white text-lg lg:pl-10 md:border-l-5 md:border-[#00CFB2] md:py-6'>
                 Our commitment to providing students with extensive support and requisite resources is the driving force here at Radical Education. Rooted in creativity and quality, we offer a clear, reliable path to achieving goals.
               </div>
             </div>
@@ -170,7 +170,7 @@ export default function Home() {
         <div className='container px-3 md:px-4'>
           <div className='mb-10 fadeUp text-center'>
             <h2 className='text-black text-4xl font-bold mb-4'>OUR <span className='text-[#287FC4]'>SUCESSFUL STORIES</span></h2>
-            <div className='uppercase text-[#00CFB240] text-7xl font-bold'>HEAR FORM OUR STUDENT</div>
+            <div className='uppercase text-[#00CFB240] leading-12 text-[42px] md:text-5xl lg:text-7xl font-black'>HEAR FORM OUR STUDENT</div>
           </div>
           <div className="grid gap-6 md:grid-cols-3 grid-cols-1">
             {videos.map((video) => (
@@ -199,7 +199,7 @@ export default function Home() {
       </section>
       <section className='bg-white'>
         <div className='container px-3 md:px-4'>
-          <div className="relative z-2 w-full rounded-lg bg-cover bg-center px-10 py-20 bg-black" style={{ backgroundImage: "url('/images/testimonialsBg.webp')" }}>
+          <div className="relative z-2 w-full rounded-lg bg-cover bg-left md:bg-center py-10 px-4 md:px-10 md:py-20 bg-black" style={{ backgroundImage: "url('/images/testimonialsBg.webp')" }}>
             <div className="absolute inset-0 bg-black/70 -z-1 rounded-lg" />
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-white'>
               <div>
@@ -215,16 +215,16 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className='pt-16 pb-60 bg-white'>
-        <div className='container px-3 md:px-4'>
+      <section className='pt-16 md:pb-60 pb-50 bg-white'>
+        <div className='container md:px-4'>
           <div className='mb-10 fadeUp text-center'>
-            <h2 className='text-black text-4xl font-bold'>Connect with <span className='text-[#287FC4]'>Our Counselor</span></h2>
+            <h2 className='text-black text-4xl font-bold'>Connect with <span className='text-[#287FC4] md:inline-flex block'>Our Counselor</span></h2>
           </div>
           <div className='relative'>
-            <div className='rounded-xl overflow-hidden'>
+            <div className='md:rounded-xl overflow-hidden'>
               <Image src="/images/counselorImg.webp" alt='' height={435} width={1239} className='w-full h-[435px] object-cover object-center' />
             </div>
-            <div className='absolute left-0 top-[105px] w-full'>
+            <div className='absolute left-0 top-[80px] md:top-[105px] w-full'>
               <div className='p-6 md:p-10 rounded-xl bg-[#005A8B] mx-auto lg:w-4/10 md:w-5/10 w-[90%] fadePopup'>
                 <CounselorForm/>
               </div>

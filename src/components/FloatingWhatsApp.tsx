@@ -118,12 +118,12 @@ export default function FloatingWhatsApp() {
           </div>
           {/* MENU VIEW */}
           {view === 'menu' && (
-            <div className="rounded-[10px_10px_10px_0] shadow-xl overflow-hidden bg-white w-[340px]">
+            <div className="rounded-[10px_10px_10px_0] shadow-xl overflow-hidden bg-white w-[300px]">
               <div className="bg-[linear-gradient(90deg,rgba(0,117,148,1)_0%,rgba(99,205,180,1)_100%)] text-white p-4">
-                <h3 className="font-semibold text-base">
+                <h3 className="font-semibold md:text-base text-xs">
                   Welcome To RADICAL EDUCATION
                 </h3>
-                <p className="text-sm">Chat Support</p>
+                <p className="md:text-sm text-xs">Chat Support</p>
               </div>
 
               <div className="p-3 space-y-2">
@@ -138,7 +138,7 @@ export default function FloatingWhatsApp() {
                   >
                     <div className="flex items-center gap-3">
                       <Image src={item.icon} alt='' width='18' />
-                      <span className="text-sm text-[#005A8B] font-medium">{item.title}</span>
+                      <span className="md:text-sm text-xs text-[#005A8B] font-medium">{item.title}</span>
                     </div>
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path fillRule="evenodd" clipRule="evenodd" d="M0.997298 7.8388C0.997675 7.96803 1.04937 8.09182 1.14102 8.18293C1.23266 8.27404 1.35675 8.32501 1.48597 8.32463L12.9783 8.29108L9.92048 11.3658C9.82926 11.4576 9.77822 11.5818 9.7786 11.7112C9.77898 11.8406 9.83074 11.9645 9.9225 12.0558C10.0143 12.147 10.1385 12.198 10.2679 12.1977C10.3973 12.1973 10.5212 12.1455 10.6124 12.0538L14.4991 8.14436C14.5443 8.09897 14.5802 8.04509 14.6046 7.98582C14.629 7.92656 14.6414 7.86306 14.6412 7.79897C14.641 7.73488 14.6282 7.67145 14.6035 7.61233C14.5787 7.5532 14.5426 7.49954 14.4971 7.45441L10.5877 3.56778C10.5422 3.52261 10.4883 3.48683 10.4291 3.46248C10.3698 3.43814 10.3063 3.4257 10.2423 3.42589C10.1129 3.42627 9.98895 3.47803 9.89772 3.56979C9.8065 3.66155 9.75546 3.78579 9.75584 3.91518C9.75621 4.04457 9.80798 4.16851 9.89974 4.25974L12.9755 7.31658L1.48313 7.35013C1.3539 7.35051 1.23011 7.4022 1.139 7.49385C1.04789 7.58549 0.99692 7.70958 0.997298 7.8388Z" fill="#005A8B" />
@@ -151,7 +151,7 @@ export default function FloatingWhatsApp() {
 
           {/* DETAIL VIEW */}
           {view === 'detail' && selectedItem && (
-            <div className="rounded-[10px_10px_10px_0] shadow-xl overflow-hidden bg-white w-[340px]">
+            <div className="rounded-[10px_10px_10px_0] shadow-xl overflow-hidden bg-white w-[300px]">
               <div className="bg-gradient-to-r from-teal-600 to-green-500 text-white p-4 flex items-center gap-3">
                 <div>
                   <button className='btnico' onClick={() => startTransition('menu')}>
@@ -159,15 +159,15 @@ export default function FloatingWhatsApp() {
                   </button>
                 </div>
                 <div>
-                    <h3 className="font-semibold text-base">
+                    <h3 className="font-semibold md:text-base text-xs">
                       Welcome To RADICAL EDUCATION
                     </h3>
-                    <p className="text-sm">Chat Support</p>
+                    <p className="md:text-sm text-xs">Chat Support</p>
                 </div>
               </div>
 
               <div className="p-4">
-                <div className='text-[#0B2E3C] font-semibold mb-4'>{selectedItem.title}</div>
+                <div className='text-[#0B2E3C] font-semibold mb-4 text-xs'>{selectedItem.title}</div>
                 <div className="space-y-3">
                   {selectedItem.experts.map((expert: any, idx: number) => (
                     <div
@@ -185,7 +185,7 @@ export default function FloatingWhatsApp() {
                           </svg>
                         </div>
                         <div>
-                          <p className="font-semibold text-sm text-[#0B2E3C]">
+                          <p className="font-semibold md:text-sm text-xs text-[#0B2E3C]">
                             {expert.name}
                           </p>
                           <p className="text-xs text-gray-500">

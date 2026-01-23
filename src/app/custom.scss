@@ -240,11 +240,15 @@
     }
 }
 
+
 @media screen and (max-width: 767px) {
     .headerLogo {
         width: 100px;
     }
     .hdrTop{
         background-color: #ECECEC !important;
+    }
+    .whyChoUs{
+        background-image: url(/images/mob-wcUs.webp) !important;
     }
 }

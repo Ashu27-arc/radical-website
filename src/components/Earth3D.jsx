@@ -5,24 +5,31 @@ import * as THREE from "three";
 
 export default function Earth3D() {
   const containerRef = useRef(null);
+  const initializedRef = useRef(false); // ✅ prevent duplicate labels in Next.js
 
   useEffect(() => {
-    if (!containerRef.current) return;
+    if (!containerRef.current || initializedRef.current) return;
+    initializedRef.current = true;
+
+    const container = containerRef.current;
 
     /* Scene */
     const scene = new THREE.Scene();
 
-    const camera = new THREE.PerspectiveCamera(
-      45,
-      window.innerWidth / window.innerHeight,
-      0.1,
-      1000
-    );
+    const camera = new THREE.PerspectiveCamera(45, 1, 0.1, 1000);
     camera.position.z = 3;
 
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    containerRef.current.appendChild(renderer.domElement);
+    container.appendChild(renderer.domElement);
+
+    function resizeRenderer() {
+      const width = container.clientWidth;
+      const height = container.clientHeight;
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+      renderer.setSize(width, height);
+    }
+    resizeRenderer();
 
     /* Lights */
     scene.add(new THREE.AmbientLight(0xffffff, 1));
@@ -31,9 +38,7 @@ export default function Earth3D() {
     scene.add(light);
 
     /* Earth */
-    const earthTexture = new THREE.TextureLoader().load(
-      "/images/worldMap.webp"
-    );
+    const earthTexture = new THREE.TextureLoader().load("/images/worldMap.webp");
 
     const earth = new THREE.Mesh(
       new THREE.SphereGeometry(1, 64, 64),
@@ -53,9 +58,7 @@ export default function Earth3D() {
     }
 
     /* Pin Marker + MAP ICON */
-    const iconTexture = new THREE.TextureLoader().load(
-      "/images/mapIcon.svg"
-    );
+    const iconTexture = new THREE.TextureLoader().load("/images/mapIcon.svg");
 
     function createPin(position) {
       const group = new THREE.Group();
@@ -91,34 +94,10 @@ export default function Earth3D() {
 
     /* Countries */
     const countries = [
-      {
-        name: "Russia",
-        lat: 61,
-        lon: 105,
-        colleges: 120,
-        flag: "/images/ru.webp",
-      },
-      {
-        name: "Georgia",
-        lat: 42,
-        lon: 43,
-        colleges: 18,
-        flag: "/images/ge.webp",
-      },
-      {
-        name: "Uzbekistan",
-        lat: 41,
-        lon: 64,
-        colleges: 35,
-        flag: "/images/uz.webp",
-      },
-      {
-        name: "Singapore",
-        lat: 1.3,
-        lon: 103.8,
-        colleges: 22,
-        flag: "/images/sg.webp",
-      },
+      { name: "Russia", lat: 61, lon: 105, colleges: 120, flag: "/images/ru.webp" },
+      { name: "Georgia", lat: 42, lon: 43, colleges: 18, flag: "/images/ge.webp" },
+      { name: "Uzbekistan", lat: 41, lon: 64, colleges: 35, flag: "/images/uz.webp" },
+      { name: "Singapore", lat: 1.3, lon: 103.8, colleges: 22, flag: "/images/sg.webp" },
     ];
 
     const labels = [];
@@ -139,7 +118,7 @@ export default function Earth3D() {
           </div>
         </div>
       `;
-      containerRef.current.appendChild(label);
+      container.appendChild(label);
 
       labels.push({ label, pin });
     });
@@ -177,13 +156,15 @@ export default function Earth3D() {
     dom.addEventListener("mouseup", endDrag);
     dom.addEventListener("mouseleave", endDrag);
 
-    dom.addEventListener("touchstart", (e) =>
-      startDrag(e.touches[0].clientX)
-    );
-    dom.addEventListener("touchmove", (e) =>
-      drag(e.touches[0].clientX)
-    );
+    dom.addEventListener("touchstart", (e) => startDrag(e.touches[0].clientX));
+    dom.addEventListener("touchmove", (e) => drag(e.touches[0].clientX));
     dom.addEventListener("touchend", endDrag);
+
+    /* Cursor */
+    dom.style.cursor = "grab";
+    dom.addEventListener("mousedown", () => (dom.style.cursor = "grabbing"));
+    dom.addEventListener("mouseup", () => (dom.style.cursor = "grab"));
+    dom.addEventListener("mouseleave", () => (dom.style.cursor = "grab"));
 
     /* Animate */
     function animate() {
@@ -207,9 +188,9 @@ export default function Earth3D() {
           const screenPos = worldPos.project(camera);
           l.label.style.display = "block";
           l.label.style.left =
-            (screenPos.x * 0.5 + 0.5) * window.innerWidth + "px";
+            (screenPos.x * 0.5 + 0.5) * container.clientWidth + "px";
           l.label.style.top =
-            (-screenPos.y * 0.5 + 0.5) * window.innerHeight + "px";
+            (-screenPos.y * 0.5 + 0.5) * container.clientHeight + "px";
         } else {
           l.label.style.display = "none";
         }
@@ -219,35 +200,24 @@ export default function Earth3D() {
     }
     animate();
 
-    renderer.domElement.style.cursor = "grab";
-
-renderer.domElement.addEventListener("mousedown", () => {
-  renderer.domElement.style.cursor = "grabbing";
-});
-
-renderer.domElement.addEventListener("mouseup", () => {
-  renderer.domElement.style.cursor = "grab";
-});
-
-renderer.domElement.addEventListener("mouseleave", () => {
-  renderer.domElement.style.cursor = "grab";
-});
-
     /* Resize */
-    const handleResize = () => {
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-    };
-
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", resizeRenderer);
 
     /* Cleanup */
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener("resize", resizeRenderer);
+      labels.forEach((l) => l.label.remove());
+      renderer.dispose();
       dom.remove();
+      initializedRef.current = false;
     };
   }, []);
 
-  return <div ref={containerRef} className="glob3d" />;
+  return (
+    <div
+      ref={containerRef}
+      className="glob3d h-[50vh]! md:h-[100vh]!"
+      style={{ width: "100%", position: "relative" }}
+    />
+  );
 }

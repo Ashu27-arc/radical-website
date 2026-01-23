@@ -60,11 +60,11 @@ export default function StatsCounter() {
   return (
       <div
         ref={ref}
-        className="w-full bg-[#DFF1FF] rounded-xl px-6 py-8 relative z-2"
+        className="w-full md:bg-[#DFF1FF] rounded-xl md:px-6 md:py-8 relative z-2"
       >
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 md:gap-0 gap-3">
           {stats.map((item, i) => (
-            <div key={i} className="relative text-center py-4 fadeUp">
+            <div key={i} className="relative text-center py-4 fadeUp md:bg-transparent bg-[#DFF1FF] rounded-xl">
               {/* NUMBER */}
               <div className="text-3xl md:text-4xl font-bold text-[#005A8B]">
                 {counts[i].toLocaleString()}

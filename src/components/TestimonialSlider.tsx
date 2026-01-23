@@ -169,7 +169,7 @@ export default function TestimonialSlider() {
           {testimonials.map((item, index) => (
             <SwiperSlide key={index}>
                 <div>
-                  <p className="text-lg leading-relaxed italic mb-6">
+                  <p className="text-lg leading-relaxed italic mb-6 md:min-h-auto min-h-[185px]">
                     “{item.content}”
                   </p>
 
@@ -177,7 +177,7 @@ export default function TestimonialSlider() {
                     <span className="w-1 h-12 bg-emerald-400"></span>
                     <div>
                       <p className="font-semibold">{item.name}</p>
-                      <p className="text-sm text-gray-300">
+                      <p className="text-sm text-gray-300 md:min-h-auto min-h-[40px]">
                         {item.subtitle}
                       </p>
                     </div>
@@ -197,7 +197,7 @@ export default function TestimonialSlider() {
           ))}
 
           {/* Navigation Arrows */}
-          <div className="absolute bottom-0 right-0 flex gap-3 mt-10 z-3">
+          <div className="absolute bottom-0 right-0 flex gap-3 md:mt-10 z-3">
             <button className="cursor-pointer testimonial-prev w-10 h-10 border border-white/40 rounded-full flex items-center justify-center hover:bg-white hover:text-black transition">
               ←
             </button>
