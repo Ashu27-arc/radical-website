@@ -176,7 +176,7 @@ export default function Home() {
             {videos.map((video) => (
               <div
                 key={video.id}
-                className="relative min-w-[340px] h-[240px] rounded-xl overflow-hidden shadow-lg"
+                className="fadeUp relative min-w-[340px] h-[240px] rounded-xl overflow-hidden shadow-lg"
               >
                 {/* YouTube Video */}
                 <iframe

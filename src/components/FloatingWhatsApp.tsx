@@ -92,7 +92,6 @@ export default function FloatingWhatsApp() {
 
   return (
     <>
-      {/* FLOATING ICON (ALWAYS VISIBLE) */}
       <button
         onClick={() =>
           view === 'menu' || view === 'detail'
@@ -103,8 +102,6 @@ export default function FloatingWhatsApp() {
       >
         <i className="pi pi-whatsapp text-white text-4xl!" />
       </button>
-
-      {/* ANIMATED CARD CONTAINER */}
       {view !== 'none' && (
         <div
           className={`
@@ -116,7 +113,6 @@ export default function FloatingWhatsApp() {
           <div className='md:min-w-[90px] md:max-w-[90px] min-w-[60px] max-w-[60px]'>
             <Image src='/images/wpLady.webp' alt='' />
           </div>
-          {/* MENU VIEW */}
           {view === 'menu' && (
             <div className="rounded-[10px_10px_10px_0] shadow-xl overflow-hidden bg-white w-[300px]">
               <div className="bg-[linear-gradient(90deg,rgba(0,117,148,1)_0%,rgba(99,205,180,1)_100%)] text-white p-4">
@@ -148,8 +144,6 @@ export default function FloatingWhatsApp() {
               </div>
             </div>
           )}
-
-          {/* DETAIL VIEW */}
           {view === 'detail' && selectedItem && (
             <div className="rounded-[10px_10px_10px_0] shadow-xl overflow-hidden bg-white w-[300px]">
               <div className="bg-gradient-to-r from-teal-600 to-green-500 text-white p-4 flex items-center gap-3">
