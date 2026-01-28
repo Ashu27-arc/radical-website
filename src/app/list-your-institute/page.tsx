@@ -373,5 +373,5 @@ export default function InstituteListPage() {
         </div>
       </div>
     </div>
-  );
+  ); 
 }
