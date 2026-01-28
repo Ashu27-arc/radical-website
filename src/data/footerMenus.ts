@@ -22,22 +22,22 @@ export const quickLinks: MenuItem[] = [
 ];
 
 export const mbbsIndia: MenuItem[] = [
-  {label: 'MBBS In Russia', icon: 'pi pi-angle-right', url: '/mbbs-in-russia'},
-  {label: 'MBBS In Russia', icon: 'pi pi-angle-right', url: '/mbbs-in-russia'},
-  {label: 'MBBS In Russia', icon: 'pi pi-angle-right', url: '/mbbs-in-russia'},
-  {label: 'MBBS In Russia', icon: 'pi pi-angle-right', url: '/mbbs-in-russia'},
-  {label: 'MBBS In Russia', icon: 'pi pi-angle-right', url: '/mbbs-in-russia'},
-  {label: 'MBBS In Russia', icon: 'pi pi-angle-right', url: '/mbbs-in-russia'},
-  {label: 'MBBS In Russia', icon: 'pi pi-angle-right', url: '/mbbs-in-russia'},
-  {label: 'MBBS In Russia', icon: 'pi pi-angle-right', url: '/mbbs-in-russia'},
-  {label: 'MBBS In Russia', icon: 'pi pi-angle-right', url: '/mbbs-in-russia'},
-  {label: 'MBBS In Russia', icon: 'pi pi-angle-right', url: '/mbbs-in-russia'},
-  {label: 'MBBS In Russia', icon: 'pi pi-angle-right', url: '/mbbs-in-russia'},
-  {label: 'MBBS In Russia', icon: 'pi pi-angle-right', url: '/mbbs-in-russia'},
-  {label: 'MBBS In Russia', icon: 'pi pi-angle-right', url: '/mbbs-in-russia'},
-  {label: 'MBBS In Russia', icon: 'pi pi-angle-right', url: '/mbbs-in-russia'},
-  {label: 'MBBS In Russia', icon: 'pi pi-angle-right', url: '/mbbs-in-russia'},
-  {label: 'MBBS In Russia', icon: 'pi pi-angle-right', url: '/mbbs-in-russia'},
+  {label: 'MBBS In Russia', icon: 'pi pi-angle-right', url: '/study-india'},
+  {label: 'MBBS In Russia', icon: 'pi pi-angle-right', url: '/study-india'},
+  {label: 'MBBS In Russia', icon: 'pi pi-angle-right', url: '/study-india'},
+  {label: 'MBBS In Russia', icon: 'pi pi-angle-right', url: '/study-india'},
+  {label: 'MBBS In Russia', icon: 'pi pi-angle-right', url: '/study-india'},
+  {label: 'MBBS In Russia', icon: 'pi pi-angle-right', url: '/study-india'},
+  {label: 'MBBS In Russia', icon: 'pi pi-angle-right', url: '/study-india'},
+  {label: 'MBBS In Russia', icon: 'pi pi-angle-right', url: '/study-india'},
+  {label: 'MBBS In Russia', icon: 'pi pi-angle-right', url: '/study-india'},
+  {label: 'MBBS In Russia', icon: 'pi pi-angle-right', url: '/study-india'},
+  {label: 'MBBS In Russia', icon: 'pi pi-angle-right', url: '/study-india'},
+  {label: 'MBBS In Russia', icon: 'pi pi-angle-right', url: '/study-india'},
+  {label: 'MBBS In Russia', icon: 'pi pi-angle-right', url: '/study-india'},
+  {label: 'MBBS In Russia', icon: 'pi pi-angle-right', url: '/study-india'},
+  {label: 'MBBS In Russia', icon: 'pi pi-angle-right', url: '/study-india'},
+  {label: 'MBBS In Russia', icon: 'pi pi-angle-right', url: '/study-india'},
 ];
 
 export const mbbsAbroad: MenuItem[] = [
