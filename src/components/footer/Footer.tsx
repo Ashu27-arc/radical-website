@@ -101,7 +101,7 @@ export default function Footer() {
             </div>
 
             <div className='lg:pl-20'>
-              <h4 className="font-semibold text-black mb-3">MBBS Inida</h4>
+              <h4 className="font-semibold text-black mb-3">MBBS India</h4>
               <ul className="space-y-3">
                 {mbbsIndia.map((item, index) => (
                   <li key={index}>

@@ -6,7 +6,7 @@ export const mainMenuData: MenuItem[] = [
     //url: '/services/',
     items: [
       { label: 'NEET UG India Admissions', url: '/neet-ug-india-admission/' },
-      { label: 'MBBS Abroad Admissions', url: '/mbbs-abroad-admission/' },
+      { label: 'MBBS Abroad Admissions', url: '/study-abroad/' },
       { label: 'NEET PG India Admissions', url: '/neet-pg-india-admission/' },
     ],
   },

@@ -19,7 +19,7 @@ const Russia = () => {
           {/* Left Content */}
           <div className="lg:w-2/3">
             <h2 className="text-3xl font-bold text-gray-800 mb-8">
-              Medical Studies in Russia
+              Medical Studies in Nepal
             </h2>
             
             <div className="space-y-6 text-gray-600 leading-relaxed">
@@ -78,7 +78,7 @@ const Russia = () => {
       <div className="bg-gradient-to-b from-blue-50 to-white py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-4xl font-bold text-center mb-12">
-            Universities Where You Can Study <span className="text-blue-500">Medicine In Russia</span>
+            Universities Where You Can Study <span className="text-blue-500">Medicine In Nepal</span>
           </h2>
           
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
