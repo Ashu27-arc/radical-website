@@ -1,8 +1,9 @@
 @import "tailwindcss";
+
 @font-face {
     font-family: 'Metropolis';
     src: url('/fonts/Metropolis-Light.woff2') format('woff2'),
-         url('/fonts/Metropolis-Light.woff') format('woff');
+        url('/fonts/Metropolis-Light.woff') format('woff');
     font-weight: 300;
     font-style: normal;
     font-display: swap;
@@ -11,7 +12,7 @@
 @font-face {
     font-family: 'Metropolis';
     src: url('/fonts/Metropolis-Regular.woff2') format('woff2'),
-         url('/fonts/Metropolis-Regular.woff') format('woff');
+        url('/fonts/Metropolis-Regular.woff') format('woff');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -20,7 +21,7 @@
 @font-face {
     font-family: 'Metropolis';
     src: url('/fonts/Metropolis-Medium.woff2') format('woff2'),
-         url('/fonts/Metropolis-Medium.woff') format('woff');
+        url('/fonts/Metropolis-Medium.woff') format('woff');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -29,7 +30,7 @@
 @font-face {
     font-family: 'Metropolis';
     src: url('/fonts/Metropolis-SemiBold.woff2') format('woff2'),
-         url('/fonts/Metropolis-SemiBold.woff') format('woff');
+        url('/fonts/Metropolis-SemiBold.woff') format('woff');
     font-weight: 600;
     font-style: normal;
     font-display: swap;
@@ -38,93 +39,110 @@
 @font-face {
     font-family: 'Metropolis';
     src: url('/fonts/Metropolis-Bold.woff2') format('woff2'),
-         url('/fonts/Metropolis-Bold.woff') format('woff');
+        url('/fonts/Metropolis-Bold.woff') format('woff');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
 }
+
 @media (prefers-color-scheme: light) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    font-family: 'Metropolis', sans-serif;
-  }
+    :root {
+        --background: #0a0a0a;
+        --foreground: #ededed;
+        font-family: 'Metropolis', sans-serif;
+    }
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: 'Metropolis', sans-serif;
-  font-weight: 400;
-  margin: 0;
+    background: var(--background);
+    color: var(--foreground);
+    font-family: 'Metropolis', sans-serif;
+    font-weight: 400;
+    margin: 0;
 }
+
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+    width: 6px;
+    height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #e8f1fd;
+    background: #e8f1fd;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #005A8B;
-  border-radius: 30px;
+    background: #005A8B;
+    border-radius: 30px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #003450;
+    background: #003450;
 }
+
 .shadow-none {
     box-shadow: none;
 }
+
 .movingY {
     animation: movingY 8s linear infinite;
 }
+
 @keyframes movingY {
     0% {
         transform: translateY(0)
     }
+
     50% {
         transform: translateY(50px)
     }
+
     to {
         transform: translateY(0)
     }
 }
+
 .movingX {
     animation: movingX 8s linear infinite;
 }
+
 @keyframes movingX {
     0% {
         transform: translateX(0)
     }
+
     50% {
         transform: translateX(50px)
     }
+
     to {
         transform: translateX(0)
     }
 }
+
 @keyframes movingXsmall {
     0% {
         transform: translateX(0)
     }
+
     50% {
         transform: translateX(20px)
     }
+
     to {
         transform: translateX(0)
     }
 }
+
 @keyframes spin {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
 }
+
 .btnico {
     border: none !important;
     box-shadow: none !important;
@@ -132,248 +150,336 @@ body {
     background-color: transparent !important;
     cursor: pointer;
 }
+
 .fadeUp {
     opacity: 0;
     -webkit-transform: translate(0, 50px);
     -ms-transform: translate(0, 50px);
     transform: translate(0, 50px);
 }
+
 .fadeUp.in-view {
     opacity: 1;
     transform: translateX(0) translateY(0) translateZ(0);
     transition: opacity 1.5s ease 0s, transform 1.5s ease 0s;
 }
+
 .fadeLeft {
     opacity: 0;
     -webkit-transform: translate(-50px, 0);
     -ms-transform: translate(-50px, 0);
     transform: translate(-50px, 0);
 }
+
 .fadeLeft.in-view {
     opacity: 1;
     transform: translateX(0) translateY(0) translateZ(0);
     transition: opacity 1.5s ease 0s, transform 1.5s ease 0s;
 }
+
 .fadeRight {
     opacity: 0;
     -webkit-transform: translate(50px, 0);
     -ms-transform: translate(50px, 0);
     transform: translate(50px, 0);
 }
+
 .fadeRight.in-view {
     opacity: 1;
     transform: translateX(0) translateY(0) translateZ(0);
     transition: opacity 1.5s ease 0s, transform 1.5s ease 0s;
 }
+
 .fadePopup {
     opacity: 0;
     -webkit-transform: scale(0.9);
     -ms-transform: scale(0.9);
     transform: scale(0.9);
 }
+
 .fadePopup.in-view {
     opacity: 1;
     transform: scale(1);
     transition: opacity 1.5s ease 0s, transform 1.5s ease 0s;
 }
+
 .move-x {
     animation: moveX 6s ease-in-out infinite;
 }
+
 .move-y {
     animation: moveY 6s ease-in-out infinite;
 }
+
 .move-XREV {
     animation: moveXREV 6s ease-in-out infinite;
 }
+
 @keyframes moveX {
+
     0%,
     100% {
         transform: translateX(0);
     }
+
     50% {
         transform: translateX(20px);
     }
 }
+
 @keyframes moveXREV {
+
     0%,
     100% {
         transform: translateX(20px);
     }
+
     50% {
         transform: translateX(0);
     }
 }
+
 @keyframes moveY {
+
     0%,
     100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(20px);
     }
 }
+
 .movingY {
     animation: movingY 8s linear infinite;
 }
+
 @keyframes movingY {
     0% {
         transform: translateY(0)
     }
+
     50% {
         transform: translateY(50px)
     }
+
     to {
         transform: translateY(0)
     }
 }
+
 .movingX {
     animation: movingX 8s linear infinite;
 }
+
 @keyframes movingX {
     0% {
         transform: translateX(0)
     }
+
     50% {
         transform: translateX(50px)
     }
+
     to {
         transform: translateX(0)
     }
 }
+
 @keyframes movingXsmall {
     0% {
         transform: translateX(0)
     }
+
     50% {
         transform: translateX(20px)
     }
+
     to {
         transform: translateX(0)
     }
 }
+
 @keyframes spin {
     0% {
         transform: rotate(0deg);
     }
+
     100% {
         transform: rotate(360deg);
     }
 }
+
 .btnico {
     border: none !important;
     box-shadow: none !important;
     padding: 0 !important;
     background-color: transparent !important;
 }
+
 .move-x {
     animation: moveX 6s ease-in-out infinite;
 }
+
 .move-y {
     animation: moveY 6s ease-in-out infinite;
 }
+
 .move-XREV {
     animation: moveXREV 6s ease-in-out infinite;
 }
+
 @keyframes moveX {
+
     0%,
     100% {
         transform: translateX(0);
     }
+
     50% {
         transform: translateX(20px);
     }
 }
+
 @keyframes moveXREV {
+
     0%,
     100% {
         transform: translateX(20px);
     }
+
     50% {
         transform: translateX(0);
     }
 }
+
 @keyframes moveY {
+
     0%,
     100% {
         transform: translateY(0);
     }
+
     50% {
         transform: translateY(20px);
     }
 }
+
 @keyframes scaleIn {
-  from {
-    transform: scale(.5, .5);
-    opacity: .5;
-  }
-  to {
-    transform: scale(1.7, 1.7);
-    opacity: 0;
-  }
+    from {
+        transform: scale(.5, .5);
+        opacity: .5;
+    }
+
+    to {
+        transform: scale(1.7, 1.7);
+        opacity: 0;
+    }
 }
+
 @layer base {
-  input:-webkit-autofill,
-  textarea:-webkit-autofill,
-  select:-webkit-autofill {
-    -webkit-box-shadow: 0 0 0 1000px white inset !important;
-    -webkit-text-fill-color: #000 !important;
-  }
+
+    input:-webkit-autofill,
+    textarea:-webkit-autofill,
+    select:-webkit-autofill {
+        -webkit-box-shadow: 0 0 0 1000px white inset !important;
+        -webkit-text-fill-color: #000 !important;
+    }
 }
+
 input:autofill {
-  background-color: #fff !important;
+    background-color: #fff !important;
 }
-.p-inputtext{
+
+.p-inputtext {
     box-shadow: none !important;
 }
-.p-float-label input:focus ~ label, .p-float-label input:-webkit-autofill ~ label, .p-float-label input.p-filled ~ label, .p-float-label textarea:focus ~ label, .p-float-label textarea.p-filled ~ label, .p-float-label .p-inputwrapper-focus ~ label, .p-float-label .p-inputwrapper-filled ~ label, .p-float-label .p-tooltip-target-wrapper ~ label {
+
+.p-float-label input:focus~label,
+.p-float-label input:-webkit-autofill~label,
+.p-float-label input.p-filled~label,
+.p-float-label textarea:focus~label,
+.p-float-label textarea.p-filled~label,
+.p-float-label .p-inputwrapper-focus~label,
+.p-float-label .p-inputwrapper-filled~label,
+.p-float-label .p-tooltip-target-wrapper~label {
     top: -0.01rem;
     background-color: #fff;
     padding: 4px;
     border-radius: 3px 3px 0 0;
 }
-.p-inputtext:hover, .p-inputtext:focus{
+
+.p-inputtext:hover,
+.p-inputtext:focus {
     border-color: #007594;
 }
-.p-inputgroup .p-inputtext:hover, 
-.p-inputgroup .p-inputtext:focus, 
-.p-inputgroup .p-inputtext{
+
+.p-inputgroup .p-inputtext:hover,
+.p-inputgroup .p-inputtext:focus,
+.p-inputgroup .p-inputtext {
     border-color: #d1d5db;
 }
-.p-inputgroup .p-dropdown:hover, 
-.p-inputgroup .p-dropdown:focus, 
-.p-inputgroup .p-dropdown{
+
+.p-inputgroup .p-dropdown:hover,
+.p-inputgroup .p-dropdown:focus,
+.p-inputgroup .p-dropdown {
     border-color: #d1d5db !important;
     border-radius: 0 6px 6px 0 !important;
     box-shadow: none !important;
 }
-.p-inputgroup .p-dropdown{
-    .p-dropdown-label{
+
+.p-inputgroup .p-dropdown {
+    .p-dropdown-label {
         padding-left: 3px;
     }
 }
 
-.p-inputgroup .p-inputgroup-addon{
+.p-inputgroup .p-inputgroup-addon {
     padding-right: 0;
 }
-.p-inputgroup .p-float-label label{
+
+.p-inputgroup .p-float-label label {
     left: 0;
 }
-.noDialogHeader .p-dialog-header{
+
+.noDialogHeader .p-dialog-header {
     display: none;
 }
-.p-dialog.DialogBodyNoPadding{
-    .p-dialog-content{
+
+.p-dialog.DialogBodyNoPadding {
+    .p-dialog-content {
         padding: 0;
     }
 }
-.transparentDialog.p-dialog .p-dialog-content{
+
+.transparentDialog.p-dialog .p-dialog-content {
     background-color: transparent;
 }
+
 .p-component .p-dropdown-item {
     font-size: 14px !important;
 }
-.p-dialog-mask.p-component-overlay{
+
+.p-dialog-mask.p-component-overlay {
     background: #287FC466;
     background-color: #287FC466 !important;
     backdrop-filter: blur(14.5px)
+}
+
+/* FAQ Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.3s ease-out;
 }
