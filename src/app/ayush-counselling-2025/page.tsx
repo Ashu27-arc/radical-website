@@ -77,16 +77,16 @@ export default function AyushCounselling2025() {
           <div className="lg:w-1/3 ">
             <div className="bg-white rounded-2xl p-6 shadow-2xl relative overflow-hidden border border-gray-100">
               
-              {/* Top-left corner beam - L shape (horizontal to vertical) */}
+              {/* Top-left corner beam - L shape (horizontal to vertical) with infinite animation */}
               <div className="absolute top-0 left-0">
-                <div className="w-50 h-4 bg-[#00CFB2] shadow-lg animate-slide-right"></div>
-                <div className="w-4 h-50 bg-[#00CFB2] shadow-lg animate-slide-down"></div>
+                <div className="w-50 h-4 bg-[#00CFB2] shadow-lg animate-infinite-slide-right"></div>
+                <div className="w-4 h-50 bg-[#00CFB2] shadow-lg animate-infinite-slide-down"></div>
               </div>
               
-              {/* Bottom-right corner beam - inverted L shape (vertical to horizontal) */}
+              {/* Bottom-right corner beam - inverted L shape (vertical to horizontal) with infinite animation */}
               <div className="absolute bottom-0 right-0">
-                <div className="w-4 h-50 bg-[#287FC4] ml-auto shadow-lg animate-slide-up"></div>
-                <div className="w-50 h-4 bg-[#287FC4] shadow-lg animate-slide-left"></div>
+                <div className="w-4 h-50 bg-[#287FC4] ml-auto shadow-lg animate-infinite-slide-up"></div>
+                <div className="w-50 h-4 bg-[#287FC4] shadow-lg animate-infinite-slide-left"></div>
               </div>
               
               <div className="relative z-10 border border-gray-200 rounded-lg p-1">
