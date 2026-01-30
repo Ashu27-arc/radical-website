@@ -883,3 +883,134 @@ input:autofill {
 .animate-infinite-slide-up {
     box-shadow: 0 0 20px rgba(40, 127, 196, 0.6), 0 0 40px rgba(40, 127, 196, 0.3);
 }
+
+/* AYUSH Admission Process Card Animations */
+@keyframes processCardFloat {
+
+    0%,
+    100% {
+        transform: translateY(0px) scale(1);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    50% {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+}
+
+@keyframes processCardPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
+    }
+
+    50% {
+        transform: scale(1.03);
+        box-shadow: 0 0 0 10px rgba(34, 197, 94, 0);
+    }
+}
+
+@keyframes processCardRotate {
+
+    0%,
+    100% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    25% {
+        transform: rotate(1deg) scale(1.01);
+    }
+
+    50% {
+        transform: rotate(0deg) scale(1.02);
+    }
+
+    75% {
+        transform: rotate(-1deg) scale(1.01);
+    }
+}
+
+@keyframes processCardBounce {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+        animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+    }
+
+    50% {
+        transform: translateY(-10px);
+        animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+    }
+}
+
+@keyframes processNumberGlow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        transform: scale(1);
+    }
+
+    50% {
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.5), 0 0 30px rgba(59, 130, 246, 0.3);
+        transform: scale(1.1);
+    }
+}
+
+@keyframes processImageZoom {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+/* Process card animation classes */
+.animate-process-float {
+    animation: processCardFloat 4s ease-in-out infinite;
+}
+
+.animate-process-pulse {
+    animation: processCardPulse 3s ease-in-out infinite;
+}
+
+.animate-process-rotate {
+    animation: processCardRotate 5s ease-in-out infinite;
+}
+
+.animate-process-bounce {
+    animation: processCardBounce 2s ease-in-out infinite;
+}
+
+.animate-process-number-glow {
+    animation: processNumberGlow 2.5s ease-in-out infinite;
+}
+
+.animate-process-image-zoom {
+    animation: processImageZoom 4s ease-in-out infinite;
+}
+
+/* Staggered animation delays for process cards */
+.animate-process-delay-1 {
+    animation-delay: 0.2s;
+}
+
+.animate-process-delay-2 {
+    animation-delay: 0.4s;
+}
+
+.animate-process-delay-3 {
+    animation-delay: 0.6s;
+}
+
+.animate-process-delay-4 {
+    animation-delay: 0.8s;
+}

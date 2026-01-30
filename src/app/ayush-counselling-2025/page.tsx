@@ -418,17 +418,17 @@ export default function AyushCounselling2025() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {/* Step 1 - Register With Us */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden animate-process-float animate-process-delay-1 hover:scale-105 transition-transform duration-300">
               {/* Top section with background image and number overlay */}
               <div className="relative h-24 flex items-center justify-center">
                 {/* Background Image */}
                 <img
                   src="/images/ayush/card.webp"
                   alt="Register"
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="absolute inset-0 w-full h-full object-cover animate-process-image-zoom"
                 />
                 {/* Number */}
-                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center relative z-10 border-2 border-white/30">
+                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center relative z-10 border-2 border-white/30 animate-process-number-glow">
                   <span className="text-black text-2xl font-bold">1</span>
                 </div>
               </div>
@@ -443,17 +443,17 @@ export default function AyushCounselling2025() {
             </div>
 
             {/* Step 2 - Expert Counselling */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden animate-process-pulse animate-process-delay-2 hover:scale-105 transition-transform duration-300">
               {/* Top section with background image and number overlay */}
               <div className="relative h-24 flex items-center justify-center">
                 {/* Background Image */}
                 <img
                   src="/images/ayush/card-1.webp"
                   alt="Counselling"
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="absolute inset-0 w-full h-full object-cover animate-process-image-zoom"
                 />
                 {/* Number */}
-                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center relative z-10 border-2 border-white/30">
+                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center relative z-10 border-2 border-white/30 animate-process-number-glow">
                   <span className="text-black text-2xl font-bold">2</span>
                 </div>
               </div>
@@ -468,18 +468,18 @@ export default function AyushCounselling2025() {
             </div>
 
             {/* Step 3 - Select College */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden animate-process-rotate animate-process-delay-3 hover:scale-105 transition-transform duration-300">
               {/* Top section with background image and number overlay */}
               <div className="relative h-24 flex items-center justify-center">
                 {/* Background Image */}
                 <img
                   src="/images/ayush/card-2.webp"
                   alt="Select College"
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="absolute inset-0 w-full h-full object-cover animate-process-image-zoom"
                 />
                 
                 {/* Number */}
-                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center relative z-10 border-2 border-white/30">
+                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center relative z-10 border-2 border-white/30 animate-process-number-glow">
                   <span className="text-black text-2xl font-bold">3</span>
                 </div>
               </div>
@@ -494,18 +494,18 @@ export default function AyushCounselling2025() {
             </div>
 
             {/* Step 4 - Confirm Admission */}
-            <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+            <div className="bg-white rounded-2xl shadow-lg overflow-hidden animate-process-bounce animate-process-delay-4 hover:scale-105 transition-transform duration-300">
               {/* Top section with background image and number overlay */}
               <div className="relative h-24 flex items-center justify-center">
                 {/* Background Image */}
                 <img
                   src="/images/ayush/card-3.webp"
                   alt="Confirm Admission"
-                  className="absolute inset-0 w-full h-full object-cover"
+                  className="absolute inset-0 w-full h-full object-cover animate-process-image-zoom"
                 />
 
                 {/* Number */}
-                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center relative z-10 border-2 border-white/30">
+                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center relative z-10 border-2 border-white/30 animate-process-number-glow">
                   <span className="text-black text-2xl font-bold">4</span>
                 </div>
               </div>
