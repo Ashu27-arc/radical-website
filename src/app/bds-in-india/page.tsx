@@ -54,7 +54,7 @@ const universities = [
   },
 ];
 
-export default function MbbsInIndiaPage() {
+export default function BDSInIndiaPage() {
 
     return (
         <>
@@ -109,7 +109,7 @@ export default function MbbsInIndiaPage() {
                         <p className="mb-6">Invite your friends and unlock exclusive benefits—earn more with every successful referral. Invite your friends and unlock exclusive benefits Invite your friends and unlock exclusive Invite your friends and unlock exclusive benefits—earn more with every successful referral. Invite your friends and unlock exclusive benefits Invite your friends and unlock exclusive  Invite your friends and unlock exclusive benefits—earn more with every successful referral. Invite your friends and unlock exclusive benefits Invite your friends and unlock exclusive</p>
                         <p>Invite your friends and unlock exclusive benefits—earn more with every successful referral. Invite your friends and unlock exclusive benefits Invite your friends and unlock exclusive Invite your friends and unlock exclusive benefits—earn more with every successful referral. Invite your friends and unlock exclusive benefits Invite your friends and unlock exclusive  Invite your friends and unlock exclusive benefits—earn more with every successful referral. Invite your friends and unlock exclusive benefits Invite your friends and unlock exclusive</p>
                     </div>
-                    <div className="text-center uppercase text-4xl lg:text-6xl font-black text-[#00CFB240]">CONNECT WITH US</div>
+                    <div className="text-center uppercase text-4xl lg:text-6xl font-black text-[#00CFB240] fadeUp">CONNECT WITH US</div>
                 </div>
             </section>
         </>
