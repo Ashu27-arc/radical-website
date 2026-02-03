@@ -245,7 +245,7 @@ export default function NeetPgIndiaAdmissionPage() {
                         <div className="text-center mt-8">
                             <button
                                 onClick={loadMore}
-                                className="px-6 py-2 rounded-full bg-black text-white text-sm hover:bg-gray-800 transition"
+                                className="px-6 py-2 rounded-full bg-[#005A8B] text-white text-sm hover:bg-[#005A8B] transition"
                             >
                                 View More
                             </button>

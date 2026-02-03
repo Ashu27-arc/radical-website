@@ -341,7 +341,52 @@ export default function AboutUsPage() {
       {/* Who We Are Section */}
       <section className="py-12 md:py-16 bg-[#005A8B] text-white">
         <div className="container mx-auto px-4 md:px-8">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+          {/* Mobile Layout */}
+          <div className="block md:hidden">
+            {/* Title */}
+            <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-center">
+              Who We Are
+            </h2>
+            
+            {/* Image - Mobile: positioned at top with left/right sides visible */}
+            <div className="relative mb-8 -mx-4 px-4">
+              <img 
+                src="/images/about/wave.webp" 
+                alt="Who We Are" 
+                className="w-full h-[200px] sm:h-[250px] object-cover object-center rounded-xl"
+              />
+            </div>
+
+            {/* Content Below Image - Mobile */}
+            <div>
+              <p className="text-sm sm:text-base leading-relaxed mb-6 opacity-90">
+                Radical Education Is Your Go-To Option For Understanding The Complexities Associated With 
+                Higher Education. On Our Website, You Can Find In-Depth Information Regarding Top Universities 
+                Around The World, Making The Process Easier For You.
+              </p>
+
+              <h3 className="text-lg sm:text-xl font-bold mb-4">Our Expertise:</h3>
+              <ul className="space-y-3 text-sm sm:text-base">
+                <li className="flex items-start">
+                  <span className="text-[#00D9A3] mr-2 text-lg">•</span>
+                  <span>Smooth Admissions: Relieve The Stress Of Difficult Applications With Our Specialized Help.</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-[#00D9A3] mr-2 text-lg">•</span>
+                  <span>Top-Notch Education Advisors: Take Advantage Of The Best Education Consultants In Delhi 
+                  Who Specialize In Engineering, Management, And Medical Streams.</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-[#00D9A3] mr-2 text-lg">•</span>
+                  <span>Understanding At Every Step: Gain Clear Explanations Regarding Details Of The Courses, The 
+                  Process Of Enrolling, And Straightforward Tuition Fees.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Desktop Layout - Original grid */}
+          <div className="hidden md:grid md:grid-cols-2 gap-8 md:gap-12 items-center">
             {/* Left Side - Title with Image */}
             <div className="relative">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 text-center">

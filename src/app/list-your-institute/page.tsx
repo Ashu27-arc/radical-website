@@ -301,7 +301,7 @@ export default function InstituteListPage() {
                   onChange={handleInputChange}
                   placeholder="Tell us about your institute"
                   rows={5}
-                  className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-gray-100 placeholder-white/90 focus:outline-none focus:ring-2 focus:ring-white/50 resize-none"
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-gray-100 placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 resize-none"
                   required
                 ></textarea>
                 <div className="mt-3 sm:mt-4">
@@ -335,7 +335,7 @@ export default function InstituteListPage() {
                   value={formData.address.houseNo}
                   onChange={handleInputChange}
                   placeholder="House No./Building No."
-                  className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50 mb-2 sm:mb-3"
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 mb-2 sm:mb-3"
                   required
                 />
                 <input
@@ -344,7 +344,7 @@ export default function InstituteListPage() {
                   value={formData.address.streetLocality}
                   onChange={handleInputChange}
                   placeholder="Street/Locality"
-                  className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50 mb-2 sm:mb-3"
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 mb-2 sm:mb-3"
                   required
                 />
                 <input
@@ -353,7 +353,7 @@ export default function InstituteListPage() {
                   value={formData.address.landmark}
                   onChange={handleInputChange}
                   placeholder="Landmark"
-                  className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50"
+                  className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50"
                   required
                 />
               </div>

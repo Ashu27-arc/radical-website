@@ -14,7 +14,7 @@ export default function RefundPolicyPage() {
                 <div className="container px-3 md:px-4">
                     <div className="flex md:flex-row flex-col gap-6">
                         <div className="w-full md:w-4/10">
-                            <h1 className="lg:text-5xl text-4xl font-bold text-[#0B2E3C] fadeUp">Refund <span className="text-[#2980C4]">Policy</span></h1>
+                            <h1 className="lg:text-5xl text-4xl font-bold text-[#0B2E3C] fadeUp text-center">Refund <span className="text-[#2980C4]">Policy</span></h1>
                             <div className="hidden md:block mt-10 lg:w-[250px] md:w-[200px] fadePopup"><Image src="/images/squreTexcher.webp" alt="" width="" height="" /></div>
                         </div>
                         <div className="w-full md:w-6/10">

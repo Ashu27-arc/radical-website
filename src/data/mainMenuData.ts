@@ -13,7 +13,7 @@ export const mainMenuData: MenuItem[] = [
 
   {
     label: 'Study India',
-    //url: '/medical-in-india/',
+    url: '/study-india/',
     items: [
       {
         label: 'Deemed Universities',

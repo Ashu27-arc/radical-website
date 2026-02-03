@@ -63,18 +63,7 @@ export default function OurTeam() {
             <section className="container mx-auto px-4 -mt-20 md:-mt-96">
                 {/* Founder */}
                 <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center mb-12 md:-mb-[120px]">
-                    <div className="space-y-4 md:space-y-6">
-                        <p className="text-sm text-gray-500 uppercase tracking-wide">Name Of Founder</p>
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">Founder</h2>
-                        <div className="border-l-4 border-teal-500 pl-4 md:pl-6">
-                            <p className="text-gray-600 leading-relaxed text-base md:text-lg">
-                                Write Your Friends And Collabs Exclusive Benefits. Earn More With
-                                Every Successful Referral. Invite Your Friends And Unlock Exclusive
-                                Benefits. Earn More With Every Successful Referral.
-                            </p>
-                        </div>
-                    </div>
-                    <div className="relative h-[350px] md:h-[500px] flex items-center justify-center">
+                    <div className="relative h-[350px] md:h-[500px] flex items-center justify-center md:order-2">
                         <div className="absolute inset-0 flex items-center justify-center">
                             <div className="relative w-[280px] h-[230px] md:w-[400px] md:h-[330px]">
                                 <Image
@@ -113,13 +102,9 @@ export default function OurTeam() {
                             className="absolute right-0 md:right-20 z-10 object-contain mt-20 md:mt-30 mr-0 md:mr-10 w-[120px] md:w-[200px] h-auto"
                         />
                     </div>
-                </div>
-
-                {/* Co-Founder */}
-                <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-                    <div className="space-y-4 md:space-y-6">
-                        <p className="text-sm text-gray-500 uppercase tracking-wide">Name Of Co-Founder</p>
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">Co-Founder</h2>
+                    <div className="space-y-4 md:space-y-6 md:order-1">
+                        <p className="text-sm text-gray-500 uppercase tracking-wide">Name Of Founder</p>
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">Founder</h2>
                         <div className="border-l-4 border-teal-500 pl-4 md:pl-6">
                             <p className="text-gray-600 leading-relaxed text-base md:text-lg">
                                 Write Your Friends And Collabs Exclusive Benefits. Earn More With
@@ -128,7 +113,11 @@ export default function OurTeam() {
                             </p>
                         </div>
                     </div>
-                    <div className="relative h-[350px] md:h-[500px] flex items-center justify-center">
+                </div>
+
+                {/* Co-Founder */}
+                <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center">
+                    <div className="relative h-[350px] md:h-[500px] flex items-center justify-center md:order-2">
                         <div className="absolute inset-0 flex items-center justify-center">
                             <div className="relative w-[280px] h-[230px] md:w-[400px] md:h-[330px]">
                                 <Image
@@ -140,7 +129,7 @@ export default function OurTeam() {
                             </div>
                         </div>
                         
-                        {/* Left side up image */}
+                        {/* Left side image */}
                         <Image
                             src="/images/groups/Group-4.webp"
                             alt="Team Member"
@@ -149,13 +138,13 @@ export default function OurTeam() {
                             className="absolute left-0 md:left-[-10px] top-28 md:top-40 z-10 object-contain w-[110px] md:w-[180px] h-auto"
                         />
                         
-                        {/* Left side down image */}
+                        {/* Right side image */}
                         <Image
                             src="/images/groups/Group-3.webp"
                             alt="Team Member"
                             width={180}
                             height={300}
-                            className="absolute left-20 md:left-40 bottom-4 md:bottom-8 z-10 object-contain w-[110px] md:w-[180px] h-auto"
+                            className="absolute right-0 md:left-40 bottom-4 md:bottom-8 z-10 object-contain w-[110px] md:w-[180px] h-auto"
                         />
                         
                         {/* Center main co-founder image */}
@@ -166,6 +155,17 @@ export default function OurTeam() {
                             height={500}
                             className="relative z-10 object-contain mt-4 md:mt-6 ml-0 md:ml-60 w-[150px] md:w-[250px] h-auto"
                         />
+                    </div>
+                    <div className="space-y-4 md:space-y-6 md:order-1">
+                        <p className="text-sm text-gray-500 uppercase tracking-wide">Name Of Co-Founder</p>
+                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900">Co-Founder</h2>
+                        <div className="border-l-4 border-teal-500 pl-4 md:pl-6">
+                            <p className="text-gray-600 leading-relaxed text-base md:text-lg">
+                                Write Your Friends And Collabs Exclusive Benefits. Earn More With
+                                Every Successful Referral. Invite Your Friends And Unlock Exclusive
+                                Benefits. Earn More With Every Successful Referral.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </section>

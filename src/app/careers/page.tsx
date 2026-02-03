@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 interface JobDetails {
   title: string;
@@ -76,6 +76,68 @@ export default function CareersPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
+
+  const workEnvironmentData = [
+    {
+      image: "/images/careers/work-01.webp",
+      title: "supportive & helping culture",
+      dotColor: "bg-[#005A8B]",
+      titleColor: "text-[#10B65C]"
+    },
+    {
+      image: "/images/careers/work-02.webp",
+      title: "learning-driven & environment",
+      dotColor: "bg-[#005A8B]",
+      titleColor: "text-[#005A8B]"
+    },
+    {
+      image: "/images/careers/work-03.webp",
+      title: "ethical & responsible work practices",
+      dotColor: "bg-[#005A8B]",
+      titleColor: "text-[#00CFB2]"
+    },
+    {
+      image: "/images/careers/work-04.webp",
+      title: "growth-oriented & inclusive space",
+      dotColor: "bg-[#005A8B]",
+      titleColor: "text-[#F48126]"
+    },
+    {
+      image: "/images/careers/work-05.webp",
+      title: "supportive & helping culture",
+      dotColor: "bg-[#005A8B]",
+      titleColor: "text-[#9B59B6]"
+    }
+  ];
+
+  // Check if mobile and setup auto-slide
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768); // md breakpoint
+    };
+
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Auto-slide effect - only for mobile
+  useEffect(() => {
+    if (isMobile) {
+      const interval = setInterval(() => {
+        setCurrentSlide((prev) => (prev + 1) % workEnvironmentData.length);
+      }, 3000); // Change slide every 3 seconds
+
+      return () => clearInterval(interval);
+    }
+  }, [isMobile, workEnvironmentData.length]);
+
+  const goToSlide = (index: number) => {
+    setCurrentSlide(index);
+  };
 
   const openModal = (job: JobDetails) => {
     setSelectedJob(job);
@@ -183,8 +245,17 @@ export default function CareersPage() {
       </section>
 
       {/* Why Work With Us Section */}
-      <section className="py-12 md:py-20 bg-white">
-        <div className="container mx-auto px-4">
+      <section className="py-12 md:py-20 bg-white relative overflow-hidden">
+        {/* Watermark */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <img 
+            src="/logo.webp" 
+            alt="Radical" 
+            className="w-[300px] md:w-[500px] lg:w-[400px] h-auto select-none opacity-10 transform rotate-[-5deg]"
+          />
+        </div>
+        
+        <div className="container mx-auto px-4 relative z-10">
           <h2 className="text-3xl md:text-5xl font-bold text-center mb-8 md:mb-12">
             Why Work With <span className="text-[#287FC4]">Us?</span>
           </h2>
@@ -216,41 +287,65 @@ export default function CareersPage() {
           {/* Horizontal shadow line */}
           <div className="absolute left-0 right-0 top-[280px] md:top-[328px] h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent shadow-sm"></div>
           
-          {/* Scrollable Container - Full Width */}
-          <div className="overflow-x-auto pb-4 scrollbar-hide">
+          {/* Mobile: Slide Animation with Original Layout */}
+          <div className="md:hidden relative overflow-hidden">
+            <div 
+              className="flex transition-transform duration-500 ease-in-out gap-4 min-w-max pl-4"
+              style={{ transform: `translateX(-${currentSlide * 240}px)` }}
+            >
+              {workEnvironmentData.map((item, index) => (
+                <div key={index} className="flex flex-col items-center">
+                  <div className="overflow-visible w-56 flex-shrink-0 relative h-[280px] flex flex-col">
+                    <div className={`relative rounded-t-lg overflow-hidden ${index === 1 || index === 3 ? 'h-32 mt-6' : 'h-44'}`}>
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        className="object-cover object-center"
+                      />
+                    </div>
+                    <div className="flex-1"></div>
+                    {/* Dot positioned at bottom center on shadow line - fully visible */}
+                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 flex justify-center z-10">
+                      <div className={`w-4 h-4 rounded-full ${item.dotColor} shadow-xl ring-2 ring-white`}></div>
+                    </div>
+                  </div>
+                  {/* Title below the card and dot */}
+                  <div className="pt-5 pb-4 text-center">
+                    <h3 className={`text-xs font-medium ${item.titleColor} lowercase`}>
+                      {item.title.includes(' & ') ? (
+                        <>
+                          {item.title.split(' & ')[0]} {item.title === "learning-driven & environment" ? "" : "&"}
+                          <br />
+                          {item.title.split(' & ')[1]}
+                        </>
+                      ) : (
+                        item.title
+                      )}
+                    </h3>
+                  </div>
+                </div>
+              ))}
+            </div>
+            
+            {/* Navigation Dots - Mobile Only */}
+            <div className="flex justify-center mt-6 space-x-2">
+              {workEnvironmentData.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => goToSlide(index)}
+                  className={`w-2 h-2 rounded-full transition-colors duration-300 ${
+                    currentSlide === index ? 'bg-[#287FC4]' : 'bg-gray-300'
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+
+          {/* Desktop: Horizontal Scrolling */}
+          <div className="hidden md:block overflow-x-auto pb-4 scrollbar-hide">
             <div className="flex gap-4 md:gap-6 min-w-max pl-4 lg:pl-[calc((100vw-1280px)/2+1rem)]">
-              {[
-                {
-                  image: "/images/careers/work-01.webp",
-                  title: "supportive & helping culture",
-                  dotColor: "bg-[#005A8B]",
-                  titleColor: "text-[#10B65C]"
-                },
-                {
-                  image: "/images/careers/work-02.webp",
-                  title: "learning-driven & environment",
-                  dotColor: "bg-[#005A8B]",
-                  titleColor: "text-[#005A8B]"
-                },
-                {
-                  image: "/images/careers/work-03.webp",
-                  title: "ethical & responsible work practices",
-                  dotColor: "bg-[#005A8B]",
-                  titleColor: "text-[#00CFB2]"
-                },
-                {
-                  image: "/images/careers/work-04.webp",
-                  title: "growth-oriented & inclusive space",
-                  dotColor: "bg-[#005A8B]",
-                  titleColor: "text-[#F48126]"
-                },
-                {
-                  image: "/images/careers/work-05.webp",
-                  title: "supportive & helping culture",
-                  dotColor: "bg-[#005A8B]",
-                  titleColor: "text-[#9B59B6]"
-                }
-              ].map((item, index) => (
+              {workEnvironmentData.map((item, index) => (
                 <div key={index} className="flex flex-col items-center">
                   <div className="overflow-visible w-56 md:w-72 flex-shrink-0 relative h-[280px] md:h-[328px] flex flex-col">
                     <div className={`relative rounded-t-lg overflow-hidden ${index === 1 || index === 3 ? 'h-32 md:h-40 mt-6 md:mt-8' : 'h-44 md:h-56'}`}>
