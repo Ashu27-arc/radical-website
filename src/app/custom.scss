@@ -17,7 +17,32 @@
 
                         a {
                             white-space: nowrap;
-                            transition: 0.2s ease-in-out;
+                            color: #121212;
+                        }
+                    }
+                }
+            }
+
+            // Services dropdown - simple desktop styling
+            >li:first-child {
+                >ul {
+                    background: #fff;
+                    border: 1px solid #ddd;
+                    padding: 0;
+                    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+                    min-width: 200px;
+
+                    li {
+                        &:hover>a {
+                            background-color: #005A8B;
+                            color: #fff;
+                        }
+
+                        a {
+                            padding: 12px 16px;
+                            font-size: 14px;
+                            line-height: 1.4;
+                            white-space: nowrap;
                             color: #121212;
                         }
                     }
@@ -28,17 +53,18 @@
 }
 
 .hdrBtm .firstLVLmnu ul {
-    border-radius: 6px;
+    border-radius: 0;
 }
 
-.secondLVLmnu>li:first-child>a,
-.thirdLVLmnu>li:first-child>a {
-    border-radius: 6px 6px 0 0;
+// Simple border radius for services dropdown
+.hdrBtm .firstLVLmnu>li:first-child>ul {
+    border-radius: 4px !important;
 }
 
-.secondLVLmnu>li:last-child>a,
-.thirdLVLmnu>li:last-child>a {
-    border-radius: 0 0 6px 6px;
+// Remove border radius overrides for services dropdown
+.hdrBtm .firstLVLmnu>li:first-child>ul>li:first-child>a,
+.hdrBtm .firstLVLmnu>li:first-child>ul>li:last-child>a {
+    border-radius: 0 !important;
 }
 
 .hdrBtm .firstLVLmnu>li:nth-child(2)>ul,
@@ -165,6 +191,7 @@
     background: white;
 }
 
+
 .topInfo a {
     color: #121212;
 }
@@ -234,39 +261,44 @@
             top: 10px;
         }
     }
+
     .p-dialog-content {
         border-radius: 10px;
     }
 }
-.prcCardStyle1{
-    &:after{
+
+.prcCardStyle1 {
+    &:after {
         content: '';
         z-index: -1;
         position: absolute;
         left: 0;
         right: 0;
-        top:0;
+        top: 0;
         bottom: 0;
         background: #fff;
-        background: linear-gradient(0deg,rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 60%, rgba(255, 255, 255, 0) 100%);
+        background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 60%, rgba(255, 255, 255, 0) 100%);
     }
 }
-.blurBtn{
-    background-color: rgba(255,255,255,0.3);
+
+.blurBtn {
+    background-color: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(5px);
     border: 1px solid #fff;
-    &:hover{
+
+    &:hover {
         background-color: #fff;
         color: #005a8b;
     }
 }
-.intereInfoCard{
+
+.intereInfoCard {
     box-shadow:
-  -2px 2px 6px 0px #005A8B1A,
-  -8px 8px 11px 0px #005A8B17,
-  -17px 18px 15px 0px #005A8B0D,
-  -30px 33px 18px 0px #005A8B03,
-  -47px 51px 19px 0px #005A8B00;
+        -2px 2px 6px 0px #005A8B1A,
+        -8px 8px 11px 0px #005A8B17,
+        -17px 18px 15px 0px #005A8B0D,
+        -30px 33px 18px 0px #005A8B03,
+        -47px 51px 19px 0px #005A8B00;
 }
 
 
@@ -274,10 +306,346 @@
     .headerLogo {
         width: 100px;
     }
-    .hdrTop{
+
+    .hdrTop {
         background-color: #ECECEC !important;
+
+        .container {
+            padding-left: 12px;
+            padding-right: 12px;
+        }
+
+        // 50-50 layout for mobile
+        .flex.items-center.justify-between {
+
+            // Logo side - 50%
+            >div:first-child {
+                width: 50%;
+                justify-content: flex-start;
+            }
+
+            // Buttons side - 50%
+            >div:last-child {
+                width: 50%;
+                justify-content: flex-end;
+                gap: 8px;
+            }
+        }
     }
-    .whyChoUs{
+
+    .whyChoUs {
         background-image: url(/images/mob-wcUs.webp) !important;
+    }
+
+    @keyframes slideDown {
+        from {
+            opacity: 0;
+            transform: translateY(-10px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    // Smooth arrow rotation animation with hover effects
+    .pi-angle-up,
+    .pi-angle-down {
+        transition: all 0.2s ease-in-out;
+    }
+
+    // Mobile-specific touch interactions with hover support
+    // Add hover and active states for better feedback
+    .cursor-pointer {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+
+        &:hover {
+            background-color: rgba(0, 90, 139, 0.05);
+        }
+
+        &:active {
+            transform: scale(0.98);
+            transition: transform 0.1s ease-in-out;
+        }
+    }
+
+    // Mobile menu item hover and touch feedback - simple behavior
+    .mobile-menu-level {
+        .cursor-pointer {
+            &:hover {
+                background-color: #f3f4f6;
+            }
+
+            &:active {
+                background-color: #005A8B;
+            }
+        }
+    }
+
+    // Enhanced mobile menu interactions for services
+    .mobile-menu-level {
+        div {
+            position: relative;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+
+            &:active {
+                transition: transform 0.1s ease-in-out !important;
+            }
+        }
+    }
+
+    // Enhanced service card touch effects for mobile
+    .service-card-mobile {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+
+        &:active {
+            transform: translateY(-2px) scale(0.98);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            transition: all 0.1s ease-in-out;
+        }
+    }
+
+    // Mobile button touch effects
+    .mobile-btn-hover {
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+
+        &:active {
+            transform: translateY(-1px) scale(0.98);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            transition: all 0.1s ease-in-out;
+        }
+    }
+
+    // Improve touch targets for mobile
+    .mobile-menu-level li {
+        min-height: 48px; // Minimum touch target size
+
+        .cursor-pointer {
+            min-height: 48px;
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    // Better visual feedback for dropdown toggle
+    .mobile-menu-level .cursor-pointer {
+        position: relative;
+
+        &:hover {
+            &::after {
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: linear-gradient(90deg, transparent, rgba(0, 90, 139, 0.05), transparent);
+                pointer-events: none;
+            }
+        }
+
+        &:active::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 90, 139, 0.1);
+            pointer-events: none;
+        }
+    }
+
+    // Add ripple effect on hover for menu items
+    .mobile-menu-level li {
+        position: relative;
+        overflow: hidden;
+
+        &:hover::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(0, 90, 139, 0.1);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            animation: ripple 0.6s ease-out;
+        }
+    }
+
+    @keyframes ripple {
+        to {
+            width: 300px;
+            height: 300px;
+            opacity: 0;
+        }
+    }
+
+    // Mobile Services Dropdown Styles - simple
+    .mobile-services-dropdown {
+        .bg-gray-50 {
+            background-color: #f8fafc !important;
+        }
+
+        .border-gray-100 {
+            border-color: #f1f5f9 !important;
+        }
+
+        a,
+        div {
+            transition: all 0.2s ease-in-out;
+
+            &:hover {
+                background-color: #005A8B !important;
+                color: #fff !important;
+            }
+
+            &:active {
+                background-color: #004A7A !important;
+            }
+        }
+    }
+}
+
+// Enable touch-based interactions on mobile devices
+@media screen and (max-width: 767px) {
+
+    // Enable active states for interactive elements on mobile
+    .active\:shadow-xl:active {
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+    }
+
+    .active\:shadow-lg:active {
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+    }
+
+    .active\:shadow-md:active {
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+    }
+
+    // Enable scale transforms on mobile touch
+    .active\:scale-105:active {
+        transform: scale(1.05) !important;
+    }
+
+    .active\:scale-110:active {
+        transform: scale(1.1) !important;
+    }
+
+    // Enable opacity changes on mobile touch
+    .active\:opacity-60:active {
+        opacity: 0.6 !important;
+    }
+
+    .active\:opacity-100:active {
+        opacity: 1 !important;
+    }
+
+    // Enable background color changes on mobile touch
+    .active\:bg-gray-50:active {
+        background-color: #f9fafb !important;
+    }
+
+    .active\:bg-blue-700:active {
+        background-color: #1d4ed8 !important;
+    }
+
+    // Enable border color changes on mobile touch
+    .active\:border-gray-300:active {
+        border-color: #d1d5db !important;
+    }
+
+    // Ensure transitions work on mobile
+    .transition-all,
+    .transition-transform,
+    .transition-shadow,
+    .transition-opacity,
+    .transition-colors {
+        transition-property: all, transform, box-shadow, opacity, color, background-color, border-color !important;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
+        transition-duration: 150ms !important;
+    }
+
+    // Enable group active effects on mobile
+    .group:active .group-active\:scale-105 {
+        transform: scale(1.05) !important;
+    }
+
+    .group:active .group-active\:opacity-100 {
+        opacity: 1 !important;
+    }
+
+    .group:active .group-active\:block {
+        display: block !important;
+    }
+
+    // Remove webkit tap highlight for better custom feedback
+    * {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    // Add custom tap highlight for interactive elements
+    button,
+    a,
+    .cursor-pointer,
+    [role="button"] {
+        -webkit-tap-highlight-color: rgba(0, 90, 139, 0.1);
+    }
+}
+
+// Remove animations from desktop - only keep them for mobile
+@media screen and (min-width: 768px) {
+
+    // Disable all Tailwind animations on desktop but keep hover functionality
+    .animate-ping,
+    .animate-bounce,
+    .animate-pulse,
+    .animate-spin,
+    .animate-fadeIn,
+    .animate-infinite-slide-right,
+    .animate-infinite-slide-down,
+    .animate-infinite-slide-up,
+    .animate-infinite-slide-left,
+    .animate-card-tilt-3d,
+    .animate-card-breathe,
+    .animate-card-morph,
+    .animate-card-wave,
+    .animate-card-slide-diagonal,
+    .animate-card-spiral,
+    .animate-process-float,
+    .animate-process-pulse,
+    .animate-process-rotate,
+    .animate-process-image-zoom,
+    .animate-process-number-glow,
+    .animate-process-delay-1,
+    .animate-process-delay-2,
+    .animate-process-delay-3 {
+        animation: none !important;
+    }
+
+    // Disable hover transforms on desktop but keep menu hover functionality
+    [class*="hover:scale-"]:hover,
+    [class*="hover:rotate-"]:hover,
+    [class*="hover:-rotate-"]:hover {
+        transform: none !important;
+    }
+
+    // Disable transition effects on desktop but preserve menu functionality
+    .transition-all:not(.firstLVLmnu *):not(.secondLVLmnu *):not(.thirdLVLmnu *),
+    .transition-transform:not(.firstLVLmnu *):not(.secondLVLmnu *):not(.thirdLVLmnu *),
+    .transition-shadow:not(.firstLVLmnu *):not(.secondLVLmnu *):not(.thirdLVLmnu *) {
+        transition: none !important;
+    }
+
+    // Ensure menu hover states work properly
+    .group:hover [class*="group-hover:block"] {
+        display: block !important;
+    }
+
+    .group\/item:hover [class*="group-hover/item:block"] {
+        display: block !important;
     }
 }

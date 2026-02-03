@@ -14,7 +14,8 @@ export default function ServiceCard({ service }: { service: Service }) {
     <Link href={`/services/${service.slug}`}>
       <div
         className={`relative rounded-2xl md:p-8 py-8 px-2 md:h-[200px] h-[130px] cursor-pointer 
-        ${service.color} shadow-lg hover:shadow-xl transition-all duration-300`}
+        ${service.color} shadow-lg hover:shadow-xl transition-all duration-300 
+        md:hover:transform-none hover:scale-105 active:scale-95`}
       >
         {/* Diamond Icon */}
         <div className="absolute -top-15 left-1/2 -translate-x-1/2">

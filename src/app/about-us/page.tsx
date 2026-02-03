@@ -6,14 +6,68 @@ export default function AboutUsPage() {
       {/* Hero Section */}
       <section className="relative min-h-[500px] md:h-[90vh] md:min-h-[400px] md:max-h-[600px] bg-gradient-to-br from-[#0B5A8E] to-[#1B7AB8] text-white overflow-hidden flex items-center py-8 md:py-0">
         <div className="container mx-auto px-4 md:px-8 w-full">
-          <div className="grid md:grid-cols-2 gap-8 md:gap-6 items-center">
+          {/* Mobile Layout - Heading above image, paragraph below */}
+          <div className="block md:hidden">
+            {/* Heading Only - Mobile */}
+            <div className="mb-8">
+              <p className="text-sm mb-3 opacity-90 text-center">About Us Radical Education</p>
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 leading-tight text-center">
+                Empowering The <br /><span className="text-[#00D9A3]">Next Generation</span> Of Students Empowering
+              </h1>
+            </div>
+
+            {/* Image - Mobile */}
+            <div className="mb-6 relative z-10">
+              <img 
+                src="/images/about/hero.webp" 
+                alt="About Radical Education" 
+                className="w-full sm:w-80 h-48 sm:h-56 object-cover rounded-lg mx-auto"
+              />
+            </div>
+
+            {/* Paragraph Below Image - Mobile */}
+            <div className="mb-8">
+              <div className="border-l-4 border-[#00CFB2] pl-4">
+                <p className="text-base leading-relaxed opacity-90 text-left">
+                  Presenting You A Platform That Presents Different Institutions That Offer Varied Courses<br />
+                  For The Students. Whether You Want To Pursue Your Education In India Or Abroad, Radical<br /> 
+                  Education Is Well-Informed About Every Detail And Eases The Hustle Of The Admission<br /> 
+                  Process. And We Have The Necessary Linkages To Outstanding Educational Resources. We<br /> 
+                  Take Pride In Providing All Of Our Students With Individual Attention And Professional<br /> 
+                  Assistance As They Take Big Steps Towards Their Goals In The Future. Whether you want to<br />
+                  pursue your education in India or abroad, we are well-informed about every detail.
+                </p>
+              </div>
+            </div>
+
+            {/* Stats Grid - Mobile */}
+            <div className="grid grid-cols-2 gap-3 sm:gap-4 relative z-10"> 
+              <div className="text-center rounded-lg p-3 sm:p-4">
+                <h3 className="text-3xl sm:text-4xl font-bold mb-1">100%</h3>
+                <p className="text-xs sm:text-sm opacity-90">Rate of Success</p>
+              </div>
+              <div className="text-center rounded-lg p-3 sm:p-4">
+                <h3 className="text-3xl sm:text-4xl font-bold mb-1">15783+</h3>
+                <p className="text-xs sm:text-sm opacity-90">Student Counselled</p>
+              </div>
+              <div className="text-center rounded-lg p-3 sm:p-4">
+                <h3 className="text-3xl sm:text-4xl font-bold mb-1">12+</h3>
+                <p className="text-xs sm:text-sm opacity-90">Year of Experiences</p>
+              </div>
+              <div className="text-center rounded-lg p-3 sm:p-4">
+                <h3 className="text-3xl sm:text-4xl font-bold mb-1">55+</h3>
+                <p className="text-xs sm:text-sm opacity-90">Team Strength</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Desktop Layout - Original grid */}
+          <div className="hidden md:grid md:grid-cols-2 gap-8 md:gap-6 items-center">
             {/* Left Content */}
-            <div className="order-2 md:order-1">
+            <div>
               <p className="text-sm md:text-sm mb-3 md:mb-2 opacity-90">About Us Radical Education</p>
-              <h1 className="text-3xl sm:text-4xl md:text-3xl lg:text-4xl font-bold mb-4 md:mb-3 leading-tight">
-                Empowering The <span className="text-[#00D9A3]">Next</span><br />
-                <span className="text-[#00D9A3]">Generation</span> Of Students<br />
-                Empowering
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-3 leading-tight">
+                Empowering The <span className="text-[#00D9A3]">Next Generation</span> Of Students
               </h1>
               <div className="border-l-4 border-[#00CFB2] pl-4 md:pl-3 md:pl-4">
                 <p className="text-base md:text-xs md:text-sm leading-relaxed opacity-90">
@@ -29,7 +83,7 @@ export default function AboutUsPage() {
             </div>
 
             {/* Right Stats */}
-            <div className="relative order-1 md:order-2">
+            <div className="relative">
               {/* Image Above Stats */}
               <div className="mb-6 relative z-10">
                 <img 

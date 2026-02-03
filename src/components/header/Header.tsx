@@ -124,7 +124,7 @@ export default function Header() {
                   <Image src='/images/mic.webp' width='40' height='50' alt='' className='absolute right-[-8px] top-0 animate-bounce'/>
                 </button>
               </div>
-              <div className='lg:hidden ml-2'>
+              <div className='lg:hidden'>
                 <button className='btnico cursor-pointer relative' onClick={() => setVisible(true)}><i className='pi pi-bars text-2xl! text-black'></i></button>
               </div>
             </div>

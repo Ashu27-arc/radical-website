@@ -38,7 +38,7 @@ const WHATSAPP_ITEMS = [
   },
   {
     id: 4,
-    title: 'MBBS Abroad Counselling',
+    title: 'Study Abroad Counselling',
     icon: '/images/wp-ico4.svg',
     experts: [
       { name: 'Rahul Malhotra', experience: '9+ Years', phone: '919444444441' },
@@ -105,16 +105,16 @@ export default function FloatingWhatsApp() {
       {view !== 'none' && (
         <div
           className={`
-            fixed bottom-6 z-[102] left-17 z-40 flex items-end
+            fixed bottom-8 z-[102] left-20 z-40 flex items-end
             transform transition-all duration-300 ease-out
             ${animationClass}
           `}
         >
-          <div className='md:min-w-[90px] md:max-w-[90px] min-w-[60px] max-w-[60px]'>
+          {/* <div className='md:min-w-[90px] md:max-w-[90px] min-w-[60px] max-w-[60px]'>
             <Image src='/images/wpLady.webp' alt='' />
-          </div>
+          </div> */}
           {view === 'menu' && (
-            <div className="rounded-[10px_10px_10px_0] shadow-xl overflow-hidden bg-white w-[300px]">
+            <div className="rounded-[10px_10px_10px_0] shadow-xl overflow-hidden bg-white w-[260px] md:w-[300px]">
               <div className="bg-[linear-gradient(90deg,rgba(0,117,148,1)_0%,rgba(99,205,180,1)_100%)] text-white p-4">
                 <h3 className="font-semibold md:text-base text-xs">
                   Welcome To RADICAL EDUCATION
@@ -145,7 +145,7 @@ export default function FloatingWhatsApp() {
             </div>
           )}
           {view === 'detail' && selectedItem && (
-            <div className="rounded-[10px_10px_10px_0] shadow-xl overflow-hidden bg-white w-[300px]">
+            <div className="rounded-[10px_10px_10px_0] shadow-xl overflow-hidden bg-white w-[280px] md:w-[300px]">
               <div className="bg-gradient-to-r from-teal-600 to-green-500 text-white p-4 flex items-center gap-3">
                 <div>
                   <button className='btnico' onClick={() => startTransition('menu')}>

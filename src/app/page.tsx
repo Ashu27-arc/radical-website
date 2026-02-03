@@ -2,14 +2,13 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { InputText } from 'primereact/inputtext';
 import { Button } from 'primereact/button';
 import { AutoComplete, AutoCompleteCompleteEvent } from "primereact/autocomplete";
 import { useState } from 'react';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import NewsMarquee from '@/components/NewsMarquee';
 import StatsCounter from '@/components/home/StatsCounter';
-import ServiceCard from '@/components/home/ServiceCard';
+import ServicesDropdown from '@/components/home/ServicesDropdown';
 import { services } from '@/data/services';
 import CourseCard from '@/components/home/CourseCard';
 import { courses } from '@/data/courses';
@@ -65,7 +64,8 @@ export default function Home() {
         </video>
         <div className='container px-3 md:px-4 lg:px-40 text-center text-white'>
           <h1 className='text-white font-bold text-4xl md:text-6xl leading-11 md:leading-18 md:mb-8 mb-4 fadeUp'>Secure Your Medical Seat With Expert Assistance</h1>
-          <div className='text-lg lg:px-16 px-3 md:mb-12 mb-8 fadeUp'>I designed a web UI for an AI-powered HR Co-Pilot that helps HRs generate job descriptions and screen resumes with AI suggestions, </div>
+          <div className='text-lg lg:px-16 px-3 md:mb-12 mb-8 fadeUp'>Get complete guidance, accurate information, and counseling <br />
+          suited to you and your dreams.</div>
           <div className="p-inputgroup bannersrch mx-auto lg:max-w-[800px] fadeUp">
             <span className="p-inputgroup-addon pr-0! border-r-0! bg-white! shadow-none! border-[#fff]!">
               <i className="pi pi-search"></i>
@@ -88,7 +88,7 @@ export default function Home() {
                   <span className="absolute left-[-20px] top-0 bottom-0 w-[2px] bg-[#00CFB2]" />
                   <div>Presenting you a platform that presents different Institutions that offer varied courses for the students. Whether you want to pursue your education in India or abroad, Radical Education..</div>
                 </div>
-                <Link href="#">
+                <Link href="/about-us">
                   <Button className='bg-[#005A8B]! border-[#005A8B]! py-2.5! pr-3! gap-2' rounded>
                     <span>Read more</span>
                     <i>
@@ -118,11 +118,7 @@ export default function Home() {
               <div>With trusted experts and real-time updates, we help you navigate NEET counselling easily</div>
             </div>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-26 md:gap-x-10 gap-x-5 fadeUp">
-            {services.map((service) => (
-              <ServiceCard key={service.slug} service={service} />
-            ))}
-          </div>
+          <ServicesDropdown services={services} />
         </div>
       </section>
       <section className='py-16 bg-cover bg-center bg-no-repeat bg-[#005A8B] overflow-hidden' style={{ backgroundImage: "url('/images/courseBg.webp')" }}>
