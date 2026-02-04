@@ -136,10 +136,10 @@ export default function MBBSAbroadAdmission() {
     return (
         <div className="min-h-screen">
             {/* Hero Section */}
-            <section className="relative bg-gradient-to-r from-[#0B5A7D] to-[#0E7BA8] py-6 sm:py-8 md:py-12 lg:py-20 overflow-hidden">
-                <div className="absolute inset-0 opacity-40">
+            <section className="relative bg-gradient-to-r from-[#0B5A7D] to-[#0E7BA8] py-8 sm:py-12 md:py-16 lg:py-20 overflow-hidden">
+                <div className="absolute inset-0 opacity-30 sm:opacity-40">
                     {/* Left Bottom Corner Image */}
-                    <div className="absolute -bottom-10 sm:-bottom-20 md:-bottom-30 left-0 w-16 h-16 sm:w-24 sm:h-24 md:w-40 md:h-40 lg:w-80 lg:h-80 xl:w-96 xl:h-96">
+                    <div className="absolute -bottom-5 sm:-bottom-10 md:-bottom-20 lg:-bottom-30 left-0 w-12 h-12 sm:w-16 sm:h-16 md:w-24 md:h-24 lg:w-40 lg:h-40 xl:w-80 xl:h-80 2xl:w-96 2xl:h-96">
                         <Image
                             src="/images/study-abroad/left.webp"
                             alt="Decorative"
@@ -150,7 +150,7 @@ export default function MBBSAbroadAdmission() {
                     </div>
                     
                     {/* Right Top Corner Image */}
-                    <div className="absolute top-0 right-0 w-16 h-16 sm:w-24 sm:h-24 md:w-40 md:h-40 lg:w-80 lg:h-80 xl:w-96 xl:h-96">
+                    <div className="absolute -top-2 sm:top-0 right-0 w-12 h-12 sm:w-16 sm:h-16 md:w-24 md:h-24 lg:w-40 lg:h-40 xl:w-80 xl:h-80 2xl:w-96 2xl:h-96">
                         <Image
                             src="/images/study-abroad/right.webp"
                             alt="Decorative"
@@ -161,18 +161,18 @@ export default function MBBSAbroadAdmission() {
                     </div>
                 </div>
 
-                <div className="container mx-auto px-3 sm:px-4 md:px-6 relative z-10">
+                <div className="container mx-auto px-4 sm:px-6 md:px-8 relative z-10">
                     <div className="max-w-4xl mx-auto text-center">
-                        <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-2 sm:mb-3 md:mb-4 lg:mb-6">
+                        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 md:mb-8">
                             STUDY <span className="text-[#4FC3F7]">ABROAD</span>
                         </h1>
-                        <p className="text-white/90 text-xs sm:text-sm md:text-base lg:text-lg mb-3 sm:mb-4 md:mb-6 lg:mb-8 px-1 sm:px-2 md:px-4 leading-relaxed">
+                        <p className="text-white/90 text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8 md:mb-10 px-2 sm:px-4 md:px-6 leading-relaxed">
                             I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps Info
                             Generate Job Descriptions And Screen Resumes
                         </p>
 
                         {/* World Map */}
-                        <div className="relative max-w-3xl mx-auto px-1 sm:px-2 md:px-4">
+                        <div className="relative max-w-3xl mx-auto px-2 sm:px-4 md:px-6">
                             <Image
                                 src="/images/study-abroad/worldMap.webp"
                                 alt="World Map"
@@ -186,8 +186,8 @@ export default function MBBSAbroadAdmission() {
             </section>
 
             {/* University Logos Section */}
-            <section className="bg-white py-3 sm:py-4 md:py-6 lg:py-8">
-                <div className="container mx-auto px-3 sm:px-4 md:px-6">
+            <section className="bg-white py-4 sm:py-6 md:py-8">
+                <div className="container mx-auto px-4 sm:px-6 md:px-8">
                     <div className="flex items-center justify-center overflow-hidden">
                         <Image
                             src="/images/study-abroad/logoImages.webp"
@@ -201,18 +201,18 @@ export default function MBBSAbroadAdmission() {
             </section>
 
             {/* Countries Section */}
-            <section className="py-12 md:py-16">
-                <div className="container mx-auto px-4">
-                    <div className="mb-8 md:mb-12 flex flex-col md:flex-row items-start justify-between gap-4">
+            <section className="py-8 sm:py-12 md:py-16">
+                <div className="container mx-auto px-4 sm:px-6 md:px-8">
+                    <div className="mb-6 sm:mb-8 md:mb-12 flex flex-col md:flex-row items-start justify-between gap-4">
                         <div>
-                            <p className="text-gray-600 text-xs md:text-sm uppercase tracking-wider mb-2">
+                            <p className="text-gray-600 text-xs sm:text-sm md:text-base uppercase tracking-wider mb-2">
                                 COUNTRIES
                             </p>
-                            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-[#0B2E3C]">
+                            <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#0B2E3C]">
                                 Country <span className="text-[#287FC4]">We Serve</span>
                             </h2>
                         </div>
-                        <p className="text-gray-600 text-sm md:text-base max-w-2xl leading-relaxed md:mt-8">
+                        <p className="text-gray-600 text-sm sm:text-base md:text-lg max-w-2xl leading-relaxed md:mt-8">
                             I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps
                             <br className="hidden md:block" />
                             Info Generate Job Descriptions And Screen Resumes
@@ -220,7 +220,7 @@ export default function MBBSAbroadAdmission() {
                     </div>
 
                     {/* Country Cards Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                         {countries.slice(0, 6).map((country) => (
                             <Link
                                 key={country.id}
@@ -229,27 +229,27 @@ export default function MBBSAbroadAdmission() {
                             >
                                 <div className="bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden aspect-square flex flex-col cursor-pointer">
                                     {/* Card Header */}
-                                    <div className="p-3 flex items-center justify-between border-b flex-shrink-0">
-                                        <div className="flex items-center gap-2">
-                                            <div className="w-8 h-8 rounded-full overflow-hidden border-2 border-gray-200">
+                                    <div className="p-3 sm:p-4 flex items-center justify-between border-b flex-shrink-0">
+                                        <div className="flex items-center gap-2 sm:gap-3">
+                                            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden border-2 border-gray-200">
                                                 <Image
                                                     src={country.flag}
                                                     alt={country.name}
-                                                    width={32}
-                                                    height={32}
-                                                    className="w-full h-full object-conttain"
+                                                    width={40}
+                                                    height={40}
+                                                    className="w-full h-full object-contain"
                                                 />
                                             </div>
                                             <div>
-                                                <h3 className="font-bold text-gray-900 text-sm">
+                                                <h3 className="font-bold text-gray-900 text-sm sm:text-base">
                                                     {country.name}
                                                 </h3>
-                                                <p className="text-xs text-gray-500">Just now</p>
+                                                <p className="text-xs sm:text-sm text-gray-500">Just now</p>
                                             </div>
                                         </div>
                                         <button className="text-gray-400 hover:text-gray-600">
                                             <svg
-                                                className="w-5 h-5"
+                                                className="w-5 h-5 sm:w-6 sm:h-6"
                                                 fill="currentColor"
                                                 viewBox="0 0 20 20"
                                             >
@@ -271,9 +271,9 @@ export default function MBBSAbroadAdmission() {
                                     </div>
 
                                     {/* Card Footer */}
-                                    <div className="p-3 flex-shrink-0">
+                                    <div className="p-3 sm:p-4 flex-shrink-0">
                                         {/* Engagement Stats */}
-                                        <div className="flex items-center gap-3 mb-2 text-sm text-gray-600">
+                                        <div className="flex items-center gap-2 sm:gap-3 mb-2 text-sm text-gray-600">
                                             <button className="flex items-center gap-1 hover:text-red-500 transition-colors">
                                                 <svg
                                                     className="w-4 h-4"
@@ -346,19 +346,19 @@ export default function MBBSAbroadAdmission() {
                                                 {country.users.map((user, idx) => (
                                                     <div
                                                         key={idx}
-                                                        className="w-6 h-6 rounded-full overflow-hidden border-2 border-white"
+                                                        className="w-6 h-6 sm:w-7 sm:h-7 rounded-full overflow-hidden border-2 border-white"
                                                     >
                                                         <Image
                                                             src={user.avatar}
                                                             alt={user.name}
-                                                            width={24}
-                                                            height={24}
+                                                            width={28}
+                                                            height={28}
                                                             className="w-full h-full object-cover"
                                                         />
                                                     </div>
                                                 ))}
                                             </div>
-                                            <p className="text-xs text-gray-600 line-clamp-1">
+                                            <p className="text-xs sm:text-sm text-gray-600 line-clamp-1">
                                                 Liked By{" "}
                                                 <span className="font-semibold">
                                                     {country.users[0].name}
@@ -368,7 +368,7 @@ export default function MBBSAbroadAdmission() {
                                         </div>
 
                                         {/* Description */}
-                                        <p className="text-xs text-gray-600 line-clamp-4">
+                                        <p className="text-xs sm:text-sm text-gray-600 line-clamp-3 sm:line-clamp-4">
                                             {country.description}
                                         </p>
                                     </div>
@@ -378,8 +378,8 @@ export default function MBBSAbroadAdmission() {
                     </div>
 
                     {/* Bangladesh Card - Centered */}
-                    <div className="flex justify-center mt-6">
-                        <div className="w-full md:w-1/2 lg:w-1/3">
+                    <div className="flex justify-center mt-4 sm:mt-6">
+                        <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/3">
                             {countries.slice(6, 7).map((country) => (
                                 <Link
                                     key={country.id}
@@ -388,27 +388,27 @@ export default function MBBSAbroadAdmission() {
                                 >
                                     <div className="bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden aspect-square flex flex-col cursor-pointer">
                                         {/* Card Header */}
-                                        <div className="p-3 flex items-center justify-between border-b flex-shrink-0">
-                                            <div className="flex items-center gap-2">
-                                                <div className="w-8 h-8 rounded-full overflow-hidden border-2 border-gray-200">
+                                        <div className="p-3 sm:p-4 flex items-center justify-between border-b flex-shrink-0">
+                                            <div className="flex items-center gap-2 sm:gap-3">
+                                                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden border-2 border-gray-200">
                                                     <Image
                                                         src={country.flag}
                                                         alt={country.name}
-                                                        width={32}
-                                                        height={32}
+                                                        width={40}
+                                                        height={40}
                                                         className="w-full h-full object-cover"
                                                     />
                                                 </div>
                                                 <div>
-                                                    <h3 className="font-bold text-gray-900 text-sm">
+                                                    <h3 className="font-bold text-gray-900 text-sm sm:text-base">
                                                         {country.name}
                                                     </h3>
-                                                    <p className="text-xs text-gray-500">Just now</p>
+                                                    <p className="text-xs sm:text-sm text-gray-500">Just now</p>
                                                 </div>
                                             </div>
                                             <button className="text-gray-400 hover:text-gray-600">
                                                 <svg
-                                                    className="w-5 h-5"
+                                                    className="w-5 h-5 sm:w-6 sm:h-6"
                                                     fill="currentColor"
                                                     viewBox="0 0 20 20"
                                                 >
@@ -430,9 +430,9 @@ export default function MBBSAbroadAdmission() {
                                         </div>
 
                                         {/* Card Footer */}
-                                        <div className="p-3 flex-shrink-0">
+                                        <div className="p-3 sm:p-4 flex-shrink-0">
                                             {/* Engagement Stats */}
-                                            <div className="flex items-center gap-3 mb-2 text-sm text-gray-600">
+                                            <div className="flex items-center gap-2 sm:gap-3 mb-2 text-sm text-gray-600">
                                                 <button className="flex items-center gap-1 hover:text-red-500 transition-colors">
                                                     <svg
                                                         className="w-4 h-4"
@@ -505,19 +505,19 @@ export default function MBBSAbroadAdmission() {
                                                     {country.users.map((user, idx) => (
                                                         <div
                                                             key={idx}
-                                                            className="w-6 h-6 rounded-full overflow-hidden border-2 border-white"
+                                                            className="w-6 h-6 sm:w-7 sm:h-7 rounded-full overflow-hidden border-2 border-white"
                                                         >
                                                             <Image
                                                                 src={user.avatar}
                                                                 alt={user.name}
-                                                                width={24}
-                                                                height={24}
+                                                                width={28}
+                                                                height={28}
                                                                 className="w-full h-full object-cover"
                                                             />
                                                         </div>
                                                     ))}
                                                 </div>
-                                                <p className="text-xs text-gray-600 line-clamp-1">
+                                                <p className="text-xs sm:text-sm text-gray-600 line-clamp-1">
                                                     Liked By{" "}
                                                     <span className="font-semibold">
                                                         {country.users[0].name}
@@ -527,7 +527,7 @@ export default function MBBSAbroadAdmission() {
                                             </div>
 
                                             {/* Description */}
-                                            <p className="text-xs text-gray-600 line-clamp-4">
+                                            <p className="text-xs sm:text-sm text-gray-600 line-clamp-3 sm:line-clamp-4">
                                                 {country.description}
                                             </p>
                                         </div>
@@ -539,26 +539,26 @@ export default function MBBSAbroadAdmission() {
                 </div>
             </section>
             {/* Why Abroad Section */}
-            <section className="py-12 md:py-16 bg-[#005A8B] relative overflow-hidden mx-4 md:mx-8 lg:mx-30 rounded-2xl">
+            <section className="py-8 sm:py-12 md:py-16 bg-[#005A8B] relative overflow-hidden mx-2 sm:mx-4 md:mx-8 lg:mx-20 xl:mx-30 rounded-2xl">
                 {/* Top Left Corner Image - Outside opacity div */}
-                <div className="absolute -top-35 left-5 w-80 h-80 sm:w-96 sm:h-96 md:w-[28rem] md:h-[28rem] lg:w-[25rem] lg:h-[25rem] z-10">
+                <div className="absolute -top-10 sm:-top-20 md:-top-35 left-2 sm:left-5 w-20 h-20 sm:w-40 sm:h-40 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-96 xl:h-96 z-10">
                     <Image
                         src="/images/study-abroad/left.webp"
                         alt="Decorative"
                         width={400}
                         height={400}
-                        className="w-full h-full object-left opacity-80 drop-shadow-lg"
+                        className="w-full h-full object-left opacity-60 sm:opacity-80 drop-shadow-lg"
                     />
                 </div>
                 
                 {/* Bottom Right Corner Image - Outside opacity div */}
-                <div className="absolute -bottom-30 right-0 w-80 h-80 sm:w-96 sm:h-96 md:w-[28rem] md:h-[28rem] lg:w-[25rem] lg:h-[25rem] z-10">
+                <div className="absolute -bottom-10 sm:-bottom-20 md:-bottom-30 right-0 w-20 h-20 sm:w-40 sm:h-40 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-96 xl:h-96 z-10">
                     <Image
                         src="/images/study-abroad/right.webp"
                         alt="Decorative"
                         width={400}
                         height={400}
-                        className="w-full h-full object-cover opacity-80 drop-shadow-lg"
+                        className="w-full h-full object-cover opacity-60 sm:opacity-80 drop-shadow-lg"
                     />
                 </div>
 
@@ -568,13 +568,13 @@ export default function MBBSAbroadAdmission() {
                     </div> */}
                 </div>
 
-                <div className="container mx-auto px-4 md:px-6 relative z-10">
+                <div className="container mx-auto px-4 sm:px-6 md:px-8 relative z-10">
                     <div className="max-w-4xl mx-auto">
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center mb-8 md:mb-12">
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center mb-6 sm:mb-8 md:mb-12">
                             Why <span className="text-[#4FC3F7]">Abroad</span>
                         </h2>
 
-                        <div className="space-y-4 md:space-y-6 text-sm md:text-base">
+                        <div className="space-y-3 sm:space-y-4 md:space-y-6 text-sm sm:text-base md:text-lg">
                             <p className="text-white/90 leading-relaxed">
                                 I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps HRs Generate Job Descriptions And Screen Resumes With AI Suggestions, I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps HRs Generate Job Descriptions And Screen Resumes With AI Suggestions, I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps
                             </p>
@@ -588,14 +588,14 @@ export default function MBBSAbroadAdmission() {
             </section>
 
             {/* Cost Breakdown Section */}
-            <section className="py-12 md:py-16 bg-gradient-to-br from-blue-50 to-blue-100 px-4 sm:px-6 md:px-8 lg:px-20">
-                <div className="container mx-auto px-2 md:px-6">
+            <section className="py-8 sm:py-12 md:py-16 bg-gradient-to-br from-blue-50 to-blue-100 px-2 sm:px-4 md:px-8 lg:px-20">
+                <div className="container mx-auto px-2 sm:px-4 md:px-6">
                     <div className="max-w-5xl mx-auto">
-                        <div className="text-center mb-8 md:mb-12">
-                            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#0B2E3C] mb-3 md:mb-4">
+                        <div className="text-center mb-6 sm:mb-8 md:mb-12">
+                            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#0B2E3C] mb-3 md:mb-4">
                                 Cost Breakdown
                             </h2>
-                            <p className="text-gray-600 text-sm md:text-base px-4">
+                            <p className="text-gray-600 text-sm sm:text-base md:text-lg px-2 sm:px-4">
                                 I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps HRs
                                 <br className="hidden md:block" />
                                 Generate Job Descriptions And Screen Resumes
@@ -604,23 +604,23 @@ export default function MBBSAbroadAdmission() {
 
                         {/* Cost Table */}
                         <div className="bg-white rounded-xl md:rounded-2xl shadow-lg overflow-x-auto">
-                            <div className="min-w-[600px]">
+                            <div className="min-w-[500px] sm:min-w-[600px]">
                                 {/* Table Header */}
-                                <div className="grid grid-cols-4 bg-[#F5B800] text-[#0B2E3C] font-bold text-xs md:text-base">
-                                    <div className="p-2 md:p-4 text-center border-r border-[#E5A800]">Country</div>
-                                    <div className="p-2 md:p-4 text-center border-r border-[#E5A800]">Academic</div>
-                                    <div className="p-2 md:p-4 text-center border-r border-[#E5A800]">Hostel & Mesh</div>
-                                    <div className="p-2 md:p-4 text-center">Total</div>
+                                <div className="grid grid-cols-4 bg-[#F5B800] text-[#0B2E3C] font-bold text-xs sm:text-sm md:text-base">
+                                    <div className="p-2 sm:p-3 md:p-4 text-center border-r border-[#E5A800]">Country</div>
+                                    <div className="p-2 sm:p-3 md:p-4 text-center border-r border-[#E5A800]">Academic</div>
+                                    <div className="p-2 sm:p-3 md:p-4 text-center border-r border-[#E5A800]">Hostel & Mesh</div>
+                                    <div className="p-2 sm:p-3 md:p-4 text-center">Total</div>
                                 </div>
 
                                 {/* Table Rows */}
                                 {[1, 2, 3, 4].map((row) => (
                                     <div
                                         key={row}
-                                        className="grid grid-cols-4 border-b border-gray-200 hover:bg-gray-50 transition-colors text-xs md:text-base"
+                                        className="grid grid-cols-4 border-b border-gray-200 hover:bg-gray-50 transition-colors text-xs sm:text-sm md:text-base"
                                     >
-                                        <div className="p-2 md:p-4 flex items-center gap-2 md:gap-3">
-                                            <div className="w-8 h-8 md:w-10 md:h-10 rounded-full overflow-hidden flex-shrink-0">
+                                        <div className="p-2 sm:p-3 md:p-4 flex items-center gap-2 md:gap-3">
+                                            <div className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded-full overflow-hidden flex-shrink-0">
                                                 <Image
                                                     src="/images/georgia.webp"
                                                     alt="Germany Flag"
@@ -629,15 +629,15 @@ export default function MBBSAbroadAdmission() {
                                                     className="w-full h-full object-cover"
                                                 />
                                             </div>
-                                            <span className="text-gray-600 font-medium">GERMANY</span>
+                                            <span className="text-gray-600 font-medium text-xs sm:text-sm">GERMANY</span>
                                         </div>
-                                        <div className="p-2 md:p-4 text-center text-gray-700 flex items-center justify-center">
+                                        <div className="p-2 sm:p-3 md:p-4 text-center text-gray-700 flex items-center justify-center">
                                             ₹ 24,999
                                         </div>
-                                        <div className="p-2 md:p-4 text-center text-gray-700 flex items-center justify-center">
+                                        <div className="p-2 sm:p-3 md:p-4 text-center text-gray-700 flex items-center justify-center">
                                             ₹ 24,999
                                         </div>
-                                        <div className="p-2 md:p-4 text-center text-gray-700 font-semibold flex items-center justify-center">
+                                        <div className="p-2 sm:p-3 md:p-4 text-center text-gray-700 font-semibold flex items-center justify-center">
                                             ₹ 24,999
                                         </div>
                                     </div>
@@ -649,13 +649,13 @@ export default function MBBSAbroadAdmission() {
             </section>
 
             {/* Notes */}
-            <section className="container mx-auto px-4 md:px-6 lg:px-20 mb-12 md:mb-20">
+            <section className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-20 mb-8 sm:mb-12 md:mb-20">
                 <div className="max-w-5xl mx-auto">
-                    <div className="mt-6 bg-white border-2 border-dashed border-gray-300 rounded-xl p-4 md:p-6">
+                    <div className="mt-4 sm:mt-6 bg-white border-2 border-dashed border-gray-300 rounded-xl p-3 sm:p-4 md:p-6">
                         <div className="space-y-2">
                             <div className="flex items-start gap-2">
-                                <span className="text-red-500 font-bold flex-shrink-0 text-sm md:text-base">Note:-</span>
-                                <div className="space-y-1 text-sm md:text-base">
+                                <span className="text-red-500 font-bold flex-shrink-0 text-sm sm:text-base md:text-lg">Note:-</span>
+                                <div className="space-y-1 text-xs sm:text-sm md:text-base">
                                     <p className="text-green-600">
                                         1. This Service Charge Includes The Visa Charges But Does Not Cover The Ticket Charges.
                                     </p>

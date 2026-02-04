@@ -4,51 +4,51 @@ import { useState } from "react";
 
 export default function MBBSDeemedCollegesPage() {
     return (
-        <div className="py-10">
-            <div className="max-w-7xl mx-auto px-4 grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <div className="py-4 sm:py-6 lg:py-10">
+            <div className="max-w-7xl mx-auto px-2 sm:px-4 grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
 
                 {/* LEFT CONTENT */}
-                <div className="lg:col-span-2 bg-gray-100 rounded-xl p-6">
-                    <span className="text-sm text-emerald-500 font-semibold">
+                <div className="lg:col-span-2 bg-gray-100 rounded-lg sm:rounded-xl p-3 sm:p-4 lg:p-6">
+                    <span className="text-xs sm:text-sm text-emerald-500 font-semibold">
                         Educational
                     </span>
 
-                    <h1 className="text-2xl md:text-3xl font-bold text-gray-900 mt-2">
+                    <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-900 mt-2 leading-tight">
                         MBBS Deemed Colleges in India 2025–2026: Fees, Cutoff & Admission
                     </h1>
 
-                    <p className="text-sm text-gray-500 mt-1">
+                    <p className="text-xs sm:text-sm text-gray-500 mt-1">
                         Danish Farzan • 19 Jan 2022
                     </p>
 
                     {/* IMAGE */}
-                    <div className="mt-6">
+                    <div className="mt-4 sm:mt-6">
                         <Image
                             src="/images/deemed/bg.webp"
                             alt="MBBS Deemed Colleges in India"
                             width={1200}
                             height={600}
-                            className="w-full h-[350px] object-cover rounded-xl"
+                            className="w-full h-[180px] sm:h-[220px] md:h-[280px] lg:h-[350px] object-cover rounded-lg sm:rounded-xl"
                             priority
                         />
                     </div>
 
                     {/* CONTENT */}
-                    <div className="mt-6 text-gray-700 leading-relaxed text-sm space-y-4">
+                    <div className="mt-4 sm:mt-6 text-gray-700 leading-relaxed text-xs sm:text-sm space-y-3 sm:space-y-4">
                         {/* Paragraphs with watermark background */}
-                        <div className="relative p-6 rounded-lg overflow-hidden">
+                        <div className="relative p-3 sm:p-4 lg:p-6 rounded-lg overflow-hidden">
                             {/* Watermark background image */}
                             <div 
-                                className="absolute inset-0 bg-no-repeat bg-center pointer-events-none"
+                                className="absolute inset-0 bg-no-repeat bg-center pointer-events-none opacity-30 sm:opacity-50"
                                 style={{
                                     backgroundImage: "url('/images/deemed/Radical-Logo.webp')",
-                                    backgroundSize: "400px",
+                                    backgroundSize: "200px sm:300px lg:400px",
                                     zIndex: 0
                                 }}
                             ></div>
                             
                             {/* Content with relative positioning to appear above watermark */}
-                            <div className="relative z-10 space-y-4">
+                            <div className="relative z-10 space-y-3 sm:space-y-4">
                                 <p>
                                     Invite Your Friends And Unlock Exclusive Benefits—Earn More With
                                     Every Successful Referral. Invite Your Friends And Unlock
@@ -74,10 +74,10 @@ export default function MBBSDeemedCollegesPage() {
                             alt="NEET 2025 Latest Updates"
                             width={800}
                             height={200}
-                            className="w-full object-contain my-6"
+                            className="w-full object-contain my-4 sm:my-6"
                         />
 
-                        <h2 className="text-xl font-bold text-blue-600 mt-8 mb-4">
+                        <h2 className="text-base sm:text-lg lg:text-xl font-bold text-blue-600 mt-6 sm:mt-8 mb-3 sm:mb-4">
                             List of Private Medical colleges in Bihar is given in the table below
                         </h2>
 
@@ -85,30 +85,34 @@ export default function MBBSDeemedCollegesPage() {
                         <div className="relative overflow-x-auto">
                             {/* Watermark background image */}
                             <div 
-                                className="absolute inset-0 bg-no-repeat bg-center pointer-events-none opacity-1"
+                                className="absolute inset-0 bg-no-repeat bg-center pointer-events-none opacity-20 sm:opacity-30 lg:opacity-50"
                                 style={{
                                     backgroundImage: "url('/images/deemed/Radical-Logo.webp')",
-                                    backgroundSize: "400px",
+                                    backgroundSize: "200px sm:300px lg:400px",
                                     zIndex: 0
                                 }}
                             ></div>
                             
                             {/* Table with relative positioning to appear above watermark */}
                             <div className="relative z-10">
-                                <table className="w-full border-collapse border border-gray-300">
+                                <table className="w-full border-collapse border border-gray-300 text-xs sm:text-sm">
                                     <thead>
                                         <tr className="bg-[#E1F2FF]">
-                                            <th className="border border-gray-300 px-4 py-2 text-left">S.NO</th>
-                                            <th className="border border-gray-300 px-4 py-2 text-left">NAME of the College</th>
-                                            <th className="border border-gray-300 px-4 py-2 text-left">
+                                            <th className="border border-gray-300 px-2 sm:px-3 lg:px-4 py-2 text-left">S.NO</th>
+                                            <th className="border border-gray-300 px-2 sm:px-3 lg:px-4 py-2 text-left">NAME of the College</th>
+                                            <th className="border border-gray-300 px-2 sm:px-3 lg:px-4 py-2 text-left">
                                                 <div className="flex items-center gap-1">
-                                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                    <svg width="12" height="12" className="sm:w-4 sm:h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="black"/>
                                                     </svg>
-                                                    Location
+                                                    <span className="hidden sm:inline">Location</span>
+                                                    <span className="sm:hidden">Loc.</span>
                                                 </div>
                                             </th>
-                                            <th className="border border-gray-300 px-4 py-2 text-left">Detailed Overview</th>
+                                            <th className="border border-gray-300 px-2 sm:px-3 lg:px-4 py-2 text-left">
+                                                <span className="hidden sm:inline">Detailed Overview</span>
+                                                <span className="sm:hidden">Details</span>
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody className="bg-white">
@@ -124,10 +128,10 @@ export default function MBBSDeemedCollegesPage() {
                                             { name: "Himalaya Medical College and Hospital", location: "Jolly Grant", logo: "/images/deemed/logos/09.webp" }
                                         ].map((college, index) => (
                                             <tr key={index} className="hover:bg-white-50">
-                                                <td className="border border-gray-300 px-4 py-2">{index + 1}</td>
-                                                <td className="border border-gray-300 px-4 py-2">
-                                                    <div className="flex items-center gap-2">
-                                                        <div className="w-8 h-8 rounded-full overflow-hidden flex items-center justify-center">
+                                                <td className="border border-gray-300 px-2 sm:px-3 lg:px-4 py-2">{index + 1}</td>
+                                                <td className="border border-gray-300 px-2 sm:px-3 lg:px-4 py-2">
+                                                    <div className="flex items-center gap-1 sm:gap-2">
+                                                        <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0">
                                                             <Image
                                                                 src={college.logo}
                                                                 alt={`${college.name} logo`}
@@ -136,12 +140,15 @@ export default function MBBSDeemedCollegesPage() {
                                                                 className="w-full h-full object-cover"
                                                             />
                                                         </div>
-                                                        {college.name}
+                                                        <span className="text-xs sm:text-sm leading-tight">{college.name}</span>
                                                     </div>
                                                 </td>
-                                                <td className="border border-gray-300 px-4 py-2">{college.location}</td>
-                                                <td className="border border-gray-300 px-4 py-2">
-                                                    <button className="text-blue-600 hover:underline">Click Here</button>
+                                                <td className="border border-gray-300 px-2 sm:px-3 lg:px-4 py-2">{college.location}</td>
+                                                <td className="border border-gray-300 px-2 sm:px-3 lg:px-4 py-2">
+                                                    <button className="text-blue-600 hover:underline text-xs sm:text-sm">
+                                                        <span className="hidden sm:inline">Click Here</span>
+                                                        <span className="sm:hidden">View</span>
+                                                    </button>
                                                 </td>
                                             </tr>
                                         ))}
@@ -149,25 +156,29 @@ export default function MBBSDeemedCollegesPage() {
                                 </table>
                             </div>
                         </div>
-                        <h2 className="text-xl font-bold text-blue-600 mt-8 mb-4">
+                        <h2 className="text-base sm:text-lg lg:text-xl font-bold text-blue-600 mt-6 sm:mt-8 mb-3 sm:mb-4">
                             List of Government Medical colleges in Bihar is given in the table below
                         </h2>
                         {/* Government Colleges Table */}
                         <div className="overflow-x-auto">
-                            <table className="w-full border-collapse border border-gray-300">
+                            <table className="w-full border-collapse border border-gray-300 text-xs sm:text-sm">
                                 <thead>
                                     <tr className="bg-[#E1F2FF]">
-                                        <th className="border border-gray-300 px-4 py-2 text-left">S.NO</th>
-                                        <th className="border border-gray-300 px-4 py-2 text-left">NAME of the College</th>
-                                        <th className="border border-gray-300 px-4 py-2 text-left">
+                                        <th className="border border-gray-300 px-2 sm:px-3 lg:px-4 py-2 text-left">S.NO</th>
+                                        <th className="border border-gray-300 px-2 sm:px-3 lg:px-4 py-2 text-left">NAME of the College</th>
+                                        <th className="border border-gray-300 px-2 sm:px-3 lg:px-4 py-2 text-left">
                                             <div className="flex items-center gap-1">
-                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <svg width="12" height="12" className="sm:w-4 sm:h-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="black"/>
                                                 </svg>
-                                                Location
+                                                <span className="hidden sm:inline">Location</span>
+                                                <span className="sm:hidden">Loc.</span>
                                             </div>
                                         </th>
-                                        <th className="border border-gray-300 px-4 py-2 text-left">Detailed Overview</th>
+                                        <th className="border border-gray-300 px-2 sm:px-3 lg:px-4 py-2 text-left">
+                                            <span className="hidden sm:inline">Detailed Overview</span>
+                                            <span className="sm:hidden">Details</span>
+                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody className="bg-white">
@@ -183,10 +194,10 @@ export default function MBBSDeemedCollegesPage() {
                                         { name: "Himalaya Medical College and Hospital", location: "Jolly Grant", logo: "/images/deemed/logos/09.webp" }
                                     ].map((college, index) => (
                                         <tr key={index} className="hover:bg-white-50">
-                                            <td className="border border-gray-300 px-4 py-2">{index + 1}</td>
-                                            <td className="border border-gray-300 px-4 py-2">
-                                                <div className="flex items-center gap-2">
-                                                    <div className="w-8 h-8 rounded-full overflow-hidden flex items-center justify-center">
+                                            <td className="border border-gray-300 px-2 sm:px-3 lg:px-4 py-2">{index + 1}</td>
+                                            <td className="border border-gray-300 px-2 sm:px-3 lg:px-4 py-2">
+                                                <div className="flex items-center gap-1 sm:gap-2">
+                                                    <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full overflow-hidden flex items-center justify-center flex-shrink-0">
                                                         <Image
                                                             src={college.logo}
                                                             alt={`${college.name} logo`}
@@ -195,12 +206,15 @@ export default function MBBSDeemedCollegesPage() {
                                                             className="w-full h-full object-cover"
                                                         />
                                                     </div>
-                                                    {college.name}
+                                                    <span className="text-xs sm:text-sm leading-tight">{college.name}</span>
                                                 </div>
                                             </td>
-                                            <td className="border border-gray-300 px-4 py-2">{college.location}</td>
-                                            <td className="border border-gray-300 px-4 py-2">
-                                                <button className="text-blue-600 hover:underline">Click Here</button>
+                                            <td className="border border-gray-300 px-2 sm:px-3 lg:px-4 py-2">{college.location}</td>
+                                            <td className="border border-gray-300 px-2 sm:px-3 lg:px-4 py-2">
+                                                <button className="text-blue-600 hover:underline text-xs sm:text-sm">
+                                                    <span className="hidden sm:inline">Click Here</span>
+                                                    <span className="sm:hidden">View</span>
+                                                </button>
                                             </td>
                                         </tr>
                                     ))}
@@ -209,75 +223,81 @@ export default function MBBSDeemedCollegesPage() {
                         </div>
 
                         {/* neet exam india */}
-                        <div className="p-6 rounded-xl mt-8">
-                            <h2 className="text-xl font-bold text-gray-800 mb-4">
+                        <div className="p-3 sm:p-4 lg:p-6 rounded-lg sm:rounded-xl mt-6 sm:mt-8">
+                            <h2 className="text-base sm:text-lg lg:text-xl font-bold text-gray-800 mb-3 sm:mb-4">
                                 NEET Exam in India: Your Gateway to a Bright Medical Career
                             </h2>
 
-                            <p className="text-gray-700 text-sm mb-6 leading-relaxed">
+                            <p className="text-gray-700 text-xs sm:text-sm mb-4 sm:mb-6 leading-relaxed">
                                 Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite Your Friends And
                                 Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits—
                                 Earn More With Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite
                                 Your Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive
                             </p>
 
-                            <h3 className="text-lg font-bold text-gray-800 mb-3">
+                            <h3 className="text-sm sm:text-base lg:text-lg font-bold text-gray-800 mb-2 sm:mb-3">
                                 Expected MBBS Cutoff for Bihar 2025
                             </h3>
 
-                            <p className="text-sm text-gray-600 mb-4">
+                            <p className="text-xs sm:text-sm text-gray-600 mb-3 sm:mb-4">
                                 The cutoff scores vary for different categories and institutions. Below is an estimate based on previous years' trends:
                             </p>
 
                             <div className="overflow-x-auto">
-                                <table className="w-full border-collapse border border-gray-300 bg-white">
+                                <table className="w-full border-collapse border border-gray-300 bg-white text-xs sm:text-sm">
                                     <thead>
                                         <tr className="bg-[#E1F2FF]">
-                                            <th className="border border-gray-300 px-4 py-3 text-left font-semibold">Category</th>
-                                            <th className="border border-gray-300 px-4 py-3 text-center font-semibold">Government Colleges Cutoff<br />(NEET Score)</th>
-                                            <th className="border border-gray-300 px-4 py-3 text-center font-semibold">Private Colleges Cutoff<br />(NEET Score)</th>
+                                            <th className="border border-gray-300 px-2 sm:px-3 lg:px-4 py-2 sm:py-3 text-left font-semibold">Category</th>
+                                            <th className="border border-gray-300 px-2 sm:px-3 lg:px-4 py-2 sm:py-3 text-center font-semibold">
+                                                <span className="hidden sm:inline">Government Colleges Cutoff<br />(NEET Score)</span>
+                                                <span className="sm:hidden">Govt. Cutoff</span>
+                                            </th>
+                                            <th className="border border-gray-300 px-2 sm:px-3 lg:px-4 py-2 sm:py-3 text-center font-semibold">
+                                                <span className="hidden sm:inline">Private Colleges Cutoff<br />(NEET Score)</span>
+                                                <span className="sm:hidden">Pvt. Cutoff</span>
+                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr className="hover:bg-white-50">
-                                            <td className="border border-gray-300 px-4 py-3 font-medium">General</td>
-                                            <td className="border border-gray-300 px-4 py-3 text-center">600+</td>
-                                            <td className="border border-gray-300 px-4 py-3 text-center">450+</td>
+                                            <td className="border border-gray-300 px-2 sm:px-3 lg:px-4 py-2 sm:py-3 font-medium">General</td>
+                                            <td className="border border-gray-300 px-2 sm:px-3 lg:px-4 py-2 sm:py-3 text-center">600+</td>
+                                            <td className="border border-gray-300 px-2 sm:px-3 lg:px-4 py-2 sm:py-3 text-center">450+</td>
                                         </tr>
                                         <tr className="hover:bg-white-50">
-                                            <td className="border border-gray-300 px-4 py-3 font-medium">OBC</td>
-                                            <td className="border border-gray-300 px-4 py-3 text-center">580+</td>
-                                            <td className="border border-gray-300 px-4 py-3 text-center">430+</td>
+                                            <td className="border border-gray-300 px-2 sm:px-3 lg:px-4 py-2 sm:py-3 font-medium">OBC</td>
+                                            <td className="border border-gray-300 px-2 sm:px-3 lg:px-4 py-2 sm:py-3 text-center">580+</td>
+                                            <td className="border border-gray-300 px-2 sm:px-3 lg:px-4 py-2 sm:py-3 text-center">430+</td>
                                         </tr>
                                         <tr className="hover:bg-white-50">
-                                            <td className="border border-gray-300 px-4 py-3 font-medium">SC</td>
-                                            <td className="border border-gray-300 px-4 py-3 text-center">480+</td>
-                                            <td className="border border-gray-300 px-4 py-3 text-center">350+</td>
+                                            <td className="border border-gray-300 px-2 sm:px-3 lg:px-4 py-2 sm:py-3 font-medium">SC</td>
+                                            <td className="border border-gray-300 px-2 sm:px-3 lg:px-4 py-2 sm:py-3 text-center">480+</td>
+                                            <td className="border border-gray-300 px-2 sm:px-3 lg:px-4 py-2 sm:py-3 text-center">350+</td>
                                         </tr>
                                         <tr className="hover:bg-white-50">
-                                            <td className="border border-gray-300 px-4 py-3 font-medium">ST</td>
-                                            <td className="border border-gray-300 px-4 py-3 text-center">450+</td>
-                                            <td className="border border-gray-300 px-4 py-3 text-center">320+</td>
+                                            <td className="border border-gray-300 px-2 sm:px-3 lg:px-4 py-2 sm:py-3 font-medium">ST</td>
+                                            <td className="border border-gray-300 px-2 sm:px-3 lg:px-4 py-2 sm:py-3 text-center">450+</td>
+                                            <td className="border border-gray-300 px-2 sm:px-3 lg:px-4 py-2 sm:py-3 text-center">320+</td>
                                         </tr>
                                         <tr className="hover:bg-white-50">
-                                            <td className="border border-gray-300 px-4 py-3 font-medium">EWS</td>
-                                            <td className="border border-gray-300 px-4 py-3 text-center">590+</td>
-                                            <td className="border border-gray-300 px-4 py-3 text-center">440+</td>
+                                            <td className="border border-gray-300 px-2 sm:px-3 lg:px-4 py-2 sm:py-3 font-medium">EWS</td>
+                                            <td className="border border-gray-300 px-2 sm:px-3 lg:px-4 py-2 sm:py-3 text-center">590+</td>
+                                            <td className="border border-gray-300 px-2 sm:px-3 lg:px-4 py-2 sm:py-3 text-center">440+</td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
 
-                            <p className="text-xs text-gray-600 mt-4">
+                            <p className="text-xs text-gray-600 mt-3 sm:mt-4">
                                 These cutoff scores are approximate and may change based on NEET 2025 results and the number of applicants for MBBS
                                 in Bihar 2025.
                             </p>
 
-                            <h3 className="text-lg font-bold text-gray-800 mt-6 mb-3">
+                            <h3 className="text-sm sm:text-base lg:text-lg font-bold text-gray-800 mt-4 sm:mt-6 mb-2 sm:mb-3">
                                 NEET Exam in India: Your Gateway to a Bright Medical Career
                             </h3>
 
-                            <p className="text-gray-700 text-sm leading-relaxed">
+                            <p className="text-gray-700 text-xs sm:text-sm leading-relaxed">
                                 Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite Your Friends And
                                 Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite
                                 Your Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive
@@ -285,74 +305,74 @@ export default function MBBSDeemedCollegesPage() {
                         </div>
 
                         {/* FAQ's */}
-                        <div className="mt-8">
-                            <h2 className="text-2xl font-bold text-gray-800 mb-6">FAQ'S</h2>
+                        <div className="mt-6 sm:mt-8">
+                            <h2 className="text-lg sm:text-xl lg:text-2xl font-bold text-gray-800 mb-4 sm:mb-6">FAQ'S</h2>
                             <FAQSection />
                         </div>
                     </div>
                 </div>
 
                 {/* RIGHT SIDEBAR */}
-                <div className="space-y-6 bg-[#E1F2FF] min-h-screen">
+                <div className="space-y-4 sm:space-y-6 bg-[#E1F2FF] min-h-screen">
 
                     {/* SEARCH */}
-                    <div className="bg-[#E1F2FF] p-4 rounded-xl mt-12">
+                    <div className="bg-[#E1F2FF] p-3 sm:p-4 rounded-lg sm:rounded-xl mt-6 sm:mt-12">
                         <div className="flex rounded-full overflow-hidden">
                             <input
                                 type="text"
                                 placeholder="search your blog here"
-                                className="flex-1 px-4 py-2 outline-none text-sm bg-white"
+                                className="flex-1 px-3 sm:px-4 py-2 outline-none text-xs sm:text-sm bg-white"
                             />
-                            <button className="bg-blue-700 text-white px-6 py-2 text-sm font-medium">
+                            <button className="bg-blue-700 text-white px-4 sm:px-6 py-2 text-xs sm:text-sm font-medium">
                                 Search
                             </button>
                         </div>
                     </div>
 
                     {/* GET IN TOUCH */}
-                    <div className="bg-[#E1F2FF] p-6 rounded-xl">
-                        <h3 className="text-xl font-bold text-center text-gray-800 mb-4">
+                    <div className="bg-[#E1F2FF] p-4 sm:p-6 rounded-lg sm:rounded-xl">
+                        <h3 className="text-lg sm:text-xl font-bold text-center text-gray-800 mb-3 sm:mb-4">
                             Get In Touch
                         </h3>
 
-                        <div className="space-y-3">
+                        <div className="space-y-2 sm:space-y-3">
                             <input
                                 type="text"
                                 placeholder="name"
-                                className=" bg-white w-full px-4 py-2 rounded-lg outline-none text-sm"
+                                className="bg-white w-full px-3 sm:px-4 py-2 rounded-lg outline-none text-xs sm:text-sm"
                             />
                             <input
                                 type="email"
                                 placeholder="email address"
-                                className="bg-white w-full px-4 py-2 rounded-lg outline-none text-sm"
+                                className="bg-white w-full px-3 sm:px-4 py-2 rounded-lg outline-none text-xs sm:text-sm"
                             />
                             <input
                                 type="tel"
                                 placeholder="mobile no"
-                                className="bg-white w-full px-4 py-2 rounded-lg outline-none text-sm"
+                                className="bg-white w-full px-3 sm:px-4 py-2 rounded-lg outline-none text-xs sm:text-sm"
                             />
                             <input
                                 type="text"
                                 placeholder="select course"
-                                className="bg-white w-full px-4 py-2 rounded-lg outline-none text-sm"
+                                className="bg-white w-full px-3 sm:px-4 py-2 rounded-lg outline-none text-xs sm:text-sm"
                             />
 
-                            <button className="w-full mt-2 bg-gradient-to-r from-[#63CDB4] to-[#0077BF] text-white py-3 rounded-xl font-semibold">
+                            <button className="w-full mt-2 bg-gradient-to-r from-[#63CDB4] to-[#0077BF] text-white py-2 sm:py-3 rounded-lg sm:rounded-xl font-semibold text-sm sm:text-base">
                                 Submit
                             </button>
                         </div>
                     </div>
 
                     {/* RELATED */}
-                    <div className="bg-[#E1F2FF] p-6">
-                        <h3 className="text-lg font-bold text-blue-600 mb-4">
+                    <div className="bg-[#E1F2FF] p-4 sm:p-6">
+                        <h3 className="text-base sm:text-lg font-bold text-blue-600 mb-3 sm:mb-4">
                             Related
                         </h3>
 
-                        <div className="space-y-4">
+                        <div className="space-y-3 sm:space-y-4">
                             {[1, 2, 3].map((item) => (
-                                <div key={item} className="border-b pb-3 last:border-b-0">
-                                    <h4 className="font-semibold text-gray-800 text-sm">
+                                <div key={item} className="border-b pb-2 sm:pb-3 last:border-b-0">
+                                    <h4 className="font-semibold text-gray-800 text-xs sm:text-sm leading-tight">
                                         NEET Exam in India: Your Gateway to a Bright Medical
                                     </h4>
                                     <p className="text-xs text-gray-500 mt-1">
@@ -364,9 +384,9 @@ export default function MBBSDeemedCollegesPage() {
                     </div>
 
                     {/* ADVERTISEMENT BANNERS */}
-                    <div className="space-y-4 px-4">
+                    <div className="space-y-3 sm:space-y-4 px-2 sm:px-4">
                         {/* Kyrgyzstan Banner */}
-                        <div className="rounded-xl overflow-hidden">
+                        <div className="rounded-lg sm:rounded-xl overflow-hidden">
                             <Image
                                 src="/images/deemed/banner-k.webp"
                                 alt="Study MBBS in Kyrgyzstan"
@@ -377,7 +397,7 @@ export default function MBBSDeemedCollegesPage() {
                         </div>
 
                         {/* NEET PG Banner */}
-                        <div className="rounded-xl overflow-hidden">
+                        <div className="rounded-lg sm:rounded-xl overflow-hidden">
                             <Image
                                 src="/images/deemed/banner-n.webp"
                                 alt="NEET PG Admission"
@@ -388,7 +408,7 @@ export default function MBBSDeemedCollegesPage() {
                         </div>
 
                         {/* Study Abroad Banner */}
-                        <div className="rounded-xl overflow-hidden">
+                        <div className="rounded-lg sm:rounded-xl overflow-hidden">
                             <Image
                                 src="/images/deemed/banner-mg.webp"
                                 alt="Study Abroad"
@@ -399,7 +419,7 @@ export default function MBBSDeemedCollegesPage() {
                         </div>
 
                         {/* Study India Banner */}
-                        <div className="rounded-xl overflow-hidden">
+                        <div className="rounded-lg sm:rounded-xl overflow-hidden">
                             <Image
                                 src="/images/deemed/banner-mp.webp"
                                 alt="Study in India"
@@ -413,8 +433,8 @@ export default function MBBSDeemedCollegesPage() {
             </div>
             
             {/* Connect With Us Section */}
-            <div className="mt-16 text-center">
-                <h2 className="text-4xl md:text-6xl font-bold text-[#A8E6CF] opacity-80">
+            <div className="mt-12 sm:mt-16 text-center px-4">
+                <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-[#A8E6CF] opacity-80">
                     CONNECT WITH US
                 </h2>
             </div>
@@ -454,7 +474,7 @@ function FAQSection() {
     };
 
     return (
-        <div className="space-y-4">
+        <div className="space-y-3 sm:space-y-4">
             {faqs.map((faq, index) => (
                 <div 
                     key={index} 
@@ -462,14 +482,14 @@ function FAQSection() {
                 >
                     <button
                         onClick={() => toggleFAQ(index)}
-                        className="w-full p-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-200"
+                        className="w-full p-3 sm:p-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-200"
                     >
-                        <h3 className="font-semibold text-gray-800 text-sm pr-4">
+                        <h3 className="font-semibold text-gray-800 text-xs sm:text-sm pr-2 sm:pr-4 leading-tight">
                             {index + 1}. {faq.question}
                         </h3>
-                        <div className={`transform transition-transform duration-300 ${openFAQ === index ? 'rotate-180' : ''}`}>
+                        <div className={`transform transition-transform duration-300 flex-shrink-0 ${openFAQ === index ? 'rotate-180' : ''}`}>
                             <svg 
-                                className="w-5 h-5 text-gray-500" 
+                                className="w-4 h-4 sm:w-5 sm:h-5 text-gray-500" 
                                 fill="none" 
                                 stroke="currentColor" 
                                 viewBox="0 0 24 24"
@@ -486,8 +506,8 @@ function FAQSection() {
                                 : 'max-h-0 opacity-0'
                         } overflow-hidden`}
                     >
-                        <div className="px-4 pb-4 border-t border-gray-100">
-                            <p className="text-gray-600 text-xs leading-relaxed pt-3 animate-fadeIn">
+                        <div className="px-3 sm:px-4 pb-3 sm:pb-4 border-t border-gray-100">
+                            <p className="text-gray-600 text-xs leading-relaxed pt-2 sm:pt-3 animate-fadeIn">
                                 {faq.answer}
                             </p>
                         </div>

@@ -158,7 +158,7 @@ export const mainMenuData: MenuItem[] = [
 
   {
     label: 'Study Abroad',
-    //url: '/medical-in-abroad/',
+    url: '/mbbs-abroad-admission/',
     items: [
       // NEPAL
       {

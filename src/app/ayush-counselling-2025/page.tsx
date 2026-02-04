@@ -27,16 +27,16 @@ export default function AyushCounselling2025() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 sideright">
       {/* Hero Section */}
-      <div className="relative text-white py-24 px-4" style={{
+      <div className="relative text-white py-12 sm:py-16 md:py-20 lg:py-24 px-4" style={{
         backgroundImage: 'url(/images/ayush/hero.webp)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
       }}>
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#007EC8]/80 via-[#7BA9F8]/80 to-transparent bg-[length:60%_100%] bg-no-repeat"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#007EC8]/80 via-[#7BA9F8]/80 to-transparent bg-[length:100%_100%] sm:bg-[length:80%_100%] lg:bg-[length:60%_100%] bg-no-repeat"></div>
         
         {/* Snake Beam Animation */}
         <div className="snake-beam-container absolute inset-0">
@@ -45,56 +45,52 @@ export default function AyushCounselling2025() {
         </div>
         <div className="container mx-auto flex flex-col lg:flex-row items-center justify-between relative z-10">
           {/* Left Content */}
-          <div className="lg:w-1/2 mb-10 lg:mb-0">
-            <h1 className="text-4xl lg:text-4xl font-bold mb-6">
+          <div className="w-full lg:w-1/2 mb-8 lg:mb-0 animate-slide-in-left">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-4xl font-bold mb-4 sm:mb-6 leading-tight">
               Secure Your Admission in Top
-              <span> AYUSH</span> Colleges of INDIA
+              <span className="text-[#00CFB2]"> AYUSH</span> Colleges of INDIA
             </h1>
             
-            <div className="text-xl mb-6">
+            <div className="text-base sm:text-lg md:text-xl mb-4 sm:mb-6">
               BAMS | BHMS | BNYS | BUMS | BSMS
             </div>
             
-            <p className="text-lg mb-8 leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 leading-relaxed">
               Radical Education Guides Aspiring Doctors In Pursuing MBBS-
               Equivalent Courses In Ayurveda, Homeopathy, Unani, Siddha, And Yoga
               & Naturopathy with Transparent Counselling And Admission Support.
             </p>
             
-            <div className="flex items-center space-x-8">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-2 sm:space-y-0 sm:space-x-6 md:space-x-8">
               <div className="flex items-center">
-                <span className="text-green-400 text-2xl mr-2">●</span>
-                <span>12+ Years Experience</span>
+                <span className="text-green-400 text-xl sm:text-2xl mr-2">●</span>
+                <span className="text-sm sm:text-base">12+ Years Experience</span>
               </div>
               <div className="flex items-center">
-                <span className="text-green-400 text-2xl mr-2">●</span>
-                <span>15000+ Admissions</span>
+                <span className="text-green-400 text-xl sm:text-2xl mr-2">●</span>
+                <span className="text-sm sm:text-base">15000+ Admissions</span>
               </div>
             </div>
           </div>
 
           {/* Right Form */}
-          <div className="lg:w-1/3 ">
-            <div className="bg-white rounded-2xl p-6 shadow-2xl relative overflow-hidden border border-gray-100">
+          <div className="w-full lg:w-1/3 max-w-md mx-auto lg:mx-0 animate-slide-in-right">
+            <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-2xl relative overflow-hidden border border-gray-100">
               
-              {/* Top-left corner beam - L shape (horizontal to vertical) with infinite animation */}
-              <div className="absolute top-0 left-0">
-                <div className="w-50 h-4 bg-[#00CFB2] shadow-lg animate-infinite-slide-right"></div>
-                <div className="w-4 h-50 bg-[#00CFB2] shadow-lg animate-infinite-slide-down"></div>
-              </div>
+              {/* Top Left Corner Beam - Vertical to Horizontal */}
+              <div className="absolute left-0 top-0 w-2 sm:w-3 h-50 sm:h-50 bg-[#00CFB2] z-20"></div>
+              <div className="absolute left-0 top-0 w-50 sm:w-50 h-2 sm:h-3 bg-[#00CFB2] z-20"></div>
               
-              {/* Bottom-right corner beam - inverted L shape (vertical to horizontal) with infinite animation */}
-              <div className="absolute bottom-0 right-0">
-                <div className="w-4 h-50 bg-[#287FC4] ml-auto shadow-lg animate-infinite-slide-up"></div>
-                <div className="w-50 h-4 bg-[#287FC4] shadow-lg animate-infinite-slide-left"></div>
-              </div>
+              {/* Bottom Right Corner Beam - Horizontal to Vertical */}
+              <div className="absolute right-0 bottom-0 w-50 sm:w-50 h-2 sm:h-3 bg-[#287FC4] z-20"></div>
+              <div className="absolute right-0 bottom-0 w-2 sm:w-3 h-50 sm:h-50 bg-[#287FC4] z-20"></div>
               
               <div className="relative z-10 border border-gray-200 rounded-lg p-1">
-                <h3 className="text-xl font-bold text-gray-800 mb-6 text-center">
+                <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-4 sm:mb-6 text-center">
                   Book <span className="text-[#00CFB2]">AYUSH</span> Counselling
                 </h3>
                 
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
                   <div className="relative">
                     <input
                       type="text"
@@ -102,7 +98,7 @@ export default function AyushCounselling2025() {
                       placeholder="Full Name*"
                       value={formData.fullName}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[#00CFB2] text-gray-800 placeholder-gray-400 transition-all duration-300 bg-gray-50 focus:bg-white text-sm"
+                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[#00CFB2] text-gray-800 placeholder-gray-400 transition-all duration-300 bg-gray-50 focus:bg-white text-sm"
                       required
                     />
                   </div>
@@ -114,7 +110,7 @@ export default function AyushCounselling2025() {
                       placeholder="Email Address*"
                       value={formData.email}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[#00CFB2] text-gray-800 placeholder-gray-400 transition-all duration-300 bg-gray-50 focus:bg-white text-sm"
+                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[#00CFB2] text-gray-800 placeholder-gray-400 transition-all duration-300 bg-gray-50 focus:bg-white text-sm"
                       required
                     />
                   </div>
@@ -126,7 +122,7 @@ export default function AyushCounselling2025() {
                       placeholder="Phone Number*"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[#00CFB2] text-gray-800 placeholder-gray-400 transition-all duration-300 bg-gray-50 focus:bg-white text-sm"
+                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[#00CFB2] text-gray-800 placeholder-gray-400 transition-all duration-300 bg-gray-50 focus:bg-white text-sm"
                       required
                     />
                   </div>
@@ -136,7 +132,7 @@ export default function AyushCounselling2025() {
                       name="stream"
                       value={formData.stream}
                       onChange={handleInputChange}
-                      className="w-full px-4 py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[#00CFB2] text-gray-800 transition-all duration-300 bg-gray-50 focus:bg-white appearance-none cursor-pointer text-sm"
+                      className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[#00CFB2] text-gray-800 transition-all duration-300 bg-gray-50 focus:bg-white appearance-none cursor-pointer text-sm"
                       required
                     >
                       <option value="">Select Preferred AYUSH Stream</option>
@@ -147,7 +143,7 @@ export default function AyushCounselling2025() {
                       <option value="BNYS">BNYS - Yoga & Naturopathy</option>
                     </select>
                     {/* Custom dropdown arrow */}
-                    <div className="absolute inset-y-0 right-0 flex items-center px-3 pointer-events-none">
+                    <div className="absolute inset-y-0 right-0 flex items-center px-2 sm:px-3 pointer-events-none">
                       <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                       </svg>
@@ -156,7 +152,7 @@ export default function AyushCounselling2025() {
                   
                   <button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-[#287FC4] to-[#00CFB2] text-white py-3 rounded-lg font-semibold hover:from-[#00CFB2] hover:to-[#287FC4] transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl"
+                    className="w-full bg-gradient-to-r from-[#287FC4] to-[#00CFB2] text-white py-2.5 sm:py-3 rounded-lg font-semibold hover:from-[#00CFB2] hover:to-[#287FC4] transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl text-sm sm:text-base"
                   >
                     SUBMIT
                   </button>
@@ -168,259 +164,307 @@ export default function AyushCounselling2025() {
       </div>
 
       {/* Courses Section */}
-      <div className="py-20 px-4 bg-gray-50 relative overflow-hidden">
+      <div className="py-12 sm:py-16 md:py-20 px-4 bg-gray-50 relative overflow-hidden">
         <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-3 sm:mb-4">
               Explore AYUSH Courses
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto px-4">
               We Provide Expert Counselling For All Traditional & Alternative Medicine Programs Under AYUSH.
             </p>
           </div>
 
           {/* Course Cards Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
             {/* BAMS Card */}
             <div className="relative animate-card-tilt-3d">
               {/* Beam Effect Container */}
               <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-10 rounded-2xl overflow-hidden">
                 {/* Left Vertical Beam */}
-                <div className="absolute top-0 left-0 w-3 h-40 bg-[#4CAF50]"></div>
+                <div className="absolute top-0 left-0 w-2 sm:w-3 h-20 sm:h-40 bg-[#4CAF50]"></div>
                 {/* Top Horizontal Beam */}
-                <div className="absolute top-0 left-0 w-full h-2 bg-[#4CAF50]"></div>
+                <div className="absolute top-0 left-0 w-full h-1 sm:h-2 bg-[#4CAF50]"></div>
                 {/* Right Vertical Beam */}
-                <div className="absolute top-0 right-0 w-3 h-40 bg-[#4CAF50]"></div>
+                <div className="absolute top-0 right-0 w-2 sm:w-3 h-20 sm:h-40 bg-[#4CAF50]"></div>
               </div>
               
               {/* Card Content */}
-              <div className="bg-white rounded-2xl p-6 shadow-lg border-4 border-[#4CAF50] relative transform transition-all duration-700 hover:scale-105 hover:shadow-2xl animate-card-breathe">
-                <div className="flex items-center justify-between mb-4">
-                  <div className="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center">
-                    <img src="/images/ayush/plant.webp" alt="Plant" className="w-6 h-6" />
+              <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-lg border-4 border-[#4CAF50] relative transform transition-all duration-700 hover:scale-105 hover:shadow-2xl animate-card-breathe">
+                <div className="flex items-center justify-between mb-3 sm:mb-4">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-green-100 rounded-xl flex items-center justify-center">
+                    <img src="/images/ayush/plant.webp" alt="Plant" className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
-                  <span className="bg-green-100 text-green-700 px-3 py-1 rounded-full text-sm font-medium">
+                  <span className="bg-green-100 text-green-700 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium">
                     Ayurveda
                   </span>
                 </div>
                 
-                <h3 className="text-2xl font-bold text-green-600 mb-2">BAMS</h3>
-                <h4 className="text-base font-semibold text-gray-800 mb-3">
+                <h3 className="text-xl sm:text-2xl font-bold text-green-600 mb-1 sm:mb-2">BAMS</h3>
+                <h4 className="text-sm sm:text-base font-semibold text-gray-800 mb-2 sm:mb-3">
                   Bachelor Of Ayurvedic Medicine & Surgery
                 </h4>
                 
-                <p className="text-gray-600 text-sm leading-relaxed">
+                <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
                   Ancient Indian Medicine System Focusing On Natural Healing Through Herbs, Lifestyle, And Holistic Treatments For Complete Wellness.
                 </p>
               </div>
             </div>
 
             {/* BHMS Card */}
-            <div className="bg-white rounded-2xl p-6 shadow-md border-4 border-[#B00096] hover:shadow-lg transition-all duration-300 relative overflow-hidden animate-card-morph transform hover:scale-105 hover:-rotate-2">
-              <div className="flex items-center justify-between mb-4">
-                <div className="w-12 h-12 bg-pink-100 rounded-xl flex items-center justify-center">
-                   <img src="/images/ayush/herbal.webp" alt="Plant" className="w-6 h-6" />
+            <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-md border-4 border-[#B00096] hover:shadow-lg transition-all duration-300 relative overflow-hidden animate-card-morph transform hover:scale-105 hover:-rotate-2">
+              <div className="flex items-center justify-between mb-3 sm:mb-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-pink-100 rounded-xl flex items-center justify-center">
+                   <img src="/images/ayush/herbal.webp" alt="Plant" className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
-                <span className="bg-pink-100 text-pink-700 px-3 py-1 rounded-full text-sm font-medium">
+                <span className="bg-pink-100 text-pink-700 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium">
                   Homeopathy
                 </span>
               </div>
               
-              <h3 className="text-2xl font-bold text-pink-600 mb-2">BHMS</h3>
-              <h4 className="text-base font-semibold text-gray-800 mb-3">
+              <h3 className="text-xl sm:text-2xl font-bold text-pink-600 mb-1 sm:mb-2">BHMS</h3>
+              <h4 className="text-sm sm:text-base font-semibold text-gray-800 mb-2 sm:mb-3">
                 Bachelor Of Homeopathic Medicine & Surgery
               </h4>
               
-              <p className="text-gray-600 text-sm leading-relaxed mb-4">
+              <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-3 sm:mb-4">
                 Gentle Healing Approach Using Highly Diluted Substances To Stimulate The Body's Natural Healing Processes And Restore Balance.
               </p>
               
               {/* Beam line effect */}
-              <div className="absolute bottom-0 left-0 right-0 h-2 bg-[#B00096]"></div>
+              <div className="absolute bottom-0 left-0 right-0 h-1 sm:h-2 bg-[#B00096]"></div>
               
               {/* Bottom left beam */}
-              <div className="absolute bottom-0 left-0 w-2 h-40 bg-[#B00096]"></div>
+              <div className="absolute bottom-0 left-0 w-1 sm:w-2 h-20 sm:h-40 bg-[#B00096]"></div>
               
               {/* Bottom right beam */}
-              <div className="absolute bottom-0 right-0 w-2 h-40 bg-[#B00096]"></div>
+              <div className="absolute bottom-0 right-0 w-1 sm:w-2 h-20 sm:h-40 bg-[#B00096]"></div>
             </div>
 
             {/* BUMS Card */}
-            <div className="bg-white rounded-2xl p-6 shadow-md border-4 border-[#0791AB] hover:shadow-lg transition-all duration-300 relative overflow-hidden animate-card-wave transform hover:scale-105 hover:rotate-1">
+            <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-md border-4 border-[#0791AB] hover:shadow-lg transition-all duration-300 relative overflow-hidden animate-card-wave transform hover:scale-105 hover:rotate-1">
               {/* Beam line effect */}
-              <div className="absolute top-0 left-0 w-full h-2 bg-[#0791AB]"></div>
-              <div className="absolute top-0 left-0 h-40 w-2 bg-[#0791AB]"></div>
-              <div className="absolute top-0 right-0 h-40 w-2 bg-[#0791AB]"></div>
+              <div className="absolute top-0 left-0 w-full h-1 sm:h-2 bg-[#0791AB]"></div>
+              <div className="absolute top-0 left-0 h-20 sm:h-40 w-1 sm:w-2 bg-[#0791AB]"></div>
+              <div className="absolute top-0 right-0 h-20 sm:h-40 w-1 sm:w-2 bg-[#0791AB]"></div>
               
-              <div className="flex items-center justify-between mb-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center">
-                   <img src="/images/ayush/c.webp" alt="Plant" className="w-6 h-6" />
+              <div className="flex items-center justify-between mb-3 sm:mb-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-blue-100 rounded-xl flex items-center justify-center">
+                   <img src="/images/ayush/c.webp" alt="Plant" className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
-                <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">
+                <span className="bg-blue-100 text-blue-700 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium">
                   Unani
                 </span>
               </div>
               
-              <h3 className="text-2xl font-bold text-blue-600 mb-2">BUMS</h3>
-              <h4 className="text-base font-semibold text-gray-800 mb-3">
+              <h3 className="text-xl sm:text-2xl font-bold text-blue-600 mb-1 sm:mb-2">BUMS</h3>
+              <h4 className="text-sm sm:text-base font-semibold text-gray-800 mb-2 sm:mb-3">
                 Bachelor Of Unani Medicine & Surgery
               </h4>
               
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
                 Traditional Greco-Arabic Medicine Emphasizing Natural Remedies, Diet Regulation, And Maintaining Body's Natural Equilibrium.
               </p>
             </div>
           </div>
 
           {/* Second Row */}
-          <div className="grid md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto">
             {/* BSMS Card */}
-            <div className="bg-white rounded-2xl p-6 shadow-md border-4 border-[#2F4159] hover:shadow-lg transition-all duration-300 relative animate-card-slide-diagonal transform hover:scale-105 hover:-rotate-1">
-              <div className="flex items-center justify-between mb-4">
-                <div className="w-12 h-12 bg-gray-100 rounded-xl flex items-center justify-center">
-                   <img src="/images/ayush/c-1.webp" alt="Plant" className="w-6 h-6" />
+            <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-md border-4 border-[#2F4159] hover:shadow-lg transition-all duration-300 relative animate-card-slide-diagonal transform hover:scale-105 hover:-rotate-1">
+              <div className="flex items-center justify-between mb-3 sm:mb-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gray-100 rounded-xl flex items-center justify-center">
+                   <img src="/images/ayush/c-1.webp" alt="Plant" className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
-                <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm font-medium">
+                <span className="bg-gray-100 text-gray-700 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium">
                   Siddha
                 </span>
               </div>
               
-              <h3 className="text-2xl font-bold text-gray-700 mb-2">BSMS</h3>
-              <h4 className="text-base font-semibold text-gray-800 mb-3">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-700 mb-1 sm:mb-2">BSMS</h3>
+              <h4 className="text-sm sm:text-base font-semibold text-gray-800 mb-2 sm:mb-3">
                 Bachelor Of Siddha Medicine & Surgery
               </h4>
               
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
                 Ancient Tamil System Of Medicine Using Natural Substances, Minerals, And Metals For Comprehensive Healing And Longevity.
               </p>
                 {/* Beam line effect */}
-              <div className="absolute bottom-0 left-0 right-0 h-2 bg-[#2F4159]"></div>
+              <div className="absolute bottom-0 left-0 right-0 h-1 sm:h-2 bg-[#2F4159]"></div>
               
               {/* Bottom left beam */}
-              <div className="absolute bottom-0 left-0 w-2 h-40 bg-[#2F4159]"></div>
+              <div className="absolute bottom-0 left-0 w-1 sm:w-2 h-20 sm:h-40 bg-[#2F4159]"></div>
               
               {/* Bottom right beam */}
-              <div className="absolute bottom-0 right-0 w-2 h-40 bg-[#2F4159]"></div>
+              <div className="absolute bottom-0 right-0 w-1 sm:w-2 h-20 sm:h-40 bg-[#2F4159]"></div>
             </div>
 
             {/* BNYS Card */}
-            <div className="bg-white rounded-2xl p-6 shadow-md border-4 border-[#EE6161] hover:shadow-lg transition-all duration-300 relative animate-card-spiral transform hover:scale-105 hover:rotate-2">
-              <div className="flex items-center justify-between mb-4">
-                <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center">
-                   <img src="/images/ayush/om.webp" alt="Plant" className="w-6 h-6" />
+            <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-md border-4 border-[#EE6161] hover:shadow-lg transition-all duration-300 relative animate-card-spiral transform hover:scale-105 hover:rotate-2">
+              <div className="flex items-center justify-between mb-3 sm:mb-4">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 bg-red-100 rounded-xl flex items-center justify-center">
+                   <img src="/images/ayush/om.webp" alt="Plant" className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
-                <span className="bg-red-100 text-red-700 px-3 py-1 rounded-full text-sm font-medium">
+                <span className="bg-red-100 text-red-700 px-2 sm:px-3 py-1 rounded-full text-xs sm:text-sm font-medium">
                   Yoga & Naturopathy
                 </span>
               </div>
               
-              <h3 className="text-2xl font-bold text-red-600 mb-2">BNYS</h3>
-              <h4 className="text-base font-semibold text-gray-800 mb-3">
+              <h3 className="text-xl sm:text-2xl font-bold text-red-600 mb-1 sm:mb-2">BNYS</h3>
+              <h4 className="text-sm sm:text-base font-semibold text-gray-800 mb-2 sm:mb-3">
                 Bachelor Of Naturopathy & Yoga Sciences
               </h4>
               
-              <p className="text-gray-600 text-sm leading-relaxed">
+              <p className="text-gray-600 text-xs sm:text-sm leading-relaxed">
                 Holistic Approach Combining Yoga Practices, Natural Therapies, And Lifestyle Modifications For Optimal Health And Wellness.
               </p>
 
                 {/* Beam line effect */}
-              <div className="absolute bottom-0 left-0 right-0 h-2 bg-[#EE6161]"></div>
+              <div className="absolute bottom-0 left-0 right-0 h-1 sm:h-2 bg-[#EE6161]"></div>
               
               {/* Bottom left beam */}
-              <div className="absolute bottom-0 left-0 w-2 h-40 bg-[#EE6161]"></div>
+              <div className="absolute bottom-0 left-0 w-1 sm:w-2 h-20 sm:h-40 bg-[#EE6161]"></div>
               
               {/* Bottom right beam */}
-              <div className="absolute bottom-0 right-0 w-2 h-40 bg-[#EE6161]"></div>
+              <div className="absolute bottom-0 right-0 w-1 sm:w-2 h-20 sm:h-40 bg-[#EE6161]"></div>
             </div>
           </div>
         </div>
       </div>
 
       {/* Why Choose Radical Education For AYUSH Section */}
-      <div className="py-20 px-4 bg-white">
+      <div className="py-12 sm:py-16 md:py-20 px-4 bg-white">
         <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-3 sm:mb-4">
               Why Choose Radical Education For AYUSH?
             </h2>
-            <p className="text-lg text-gray-600 max-w-4xl mx-auto">
+            <p className="text-base sm:text-lg text-gray-600 max-w-4xl mx-auto px-4">
               Your Trusted Partner For AYUSH Medical Admissions With Proven Expertise And Transparent Guidance
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
             {/* Expert AYUSH Counselling */}
-            <div className="bg-[#00CFB2]/15 rounded-2xl p-8 text-center relative overflow-hidden">
-              <div className="w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 overflow-hidden">
+            <div className="bg-[#00CFB2]/15 rounded-2xl p-6 sm:p-8 text-center relative overflow-hidden transform transition-all duration-500 hover:scale-105 hover:shadow-2xl group">
+              {/* Animated Background Gradient */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#00CFB2]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              {/* Floating Particles Effect */}
+              <div className="absolute top-4 right-4 w-2 h-2 bg-[#00CFB2] rounded-full animate-bounce animation-delay-1000"></div>
+              <div className="absolute bottom-6 left-6 w-1 h-1 bg-[#00CFB2] rounded-full animate-pulse animation-delay-1500"></div>
+              
+              {/* Icon Container with Hover Animation */}
+              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 overflow-hidden bg-white shadow-lg transform transition-all duration-300 group-hover:rotate-12 group-hover:scale-110 relative z-10">
                 <Image
                   src="/images/ayush/icon.webp"
                   alt="Expert AYUSH Counselling"
                   width={48}
                   height={48}
-                  className="w-12 h-12 object-cover"
+                  className="w-10 h-10 sm:w-12 sm:h-12 object-cover transition-transform duration-300 group-hover:scale-125"
                 />
+                {/* Glow Effect */}
+                <div className="absolute inset-0 rounded-full bg-[#00CFB2]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
               </div>
-              <h3 className="text-xl font-bold text-[#00000] mb-4 text-left">Expert AYUSH Counselling</h3>
-              <p className="text-gray-600 text-sm leading-relaxed text-left">
-                Specialized Guidance In All AYUSH<br /> Disciplines - BAMS, BHMS, BUMS, BSMS,<br /> 
+              
+              <h3 className="text-lg sm:text-xl font-bold text-[#00000] mb-3 sm:mb-4 text-left relative z-10 transform transition-all duration-300 group-hover:text-[#00CFB2]">
+                Expert AYUSH Counselling
+              </h3>
+              <p className="text-gray-600 text-sm leading-relaxed text-left relative z-10 transform transition-all duration-300 group-hover:text-gray-700">
+                Specialized Guidance In All AYUSH<br className="hidden sm:block" /> Disciplines - BAMS, BHMS, BUMS, BSMS,<br className="hidden sm:block" /> 
                 BNYS With Experienced Counsellors
               </p>
+              
+              {/* Animated Border */}
+              <div className="absolute inset-0 rounded-2xl border-2 border-[#00CFB2] opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
             </div>
 
             {/* Top College Tie-Ups */}
-            <div className="bg-[#287FC4]/15 rounded-2xl p-8 text-center relative overflow-hidden">
-                <div className="w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 overflow-hidden">
+            <div className="bg-[#287FC4]/15 rounded-2xl p-6 sm:p-8 text-center relative overflow-hidden transform transition-all duration-500 hover:scale-105 hover:shadow-2xl group">
+              {/* Animated Background Gradient */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#287FC4]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              {/* Floating Particles Effect */}
+              <div className="absolute top-6 left-4 w-1.5 h-1.5 bg-[#287FC4] rounded-full animate-ping animation-delay-800"></div>
+              <div className="absolute bottom-4 right-8 w-2 h-2 bg-[#287FC4] rounded-full animate-bounce animation-delay-1200"></div>
+              
+              {/* Icon Container with Hover Animation */}
+              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 overflow-hidden bg-white shadow-lg transform transition-all duration-300 group-hover:-rotate-12 group-hover:scale-110 relative z-10">
                 <Image
                   src="/images/ayush/icon-1.webp"
-                  alt="Expert AYUSH Counselling"
+                  alt="Top College Tie-Ups"
                   width={48}
                   height={48}
-                  className="w-12 h-12 object-cover"
+                  className="w-10 h-10 sm:w-12 sm:h-12 object-cover transition-transform duration-300 group-hover:scale-125"
                 />
+                {/* Glow Effect */}
+                <div className="absolute inset-0 rounded-full bg-[#287FC4]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
               </div>
-              <h3 className="text-xl font-bold text-[#00000] mb-4 text-left">Top College Tie-Ups</h3>
-              <p className="text-gray-600 text-sm leading-relaxed text-left">
-                Direct Partnerships With NCISM/CCIM/<br /> AYUSH-Approved Colleges Across<br /> India For Guaranteed Admissions
+              
+              <h3 className="text-lg sm:text-xl font-bold text-[#00000] mb-3 sm:mb-4 text-left relative z-10 transform transition-all duration-300 group-hover:text-[#287FC4]">
+                Top College Tie-Ups
+              </h3>
+              <p className="text-gray-600 text-sm leading-relaxed text-left relative z-10 transform transition-all duration-300 group-hover:text-gray-700">
+                Direct Partnerships With NCISM/CCIM/<br className="hidden sm:block" /> AYUSH-Approved Colleges Across<br className="hidden sm:block" /> India For Guaranteed Admissions
               </p>
+              
+              {/* Animated Border */}
+              <div className="absolute inset-0 rounded-2xl border-2 border-[#287FC4] opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
             </div>
 
             {/* Transparent Process */}
-            <div className="bg-[#A8019D]/15 rounded-2xl p-8 text-center relative overflow-hidden">
-              <div className="w-24 h-24 rounded-full flex items-center justify-center mx-auto mb-6 overflow-hidden">
+            <div className="bg-[#A8019D]/15 rounded-2xl p-6 sm:p-8 text-center relative overflow-hidden transform transition-all duration-500 hover:scale-105 hover:shadow-2xl group">
+              {/* Animated Background Gradient */}
+              <div className="absolute inset-0 bg-gradient-to-br from-[#A8019D]/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              
+              {/* Floating Particles Effect */}
+              <div className="absolute top-8 right-6 w-1 h-1 bg-[#A8019D] rounded-full animate-pulse animation-delay-600"></div>
+              <div className="absolute bottom-8 left-4 w-1.5 h-1.5 bg-[#A8019D] rounded-full animate-bounce animation-delay-900"></div>
+              
+              {/* Icon Container with Hover Animation */}
+              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center mx-auto mb-4 sm:mb-6 overflow-hidden bg-white shadow-lg transform transition-all duration-300 group-hover:rotate-180 group-hover:scale-110 relative z-10">
                 <Image
                   src="/images/ayush/icon-2.webp"
-                  alt="Expert AYUSH Counselling"
+                  alt="Transparent Process"
                   width={48}
                   height={48}
-                  className="w-12 h-12 object-cover"
+                  className="w-10 h-10 sm:w-12 sm:h-12 object-cover transition-transform duration-300 group-hover:scale-125"
                 />
+                {/* Glow Effect */}
+                <div className="absolute inset-0 rounded-full bg-[#A8019D]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
               </div>
-              <h3 className="text-xl font-bold text-[#00000] mb-4 text-left">Transparent Process</h3>
-              <p className="text-gray-600 text-sm leading-relaxed text-left">
-                100% Transparent Admission Process<br /> With Complete Documentation<br /> Support And Scholarship Guidance
+              
+              <h3 className="text-lg sm:text-xl font-bold text-[#00000] mb-3 sm:mb-4 text-left relative z-10 transform transition-all duration-300 group-hover:text-[#A8019D]">
+                Transparent Process
+              </h3>
+              <p className="text-gray-600 text-sm leading-relaxed text-left relative z-10 transform transition-all duration-300 group-hover:text-gray-700">
+                100% Transparent Admission Process<br className="hidden sm:block" /> With Complete Documentation<br className="hidden sm:block" /> Support And Scholarship Guidance
               </p>
+              
+              {/* Animated Border */}
+              <div className="absolute inset-0 rounded-2xl border-2 border-[#A8019D] opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
             </div>
           </div>
         </div>
       </div>
 
       {/* AYUSH Admission Process Section */}
-      <div className="py-20 px-4 bg-gray-50">
+      <div className="py-12 sm:py-16 md:py-20 px-4 bg-gray-50">
         <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-3 sm:mb-4">
               AYUSH Admission Process
             </h2>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto px-4">
               Simple 4-step process to secure your AYUSH medical college admission
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
             {/* Step 1 - Register With Us */}
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden animate-process-float animate-process-delay-1 hover:scale-105 transition-transform duration-300">
               {/* Top section with background image and number overlay */}
-              <div className="relative h-24 flex items-center justify-center">
+              <div className="relative h-20 sm:h-24 flex items-center justify-center">
                 {/* Background Image */}
                 <img
                   src="/images/ayush/card.webp"
@@ -428,15 +472,15 @@ export default function AyushCounselling2025() {
                   className="absolute inset-0 w-full h-full object-cover animate-process-image-zoom"
                 />
                 {/* Number */}
-                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center relative z-10 border-2 border-white/30 animate-process-number-glow">
-                  <span className="text-black text-2xl font-bold">1</span>
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center relative z-10 border-2 border-white/30 animate-process-number-glow">
+                  <span className="text-black text-lg sm:text-2xl font-bold">1</span>
                 </div>
               </div>
               
               {/* Content section */}
-              <div className="p-6">
-                <h3 className="text-lg font-bold text-green-600 mb- text-center">Register With Us</h3>
-                <p className="text-gray-600 text-sm leading-relaxed text-center">
+              <div className="p-4 sm:p-6">
+                <h3 className="text-base sm:text-lg font-bold text-green-600 mb-2 sm:mb-3 text-center">Register With Us</h3>
+                <p className="text-gray-600 text-xs sm:text-sm leading-relaxed text-center">
                   Fill The Form And Get Registered With Radical Education
                 </p>
               </div>
@@ -445,7 +489,7 @@ export default function AyushCounselling2025() {
             {/* Step 2 - Expert Counselling */}
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden animate-process-pulse animate-process-delay-2 hover:scale-105 transition-transform duration-300">
               {/* Top section with background image and number overlay */}
-              <div className="relative h-24 flex items-center justify-center">
+              <div className="relative h-20 sm:h-24 flex items-center justify-center">
                 {/* Background Image */}
                 <img
                   src="/images/ayush/card-1.webp"
@@ -453,15 +497,15 @@ export default function AyushCounselling2025() {
                   className="absolute inset-0 w-full h-full object-cover animate-process-image-zoom"
                 />
                 {/* Number */}
-                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center relative z-10 border-2 border-white/30 animate-process-number-glow">
-                  <span className="text-black text-2xl font-bold">2</span>
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center relative z-10 border-2 border-white/30 animate-process-number-glow">
+                  <span className="text-black text-lg sm:text-2xl font-bold">2</span>
                 </div>
               </div>
               
               {/* Content section */}
-              <div className="p-6">
-                <h3 className="text-lg font-bold text-blue-600 mb-3 text-center">Expert Counselling</h3>
-                <p className="text-gray-600 text-sm leading-relaxed text-center">
+              <div className="p-4 sm:p-6">
+                <h3 className="text-base sm:text-lg font-bold text-blue-600 mb-2 sm:mb-3 text-center">Expert Counselling</h3>
+                <p className="text-gray-600 text-xs sm:text-sm leading-relaxed text-center">
                   Get Personalized AYUSH Stream And College Guidance
                 </p>
               </div>
@@ -470,7 +514,7 @@ export default function AyushCounselling2025() {
             {/* Step 3 - Select College */}
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden animate-process-rotate animate-process-delay-3 hover:scale-105 transition-transform duration-300">
               {/* Top section with background image and number overlay */}
-              <div className="relative h-24 flex items-center justify-center">
+              <div className="relative h-20 sm:h-24 flex items-center justify-center">
                 {/* Background Image */}
                 <img
                   src="/images/ayush/card-2.webp"
@@ -479,15 +523,15 @@ export default function AyushCounselling2025() {
                 />
                 
                 {/* Number */}
-                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center relative z-10 border-2 border-white/30 animate-process-number-glow">
-                  <span className="text-black text-2xl font-bold">3</span>
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center relative z-10 border-2 border-white/30 animate-process-number-glow">
+                  <span className="text-black text-lg sm:text-2xl font-bold">3</span>
                 </div>
               </div>
               
               {/* Content section */}
-              <div className="p-6">
-                <h3 className="text-lg font-bold text-yellow-600 mb-3 text-center">Select College</h3>
-                <p className="text-gray-600 text-sm leading-relaxed text-center">
+              <div className="p-4 sm:p-6">
+                <h3 className="text-base sm:text-lg font-bold text-yellow-600 mb-2 sm:mb-3 text-center">Select College</h3>
+                <p className="text-gray-600 text-xs sm:text-sm leading-relaxed text-center">
                   Choose Your Preferred AYUSH College And Stream
                 </p>
               </div>
@@ -496,7 +540,7 @@ export default function AyushCounselling2025() {
             {/* Step 4 - Confirm Admission */}
             <div className="bg-white rounded-2xl shadow-lg overflow-hidden animate-process-bounce animate-process-delay-4 hover:scale-105 transition-transform duration-300">
               {/* Top section with background image and number overlay */}
-              <div className="relative h-24 flex items-center justify-center">
+              <div className="relative h-20 sm:h-24 flex items-center justify-center">
                 {/* Background Image */}
                 <img
                   src="/images/ayush/card-3.webp"
@@ -505,15 +549,15 @@ export default function AyushCounselling2025() {
                 />
 
                 {/* Number */}
-                <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center relative z-10 border-2 border-white/30 animate-process-number-glow">
-                  <span className="text-black text-2xl font-bold">4</span>
+                <div className="w-12 h-12 sm:w-16 sm:h-16 bg-white rounded-full flex items-center justify-center relative z-10 border-2 border-white/30 animate-process-number-glow">
+                  <span className="text-black text-lg sm:text-2xl font-bold">4</span>
                 </div>
               </div>
               
               {/* Content section */}
-              <div className="p-6">
-                <h3 className="text-lg font-bold text-purple-600 mb-3 text-center">Confirm Admission</h3>
-                <p className="text-gray-600 text-sm leading-relaxed text-center">
+              <div className="p-4 sm:p-6">
+                <h3 className="text-base sm:text-lg font-bold text-purple-600 mb-2 sm:mb-3 text-center">Confirm Admission</h3>
+                <p className="text-gray-600 text-xs sm:text-sm leading-relaxed text-center">
                   Complete Documentation And Start Your AYUSH Journey
                 </p>
               </div>
@@ -523,21 +567,21 @@ export default function AyushCounselling2025() {
       </div>
       
       {/* Top AYUSH Colleges We Guide For Section */}
-      <div className="py-20 px-4 bg-white border-t border-b border-gray-200">
+      <div className="py-12 sm:py-16 md:py-20 px-4 bg-white border-t border-b border-gray-200">
         <div className="container mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-3 sm:mb-4">
               Top AYUSH Colleges We Guide For
             </h2>
-            <p className="text-lg text-gray-600 max-w-4xl mx-auto">
+            <p className="text-base sm:text-lg text-gray-600 max-w-4xl mx-auto px-4">
               Reputed government and private AYUSH institutions across India
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-20">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-20">
             {/* Government AYUSH Colleges */}
-            <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
-              <div className="h-48 mb-6 rounded-xl overflow-hidden">
+            <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-lg border border-gray-200">
+              <div className="h-40 sm:h-48 mb-4 sm:mb-6 rounded-xl overflow-hidden">
                 <Image
                   src="/images/ayush/g.webp"
                   alt="Government AYUSH Colleges"
@@ -546,8 +590,8 @@ export default function AyushCounselling2025() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-3">Government AYUSH Colleges</h3>
-              <p className="text-gray-600 text-sm mb-4">
+              <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">Government AYUSH Colleges</h3>
+              <p className="text-gray-600 text-sm mb-3 sm:mb-4">
                 Top government institutions with affordable fees and excellent infrastructure
               </p>
               <div className="flex items-center text-green-600">
@@ -557,8 +601,8 @@ export default function AyushCounselling2025() {
             </div>
 
             {/* Private AYUSH Colleges */}
-            <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
-              <div className="h-48 mb-6 rounded-xl overflow-hidden">
+            <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-lg border border-gray-200">
+              <div className="h-40 sm:h-48 mb-4 sm:mb-6 rounded-xl overflow-hidden">
                 <Image
                   src="/images/ayush/g-1.webp"
                   alt="Private AYUSH Colleges"
@@ -567,8 +611,8 @@ export default function AyushCounselling2025() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-3">Private AYUSH Colleges</h3>
-              <p className="text-gray-600 text-sm mb-4">
+              <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">Private AYUSH Colleges</h3>
+              <p className="text-gray-600 text-sm mb-3 sm:mb-4">
                 Premium private institutions with world-class facilities and placements
               </p>
               <div className="flex items-center text-green-600">
@@ -578,8 +622,8 @@ export default function AyushCounselling2025() {
             </div>
 
             {/* Specialized AYUSH Centers */}
-            <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200">
-              <div className="h-48 mb-6 rounded-xl overflow-hidden">
+            <div className="bg-white rounded-2xl p-4 sm:p-6 shadow-lg border border-gray-200">
+              <div className="h-40 sm:h-48 mb-4 sm:mb-6 rounded-xl overflow-hidden">
                 <Image
                   src="/images/ayush/g-2.webp"
                   alt="Specialized AYUSH Centers"
@@ -588,8 +632,8 @@ export default function AyushCounselling2025() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-3">Specialized AYUSH Centers</h3>
-              <p className="text-gray-600 text-sm mb-4">
+              <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 sm:mb-3">Specialized AYUSH Centers</h3>
+              <p className="text-gray-600 text-sm mb-3 sm:mb-4">
                 Institutes specializing in specific AYUSH streams with research facilities
               </p>
               <div className="flex items-center text-green-600">
@@ -600,27 +644,27 @@ export default function AyushCounselling2025() {
           </div>
 
           {/* Eligibility & Course Details Section */}
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-3 sm:mb-4">
               Eligibility & Course Details
             </h2>
-            <p className="text-lg text-gray-600 max-w-4xl mx-auto">
+            <p className="text-base sm:text-lg text-gray-600 max-w-4xl mx-auto px-4">
               Complete information about AYUSH medical courses and eligibility criteria
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center border-2 border-gray-200 rounded-2xl p-8">
+          <div className="grid lg:grid-cols-2 gap-8 sm:gap-12 items-center border-2 border-gray-200 rounded-2xl p-6 sm:p-8">
             {/* Left Side - Details */}
-            <div className="space-y-8">
+            <div className="space-y-6 sm:space-y-8">
               {/* NEET Qualification Required */}
-              <div className="flex items-start space-x-4">
-                <div className="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                  <svg className="w-5 h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+              <div className="flex items-start space-x-3 sm:space-x-4">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-gray-800 mb-2">NEET Qualification Required</h3>
+                  <h3 className="text-base sm:text-lg font-bold text-gray-800 mb-1 sm:mb-2">NEET Qualification Required</h3>
                   <p className="text-gray-600 text-sm">
                     Valid NEET score is mandatory for all AYUSH medical admissions in India
                   </p>
@@ -628,14 +672,14 @@ export default function AyushCounselling2025() {
               </div>
 
               {/* Course Duration: 5.5 Years */}
-              <div className="flex items-start space-x-4">
-                <div className="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                  <svg className="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+              <div className="flex items-start space-x-3 sm:space-x-4">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-12a1 1 0 10-2 0v4a1 1 0 00.293.707l2.828 2.829a1 1 0 101.415-1.415L11 9.586V6z" clipRule="evenodd" />
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-gray-800 mb-2">Course Duration: 5.5 Years</h3>
+                  <h3 className="text-base sm:text-lg font-bold text-gray-800 mb-1 sm:mb-2">Course Duration: 5.5 Years</h3>
                   <p className="text-gray-600 text-sm">
                     4.5 years academic study + 1 year compulsory internship
                   </p>
@@ -643,14 +687,14 @@ export default function AyushCounselling2025() {
               </div>
 
               {/* Multiple AYUSH Streams */}
-              <div className="flex items-start space-x-4">
-                <div className="w-8 h-8 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                  <svg className="w-5 h-5 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+              <div className="flex items-start space-x-3 sm:space-x-4">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-gray-800 mb-2">Multiple AYUSH Streams</h3>
+                  <h3 className="text-base sm:text-lg font-bold text-gray-800 mb-1 sm:mb-2">Multiple AYUSH Streams</h3>
                   <p className="text-gray-600 text-sm">
                     BAMS, BHMS, BUMS, BSMS, BNYS - Choose your specialization
                   </p>
@@ -658,15 +702,15 @@ export default function AyushCounselling2025() {
               </div>
 
               {/* Affordable Fee Structure */}
-              <div className="flex items-start space-x-4">
-                <div className="w-8 h-8 bg-cyan-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                  <svg className="w-5 h-5 text-cyan-600" fill="currentColor" viewBox="0 0 20 20">
+              <div className="flex items-start space-x-3 sm:space-x-4">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 bg-cyan-100 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
+                  <svg className="w-4 h-4 sm:w-5 sm:h-5 text-cyan-600" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M8.433 7.418c.155-.103.346-.196.567-.267v1.698a2.305 2.305 0 01-.567-.267C8.07 8.34 8 8.114 8 8c0-.114.07-.34.433-.582zM11 12.849v-1.698c.22.071.412.164.567.267.364.243.433.468.433.582 0 .114-.07.34-.433.582a2.305 2.305 0 01-.567.267z" />
                     <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-13a1 1 0 10-2 0v.092a4.535 4.535 0 00-1.676.662C6.602 6.234 6 7.009 6 8c0 .99.602 1.765 1.324 2.246.48.32 1.054.545 1.676.662v1.941c-.391-.127-.68-.317-.843-.504a1 1 0 10-1.51 1.31c.562.649 1.413 1.076 2.353 1.253V15a1 1 0 102 0v-.092a4.535 4.535 0 001.676-.662C13.398 13.766 14 12.991 14 12c0-.99-.602-1.765-1.324-2.246A4.535 4.535 0 0011 9.092V7.151c.391.127.68.317.843.504a1 1 0 101.511-1.31c-.563-.649-1.413-1.076-2.354-1.253V5z" clipRule="evenodd" />
                   </svg>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-gray-800 mb-2">Affordable Fee Structure</h3>
+                  <h3 className="text-base sm:text-lg font-bold text-gray-800 mb-1 sm:mb-2">Affordable Fee Structure</h3>
                   <p className="text-gray-600 text-sm">
                     Government colleges from ₹60K/year, Private colleges from ₹2L/year
                   </p>
@@ -675,9 +719,9 @@ export default function AyushCounselling2025() {
             </div>
 
             {/* Right Side - Image and CTA */}
-            <div className="relative">
-              <div className="bg-gradient-to-br from-[#287FC4]/25 to-[#00CFB2]/25 rounded-3xl p-8 text-center">
-                <div className="mb-6">
+            <div className="relative mt-8 lg:mt-0">
+              <div className="bg-gradient-to-br from-[#287FC4]/25 to-[#00CFB2]/25 rounded-3xl p-6 sm:p-8 text-center">
+                <div className="mb-4 sm:mb-6">
                   <Image
                     src="/images/ayush/b.webp"
                     alt="Start Your AYUSH Journey"
@@ -686,10 +730,10 @@ export default function AyushCounselling2025() {
                     className="w-full max-w-sm mx-auto rounded-2xl"
                   />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-800 mb-4">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-800 mb-3 sm:mb-4">
                   Start Your AYUSH Journey
                 </h3>
-                <p className="text-gray-600 mb-6">
+                <p className="text-gray-600 mb-4 sm:mb-6 text-sm sm:text-base">
                   Join thousands of successful AYUSH doctors with our expert guidance
                 </p>
               </div>
@@ -697,7 +741,7 @@ export default function AyushCounselling2025() {
           </div>
         </div>
       </div>
-      <div className='py-10 px-4 md:px-10'>
+      <div className='py-6 sm:py-8 md:py-10 px-4 md:px-10'>
         <GoogleReviews />
       </div>
     </div>
