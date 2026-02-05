@@ -20,21 +20,20 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
         console.log('Searching for:', searchTerm);
     };
 
-    const scrollToActiveCategory = () => {
+    const scroll = (direction: 'left' | 'right') => {
         if (categoryContainerRef.current) {
-            const activeButton = categoryContainerRef.current.querySelector(`button:nth-child(${categories.indexOf(activeCategory) + 1})`) as HTMLElement;
-            if (activeButton) {
-                activeButton.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'nearest',
-                    inline: 'center'
-                });
+            const { current } = categoryContainerRef;
+            const scrollAmount = 200;
+            if (direction === 'left') {
+                current.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+            } else {
+                current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
             }
         }
     };
 
     return (
-        <div className="w-full bg-gray-50 py-8 md:py-20 relative">
+        <div className="w-full bg-gray-50 py-8 md:py-20 relative animate-fadeIn">
             <div className="max-w-6xl mx-auto px-4">
                 {/* Search Section */}
                 <div className="flex flex-col lg:flex-row gap-4 items-start justify-start mb-8">
@@ -59,55 +58,78 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                         </button>
                     </div>
 
+
                     {/* Category Filter Buttons - Inline */}
-                    <div 
-                        ref={categoryContainerRef}
-                        className="flex gap-1 items-center flex-1 min-w-0 lg:-pr-50 overflow-x-auto"
-                        style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-                        <style jsx>{`
+                    <div className="flex bg-white lg:bg-transparent rounded-full lg:rounded-none shadow-sm lg:shadow-none p-1 lg:p-0 items-center gap-2 flex-1 min-w-0 w-full lg:w-auto overflow-hidden">
+                        {/* Left Arrow - Desktop/Tablet */}
+                        <button
+                            onClick={() => scroll('left')}
+                            className="hidden md:flex w-8 h-8 rounded-full bg-white shadow-sm hover:shadow-md transition-all duration-200 items-center justify-center flex-shrink-0 border border-gray-200 hover:border-gray-300 hover:scale-110 active:scale-95"
+                        >
+                            <Image src="/images/blogs/left-arrow.webp" alt="Scroll Left" width={16} height={16} className="object-contain opacity-60 hover:opacity-100" />
+                        </button>
+
+                        <div
+                            ref={categoryContainerRef}
+                            className="flex gap-2 items-center flex-1 overflow-x-auto scrollbar-hide py-1"
+                            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                        >
+                            <style jsx>{`
                             div::-webkit-scrollbar {
                                 display: none;
                             }
                         `}</style>
-                        {categories.map((category) => (
-                            <button
-                                key={category}
-                                onClick={() => setActiveCategory(category)}
-                                className={`px-3 md:px-11.5 py-2 rounded-full font-medium transition-all duration-200 text-sm md:text-base whitespace-nowrap ${activeCategory === category
+                            {categories.map((category) => (
+                                <button
+                                    key={category}
+                                    onClick={() => setActiveCategory(category)}
+                                    className={`px-4 md:px-6 py-2 rounded-full font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 text-sm whitespace-nowrap ${activeCategory === category
                                         ? category === 'All'
-                                            ? 'bg-[#2CBF0F] text-white'
+                                            ? 'bg-[#2CBF0F] text-white shadow-md'
                                             : category === 'Education'
-                                                ? 'bg-[#BFE6DB] text-[#00A88E]'
+                                                ? 'bg-[#BFE6DB] text-[#00A88E] shadow-md'
                                                 : category === 'Exams'
-                                                    ? 'bg-[#FFE0B2] text-[#C77700]'
+                                                    ? 'bg-[#FFE0B2] text-[#C77700] shadow-md'
                                                     : category === 'Government'
-                                                        ? 'bg-[#D5DCE5] text-[#2C3E50]'
+                                                        ? 'bg-[#D5DCE5] text-[#2C3E50] shadow-md'
                                                         : category === 'Careers'
-                                                            ? 'bg-[#C9E2FF] text-[#004E89]'
-                                                            : 'bg-[#C9E2FF] text-[#004E89]'
-                                        : 'bg-white text-gray-600 border border-gray-300 hover:bg-gray-50'
-                                    }`}
-                            >
-                                {category}
-                            </button>
-                        ))}
+                                                            ? 'bg-[#C9E2FF] text-[#004E89] shadow-md'
+                                                            : 'bg-[#C9E2FF] text-[#004E89] shadow-md'
+                                        : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50 hover:border-gray-300'
+                                        }`}
+                                >
+                                    {category}
+                                </button>
+                            ))}
+                        </div>
+
+                        {/* Right Arrow - Desktop/Tablet */}
+                        <button
+                            onClick={() => scroll('right')}
+                            className="hidden md:flex w-8 h-8 rounded-full bg-white shadow-sm hover:shadow-md transition-all duration-200 items-center justify-center flex-shrink-0 border border-gray-200 hover:border-gray-300 hover:scale-110 active:scale-95"
+                        >
+                            <Image src="/images/blogs/right-arrow.webp" alt="Scroll Right" width={16} height={16} className="object-contain opacity-60 hover:opacity-100" />
+                        </button>
                     </div>
-                    
-                    {/* Right Arrow Button - Inline and subtle */}
-                    <button 
-                        onClick={scrollToActiveCategory}
-                        className="flex w-8 h-8 md:w-10 md:h-10 rounded-full bg-white shadow-sm hover:shadow-md transition-all duration-200 items-center justify-center flex-shrink-0 border border-gray-200 hover:border-gray-300 lg:-mr-30">
-                        <Image
-                            src="/images/blogs/right-arrow.webp"
-                            alt="Scroll to active category"
-                            width={16}
-                            height={16}
-                            className="object-contain opacity-60 hover:opacity-100 transition-opacity"
-                        />
-                    </button>
+
+                    {/* Mobile Arrows Row - Only visible on small screens */}
+                    <div className="flex md:hidden justify-center gap-4 w-full mt-2">
+                        <button
+                            onClick={() => scroll('left')}
+                            className="flex w-10 h-10 rounded-full bg-white shadow-md hover:shadow-lg transition-all duration-200 items-center justify-center border border-gray-100 active:scale-95"
+                        >
+                            <Image src="/images/blogs/left-arrow.webp" alt="Scroll Left" width={20} height={20} className="object-contain" />
+                        </button>
+                        <button
+                            onClick={() => scroll('right')}
+                            className="flex w-10 h-10 rounded-full bg-white shadow-md hover:shadow-lg transition-all duration-200 items-center justify-center border border-gray-100 active:scale-95"
+                        >
+                            <Image src="/images/blogs/right-arrow.webp" alt="Scroll Right" width={20} height={20} className="object-contain" />
+                        </button>
+                    </div>
                 </div>
             </div>
-            
+
 
 
             {/* main content */}
