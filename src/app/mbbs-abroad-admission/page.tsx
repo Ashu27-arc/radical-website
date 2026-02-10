@@ -148,7 +148,7 @@ export default function MBBSAbroadAdmission() {
                             className="w-full h-full object-cover"
                         />
                     </div>
-                    
+
                     {/* Right Top Corner Image */}
                     <div className="absolute -top-2 sm:top-0 right-0 w-12 h-12 sm:w-16 sm:h-16 md:w-24 md:h-24 lg:w-40 lg:h-40 xl:w-80 xl:h-80 2xl:w-96 2xl:h-96">
                         <Image
@@ -550,7 +550,7 @@ export default function MBBSAbroadAdmission() {
                         className="w-full h-full object-left opacity-60 sm:opacity-80 drop-shadow-lg"
                     />
                 </div>
-                
+
                 {/* Bottom Right Corner Image - Outside opacity div */}
                 <div className="absolute -bottom-10 sm:-bottom-20 md:-bottom-30 right-0 w-20 h-20 sm:w-40 sm:h-40 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-96 xl:h-96 z-10">
                     <Image
@@ -588,57 +588,123 @@ export default function MBBSAbroadAdmission() {
             </section>
 
             {/* Cost Breakdown Section */}
-            <section className="py-8 sm:py-12 md:py-16 bg-gradient-to-br from-blue-50 to-blue-100 px-2 sm:px-4 md:px-8 lg:px-20">
+            <section className="py-8 sm:py-12 md:py-16 bg-gradient-to-br from-blue-50 to-blue-100 px-4 sm:px-6 md:px-12 lg:px-24 xl:px-32">
                 <div className="container mx-auto px-2 sm:px-4 md:px-6">
                     <div className="max-w-5xl mx-auto">
                         <div className="text-center mb-6 sm:mb-8 md:mb-12">
                             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#0B2E3C] mb-3 md:mb-4">
                                 Cost Breakdown
                             </h2>
-                            <p className="text-gray-600 text-sm sm:text-base md:text-lg px-2 sm:px-4">
-                                I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps HRs
+                            <p className="text-gray-600 text-xs sm:text-sm md:text-base px-2 sm:px-4 max-w-3xl mx-auto leading-relaxed">
+                                This Section Outlines The Complete Cost Structure For MBBS Abroad. Everything
                                 <br className="hidden md:block" />
-                                Generate Job Descriptions And Screen Resumes
+                                Related To Expenses Are Explained Clearly For Easy Understanding.
                             </p>
                         </div>
 
                         {/* Cost Table */}
                         <div className="bg-white rounded-xl md:rounded-2xl shadow-lg overflow-x-auto">
-                            <div className="min-w-[500px] sm:min-w-[600px]">
+                            <div className="min-w-[700px]">
                                 {/* Table Header */}
-                                <div className="grid grid-cols-4 bg-[#F5B800] text-[#0B2E3C] font-bold text-xs sm:text-sm md:text-base">
-                                    <div className="p-2 sm:p-3 md:p-4 text-center border-r border-[#E5A800]">Country</div>
-                                    <div className="p-2 sm:p-3 md:p-4 text-center border-r border-[#E5A800]">Academic</div>
-                                    <div className="p-2 sm:p-3 md:p-4 text-center border-r border-[#E5A800]">Hostel & Mesh</div>
-                                    <div className="p-2 sm:p-3 md:p-4 text-center">Total</div>
+                                <div className="grid grid-cols-4 bg-[#F5B800] text-[#0B2E3C] font-bold text-sm sm:text-base md:text-lg">
+                                    <div className="p-3 sm:p-4 md:p-5 text-center border-r border-[#E5A800]">Country</div>
+                                    <div className="p-3 sm:p-4 md:p-5 text-center border-r border-[#E5A800]">Academic</div>
+                                    <div className="p-3 sm:p-4 md:p-5 text-center border-r border-[#E5A800]">Hostel & Mesh</div>
+                                    <div className="p-3 sm:p-4 md:p-5 text-center">Total</div>
                                 </div>
 
                                 {/* Table Rows */}
-                                {[1, 2, 3, 4].map((row) => (
+                                {[
+                                    {
+                                        country: "GEORGIA",
+                                        flag: "/images/georgia.webp",
+                                        academic: { primary: "5,10,000 INR", secondary: "6,000 USD" },
+                                        hostel: { primary: "2,55,000 INR", secondary: "3,000 USD" },
+                                        total: { primary: "7,65,000 INR", secondary: "9,000 USD" }
+                                    },
+                                    {
+                                        country: "KAZAKHSTAN",
+                                        flag: "/images/kazakhstan.webp",
+                                        academic: { primary: "3,74,000 INR", secondary: "4,800 USD" },
+                                        hostel: { primary: "59,500 INR", secondary: "700 USD" },
+                                        total: { primary: "28,05,000 INR", secondary: "33,000 USD" }
+                                    },
+                                    {
+                                        country: "UZBEKISTAN",
+                                        flag: "/images/uzbekistan.webp",
+                                        academic: { primary: "6,16,250 INR", secondary: "7250 USD" },
+                                        hostel: { primary: "51,000 INR", secondary: "600 USD" },
+                                        total: { primary: "6,16,250 INR", secondary: "7250 USD" }
+                                    },
+                                    {
+                                        country: "NEPAL",
+                                        flag: "/images/nepal.webp",
+                                        academic: { primary: "26,00,000 INR" },
+                                        hostel: { primary: "1,44,000 INR" },
+                                        total: { primary: "69,68,280 INR" }
+                                    },
+                                    {
+                                        country: "RUSSIA",
+                                        flag: "/images/russia.webp",
+                                        academic: { primary: "3,60,000 RB" },
+                                        hostel: { primary: "18,000 RB" },
+                                        total: { primary: "3,78,000 RB" }
+                                    },
+                                    {
+                                        country: "SINGAPORE",
+                                        flag: "/images/singapore.webp",
+                                        academic: { primary: "76450 USD" },
+                                        hostel: { primary: "265 TO 605 USD" },
+                                        total: { primary: "77055 USD" }
+                                    },
+                                    {
+                                        country: "KRYGYSTAN",
+                                        flag: "/images/kyrgyzstan.webp",
+                                        academic: { primary: "2200 USD" },
+                                        hostel: { primary: "600 USD" },
+                                        total: { primary: "2800 USD" }
+                                    },
+                                    {
+                                        country: "BANGLADESH",
+                                        flag: "/images/bangladesh.webp",
+                                        academic: { primary: "-" },
+                                        hostel: { primary: "-" },
+                                        total: { primary: "-" }
+                                    }
+                                ].map((row, idx) => (
                                     <div
-                                        key={row}
-                                        className="grid grid-cols-4 border-b border-gray-200 hover:bg-gray-50 transition-colors text-xs sm:text-sm md:text-base"
+                                        key={idx}
+                                        className="grid grid-cols-4 border-b border-gray-100 hover:bg-gray-50 transition-colors py-2 sm:py-3 md:py-4"
                                     >
-                                        <div className="p-2 sm:p-3 md:p-4 flex items-center gap-2 md:gap-3">
-                                            <div className="w-6 h-6 sm:w-8 sm:h-8 md:w-10 md:h-10 rounded-full overflow-hidden flex-shrink-0">
+                                        <div className="px-4 sm:px-6 md:px-8 flex items-center gap-3 md:gap-4">
+                                            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden flex-shrink-0 shadow-sm border border-gray-100">
                                                 <Image
-                                                    src="/images/georgia.webp"
-                                                    alt="Germany Flag"
+                                                    src={row.flag}
+                                                    alt={`${row.country} Flag`}
                                                     width={40}
                                                     height={40}
                                                     className="w-full h-full object-cover"
                                                 />
                                             </div>
-                                            <span className="text-gray-600 font-medium text-xs sm:text-sm">GERMANY</span>
+                                            <span className="text-gray-500 font-semibold text-xs sm:text-sm tracking-wide">{row.country}</span>
                                         </div>
-                                        <div className="p-2 sm:p-3 md:p-4 text-center text-gray-700 flex items-center justify-center">
-                                            ₹ 24,999
+                                        <div className="p-2 text-center flex flex-col items-center justify-center">
+                                            <span className="text-gray-600 font-medium text-xs sm:text-sm md:text-base">{row.academic.primary}</span>
+                                            {row.academic.secondary && (
+                                                <span className="text-gray-400 text-[10px] sm:text-xs">{row.academic.secondary}</span>
+                                            )}
                                         </div>
-                                        <div className="p-2 sm:p-3 md:p-4 text-center text-gray-700 flex items-center justify-center">
-                                            ₹ 24,999
+                                        <div className="p-2 text-center flex flex-col items-center justify-center border-x border-gray-50">
+                                            <span className="text-gray-600 font-medium text-xs sm:text-sm md:text-base">{row.hostel.primary}</span>
+                                            {row.hostel.secondary && (
+                                                <span className="text-gray-400 text-[10px] sm:text-xs">{row.hostel.secondary}</span>
+                                            )}
                                         </div>
-                                        <div className="p-2 sm:p-3 md:p-4 text-center text-gray-700 font-semibold flex items-center justify-center">
-                                            ₹ 24,999
+                                        <div className="p-2 text-center flex flex-col items-center justify-center">
+                                            <span className="text-gray-700 font-bold text-xs sm:text-sm md:text-base">{row.total.primary}</span>
+                                            {row.total.secondary && (
+                                                <span className="text-gray-400 text-[10px] sm:text-xs font-normal">{row.total.secondary}</span>
+                                            )}
                                         </div>
                                     </div>
                                 ))}
