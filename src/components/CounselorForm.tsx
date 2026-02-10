@@ -78,7 +78,9 @@ export default function CounselorForm() {
         });
     };
 
-    const handleSubmit = () => {
+    const [loading, setLoading] = useState(false);
+
+    const handleSubmit = async () => {
         if (!form.name.trim()) return showError('Name is required');
         if (!form.email.trim()) return showError('Email is required');
         if (!form.mobile.trim()) return showError('Mobile number is required');
@@ -95,22 +97,44 @@ export default function CounselorForm() {
             return showError('Please select a state');
         }
 
-        toast.current?.show({
-            severity: 'success',
-            summary: 'Enquiry Submitted',
-            detail: 'We will contact you shortly',
-            life: 3000,
-        });
+        setLoading(true);
+        try {
+            const response = await fetch('/api/counselor-enquiry', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(form),
+            });
 
-        setForm({
-            name: '',
-            email: '',
-            mobile: '',
-            course: '',
-            state: '',
-        });
+            const result = await response.json();
 
-        setVisible(false);
+            if (result.success) {
+                toast.current?.show({
+                    severity: 'success',
+                    summary: 'Enquiry Submitted',
+                    detail: result.message || 'We will contact you shortly',
+                    life: 3000,
+                });
+
+                setForm({
+                    name: '',
+                    email: '',
+                    mobile: '',
+                    course: '',
+                    state: '',
+                });
+
+                setVisible(false);
+            } else {
+                showError(result.message || 'Failed to submit enquiry');
+            }
+        } catch (error) {
+            showError('Network error. Please try again later.');
+            console.error('Submission error:', error);
+        } finally {
+            setLoading(false);
+        }
     };
 
     return (
@@ -225,9 +249,9 @@ export default function CounselorForm() {
                     </span>
                 </div>
                 <div className="flex items-start gap-2">
-                    <input 
-                        type="checkbox" 
-                        id="consent" 
+                    <input
+                        type="checkbox"
+                        id="consent"
                         className="mt-1"
                     />
                     <label htmlFor="consent" className="text-sm text-white">
@@ -243,6 +267,7 @@ export default function CounselorForm() {
                         iconPos="right"
                         className="w-full bg-gradient-to-l! from-[#0077BF]! to-[#00CFB2]! border-0!"
                         onClick={handleSubmit}
+                        loading={loading}
                     />
                 </div>
             </div>
