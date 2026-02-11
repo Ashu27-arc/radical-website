@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import * as THREE from "three";
 
 export default function Earth3D() {
-  const containerRef = useRef(null);
+  const containerRef = useRef<HTMLDivElement>(null);
   const initializedRef = useRef(false); // ✅ prevent duplicate labels in Next.js
 
   useEffect(() => {
@@ -47,7 +47,7 @@ export default function Earth3D() {
     scene.add(earth);
 
     /* Lat/Lon → Vector */
-    function latLon(lat, lon, radius = 1) {
+    function latLon(lat: number, lon: number, radius = 1) {
       const phi = ((90 - lat) * Math.PI) / 180;
       const theta = ((lon + 180) * Math.PI) / 180;
       return new THREE.Vector3(
@@ -60,7 +60,7 @@ export default function Earth3D() {
     /* Pin Marker + MAP ICON */
     const iconTexture = new THREE.TextureLoader().load("/images/mapIcon.svg");
 
-    function createPin(position) {
+    function createPin(position: THREE.Vector3) {
       const group = new THREE.Group();
 
       const head = new THREE.Mesh(
@@ -100,7 +100,7 @@ export default function Earth3D() {
       { name: "Singapore", lat: 1.3, lon: 103.8, colleges: 22, flag: "/images/sg.webp" },
     ];
 
-    const labels = [];
+    const labels: { label: HTMLDivElement; pin: THREE.Group }[] = [];
 
     countries.forEach((c) => {
       const pos = latLon(c.lat, c.lon);
@@ -132,12 +132,12 @@ export default function Earth3D() {
     let lastX = 0;
     let rotationVelocity = 0;
 
-    function startDrag(x) {
+    function startDrag(x: number) {
       isDragging = true;
       lastX = x;
     }
 
-    function drag(x) {
+    function drag(x: number) {
       if (!isDragging) return;
       const delta = x - lastX;
       rotationVelocity = delta * 0.005;
