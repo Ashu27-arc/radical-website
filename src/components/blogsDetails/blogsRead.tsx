@@ -1,17 +1,34 @@
 "use client";
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import BlogSidebar from './BlogSidebar';
+import { getBlogBySlug, type Blog } from '@/lib/api';
 
 interface BlogsReadProps {
     slug: string;
 }
 
+const formatDate = (d: string) => {
+    if (!d) return '';
+    const date = new Date(d);
+    return isNaN(date.getTime()) ? d : date.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+};
+
 const BlogsRead = ({ slug }: BlogsReadProps) => {
     const [searchTerm, setSearchTerm] = useState('');
     const [activeCategory, setActiveCategory] = useState('All');
     const categoryContainerRef = useRef<HTMLDivElement>(null);
+    const [blog, setBlog] = useState<Blog | null>(null);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        getBlogBySlug(slug).then((data) => {
+            setBlog(data);
+            setLoading(false);
+        }).catch(() => setLoading(false));
+    }, [slug]);
 
     const categories = ['All', 'Education', 'Exams', 'Government', 'Careers'];
 
@@ -137,72 +154,68 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8">
                     {/* Blog Content - Left Side */}
                     <div className="lg:col-span-2">
-                        {/* Blog Category Badge */}
-                        <div className="mb-4">
-                            <span className="inline-block text-[#00A88E] px-3 py-1 rounded text-sm font-medium">
-                                Educational
-                            </span>
-                        </div>
+                        {loading ? (
+                            <div className="animate-pulse space-y-4">
+                                <div className="h-6 bg-gray-200 rounded w-24" />
+                                <div className="h-8 bg-gray-200 rounded w-3/4" />
+                                <div className="h-4 bg-gray-200 rounded w-1/3" />
+                                <div className="h-48 bg-gray-200 rounded-lg" />
+                                <div className="h-4 bg-gray-200 rounded w-full" />
+                                <div className="h-4 bg-gray-200 rounded w-full" />
+                            </div>
+                        ) : !blog ? (
+                            <div className="text-center py-12">
+                                <h2 className="text-xl font-bold text-gray-800 mb-2">Blog not found</h2>
+                                <p className="text-gray-600 mb-4">The blog you are looking for does not exist or has been removed.</p>
+                                <Link href="/blogs" className="text-[#005A8B] hover:underline font-medium">← Back to Blogs</Link>
+                            </div>
+                        ) : (
+                            <>
+                                {/* Blog Category Badge */}
+                                <div className="mb-4">
+                                    <span className="inline-block text-[#00A88E] px-3 py-1 rounded text-sm font-medium bg-[#BFE6DB]">
+                                        {blog.category}
+                                    </span>
+                                </div>
 
-                        {/* Blog Title */}
-                        <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-4">
-                            NEET Exam in India: Your Gateway to a Bright Medical Career
-                        </h1>
+                                {/* Blog Title */}
+                                <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-4">
+                                    {blog.title}
+                                </h1>
 
-                        {/* Blog Meta */}
-                        <div className="flex items-center text-gray-500 text-sm mb-6">
-                            <span>Garima Pareek</span>
-                            <span className="mx-2">•</span>
-                            <span>15 Jan 2025</span>
-                        </div>
+                                {/* Blog Meta */}
+                                <div className="flex items-center text-gray-500 text-sm mb-6">
+                                    <span>{blog.author}</span>
+                                    <span className="mx-2">•</span>
+                                    <span>{formatDate(blog.date)}</span>
+                                </div>
 
-                        {/* Blog Image */}
-                        <div className="mb-6">
-                            <img
-                                src="/images/blogs/card.webp"
-                                alt="NEET Exam Blog"
-                                className="w-full h-48 md:h-64 object-cover rounded-lg"
-                            />
-                        </div>
+                                {/* Blog Image */}
+                                <div className="mb-6 relative w-full h-48 md:h-64">
+                                    {blog.featuredImage ? (
+                                            <Image
+                                                src={blog.featuredImage}
+                                                alt={blog.title}
+                                                fill
+                                                className="object-cover rounded-lg"
+                                            />
+                                        ) : (
+                                        <Image
+                                            src="/images/blogs/card.webp"
+                                            alt={blog.title}
+                                            fill
+                                            className="object-cover rounded-lg"
+                                        />
+                                    )}
+                                </div>
 
-                        {/* Blog Content */}
-                        <div className="prose max-w-none text-gray-700 leading-relaxed mb-8 text-sm md:text-base">
-                            <p className="mb-4">
-                                Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite Your Friends And
-                                Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits—
-                                Earn More With Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits Invite Your Friends And
-                                Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite
-                                Your Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive
-                            </p>
-
-                            <p className="mb-4">
-                                Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite Your Friends And
-                                Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits—
-                                Earn More With Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits Invite Your Friends And
-                                Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite
-                                Your Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive
-                            </p>
-
-                            <h2 className="text-lg md:text-xl font-bold text-gray-800 mt-8 mb-4">
-                                NEET Exam in India: Your Gateway to a Bright Medical Career
-                            </h2>
-
-                            <p className="mb-4">
-                                Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite Your Friends And
-                                Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits—
-                                Earn More With Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits Invite Your Friends And
-                                Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite
-                                Your Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive
-                            </p>
-
-                            <p className="mb-4">
-                                Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite Your Friends And
-                                Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits—
-                                Earn More With Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits Invite Your Friends And
-                                Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite
-                                Your Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive
-                            </p>
-                        </div>
+                                {/* Blog Content */}
+                                <div
+                                    className="prose max-w-none text-gray-700 leading-relaxed mb-8 text-sm md:text-base prose-headings:text-gray-800 prose-p:mb-4"
+                                    dangerouslySetInnerHTML={{ __html: blog.content || blog.excerpt || '' }}
+                                />
+                            </>
+                        )}
 
                         {/* Comment Section */}
                         <div className="pt-8">

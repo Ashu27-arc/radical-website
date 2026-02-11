@@ -1,13 +1,38 @@
 "use client";
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { getBlogs, type Blog } from '@/lib/api';
+
+const categoryColors: Record<string, string> = {
+  'Educational': 'bg-teal-500',
+  'Education': 'bg-teal-500',
+  'Exams': 'bg-orange-500',
+  'Government': 'bg-gray-600',
+  'Careers': 'bg-blue-500',
+  'MBBS in India': 'bg-green-100 text-green-700',
+  'MBBS Abroad': 'bg-teal-100 text-teal-700',
+  'NEET UG': 'bg-red-100 text-red-700',
+  'NEET PG': 'bg-yellow-100 text-yellow-700',
+  'Development': 'bg-gray-200 text-gray-700',
+};
+
+const defaultCategoryColor = 'bg-[#005A8B] text-white';
 
 const BlogsPage = () => {
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
+  const [blogs, setBlogs] = useState<Blog[]>([]);
+  const [loading, setLoading] = useState(true);
   const scrollRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    getBlogs().then((data) => {
+      setBlogs(data);
+      setLoading(false);
+    }).catch(() => setLoading(false));
+  }, []);
 
   const scroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
@@ -21,32 +46,24 @@ const BlogsPage = () => {
     }
   };
 
-  const categories = ['All', 'Education', 'Exams', 'Government', 'Careers', 'Government', 'Exams'];
-
-  const blogPosts = [
-    {
-      id: 1,
-      category: 'Educational',
-      title: 'NEET Exam in India: Your Gateway to a Bright Medical Career',
-      description: 'Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral.',
-      author: 'Danish Farzan',
-      date: '19 Jan 2022',
-      image: '/images/blogs/neet-blog.jpg',
-      categoryColor: 'bg-teal-500',
-      slug: 'neet-exam-india-gateway-medical-career'
-    },
-    {
-      id: 2,
-      category: 'Exams',
-      title: 'NEET Exam in India: Your Gateway to a Bright Medical',
-      description: 'Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral.',
-      author: 'Danish Farzan',
-      date: '19 Jan 2022',
-      image: '/images/blogs/neet-blog.jpg',
-      categoryColor: 'bg-orange-500',
-      slug: 'neet-exam-preparation-guide'
-    }
-  ];
+  const publishedBlogs = blogs.filter((b) => b.status === 'Published');
+  const categories = ['All', ...Array.from(new Set(publishedBlogs.map((b) => b.category).filter(Boolean)))];
+  const filtered = publishedBlogs.filter((b) => {
+    const matchCategory = activeCategory === 'All' || b.category === activeCategory;
+    const matchSearch = !searchQuery.trim() ||
+      b.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      (b.excerpt && b.excerpt.toLowerCase().includes(searchQuery.toLowerCase()));
+    return matchCategory && matchSearch;
+  });
+  const featuredBlog = filtered[0];
+  const sidebarBlogs = filtered.slice(1, 4);
+  const gridBlogs = filtered;
+  const getCategoryColor = (cat: string) => categoryColors[cat] || defaultCategoryColor;
+  const formatDate = (d: string) => {
+    if (!d) return '';
+    const date = new Date(d);
+    return isNaN(date.getTime()) ? d : date.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+  };
 
   return (
     <div className="min-h-screen">
@@ -144,54 +161,69 @@ const BlogsPage = () => {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 relative">
           {/* Main Blog Post */}
           <div className="lg:col-span-2 animate-fadeIn" style={{ animationDelay: '0.1s' }}>
-            <Link href="/blogs/neet-exam-india-gateway-medical-career" className="block">
-              <div className="bg-white rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer">
-                <div className="relative h-48 md:h-80">
-                  <Image
-                    src="/images/blogs/b.webp"
-                    alt="NEET Exam Blog"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-4 md:p-6">
-                  <span className="inline-block bg-teal-500 text-white px-3 py-1 rounded-full text-xs md:text-sm mb-3 md:mb-4">
-                    Educational
-                  </span>
-                  <h3 className="text-lg md:text-2xl font-bold text-gray-800 mb-3 md:mb-4 hover:text-blue-600 transition-colors">
-                    NEET Exam in India: Your Gateway to a Bright Medical Career
-                  </h3>
-                  <p className="text-sm md:text-base text-gray-600 mb-3 md:mb-4">
-                    Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive
-                  </p>
-                  <div className="flex items-center text-gray-500 text-xs md:text-sm">
-                    <span>Danish Farzan</span>
-                    <span className="mx-2">•</span>
-                    <span>19 Jan 2022</span>
+            {featuredBlog ? (
+              <Link href={`/blogs/${featuredBlog.slug}`} className="block">
+                <div className="bg-white rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer">
+                  <div className="relative h-48 md:h-80">
+                    {featuredBlog.featuredImage ? (
+                      <Image
+                        src={featuredBlog.featuredImage}
+                        alt={featuredBlog.title}
+                        fill
+                        className="object-cover"
+                      />
+                    ) : (
+                      <Image
+                        src="/images/blogs/b.webp"
+                        alt={featuredBlog.title}
+                        fill
+                        className="object-cover"
+                      />
+                    )}
+                  </div>
+                  <div className="p-4 md:p-6">
+                    <span className={`inline-block ${getCategoryColor(featuredBlog.category)} text-white px-3 py-1 rounded-full text-xs md:text-sm mb-3 md:mb-4`}>
+                      {featuredBlog.category}
+                    </span>
+                    <h3 className="text-lg md:text-2xl font-bold text-gray-800 mb-3 md:mb-4 hover:text-blue-600 transition-colors">
+                      {featuredBlog.title}
+                    </h3>
+                    <p className="text-sm md:text-base text-gray-600 mb-3 md:mb-4 line-clamp-2">
+                      {featuredBlog.excerpt || featuredBlog.title}
+                    </p>
+                    <div className="flex items-center text-gray-500 text-xs md:text-sm">
+                      <span>{featuredBlog.author}</span>
+                      <span className="mx-2">•</span>
+                      <span>{formatDate(featuredBlog.date)}</span>
+                    </div>
                   </div>
                 </div>
+              </Link>
+            ) : (
+              <div className="bg-white rounded-lg overflow-hidden border border-gray-200 p-8 text-center text-gray-500">
+                {loading ? 'Loading...' : 'No published blogs yet. Check back later.'}
               </div>
-            </Link>
+            )}
           </div>
 
           {/* Sidebar */}
           <div className="space-y-4 md:space-y-6">
-            {blogPosts.map((post, index) => (
+            {sidebarBlogs.map((post, index) => (
               <Link key={post.id} href={`/blogs/${post.slug}`} className="block animate-fadeIn" style={{ animationDelay: `${0.2 + index * 0.1}s` }}>
-                <div className={`bg-white rounded-lg p-4 md:p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer ${index < blogPosts.length - 1 ? 'border-b-2 border-gray-200' : ''}`}>
-                  <span className={`inline-block ${post.categoryColor} text-white px-3 py-1 rounded-full text-xs md:text-sm mb-3 md:mb-4`}>
+                <div className={`bg-white rounded-lg p-4 md:p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer ${index < sidebarBlogs.length - 1 ? 'border-b-2 border-gray-200' : ''}`}>
+                  <span className={`inline-block ${getCategoryColor(post.category)} text-white px-3 py-1 rounded-full text-xs md:text-sm mb-3 md:mb-4`}>
                     {post.category}
                   </span>
                   <h4 className="text-base md:text-lg font-bold text-gray-800 mb-2 md:mb-3 hover:text-blue-600 transition-colors">
                     {post.title}
                   </h4>
-                  <p className="text-gray-600 text-xs md:text-sm mb-3 md:mb-4">
-                    {post.description}
+                  <p className="text-gray-600 text-xs md:text-sm mb-3 md:mb-4 line-clamp-2">
+                    {post.excerpt || post.title}
                   </p>
                   <div className="flex items-center text-gray-500 text-xs">
                     <span>{post.author}</span>
                     <span className="mx-2">•</span>
-                    <span>{post.date}</span>
+                    <span>{formatDate(post.date)}</span>
                   </div>
                 </div>
               </Link>
@@ -205,185 +237,45 @@ const BlogsPage = () => {
         {/* Blog Cards Grid */}
         <div className="mt-16 md:mt-30">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
-            {/* Blog Card 1 */}
-            <Link href="/blogs/neet-exam-india-gateway-medical-career" className="block animate-fadeIn" style={{ animationDelay: '0.3s' }}>
-              <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer">
-                <div className="relative h-40 md:h-48">
-                  <Image
-                    src="/images/blogs/card.webp"
-                    alt="NEET Exam Blog"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-4 md:p-6">
-                  <span className="inline-block text-[#00A88E] px-3 py-1 rounded-full text-xs md:text-sm mb-2 md:mb-3">
-                    Educational
-                  </span>
-                  <h3 className="text-base md:text-lg font-bold text-gray-800 mb-2 md:mb-3 hover:text-blue-600 transition-colors">
-                    NEET Exam in India: Your Gateway to a Bright Medical
-                  </h3>
-                  <p className="text-gray-600 text-xs md:text-sm mb-3 md:mb-4">
-                    Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral.
-                  </p>
-                  <div className="flex items-center text-gray-500 text-xs">
-                    <span>Danish Farzan</span>
-                    <span className="mx-2">•</span>
-                    <span>19 Jan 2022</span>
+            {gridBlogs.map((blog, index) => (
+              <Link key={blog.id} href={`/blogs/${blog.slug}`} className="block animate-fadeIn" style={{ animationDelay: `${0.3 + index * 0.1}s` }}>
+                <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer">
+                  <div className="relative h-40 md:h-48">
+                    {blog.featuredImage ? (
+                      <Image
+                        src={blog.featuredImage}
+                        alt={blog.title}
+                        fill
+                        className="object-cover"
+                      />
+                    ) : (
+                      <Image
+                        src={["/images/blogs/card.webp", "/images/blogs/card-1.webp", "/images/blogs/card-2.webp"][index % 3]}
+                        alt={blog.title}
+                        fill
+                        className="object-cover"
+                      />
+                    )}
+                  </div>
+                  <div className="p-4 md:p-6">
+                    <span className={`inline-block ${getCategoryColor(blog.category)} px-3 py-1 rounded-full text-xs md:text-sm mb-2 md:mb-3`}>
+                      {blog.category}
+                    </span>
+                    <h3 className="text-base md:text-lg font-bold text-gray-800 mb-2 md:mb-3 hover:text-blue-600 transition-colors line-clamp-2">
+                      {blog.title}
+                    </h3>
+                    <p className="text-gray-600 text-xs md:text-sm mb-3 md:mb-4 line-clamp-2">
+                      {blog.excerpt || blog.title}
+                    </p>
+                    <div className="flex items-center text-gray-500 text-xs">
+                      <span>{blog.author}</span>
+                      <span className="mx-2">•</span>
+                      <span>{formatDate(blog.date)}</span>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Link>
-
-            {/* Blog Card 2 */}
-            <Link href="/blogs/neet-exam-preparation-guide" className="block animate-fadeIn" style={{ animationDelay: '0.4s' }}>
-              <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer">
-                <div className="relative h-40 md:h-48">
-                  <Image
-                    src="/images/blogs/card-1.webp"
-                    alt="NEET Exam Blog"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-4 md:p-6">
-                  <span className="inline-block text-[#C77700] px-3 py-1 rounded-full text-xs md:text-sm mb-2 md:mb-3">
-                    Exams
-                  </span>
-                  <h3 className="text-base md:text-lg font-bold text-gray-800 mb-2 md:mb-3 hover:text-blue-600 transition-colors">
-                    NEET Exam in India: Your Gateway to a Bright Medical
-                  </h3>
-                  <p className="text-gray-600 text-xs md:text-sm mb-3 md:mb-4">
-                    Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral.
-                  </p>
-                  <div className="flex items-center text-gray-500 text-xs">
-                    <span>Danish Farzan</span>
-                    <span className="mx-2">•</span>
-                    <span>19 Jan 2022</span>
-                  </div>
-                </div>
-              </div>
-            </Link>
-
-            {/* Blog Card 3 */}
-            <Link href="/blogs/government-medical-colleges-guide" className="block animate-fadeIn" style={{ animationDelay: '0.5s' }}>
-              <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer">
-                <div className="relative h-40 md:h-48">
-                  <Image
-                    src="/images/blogs/card-2.webp"
-                    alt="NEET Exam Blog"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-4 md:p-6">
-                  <span className="inline-block text-[#2C3E50] px-3 py-1 rounded-full text-xs md:text-sm mb-2 md:mb-3">
-                    Government
-                  </span>
-                  <h3 className="text-base md:text-lg font-bold text-gray-800 mb-2 md:mb-3 hover:text-blue-600 transition-colors">
-                    NEET Exam in India: Your Gateway to a Bright Medical
-                  </h3>
-                  <p className="text-gray-600 text-xs md:text-sm mb-3 md:mb-4">
-                    Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral.
-                  </p>
-                  <div className="flex items-center text-gray-500 text-xs">
-                    <span>Danish Farzan</span>
-                    <span className="mx-2">•</span>
-                    <span>19 Jan 2022</span>
-                  </div>
-                </div>
-              </div>
-            </Link>
-
-            {/* Blog Card 4 */}
-            <Link href="/blogs/medical-career-opportunities" className="block animate-fadeIn" style={{ animationDelay: '0.6s' }}>
-              <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer">
-                <div className="relative h-40 md:h-48">
-                  <Image
-                    src="/images/blogs/card-2.webp"
-                    alt="NEET Exam Blog"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-4 md:p-6">
-                  <span className="inline-block text-[#2C3E50] px-3 py-1 rounded-full text-xs md:text-sm mb-2 md:mb-3">
-                    Government
-                  </span>
-                  <h3 className="text-base md:text-lg font-bold text-gray-800 mb-2 md:mb-3 hover:text-blue-600 transition-colors">
-                    NEET Exam in India: Your Gateway to a Bright Medical
-                  </h3>
-                  <p className="text-gray-600 text-xs md:text-sm mb-3 md:mb-4">
-                    Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral.
-                  </p>
-                  <div className="flex items-center text-gray-500 text-xs">
-                    <span>Danish Farzan</span>
-                    <span className="mx-2">•</span>
-                    <span>19 Jan 2022</span>
-                  </div>
-                </div>
-              </div>
-            </Link>
-
-            {/* Blog Card 5 */}
-            <Link href="/blogs/mbbs-admission-guide" className="block animate-fadeIn" style={{ animationDelay: '0.7s' }}>
-              <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer">
-                <div className="relative h-40 md:h-48">
-                  <Image
-                    src="/images/blogs/card.webp"
-                    alt="NEET Exam Blog"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-4 md:p-6">
-                  <span className="inline-block text-[#00A88E] px-3 py-1 rounded-full text-xs md:text-sm mb-2 md:mb-3">
-                    Educational
-                  </span>
-                  <h3 className="text-base md:text-lg font-bold text-gray-800 mb-2 md:mb-3 hover:text-blue-600 transition-colors">
-                    NEET Exam in India: Your Gateway to a Bright Medical
-                  </h3>
-                  <p className="text-gray-600 text-xs md:text-sm mb-3 md:mb-4">
-                    Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral.
-                  </p>
-                  <div className="flex items-center text-gray-500 text-xs">
-                    <span>Danish Farzan</span>
-                    <span className="mx-2">•</span>
-                    <span>19 Jan 2022</span>
-                  </div>
-                </div>
-              </div>
-            </Link>
-
-            {/* Blog Card 6 */}
-            <Link href="/blogs/medical-entrance-exams" className="block animate-fadeIn" style={{ animationDelay: '0.8s' }}>
-              <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer">
-                <div className="relative h-40 md:h-48">
-                  <Image
-                    src="/images/blogs/card-1.webp"
-                    alt="NEET Exam Blog"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div className="p-4 md:p-6">
-                  <span className="inline-block text-[#C77700] px-3 py-1 rounded-full text-xs md:text-sm mb-2 md:mb-3">
-                    Exams
-                  </span>
-                  <h3 className="text-base md:text-lg font-bold text-gray-800 mb-2 md:mb-3 hover:text-blue-600 transition-colors">
-                    NEET Exam in India: Your Gateway to a Bright Medical
-                  </h3>
-                  <p className="text-gray-600 text-xs md:text-sm mb-3 md:mb-4">
-                    Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral.
-                  </p>
-                  <div className="flex items-center text-gray-500 text-xs">
-                    <span>Danish Farzan</span>
-                    <span className="mx-2">•</span>
-                    <span>18 Jan 2022</span>
-                  </div>
-                </div>
-              </div>
-            </Link>
+              </Link>
+            ))}
           </div>
 
           {/* Pagination */}
