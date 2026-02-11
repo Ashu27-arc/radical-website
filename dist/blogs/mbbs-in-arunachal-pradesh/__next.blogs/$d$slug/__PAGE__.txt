@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[76987,["/_next/static/chunks/664a2288d580f62e.js","/_next/static/chunks/a6d21d4e5e9db666.js","/_next/static/chunks/962cbc0dc24347b0.js","/_next/static/chunks/0a66bfa10415e4ac.js","/_next/static/chunks/0e7e60a1cd251199.js","/_next/static/chunks/92ec5084d2a09231.js","/_next/static/chunks/ac6b9f31651e718e.js","/_next/static/chunks/a6fc4bc6c90026ed.js"],"default"]
+3:I[76334,["/_next/static/chunks/dce3841882b5ae04.js","/_next/static/chunks/d7146c89c8cfd581.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+0:{"buildId":"kVRqaRXs3c0zyzpv6BSTL","rsc":["$","$1","c",{"children":[["$","$L2",null,{"slug":"mbbs-in-arunachal-pradesh"}],[["$","script","script-0",{"src":"/_next/static/chunks/a6fc4bc6c90026ed.js","async":true}]],["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"loading":null,"isPartial":false}
+5:null

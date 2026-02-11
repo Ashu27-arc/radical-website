@@ -1,0 +1,6 @@
+1:"$Sreact.fragment"
+2:I[92320,["/_next/static/chunks/664a2288d580f62e.js","/_next/static/chunks/a6d21d4e5e9db666.js","/_next/static/chunks/962cbc0dc24347b0.js","/_next/static/chunks/0a66bfa10415e4ac.js","/_next/static/chunks/0e7e60a1cd251199.js","/_next/static/chunks/92ec5084d2a09231.js","/_next/static/chunks/ac6b9f31651e718e.js"],""]
+3:I[76334,["/_next/static/chunks/dce3841882b5ae04.js","/_next/static/chunks/d7146c89c8cfd581.js"],"OutletBoundary"]
+4:"$Sreact.suspense"
+0:{"buildId":"kVRqaRXs3c0zyzpv6BSTL","rsc":["$","$1","c",{"children":[["$","section",null,{"className":"max-w-4xl mx-auto px-4 py-20","children":[["$","$L2",null,{"href":"/services","className":"text-blue-500 underline","children":"← Back to Services"}],["$","div",null,{"className":"mt-8 bg-white p-8 rounded-xl shadow","children":[["$","h1",null,{"className":"text-2xl font-bold","children":"Admission Counselling"}],["$","p",null,{"className":"mt-4 text-gray-600","children":"Personalized admission counselling to guide students through every step."}]]}]]}],null,["$","$L3",null,{"children":["$","$4",null,{"name":"Next.MetadataOutlet","children":"$@5"}]}]]}],"loading":null,"isPartial":false}
+5:null

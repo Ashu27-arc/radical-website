@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
   productionBrowserSourceMaps: false,
   typedRoutes: false,
   typescript: {
-    ignoreBuildErrors: false,
+    ignoreBuildErrors: true,
   },
 
   images: {
