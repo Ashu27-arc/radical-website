@@ -4,6 +4,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getBlogs, type Blog } from '@/lib/api';
+import { useWebSocket } from '@/hooks/useWebSocket';
 
 const categoryColors: Record<string, string> = {
   'Educational': 'bg-teal-500',
@@ -26,12 +27,70 @@ const BlogsPage = () => {
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [loading, setLoading] = useState(true);
   const scrollRef = useRef<HTMLDivElement>(null);
+  const { addMessageHandler, isConnected } = useWebSocket('ws://localhost:8080');
 
+  // Initial load of blogs
   useEffect(() => {
     getBlogs().then((data) => {
       setBlogs(data);
       setLoading(false);
     }).catch(() => setLoading(false));
+  }, []);
+
+  // Listen for real-time blog updates via WebSocket
+  useEffect(() => {
+    const removeHandler = addMessageHandler((data) => {
+      console.log('Website received WebSocket message:', data);
+      
+      switch (data.type) {
+        case 'NEW_BLOG':
+          // Add new blog to the list if it's published
+          if (data.blog && data.blog.status === 'Published') {
+            setBlogs((prev) => {
+              // Check if blog already exists
+              const exists = prev.find((b) => b.id === data.blog.id);
+              if (exists) return prev;
+              console.log('Adding new blog to website:', data.blog.title);
+              return [data.blog, ...prev];
+            });
+          }
+          break;
+
+        case 'UPDATE_BLOG':
+          // Update existing blog in the list
+          setBlogs((prev) =>
+            prev.map((b) => (b.id === data.blog.id ? data.blog : b))
+          );
+          break;
+
+        case 'DELETE_BLOG':
+          // Remove blog from the list
+          setBlogs((prev) => prev.filter((b) => b.id !== data.blogId));
+          break;
+      }
+    });
+
+    return () => {
+      removeHandler();
+    };
+  }, [addMessageHandler]);
+
+  // Also poll for updates every 5 seconds as fallback
+  useEffect(() => {
+    const interval = setInterval(() => {
+      getBlogs().then((data) => {
+        setBlogs((prev) => {
+          // Only update if different
+          if (data.length !== prev.length) {
+            console.log('Poll update: New blogs detected');
+            return data;
+          }
+          return prev;
+        });
+      });
+    }, 5000);
+
+    return () => clearInterval(interval);
   }, []);
 
   const scroll = (direction: 'left' | 'right') => {
@@ -70,6 +129,15 @@ const BlogsPage = () => {
       {/* Header Section */}
       <div className="bg-white py-2 md:py-4 animate-fadeIn">
         <div className="container mx-auto px-4">
+          {/* Live Status Indicator */}
+          <div className="flex justify-end mb-2">
+            <div className="flex items-center gap-2">
+              <div className={`w-2 h-2 rounded-full ${isConnected ? 'bg-green-500 animate-pulse' : 'bg-red-500'}`}></div>
+              <span className="text-xs text-gray-500">
+                {isConnected ? 'Live Updates' : 'Offline'}
+              </span>
+            </div>
+          </div>
           {/* Search Bar */}
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 -mb-4 py-4 md:py-8">
             <div className="w-full max-w-2xl">
