@@ -18,6 +18,7 @@ export function useWebSocket(url: string = 'ws://localhost:8080') {
   const messageHandlersRef = useRef<Set<MessageHandler>>(new Set());
   const reconnectTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const isConnectingRef = useRef(false);
+  const isManualCloseRef = useRef(false);
   const urlRef = useRef(url);
 
   // Store url in ref to avoid dependency changes
@@ -32,17 +33,30 @@ export function useWebSocket(url: string = 'ws://localhost:8080') {
     }
 
     isConnectingRef.current = true;
+    isManualCloseRef.current = false;
 
     try {
       // Close existing connection if any
       if (wsRef.current) {
-        wsRef.current.close();
+        // Only close if connection is established or connecting
+        if (wsRef.current.readyState === WebSocket.OPEN || wsRef.current.readyState === WebSocket.CONNECTING) {
+          wsRef.current.close();
+        }
       }
 
       const ws = new WebSocket(urlRef.current);
       wsRef.current = ws;
 
+      // Connection timeout - if not connected within 5 seconds, close and retry
+      const connectionTimeout = setTimeout(() => {
+        if (ws.readyState !== WebSocket.OPEN) {
+          console.warn('WebSocket connection timeout, closing...');
+          ws.close();
+        }
+      }, 5000);
+
       ws.onopen = () => {
+        clearTimeout(connectionTimeout);
         console.log('WebSocket connected');
         setIsConnected(true);
         setError(null);
@@ -78,25 +92,36 @@ export function useWebSocket(url: string = 'ws://localhost:8080') {
       };
 
       ws.onclose = () => {
+        clearTimeout(connectionTimeout);
         console.log('WebSocket disconnected');
         setIsConnected(false);
         isConnectingRef.current = false;
-        
+
         // Attempt reconnection only if not manually closed
-        if (reconnectAttemptsRef.current < maxReconnectAttempts) {
+        if (!isManualCloseRef.current && reconnectAttemptsRef.current < maxReconnectAttempts) {
           reconnectAttemptsRef.current += 1;
           const delay = Math.min(1000 * Math.pow(2, reconnectAttemptsRef.current), 30000);
           console.log(`Reconnecting in ${delay}ms... (attempt ${reconnectAttemptsRef.current})`);
-          
+
           reconnectTimeoutRef.current = setTimeout(() => {
             connect();
           }, delay);
         }
       };
 
-      ws.onerror = (err) => {
-        console.error('WebSocket error:', err);
-        setError('WebSocket connection error');
+      ws.onerror = (_err) => {
+        clearTimeout(connectionTimeout);
+        // WebSocket error events don't contain detailed info for security reasons
+        // Log the readyState to help diagnose connection issues
+        const readyStateMap: Record<number, string> = {
+          0: 'CONNECTING',
+          1: 'OPEN',
+          2: 'CLOSING',
+          3: 'CLOSED'
+        };
+        const state = readyStateMap[ws.readyState] || 'UNKNOWN';
+        console.error(`WebSocket error: Connection failed (readyState: ${state}). Is the backend server running on ${urlRef.current}?`);
+        setError(`WebSocket connection error: ${state}`);
         isConnectingRef.current = false;
       };
     } catch (err) {
@@ -107,13 +132,17 @@ export function useWebSocket(url: string = 'ws://localhost:8080') {
   }, []);
 
   const disconnect = useCallback(() => {
+    isManualCloseRef.current = true;
     if (reconnectTimeoutRef.current) {
       clearTimeout(reconnectTimeoutRef.current);
       reconnectTimeoutRef.current = null;
     }
     if (wsRef.current) {
       wsRef.current.onclose = null; // Prevent reconnection on cleanup
-      wsRef.current.close();
+      // Only close if connection is established or connecting
+      if (wsRef.current.readyState === WebSocket.OPEN || wsRef.current.readyState === WebSocket.CONNECTING) {
+        wsRef.current.close();
+      }
       wsRef.current = null;
     }
   }, []);

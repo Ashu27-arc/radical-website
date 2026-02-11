@@ -19,15 +19,26 @@ export interface Blog {
 }
 
 export async function getBlogs(): Promise<Blog[]> {
-  const res = await fetch(`${API_URL}/api/blogs`, { next: { revalidate: 60 } });
+  // Add cache-busting query param to always get fresh data
+  const res = await fetch(`${API_URL}/api/blogs?_t=${Date.now()}`, { 
+    cache: 'no-store',
+    headers: {
+      'Cache-Control': 'no-cache, no-store, must-revalidate',
+      'Pragma': 'no-cache'
+    }
+  });
   if (!res.ok) return [];
   const data = await res.json();
   return Array.isArray(data) ? data : [];
 }
 
 export async function getBlogBySlug(slug: string): Promise<Blog | null> {
-  const res = await fetch(`${API_URL}/api/blogs/slug/${encodeURIComponent(slug)}`, {
-    next: { revalidate: 60 },
+  const res = await fetch(`${API_URL}/api/blogs/slug/${encodeURIComponent(slug)}?_t=${Date.now()}`, {
+    cache: 'no-store',
+    headers: {
+      'Cache-Control': 'no-cache, no-store, must-revalidate',
+      'Pragma': 'no-cache'
+    }
   });
   if (!res.ok) return null;
   return res.json();
