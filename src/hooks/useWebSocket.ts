@@ -9,7 +9,7 @@ interface WebSocketMessage {
 
 type MessageHandler = (data: WebSocketMessage) => void;
 
-export function useWebSocket(url: string = 'ws://localhost:8080') {
+export function useWebSocket(url: string = process.env.NEXT_PUBLIC_WS_URL || 'wss://backend-radical.onrender.com') {
   const [isConnected, setIsConnected] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const wsRef = useRef<WebSocket | null>(null);

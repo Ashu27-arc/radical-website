@@ -27,7 +27,7 @@ const BlogsPage = () => {
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [loading, setLoading] = useState(true);
   const scrollRef = useRef<HTMLDivElement>(null);
-  const { addMessageHandler, isConnected } = useWebSocket('ws://localhost:8080');
+  const { addMessageHandler, isConnected } = useWebSocket(process.env.NEXT_PUBLIC_WS_URL || 'wss://backend-radical.onrender.com');
 
   // Initial load of blogs
   useEffect(() => {
