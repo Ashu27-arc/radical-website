@@ -400,76 +400,78 @@ const BlogsPage = () => {
           </h2>
 
           {/* Combined container for image and form */}
-          <div className="relative rounded-2xl overflow-hidden mx-4 md:mx-0 max-w-4xl mx-auto">
+          <div className="relative rounded-2xl overflow-hidden mx-4 md:mx-0">
             {/* Background Image */}
-            <div className="relative h-[400px] md:h-[500px]">
+            <div className="relative h-[300px] md:h-[500px]">
               <Image
                 src="/images/blogs/contact.webp"
                 alt="Contact Background"
                 fill
                 className="object-cover"
               />
-              
-              {/* Form Overlay */}
-              <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center p-4 md:p-8">
-                <div className="bg-[#005A8B] bg-opacity-95 rounded-2xl p-6 md:p-8 w-full max-w-md shadow-2xl">
-                  <form className="space-y-3 md:space-y-4">
-                    {/* Full Name */}
-                    <input
-                      type="text"
-                      placeholder="Full Name"
-                      className="w-full px-3 md:px-4 py-2 md:py-3 rounded-lg border-1 focus:outline-none focus:ring-2 focus:ring-blue-300 text-gray-700 bg-white text-sm md:text-base"
-                    />
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-opacity-30"></div>
+            </div>
+          </div>
 
-                    {/* Phone No */}
-                    <input
-                      type="tel"
-                      placeholder="Phone No"
-                      className="w-full px-3 md:px-4 py-2 md:py-3 rounded-lg border-1 focus:outline-none focus:ring-2 focus:ring-blue-300 text-gray-700 bg-white text-sm md:text-base"
-                    />
+          {/* Form Container - Outside background */}
+          <div className="flex justify-center -mt-40 md:-mt-90 relative z-10 px-4">
+            <div className="bg-[#005A8B] bg-opacity-90 rounded-2xl p-6 md:p-8 w-full max-w-md mx-auto shadow-2xl">
+              <form className="space-y-3 md:space-y-4">
+                {/* Full Name */}
+                <input
+                  type="text"
+                  placeholder="Full Name"
+                  className="w-full px-3 md:px-4 py-2 md:py-3 rounded-lg border-1 focus:outline-none focus:ring-2 focus:ring-blue-300 text-gray-700 bg-white text-sm md:text-base"
+                />
 
-                    {/* Select Course */}
-                    <select className="w-full px-3 md:px-4 py-2 md:py-3 rounded-lg border-1 border-white focus:outline-none focus:ring-2 focus:ring-blue-300 text-gray-700 bg-white text-sm md:text-base">
-                      <option value="">Select Course</option>
-                      <option value="mbbs">MBBS</option>
-                      <option value="bds">BDS</option>
-                      <option value="ayush">AYUSH</option>
-                      <option value="neet-pg">NEET PG</option>
-                    </select>
+                {/* Phone No */}
+                <input
+                  type="tel"
+                  placeholder="Phone No"
+                  className="w-full px-3 md:px-4 py-2 md:py-3 rounded-lg border-1 focus:outline-none focus:ring-2 focus:ring-blue-300 text-gray-700 bg-white text-sm md:text-base"
+                />
 
-                    {/* Select State */}
-                    <select className="w-full px-3 md:px-4 py-2 md:py-3 rounded-lg border-1 border-white focus:outline-none focus:ring-2 focus:ring-blue-300 text-gray-700 bg-white text-sm md:text-base">
-                      <option value="">Select State</option>
-                      <option value="delhi">Delhi</option>
-                      <option value="mumbai">Mumbai</option>
-                      <option value="bangalore">Bangalore</option>
-                      <option value="chennai">Chennai</option>
-                      <option value="kolkata">Kolkata</option>
-                    </select>
+                {/* Select Course */}
+                <select className="w-full px-3 md:px-4 py-2 md:py-3 rounded-lg border-1 border-white focus:outline-none focus:ring-2 focus:ring-blue-300 text-gray-700 bg-white text-sm md:text-base">
+                  <option value="">Select Course</option>
+                  <option value="mbbs">MBBS</option>
+                  <option value="bds">BDS</option>
+                  <option value="ayush">AYUSH</option>
+                  <option value="neet-pg">NEET PG</option>
+                </select>
 
-                    {/* Consent Checkbox */}
-                    <div className="flex items-start space-x-3 text-left">
-                      <input
-                        type="checkbox"
-                        id="consent"
-                        className="mt-1 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 flex-shrink-0"
-                      />
-                      <label htmlFor="consent" className="text-white text-xs md:text-sm">
-                        I Consent To Receiving Calls, WhatsApp, Email And Google RCS From
-                        Advisor To Assist With This Enquiry.
-                      </label>
-                    </div>
+                {/* Select State */}
+                <select className="w-full px-3 md:px-4 py-2 md:py-3 rounded-lg border-1 border-white focus:outline-none focus:ring-2 focus:ring-blue-300 text-gray-700 bg-white text-sm md:text-base">
+                  <option value="">Select State</option>
+                  <option value="delhi">Delhi</option>
+                  <option value="mumbai">Mumbai</option>
+                  <option value="bangalore">Bangalore</option>
+                  <option value="chennai">Chennai</option>
+                  <option value="kolkata">Kolkata</option>
+                </select>
 
-                    {/* Submit Button */}
-                    <button
-                      type="submit"
-                      className="w-full bg-gradient-to-r from-[#63CDB4] to-[#0077BF] hover:from-[#0077BF] hover:to-[#63CDB4] text-white font-semibold py-2 md:py-3 px-4 md:px-6 rounded-lg transition-all duration-200 text-sm md:text-base"
-                    >
-                      Submit
-                    </button>
-                  </form>
+                {/* Consent Checkbox */}
+                <div className="flex items-start space-x-3 text-left">
+                  <input
+                    type="checkbox"
+                    id="consent"
+                    className="mt-1 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 flex-shrink-0"
+                  />
+                  <label htmlFor="consent" className="text-white text-xs md:text-sm">
+                    I Consent To Receiving Calls, WhatsApp, Email And Google RCS From
+                    Advisor To Assist With This Enquiry.
+                  </label>
                 </div>
-              </div>
+
+                {/* Submit Button */}
+                <button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-[#63CDB4] to-[#0077BF] hover:from-[#0077BF] hover:to-[#63CDB4] text-white font-semibold py-2 md:py-3 px-4 md:px-6 rounded-lg transition-all duration-200 text-sm md:text-base"
+                >
+                  Submit
+                </button>
+              </form>
             </div>
           </div>
         </div>
