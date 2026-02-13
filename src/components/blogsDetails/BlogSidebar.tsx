@@ -39,7 +39,7 @@ const BlogSidebar = ({ className = "" }: BlogSidebarProps) => {
             </div>
 
             {/* Related Section */}
-            <div>
+            <div className="bg-[#E1F2FF] p-4 md:p-6 rounded-lg -mt-8">
                 <h3 className="text-lg md:text-xl font-bold text-[#287FC4] mb-6 ml-4 md:ml-10">Related</h3>
                 <div className="space-y-6">
                     {/* Related Post 1 */}

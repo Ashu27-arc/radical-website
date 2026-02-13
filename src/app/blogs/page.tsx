@@ -26,6 +26,8 @@ const BlogsPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [loading, setLoading] = useState(true);
+  const [currentPage, setCurrentPage] = useState(1);
+  const blogsPerPage = 6;
   const scrollRef = useRef<HTMLDivElement>(null);
   const { addMessageHandler, isConnected } = useWebSocket(process.env.NEXT_PUBLIC_WS_URL || 'wss://backend-radical.onrender.com');
 
@@ -110,6 +112,21 @@ const BlogsPage = () => {
 
   const publishedBlogs = blogs.filter((b) => b.status === 'Published');
   const categories = ['All', ...Array.from(new Set(publishedBlogs.map((b) => b.category).filter(Boolean)))];
+  
+  // Reset to first page when filters change and ensure page is valid
+  useEffect(() => {
+    setCurrentPage((prev) => {
+      const maxPages = Math.ceil(publishedBlogs.filter((b) => {
+        const matchCategory = activeCategory === 'All' || b.category === activeCategory;
+        const matchSearch = !searchQuery.trim() ||
+          b.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+          (b.excerpt && b.excerpt.toLowerCase().includes(searchQuery.toLowerCase()));
+        return matchCategory && matchSearch;
+      }).length / blogsPerPage);
+      return prev > maxPages ? 1 : prev;
+    });
+  }, [activeCategory, searchQuery, publishedBlogs]);
+  
   const filtered = publishedBlogs.filter((b) => {
     const matchCategory = activeCategory === 'All' || b.category === activeCategory;
     const matchSearch = !searchQuery.trim() ||
@@ -118,17 +135,132 @@ const BlogsPage = () => {
     return matchCategory && matchSearch;
   });
   
-  // Handle case where there aren't enough blogs
-  const featuredBlog = filtered[0] || null;
-  const sidebarBlogs = filtered.length > 1 
-    ? filtered.slice(1, Math.min(4, filtered.length)) 
+  // Handle case where there aren't enough blogs - use paginated data
+  const indexOfLastBlog = currentPage * blogsPerPage;
+  const indexOfFirstBlog = indexOfLastBlog - blogsPerPage;
+  
+  const currentBlogs = filtered.slice(indexOfFirstBlog, indexOfLastBlog);
+  const totalPages = Math.max(1, Math.ceil(filtered.length / blogsPerPage));
+
+  // Use paginated data for featured and sidebar
+  const featuredBlog = currentBlogs[0] || null;
+  const sidebarBlogs = currentBlogs.length > 1 
+    ? currentBlogs.slice(1, Math.min(4, currentBlogs.length)) 
     : [];
-  const gridBlogs = filtered;
+  
+  const gridBlogs = currentBlogs;
   const getCategoryColor = (cat: string) => categoryColors[cat] || defaultCategoryColor;
   const formatDate = (d: string) => {
     if (!d) return '';
     const date = new Date(d);
     return isNaN(date.getTime()) ? d : date.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+  };
+
+  const handlePageChange = (page: number) => {
+    if (page >= 1 && page <= totalPages) {
+      setCurrentPage(page);
+      // Scroll to top when page changes
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    }
+  };
+
+  const renderPagination = () => {
+    const pages = [];
+    const maxVisiblePages = 5;
+    
+    let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
+    let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+    
+    // Adjust start page if we're near the end
+    if (endPage - startPage + 1 < maxVisiblePages) {
+      startPage = Math.max(1, endPage - maxVisiblePages + 1);
+    }
+    
+    // Previous button
+    if (currentPage > 1) {
+      pages.push(
+        <button
+          key="prev"
+          onClick={() => handlePageChange(currentPage - 1)}
+          className="px-2 md:px-3 py-2 text-gray-500 hover:text-gray-700 text-sm md:text-base whitespace-nowrap hover:bg-gray-100 rounded transition-colors"
+        >
+          ← Previous
+        </button>
+      );
+    }
+    
+    // First page
+    if (startPage > 1) {
+      pages.push(
+        <button
+          key={1}
+          onClick={() => handlePageChange(1)}
+          className="px-2 md:px-3 py-2 text-gray-500 hover:text-gray-700 text-sm md:text-base hover:bg-gray-100 rounded transition-colors"
+        >
+          1
+        </button>
+      );
+      
+      if (startPage > 2) {
+        pages.push(
+          <span key="start-ellipsis" className="px-1 py-2 text-gray-400 text-sm md:text-base">
+            ...
+          </span>
+        );
+      }
+    }
+    
+    // Page numbers
+    for (let i = startPage; i <= endPage; i++) {
+      pages.push(
+        <button
+          key={i}
+          onClick={() => handlePageChange(i)}
+          className={`px-2 md:px-3 py-2 rounded text-sm md:text-base transition-colors ${i === currentPage
+            ? 'bg-blue-600 text-white'
+            : 'text-gray-500 hover:text-gray-700 hover:bg-gray-100'
+            }`}
+        >
+          {i}
+        </button>
+      );
+    }
+    
+    // Last page
+    if (endPage < totalPages) {
+      if (endPage < totalPages - 1) {
+        pages.push(
+          <span key="end-ellipsis" className="px-1 py-2 text-gray-400 text-sm md:text-base">
+            ...
+          </span>
+        );
+      }
+      
+      pages.push(
+        <button
+          key={totalPages}
+          onClick={() => handlePageChange(totalPages)}
+          className="px-2 md:px-3 py-2 text-gray-500 hover:text-gray-700 text-sm md:text-base hover:bg-gray-100 rounded transition-colors"
+        >
+          {totalPages}
+        </button>
+      );
+    }
+    
+    // Next button
+    if (currentPage < totalPages) {
+      pages.push(
+        <button
+          key="next"
+          onClick={() => handlePageChange(currentPage + 1)}
+          className="px-2 md:px-3 py-2 text-gray-500 hover:text-gray-700 text-sm md:text-base whitespace-nowrap hover:bg-gray-100 rounded transition-colors"
+        >
+          Next →
+        </button>
+      );
+    }
+    
+    return pages;
   };
 
   return (
@@ -367,28 +499,15 @@ const BlogsPage = () => {
           </div>
 
           {/* Pagination */}
-          <div className="flex justify-center items-center mt-8 md:mt-12 space-x-1 bg-white shadow-lg rounded-full px-4 md:px-6 py-3 w-fit mx-auto overflow-x-auto">
-            <button className="px-2 md:px-3 py-2 text-gray-500 hover:text-gray-700 text-sm md:text-base whitespace-nowrap">
-              ← Previous
-            </button>
-            <button className="px-2 md:px-3 py-2 text-gray-500 hover:text-gray-700 text-sm md:text-base">
-              1
-            </button>
-            <button className="px-2 md:px-3 py-2 bg-blue-600 text-white rounded text-sm md:text-base">
-              2
-            </button>
-            <button className="px-2 md:px-3 py-2 text-gray-500 hover:text-gray-700 text-sm md:text-base">
-              3
-            </button>
-            <button className="px-2 md:px-3 py-2 text-gray-500 hover:text-gray-700 text-sm md:text-base">
-              4
-            </button>
-            <button className="px-2 md:px-3 py-2 text-gray-500 hover:text-gray-700 text-sm md:text-base">
-              5
-            </button>
-            <button className="px-2 md:px-3 py-2 text-gray-500 hover:text-gray-700 text-sm md:text-base whitespace-nowrap">
-              Next →
-            </button>
+          <div className="flex flex-col items-center mt-8 md:mt-12">
+            {/* Page Info Text */}
+            <div className="text-sm md:text-base text-gray-600 mb-3">
+              Page <span className="font-semibold text-blue-600">{currentPage}</span> of <span className="font-semibold">{totalPages}</span>
+            </div>
+            {/* Pagination Buttons */}
+            <div className="flex justify-center items-center space-x-1 bg-white shadow-lg rounded-full px-4 md:px-6 py-3 w-fit mx-auto overflow-x-auto">
+              {renderPagination()}
+            </div>
           </div>
         </div>
 

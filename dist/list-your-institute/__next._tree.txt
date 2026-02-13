@@ -1,0 +1,8 @@
+:HL["/_next/static/chunks/4b606acd6e64914f.css","style"]
+:HL["/_next/static/chunks/163f657a16afbe5e.css","style"]
+:HL["/_next/static/chunks/337134c8e3f1ff76.css","style"]
+:HL["/_next/static/chunks/e397a784a4cd9438.css","style"]
+:HL["/_next/static/chunks/febab3fae21381e6.css","style"]
+:HL["/_next/static/chunks/ded2596e0d5cee92.css","style"]
+:HC["/",""]
+0:{"buildId":"bL0QRM7c4o5wsScvuF8sA","tree":{"name":"","paramType":null,"paramKey":"","hasRuntimePrefetch":false,"slots":{"children":{"name":"list-your-institute","paramType":null,"paramKey":"list-your-institute","hasRuntimePrefetch":false,"slots":{"children":{"name":"__PAGE__","paramType":null,"paramKey":"__PAGE__","hasRuntimePrefetch":false,"slots":null,"isRootLayout":false}},"isRootLayout":false}},"isRootLayout":true},"staleTime":300}
