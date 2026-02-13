@@ -1,9 +1,16 @@
+'use client';
 import { importantLinks, mbbsAbroad, mbbsIndia, quickLinks } from '@/data/footerMenus';
 import Link from 'next/link';
 import { Image } from 'primereact/image';
 import { Menu } from 'primereact/menu';
+import { useState } from 'react';
 
 export default function Footer() {
+
+  const [showAll, setShowAll] = useState(false);
+
+  const visibleItems = showAll ? mbbsIndia : mbbsIndia.slice(0, 14);
+
   return (
     <footer className="footer">
       <div className='py-16 bg-[#DFF1FF]'>
@@ -103,18 +110,35 @@ export default function Footer() {
             <div className='lg:pl-20'>
               <h4 className="font-semibold text-black mb-3">MBBS India</h4>
               <ul className="space-y-3">
-                {mbbsIndia.map((item, index) => (
+                {visibleItems.map((item, index) => (
                   <li key={index}>
                     <Link
-                      href={item.url || '#'}
+                      href={item.url || "#"}
                       className="flex items-center gap-1 text-sm transition"
                     >
-                      <i className={item.icon || 'pi pi-angle-right'} />
+                      <i className={item.icon || "pi pi-angle-right"} />
                       {item.label}
                     </Link>
                   </li>
                 ))}
               </ul>
+
+              {mbbsIndia.length > 15 && (
+                <div className='mt-4'>
+                <button
+                  onClick={() => setShowAll(!showAll)}
+                  className="mt-3 flex items-center gap-2 text-sm font-medium text-black cursor-pointer"
+                >
+                  <span>{showAll ? "View Less" : "View More"}</span>
+
+                  <i
+                    className={`pi text-sm! ${
+                      showAll ? "pi-arrow-up-right" : "pi-arrow-down-right"
+                    }`}
+                  />
+                </button>
+                </div>
+              )}
             </div>
 
           </div>

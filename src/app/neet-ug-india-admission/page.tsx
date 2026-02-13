@@ -87,8 +87,8 @@ const videos = [
 export default function NeetUgIndiaAdmissionPage() {
     return (
         <>
-            <section className="lg:py-50 md:py-40 py-20 relative overflow-hidden z-2 bg-[url('/images/neet-ug-india-admission.webp')] bg-cover bg-center bg-no-repeat">
-                <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,126,200,1)_0%,rgba(80,166,217,1)_20%,rgba(255,255,255,0)_87%)] -z-1" />
+            <section className="lg:py-45 md:py-36 py-20 relative overflow-hidden z-2 bg-[url('/images/neet-ug-india-admission-hero.webp')] bg-cover bg-center bg-no-repeat">
+                {/* <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,126,200,1)_0%,rgba(80,166,217,1)_20%,rgba(255,255,255,0)_87%)] -z-1" /> */}
                 <div className="container px-3 md:px-4 fadeUp">
                     <div className="w-full lg:w-4/10 md:8/10 md:text-left text-center">
                         <h1 className="uppercase lg:text-5xl text-4xl font-bold text-white lg:mb-6 mb-4">NEET UG <br className="hidden lg:block"/>ADMISSION</h1>
@@ -131,11 +131,11 @@ export default function NeetUgIndiaAdmissionPage() {
                             </div>
                         ))}
                     </div>
-                    <div className="p-8 rounded-xl bg-[url('/images/planBg.webp')] bg-cover bg-center bg-no-repeat mb-6">
-                        <div className="flex justify-between gap-2 items-center text-lg md:text-2xl">
-                            <div className="text-black fadeLeft font-bold">Get 35% OFF on the Ultimate<br className="hidden md:block"/> Plan – Now at just</div>
+                    <div className="p-8 lg:p-12 rounded-xl bg-[url('/images/planBg.webp')] bg-cover bg-center bg-no-repeat mb-6">
+                        <div className="flex justify-between gap-2 items-center">
+                            <div className="text-black fadeLeft font-bold text-xl md:text-4xl">Get 35% OFF on the Ultimate<br className="hidden md:block"/> Plan – Now at just</div>
                             <div>
-                                <div className="fadeRight inline-flex px-6 py-2 text-white rounded-lg bg-[#FF0000] font-semibold">₹ 84,499/-</div>
+                                <div className="fadeRight inline-flex px-8! py-3 text-white text-2xl rounded-lg bg-[#FF0000] font-semibold">₹ 84,499/-</div>
                             </div>
                         </div>
                     </div>
