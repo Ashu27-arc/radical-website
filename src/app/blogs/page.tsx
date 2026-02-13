@@ -34,7 +34,10 @@ const BlogsPage = () => {
     getBlogs().then((data) => {
       setBlogs(data);
       setLoading(false);
-    }).catch(() => setLoading(false));
+    }).catch((error) => {
+      console.error('Error loading blogs:', error);
+      setLoading(false);
+    });
   }, []);
 
   // Listen for real-time blog updates via WebSocket
@@ -114,8 +117,12 @@ const BlogsPage = () => {
       (b.excerpt && b.excerpt.toLowerCase().includes(searchQuery.toLowerCase()));
     return matchCategory && matchSearch;
   });
-  const featuredBlog = filtered[0];
-  const sidebarBlogs = filtered.slice(1, 4);
+  
+  // Handle case where there aren't enough blogs
+  const featuredBlog = filtered[0] || null;
+  const sidebarBlogs = filtered.length > 1 
+    ? filtered.slice(1, Math.min(4, filtered.length)) 
+    : [];
   const gridBlogs = filtered;
   const getCategoryColor = (cat: string) => categoryColors[cat] || defaultCategoryColor;
   const formatDate = (d: string) => {
@@ -158,7 +165,10 @@ const BlogsPage = () => {
           <div ref={scrollRef} className="flex justify-start md:justify-center overflow-hidden md:overflow-x-auto [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
             <div className="flex space-x-2 md:space-x-8 p-2 rounded-full min-w-max">
               {/* Left Arrow Button - Hidden on mobile */}
-              <button className="hidden md:flex w-10 h-10 rounded-full bg-white shadow-md hover:shadow-lg transition-shadow items-center justify-center">
+              <button 
+                onClick={() => scroll('left')}
+                className="hidden md:flex w-10 h-10 rounded-full bg-white shadow-md hover:shadow-lg transition-shadow items-center justify-center"
+              >
                 <Image
                   src="/images/blogs/left-arrow.webp"
                   alt="Previous"
@@ -186,7 +196,10 @@ const BlogsPage = () => {
                 </button>
               ))}
               {/* Right Arrow Button - Hidden on mobile */}
-              <button className="hidden md:flex w-10 h-10 rounded-full bg-white shadow-md hover:shadow-lg transition-shadow items-center justify-center">
+              <button 
+                onClick={() => scroll('right')}
+                className="hidden md:flex w-10 h-10 rounded-full bg-white shadow-md hover:shadow-lg transition-shadow items-center justify-center"
+              >
                 <Image
                   src="/images/blogs/right-arrow.webp"
                   alt="Next"
@@ -238,14 +251,14 @@ const BlogsPage = () => {
                         src={featuredBlog.featuredImage}
                         alt={featuredBlog.title}
                         fill
-                        className="object-cover"
+                        className="object-contain"
                       />
                     ) : (
                       <Image
                         src="/images/blogs/b.webp"
                         alt={featuredBlog.title}
                         fill
-                        className="object-cover"
+                        className="object-contain"
                       />
                     )}
                   </div>
@@ -276,26 +289,33 @@ const BlogsPage = () => {
 
           {/* Sidebar */}
           <div className="space-y-4 md:space-y-6">
-            {sidebarBlogs.map((post, index) => (
-              <Link key={post.id} href={`/blogs/${post.slug}`} className="block animate-fadeIn" style={{ animationDelay: `${0.2 + index * 0.1}s` }}>
-                <div className={`bg-white rounded-lg p-4 md:p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer ${index < sidebarBlogs.length - 1 ? 'border-b-2 border-gray-200' : ''}`}>
-                  <span className={`inline-block ${getCategoryColor(post.category)} text-white px-3 py-1 rounded-full text-xs md:text-sm mb-3 md:mb-4`}>
-                    {post.category}
-                  </span>
-                  <h4 className="text-base md:text-lg font-bold text-gray-800 mb-2 md:mb-3 hover:text-blue-600 transition-colors">
-                    {post.title}
-                  </h4>
-                  <p className="text-gray-600 text-xs md:text-sm mb-3 md:mb-4 line-clamp-2">
-                    {post.excerpt || post.title}
-                  </p>
-                  <div className="flex items-center text-gray-500 text-xs">
-                    <span>{post.author}</span>
-                    <span className="mx-2">•</span>
-                    <span>{formatDate(post.date)}</span>
+            {sidebarBlogs.length > 0 ? (
+              sidebarBlogs.map((post, index) => (
+                <Link key={post.id} href={`/blogs/${post.slug}`} className="block animate-fadeIn" style={{ animationDelay: `${0.2 + index * 0.1}s` }}>
+                  <div className={`bg-white rounded-lg p-4 md:p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer ${index < sidebarBlogs.length - 1 ? 'border-b-2 border-gray-200' : ''}`}>
+                    <span className={`inline-block ${getCategoryColor(post.category)} text-white px-3 py-1 rounded-full text-xs md:text-sm mb-3 md:mb-4`}>
+                      {post.category}
+                    </span>
+                    <h4 className="text-base md:text-lg font-bold text-gray-800 mb-2 md:mb-3 hover:text-blue-600 transition-colors">
+                      {post.title}
+                    </h4>
+                    <p className="text-gray-600 text-xs md:text-sm mb-3 md:mb-4 line-clamp-2">
+                      {post.excerpt || post.title}
+                    </p>
+                    <div className="flex items-center text-gray-500 text-xs">
+                      <span>{post.author}</span>
+                      <span className="mx-2">•</span>
+                      <span>{formatDate(post.date)}</span>
+                    </div>
                   </div>
-                </div>
-              </Link>
-            ))}
+                </Link>
+              ))
+            ) : (
+              <div className="bg-white rounded-lg p-6 text-center text-gray-500 border-2 border-dashed border-gray-200">
+                <p className="text-sm md:text-base">No additional blogs available</p>
+                <p className="text-xs md:text-sm mt-2">More blogs will appear here as they are published</p>
+              </div>
+            )}
           </div>
 
           {/* Extended horizontal line that spans full width */}
@@ -314,14 +334,14 @@ const BlogsPage = () => {
                         src={blog.featuredImage}
                         alt={blog.title}
                         fill
-                        className="object-cover"
+                        className="object-contain"
                       />
                     ) : (
                       <Image
                         src={["/images/blogs/card.webp", "/images/blogs/card-1.webp", "/images/blogs/card-2.webp"][index % 3]}
                         alt={blog.title}
                         fill
-                        className="object-cover"
+                        className="object-contain"
                       />
                     )}
                   </div>
@@ -379,78 +399,77 @@ const BlogsPage = () => {
             Connect With <span className="text-blue-400">Our Counselor</span>
           </h2>
 
-          <div className="relative rounded-2xl overflow-hidden mx-4 md:mx-0">
+          {/* Combined container for image and form */}
+          <div className="relative rounded-2xl overflow-hidden mx-4 md:mx-0 max-w-4xl mx-auto">
             {/* Background Image */}
-            <div className="relative h-[300px] md:h-[500px]">
+            <div className="relative h-[400px] md:h-[500px]">
               <Image
                 src="/images/blogs/contact.webp"
                 alt="Contact Background"
                 fill
                 className="object-cover"
               />
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-opacity-30"></div>
-            </div>
-          </div>
+              
+              {/* Form Overlay */}
+              <div className="absolute inset-0 bg-black bg-opacity-40 flex items-center justify-center p-4 md:p-8">
+                <div className="bg-[#005A8B] bg-opacity-95 rounded-2xl p-6 md:p-8 w-full max-w-md shadow-2xl">
+                  <form className="space-y-3 md:space-y-4">
+                    {/* Full Name */}
+                    <input
+                      type="text"
+                      placeholder="Full Name"
+                      className="w-full px-3 md:px-4 py-2 md:py-3 rounded-lg border-1 focus:outline-none focus:ring-2 focus:ring-blue-300 text-gray-700 bg-white text-sm md:text-base"
+                    />
 
-          {/* Form Container - Outside background */}
-          <div className="flex justify-center -mt-40 md:-mt-90 relative z-10 px-4">
-            <div className="bg-[#005A8B] bg-opacity-90 rounded-2xl p-6 md:p-8 w-full max-w-md mx-auto shadow-2xl">
-              <form className="space-y-3 md:space-y-4">
-                {/* Full Name */}
-                <input
-                  type="text"
-                  placeholder="Full Name"
-                  className="w-full px-3 md:px-4 py-2 md:py-3 rounded-lg border-1 focus:outline-none focus:ring-2 focus:ring-blue-300 text-gray-700 bg-white text-sm md:text-base"
-                />
+                    {/* Phone No */}
+                    <input
+                      type="tel"
+                      placeholder="Phone No"
+                      className="w-full px-3 md:px-4 py-2 md:py-3 rounded-lg border-1 focus:outline-none focus:ring-2 focus:ring-blue-300 text-gray-700 bg-white text-sm md:text-base"
+                    />
 
-                {/* Phone No */}
-                <input
-                  type="tel"
-                  placeholder="Phone No"
-                  className="w-full px-3 md:px-4 py-2 md:py-3 rounded-lg border-1 focus:outline-none focus:ring-2 focus:ring-blue-300 text-gray-700 bg-white text-sm md:text-base"
-                />
+                    {/* Select Course */}
+                    <select className="w-full px-3 md:px-4 py-2 md:py-3 rounded-lg border-1 border-white focus:outline-none focus:ring-2 focus:ring-blue-300 text-gray-700 bg-white text-sm md:text-base">
+                      <option value="">Select Course</option>
+                      <option value="mbbs">MBBS</option>
+                      <option value="bds">BDS</option>
+                      <option value="ayush">AYUSH</option>
+                      <option value="neet-pg">NEET PG</option>
+                    </select>
 
-                {/* Select Course */}
-                <select className="w-full px-3 md:px-4 py-2 md:py-3 rounded-lg border-1 border-white focus:outline-none focus:ring-2 focus:ring-blue-300 text-gray-700 bg-white text-sm md:text-base">
-                  <option value="">Select Course</option>
-                  <option value="mbbs">MBBS</option>
-                  <option value="bds">BDS</option>
-                  <option value="ayush">AYUSH</option>
-                  <option value="neet-pg">NEET PG</option>
-                </select>
+                    {/* Select State */}
+                    <select className="w-full px-3 md:px-4 py-2 md:py-3 rounded-lg border-1 border-white focus:outline-none focus:ring-2 focus:ring-blue-300 text-gray-700 bg-white text-sm md:text-base">
+                      <option value="">Select State</option>
+                      <option value="delhi">Delhi</option>
+                      <option value="mumbai">Mumbai</option>
+                      <option value="bangalore">Bangalore</option>
+                      <option value="chennai">Chennai</option>
+                      <option value="kolkata">Kolkata</option>
+                    </select>
 
-                {/* Select State */}
-                <select className="w-full px-3 md:px-4 py-2 md:py-3 rounded-lg border-1 border-white focus:outline-none focus:ring-2 focus:ring-blue-300 text-gray-700 bg-white text-sm md:text-base">
-                  <option value="">Select State</option>
-                  <option value="delhi">Delhi</option>
-                  <option value="mumbai">Mumbai</option>
-                  <option value="bangalore">Bangalore</option>
-                  <option value="chennai">Chennai</option>
-                  <option value="kolkata">Kolkata</option>
-                </select>
+                    {/* Consent Checkbox */}
+                    <div className="flex items-start space-x-3 text-left">
+                      <input
+                        type="checkbox"
+                        id="consent"
+                        className="mt-1 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 flex-shrink-0"
+                      />
+                      <label htmlFor="consent" className="text-white text-xs md:text-sm">
+                        I Consent To Receiving Calls, WhatsApp, Email And Google RCS From
+                        Advisor To Assist With This Enquiry.
+                      </label>
+                    </div>
 
-                {/* Consent Checkbox */}
-                <div className="flex items-start space-x-3 text-left">
-                  <input
-                    type="checkbox"
-                    id="consent"
-                    className="mt-1 w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 flex-shrink-0"
-                  />
-                  <label htmlFor="consent" className="text-white text-xs md:text-sm">
-                    I Consent To Receiving Calls, WhatsApp, Email And Google RCS From
-                    Advisor To Assist With This Enquiry.
-                  </label>
+                    {/* Submit Button */}
+                    <button
+                      type="submit"
+                      className="w-full bg-gradient-to-r from-[#63CDB4] to-[#0077BF] hover:from-[#0077BF] hover:to-[#63CDB4] text-white font-semibold py-2 md:py-3 px-4 md:px-6 rounded-lg transition-all duration-200 text-sm md:text-base"
+                    >
+                      Submit
+                    </button>
+                  </form>
                 </div>
-
-                {/* Submit Button */}
-                <button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-[#63CDB4] to-[#0077BF] hover:from-[#0077BF] hover:to-[#63CDB4] text-white font-semibold py-2 md:py-3 px-4 md:px-6 rounded-lg transition-all duration-200 text-sm md:text-base"
-                >
-                  Submit
-                </button>
-              </form>
+              </div>
             </div>
           </div>
         </div>
