@@ -1,0 +1,10 @@
+{
+  "app": {
+    "[project]/crm/radical/src/app/blogs/[slug]/page": [],
+    "[project]/crm/radical/src/app/blogs/page": [],
+    "[project]/crm/radical/src/app/page": []
+  },
+  "appUsingSizeAdjust": false,
+  "pages": {},
+  "pagesUsingSizeAdjust": false
+}

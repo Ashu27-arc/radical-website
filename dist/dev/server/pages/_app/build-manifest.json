@@ -1,0 +1,23 @@
+{
+  "devFiles": [],
+  "ampDevFiles": [],
+  "polyfillFiles": [],
+  "lowPriorityFiles": [],
+  "rootMainFiles": [],
+  "pages": {
+    "/_app": [
+      "static/chunks/e5932_next_dist_compiled_35d6127e._.js",
+      "static/chunks/e5932_next_dist_shared_lib_3787cb0a._.js",
+      "static/chunks/e5932_next_dist_client_4b1003a1._.js",
+      "static/chunks/e5932_next_dist_f1ea44f7._.js",
+      "static/chunks/e5932_next_app_02c63b97.js",
+      "static/chunks/[next]_entry_page-loader_ts_9712b6fd._.js",
+      "static/chunks/e5932_react-dom_3081ba37._.js",
+      "static/chunks/e5932_159b3bb2._.js",
+      "static/chunks/[root-of-the-server]__2d61451a._.js",
+      "static/chunks/crm_radical_pages__app_2da965e7._.js",
+      "static/chunks/turbopack-crm_radical_pages__app_61a62a8e._.js"
+    ]
+  },
+  "ampFirstPages": []
+}

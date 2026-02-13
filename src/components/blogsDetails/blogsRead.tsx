@@ -55,7 +55,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                 {/* Search Section */}
                 <div className="flex flex-col lg:flex-row gap-4 items-start justify-start mb-8">
                     {/* Search Input */}
-                    <div className="relative w-full max-w-md lg:max-w-sm lg:-ml-30">
+                    <div className="relative w-full max-w-md lg:max-w-sm lg:-ml-10">
                         <input
                             type="text"
                             placeholder="search your blog here"
@@ -150,10 +150,10 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
 
 
             {/* main content */}
-            <div className="max-w-7xl mx-auto px-4 mt-8 lg:ml-22">
+            <div className="max-w-7xl mx-auto px-4 mt-8 lg:ml-22 overflow-hidden">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8">
                     {/* Blog Content - Left Side */}
-                    <div className="lg:col-span-2">
+                    <div className="lg:col-span-2 overflow-hidden">
                         {loading ? (
                             <div className="animate-pulse space-y-4">
                                 <div className="h-6 bg-gray-200 rounded w-24" />
@@ -179,7 +179,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                                 </div>
 
                                 {/* Blog Title */}
-                                <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-4">
+                                <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-4 break-words">
                                     {blog.title}
                                 </h1>
 
@@ -211,7 +211,8 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
 
                                 {/* Blog Content */}
                                 <div
-                                    className="prose max-w-none text-gray-700 leading-relaxed mb-8 text-sm md:text-base prose-headings:text-gray-800 prose-p:mb-4"
+                                    className="prose max-w-none text-gray-700 leading-relaxed mb-8 text-sm md:text-base prose-headings:text-gray-800 prose-p:mb-4 break-words overflow-wrap-anywhere"
+                                    style={{ wordBreak: 'break-word', overflowWrap: 'anywhere' }}
                                     dangerouslySetInnerHTML={{ __html: blog.content || blog.excerpt || '' }}
                                 />
                             </>

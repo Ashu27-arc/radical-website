@@ -1,4 +1,5 @@
 import BlogsRead from '@/components/blogsDetails/blogsRead';
+import { getBlogs } from '@/lib/api';
 
 type PageProps = {
   params: Promise<{
@@ -6,25 +7,26 @@ type PageProps = {
   }>;
 };
 
-// Static export ke liye required - empty array se build hoga
-// Runtime mein client-side data fetch hoga
-export function generateStaticParams() {
-  return [
-    { slug: 'mbbs-in-andhra-pradesh' },
-    { slug: 'mbbs-in-arunachal-pradesh' },
-    { slug: 'mbbs-in-assam' },
-    { slug: 'mbbs-in-bihar' },
-    { slug: 'mbbs-in-chhattisgarh' },
-    { slug: 'mbbs-in-goa' },
-    { slug: 'mbbs-in-gujarat' },
-    { slug: 'mbbs-in-haryana' },
-    { slug: 'mbbs-in-himachal-pradesh' },
-    { slug: 'mbbs-in-jammu-and-kashmir' },
-    { slug: 'mbbs-in-jharkhand' },
-    { slug: 'mbbs-in-karnataka' },
-    { slug: 'mbbs-in-kerala' },
-    { slug: 'mbbs-in-madhya-pradesh' },
-  ];
+// Fetch all blog slugs at build time for static export
+export async function generateStaticParams() {
+  try {
+    const blogs = await getBlogs();
+    // Only generate pages for published blogs
+    const publishedBlogs = blogs.filter((blog) => blog.status === 'Published');
+    
+    // Return all slugs, or at least one fallback to prevent build errors
+    if (publishedBlogs.length === 0) {
+      return [{ slug: 'placeholder' }];
+    }
+    
+    return publishedBlogs.map((blog) => ({
+      slug: blog.slug,
+    }));
+  } catch (error) {
+    console.error('Error fetching blogs for static params:', error);
+    // Return a fallback to prevent build failure
+    return [{ slug: 'placeholder' }];
+  }
 }
 
 export const dynamic = "error";

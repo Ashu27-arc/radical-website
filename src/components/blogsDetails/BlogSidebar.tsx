@@ -6,7 +6,7 @@ interface BlogSidebarProps {
 
 const BlogSidebar = ({ className = "" }: BlogSidebarProps) => {
     return (
-        <div className={`lg:col-span-1 mt-8 lg:mt-8 lg:ml-auto lg:mr-0 animate-fadeIn mb-20 ${className}`} style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
+        <div className={`lg:col-span-1 mt-8 lg:mt-8 lg:ml-auto lg:mr-0 animate-fadeIn mb-20 overflow-hidden ${className}`} style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
             {/* Get In Touch Form */}
             <div className="bg-[#E1F2FF] p-4 md:p-6 rounded-lg mb-8 transition-transform hover:scale-[1.01] duration-300 shadow-sm">
                 <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-4 text-center">Get In Touch</h3>
@@ -44,7 +44,7 @@ const BlogSidebar = ({ className = "" }: BlogSidebarProps) => {
                 <div className="space-y-6">
                     {/* Related Post 1 */}
                     <div className="p-4 mx-4 rounded-lg border-[#ABABAB] border-b hover:bg-gray-50 transition-colors duration-300 cursor-pointer group">
-                        <h4 className="font-semibold text-gray-800 mb-2 leading-tight text-sm md:text-base group-hover:text-[#287FC4] transition-colors">
+                        <h4 className="font-semibold text-gray-800 mb-2 leading-tight text-sm md:text-base group-hover:text-[#287FC4] transition-colors break-words">
                             NEET Exam in India: Your Gateway to a Bright Medical
                         </h4>
                         <div className="text-gray-500 text-xs md:text-sm">
@@ -56,7 +56,7 @@ const BlogSidebar = ({ className = "" }: BlogSidebarProps) => {
 
                     {/* Related Post 2 */}
                     <div className="p-4 mx-4 rounded-lg border-[#ABABAB] border-b hover:bg-gray-50 transition-colors duration-300 cursor-pointer group">
-                        <h4 className="font-semibold text-[#000000] mb-2 leading-tight text-sm md:text-base group-hover:text-[#287FC4] transition-colors">
+                        <h4 className="font-semibold text-[#000000] mb-2 leading-tight text-sm md:text-base group-hover:text-[#287FC4] transition-colors break-words">
                             NEET Exam in India: Your Gateway to a Bright Medical
                         </h4>
                         <div className="text-gray-500 text-xs md:text-sm">
@@ -68,7 +68,7 @@ const BlogSidebar = ({ className = "" }: BlogSidebarProps) => {
 
                     {/* Related Post 3 */}
                     <div className="p-4 mx-4 rounded-lg border-[#ABABAB] border-b hover:bg-gray-50 transition-colors duration-300 cursor-pointer group">
-                        <h4 className="font-semibold text-[#000000] mb-2 leading-tight text-sm md:text-base group-hover:text-[#287FC4] transition-colors">
+                        <h4 className="font-semibold text-[#000000] mb-2 leading-tight text-sm md:text-base group-hover:text-[#287FC4] transition-colors break-words">
                             NEET Exam in India: Your Gateway to a Bright Medical
                         </h4>
                         <div className="text-gray-500 text-xs md:text-sm">
