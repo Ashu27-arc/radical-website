@@ -1,9 +1,7 @@
 {
   "app": {
-    "[project]/src/app/mbbs-abroad-admission/page": [],
-    "[project]/src/app/mbbs-deemed-colleges-in-india/page": [],
-    "[project]/src/app/page": [],
-    "[project]/src/app/study-india/page": []
+    "[project]/src/app/mbbs-in-india/page": [],
+    "[project]/src/app/page": []
   },
   "appUsingSizeAdjust": false,
   "pages": {},

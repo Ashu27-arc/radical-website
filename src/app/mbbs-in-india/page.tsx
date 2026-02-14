@@ -63,7 +63,7 @@ export default function MbbsInIndiaPage() {
 
     return (
         <>
-            <section className="lg:py-50 md:py-40 py-20 relative overflow-hidden z-2 bg-[url('/images/mbbs-in-indiaHero.webp')] bg-cover bg-right bg-no-repeat">
+            <section className="lg:py-40 md:py-30 py-20 relative overflow-hidden z-2 bg-[url('/images/mbbs-in-indiaHero.webp')] bg-cover bg-right bg-no-repeat">
                 <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,126,200,1)_0%,rgba(80,166,217,1)_20%,rgba(255,255,255,0)_87%)] -z-1" />
                 <div className="container px-3 md:px-4 fadeUp">
                     <div className="w-full lg:w-4/10 md:8/10 mx-auto text-center">
