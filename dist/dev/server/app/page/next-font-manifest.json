@@ -1,7 +1,7 @@
 {
   "pages": {},
   "app": {
-    "[project]/crm/radical/src/app/page": []
+    "[project]/src/app/page": []
   },
   "appUsingSizeAdjust": false,
   "pagesUsingSizeAdjust": false

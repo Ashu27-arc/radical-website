@@ -1,8 +1,9 @@
 {
   "app": {
-    "[project]/crm/radical/src/app/blogs/[slug]/page": [],
-    "[project]/crm/radical/src/app/blogs/page": [],
-    "[project]/crm/radical/src/app/page": []
+    "[project]/src/app/mbbs-abroad-admission/page": [],
+    "[project]/src/app/mbbs-deemed-colleges-in-india/page": [],
+    "[project]/src/app/page": [],
+    "[project]/src/app/study-india/page": []
   },
   "appUsingSizeAdjust": false,
   "pages": {},

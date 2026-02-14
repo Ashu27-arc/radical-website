@@ -1,5 +1,6 @@
 {
-  "/blogs/[slug]/page": "app/blogs/[slug]/page.js",
-  "/blogs/page": "app/blogs/page.js",
-  "/page": "app/page.js"
+  "/mbbs-abroad-admission/page": "app/mbbs-abroad-admission/page.js",
+  "/mbbs-deemed-colleges-in-india/page": "app/mbbs-deemed-colleges-in-india/page.js",
+  "/page": "app/page.js",
+  "/study-india/page": "app/study-india/page.js"
 }
