@@ -1,0 +1,1 @@
+self.__NEXT_FONT_MANIFEST="{\n  \"app\": {\n    \"[project]/src/app/mbbs-abroad-admission/page\": [],\n    \"[project]/src/app/mbbs-deemed-colleges-in-india/page\": [],\n    \"[project]/src/app/page\": [],\n    \"[project]/src/app/study-india/page\": []\n  },\n  \"appUsingSizeAdjust\": false,\n  \"pages\": {},\n  \"pagesUsingSizeAdjust\": false\n}"
