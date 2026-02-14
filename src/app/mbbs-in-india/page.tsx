@@ -2,7 +2,6 @@
 
 import { Image } from "primereact/image";
 import Link from "next/link";
-import { useState } from "react";
 
 const universities = [
   {
@@ -56,11 +55,6 @@ const universities = [
 ];
 
 export default function MbbsInIndiaPage() {
-    const [showAll, setShowAll] = useState(false);
-    
-    // Show only first 4 universities initially (2 rows on mobile)
-    const displayedUniversities = showAll ? universities : universities.slice(0, 4);
-
     return (
         <>
             <section className="lg:py-50 md:py-40 py-20 relative overflow-hidden z-2 bg-[url('/images/mbbs-in-indiaHero.webp')] bg-cover bg-right bg-no-repeat">
@@ -97,7 +91,7 @@ export default function MbbsInIndiaPage() {
                     <div className="lg:p-15 p-10 rounded-xl bg-[#DFF1FF] mb-10">
                         <h2 className="text-center fadeUp lg:mb-10 md:mb-8 mb-6 lg:text-4xl md:text-2xl text-xl font-bold text-black capitalize">Universities where you can study <span className="text-[#287FC4]">medicine in India:</span></h2>
                         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:gap-10 md:gap-6 gap-6">
-                            {displayedUniversities.map((item) => (
+                            {universities.map((item) => (
                                 <Link key={item.id} href={item.url} className="group flex flex-col items-center text-center fadeUp">
                                     <div className="w-34 md:w-44 md:h-44 h-34 rounded-full bg-white">
                                         <Image src={item.image} alt={item.title} className="w-full"/>
@@ -108,26 +102,6 @@ export default function MbbsInIndiaPage() {
                                 </Link>
                             ))}
                         </div>
-                        {!showAll && universities.length > 4 && (
-                            <div className="text-center mt-8">
-                                <button 
-                                    onClick={() => setShowAll(true)}
-                                    className="font-semibold text-sm uppercase py-3 px-8 rounded-full cursor-pointer text-white bg-[#005A8B] hover:bg-[#004670] hover:shadow-lg transition-all duration-300"
-                                >
-                                    View More
-                                </button>
-                            </div>
-                        )}
-                        {showAll && (
-                            <div className="text-center mt-8">
-                                <button 
-                                    onClick={() => setShowAll(false)}
-                                    className="font-semibold text-sm uppercase py-3 px-8 rounded-full cursor-pointer text-[#005A8B] bg-white border-2 border-[#005A8B] hover:bg-[#005A8B] hover:text-white transition-all duration-300"
-                                >
-                                    View Less
-                                </button>
-                            </div>
-                        )}
                     </div>
                     <div className="w-full text-[#4A4A4A] text-sm fadeUp mb-15">
                         <h2 className="mb-8 text-2xl font-bold text-black">Why choose Russia as your destination to study MBBS?</h2>

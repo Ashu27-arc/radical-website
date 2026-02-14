@@ -17,7 +17,7 @@ export default function Header() {
       <section className='bg-white px-3 text-center py-3 lg:hidden'>
         <div className='flex flex-wrap gap-2 justify-center text-xs'>
           <Link className='text-[#121212]' href="mailto:info@radicaleducation.in">info@radicaleducation.in</Link>|
-          <Link className='text-[#121212]' href="tel:+91 9797972465">+91 9797972465</Link>|
+          <Link className='text-[#121212]' href="tel:+91 9797972465">97 97 97 24 65</Link>|
           <Link href="/neet-college-predictor" className='text-[#121212] relative'>NEET COLLEGE PREDICTOR
             <div className='absolute right-[-5px] top-[-5px]'>
               <span className="relative flex size-2">
@@ -69,7 +69,7 @@ export default function Header() {
               </Link>
               <div className='hidden lg:flex items-center gap-3 text-[14px] text-[#121212] topInfo'>
                 <Link className='text-[#121212]' href="mailto:info@radicaleducation.in">info@radicaleducation.in</Link>|
-                <Link className='text-[#121212]' href="tel:+91 9797972465">+91 9797972465</Link>|
+                <Link className='text-[#121212]' href="tel:+91 9797972465">97 97 97 24 65</Link>|
                 <Link href="/neet-college-predictor" className='text-[#121212] relative'>NEET COLLEGE PREDICTOR
                   <div className='absolute right-[-5px] top-[-5px]'>
                     <span className="relative flex size-2">
