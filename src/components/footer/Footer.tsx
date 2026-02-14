@@ -60,7 +60,7 @@ export default function Footer() {
               <ul className="space-y-3 text-sm">
                 <li className="flex items-center gap-2">
                   <i className="pi pi-phone" />
-                  +91 97 97 97 2465
+                  97 97 97 24 65
                 </li>
                 <li className="flex items-center gap-2">
                   <i className="pi pi-envelope" />

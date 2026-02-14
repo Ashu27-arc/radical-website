@@ -59,7 +59,7 @@ const articles = [
 ];
 
 export function NeetUpdateContent() {
-    const [currentPage, setCurrentPage] = useState(2); // Example: Page 2 is active in the image
+    const [currentPage, setCurrentPage] = useState(2);
     const [isCourseOpen, setIsCourseOpen] = useState(false);
     const [selectedCourse, setSelectedCourse] = useState("MBBS");
 
@@ -183,13 +183,14 @@ export function NeetUpdateContent() {
                         </div>
 
                         {["Year", "Months", "State"].map((filter) => (
-                            <button
-                                key={filter}
-                                className="h-9 sm:h-10 px-4 sm:px-6 rounded-full bg-[#E0F4FF] text-[#035f94] font-medium flex items-center gap-2 hover:bg-[#d1e9fc] transition shadow-sm text-sm"
-                            >
-                                {filter}
-                                <i className="pi pi-chevron-down text-[10px] sm:text-xs"></i>
-                            </button>
+                            <div key={filter} className="relative">
+                                <button
+                                    className="h-9 sm:h-10 px-4 sm:px-6 rounded-full bg-[#E0F4FF] text-[#035f94] font-medium flex items-center gap-2 hover:bg-[#d1e9fc] transition shadow-sm text-sm"
+                                >
+                                    {filter}
+                                    <i className="pi pi-chevron-down text-[10px] sm:text-xs"></i>
+                                </button>
+                            </div>
                         ))}
                     </div>
                 </div>
