@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {
   "app": {
 <<<<<<< HEAD
@@ -23,3 +24,6 @@
   "pages": {},
   "pagesUsingSizeAdjust": false
 }
+=======
+{"pages":{},"app":{},"appUsingSizeAdjust":false,"pagesUsingSizeAdjust":false}
+>>>>>>> 6e06bda77d2c5b4748550532599c9fcfdb16df20

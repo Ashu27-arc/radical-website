@@ -1,5 +1,6 @@
 {
 <<<<<<< HEAD
+<<<<<<< HEAD
   "/careers/page": "app/careers/page.js",
   "/contact-us/page": "app/contact-us/page.js",
 =======
@@ -16,4 +17,10 @@
 >>>>>>> b32412dcf79fcfe390328a6671790e307e278f60
 >>>>>>> 25fcb1a34a9314c116164c850c5be434e8eb04e2
   "/page": "app/page.js"
+=======
+  "/mbbs-abroad-admission/page": "app/mbbs-abroad-admission/page.js",
+  "/our-team/page": "app/our-team/page.js",
+  "/page": "app/page.js",
+  "/gallery/page": "app/gallery/page.js"
+>>>>>>> 6e06bda77d2c5b4748550532599c9fcfdb16df20
 }

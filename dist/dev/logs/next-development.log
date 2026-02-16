@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 [00:00:03.259] Server  LOG      ✓ Ready in 2.3s
 [00:00:15.277] Server  LOG      ○ Compiling /contact-us ...
 [00:00:25.309] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
@@ -15,6 +16,12 @@
 [00:08:30.572] Server  LOG      ○ Compiling / ...
 [00:14:16.477] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
 [00:14:22.453] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+=======
+[00:00:39.319] Server  LOG      ✓ Ready in 28.9s
+[00:00:42.744] Server  LOG      ○ Compiling / ...
+[00:01:39.334] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:39.335] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+>>>>>>> 6e06bda77d2c5b4748550532599c9fcfdb16df20
 
 - A server/client branch `if (typeof window !== 'undefined')`.
 - Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
@@ -40,11 +47,6 @@ It can also happen if the client has a browser extension installed which messes 
                     <SegmentViewNode type="layout" pagePath="layout.tsx">
                       <SegmentTrieNode>
                       <link>
-                      <script>
-                      <script>
-                      <script>
-                      <script>
-                      <script>
                       <RootLayout>
                         <html lang="en">
                           <body
@@ -54,10 +56,8 @@ It can also happen if the client has a browser extension installed which messes 
                           >
                   ...
 
-<<<<<<< HEAD
-[00:37:26.854] Server  LOG      ○ Compiling /mbbs-abroad-admission ...
-[00:40:52.095] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:41:01.680] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+[00:01:39.633] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:01:39.633] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
 
 - A server/client branch `if (typeof window !== 'undefined')`.
 - Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
@@ -83,11 +83,6 @@ It can also happen if the client has a browser extension installed which messes 
                     <SegmentViewNode type="layout" pagePath="layout.tsx">
                       <SegmentTrieNode>
                       <link>
-                      <script>
-                      <script>
-                      <script>
-                      <script>
-                      <script>
                       <RootLayout>
                         <html lang="en">
                           <body
@@ -97,105 +92,131 @@ It can also happen if the client has a browser extension installed which messes 
                           >
                   ...
 
-[02:16:05.641] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:16:24.406] Browser WARN    Image with src "/images/study-abroad/worldMap.webp" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-=======
-[00:36:08.081] Server  LOG      ○ Compiling /mbbs-deemed-colleges-in-india ...
-[00:36:11.805] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:36:16.373] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:36:16.428] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:36:16.589] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:36:16.642] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:36:17.224] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:36:19.657] Browser LOG     Component rendered, expanded: false
-[00:36:19.657] Browser LOG     Universities count: 32
-[00:36:19.657] Browser LOG     Showing items: 4
-[00:36:19.657] Browser LOG     Component rendered, expanded: false
-[00:36:19.657] Browser LOG     Universities count: 32
-[00:36:19.657] Browser LOG     Showing items: 4
-[00:37:17.275] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:37:18.178] Browser WARN    Image with src "/images/study-abroad/worldMap.webp" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
+[00:01:43.723] Browser WARN    Image with src "/images/study-abroad/worldMap.webp" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
 Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[00:45:21.664] Server  LOG      ✓ Compiled in 471ms
-[00:45:33.425] Server  LOG      ✓ Compiled in 273ms
-[00:45:40.243] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:45:41.027] Browser WARN    Image with src "/images/study-abroad/worldMap.webp" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[00:47:17.203] Server  LOG      ✓ Compiled in 499ms
-[00:51:00.171] Server  LOG      ✓ Compiled in 536ms
-[01:07:55.416] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:07:56.215] Browser WARN    Image with src "/images/study-abroad/worldMap.webp" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[01:08:29.770] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:08:30.454] Browser WARN    Image with src "/images/study-abroad/worldMap.webp" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[01:11:15.006] Server  LOG      ✓ Compiled in 461ms
-[01:14:11.276] Server  LOG      ✓ Compiled in 332ms
-[01:15:53.104] Server  LOG      ✓ Compiled in 446ms
-[01:16:04.773] Server  LOG      ✓ Compiled in 287ms
-[01:16:47.308] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:16:48.074] Browser WARN    Image with src "/images/study-abroad/worldMap.webp" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[01:17:53.431] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:17:54.177] Browser WARN    Image with src "/images/study-abroad/worldMap.webp" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[01:18:54.998] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:18:55.694] Browser WARN    Image with src "/images/study-abroad/worldMap.webp" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[01:19:09.781] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:19:10.509] Browser WARN    Image with src "/images/study-abroad/worldMap.webp" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[01:19:28.208] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:19:28.868] Browser WARN    Image with src "/images/study-abroad/worldMap.webp" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[01:26:42.625] Server  LOG      ✓ Compiled in 273ms
-[01:28:13.536] Server  LOG      ✓ Compiled in 302ms
-[01:30:01.542] Server  LOG      ✓ Compiled in 187ms
-[01:31:04.612] Server  LOG      ✓ Compiled in 321ms
-[01:31:29.749] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:31:30.543] Browser WARN    Image with src "/images/study-abroad/worldMap.webp" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[01:34:07.318] Server  LOG      ✓ Compiled in 244ms
-[01:35:52.199] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[01:35:52.888] Browser WARN    Image with src "/images/study-abroad/worldMap.webp" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[01:41:49.179] Server  LOG      ✓ Compiled in 585ms
-[01:41:59.252] Server  LOG      ✓ Compiled in 477ms
-[01:44:35.349] Server  LOG      ✓ Compiled in 198ms
-[01:47:52.355] Server  LOG      ✓ Compiled in 307ms
-[01:47:57.292] Server  LOG      ✓ Compiled in 286ms
-[01:48:03.635] Server  LOG      ✓ Compiled in 258ms
-[01:48:09.167] Server  LOG      ✓ Compiled in 288ms
-[01:48:46.991] Server  LOG      ✓ Compiled in 273ms
-[01:51:14.203] Server  LOG      ✓ Compiled in 274ms
-[01:52:51.904] Server  LOG      ✓ Compiled in 264ms
-[01:54:16.066] Server  LOG      ✓ Compiled in 507ms
-[01:54:25.754] Server  LOG      ✓ Compiled in 440ms
-[02:02:22.364] Server  LOG      ✓ Compiled in 181ms
-[02:04:32.956] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:04:33.729] Browser WARN    Image with src "/images/study-abroad/worldMap.webp" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[02:05:49.353] Server  LOG      ✓ Compiled in 284ms
-[02:07:34.071] Server  LOG      ✓ Compiled in 284ms
-[02:08:00.583] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:08:01.310] Browser WARN    Image with src "/images/study-abroad/worldMap.webp" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[02:10:13.935] Server  LOG      ✓ Compiled in 333ms
-[02:15:50.679] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:15:51.454] Browser WARN    Image with src "/images/study-abroad/worldMap.webp" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[02:18:15.521] Server  LOG      ✓ Compiled in 392ms
-[02:20:46.075] Server  LOG      ✓ Compiled in 293ms
-[02:48:33.443] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:53:32.569] Server  LOG      ✓ Compiled in 690ms
-[02:56:17.741] Server  LOG      ✓ Compiled in 479ms
-[02:56:44.997] Server  LOG      ✓ Compiled in 608ms
-[02:59:37.508] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[02:59:38.144] Browser WARN    Image with src "/images/study-abroad/worldMap.webp" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
-[03:01:31.243] Server  LOG      ✓ Compiled in 282ms
-[03:01:35.909] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[03:01:36.637] Browser WARN    Image with src "/images/study-abroad/worldMap.webp" was detected as the Largest Contentful Paint (LCP). Please add the `loading="eager"` property if this image is above the fold.
->>>>>>> b32412dcf79fcfe390328a6671790e307e278f60
-Read more: https://nextjs.org/docs/app/api-reference/components/image#loading
+<<<<<<< HEAD
 >>>>>>> 25fcb1a34a9314c116164c850c5be434e8eb04e2
+=======
+[00:02:56.650] Browser WARN    Image with src "http://localhost:3000/images/counselorImg.webp" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[00:08:48.814] Server  LOG      ○ Compiling /gallery ...
+[00:09:22.211] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:09:22.212] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/gallery/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <RootLayout>
+                        <html lang="en">
+                          <body
+                            className="flex flex-col min-h-screen"
+-                           data-new-gr-c-s-check-loaded="14.1272.0"
+-                           data-gr-ext-installed=""
+                          >
+                  ...
+
+[00:09:28.379] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:09:35.692] Browser WARN    Image with src "http://localhost:3000/images/counselorImg.webp" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[01:24:19.414] Server  LOG      ○ Compiling /our-team ...
+[01:27:43.278] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:27:43.278] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/our-team/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <RootLayout>
+                        <html lang="en">
+                          <body
+                            className="flex flex-col min-h-screen"
+-                           data-new-gr-c-s-check-loaded="14.1272.0"
+-                           data-gr-ext-installed=""
+                          >
+                  ...
+
+[01:27:43.278] Browser WARN    Image with src "/images/homehero.webp" is using quality "85" which is not configured in images.qualities [75]. Please update your config to [75, 85].
+Read more: https://nextjs.org/docs/messages/next-image-unconfigured-qualities
+[01:27:45.686] Browser WARN    Image with src "http://localhost:3000/images/groups/Group-1.webp" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[01:27:46.989] Browser WARN    Image with src "http://localhost:3000/images/founder.webp" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[01:27:48.482] Browser WARN    Image with src "http://localhost:3000/images/groups/Group-4.webp" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[01:27:48.482] Browser WARN    Image with src "http://localhost:3000/images/groups/Group-2.webp" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[01:27:48.482] Browser WARN    Image with src "http://localhost:3000/images/groups/Group-3.webp" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[01:27:50.227] Browser WARN    Image with src "http://localhost:3000/images/founder-2.webp" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+[01:54:47.976] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[01:54:47.976] Browser ERROR   A tree hydrated but some attributes of the server rendered HTML didn't match the client properties. This won't be patched up. This can happen if a SSR-ed Client Component used:
+
+- A server/client branch `if (typeof window !== 'undefined')`.
+- Variable input such as `Date.now()` or `Math.random()` which changes each time it's called.
+- Date formatting in a user's locale which doesn't match the server.
+- External changing data without sending a snapshot of it along with the HTML.
+- Invalid HTML tag nesting.
+
+It can also happen if the client has a browser extension installed which messes with the HTML before React loaded.
+
+%s%s https://react.dev/link/hydration-mismatch 
+
+  ...
+    <HotReload globalError={[...]} webSocket={WebSocket} staticIndicatorState={{pathname:null, ...}}>
+      <AppDevOverlayErrorBoundary globalError={[...]}>
+        <ReplaySsrOnlyErrors>
+        <DevRootHTTPAccessFallbackBoundary>
+          <HTTPAccessFallbackBoundary notFound={<NotAllowedRootHTTPFallbackError>}>
+            <HTTPAccessFallbackErrorBoundary pathname="/" notFound={<NotAllowedRootHTTPFallbackError>} ...>
+              <RedirectBoundary>
+                <RedirectErrorBoundary router={{...}}>
+                  <Head>
+                  <__next_root_layout_boundary__>
+                    <SegmentViewNode type="layout" pagePath="layout.tsx">
+                      <SegmentTrieNode>
+                      <link>
+                      <RootLayout>
+                        <html lang="en">
+                          <body
+                            className="flex flex-col min-h-screen"
+-                           data-new-gr-c-s-check-loaded="14.1272.0"
+-                           data-gr-ext-installed=""
+                          >
+                  ...
+
+[01:54:52.953] Browser WARN    Image with src "http://localhost:3000/images/counselorImg.webp" has either width or height modified, but not the other. If you use CSS to change the size of your image, also include the styles 'width: "auto"' or 'height: "auto"' to maintain the aspect ratio.
+>>>>>>> 6e06bda77d2c5b4748550532599c9fcfdb16df20
