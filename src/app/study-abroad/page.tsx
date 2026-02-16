@@ -53,10 +53,12 @@ export default function StudyAbroadPage() {
                         src="/images/study-abroad/study-abroad.webp"
                         alt="Study Abroad Hero"
                         fill
-                        className="object-cover object-center sm:object-cover"
+                        className="object-cover object-center"
+                        sizes="(max-width: 640px) 100vw, (max-width: 768px) 100vw, (max-width: 1024px) 100vw, (max-width: 1280px) 100vw, (max-width: 1536px) 100vw, 100vw"
+                        priority
                     />
                 </div>
-                <div className="relative container mx-auto px-4 py-16 sm:py-20 md:py-32 lg:py-40 xl:py-50">
+                <div className="relative container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8 md:py-10 lg:py-12 xl:py-14 2xl:py-16">
                 </div>
             </div>
 
