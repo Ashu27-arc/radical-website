@@ -1,10 +1,5 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
-  "/ayush-counselling-2025/page": "app/ayush-counselling-2025/page.js",
-  "/bds-in-india/page": "app/bds-in-india/page.js",
-  "/counselling-authority/page": "app/counselling-authority/page.js",
-  "/mbbs-abroad-admission/page": "app/mbbs-abroad-admission/page.js",
-  "/mbbs-deemed-colleges-in-india/page": "app/mbbs-deemed-colleges-in-india/page.js",
-  "/mbbs-in-india/page": "app/mbbs-in-india/page.js",
+  "/careers/page": "app/careers/page.js",
+  "/contact-us/page": "app/contact-us/page.js",
   "/page": "app/page.js"
 }

@@ -3,6 +3,7 @@ import { Image } from "primereact/image";
 import CounselorForm from "@/components/CounselorForm";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
+import 'primeicons/primeicons.css';
 import { galleryData } from "@/data/galleryData";
 import { useEffect, useState } from "react";
 import GalleryModal from "@/components/gallery/GalleryModal";
@@ -141,8 +142,9 @@ export default function GalleryPage() {
                                     onClick={() => setYearIndex((i) => Math.max(i - 1, 0))}
                                     disabled={yearIndex === 0}
                                     className="w-10 h-10 cursor-pointer rounded-full bg-transparent border border-black flex items-center justify-center disabled:opacity-40"
+                                    aria-label="Previous year"
                                 >
-                                    <i className="pi pi-arrow-left"></i>
+                                    <i className="pi pi-arrow-left text-black"></i>
                                 </button>
 
                                 <span className="text-[#005A8B] font-semibold text-lg">
@@ -153,8 +155,9 @@ export default function GalleryPage() {
                                     onClick={() => setYearIndex((i) => Math.min(i + 1, years.length - 1))}
                                     disabled={yearIndex === years.length - 1}
                                     className="w-10 h-10 cursor-pointer rounded-full bg-transparent border border-black flex items-center justify-center disabled:opacity-40"
+                                    aria-label="Next year"
                                 >
-                                    <i className="pi pi-arrow-right"></i>
+                                    <i className="pi pi-arrow-right text-black"></i>
                                 </button>
                             </div>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-30 mb-15 fadeUp">

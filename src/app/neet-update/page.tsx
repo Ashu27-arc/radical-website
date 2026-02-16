@@ -88,16 +88,16 @@ export function NeetUpdateContent() {
 
                 {/* Hero Content */}
                 <div className="relative z-10 w-full h-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex flex-col md:flex-row items-start md:items-end justify-between pb-8 md:pb-20 text-white">
-                    <div className="max-w-3xl pt-10 md:pt-0">
+                    <div className="max-w-2xl pt-10 md:pt-0 top-20">
                         <span className="text-[#38b6ff] font-medium text-xs sm:text-sm md:text-base mb-1 sm:mb-2 block">
                             19 Jan 2022
                         </span>
                         <Link href="?details=true" target="_blank">
-                            <h1 className="text-2xl sm:text-3xl md:text-5xl font-bold leading-tight mb-3 sm:mb-4 hover:text-[#38b6ff] transition-colors cursor-pointer">
+                            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold leading-tight mb-3 sm:mb-1 hover:text-[#38b6ff] transition-colors cursor-pointer">
                                 NEET Exam in India: Your Gateway to a Bright Medical Career
                             </h1>
                         </Link>
-                        <p className="text-gray-200 text-xs sm:text-sm md:text-base leading-relaxed max-w-2xl mb-6 md:mb-8 line-clamp-3 md:line-clamp-none">
+                        <p className="text-gray-200 text-xs sm:text-sm md:text-base leading-relaxed max-w-2xl mb-6 md:-mb-1 line-clamp-3 md:line-clamp-none">
                             Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every
                             Successful Referral. Invite Your Friends And Unlock Exclusive Benefits
                             Invite Your Friends And Unlock Exclusive

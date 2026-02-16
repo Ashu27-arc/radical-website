@@ -87,6 +87,23 @@ export default function ContactPage() {
                         </div>
                     </div>
                 </section>
+                <section className="py-2 bg-white">
+                    <div className="w-full">
+                        {/* <h2 className="text-3xl font-bold text-center mb-8 text-[#0A1A2F]">Find Us On Map</h2> */}
+                        <div className="w-full">
+                            <iframe 
+                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16362.70161406333!2d77.34890896424375!3d28.618242396946375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xb5e08fd7f7fce5f%3A0x8e575b0a42691cba!2sRadical%20Education%20%7C%20RDLEDU%20Pvt%20Ltd!5e1!3m2!1sen!2sin!4v1771237199124!5m2!1sen!2sin" 
+                                width="100%" 
+                                height="450" 
+                                style={{ border: 0 }} 
+                                allowFullScreen={true} 
+                                loading="lazy" 
+                                referrerPolicy="no-referrer-when-downgrade"
+                                title="Radical Education Location Map"
+                            />
+                        </div>
+                    </div>
+                </section>
             </div>
         </>
     );

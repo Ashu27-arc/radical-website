@@ -277,7 +277,7 @@ export default function CareersPage() {
       {/* Work Environment Section */}
       <section className="py-12 md:py-16">
         <div className="container mx-auto px-4">
-          <p className="text-gray-500 text-xs md:text-sm text-left mb-2">About Us Radical Education</p>
+          <p className="text-gray-500 font-bold text-xs md:text-sm text-left mb-2">About Us Radical Education</p>
           <h2 className="text-2xl md:text-4xl font-bold text-left mb-8 md:mb-12">
             Our <span className="text-[#287FC4]">Work Environment</span>
           </h2>

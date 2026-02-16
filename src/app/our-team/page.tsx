@@ -40,7 +40,7 @@ export default function OurTeam() {
             {/* Hero Section */}
             <section className="relative h-[500px] md:h-[600px] flex items-center justify-center overflow-hidden">
                 <Image
-                    src="/images/homeHero.webp"
+                    src="/images/OurTeam.webp"
                     alt="Team Hero"
                     fill
                     className="object-cover w-full h-full"
@@ -54,7 +54,7 @@ export default function OurTeam() {
                         FUTURE CAREER
                     </h1>
                     <p className="text-base">
-                        Meet our dedicated team of experts who guide students to success
+                        Our team of “professional medical counselor you can trust” works to <br /> secure academic journey.
                     </p>
                 </div>
             </section>
@@ -172,7 +172,7 @@ export default function OurTeam() {
 
             {/* Team Members Section */}
             <section className="container mx-auto px-4 py-8 md:py-12">
-                <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 md:mb-8">
+                <h2 className="text-black text-2xl md:text-3xl font-bold text-center mb-6 md:mb-8">
                     Our Expert <span className="text-blue-600">Counselors</span>
                 </h2>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
@@ -206,7 +206,7 @@ export default function OurTeam() {
                     </h2>
                     <div className="relative w-full h-[600px] md:h-[450px]">
                         <Image
-                            src="/images/homehero.webp"
+                            src="/images/counselorImg.webp"
                             alt="Contact Background"
                             fill
                             className="object-cover rounded-2xl md:rounded-3xl"

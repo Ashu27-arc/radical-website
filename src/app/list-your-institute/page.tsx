@@ -138,7 +138,7 @@ export default function InstituteListPage() {
 
       {/* Header Section */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 md:py-16 lg:py-20">
-        <div className="flex flex-col lg:flex-row justify-between items-start gap-6 lg:gap-8 mb-6 sm:mb-8">
+        <div className="flex flex-col lg:flex-row justify-between items-center gap-6 lg:gap-8 mb-6 sm:mb-8">
           <div className="max-w-2xl w-full">
             <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-3 sm:mb-4 md:mb-6">
               List Your Institute With Us
@@ -180,8 +180,8 @@ export default function InstituteListPage() {
             <Image
               src="/logo.webp"
               alt="Radical Education"
-              width={200}
-              height={80}
+              width={300}
+              height={120}
               className="object-contain"
             />
           </div>
@@ -231,7 +231,8 @@ export default function InstituteListPage() {
                   name="instituteName"
                   value={formData.instituteName}
                   onChange={handleInputChange}
-                  className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-gray-100 placeholder-white/90 focus:outline-none focus:ring-2 focus:ring-white/50"
+                  className="form-input w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50"
+                  style={{ color: 'white' }}
                   required
                 />
               </div>
@@ -244,7 +245,8 @@ export default function InstituteListPage() {
                   name="emailAddress"
                   value={formData.emailAddress}
                   onChange={handleInputChange}
-                  className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-gray-100 placeholder-white/90 focus:outline-none focus:ring-2 focus:ring-white/50"
+                  className="form-input w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50"
+                  style={{ color: 'white' }}
                   required
                 />
               </div>
@@ -257,7 +259,8 @@ export default function InstituteListPage() {
                   name="instituteType"
                   value={formData.instituteType}
                   onChange={handleInputChange}
-                  className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-gray-100 placeholder-white/90 focus:outline-none focus:ring-2 focus:ring-white/50"
+                  className="form-input w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50"
+                  style={{ color: 'white' }}
                   required
                 />
               </div>
@@ -270,7 +273,8 @@ export default function InstituteListPage() {
                   name="phoneNo"
                   value={formData.phoneNo}
                   onChange={handleInputChange}
-                  className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-gray-100 placeholder-white/90 focus:outline-none focus:ring-2 focus:ring-white/50"
+                  className="form-input w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50"
+                  style={{ color: 'white' }}
                   required
                 />
               </div>
@@ -285,7 +289,8 @@ export default function InstituteListPage() {
                   name="instituteStrength"
                   value={formData.instituteStrength}
                   onChange={handleInputChange}
-                  className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-gray-100 placeholder-white/90 focus:outline-none focus:ring-2 focus:ring-white/50"
+                  className="form-input w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50"
+                  style={{ color: 'white' }}
                   required
                 />
               </div>
@@ -301,7 +306,8 @@ export default function InstituteListPage() {
                   onChange={handleInputChange}
                   placeholder="Tell us about your institute"
                   rows={5}
-                  className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-gray-100 placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 resize-none"
+                  className="form-textarea w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50 resize-none"
+                  style={{ color: 'white' }}
                   required
                 ></textarea>
                 <div className="mt-3 sm:mt-4">
@@ -335,7 +341,7 @@ export default function InstituteListPage() {
                   value={formData.address.houseNo}
                   onChange={handleInputChange}
                   placeholder="House No./Building No."
-                  className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 mb-2 sm:mb-3"
+                  className="form-input w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50 mb-2 sm:mb-3"
                   required
                 />
                 <input
@@ -344,7 +350,7 @@ export default function InstituteListPage() {
                   value={formData.address.streetLocality}
                   onChange={handleInputChange}
                   placeholder="Street/Locality"
-                  className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 mb-2 sm:mb-3"
+                  className="form-input w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50 mb-2 sm:mb-3"
                   required
                 />
                 <input
@@ -353,7 +359,8 @@ export default function InstituteListPage() {
                   value={formData.address.landmark}
                   onChange={handleInputChange}
                   placeholder="Landmark"
-                  className="w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50"
+                  className="form-input w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50 mb-2 sm:mb-3"
+                  style={{ color: 'white' }}
                   required
                 />
               </div>

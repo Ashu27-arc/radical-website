@@ -31,10 +31,16 @@ export default function TestimonialsPage() {
                 {/* Background images */}
                 <div className="absolute inset-0">
                     <img
-                        src="https://images.unsplash.com/photo-1523050854058-8df90110c9f"
+                        src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1920&h=1080&fit=crop"
                         className="w-full h-full object-cover"
                         alt="Background"
                     />
+                </div>
+                
+                {/* Decorative background elements */}
+                <div className="absolute inset-0 overflow-hidden">
+                    <div className="absolute top-1/4 left-1/4 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl"></div>
+                    <div className="absolute bottom-1/3 right-1/4 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl"></div>
                 </div>
 
                 {/* Blue overlay */}
@@ -59,12 +65,12 @@ export default function TestimonialsPage() {
                 {/* Content */}
                 <div className="relative z-10 max-w-6xl mx-auto px-3 sm:px-4 h-full flex flex-col justify-center items-center text-center text-white">
 
-                    <h1 className="text-lg sm:text-xl md:text-3xl lg:text-4xl font-extrabold leading-tight uppercase px-2">
+                    <h1 className="text-lg sm:text-xl md:text-3xl lg:text-4xl font-bold leading-tight uppercase px-2 max-w-4xl">
                         What Students Says About <br className="hidden sm:block" />
                         <span className="text-white">Radical Education</span>
                     </h1>
 
-                    <p className="mt-2 sm:mt-3 md:mt-4 max-w-3xl text-xs sm:text-sm md:text-base text-[#d2ebff] px-2 leading-relaxed">
+                    <p className="mt-3 sm:mt-4 md:mt-5 max-w-2xl text-xs sm:text-sm md:text-base text-[#d2ebff] px-2 leading-relaxed">
                         I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps HRs <br className="hidden md:block" />
                         Generate Job Descriptions And Screen Resumes
                     </p>
@@ -72,19 +78,19 @@ export default function TestimonialsPage() {
                     {/* Video Card */}
                     <div className="mt-4 sm:mt-6 md:mt-10 relative flex items-center justify-center w-full px-2 sm:px-4">
                         {/* Main Video Card */}
-                        <div className="relative rounded-lg sm:rounded-xl overflow-hidden shadow-2xl w-full max-w-[75%] sm:max-w-[90%] md:max-w-[420px] h-[120px] sm:h-[50px] md:h-[260px] l] z-10">
+                        <div className="relative rounded-lg sm:rounded-xl overflow-hidden shadow-2xl w-full max-w-[90%] sm:max-w-[95%] md:max-w-[500px] lg:max-w-[600px] h-[180px] sm:h-[200px] md:h-[260px] lg:h-[320px] z-10">
                             <img
                                 src="/images/reviews/review-3.webp"
-                                className="w-120 h-full object-cover object-center"
+                                className="w-full h-full object-cover object-center"
                                 alt="Video thumbnail"
                             />
 
                             {/* Play Button */}
                             <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="w-12 h-12 sm:w-16 sm:h-12 md:w-20 md:h-14 bg-red-600 rounded-full flex items-center justify-center shadow-lg cursor-pointer hover:scale-110 transition-transform">
+                                <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full flex items-center justify-center shadow-lg cursor-pointer hover:scale-110 transition-transform transform -translate-y-1">
                                     <img
                                         src="/images/reviews/you-tube.webp"
-                                        className="w-full h-full object-cover"
+                                        className="w-1/2 h-1/2 object-contain p-1"
                                         alt="Play button"
                                     />
                                 </div>
