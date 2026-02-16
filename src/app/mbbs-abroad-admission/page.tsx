@@ -136,10 +136,10 @@ export default function MBBSAbroadAdmission() {
     return (
         <div className="min-h-screen">
             {/* Hero Section */}
-            <section className="relative bg-gradient-to-r from-[#0B5A7D] to-[#0E7BA8] py-8 sm:py-12 md:py-16 lg:py-20 overflow-hidden">
+            <section className="relative bg-gradient-to-r from-[#0B5A7D] to-[#0E7BA8] py-4 sm:py-6 md:py-8 lg:py-10 overflow-hidden">
                 <div className="absolute inset-0 opacity-30 sm:opacity-40">
                     {/* Left Bottom Corner Image */}
-                    <div className="absolute -bottom-5 sm:-bottom-10 md:-bottom-20 lg:-bottom-30 left-0 w-12 h-12 sm:w-16 sm:h-16 md:w-24 md:h-24 lg:w-40 lg:h-40 xl:w-80 xl:h-80 2xl:w-96 2xl:h-96">
+                    <div className="absolute -bottom-2 sm:-bottom-4 md:-bottom-8 lg:-bottom-16 left-0 w-8 h-8 sm:w-10 sm:h-10 md:w-16 md:h-16 lg:w-24 lg:h-24 xl:w-60 xl:h-60 2xl:w-48 2xl:h-48">
                         <Image
                             src="/images/study-abroad/left.webp"
                             alt="Decorative"
@@ -150,7 +150,7 @@ export default function MBBSAbroadAdmission() {
                     </div>
 
                     {/* Right Top Corner Image */}
-                    <div className="absolute -top-2 sm:top-0 right-0 w-12 h-12 sm:w-16 sm:h-16 md:w-24 md:h-24 lg:w-40 lg:h-40 xl:w-80 xl:h-80 2xl:w-96 2xl:h-96">
+                    <div className="absolute top-1 sm:top-2 right-0 w-8 h-8 sm:w-10 sm:h-10 md:w-16 md:h-16 lg:w-24 lg:h-24 xl:w-60 xl:h-60 2xl:w-48 2xl:h-48">
                         <Image
                             src="/images/study-abroad/right.webp"
                             alt="Decorative"
@@ -161,18 +161,18 @@ export default function MBBSAbroadAdmission() {
                     </div>
                 </div>
 
-                <div className="container mx-auto px-4 sm:px-6 md:px-8 relative z-10">
+                <div className="container mx-auto px-4 sm:px-6 md:px-8 relative z-10 pt-6 sm:pt-8 md:pt-10">
                     <div className="max-w-4xl mx-auto text-center">
-                        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 sm:mb-6 md:mb-8">
+                        <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-6 sm:mb-7 md:mb-8">
                             STUDY <span className="text-[#4FC3F7]">ABROAD</span>
                         </h1>
-                        <p className="text-white/90 text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8 md:mb-10 px-2 sm:px-4 md:px-6 leading-relaxed">
+                        <p className="text-white/90 text-sm sm:text-base md:text-lg lg:text-xl mb-5 sm:mb-6 md:mb-7 px-1 sm:px-2 md:px-3 leading-relaxed">
                             I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps Info
                             Generate Job Descriptions And Screen Resumes
                         </p>
 
                         {/* World Map */}
-                        <div className="relative max-w-3xl mx-auto px-2 sm:px-4 md:px-6">
+                        <div className="relative max-w-3xl mx-auto px-1 sm:px-2 md:px-3 top-10">
                             <Image
                                 src="/images/study-abroad/worldMap.webp"
                                 alt="World Map"
@@ -227,7 +227,7 @@ export default function MBBSAbroadAdmission() {
                                 href={`/mbbs-abroad-admission/${country.slug}`}
                                 className="block"
                             >
-                                <div className="bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden aspect-square flex flex-col cursor-pointer">
+                                <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden aspect-square flex flex-col cursor-pointer">
                                     {/* Card Header */}
                                     <div className="p-3 sm:p-4 flex items-center justify-between border-b flex-shrink-0">
                                         <div className="flex items-center gap-2 sm:gap-3">
@@ -386,7 +386,7 @@ export default function MBBSAbroadAdmission() {
                                     href={`/mbbs-abroad-admission/${country.slug}`}
                                     className="block"
                                 >
-                                    <div className="bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden aspect-square flex flex-col cursor-pointer">
+                                    <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden aspect-square flex flex-col cursor-pointer">
                                         {/* Card Header */}
                                         <div className="p-3 sm:p-4 flex items-center justify-between border-b flex-shrink-0">
                                             <div className="flex items-center gap-2 sm:gap-3">
@@ -715,7 +715,7 @@ export default function MBBSAbroadAdmission() {
             </section>
 
             {/* Notes */}
-            <section className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-20 mb-8 sm:mb-12 md:mb-20">
+            <section className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-20 mb-12 sm:mb-16 md:mb-24">
                 <div className="max-w-5xl mx-auto">
                     <div className="mt-4 sm:mt-6 bg-white border-2 border-dashed border-gray-300 rounded-xl p-3 sm:p-4 md:p-6">
                         <div className="space-y-2">
@@ -734,6 +734,7 @@ export default function MBBSAbroadAdmission() {
                     </div>
                 </div>
             </section>
+            <br /> <br />
         </div>
     );
 }

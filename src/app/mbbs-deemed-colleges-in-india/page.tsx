@@ -4,11 +4,11 @@ import { useState } from "react";
 
 export default function MBBSDeemedCollegesPage() {
     return (
-        <div className="py-3 sm:py-5 md:py-6 lg:py-8 xl:py-10 min-h-screen">
-            <div className="w-full max-w-[1920px] mx-auto px-2 sm:px-3 md:px-4 lg:px-3 xl:px-4 2xl:px-5 grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-7 xl:gap-8">
+        <div className="min-h-screen">
+            <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-7 xl:gap-8">
 
                 {/* LEFT CONTENT */}
-                <div className="lg:col-span-2 bg-gray-100 rounded-lg sm:rounded-xl p-3 sm:p-4 md:p-5 lg:p-6 xl:p-7 min-w-0">
+                <div className="lg:col-span-2 pt-4 lg:pt-30 min-w-0">
                     <span className="text-xs sm:text-sm md:text-base text-emerald-500 font-semibold">
                         Educational
                     </span>
@@ -36,7 +36,7 @@ export default function MBBSDeemedCollegesPage() {
                     {/* CONTENT */}
                     <div className="mt-4 sm:mt-5 md:mt-6 text-gray-700 leading-relaxed text-xs sm:text-sm md:text-base space-y-3 sm:space-y-4 md:space-y-5 min-w-0">
                         {/* Paragraphs with watermark background */}
-                        <div className="relative p-3 sm:p-4 lg:p-6 rounded-lg overflow-hidden">
+                        <div className="relative rounded-lg overflow-hidden">
                             {/* Watermark background image */}
                             <div 
                                 className="absolute inset-0 bg-no-repeat bg-center pointer-events-none opacity-30 sm:opacity-40 md:opacity-50"
@@ -77,7 +77,7 @@ export default function MBBSDeemedCollegesPage() {
                             className="w-full h-auto object-contain my-4 sm:my-5 md:my-6 max-w-full"
                         />
 
-                        <h2 className="text-base sm:text-lg md:text-xl font-bold text-blue-600 mt-5 sm:mt-6 md:mt-8 mb-3 sm:mb-4">
+                        <h2 className="text-base sm:text-lg md:text-xl font-bold text-[#287FC4] mt-5 sm:mt-6 md:mt-8 mb-3 sm:mb-4">
                             List of Private Medical colleges in Bihar is given in the table below
                         </h2>
 
@@ -156,7 +156,7 @@ export default function MBBSDeemedCollegesPage() {
                                 </table>
                             </div>
                         </div>
-                        <h2 className="text-base sm:text-lg md:text-xl font-bold text-blue-600 mt-5 sm:mt-6 md:mt-8 mb-3 sm:mb-4">
+                        <h2 className="text-base sm:text-lg md:text-xl font-bold text-[#287FC4] mt-5 sm:mt-6 md:mt-8 mb-3 sm:mb-4">
                             List of Government Medical colleges in Bihar is given in the table below
                         </h2>
                         {/* Government Colleges Table */}
@@ -223,7 +223,7 @@ export default function MBBSDeemedCollegesPage() {
                         </div>
 
                         {/* neet exam india */}
-                        <div className="p-3 sm:p-4 md:p-5 lg:p-6 rounded-lg sm:rounded-xl mt-5 sm:mt-6 md:mt-8">
+                        <div className="rounded-lg sm:rounded-xl mt-5 sm:mt-6 md:mt-8">
                             <h2 className="text-base sm:text-lg md:text-xl font-bold text-gray-800 mb-3 sm:mb-4">
                                 NEET Exam in India: Your Gateway to a Bright Medical Career
                             </h2>
@@ -313,65 +313,65 @@ export default function MBBSDeemedCollegesPage() {
                 </div>
 
                 {/* RIGHT SIDEBAR */}
-                <div className="space-y-4 sm:space-y-5 md:space-y-6 bg-[#E1F2FF] min-h-0 lg:min-h-screen min-w-0">
+                <div className="pt-4 lg:pt-30 space-y-4 sm:space-y-5 md:space-y-6 bg-[#E1F2FF] min-h-0 lg:min-h-screen min-w-0">
 
                     {/* SEARCH */}
-                    <div className="bg-[#E1F2FF] p-3 sm:p-4 rounded-lg sm:rounded-xl mt-0 lg:mt-8 xl:mt-12">
+                    <div className="bg-[#E1F2FF] px-4 md:px-5 lg:px-6 rounded-lg sm:rounded-xl m-0">
                         <div className="flex rounded-full overflow-hidden border border-gray-200 sm:border-0">
                             <input
                                 type="text"
                                 placeholder="search your blog here"
-                                className="flex-1 min-w-0 px-3 sm:px-4 py-2.5 sm:py-2 outline-none text-xs sm:text-sm bg-white"
+                                className="h-[50px] flex-1 min-w-0 px-3 sm:px-4 py-2.5 sm:py-2 outline-none text-xs sm:text-sm bg-white"
                             />
-                            <button className="bg-blue-700 text-white px-3 sm:px-4 md:px-6 py-2.5 sm:py-2 text-xs sm:text-sm font-medium touch-manipulation">
+                            <button className="cursor-pointer bg-[#005A8B] text-white px-3 sm:px-4 md:px-6 py-2.5 sm:py-2 text-xs sm:text-sm font-medium touch-manipulation">
                                 Search
                             </button>
                         </div>
                     </div>
 
                     {/* GET IN TOUCH */}
-                    <div className="bg-[#E1F2FF] p-3 sm:p-4 md:p-5 lg:p-6 rounded-lg sm:rounded-xl">
-                        <h3 className="text-base sm:text-lg md:text-xl font-bold text-center text-gray-800 mb-3 sm:mb-4">
+                    <div className="bg-[#E1F2FF] p-4 md:p-5 lg:p-6 rounded-lg sm:rounded-xl m-0">
+                        <h3 className="text-xl md:text-2xl font-bold text-center text-gray-800 mb-6">
                             Get In Touch
                         </h3>
 
                         <div className="space-y-2 sm:space-y-3">
                             <input
                                 type="text"
-                                placeholder="name"
-                                className="bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm min-h-[44px] sm:min-h-0 touch-manipulation"
+                                placeholder="Name"
+                                className="bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm min-h-[50px] touch-manipulation"
                             />
                             <input
                                 type="email"
-                                placeholder="email address"
-                                className="bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm min-h-[44px] sm:min-h-0 touch-manipulation"
+                                placeholder="Email Address"
+                                className="bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm min-h-[50px] touch-manipulation"
                             />
                             <input
                                 type="tel"
-                                placeholder="mobile no"
-                                className="bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm min-h-[44px] sm:min-h-0 touch-manipulation"
+                                placeholder="Mobile Number"
+                                className="bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm min-h-[50px] touch-manipulation"
                             />
                             <input
                                 type="text"
-                                placeholder="select course"
-                                className="bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm min-h-[44px] sm:min-h-0 touch-manipulation"
+                                placeholder="Select Course"
+                                className="bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm min-h-[50px] touch-manipulation"
                             />
 
-                            <button className="w-full mt-2 bg-gradient-to-r from-[#63CDB4] to-[#0077BF] text-white py-2.5 sm:py-3 rounded-lg sm:rounded-xl font-semibold text-sm sm:text-base touch-manipulation min-h-[44px] sm:min-h-0">
+                            <button className="cursor-pointer w-full mt-2 bg-gradient-to-r from-[#63CDB4] to-[#0077BF] text-white py-2.5 sm:py-3 rounded-lg sm:rounded-xl font-semibold text-sm sm:text-base touch-manipulation min-h-[50px]">
                                 Submit
                             </button>
                         </div>
                     </div>
 
                     {/* RELATED */}
-                    <div className="bg-[#E1F2FF] p-3 sm:p-4 md:p-5 lg:p-6">
-                        <h3 className="text-base sm:text-lg font-bold text-blue-600 mb-3 sm:mb-4">
+                    <div className="bg-[#E1F2FF] p-4 md:p-5 lg:p-6 m-0">
+                        <h3 className="text-base sm:text-lg font-bold text-[#287FC4] mb-3 sm:mb-4">
                             Related
                         </h3>
 
                         <div className="space-y-3 sm:space-y-4">
                             {[1, 2, 3].map((item) => (
-                                <div key={item} className="border-b border-gray-300/50 pb-2 sm:pb-3 last:border-b-0">
+                                <div key={item} className="border-b border-gray-600 pb-2 sm:pb-3 last:border-b-0">
                                     <h4 className="font-semibold text-gray-800 text-xs sm:text-sm md:text-base leading-tight">
                                         NEET Exam in India: Your Gateway to a Bright Medical
                                     </h4>
@@ -384,7 +384,7 @@ export default function MBBSDeemedCollegesPage() {
                     </div>
 
                     {/* ADVERTISEMENT BANNERS */}
-                    <div className="space-y-3 sm:space-y-4 px-1 sm:px-2 md:px-4">
+                    <div className="lg:space-y-6 space-y-4 px-4 md:px-5 lg:px-6">
                         {/* Kyrgyzstan Banner */}
                         <div className="rounded-lg sm:rounded-xl overflow-hidden max-w-full">
                             <Image
@@ -433,8 +433,8 @@ export default function MBBSDeemedCollegesPage() {
             </div>
             
             {/* Connect With Us Section */}
-            <div className="mt-8 sm:mt-10 md:mt-12 lg:mt-14 xl:mt-16 text-center px-3 sm:px-4 md:px-6">
-                <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl 2xl:text-6xl font-bold text-[#A8E6CF] opacity-80 break-words">
+            <div className="py-8 sm:py-10 md:py-12 lg:py-14 xl:py-16 text-center px-3 sm:px-4 md:px-6">
+                <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-[#00CFB240] break-words">
                     CONNECT WITH US
                 </h2>
             </div>

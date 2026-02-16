@@ -1,4 +1,14 @@
 {
+<<<<<<< HEAD
   "/mbbs-abroad-admission/page": "app/mbbs-abroad-admission/page.js",
+=======
+  "/_not-found/page": "app/_not-found/page.js",
+  "/ayush-counselling-2025/page": "app/ayush-counselling-2025/page.js",
+  "/bds-in-india/page": "app/bds-in-india/page.js",
+  "/counselling-authority/page": "app/counselling-authority/page.js",
+  "/mbbs-abroad-admission/page": "app/mbbs-abroad-admission/page.js",
+  "/mbbs-deemed-colleges-in-india/page": "app/mbbs-deemed-colleges-in-india/page.js",
+  "/mbbs-in-india/page": "app/mbbs-in-india/page.js",
+>>>>>>> b32412dcf79fcfe390328a6671790e307e278f60
   "/page": "app/page.js"
 }
