@@ -227,7 +227,7 @@ export default function MBBSAbroadAdmission() {
                                 href={`/mbbs-abroad-admission/${country.slug}`}
                                 className="block"
                             >
-                                <div className="bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden aspect-square flex flex-col cursor-pointer">
+                                <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden aspect-square flex flex-col cursor-pointer">
                                     {/* Card Header */}
                                     <div className="p-3 sm:p-4 flex items-center justify-between border-b flex-shrink-0">
                                         <div className="flex items-center gap-2 sm:gap-3">
@@ -386,7 +386,7 @@ export default function MBBSAbroadAdmission() {
                                     href={`/mbbs-abroad-admission/${country.slug}`}
                                     className="block"
                                 >
-                                    <div className="bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 overflow-hidden aspect-square flex flex-col cursor-pointer">
+                                    <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden aspect-square flex flex-col cursor-pointer">
                                         {/* Card Header */}
                                         <div className="p-3 sm:p-4 flex items-center justify-between border-b flex-shrink-0">
                                             <div className="flex items-center gap-2 sm:gap-3">
@@ -715,7 +715,7 @@ export default function MBBSAbroadAdmission() {
             </section>
 
             {/* Notes */}
-            <section className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-20 mb-8 sm:mb-12 md:mb-20">
+            <section className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-20 mb-12 sm:mb-16 md:mb-24">
                 <div className="max-w-5xl mx-auto">
                     <div className="mt-4 sm:mt-6 bg-white border-2 border-dashed border-gray-300 rounded-xl p-3 sm:p-4 md:p-6">
                         <div className="space-y-2">
@@ -734,6 +734,7 @@ export default function MBBSAbroadAdmission() {
                     </div>
                 </div>
             </section>
+            <br /> <br />
         </div>
     );
 }
