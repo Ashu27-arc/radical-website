@@ -583,10 +583,6 @@
     visibility: visible;
   }
 
-  .visible\! {
-    visibility: visible !important;
-  }
-
   .\!sticky {
     position: sticky !important;
   }
@@ -2602,10 +2598,6 @@
     border-color: #4caf50;
   }
 
-  .border-\[\#005A8B\] {
-    border-color: #005a8b;
-  }
-
   .border-\[\#005A8B\]\! {
     border-color: #005a8b !important;
   }
@@ -3370,10 +3362,6 @@
 
   .bg-\[url\(\'\/images\/neet-ug-india-admission-hero\.webp\'\)\] {
     background-image: url("/images/neet-ug-india-admission-hero.webp");
-  }
-
-  .bg-\[url\(\'\/images\/neet-ug-india-admission\.webp\'\)\] {
-    background-image: url("/images/neet-ug-india-admission.webp");
   }
 
   .bg-\[url\(\'\/images\/planBg\.webp\'\)\] {
@@ -5218,12 +5206,6 @@
   }
 
   @media (hover: hover) {
-    .hover\:bg-\[\#004670\]:hover {
-      background-color: #004670;
-    }
-  }
-
-  @media (hover: hover) {
     .hover\:bg-\[\#005787\]:hover {
       background-color: #005787;
     }
@@ -5431,12 +5413,6 @@
   @media (hover: hover) {
     .hover\:text-red-500:hover {
       color: var(--color-red-500);
-    }
-  }
-
-  @media (hover: hover) {
-    .hover\:text-white:hover {
-      color: var(--color-white);
     }
   }
 
@@ -5693,12 +5669,6 @@
   @media (min-width: 40rem) {
     .sm\:my-5 {
       margin-block: calc(var(--spacing) * 5);
-    }
-  }
-
-  @media (min-width: 40rem) {
-    .sm\:my-6 {
-      margin-block: calc(var(--spacing) * 6);
     }
   }
 
@@ -6696,12 +6666,6 @@
   @media (min-width: 40rem) {
     .sm\:opacity-40 {
       opacity: .4;
-    }
-  }
-
-  @media (min-width: 40rem) {
-    .sm\:opacity-50 {
-      opacity: .5;
     }
   }
 
@@ -8116,13 +8080,6 @@
   }
 
   @media (min-width: 48rem) {
-    .md\:text-6xl {
-      font-size: var(--text-6xl);
-      line-height: var(--tw-leading, var(--text-6xl--line-height));
-    }
-  }
-
-  @media (min-width: 48rem) {
     .md\:text-9xl {
       font-size: var(--text-9xl);
       line-height: var(--tw-leading, var(--text-9xl--line-height));
@@ -8193,13 +8150,6 @@
     .md\:leading-15 {
       --tw-leading: calc(var(--spacing) * 15);
       line-height: calc(var(--spacing) * 15);
-    }
-  }
-
-  @media (min-width: 48rem) {
-    .md\:leading-18 {
-      --tw-leading: calc(var(--spacing) * 18);
-      line-height: calc(var(--spacing) * 18);
     }
   }
 
@@ -8501,12 +8451,6 @@
   }
 
   @media (min-width: 64rem) {
-    .lg\:h-\[350px\] {
-      height: 350px;
-    }
-  }
-
-  @media (min-width: 64rem) {
     .lg\:h-auto {
       height: auto;
     }
@@ -8671,12 +8615,6 @@
   @media (min-width: 64rem) {
     .lg\:max-w-\[580px\] {
       max-width: 580px;
-    }
-  }
-
-  @media (min-width: 64rem) {
-    .lg\:max-w-\[800px\] {
-      max-width: 800px;
     }
   }
 
@@ -8930,12 +8868,6 @@
   @media (min-width: 64rem) {
     .lg\:py-8 {
       padding-block: calc(var(--spacing) * 8);
-    }
-  }
-
-  @media (min-width: 64rem) {
-    .lg\:py-10 {
-      padding-block: calc(var(--spacing) * 10);
     }
   }
 
