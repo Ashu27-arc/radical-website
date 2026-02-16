@@ -14,7 +14,7 @@ export default function ContactPage() {
                 <section className="lg:py-40 md:py-30 py-20 relative overflow-hidden z-2 bg-[url('/images/contactHero.webp')] bg-cover bg-center bg-no-repeat">
                     <div className="absolute inset-0 bg-black/50 -z-1" />
                     <div className="mx-auto px-4 w-full lg:w-4/10 md:8/10 text-center fadeUp">
-                        <h1 className="uppercase lg:text-5xl text-4xl font-bold text-white lg:mb-6 mb-4">CONTCAT US</h1>
+                        <h1 className="uppercase lg:text-5xl text-4xl font-bold text-white lg:mb-6 mb-4">CONTACT US</h1>
                         <p className="text-white text-lg m-0 p-0">Our team of experts is just a call or a message away. If you are having any trouble in your medical studies, come join us.</p>
                     </div>
                 </section>
