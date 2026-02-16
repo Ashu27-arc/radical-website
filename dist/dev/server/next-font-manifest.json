@@ -1,8 +1,5 @@
 {
-  "app": {
-    "[project]/src/app/mbbs-in-india/page": [],
-    "[project]/src/app/page": []
-  },
+  "app": {},
   "appUsingSizeAdjust": false,
   "pages": {},
   "pagesUsingSizeAdjust": false

@@ -619,6 +619,10 @@
     inset-inline: calc(var(--spacing) * 0);
   }
 
+  .inset-x-2 {
+    inset-inline: calc(var(--spacing) * 2);
+  }
+
   .inset-y-0 {
     inset-block: calc(var(--spacing) * 0);
   }
@@ -749,6 +753,10 @@
 
   .top-\[280px\] {
     top: 280px;
+  }
+
+  .top-auto {
+    top: auto;
   }
 
   .top-full {
@@ -2235,6 +2243,10 @@
 
   .justify-start {
     justify-content: flex-start;
+  }
+
+  .gap-0 {
+    gap: calc(var(--spacing) * 0);
   }
 
   .gap-1 {
@@ -3793,6 +3805,10 @@
     padding-inline: calc(var(--spacing) * 12);
   }
 
+  .py-0 {
+    padding-block: calc(var(--spacing) * 0);
+  }
+
   .py-1 {
     padding-block: calc(var(--spacing) * 1);
   }
@@ -3939,6 +3955,10 @@
 
   .pr-20 {
     padding-right: calc(var(--spacing) * 20);
+  }
+
+  .pb-1 {
+    padding-bottom: calc(var(--spacing) * 1);
   }
 
   .pb-2 {

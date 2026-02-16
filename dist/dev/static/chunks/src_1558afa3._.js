@@ -1924,11 +1924,11 @@ var _s = __turbopack_context__.k.signature();
 function Header() {
     _s();
     const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(34);
-    if ($[0] !== "e65ee5d4b0a09c4236754f48898b2410e2d523a05b199a80a93d29e34f4d6bb1") {
+    if ($[0] !== "f16eacf91bc7caf3e2e590ff5336b4a6b77aa5865ccb980ad995d1a4675a882b") {
         for(let $i = 0; $i < 34; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "e65ee5d4b0a09c4236754f48898b2410e2d523a05b199a80a93d29e34f4d6bb1";
+        $[0] = "f16eacf91bc7caf3e2e590ff5336b4a6b77aa5865ccb980ad995d1a4675a882b";
     }
     const [visible, setVisible] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     let t0;
@@ -1951,7 +1951,7 @@ function Header() {
         t1 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
             className: "text-[#121212]",
             href: "tel:+91 9797972465",
-            children: "+91 9797972465"
+            children: "97 97 97 24 65"
         }, void 0, false, {
             fileName: "[project]/src/components/header/Header.tsx",
             lineNumber: 29,
@@ -2321,7 +2321,7 @@ function Header() {
         t14 = /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
             className: "text-[#121212]",
             href: "tel:+91 9797972465",
-            children: "+91 9797972465"
+            children: "97 97 97 24 65"
         }, void 0, false, {
             fileName: "[project]/src/components/header/Header.tsx",
             lineNumber: 120,
@@ -3221,11 +3221,11 @@ var _s = __turbopack_context__.k.signature();
 function Footer() {
     _s();
     const $ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$compiler$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["c"])(63);
-    if ($[0] !== "aff53cae28f8e52f856c88ecf8119d16ce9e1eb96f3dacf97223ca6bf228fef9") {
+    if ($[0] !== "4768a92b38b56d5f2ca7f3f63b88fc18e30b5b0b464b32a916b8a3f2156d2271") {
         for(let $i = 0; $i < 63; $i += 1){
             $[$i] = Symbol.for("react.memo_cache_sentinel");
         }
-        $[0] = "aff53cae28f8e52f856c88ecf8119d16ce9e1eb96f3dacf97223ca6bf228fef9";
+        $[0] = "4768a92b38b56d5f2ca7f3f63b88fc18e30b5b0b464b32a916b8a3f2156d2271";
     }
     const [showAll, setShowAll] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     let t0;
@@ -3574,7 +3574,7 @@ function Footer() {
                         lineNumber: 132,
                         columnNumber: 53
                     }, this),
-                    "+91 97 97 97 2465"
+                    "97 97 97 24 65"
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/footer/Footer.tsx",

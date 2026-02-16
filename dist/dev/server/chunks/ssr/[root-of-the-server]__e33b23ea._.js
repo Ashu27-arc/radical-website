@@ -1682,7 +1682,7 @@ function Header() {
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                             className: "text-[#121212]",
                             href: "tel:+91 9797972465",
-                            children: "+91 9797972465"
+                            children: "97 97 97 24 65"
                         }, void 0, false, {
                             fileName: "[project]/src/components/header/Header.tsx",
                             lineNumber: 20,
@@ -1972,7 +1972,7 @@ function Header() {
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
                                                     className: "text-[#121212]",
                                                     href: "tel:+91 9797972465",
-                                                    children: "+91 9797972465"
+                                                    children: "97 97 97 24 65"
                                                 }, void 0, false, {
                                                     fileName: "[project]/src/components/header/Header.tsx",
                                                     lineNumber: 72,
@@ -2986,7 +2986,7 @@ function Footer() {
                                                         lineNumber: 62,
                                                         columnNumber: 19
                                                     }, this),
-                                                    "+91 97 97 97 2465"
+                                                    "97 97 97 24 65"
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/footer/Footer.tsx",
