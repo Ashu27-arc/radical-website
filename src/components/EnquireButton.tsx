@@ -135,7 +135,7 @@ export default function EnquireButton() {
       {/* Floating Vertical Button */}
       <button
         onClick={() => setVisible(true)}
-        className="
+        className="bg-[#CB1E17]! 
           fixed right-[-70px] top-1/2 z-50
           bg-[#CB1E17] text-white tracking-widest
           px-6 py-3 rounded-t-2xl shadow-xl
