@@ -6,7 +6,9 @@
     "dev": "next dev --webpack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "clean": "rimraf .next dist",
+    "clean:dev": "rimraf .next dist && npm run dev"
   },
   "dependencies": {
     "mongodb": "^7.0.0",
@@ -32,6 +34,7 @@
     "eslint": "^9",
     "eslint-config-next": "16.0.10",
     "postcss": "^8.5.6",
+    "rimraf": "^6.0.1",
     "sass": "^1.96.0",
     "tailwindcss": "^4.1.18",
     "typescript": "^5"
