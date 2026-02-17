@@ -145,91 +145,90 @@ export default function Footer() {
         </div>
       </div>
       
-      <div className="bg-[#005A8B] py-8">
-        <div className="container lg:px-3 px-6">
-          <div className="mb-6">
-            <div className="flex flex-wrap justify-center gap-3 mb-3">
-              <Link href="/mbbs-india" className="px-6 py-2 rounded-full border border-white text-white text-sm hover:bg-white hover:text-[#005A8B] transition">
+      <div className="bg-[#005A8B] py-6 sm:py-8">
+        <div className="container px-4 sm:px-6 lg:px-3">
+          <div className="mb-4 sm:mb-6">
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-2 sm:mb-3">
+              <Link href="/mbbs-india" className="px-3 py-1.5 sm:px-6 sm:py-2 rounded-full border border-white text-white text-xs sm:text-sm hover:bg-white hover:text-[#005A8B] transition whitespace-nowrap">
                 MBBS India
               </Link>
-              <Link href="/study-abroad" className="px-6 py-2 rounded-full border border-white bg-white text-[#005A8B] text-sm hover:bg-transparent hover:text-white transition">
+              <Link href="/study-abroad" className="px-3 py-1.5 sm:px-6 sm:py-2 rounded-full border border-white bg-white text-[#005A8B] text-xs sm:text-sm hover:bg-transparent hover:text-white transition whitespace-nowrap">
                 Study Abroad
               </Link>
-              <Link href="/mbbs" className="px-6 py-2 rounded-full border border-white text-white text-sm hover:bg-white hover:text-[#005A8B] transition">
+              <Link href="/mbbs" className="px-3 py-1.5 sm:px-6 sm:py-2 rounded-full border border-white text-white text-xs sm:text-sm hover:bg-white hover:text-[#005A8B] transition whitespace-nowrap">
                 MBBS
               </Link>
-              <Link href="/bds" className="px-6 py-2 rounded-full border border-white text-white text-sm hover:bg-white hover:text-[#005A8B] transition">
+              <Link href="/bds" className="px-3 py-1.5 sm:px-6 sm:py-2 rounded-full border border-white text-white text-xs sm:text-sm hover:bg-white hover:text-[#005A8B] transition whitespace-nowrap">
                 BDS
               </Link>
-              <Link href="/bams" className="px-6 py-2 rounded-full border border-white text-white text-sm hover:bg-white hover:text-[#005A8B] transition">
+              <Link href="/bams" className="px-3 py-1.5 sm:px-6 sm:py-2 rounded-full border border-white text-white text-xs sm:text-sm hover:bg-white hover:text-[#005A8B] transition whitespace-nowrap">
                 BAMS
               </Link>
-              <Link href="/bnys" className="px-6 py-2 rounded-full border border-white text-white text-sm hover:bg-white hover:text-[#005A8B] transition">
+              <Link href="/bnys" className="px-3 py-1.5 sm:px-6 sm:py-2 rounded-full border border-white text-white text-xs sm:text-sm hover:bg-white hover:text-[#005A8B] transition whitespace-nowrap">
                 BNYS
               </Link>
-              <Link href="/bsms" className="px-6 py-2 rounded-full border border-white text-white text-sm hover:bg-white hover:text-[#005A8B] transition">
+              <Link href="/bsms" className="px-3 py-1.5 sm:px-6 sm:py-2 rounded-full border border-white text-white text-xs sm:text-sm hover:bg-white hover:text-[#005A8B] transition whitespace-nowrap">
                 BSMS
               </Link>
-              <Link href="/bums" className="px-6 py-2 rounded-full border border-white text-white text-sm hover:bg-white hover:text-[#005A8B] transition">
+              <Link href="/bums" className="px-3 py-1.5 sm:px-6 sm:py-2 rounded-full border border-white text-white text-xs sm:text-sm hover:bg-white hover:text-[#005A8B] transition whitespace-nowrap">
                 BUMS
               </Link>
-              <Link href="/bhms" className="px-6 py-2 rounded-full border border-white text-white text-sm hover:bg-white hover:text-[#005A8B] transition">
+              <Link href="/bhms" className="px-3 py-1.5 sm:px-6 sm:py-2 rounded-full border border-white text-white text-xs sm:text-sm hover:bg-white hover:text-[#005A8B] transition whitespace-nowrap">
                 BHMS
               </Link>
             </div>
-            <div className="flex flex-wrap gap-3 ml-34">
-              <Link href="/md" className="px-6 py-2 rounded-full border border-white text-white text-sm hover:bg-white hover:text-[#005A8B] transition">
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3">
+              <Link href="/md" className="px-3 py-1.5 sm:px-6 sm:py-2 rounded-full border border-white text-white text-xs sm:text-sm hover:bg-white hover:text-[#005A8B] transition whitespace-nowrap">
                 MD
               </Link>
-              <Link href="/ms" className="px-6 py-2 rounded-full border border-white text-white text-sm hover:bg-white hover:text-[#005A8B] transition">
+              <Link href="/ms" className="px-3 py-1.5 sm:px-6 sm:py-2 rounded-full border border-white text-white text-xs sm:text-sm hover:bg-white hover:text-[#005A8B] transition whitespace-nowrap">
                 MS
               </Link>
-              <Link href="/dnb" className="px-6 py-2 rounded-full border border-white text-white text-sm hover:bg-white hover:text-[#005A8B] transition">
+              <Link href="/dnb" className="px-3 py-1.5 sm:px-6 sm:py-2 rounded-full border border-white text-white text-xs sm:text-sm hover:bg-white hover:text-[#005A8B] transition whitespace-nowrap">
                 DNB
               </Link>
             </div>
           </div>
-          <div className="flex flex-wrap justify-center gap-4 text-white text-sm pt-6">
-            <Link href="/nepal" className="flex items-center gap-1 hover:underline">
-              <i className="pi pi-angle-right" />
+          <div className="flex flex-wrap justify-center items-center gap-x-2 sm:gap-x-4 gap-y-2 text-white text-xs sm:text-sm pt-4 sm:pt-6">
+            <Link href="/nepal" className="flex items-center gap-0.5 sm:gap-1 hover:underline shrink-0">
+              <i className="pi pi-angle-right text-[10px] sm:text-xs" />
               Nepal
             </Link>
-            <span className="text-white/50">|</span>
-            <Link href="/russia" className="flex items-center gap-1 hover:underline">
-              <i className="pi pi-angle-right" />
+            <span className="text-white/50 hidden sm:inline">|</span>
+            <Link href="/russia" className="flex items-center gap-0.5 sm:gap-1 hover:underline shrink-0">
+              <i className="pi pi-angle-right text-[10px] sm:text-xs" />
               Russia
             </Link>
-            <span className="text-white/50">|</span>
-            <Link href="/georgia" className="flex items-center gap-1 hover:underline">
-              <i className="pi pi-angle-right" />
+            <span className="text-white/50 hidden sm:inline">|</span>
+            <Link href="/georgia" className="flex items-center gap-0.5 sm:gap-1 hover:underline shrink-0">
+              <i className="pi pi-angle-right text-[10px] sm:text-xs" />
               Georgia
             </Link>
-            <span className="text-white/50">|</span>
-            <Link href="/singapore" className="flex items-center gap-1 hover:underline">
-              <i className="pi pi-angle-right" />
+            <span className="text-white/50 hidden sm:inline">|</span>
+            <Link href="/singapore" className="flex items-center gap-0.5 sm:gap-1 hover:underline shrink-0">
+              <i className="pi pi-angle-right text-[10px] sm:text-xs" />
               Singapore
             </Link>
-            <span className="text-white/50">|</span>
-            <Link href="/bangladesh" className="flex items-center gap-1 hover:underline">
-              <i className="pi pi-angle-right" />
+            <span className="text-white/50 hidden sm:inline">|</span>
+            <Link href="/bangladesh" className="flex items-center gap-0.5 sm:gap-1 hover:underline shrink-0">
+              <i className="pi pi-angle-right text-[10px] sm:text-xs" />
               Bangladesh
             </Link>
-            <span className="text-white/50">|</span>
-            <Link href="/uzbekistan" className="flex items-center gap-1 hover:underline">
-              <i className="pi pi-angle-right" />
+            <span className="text-white/50 hidden sm:inline">|</span>
+            <Link href="/uzbekistan" className="flex items-center gap-0.5 sm:gap-1 hover:underline shrink-0">
+              <i className="pi pi-angle-right text-[10px] sm:text-xs" />
               Uzbekistan
             </Link>
-            <span className="text-white/50">|</span>
-            <Link href="/kazakhstan" className="flex items-center gap-1 hover:underline">
-              <i className="pi pi-angle-right" />
+            <span className="text-white/50 hidden sm:inline">|</span>
+            <Link href="/kazakhstan" className="flex items-center gap-0.5 sm:gap-1 hover:underline shrink-0">
+              <i className="pi pi-angle-right text-[10px] sm:text-xs" />
               Kazakhstan
             </Link>
-            <span className="text-white/50">|</span>
-            <Link href="/kyrgyzstan" className="flex items-center gap-1 hover:underline">
-              <i className="pi pi-angle-right" />
+            <span className="text-white/50 hidden sm:inline">|</span>
+            <Link href="/kyrgyzstan" className="flex items-center gap-0.5 sm:gap-1 hover:underline shrink-0">
+              <i className="pi pi-angle-right text-[10px] sm:text-xs" />
               Kyrgyzstan
             </Link>
-            <span className="text-white/50">|</span>
           </div>
         </div>
       </div>
