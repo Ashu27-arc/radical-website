@@ -62,14 +62,26 @@ const BlogsPage = () => {
           break;
 
         case 'UPDATE_BLOG':
-          // Update existing blog in the list
-          setBlogs((prev) =>
-            prev.map((b) => (b.id === data.blog.id ? data.blog : b))
-          );
+          // Update existing blog in the list (and handle Published <-> Draft transitions)
+          if (!data.blog?.id) break;
+          setBlogs((prev) => {
+            const exists = prev.some((b) => b.id === data.blog.id);
+            // If it became non-published, remove from website list
+            if (data.blog.status !== 'Published') {
+              return prev.filter((b) => b.id !== data.blog.id);
+            }
+            // If it became published and wasn't in list, add it
+            if (!exists) {
+              return [data.blog, ...prev];
+            }
+            // Normal update
+            return prev.map((b) => (b.id === data.blog.id ? { ...b, ...data.blog } : b));
+          });
           break;
 
         case 'DELETE_BLOG':
           // Remove blog from the list
+          if (!data.blogId) break;
           setBlogs((prev) => prev.filter((b) => b.id !== data.blogId));
           break;
       }
@@ -80,14 +92,39 @@ const BlogsPage = () => {
     };
   }, [addMessageHandler]);
 
+  const blogsDiffer = (a: Blog[], b: Blog[]) => {
+    if (a.length !== b.length) return true;
+    for (let i = 0; i < a.length; i++) {
+      const x = a[i];
+      const y = b[i];
+      // Compare the fields that affect rendering/order
+      if (
+        x.id !== y.id ||
+        x.title !== y.title ||
+        x.excerpt !== y.excerpt ||
+        x.status !== y.status ||
+        x.category !== y.category ||
+        x.date !== y.date ||
+        x.slug !== y.slug ||
+        x.featuredImage !== y.featuredImage ||
+        x.author !== y.author ||
+        (x.views ?? 0) !== (y.views ?? 0) ||
+        (x.likes ?? 0) !== (y.likes ?? 0)
+      ) {
+        return true;
+      }
+    }
+    return false;
+  };
+
   // Also poll for updates every 5 seconds as fallback
   useEffect(() => {
     const interval = setInterval(() => {
       getBlogs().then((data) => {
         setBlogs((prev) => {
-          // Only update if different
-          if (data.length !== prev.length) {
-            console.log('Poll update: New blogs detected');
+          // Update if anything changed (not just length)
+          if (blogsDiffer(prev, data)) {
+            console.log('Poll update: blogs changed');
             return data;
           }
           return prev;
