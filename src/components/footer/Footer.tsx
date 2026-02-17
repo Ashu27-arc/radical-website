@@ -144,7 +144,96 @@ export default function Footer() {
           </div>
         </div>
       </div>
-      <div className="text-white text-center py-6 text-sm bg-[#005A8B]">
+      
+      <div className="bg-[#005A8B] py-8">
+        <div className="container lg:px-3 px-6">
+          <div className="mb-6">
+            <div className="flex flex-wrap justify-center gap-3 mb-3">
+              <Link href="/mbbs-india" className="px-6 py-2 rounded-full border border-white text-white text-sm hover:bg-white hover:text-[#005A8B] transition">
+                MBBS India
+              </Link>
+              <Link href="/study-abroad" className="px-6 py-2 rounded-full border border-white bg-white text-[#005A8B] text-sm hover:bg-transparent hover:text-white transition">
+                Study Abroad
+              </Link>
+              <Link href="/mbbs" className="px-6 py-2 rounded-full border border-white text-white text-sm hover:bg-white hover:text-[#005A8B] transition">
+                MBBS
+              </Link>
+              <Link href="/bds" className="px-6 py-2 rounded-full border border-white text-white text-sm hover:bg-white hover:text-[#005A8B] transition">
+                BDS
+              </Link>
+              <Link href="/bams" className="px-6 py-2 rounded-full border border-white text-white text-sm hover:bg-white hover:text-[#005A8B] transition">
+                BAMS
+              </Link>
+              <Link href="/bnys" className="px-6 py-2 rounded-full border border-white text-white text-sm hover:bg-white hover:text-[#005A8B] transition">
+                BNYS
+              </Link>
+              <Link href="/bsms" className="px-6 py-2 rounded-full border border-white text-white text-sm hover:bg-white hover:text-[#005A8B] transition">
+                BSMS
+              </Link>
+              <Link href="/bums" className="px-6 py-2 rounded-full border border-white text-white text-sm hover:bg-white hover:text-[#005A8B] transition">
+                BUMS
+              </Link>
+              <Link href="/bhms" className="px-6 py-2 rounded-full border border-white text-white text-sm hover:bg-white hover:text-[#005A8B] transition">
+                BHMS
+              </Link>
+            </div>
+            <div className="flex flex-wrap gap-3 ml-34">
+              <Link href="/md" className="px-6 py-2 rounded-full border border-white text-white text-sm hover:bg-white hover:text-[#005A8B] transition">
+                MD
+              </Link>
+              <Link href="/ms" className="px-6 py-2 rounded-full border border-white text-white text-sm hover:bg-white hover:text-[#005A8B] transition">
+                MS
+              </Link>
+              <Link href="/dnb" className="px-6 py-2 rounded-full border border-white text-white text-sm hover:bg-white hover:text-[#005A8B] transition">
+                DNB
+              </Link>
+            </div>
+          </div>
+          <div className="flex flex-wrap justify-center gap-4 text-white text-sm pt-6">
+            <Link href="/nepal" className="flex items-center gap-1 hover:underline">
+              <i className="pi pi-angle-right" />
+              Nepal
+            </Link>
+            <span className="text-white/50">|</span>
+            <Link href="/russia" className="flex items-center gap-1 hover:underline">
+              <i className="pi pi-angle-right" />
+              Russia
+            </Link>
+            <span className="text-white/50">|</span>
+            <Link href="/georgia" className="flex items-center gap-1 hover:underline">
+              <i className="pi pi-angle-right" />
+              Georgia
+            </Link>
+            <span className="text-white/50">|</span>
+            <Link href="/singapore" className="flex items-center gap-1 hover:underline">
+              <i className="pi pi-angle-right" />
+              Singapore
+            </Link>
+            <span className="text-white/50">|</span>
+            <Link href="/bangladesh" className="flex items-center gap-1 hover:underline">
+              <i className="pi pi-angle-right" />
+              Bangladesh
+            </Link>
+            <span className="text-white/50">|</span>
+            <Link href="/uzbekistan" className="flex items-center gap-1 hover:underline">
+              <i className="pi pi-angle-right" />
+              Uzbekistan
+            </Link>
+            <span className="text-white/50">|</span>
+            <Link href="/kazakhstan" className="flex items-center gap-1 hover:underline">
+              <i className="pi pi-angle-right" />
+              Kazakhstan
+            </Link>
+            <span className="text-white/50">|</span>
+            <Link href="/kyrgyzstan" className="flex items-center gap-1 hover:underline">
+              <i className="pi pi-angle-right" />
+              Kyrgyzstan
+            </Link>
+            <span className="text-white/50">|</span>
+          </div>
+        </div>
+      </div>
+      <div className="text-white text-center py-6 text-sm bg-[#00446A]">
         © {new Date().getFullYear()} Radical Education | BINARAMA. All rights reserved.
       </div>
     </footer>
