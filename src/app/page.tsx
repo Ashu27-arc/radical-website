@@ -46,7 +46,7 @@ export default function Home() {
 
   return (
     <>
-      <section className="pt-[80] md:pt-[150px] pb-20 md:pb-30 relative z-2 overflow-hidden">
+      <section className="pt-[80px] md:pt-[150px] pb-20 md:pb-30 relative z-2 overflow-hidden">
         <div className='absolute inset-0 bg-[rgba(0,0,0,0.3)] -z-[1]'></div>
         <video
           className="w-full absolute inset-0 -z-[2] h-full object-cover object-center"
@@ -63,9 +63,9 @@ export default function Home() {
           Your browser does not support the video tag.
         </video>
         <div className='container px-3 md:px-4 lg:px-40 text-center text-white'>
-          <h1 className='text-white font-bold text-4xl md:text-[50px] leading-10 md:leading-15 md:mb-5 mb-3 fadeUp'>Secure Your Medical Seat With <br className='hidden lg:block'/>Expert Assistance</h1>
-          <div className='text-lg lg:px-16 px-3 md:mb-8 mb-6 fadeUp'>Get complete guidance, accurate information, and counseling <br className='hidden lg:block'/>
-          suited to you and your dreams.</div>
+          <h1 className='text-white font-bold text-4xl md:text-[50px] leading-10 md:leading-15 md:mb-5 mb-3 fadeUp'>Secure Your Medical Seat With <br className='hidden lg:block' />Expert Assistance</h1>
+          <div className='text-lg lg:px-16 px-3 md:mb-8 mb-6 fadeUp'>Get complete guidance, accurate information, and counseling <br className='hidden lg:block' />
+            suited to you and your dreams.</div>
           <div className="p-inputgroup bannersrch mx-auto lg:max-w-[580px] fadeUp">
             <span className="p-inputgroup-addon pr-0! border-r-0! bg-white! shadow-none! border-[#fff]!">
               <i className="pi pi-search"></i>
@@ -73,7 +73,7 @@ export default function Home() {
             <AutoComplete placeholder="Search your college" className='pl-0! border-l-0! shadow-none! border-[#fff]!' value={value} suggestions={items} completeMethod={search} onChange={(e) => setValue(e.value)} />
             <Button label='Search' className="bannersrchBtn bg-[#005A8B]! border-[#005A8B]! shadow-none!" />
           </div>
-        </div> 
+        </div>
       </section>
       <FloatingWhatsApp />
       <NewsMarquee />
@@ -144,7 +144,7 @@ export default function Home() {
           </div>
         </div>
         <div className='overflow-hidden'>
-            <Earth3D/>
+          <Earth3D />
         </div>
       </section>
       <section className='md:-mt-70 -mt-45 md:py-30 py-10 bg-cover bg-center bg-no-repeat bg-[#005A8B] overflow-hidden relative z-2 whyChoUs' style={{ backgroundImage: "url('/images/whyCus.webp')" }}>
@@ -222,7 +222,7 @@ export default function Home() {
             </div>
             <div className='absolute left-0 top-[80px] md:top-[105px] w-full'>
               <div className='p-6 md:p-10 rounded-xl bg-[#005A8B] mx-auto lg:w-4/10 md:w-5/10 w-[90%] fadePopup'>
-                <CounselorForm/>
+                <CounselorForm />
               </div>
             </div>
           </div>

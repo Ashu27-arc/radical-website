@@ -341,10 +341,10 @@ export default function AyushCounselling2025() {
                 <div className="absolute inset-0 rounded-full bg-[#00CFB2]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
               </div>
 
-              <h3 className="text-lg sm:text-xl font-bold text-[#00000] mb-3 sm:mb-4 text-left relative z-10 transform transition-all duration-300 group-hover:text-[#00CFB2]">
+              <h3 className="text-lg sm:text-xl font-bold text-[#00000] mb-3 sm:mb-4 relative z-10 transform transition-all duration-300 group-hover:text-[#00CFB2]">
                 Expert AYUSH Counselling
               </h3>
-              <p className="text-gray-600 text-sm leading-relaxed text-left relative z-10 transform transition-all duration-300 group-hover:text-gray-700">
+              <p className="text-gray-600 text-sm leading-relaxed relative z-10 transform transition-all duration-300 group-hover:text-gray-700">
                 Specialized Guidance In All AYUSH<br className="hidden sm:block" /> Disciplines - BAMS, BHMS, BUMS, BSMS,<br className="hidden sm:block" />
                 BNYS With Experienced Counsellors
               </p>
@@ -372,10 +372,10 @@ export default function AyushCounselling2025() {
                 <div className="absolute inset-0 rounded-full bg-[#287FC4]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
               </div>
 
-              <h3 className="text-lg sm:text-xl font-bold text-[#00000] mb-3 sm:mb-4 text-left relative z-10 transform transition-all duration-300 group-hover:text-[#287FC4]">
+              <h3 className="text-lg sm:text-xl font-bold text-[#00000] mb-3 sm:mb-4 relative z-10 transform transition-all duration-300 group-hover:text-[#287FC4]">
                 Top College Tie-Ups
               </h3>
-              <p className="text-gray-600 text-sm leading-relaxed text-left relative z-10 transform transition-all duration-300 group-hover:text-gray-700">
+              <p className="text-gray-600 text-sm leading-relaxed relative z-10 transform transition-all duration-300 group-hover:text-gray-700">
                 Direct Partnerships With NCISM/CCIM/<br className="hidden sm:block" /> AYUSH-Approved Colleges Across<br className="hidden sm:block" /> India For Guaranteed Admissions
               </p>
 
@@ -402,10 +402,10 @@ export default function AyushCounselling2025() {
                 <div className="absolute inset-0 rounded-full bg-[#A8019D]/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 animate-pulse"></div>
               </div>
 
-              <h3 className="text-lg sm:text-xl font-bold text-[#00000] mb-3 sm:mb-4 text-left relative z-10 transform transition-all duration-300 group-hover:text-[#A8019D]">
+              <h3 className="text-lg sm:text-xl font-bold text-[#00000] mb-3 sm:mb-4 relative z-10 transform transition-all duration-300 group-hover:text-[#A8019D]">
                 Transparent Process
               </h3>
-              <p className="text-gray-600 text-sm leading-relaxed text-left relative z-10 transform transition-all duration-300 group-hover:text-gray-700">
+              <p className="text-gray-600 text-sm leading-relaxed relative z-10 transform transition-all duration-300 group-hover:text-gray-700">
                 100% Transparent Admission Process<br className="hidden sm:block" /> With Complete Documentation<br className="hidden sm:block" /> Support And Scholarship Guidance
               </p>
 
