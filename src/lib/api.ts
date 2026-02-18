@@ -1,4 +1,5 @@
-const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://backend-radical.onrender.com';
+// Website uses Next.js API only (same origin). No CRM backend URL.
+const getBaseUrl = () => (typeof window !== 'undefined' ? '' : process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
 
 export interface Blog {
   id: string;
@@ -19,13 +20,10 @@ export interface Blog {
 }
 
 export async function getBlogs(): Promise<Blog[]> {
-  // Add cache-busting query param to always get fresh data
-  const res = await fetch(`${API_URL}/api/blogs?_t=${Date.now()}`, { 
+  const base = getBaseUrl();
+  const res = await fetch(`${base}/api/blogs?_t=${Date.now()}`, {
     cache: 'no-store',
-    headers: {
-      'Cache-Control': 'no-cache, no-store, must-revalidate',
-      'Pragma': 'no-cache'
-    }
+    headers: { 'Cache-Control': 'no-cache, no-store, must-revalidate', 'Pragma': 'no-cache' }
   });
   if (!res.ok) return [];
   const data = await res.json();
@@ -33,12 +31,10 @@ export async function getBlogs(): Promise<Blog[]> {
 }
 
 export async function getBlogBySlug(slug: string): Promise<Blog | null> {
-  const res = await fetch(`${API_URL}/api/blogs/slug/${encodeURIComponent(slug)}?_t=${Date.now()}`, {
+  const base = getBaseUrl();
+  const res = await fetch(`${base}/api/blogs/slug/${encodeURIComponent(slug)}?_t=${Date.now()}`, {
     cache: 'no-store',
-    headers: {
-      'Cache-Control': 'no-cache, no-store, must-revalidate',
-      'Pragma': 'no-cache'
-    }
+    headers: { 'Cache-Control': 'no-cache, no-store, must-revalidate', 'Pragma': 'no-cache' }
   });
   if (!res.ok) return null;
   return res.json();

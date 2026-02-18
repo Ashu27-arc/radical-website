@@ -29,9 +29,11 @@ const BlogsPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const blogsPerPage = 6;
   const scrollRef = useRef<HTMLDivElement>(null);
-  const { addMessageHandler, isConnected } = useWebSocket(process.env.NEXT_PUBLIC_WS_URL || 'wss://backend-radical.onrender.com');
+  const [refreshKey, setRefreshKey] = useState(0);
+  const wsUrl = process.env.NEXT_PUBLIC_WS_URL || 'wss://backend-radical.onrender.com';
+  const { addMessageHandler, isConnected } = useWebSocket(wsUrl);
 
-  // Initial load of blogs
+  // Initial load from Next.js API (same MongoDB as CRM)
   useEffect(() => {
     getBlogs().then((data) => {
       setBlogs(data);
@@ -40,99 +42,45 @@ const BlogsPage = () => {
       console.error('Error loading blogs:', error);
       setLoading(false);
     });
-  }, []);
+  }, [refreshKey]);
 
-  // Listen for real-time blog updates via WebSocket
+  // Real-time: CRM se blog post/update/delete par WebSocket se turant update
   useEffect(() => {
     const removeHandler = addMessageHandler((data) => {
-      console.log('Website received WebSocket message:', data);
-      
       switch (data.type) {
         case 'NEW_BLOG':
-          // Add new blog to the list if it's published
           if (data.blog && data.blog.status === 'Published') {
             setBlogs((prev) => {
-              // Check if blog already exists
-              const exists = prev.find((b) => b.id === data.blog.id);
-              if (exists) return prev;
-              console.log('Adding new blog to website:', data.blog.title);
+              if (prev.find((b) => b.id === data.blog.id)) return prev;
               return [data.blog, ...prev];
             });
           }
           break;
-
         case 'UPDATE_BLOG':
-          // Update existing blog in the list (and handle Published <-> Draft transitions)
           if (!data.blog?.id) break;
           setBlogs((prev) => {
-            const exists = prev.some((b) => b.id === data.blog.id);
-            // If it became non-published, remove from website list
             if (data.blog.status !== 'Published') {
               return prev.filter((b) => b.id !== data.blog.id);
             }
-            // If it became published and wasn't in list, add it
-            if (!exists) {
-              return [data.blog, ...prev];
-            }
-            // Normal update
+            const exists = prev.some((b) => b.id === data.blog.id);
+            if (!exists) return [data.blog, ...prev];
             return prev.map((b) => (b.id === data.blog.id ? { ...b, ...data.blog } : b));
           });
           break;
-
         case 'DELETE_BLOG':
-          // Remove blog from the list
-          if (!data.blogId) break;
-          setBlogs((prev) => prev.filter((b) => b.id !== data.blogId));
+          if (data.blogId) {
+            setBlogs((prev) => prev.filter((b) => b.id !== data.blogId));
+          }
           break;
       }
     });
-
-    return () => {
-      removeHandler();
-    };
+    return () => removeHandler();
   }, [addMessageHandler]);
 
-  const blogsDiffer = (a: Blog[], b: Blog[]) => {
-    if (a.length !== b.length) return true;
-    for (let i = 0; i < a.length; i++) {
-      const x = a[i];
-      const y = b[i];
-      // Compare the fields that affect rendering/order
-      if (
-        x.id !== y.id ||
-        x.title !== y.title ||
-        x.excerpt !== y.excerpt ||
-        x.status !== y.status ||
-        x.category !== y.category ||
-        x.date !== y.date ||
-        x.slug !== y.slug ||
-        x.featuredImage !== y.featuredImage ||
-        x.author !== y.author ||
-        (x.views ?? 0) !== (y.views ?? 0) ||
-        (x.likes ?? 0) !== (y.likes ?? 0)
-      ) {
-        return true;
-      }
-    }
-    return false;
-  };
-
-  // Also poll for updates every 5 seconds as fallback
+  // Fallback: har 60s refresh agar WebSocket disconnect ho
   useEffect(() => {
-    const interval = setInterval(() => {
-      getBlogs().then((data) => {
-        setBlogs((prev) => {
-          // Update if anything changed (not just length)
-          if (blogsDiffer(prev, data)) {
-            console.log('Poll update: blogs changed');
-            return data;
-          }
-          return prev;
-        });
-      });
-    }, 5000);
-
-    return () => clearInterval(interval);
+    const t = setInterval(() => setRefreshKey((k) => k + 1), 60000);
+    return () => clearInterval(t);
   }, []);
 
   const scroll = (direction: 'left' | 'right') => {
@@ -270,12 +218,12 @@ const BlogsPage = () => {
       {/* Header Section */}
       <div className="bg-white py-2 md:py-4 animate-fadeIn">
         <div className="container mx-auto px-4">
-          {/* Live Status Indicator */}
+          {/* Live: CRM se blog post hote hi yahan update (WebSocket) */}
           <div className="flex justify-end mb-2">
             <div className="flex items-center gap-2">
-              <div className={`w-2 h-2 rounded-full ${isConnected ? 'bg-green-500 animate-pulse' : 'bg-red-500'}`}></div>
+              <div className={`w-2 h-2 rounded-full ${isConnected ? 'bg-green-500 animate-pulse' : 'bg-amber-500'}`} />
               <span className="text-xs text-gray-500">
-                {isConnected ? 'Live Updates' : 'Offline'}
+                {isConnected ? 'Live – CRM updates yahan turant dikhenge' : 'Reconnecting…'}
               </span>
             </div>
           </div>
