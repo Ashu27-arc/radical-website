@@ -10,7 +10,7 @@ export default function Earth3D() {
         muted
         playsInline
       >
-        <source src="/videos/earth2.mp4" type="video/mp4" />
+        <source src="/videos/EarthRAD.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
     </div>
