@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import BlogSidebar from './BlogSidebar';
 import { getBlogBySlug, type Blog } from '@/lib/api';
+import { useWebSocket } from '@/hooks/useWebSocket';
 
 interface BlogsReadProps {
     slug: string;
@@ -22,6 +23,17 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
     const categoryContainerRef = useRef<HTMLDivElement>(null);
     const [blog, setBlog] = useState<Blog | null>(null);
     const [loading, setLoading] = useState(true);
+    const { addMessageHandler, isConnected } = useWebSocket();
+    
+    // Connection status indicator
+    const connectionStatus = (
+        <div className="flex items-center justify-end mb-4 pr-4">
+            <span className={`inline-flex items-center text-xs ${isConnected ? 'text-green-600' : 'text-red-600'}`}>
+                <span className={`inline-block w-2 h-2 rounded-full mr-2 ${isConnected ? 'bg-green-600' : 'bg-red-600'}`}></span>
+                {isConnected ? 'Live Updates Active' : 'Live Updates Offline'}
+            </span>
+        </div>
+    );
 
     useEffect(() => {
         getBlogBySlug(slug).then((data) => {
@@ -29,6 +41,21 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
             setLoading(false);
         }).catch(() => setLoading(false));
     }, [slug]);
+
+    // Real-time updates for blog changes
+    useEffect(() => {
+        const removeHandler = addMessageHandler((data) => {
+            if (data.type === 'UPDATE_BLOG' && data.blog?.id === blog?.id) {
+                // Update the current blog with new data
+                setBlog(data.blog);
+            } else if (data.type === 'DELETE_BLOG' && data.blogId === blog?.id) {
+                // Redirect to blogs page if current blog is deleted
+                window.location.href = '/blogs';
+            }
+        });
+        
+        return () => removeHandler();
+    }, [addMessageHandler, blog?.id]);
 
     const categories = ['All', 'Education', 'Exams', 'Government', 'Careers'];
 
@@ -52,6 +79,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
     return (
         <div className="w-full bg-gray-50 py-8 md:py-20 relative animate-fadeIn">
             <div className="max-w-6xl mx-auto px-4">
+                {connectionStatus}
                 {/* Search Section */}
                 <div className="flex flex-col lg:flex-row gap-4 items-start justify-start mb-8">
                     {/* Search Input */}

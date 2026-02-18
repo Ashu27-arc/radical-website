@@ -99,6 +99,16 @@ const BlogsPage = () => {
   const publishedBlogs = blogs.filter((b) => b.status === 'Published');
   const categories = ['All', ...Array.from(new Set(publishedBlogs.map((b) => b.category).filter(Boolean)))];
   
+  // Connection status indicator
+  const connectionStatus = (
+    <div className="flex items-center justify-end mb-4 pr-4">
+      <span className={`inline-flex items-center text-xs ${isConnected ? 'text-green-600' : 'text-red-600'}`}>
+        <span className={`inline-block w-2 h-2 rounded-full mr-2 ${isConnected ? 'bg-green-600' : 'bg-red-600'}`}></span>
+        {isConnected ? 'Live Updates Active' : 'Live Updates Offline'}
+      </span>
+    </div>
+  );
+  
   // Reset to first page when filters change and ensure page is valid
   useEffect(() => {
     setCurrentPage((prev) => {
@@ -487,6 +497,7 @@ const BlogsPage = () => {
           </div>
         </div>
       </div>
+      {connectionStatus}
     </div>
   );
 };
