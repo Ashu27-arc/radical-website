@@ -57,7 +57,7 @@ export default function Home() {
           suppressHydrationWarning
         >
           <source
-            src="/videos/9659303-hd_1280_720_50fps.mp4"
+            src="/videos/hero.mp4"
             type="video/mp4"
           />
           Your browser does not support the video tag.
