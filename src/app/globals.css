@@ -393,22 +393,16 @@ body {
         -webkit-text-fill-color: white !important;
     }
     
-    /* Force placeholder colors */
-    .form-input::placeholder,
-    .form-textarea::placeholder {
-        color: white !important;
-        opacity: 1 !important;
-    }
-    
+    /* Force placeholder colors to dark gray */
     input::placeholder,
     textarea::placeholder {
-        color: white !important;
+        color: #374151 !important;
         opacity: 1 !important;
     }
     
     /* Most aggressive placeholder override */
     *::placeholder {
-        color: white !important;
+        color: #374151 !important;
         opacity: 1 !important;
     }
 }

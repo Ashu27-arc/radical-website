@@ -3,6 +3,57 @@ import Image from "next/image";
 import { useState } from "react";
 
 export default function MBBSDeemedCollegesPage() {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        mobile: '',
+        course: ''
+    });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitMessage, setSubmitMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
+
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [name]: value
+        }));
+    };
+
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        setSubmitMessage(null);
+
+        try {
+            const response = await fetch('/api/deemed-college-enquiry', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(formData),
+            });
+
+            const data = await response.json();
+
+            if (data.success) {
+                setSubmitMessage({ type: 'success', text: data.message });
+                setFormData({
+                    name: '',
+                    email: '',
+                    mobile: '',
+                    course: ''
+                });
+            } else {
+                setSubmitMessage({ type: 'error', text: data.message });
+            }
+        } catch (error) {
+            setSubmitMessage({ type: 'error', text: 'Failed to submit. Please try again.' });
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
     return (
         <div className="min-h-screen">
             <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-7 xl:gap-8">
@@ -321,7 +372,7 @@ export default function MBBSDeemedCollegesPage() {
                             <input
                                 type="text"
                                 placeholder="search your blog here"
-                                className="h-[50px] flex-1 min-w-0 px-3 sm:px-4 py-2.5 sm:py-2 outline-none text-xs sm:text-sm bg-white"
+                                className="h-[50px] flex-1 min-w-0 px-3 sm:px-4 py-2.5 sm:py-2 outline-none text-xs sm:text-sm bg-white placeholder-gray-700"
                             />
                             <button className="cursor-pointer bg-[#005A8B] text-white px-3 sm:px-4 md:px-6 py-2.5 sm:py-2 text-xs sm:text-sm font-medium touch-manipulation">
                                 Search
@@ -335,32 +386,66 @@ export default function MBBSDeemedCollegesPage() {
                             Get In Touch
                         </h3>
 
-                        <div className="space-y-2 sm:space-y-3">
+                        {submitMessage && (
+                            <div className={`mb-4 p-3 rounded-lg text-sm ${
+                                submitMessage.type === 'success' 
+                                    ? 'bg-green-100 text-green-700 border border-green-300' 
+                                    : 'bg-red-100 text-red-700 border border-red-300'
+                            }`}>
+                                {submitMessage.text}
+                            </div>
+                        )}
+
+                        <form onSubmit={handleSubmit} className="space-y-2 sm:space-y-3">
                             <input
                                 type="text"
+                                name="name"
                                 placeholder="Name"
-                                className="bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm min-h-[50px] touch-manipulation"
+                                value={formData.name}
+                                onChange={handleInputChange}
+                                className="bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm min-h-[50px] touch-manipulation placeholder-gray-700"
+                                required
+                                disabled={isSubmitting}
                             />
                             <input
                                 type="email"
+                                name="email"
                                 placeholder="Email Address"
-                                className="bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm min-h-[50px] touch-manipulation"
+                                value={formData.email}
+                                onChange={handleInputChange}
+                                className="bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm min-h-[50px] touch-manipulation placeholder-gray-700"
+                                required
+                                disabled={isSubmitting}
                             />
                             <input
                                 type="tel"
+                                name="mobile"
                                 placeholder="Mobile Number"
-                                className="bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm min-h-[50px] touch-manipulation"
+                                value={formData.mobile}
+                                onChange={handleInputChange}
+                                className="bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm min-h-[50px] touch-manipulation placeholder-gray-700"
+                                required
+                                disabled={isSubmitting}
                             />
                             <input
                                 type="text"
+                                name="course"
                                 placeholder="Select Course"
-                                className="bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm min-h-[50px] touch-manipulation"
+                                value={formData.course}
+                                onChange={handleInputChange}
+                                className="bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm min-h-[50px] touch-manipulation placeholder-gray-700"
+                                required
+                                disabled={isSubmitting}
                             />
 
-                            <button className="cursor-pointer w-full mt-2 bg-gradient-to-r from-[#63CDB4] to-[#0077BF] text-white py-2.5 sm:py-3 rounded-lg sm:rounded-xl font-semibold text-sm sm:text-base touch-manipulation min-h-[50px]">
-                                Submit
+                            <button 
+                                type="submit"
+                                disabled={isSubmitting}
+                                className="cursor-pointer w-full mt-2 bg-gradient-to-r from-[#63CDB4] to-[#0077BF] text-white py-2.5 sm:py-3 rounded-lg sm:rounded-xl font-semibold text-sm sm:text-base touch-manipulation min-h-[50px] disabled:opacity-50 disabled:cursor-not-allowed"
+                            >
+                                {isSubmitting ? 'Submitting...' : 'Submit'}
                             </button>
-                        </div>
+                        </form>
                     </div>
 
                     {/* RELATED */}

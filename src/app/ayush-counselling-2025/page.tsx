@@ -11,6 +11,8 @@ export default function AyushCounselling2025() {
     phone: '',
     stream: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitMessage, setSubmitMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
     const { name, value } = e.target;
@@ -20,10 +22,38 @@ export default function AyushCounselling2025() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Handle form submission
-    console.log('Form submitted:', formData);
+    setIsSubmitting(true);
+    setSubmitMessage(null);
+
+    try {
+      const response = await fetch('/api/ayush-counselling', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setSubmitMessage({ type: 'success', text: data.message });
+        setFormData({
+          fullName: '',
+          email: '',
+          phone: '',
+          stream: ''
+        });
+      } else {
+        setSubmitMessage({ type: 'error', text: data.message });
+      }
+    } catch (error) {
+      setSubmitMessage({ type: 'error', text: 'Failed to submit. Please try again.' });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -84,6 +114,16 @@ export default function AyushCounselling2025() {
                   </h3>
 
                   <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
+                    {submitMessage && (
+                      <div className={`p-3 rounded-lg text-sm ${
+                        submitMessage.type === 'success' 
+                          ? 'bg-green-100 text-green-700 border border-green-300' 
+                          : 'bg-red-100 text-red-700 border border-red-300'
+                      }`}>
+                        {submitMessage.text}
+                      </div>
+                    )}
+
                     <div className="relative">
                       <input
                         type="text"
@@ -93,6 +133,7 @@ export default function AyushCounselling2025() {
                         onChange={handleInputChange}
                         className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[#00CFB2] text-gray-800 placeholder-gray-400 transition-all duration-300 bg-gray-50 focus:bg-white text-sm"
                         required
+                        disabled={isSubmitting}
                       />
                     </div>
 
@@ -105,6 +146,7 @@ export default function AyushCounselling2025() {
                         onChange={handleInputChange}
                         className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[#00CFB2] text-gray-800 placeholder-gray-400 transition-all duration-300 bg-gray-50 focus:bg-white text-sm"
                         required
+                        disabled={isSubmitting}
                       />
                     </div>
 
@@ -117,6 +159,7 @@ export default function AyushCounselling2025() {
                         onChange={handleInputChange}
                         className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[#00CFB2] text-gray-800 placeholder-gray-400 transition-all duration-300 bg-gray-50 focus:bg-white text-sm"
                         required
+                        disabled={isSubmitting}
                       />
                     </div>
 
@@ -127,6 +170,7 @@ export default function AyushCounselling2025() {
                         onChange={handleInputChange}
                         className="w-full px-3 sm:px-4 py-2.5 sm:py-3 border-2 border-gray-200 rounded-lg focus:outline-none focus:border-[#00CFB2] text-gray-800 transition-all duration-300 bg-gray-50 focus:bg-white appearance-none cursor-pointer text-sm"
                         required
+                        disabled={isSubmitting}
                       >
                         <option value="">Select Preferred AYUSH Stream</option>
                         <option value="BAMS">BAMS - Ayurveda</option>
@@ -145,9 +189,10 @@ export default function AyushCounselling2025() {
 
                     <button
                       type="submit"
-                      className="w-full bg-gradient-to-r from-[#287FC4] to-[#00CFB2] text-white py-2.5 sm:py-3 rounded-lg font-semibold hover:from-[#00CFB2] hover:to-[#287FC4] transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl text-sm sm:text-base"
+                      disabled={isSubmitting}
+                      className="w-full bg-gradient-to-r from-[#287FC4] to-[#00CFB2] text-white py-2.5 sm:py-3 rounded-lg font-semibold hover:from-[#00CFB2] hover:to-[#287FC4] transition-all duration-300 transform hover:scale-[1.02] shadow-lg hover:shadow-xl text-sm sm:text-base disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      SUBMIT
+                      {isSubmitting ? 'SUBMITTING...' : 'SUBMIT'}
                     </button>
                   </form>
                 </div>

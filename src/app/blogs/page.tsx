@@ -235,7 +235,7 @@ const BlogsPage = () => {
                 placeholder="Search your blog here"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-4 md:px-6 py-3 shadow-lg drop-shadow-lg rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base placeholder:text-[#787878] placeholder:text-sm md:placeholder:text-base"
+                className="w-full px-4 md:px-6 py-3 shadow-lg drop-shadow-lg rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base placeholder-gray-700"
               />
             </div>
             <button className="bg-[#005A8B] text-white px-6 md:px-8 py-3 rounded-full hover:bg-blue-700 transition-colors whitespace-nowrap text-sm md:text-base w-full sm:w-auto">
@@ -486,14 +486,14 @@ const BlogsPage = () => {
                 <input
                   type="text"
                   placeholder="Full Name"
-                  className="w-full px-3 md:px-4 py-2 md:py-3 rounded-lg border-1 focus:outline-none focus:ring-2 focus:ring-blue-300 text-gray-700 bg-white text-sm md:text-base"
+                  className="w-full px-3 md:px-4 py-2 md:py-3 rounded-lg border-1 focus:outline-none focus:ring-2 focus:ring-blue-300 text-gray-700 bg-white text-sm md:text-base placeholder-gray-700"
                 />
 
                 {/* Phone No */}
                 <input
                   type="tel"
                   placeholder="Phone No"
-                  className="w-full px-3 md:px-4 py-2 md:py-3 rounded-lg border-1 focus:outline-none focus:ring-2 focus:ring-blue-300 text-gray-700 bg-white text-sm md:text-base"
+                  className="w-full px-3 md:px-4 py-2 md:py-3 rounded-lg border-1 focus:outline-none focus:ring-2 focus:ring-blue-300 text-gray-700 bg-white text-sm md:text-base placeholder-gray-700"
                 />
 
                 {/* Select Course */}
