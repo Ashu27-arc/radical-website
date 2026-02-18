@@ -1,5 +1,6 @@
-// Website uses Next.js API only (same origin). No CRM backend URL.
-const getBaseUrl = () => (typeof window !== 'undefined' ? '' : process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
+// Blogs: CRM se fetch (radical-crm DB). Forms: Next.js API (radicalDb).
+const getWebsiteBase = () => (typeof window !== 'undefined' ? '' : process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000');
+const getCrmApiUrl = () => process.env.NEXT_PUBLIC_CRM_API_URL || 'https://backend-radical.onrender.com';
 
 export interface Blog {
   id: string;
@@ -20,8 +21,8 @@ export interface Blog {
 }
 
 export async function getBlogs(): Promise<Blog[]> {
-  const base = getBaseUrl();
-  const res = await fetch(`${base}/api/blogs?_t=${Date.now()}`, {
+  const crm = getCrmApiUrl();
+  const res = await fetch(`${crm}/api/blogs?_t=${Date.now()}`, {
     cache: 'no-store',
     headers: { 'Cache-Control': 'no-cache, no-store, must-revalidate', 'Pragma': 'no-cache' }
   });
@@ -31,8 +32,8 @@ export async function getBlogs(): Promise<Blog[]> {
 }
 
 export async function getBlogBySlug(slug: string): Promise<Blog | null> {
-  const base = getBaseUrl();
-  const res = await fetch(`${base}/api/blogs/slug/${encodeURIComponent(slug)}?_t=${Date.now()}`, {
+  const crm = getCrmApiUrl();
+  const res = await fetch(`${crm}/api/blogs/slug/${encodeURIComponent(slug)}?_t=${Date.now()}`, {
     cache: 'no-store',
     headers: { 'Cache-Control': 'no-cache, no-store, must-revalidate', 'Pragma': 'no-cache' }
   });
