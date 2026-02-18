@@ -2,8 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { writeFile, mkdir } from 'fs/promises';
 import { existsSync } from 'fs';
 import path from 'path';
-import connectDB from '@/lib/mongodb';
-import InstituteSubmission from '@/models/InstituteSubmission';
+
+const BACKEND_API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://backend-radical.onrender.com';
 
 export async function POST(request: NextRequest) {
   try {
@@ -49,56 +49,60 @@ export async function POST(request: NextRequest) {
       imagePath = `/uploads/institutes/${fileName}`;
     }
 
-    // Try to connect to MongoDB
-    const dbConnection = await connectDB();
-    let submissionId = null;
+    // Forward to backend API
+    try {
+      const backendFormData = new FormData();
+      backendFormData.append('instituteName', instituteName);
+      backendFormData.append('instituteType', instituteType);
+      backendFormData.append('instituteStrength', instituteStrength);
+      backendFormData.append('houseNo', houseNo);
+      backendFormData.append('streetLocality', streetLocality);
+      backendFormData.append('landmark', landmark);
+      backendFormData.append('emailAddress', emailAddress);
+      backendFormData.append('phoneNo', phoneNo);
+      backendFormData.append('instituteDescription', instituteDescription);
+      if (imagePath) backendFormData.append('imagePath', imagePath);
 
-    if (dbConnection) {
-      // Save to MongoDB if connection is available
-      try {
-        const submission = await InstituteSubmission.create({
-          instituteName,
-          instituteType,
-          instituteStrength,
-          address: {
-            houseNo,
-            streetLocality,
-            landmark
-          },
-          emailAddress,
-          phoneNo,
-          instituteDescription,
-          imagePath,
-          submittedAt: new Date()
+      const response = await fetch(`${BACKEND_API_URL}/api/institute-submission`, {
+        method: 'POST',
+        body: backendFormData
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        console.log('✅ Institute submission saved via backend API');
+        return NextResponse.json({
+          success: true,
+          message: 'Thank you! Your institute has been submitted successfully.',
+          data: result.data
         });
-        submissionId = submission._id;
-        console.log('✅ Institute submission saved to MongoDB:', submissionId);
-      } catch (dbError) {
-        console.error('❌ Failed to save to MongoDB:', dbError);
-        // Continue execution - we'll log to console instead
+      } else {
+        throw new Error(result.message || 'Backend API error');
       }
-    }
-
-    // Always log the submission (fallback when DB is unavailable)
-    console.log('📝 Institute Submission Received:', {
-      timestamp: new Date().toISOString(),
-      instituteName,
-      instituteType,
-      emailAddress,
-      phoneNo,
-      imagePath,
-      savedToDb: !!submissionId
-    });
-
-    return NextResponse.json({
-      success: true,
-      message: 'Thank you! Your institute has been submitted successfully.',
-      data: {
-        id: submissionId || `temp-${Date.now()}`,
+    } catch (apiError) {
+      console.error('❌ Backend API failed:', apiError);
+      
+      // Fallback: Log locally
+      console.log('📝 Institute Submission (Logged Locally):', {
+        timestamp: new Date().toISOString(),
         instituteName,
-        emailAddress
-      }
-    });
+        instituteType,
+        emailAddress,
+        phoneNo,
+        imagePath
+      });
+
+      return NextResponse.json({
+        success: true,
+        message: 'Thank you! Your institute has been submitted successfully.',
+        data: {
+          id: `temp-${Date.now()}`,
+          instituteName,
+          emailAddress
+        }
+      });
+    }
 
   } catch (error) {
     console.error('❌ Error submitting institute:', error);

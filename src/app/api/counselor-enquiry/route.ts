@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
-import connectDB from '@/lib/mongodb';
-import CounselorEnquiry from '@/models/CounselorEnquiry';
+
+const BACKEND_API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://backend-radical.onrender.com';
 
 export async function POST(request: NextRequest) {
     try {
@@ -15,51 +15,59 @@ export async function POST(request: NextRequest) {
             );
         }
 
-        // Try to connect to MongoDB
-        const dbConnection = await connectDB();
-
-        let enquiryId = null;
-
-        if (dbConnection) {
-            // Save to MongoDB if connection is available
-            try {
-                const enquiry = await CounselorEnquiry.create({
+        // Forward to backend API which has working MongoDB connection
+        try {
+            const response = await fetch(`${BACKEND_API_URL}/api/counselor-enquiry`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
                     name,
                     email,
                     mobile,
                     course,
                     state,
-                    submittedAt: new Date()
+                    submittedAt: new Date().toISOString()
+                })
+            });
+
+            const result = await response.json();
+
+            if (response.ok) {
+                console.log('✅ Enquiry saved via backend API');
+                return NextResponse.json({
+                    success: true,
+                    message: 'Thank you! Your enquiry has been submitted successfully.',
+                    data: result.data
                 });
-                enquiryId = enquiry._id;
-                console.log('✅ Enquiry saved to MongoDB:', enquiryId);
-            } catch (dbError) {
-                console.error('❌ Failed to save to MongoDB:', dbError);
-                // Continue execution - we'll log to console instead
+            } else {
+                throw new Error(result.message || 'Backend API error');
             }
-        }
-
-        // Always log the enquiry (fallback when DB is unavailable)
-        console.log('📝 Counselor Enquiry Received:', {
-            timestamp: new Date().toISOString(),
-            name,
-            email,
-            mobile,
-            course,
-            state,
-            savedToDb: !!enquiryId
-        });
-
-        // Always return success to user
-        return NextResponse.json({
-            success: true,
-            message: 'Thank you! Your enquiry has been submitted successfully.',
-            data: {
-                id: enquiryId || `temp-${Date.now()}`,
+        } catch (apiError) {
+            console.error('❌ Backend API failed:', apiError);
+            
+            // Fallback: Log locally
+            console.log('📝 Counselor Enquiry (Logged Locally):', {
+                timestamp: new Date().toISOString(),
                 name,
-                email
-            }
-        });
+                email,
+                mobile,
+                course,
+                state
+            });
+
+            // Still return success to user
+            return NextResponse.json({
+                success: true,
+                message: 'Thank you! Your enquiry has been submitted successfully.',
+                data: {
+                    id: `temp-${Date.now()}`,
+                    name,
+                    email
+                }
+            });
+        }
 
     } catch (error) {
         console.error('❌ Error submitting counselor enquiry:', error);

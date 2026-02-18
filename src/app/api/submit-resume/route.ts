@@ -2,9 +2,8 @@ import { NextRequest, NextResponse } from 'next/server';
 import { writeFile, mkdir } from 'fs/promises';
 import { existsSync } from 'fs';
 import path from 'path';
-import connectDB from '@/lib/mongodb';
-import ResumeSubmission from '@/models/ResumeSubmission';
 
+const BACKEND_API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://backend-radical.onrender.com';
 
 export async function POST(request: NextRequest) {
   try {
@@ -43,47 +42,53 @@ export async function POST(request: NextRequest) {
       resumePath = `/uploads/resumes/${fileName}`;
     }
 
-    // Try to connect to MongoDB
-    const dbConnection = await connectDB();
-    let submissionId = null;
+    // Forward to backend API
+    try {
+      const backendFormData = new FormData();
+      backendFormData.append('firstName', firstName);
+      backendFormData.append('email', email);
+      backendFormData.append('opening', opening);
+      if (resumePath) backendFormData.append('resumePath', resumePath);
 
-    if (dbConnection) {
-      // Save to MongoDB if connection is available
-      try {
-        const submission = await ResumeSubmission.create({
-          firstName,
-          email,
-          opening,
-          resumePath,
-          submittedAt: new Date()
+      const response = await fetch(`${BACKEND_API_URL}/api/resume-submission`, {
+        method: 'POST',
+        body: backendFormData
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        console.log('✅ Resume submission saved via backend API');
+        return NextResponse.json({
+          success: true,
+          message: 'Thank you! Your resume has been submitted successfully.',
+          data: result.data
         });
-        submissionId = submission._id;
-        console.log('✅ Resume submission saved to MongoDB:', submissionId);
-      } catch (dbError) {
-        console.error('❌ Failed to save to MongoDB:', dbError);
-        // Continue execution - we'll log to console instead
+      } else {
+        throw new Error(result.message || 'Backend API error');
       }
-    }
-
-    // Always log the submission (fallback when DB is unavailable)
-    console.log('📝 Resume Submission Received:', {
-      timestamp: new Date().toISOString(),
-      firstName,
-      email,
-      opening,
-      resumePath,
-      savedToDb: !!submissionId
-    });
-
-    return NextResponse.json({
-      success: true,
-      message: 'Thank you! Your resume has been submitted successfully.',
-      data: {
-        id: submissionId || `temp-${Date.now()}`,
+    } catch (apiError) {
+      console.error('❌ Backend API failed:', apiError);
+      
+      // Fallback: Log locally
+      console.log('📝 Resume Submission (Logged Locally):', {
+        timestamp: new Date().toISOString(),
         firstName,
-        email
-      }
-    });
+        email,
+        opening,
+        resumePath
+      });
+
+      return NextResponse.json({
+        success: true,
+        message: 'Thank you! Your resume has been submitted successfully.',
+        data: {
+          id: `temp-${Date.now()}`,
+          firstName,
+          email
+        }
+      });
+    }
 
   } catch (error) {
     console.error('❌ Error submitting resume:', error);
