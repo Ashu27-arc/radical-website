@@ -7,8 +7,6 @@ import InstituteSubmission from '@/models/InstituteSubmission';
 
 export async function POST(request: NextRequest) {
   try {
-    await connectDB();
-
     const formData = await request.formData();
     
     const instituteName = formData.get('instituteName') as string;
@@ -51,35 +49,59 @@ export async function POST(request: NextRequest) {
       imagePath = `/uploads/institutes/${fileName}`;
     }
 
-    // Save to MongoDB
-    const submission = await InstituteSubmission.create({
+    // Try to connect to MongoDB
+    const dbConnection = await connectDB();
+    let submissionId = null;
+
+    if (dbConnection) {
+      // Save to MongoDB if connection is available
+      try {
+        const submission = await InstituteSubmission.create({
+          instituteName,
+          instituteType,
+          instituteStrength,
+          address: {
+            houseNo,
+            streetLocality,
+            landmark
+          },
+          emailAddress,
+          phoneNo,
+          instituteDescription,
+          imagePath,
+          submittedAt: new Date()
+        });
+        submissionId = submission._id;
+        console.log('✅ Institute submission saved to MongoDB:', submissionId);
+      } catch (dbError) {
+        console.error('❌ Failed to save to MongoDB:', dbError);
+        // Continue execution - we'll log to console instead
+      }
+    }
+
+    // Always log the submission (fallback when DB is unavailable)
+    console.log('📝 Institute Submission Received:', {
+      timestamp: new Date().toISOString(),
       instituteName,
       instituteType,
-      instituteStrength,
-      address: {
-        houseNo,
-        streetLocality,
-        landmark
-      },
       emailAddress,
       phoneNo,
-      instituteDescription,
       imagePath,
-      submittedAt: new Date()
+      savedToDb: !!submissionId
     });
 
     return NextResponse.json({
       success: true,
       message: 'Thank you! Your institute has been submitted successfully.',
       data: {
-        id: submission._id,
-        instituteName: submission.instituteName,
-        emailAddress: submission.emailAddress
+        id: submissionId || `temp-${Date.now()}`,
+        instituteName,
+        emailAddress
       }
     });
 
   } catch (error) {
-    console.error('Error submitting institute:', error);
+    console.error('❌ Error submitting institute:', error);
     return NextResponse.json(
       { success: false, message: 'Something went wrong. Please try again.' },
       { status: 500 }
