@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState, useCallback } from 'react';
+import io, { Socket } from 'socket.io-client';
 
 interface WebSocketMessage {
   type: string;
@@ -9,15 +10,14 @@ interface WebSocketMessage {
 
 type MessageHandler = (data: WebSocketMessage) => void;
 
-export function useWebSocket(url: string = process.env.NEXT_PUBLIC_WS_URL || 'wss://backend-radical.onrender.com') {
+export function useWebSocket(url: string = process.env.NEXT_PUBLIC_WS_URL || 'https://backend-radical.onrender.com') {
   const [isConnected, setIsConnected] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const wsRef = useRef<WebSocket | null>(null);
+  const wsRef = useRef<Socket | null>(null);
   const reconnectAttemptsRef = useRef(0);
   const maxReconnectAttempts = 5;
   const messageHandlersRef = useRef<Set<MessageHandler>>(new Set());
   const reconnectTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const isConnectingRef = useRef(false);
   const isManualCloseRef = useRef(false);
   const urlRef = useRef(url);
 
@@ -28,107 +28,80 @@ export function useWebSocket(url: string = process.env.NEXT_PUBLIC_WS_URL || 'ws
 
   const connect = useCallback(() => {
     // Prevent multiple simultaneous connections
-    if (isConnectingRef.current || wsRef.current?.readyState === WebSocket.OPEN) {
+    if (wsRef.current && wsRef.current.connected) {
       return;
     }
 
-    isConnectingRef.current = true;
     isManualCloseRef.current = false;
 
-    try {
-      // Close existing connection if any
-      if (wsRef.current) {
-        // Only close if connection is established or connecting
-        if (wsRef.current.readyState === WebSocket.OPEN || wsRef.current.readyState === WebSocket.CONNECTING) {
-          wsRef.current.close();
-        }
+    // Get auth token
+    const token = localStorage.getItem('token');
+    
+    // Connect to Socket.IO server
+    const newSocket = io(urlRef.current, {
+      auth: {
+        token: token || undefined
+      },
+      query: {
+        token: token || undefined
+      },
+      transports: ['websocket', 'polling']
+    });
+
+    wsRef.current = newSocket;
+
+    // Connection event
+    newSocket.on('connect', () => {
+      console.log('Socket.IO connected');
+      setIsConnected(true);
+      setError(null);
+      reconnectAttemptsRef.current = 0;
+    });
+
+    // Disconnection event
+    newSocket.on('disconnect', (reason) => {
+      console.log('Socket.IO disconnected:', reason);
+      setIsConnected(false);
+
+      // Attempt reconnection only if not manually closed
+      if (reason !== 'io client disconnect' && !isManualCloseRef.current && reconnectAttemptsRef.current < maxReconnectAttempts) {
+        reconnectAttemptsRef.current += 1;
+        const delay = Math.min(1000 * Math.pow(2, reconnectAttemptsRef.current), 30000);
+        console.log(`Reconnecting in ${delay}ms... (attempt ${reconnectAttemptsRef.current})`);
+
+        reconnectTimeoutRef.current = setTimeout(() => {
+          // Disconnect the current socket
+          if (wsRef.current) {
+            wsRef.current.off('connect');
+            wsRef.current.off('disconnect');
+            wsRef.current.off('connect_error');
+            wsRef.current.offAny();
+            wsRef.current.disconnect();
+          }
+          connect();
+        }, delay);
       }
+    });
 
-      const ws = new WebSocket(urlRef.current);
-      wsRef.current = ws;
+    // Connection error event
+    newSocket.on('connect_error', (error) => {
+      console.error('Socket.IO connection error:', error);
+      setError(`Socket.IO connection error: ${error.message || 'Unknown error'}`);
+    });
 
-      // Connection timeout - if not connected within 5 seconds, close and retry
-      const connectionTimeout = setTimeout(() => {
-        if (ws.readyState !== WebSocket.OPEN) {
-          console.warn('WebSocket connection timeout, closing...');
-          ws.close();
-        }
-      }, 5000);
-
-      ws.onopen = () => {
-        clearTimeout(connectionTimeout);
-        console.log('WebSocket connected');
-        setIsConnected(true);
-        setError(null);
-        reconnectAttemptsRef.current = 0;
-        isConnectingRef.current = false;
-
-        // Send authentication token if available
-        const token = localStorage.getItem('token');
-        if (token) {
-          ws.send(JSON.stringify({ type: 'auth', token }));
-        } else {
-          // For public website, send a public connection request
-          ws.send(JSON.stringify({ type: 'public_connect' }));
-        }
-      };
-
-      ws.onmessage = (event) => {
+    // Listen for all incoming messages
+    newSocket.onAny((event, data) => {
+      console.log('Socket.IO message received:', { type: event, ...data });
+      
+      // Notify all registered handlers
+      messageHandlersRef.current.forEach((handler) => {
         try {
-          const data = JSON.parse(event.data);
-          console.log('WebSocket message received:', data);
-          
-          // Notify all registered handlers
-          messageHandlersRef.current.forEach((handler) => {
-            try {
-              handler(data);
-            } catch (err) {
-              console.error('Error in message handler:', err);
-            }
-          });
+          handler({ type: event, ...data });
         } catch (err) {
-          console.error('Error parsing WebSocket message:', err);
+          console.error('Error in message handler:', err);
         }
-      };
-
-      ws.onclose = () => {
-        clearTimeout(connectionTimeout);
-        console.log('WebSocket disconnected');
-        setIsConnected(false);
-        isConnectingRef.current = false;
-
-        // Attempt reconnection only if not manually closed
-        if (!isManualCloseRef.current && reconnectAttemptsRef.current < maxReconnectAttempts) {
-          reconnectAttemptsRef.current += 1;
-          const delay = Math.min(1000 * Math.pow(2, reconnectAttemptsRef.current), 30000);
-          console.log(`Reconnecting in ${delay}ms... (attempt ${reconnectAttemptsRef.current})`);
-
-          reconnectTimeoutRef.current = setTimeout(() => {
-            connect();
-          }, delay);
-        }
-      };
-
-      ws.onerror = (_err) => {
-        clearTimeout(connectionTimeout);
-        // WebSocket error events don't contain detailed info for security reasons
-        // Log the readyState to help diagnose connection issues
-        const readyStateMap: Record<number, string> = {
-          0: 'CONNECTING',
-          1: 'OPEN',
-          2: 'CLOSING',
-          3: 'CLOSED'
-        };
-        const state = readyStateMap[ws.readyState] || 'UNKNOWN';
-        console.error(`WebSocket error: Connection failed (readyState: ${state}). Is the backend server running on ${urlRef.current}?`);
-        setError(`WebSocket connection error: ${state}`);
-        isConnectingRef.current = false;
-      };
-    } catch (err) {
-      console.error('Failed to create WebSocket connection:', err);
-      setError('Failed to create WebSocket connection');
-      isConnectingRef.current = false;
-    }
+      });
+    });
   }, []);
 
   const disconnect = useCallback(() => {
@@ -138,22 +111,21 @@ export function useWebSocket(url: string = process.env.NEXT_PUBLIC_WS_URL || 'ws
       reconnectTimeoutRef.current = null;
     }
     if (wsRef.current) {
-      wsRef.current.onclose = null; // Prevent reconnection on cleanup
-      // Only close if connection is established or connecting
-      if (wsRef.current.readyState === WebSocket.OPEN || wsRef.current.readyState === WebSocket.CONNECTING) {
-        wsRef.current.close();
-      }
+      wsRef.current.off('connect');
+      wsRef.current.off('disconnect');
+      wsRef.current.off('connect_error');
+      wsRef.current.offAny();
+      wsRef.current.disconnect();
       wsRef.current = null;
     }
   }, []);
 
-  const sendMessage = useCallback((message: any) => {
-    if (wsRef.current && wsRef.current.readyState === WebSocket.OPEN) {
-      wsRef.current.send(JSON.stringify(message));
-      return true;
+  const sendMessage = useCallback((event: string, data: any) => {
+    if (wsRef.current && wsRef.current.connected) {
+      wsRef.current.emit(event, data);
+    } else {
+      console.warn('Socket.IO is not connected. Message not sent.');
     }
-    console.warn('WebSocket is not connected. Message not sent.');
-    return false;
   }, []);
 
   const addMessageHandler = useCallback((handler: MessageHandler) => {
