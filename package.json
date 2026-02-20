@@ -11,6 +11,7 @@
     "clean:dev": "rimraf .next dist && npm run dev"
   },
   "dependencies": {
+    "axios": "^1.13.5",
     "mongodb": "^7.0.0",
     "mongoose": "^9.1.4",
     "next": "^16.0.10",

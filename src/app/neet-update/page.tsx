@@ -1,73 +1,146 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 import NeetDetails from "@/components/neet-update-details/neet-details";
-// Primeicons imported in layout.tsx
+import { useWebSocket } from "@/hooks/useWebSocket";
+import { getNeetUpdates, type NeetUpdate as ApiNeetUpdate } from "@/lib/api";
 
-// Mock Data for the articles
-const articles = [
-    {
-        id: 1,
-        date: "19 Jan 2022",
-        title: "NEET Exam in India: Your Gateway to a Bright Medical",
-        description:
-            "Invite Your Friends And Unlock Exclusive Benefits--Earn More With Every Successful Referral. Invite Your",
-        image: "/images/neet-update/card.webp",
-    },
-    {
-        id: 2,
-        date: "19 Jan 2022",
-        title: "NEET Exam in India: Your Gateway to a Bright Medical",
-        description:
-            "Invite Your Friends And Unlock Exclusive Benefits--Earn More With Every Successful Referral. Invite Your",
-        image: "/images/neet-update/card-1.webp",
-    },
-    {
-        id: 3,
-        date: "19 Jan 2022",
-        title: "NEET Exam in India: Your Gateway to a Bright Medical",
-        description:
-            "Invite Your Friends And Unlock Exclusive Benefits--Earn More With Every Successful Referral. Invite Your",
-        image: "/images/neet-update/card-2.webp",
-    },
-    {
-        id: 4,
-        date: "19 Jan 2022",
-        title: "NEET Exam in India: Your Gateway to a Bright Medical",
-        description:
-            "Invite Your Friends And Unlock Exclusive Benefits--Earn More With Every Successful Referral. Invite Your",
-        image: "/images/neet-update/card-3.webp",
-    },
-    {
-        id: 5,
-        date: "19 Jan 2022",
-        title: "NEET Exam in India: Your Gateway to a Bright Medical",
-        description:
-            "Invite Your Friends And Unlock Exclusive Benefits--Earn More With Every Successful Referral. Invite Your",
-        image: "/images/neet-update/card-4.webp",
-    },
-    {
-        id: 6,
-        date: "19 Jan 2022",
-        title: "NEET Exam in India: Your Gateway to a Bright Medical",
-        description:
-            "Invite Your Friends And Unlock Exclusive Benefits--Earn More With Every Successful Referral. Invite Your",
-        image: "/images/neet-update/card-5.webp",
-    },
-];
+// Define types for NEET updates (using the imported type)
+interface NeetUpdate extends ApiNeetUpdate {
+    date: string; // Override to ensure string type for display
+}
 
-export function NeetUpdateContent() {
+// Fetch NEET updates using the API service
+async function fetchNeetUpdates(): Promise<NeetUpdate[]> {
+    return await getNeetUpdates();
+}
+
+// Mock Data for the articles (using fetched data or fallback)
+const NeetUpdateContent = () => {
+    const [articles, setArticles] = useState<NeetUpdate[]>([]);
+    const [loading, setLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(2);
     const [isCourseOpen, setIsCourseOpen] = useState(false);
     const [selectedCourse, setSelectedCourse] = useState("MBBS");
+    const [newUpdateCount, setNewUpdateCount] = useState(0);
+    const { addMessageHandler } = useWebSocket();
 
     const searchParams = useSearchParams();
     const showDetails = searchParams.get("details") === "true";
 
+    useEffect(() => {
+        const loadArticles = async () => {
+            setLoading(true);
+            try {
+                const data = await fetchNeetUpdates();
+                // Convert date format for display
+                const formattedData = data.map(article => ({
+                    ...article,
+                    date: new Date(article.date).toLocaleDateString('en-US', {
+                        month: 'short',
+                        day: 'numeric',
+                        year: 'numeric'
+                    })
+                }));
+                setArticles(formattedData);
+            } catch (error) {
+                console.error('Error loading articles:', error);
+                // Set empty array on error to show no results
+                setArticles([]);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        loadArticles();
+    }, []);
+
+    // Handle real-time WebSocket updates
+    useEffect(() => {
+        const removeHandler = addMessageHandler((data) => {
+            console.log('Received NEET update message:', data);
+            
+            switch (data.type) {
+                case 'NEW_NEET_UPDATE':
+                    if (data.update) {
+                        const newArticle = {
+                            ...data.update,
+                            date: new Date(data.update.date).toLocaleDateString('en-US', {
+                                month: 'short',
+                                day: 'numeric',
+                                year: 'numeric'
+                            })
+                        };
+                        
+                        // Add to the beginning of the list
+                        setArticles(prev => [newArticle, ...prev]);
+                        // Increment new update counter
+                        setNewUpdateCount(prev => prev + 1);
+                        
+                        // Auto-reset counter after 10 seconds
+                        setTimeout(() => {
+                            setNewUpdateCount(0);
+                        }, 10000);
+                    }
+                    break;
+                    
+                case 'UPDATE_NEET_UPDATE':
+                    if (data.update) {
+                        const updatedArticle = {
+                            ...data.update,
+                            date: new Date(data.update.date).toLocaleDateString('en-US', {
+                                month: 'short',
+                                day: 'numeric',
+                                year: 'numeric'
+                            })
+                        };
+                        
+                        // Update existing article
+                        setArticles(prev => 
+                            prev.map(article => 
+                                article.id === data.update.id ? updatedArticle : article
+                            )
+                        );
+                    }
+                    break;
+                    
+                case 'DELETE_NEET_UPDATE':
+                    if (data.updateId) {
+                        // Remove deleted article
+                        setArticles(prev => {
+                            const filtered = prev.filter(article => article.id !== data.updateId);
+                            console.log(`Removed article with ID: ${data.updateId}. Remaining: ${filtered.length}`);
+                            return filtered;
+                        });
+                    } else {
+                        console.warn('DELETE_NEET_UPDATE received without updateId');
+                    }
+                    break;
+            }
+        });
+
+        return () => {
+            removeHandler();
+        };
+    }, [addMessageHandler]);
+
     if (showDetails) {
         return <NeetDetails />;
+    }
+
+    if (loading) {
+        return (
+            <div className="bg-[#Fdfdfd] min-h-screen py-10 flex items-center justify-center">
+                <div className="text-center">
+                    <div className="inline-block h-12 w-12 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]" role="status">
+                        <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
+                    </div>
+                    <p className="mt-4 text-gray-500">Loading NEET updates...</p>
+                </div>
+            </div>
+        );
     }
 
     return (
@@ -90,17 +163,15 @@ export function NeetUpdateContent() {
                 <div className="relative z-10 w-full h-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex flex-col md:flex-row items-start md:items-end justify-between pb-8 md:pb-20 text-white">
                     <div className="max-w-2xl pt-10 md:pt-0 top-20">
                         <span className="text-[#38b6ff] font-medium text-xs sm:text-sm md:text-base mb-1 sm:mb-2 block">
-                            19 Jan 2022
+                            {articles[0]?.date || "19 Jan 2022"}
                         </span>
                         <Link href="?details=true" target="_blank">
                             <h1 className="text-xl sm:text-2xl md:text-3xl font-bold leading-tight mb-3 sm:mb-1 hover:text-[#38b6ff] transition-colors cursor-pointer">
-                                NEET Exam in India: Your Gateway to a Bright Medical Career
+                                {articles[0]?.title || "NEET Exam in India: Your Gateway to a Bright Medical Career"}
                             </h1>
                         </Link>
                         <p className="text-gray-200 text-xs sm:text-sm md:text-base leading-relaxed max-w-2xl mb-6 md:-mb-1 line-clamp-3 md:line-clamp-none">
-                            Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every
-                            Successful Referral. Invite Your Friends And Unlock Exclusive Benefits
-                            Invite Your Friends And Unlock Exclusive
+                            {articles[0]?.description || "Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive"}
                         </p>
                     </div>
 
@@ -115,6 +186,21 @@ export function NeetUpdateContent() {
                     </div>
                 </div>
             </section>
+
+            {/* New Updates Indicator */}
+            {newUpdateCount > 0 && (
+                <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-2">
+                    <div className="bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg p-3 text-center animate-pulse">
+                        <div className="flex items-center justify-center gap-2">
+                            <i className="pi pi-bell text-lg"></i>
+                            <span className="font-semibold">
+                                {newUpdateCount} New Update{newUpdateCount > 1 ? 's' : ''} Received!
+                            </span>
+                            <i className="pi pi-bell text-lg"></i>
+                        </div>
+                    </div>
+                </div>
+            )}
 
             {/* Search & Filter Section */}
             <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-6 md:py-12">
@@ -208,7 +294,7 @@ export function NeetUpdateContent() {
                         >
                             <div className="w-full sm:w-[180px] md:w-[200px] h-[180px] sm:h-[160px] flex-shrink-0 rounded-xl overflow-hidden relative block">
                                 <img
-                                    src={article.image}
+                                    src={article.imageUrl || "/images/neet-update/card.webp"}
                                     alt="Article Thumbnail"
                                     className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
                                 />

@@ -10,12 +10,12 @@ interface WebSocketMessage {
 
 type MessageHandler = (data: WebSocketMessage) => void;
 
-export function useWebSocket(url: string = process.env.NEXT_PUBLIC_WS_URL || 'https://backend-radical.onrender.com') {
+export function useWebSocket(url: string = process.env.NEXT_PUBLIC_WS_URL || 'http://localhost:8081') {
   const [isConnected, setIsConnected] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const wsRef = useRef<Socket | null>(null);
   const reconnectAttemptsRef = useRef(0);
-  const maxReconnectAttempts = 5;
+  const maxReconnectAttempts = 10; // Increased from 5 to 10
   const messageHandlersRef = useRef<Set<MessageHandler>>(new Set());
   const reconnectTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const isManualCloseRef = useRef(false);
@@ -34,18 +34,34 @@ export function useWebSocket(url: string = process.env.NEXT_PUBLIC_WS_URL || 'ht
 
     isManualCloseRef.current = false;
 
-    // Get auth token
-    const token = localStorage.getItem('token');
+    // Get auth token - try multiple storage locations
+    let token = null;
+    if (typeof window !== 'undefined') {
+      token = localStorage.getItem('token') || sessionStorage.getItem('token') || null;
+      
+      // If no token found, check for JWT in cookies
+      if (!token) {
+        const cookies = document.cookie.split(';');
+        const tokenCookie = cookies.find(cookie => cookie.trim().startsWith('token='));
+        if (tokenCookie) {
+          token = tokenCookie.split('=')[1];
+        }
+      }
+    }
+    
+    console.log('WebSocket connecting with token:', token ? 'present' : 'undefined');
     
     // Connect to Socket.IO server
     const newSocket = io(urlRef.current, {
-      auth: {
-        token: token || undefined
-      },
-      query: {
-        token: token || undefined
-      },
-      transports: ['websocket', 'polling']
+      auth: token ? { token } : undefined,
+      query: token ? { token } : undefined,
+      transports: ['websocket', 'polling'],
+      reconnection: true,
+      reconnectionAttempts: 10,
+      reconnectionDelay: 1000,
+      reconnectionDelayMax: 5000,
+      timeout: 20000,
+      randomizationFactor: 0.5
     });
 
     wsRef.current = newSocket;
@@ -87,11 +103,23 @@ export function useWebSocket(url: string = process.env.NEXT_PUBLIC_WS_URL || 'ht
     newSocket.on('connect_error', (error) => {
       console.error('Socket.IO connection error:', error);
       setError(`Socket.IO connection error: ${error.message || 'Unknown error'}`);
+      
+      // Don't attempt reconnection for authentication errors
+      if (error.message && error.message.includes('Authentication error')) {
+        console.log('Authentication failed, stopping reconnection attempts');
+        isManualCloseRef.current = true;
+      }
     });
 
     // Listen for all incoming messages
     newSocket.onAny((event, data) => {
       console.log('Socket.IO message received:', { type: event, ...data });
+      
+      // Validate message structure
+      if (!event || typeof event !== 'string') {
+        console.warn('Invalid WebSocket message format - missing event type');
+        return;
+      }
       
       // Notify all registered handlers
       messageHandlersRef.current.forEach((handler) => {

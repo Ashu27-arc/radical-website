@@ -1,6 +1,7 @@
 'use client';
 
 import { PrimeReactProvider } from 'primereact/api';
+import WebSocketProvider from '@/contexts/WebSocketProvider';
 
 export default function Providers({ children }: { children: React.ReactNode }) {
   return (
@@ -10,7 +11,9 @@ export default function Providers({ children }: { children: React.ReactNode }) {
         inputStyle: 'outlined',
       }}
     >
-      {children}
+      <WebSocketProvider>
+        {children}
+      </WebSocketProvider>
     </PrimeReactProvider>
   );
 }
