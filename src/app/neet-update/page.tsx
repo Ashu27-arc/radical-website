@@ -21,7 +21,14 @@ async function fetchNeetUpdates(): Promise<NeetUpdate[]> {
 const NeetUpdateContent = () => {
     const [articles, setArticles] = useState<NeetUpdate[]>([]);
     const [loading, setLoading] = useState(true);
-    const [currentPage, setCurrentPage] = useState(2);
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 6;
+    
+    // Calculate pagination values
+    const totalPages = Math.ceil(articles.length / itemsPerPage);
+    const startIndex = (currentPage - 1) * itemsPerPage;
+    const endIndex = startIndex + itemsPerPage;
+    const currentArticles = articles.slice(startIndex, endIndex);
     const [isCourseOpen, setIsCourseOpen] = useState(false);
     const [selectedCourse, setSelectedCourse] = useState("MBBS");
     const [newUpdateCount, setNewUpdateCount] = useState(0);
@@ -285,9 +292,9 @@ const NeetUpdateContent = () => {
             {/* Articles Grid */}
             <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 pb-10 sm:pb-16">
                 <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 sm:gap-8">
-                    {articles.map((article, index) => (
+                    {currentArticles.map((article, index) => (
                         <Link
-                            key={`${article.id}-${index}`}
+                            key={`${article.id}-${startIndex + index}`}
                             href="?details=true"
                             target="_blank"
                             className="bg-white rounded-2xl p-3 sm:p-4 transition border border-gray-50 flex flex-col sm:flex-row gap-4 sm:gap-6 items-start hover:shadow-md transition-shadow cursor-pointer block"
@@ -323,14 +330,18 @@ const NeetUpdateContent = () => {
             {/* Pagination */}
             <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 pb-8 sm:pb-12">
                 <div className="bg-white rounded-full py-1.5 sm:py-2 px-3 sm:px-4 inline-flex items-center justify-center gap-1 mx-auto relative left-1/2 -translate-x-1/2 shadow-sm border border-gray-100 overflow-x-auto max-w-[90vw] no-scrollbar">
-                    <button className="whitespace-now600 px-2 h-8 sm:h-10 flex items-center justify-center text-gray-400 hover:text-gray-600 transition text-xs sm:text-sm">
+                    <button 
+                        onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                        disabled={currentPage === 1}
+                        className={`whitespace-now600 px-2 h-8 sm:h-10 flex items-center justify-center transition text-xs sm:text-sm ${currentPage === 1 ? 'text-gray-300 cursor-not-allowed' : 'text-gray-400 hover:text-gray-600'}`}>
                         <i className="pi pi-chevron-left text-[10px] sm:text-xs mr-1"></i> Prev
                     </button>
 
-                    {[1, 2, 3, 4, 5].map((pageNum) => (
+                    {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
                         <button
                             key={pageNum}
-                            className={`w-7 h-7 sm:w-8 sm:h-8 flex-shrink-0 flex items-center justify-center rounded-full text-xs sm:text-sm font-medium transition-all ${pageNum === 2
+                            onClick={() => setCurrentPage(pageNum)}
+                            className={`w-7 h-7 sm:w-8 sm:h-8 flex-shrink-0 flex items-center justify-center rounded-full text-xs sm:text-sm font-medium transition-all ${pageNum === currentPage
                                 ? "bg-[#2980b9] text-white shadow-md"
                                 : "text-gray-500 hover:bg-gray-50"
                                 }`}
@@ -339,7 +350,10 @@ const NeetUpdateContent = () => {
                         </button>
                     ))}
 
-                    <button className="whitespace-nowrap px-2 h-8 sm:h-10 flex items-center justify-center text-gray-400 hover:text-gray-600 transition text-xs sm:text-sm">
+                    <button 
+                        onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                        disabled={currentPage === totalPages}
+                        className={`whitespace-nowrap px-2 h-8 sm:h-10 flex items-center justify-center transition text-xs sm:text-sm ${currentPage === totalPages ? 'text-gray-300 cursor-not-allowed' : 'text-gray-400 hover:text-gray-600'}`}>
                         Next <i className="pi pi-chevron-right text-[10px] sm:text-xs ml-1"></i>
                     </button>
                 </div>
