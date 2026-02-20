@@ -10,7 +10,7 @@ interface WebSocketMessage {
 
 type MessageHandler = (data: WebSocketMessage) => void;
 
-export function useWebSocket(url: string = process.env.NEXT_PUBLIC_WS_URL || 'http://localhost:8081') {
+export function useWebSocket(url: string = process.env.NEXT_PUBLIC_WS_URL || 'wss://backend-radical.onrender.com') {
   const [isConnected, setIsConnected] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const wsRef = useRef<Socket | null>(null);

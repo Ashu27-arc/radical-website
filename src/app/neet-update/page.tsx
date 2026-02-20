@@ -17,7 +17,14 @@ async function fetchNeetUpdates(): Promise<NeetUpdate[]> {
     return await getNeetUpdates();
 }
 
-// Mock Data for the articles (using fetched data or fallback)
+// Static hero section data (not fetched from CRM)
+const HERO_SECTION_DATA = {
+    date: "19 Jan 2022",
+    title: "NEET Exam in India: Your Gateway to a Bright Medical Career",
+    description: "Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive"
+};
+
+// Articles fetched from CRM (excluding hero section)
 const NeetUpdateContent = () => {
     const [articles, setArticles] = useState<NeetUpdate[]>([]);
     const [loading, setLoading] = useState(true);
@@ -32,11 +39,13 @@ const NeetUpdateContent = () => {
     const [isCourseOpen, setIsCourseOpen] = useState(false);
     const [selectedCourse, setSelectedCourse] = useState("MBBS");
     const [newUpdateCount, setNewUpdateCount] = useState(0);
-    const { addMessageHandler } = useWebSocket();
+    const wsUrl = process.env.NEXT_PUBLIC_WS_URL || 'wss://backend-radical.onrender.com';
+    const { addMessageHandler } = useWebSocket(wsUrl);
 
     const searchParams = useSearchParams();
     const showDetails = searchParams.get("details") === "true";
 
+    // Fetch articles from CRM (for grid section only, hero section is static)
     useEffect(() => {
         const loadArticles = async () => {
             setLoading(true);
@@ -53,7 +62,7 @@ const NeetUpdateContent = () => {
                 }));
                 setArticles(formattedData);
             } catch (error) {
-                console.error('Error loading articles:', error);
+                console.error('Error loading articles from CRM:', error);
                 // Set empty array on error to show no results
                 setArticles([]);
             } finally {
@@ -166,19 +175,19 @@ const NeetUpdateContent = () => {
                     <div className="absolute inset-0 bg-black/40"></div>
                 </div>
 
-                {/* Hero Content */}
+                {/* Hero Content - Static (not fetched from CRM) */}
                 <div className="relative z-10 w-full h-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex flex-col md:flex-row items-start md:items-end justify-between pb-8 md:pb-20 text-white">
                     <div className="max-w-2xl pt-10 md:pt-0 top-20">
                         <span className="text-[#38b6ff] font-medium text-xs sm:text-sm md:text-base mb-1 sm:mb-2 block">
-                            {articles[0]?.date || "19 Jan 2022"}
+                            {HERO_SECTION_DATA.date}
                         </span>
                         <Link href="?details=true" target="_blank">
                             <h1 className="text-xl sm:text-2xl md:text-3xl font-bold leading-tight mb-3 sm:mb-1 hover:text-[#38b6ff] transition-colors cursor-pointer">
-                                {articles[0]?.title || "NEET Exam in India: Your Gateway to a Bright Medical Career"}
+                                {HERO_SECTION_DATA.title}
                             </h1>
                         </Link>
                         <p className="text-gray-200 text-xs sm:text-sm md:text-base leading-relaxed max-w-2xl mb-6 md:-mb-1 line-clamp-3 md:line-clamp-none">
-                            {articles[0]?.description || "Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive"}
+                            {HERO_SECTION_DATA.description}
                         </p>
                     </div>
 
@@ -289,10 +298,15 @@ const NeetUpdateContent = () => {
                 </div>
             </section>
 
-            {/* Articles Grid */}
+            {/* Articles Grid - Fetched from CRM */}
             <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 pb-10 sm:pb-16">
-                <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 sm:gap-8">
-                    {currentArticles.map((article, index) => (
+                {articles.length === 0 && !loading ? (
+                    <div className="text-center py-12">
+                        <p className="text-gray-500">No NEET updates available at the moment.</p>
+                    </div>
+                ) : (
+                    <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 sm:gap-8">
+                        {currentArticles.map((article, index) => (
                         <Link
                             key={`${article.id}-${startIndex + index}`}
                             href="?details=true"
@@ -323,13 +337,15 @@ const NeetUpdateContent = () => {
                                 </div>
                             </div>
                         </Link>
-                    ))}
-                </div>
+                        ))}
+                    </div>
+                )}
             </section>
 
-            {/* Pagination */}
-            <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 pb-8 sm:pb-12">
-                <div className="bg-white rounded-full py-1.5 sm:py-2 px-3 sm:px-4 inline-flex items-center justify-center gap-1 mx-auto relative left-1/2 -translate-x-1/2 shadow-sm border border-gray-100 overflow-x-auto max-w-[90vw] no-scrollbar">
+            {/* Pagination - For CRM fetched articles */}
+            {articles.length > 0 && (
+                <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 pb-8 sm:pb-12">
+                    <div className="bg-white rounded-full py-1.5 sm:py-2 px-3 sm:px-4 inline-flex items-center justify-center gap-1 mx-auto relative left-1/2 -translate-x-1/2 shadow-sm border border-gray-100 overflow-x-auto max-w-[90vw] no-scrollbar">
                     <button 
                         onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
                         disabled={currentPage === 1}
@@ -356,8 +372,9 @@ const NeetUpdateContent = () => {
                         className={`whitespace-nowrap px-2 h-8 sm:h-10 flex items-center justify-center transition text-xs sm:text-sm ${currentPage === totalPages ? 'text-gray-300 cursor-not-allowed' : 'text-gray-400 hover:text-gray-600'}`}>
                         Next <i className="pi pi-chevron-right text-[10px] sm:text-xs ml-1"></i>
                     </button>
-                </div>
-            </section>
+                    </div>
+                </section>
+            )}
         </div>
     );
 }
