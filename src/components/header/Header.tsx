@@ -26,7 +26,7 @@ export default function Header() {
               </span>
             </div>
           </Link>|
-          <Link className='text-[#121212]' href="/neet-ug">NEET UG</Link>|
+          <Link className='text-[#121212]' href="/">PAY ONLINE</Link>|
           <Link href="/neet-webinar" className='text-[#121212] relative'>NEET WEBINAR
             <div className='absolute right-[-5px] top-[-5px]'>
               <span className="relative flex size-2">
@@ -78,7 +78,7 @@ export default function Header() {
                     </span>
                   </div>
                 </Link>|
-                <Link className='text-[#121212]' href="/neet-ug">NEET UG</Link>|
+                <Link className='text-[#121212]' href="/neet-ug">PAY ONLINE</Link>|
                 <Link href="/neet-webinar" className='text-[#121212] relative'>NEET WEBINAR
                   <div className='absolute right-[-5px] top-[-5px]'>
                     <span className="relative flex size-2">

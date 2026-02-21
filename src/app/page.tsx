@@ -149,17 +149,17 @@ export default function Home() {
           <Earth3D />
         </div>
       </section>
-      <section className='md:-mt-70 -mt-45 md:py-30 py-10 bg-cover bg-center bg-no-repeat bg-[#005A8B] overflow-hidden relative z-2 whyChoUs' style={{ backgroundImage: "url('/images/whyCus.webp')" }}>
-        <div className='container px-3 md:px-4'>
+      <section className='md:-mt-70 -mt-45 md:py-30 py-10 bg-cover bg-center bg-no-repeat bg-[#005A8B] overflow-hidden relative z-2 whyChoUs'>
+        <div className='container lg:px-30 px-3 md:px-4'>
           <div className="grid grid-cols-1 md:grid-cols-2 md:gap-6 gap-2 items-center">
-            <div className='fadeLeft lg:pr-10 text-center md:text-left'>
-              <div className='text-white uppercase text-sm font-semibold tracking-widest mb-4 lg:mb-6'>Why Choose Us?</div>
-              <h2 className='text-white md:text-5xl text-4xl font-bold'>Secure. <span className='text-[#00CFB2]'>Support. Success</span></h2>
+            <div className='fadeLeft lg:pr-10 text-center md:text-left rounded-xl overflow-hidden'>
+              <Image src="/images/sdfghfddsfdgh.webp" className='rounded-xl overflow-hidden' width="475" height="360" alt=""/>
             </div>
-            <div className='fadeRight text-center md:text-left'>
-              <div className='text-white text-lg lg:pl-10 md:border-l-5 md:border-[#00CFB2] md:py-6'>
-                Our commitment to providing students with extensive support and requisite resources is the driving force here at Radical Education. Rooted in creativity and quality, we offer a clear, reliable path to achieving goals.
-              </div>
+            <div className='fadeRight text-center md:text-left text-white'>
+              <div className='text-white font-semibold text-sm uppercase'>Why Choose Us? </div>
+              <h2 className='text-6xl font-bold my-6'>Secure. <span className='text-[#00CFB2]'>Support. Success</span></h2>
+              <div>Our commitment to providing students with extensive support and requisite resources is the driving force here at Radical Education. Rooted in creativity and quality, we offer a clear, reliable path to achieving goals. 
+</div>
             </div>
           </div>
         </div>
@@ -236,13 +236,14 @@ export default function Home() {
           <GoogleReviews />
         </div>
       </section>
-      <section className='bg-white'>
+      <section className='relative bg-cover bg-black bg-left md:bg-center z-2' style={{ backgroundImage: "url('/images/testibg.webp')" }}>
+          <div className="absolute left-0 right-0 top-0 bottom-0 bg-black/70 -z-1 rounded-lg" />
         <div className='container px-3 md:px-4'>
-          <div className="relative z-2 w-full rounded-lg bg-cover bg-left md:bg-center py-10 px-4 md:px-10 md:py-20 bg-black" style={{ backgroundImage: "url('/images/herobgbottom.webp')" }}>
-            <div className="absolute inset-0 bg-black/70 -z-1 rounded-lg" />
+          <div className="relative z-2 w-full rounded-lg py-10 px-4 md:px-10 md:py-20">
+            
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-white'>
               <div>
-                <p className="uppercase text-sm tracking-widest text-gray-300 mb-4">
+                <p className="uppercase font-semibold text-sm tracking-widest text-gray-300 mb-10">
                   Testimonial
                 </p>
                 <h2 className="text-4xl font-bold leading-tight">
