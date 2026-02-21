@@ -24,6 +24,16 @@ const HERO_SECTION_DATA = {
     description: "Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive"
 };
 
+const PLACEHOLDER_IMAGE = "/images/neet-update/card.webp";
+const CRM_API_BASE = process.env.NEXT_PUBLIC_CRM_API_URL || "https://backend-radical.onrender.com";
+
+function getArticleImageSrc(imageUrl: string | undefined): string {
+    if (!imageUrl) return PLACEHOLDER_IMAGE;
+    if (imageUrl.startsWith("http://") || imageUrl.startsWith("https://")) return imageUrl;
+    const path = imageUrl.startsWith("/") ? imageUrl : `/uploads/${imageUrl}`;
+    return `${CRM_API_BASE.replace(/\/$/, "")}${path}`;
+}
+
 // Articles fetched from CRM (excluding hero section)
 const NeetUpdateContent = () => {
     const [articles, setArticles] = useState<NeetUpdate[]>([]);
@@ -315,9 +325,15 @@ const NeetUpdateContent = () => {
                         >
                             <div className="w-full sm:w-[180px] md:w-[200px] h-[180px] sm:h-[160px] flex-shrink-0 rounded-xl overflow-hidden relative block">
                                 <img
-                                    src={article.imageUrl || "/images/neet-update/card.webp"}
+                                    src={getArticleImageSrc(article.imageUrl)}
                                     alt="Article Thumbnail"
                                     className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                                    onError={(e) => {
+                                        const target = e.currentTarget;
+                                        if (target.src !== PLACEHOLDER_IMAGE) {
+                                            target.src = PLACEHOLDER_IMAGE;
+                                        }
+                                    }}
                                 />
                             </div>
                             <div className="flex-1 py-1 sm:pr-2">
