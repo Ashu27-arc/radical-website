@@ -4,34 +4,46 @@ import CounselorForm from "@/components/CounselorForm";
 export default function OurTeam() {
     const teamMembers = [
         {
-            name: "Hitashi Agrawal",
+            name: "Hitashi Aggarwal",
             role: "NEET UG/PG COUNSELOR",
             image: "/images/01.webp",
+            experience: "12 years of experience",
+            available: true,
         },
         {
             name: "Pooja",
-            role: "NNEET UG/PG COUNSELOR",
+            role: "NEET UG/PG COUNSELOR",
             image: "/images/02.webp",
+            experience: "12 years of experience",
+            available: true,
         },
         {
             name: "Raj Kishore",
             role: "NEET UG/PG COUNSELOR",
             image: "/images/03.webp",
+            experience: "12 years of experience",
+            available: true,
         },
         {
             name: "Sudakshina Singh",
             role: "NEET UG/PG COUNSELOR",
             image: "/images/04.webp",
+            experience: "12 years of experience",
+            available: true,
         },
         {
             name: "Anupama Chauhan",
             role: "NEET UG/PG COUNSELOR",
             image: "/images/05.webp",
+            experience: "12 years of experience",
+            available: true,
         },
         {
             name: "Rangnath Jha",
             role: "NEET UG/PG COUNSELOR",
             image: "/images/06.webp",
+            experience: "12 years of experience",
+            available: true,
         },
     ];
 
@@ -60,7 +72,7 @@ export default function OurTeam() {
             </section>
 
             {/* Founder Section */}
-            <section className="container mx-auto px-4 -mt-20 md:-mt-96">
+            <section className="container mx-auto px-3 md:px-4 -mt-20 md:-mt-96 py-16 bg-gray-50">
                 {/* Founder */}
                 <div className="grid md:grid-cols-2 gap-8 md:gap-12 items-center mb-12 md:-mb-[120px]">
                     <div className="relative h-[350px] md:h-[500px] flex items-center justify-center md:order-2">
@@ -171,17 +183,14 @@ export default function OurTeam() {
             </section>
 
             {/* Team Members Section */}
-            <section className="container mx-auto px-4 py-8 md:py-12">
-                <h2 className="text-black text-2xl md:text-3xl font-bold text-center mb-6 md:mb-8">
-                    Our Expert <span className="text-blue-600">Counselors</span>
-                </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
+            <section className="container mx-auto px-1 md:px-2 py-16 bg-gray-50">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-20 max-w-4xl mx-auto">
                     {teamMembers.map((member, index) => (
                         <div
                             key={index}
-                            className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow"
+                            className="bg-white rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-row"
                         >
-                            <div className="relative h-56 md:h-64">
+                            <div className="relative w-28 h-28 sm:w-32 sm:h-32 md:w-50 md:h-50 shrink-0 rounded-l-lg overflow-hidden">
                                 <Image
                                     src={member.image}
                                     alt={member.name}
@@ -189,36 +198,55 @@ export default function OurTeam() {
                                     className="object-cover"
                                 />
                             </div>
-                            <div className="p-4 text-center">
-                                <h3 className="text-lg md:text-xl font-bold mb-2">{member.name}</h3>
-                                <p className="text-xs md:text-sm text-[#1078CB]">{member.role}</p>
+                            <div className="p-3 md:p-4 flex flex-col flex-1 text-left min-w-0">
+                                <div className="flex items-center gap-1.5 mb-0.5">
+                                    <h3 className="text-sm md:text-base font-bold text-gray-900 truncate">{member.name}</h3>
+                                    <span className="shrink-0 w-4 h-4 rounded-full bg-[#1078CB] flex items-center justify-center" aria-hidden>
+                                        <svg width="10" height="8" viewBox="0 0 12 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M1 5L4.5 8.5L11 1.5" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                                        </svg>
+                                    </span>
+                                </div>
+                                <p className="text-xs text-gray-700 mb-1">{member.role}</p>
+                                <div className="flex items-center gap-1 text-gray-500 text-xs mb-1">
+                                    <svg className="w-3.5 h-3.5 shrink-0 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.5">
+                                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span className="truncate">{member.experience}</span>
+                                </div>
+                                <div className="flex items-center gap-1 mb-2">
+                                    <span className="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0" aria-hidden />
+                                    <span className="text-xs text-green-600">{member.available ? "Available" : "Unavailable"}</span>
+                                </div>
+                                <a
+                                    href="#connect-counselor"
+                                    className="mt-auto w-full py-2 px-3 rounded-lg bg-[#DFF1FF] text-[#005A8B] font-medium text-center text-xs hover:bg-[#DFF1FF] transition-colors"
+                                >
+                                    Book A Call
+                                </a>
                             </div>
                         </div>
                     ))}
                 </div>
             </section>
 
-            {/* Connect With Counselor Section */}
-            <section className="py-8 md:py-12 mb-16 md:mb-32 lg:mb-48">
-                <div className="mx-auto px-4 md:px-12 lg:px-24">
-                    <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-center text-[#1a2332] mb-8 md:mb-12">
-                        Connect With <span className="text-[#3b82f6]">Our Counselor</span>
-                    </h2>
-                    <div className="relative w-full h-[600px] md:h-[450px]">
+            {/* Connect With Counselor Section - Book Free Counselling Banner */}
+            <section id="connect-counselor" className="py-8 md:py-16 mb-2 md:mb-4 lg:mb-6 bg-gray-50">
+                <div className="mx-auto px-2 md:px-6 lg:px-8 max-w-6xl">
+                    <div className="relative rounded-2xl md:rounded-3xl overflow-hidden">
                         <Image
-                            src="/images/counselorImg.webp"
-                            alt="Contact Background"
-                            fill
-                            className="object-cover rounded-2xl md:rounded-3xl"
-                            quality={85}
-                            sizes="100vw"
-                            priority={false}
+                            src="/images/fulbgteam.webp"
+                            alt="Book Your 20 MIN Free Counselling Session - NEET UG Counselling"
+                            width={1200}
+                            height={480}
+                            className="w-full h-auto object-cover"
                         />
-                        <div className="absolute inset-0 flex items-center justify-center p-4">
-                            <div className="w-full max-w-lg bg-[#0B5F8C] rounded-2xl md:rounded-3xl p-5 md:p-6 lg:p-8 shadow-2xl mt-10 md:mt-80">
-                                <CounselorForm />
-                            </div>
-                        </div>
+                        <a
+                            href="#connect-counselor"
+                            className="absolute left-8 md:left-12 lg:left-16 bottom-10 -translate-y-1/2 z-10 inline-flex items-center justify-center px-6 py-2 md:px-8 md:py-2.5 rounded-[60px] bg-[#FF3D6B] text-white font-semibold text-sm md:text-base hover:bg-[#FF3D6B] transition-colors shadow-lg hover:shadow-xl"
+                        >
+                            Book Now
+                        </a>
                     </div>
                 </div>
             </section>

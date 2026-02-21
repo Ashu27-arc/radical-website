@@ -15,9 +15,9 @@ export const quickLinks: MenuItem[] = [
   { label: 'About Us', icon: 'pi pi-angle-right', url: '/about-us' },
   { label: 'Blogs', icon: 'pi pi-angle-right', url: '/blogs' },
   { label: 'Career', icon: 'pi pi-angle-right', url: '/careers' },
-  { label: 'Privacy Policy', icon: 'pi pi-angle-right', url: '/privacy-policy' },
-  { label: 'Refund Policy', icon: 'pi pi-angle-right', url: '/refund-policy' },
-  { label: 'Terms & Condition', icon: 'pi pi-angle-right', url: '/terms-condition' },
+  // { label: 'Privacy Policy', icon: 'pi pi-angle-right', url: '/privacy-policy' },
+  // { label: 'Refund Policy', icon: 'pi pi-angle-right', url: '/refund-policy' },
+  // { label: 'Terms & Condition', icon: 'pi pi-angle-right', url: '/terms-condition' },
   { label: 'Contact Us', icon: 'pi pi-angle-right', url: '/contact-us' }
 ];
 

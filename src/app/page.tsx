@@ -43,6 +43,8 @@ export default function Home() {
     },
   ];
 
+  const [videoPopup, setVideoPopup] = useState<{ id: number; title: string; youtubeId: string } | null>(null);
+
 
   return (
     <>
@@ -170,22 +172,63 @@ export default function Home() {
           </div>
           <div className="grid gap-6 md:grid-cols-3 grid-cols-1">
             {videos.map((video) => (
-              <div
+              <button
                 key={video.id}
-                className="fadeUp relative min-w-[340px] h-[240px] rounded-xl overflow-hidden shadow-lg"
+                type="button"
+                onClick={() => setVideoPopup(video)}
+                className="fadeUp relative min-w-[340px] h-[240px] rounded-xl overflow-hidden shadow-lg w-full text-left focus:outline-none focus:ring-2 focus:ring-[#287FC4] focus:ring-offset-2 group cursor-pointer block"
               >
-                {/* YouTube Video */}
-                <iframe
-                  className="absolute inset-0 w-full h-[240px]"
-                  src={`https://www.youtube.com/embed/${video.youtubeId}`}
-                  title={video.title}
-                  frameBorder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
+                {/* Only image - no play icon; click opens popup where YouTube play button shows */}
+                <img
+                  src={`https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`}
+                  alt={video.title}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                 />
-              </div>
+                <span className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-3 py-2 text-white text-sm font-medium">
+                  {video.title}
+                </span>
+              </button>
             ))}
           </div>
+
+          {/* Video popup modal - design with blue header & light background */}
+          {videoPopup && (
+            <div
+              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60"
+              onClick={() => setVideoPopup(null)}
+              role="dialog"
+              aria-modal="true"
+              aria-label="Video player"
+            >
+              <div
+                className="relative w-full max-w-4xl rounded-2xl overflow-hidden bg-white shadow-2xl"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="p-3 bg-[#F4F7F8]">
+                  <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-black">
+                    <button
+                      type="button"
+                      onClick={() => setVideoPopup(null)}
+                      className="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center transition-colors"
+                      aria-label="Close"
+                    >
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                    <iframe
+                      className="absolute inset-0 w-full h-full"
+                      src={`https://www.youtube.com/embed/${videoPopup.youtubeId}`}
+                      title={videoPopup.title}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </section>
       <section className='pb-16 bg-white'>
@@ -195,7 +238,7 @@ export default function Home() {
       </section>
       <section className='bg-white'>
         <div className='container px-3 md:px-4'>
-          <div className="relative z-2 w-full rounded-lg bg-cover bg-left md:bg-center py-10 px-4 md:px-10 md:py-20 bg-black" style={{ backgroundImage: "url('/images/testimonialsBg.webp')" }}>
+          <div className="relative z-2 w-full rounded-lg bg-cover bg-left md:bg-center py-10 px-4 md:px-10 md:py-20 bg-black" style={{ backgroundImage: "url('/images/herobgbottom.webp')" }}>
             <div className="absolute inset-0 bg-black/70 -z-1 rounded-lg" />
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-white'>
               <div>

@@ -119,9 +119,11 @@ export default function Header() {
                 </Button>
               </div>
               <div className='lg:hidden'>
-                <Link href="/neet-update" className='text-xs py-3 pl-4 pr-10 rounded-full cursor-pointer relative text-white! bg-gradient-to-r! from-[#00CFB2]! to-[#005A8B]! border-[#00CFB2]! inline-block'>
-                  <span className='text-nowrap'>NEET UPDATE</span>
-                  <Image src='/images/mic.webp' width='40' height='50' alt='' className='absolute right-[-8px] top-0 animate-bounce' />
+                <Link href="/neet-update" className='gradient-border'>
+                  <span className='gradient-border-inner text-xs relative'>
+                    <span className='text-nowrap'>NEET UPDATE</span>
+                    <Image src='/images/mic.webp' width='40' height='50' alt='' className='absolute right-[-8px] top-0 animate-bounce' />
+                  </span>
                 </Link>
               </div>
               <div className='lg:hidden'>
@@ -136,9 +138,11 @@ export default function Header() {
             <div className='flex gap-5 items-center'>
               <div className="flex gap-3">
                 <Button size="small" icon="pi pi-youtube" label="YOUTUBE" className='text-white! bg-[#CB1E17]! border-[#CB1E17]!' rounded />
-                <Link href="/neet-update" className='text-sm py-2 pl-4 pr-10 rounded-full cursor-pointer relative text-white! bg-gradient-to-r! from-[#00CFB2]! to-[#005A8B]! border-[#00CFB2]! flex items-center'>
-                  <span className='text-center'>NEET UPDATE</span>
-                  <Image src='/images/mic.webp' width='50' height='60' alt='' className='absolute right-[-15px] -top-1.5 animate-bounce' />
+                <Link href="/neet-update" className='gradient-border'>
+                  <span className='gradient-border-inner relative'>
+                    <span className='text-center'>NEET UPDATE</span>
+                    <Image src='/images/mic.webp' width='50' height='60' alt='' className='absolute right-[-15px] -top-1.5 animate-bounce' />
+                  </span>
                 </Link>
               </div>
             </div>

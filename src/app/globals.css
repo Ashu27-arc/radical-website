@@ -1447,3 +1447,18 @@ input:autofill {
 .shadow-beam-glow-blue {
     filter: drop-shadow(0 0 10px rgba(40, 127, 196, 0.8)) drop-shadow(0 0 20px rgba(40, 127, 196, 0.4));
 }
+
+/* Gradient border for NEET UPDATE button */
+.gradient-border {
+    position: relative;
+    background: linear-gradient(#B6FF2A, #FFFFFF);
+    border-radius: 20px;
+    padding: 2px 2px 0px 2px;
+}
+
+.gradient-border-inner {
+    background: linear-gradient(to right, #00CFB2, #005A8B);
+    border-radius: 20px;
+    padding: 8px 16px;
+    display: inline-block;
+}

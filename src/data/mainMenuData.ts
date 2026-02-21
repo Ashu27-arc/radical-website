@@ -188,7 +188,7 @@ export const mainMenuData: MenuItem[] = [
           { label: 'Pokhara Academy of Health Sciences, Pokhara', url: '/pokhara-academy-of-health-sciences-nepal/' },
         ],
       },
-
+      
       // RUSSIA
       {
         label: 'Russia',
@@ -297,6 +297,7 @@ export const mainMenuData: MenuItem[] = [
       // KAZAKHSTAN
       {
         label: 'Kazakhstan',
+        url: '/mbbs-in-kazakhstan/',
         items: [
           { label: 'Al-Farabi Kazakh National Medical University', url: '/al-farabi-kazakh-national-medical-university/' },
           { label: 'Asfendiyarov Kazakh National Medical University', url: '/asfendiyarov-kazakh-national-medical-university/' },
@@ -310,7 +311,7 @@ export const mainMenuData: MenuItem[] = [
       // KYRGYZSTAN
       {
         label: 'Kyrgyzstan',
-        url: '/complete-guide-to-study-mbbs-in-kyrgyzstan-2025-26/',
+        url: '/mbbs-in-kyrgyzstan/',
         items: [
           { label: 'Medical Faculty & Asian Medical Institute, Kant', url: '/medical-faculty-and-asian-medical-institute-kyrgyzstan/' },
           { label: 'Osh International Medical University, Osh', url: '/osh-international-medical-university-kyrgyzstan/' },
