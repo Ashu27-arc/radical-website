@@ -81,13 +81,13 @@ export default function CareersPage() {
 
   const workEnvironmentData = [
     {
-      image: "/images/careers/work-01.webp",
+      image: "/images/careers/work-06.webp",
       title: "supportive & helping culture",
       dotColor: "bg-[#005A8B]",
       titleColor: "text-[#10B65C]"
     },
     {
-      image: "/images/careers/work-02.webp",
+      image: "/images/careers/work-07.webp",
       title: "learning-driven & environment",
       dotColor: "bg-[#005A8B]",
       titleColor: "text-[#005A8B]"

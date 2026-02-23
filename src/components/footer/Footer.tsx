@@ -215,14 +215,28 @@ export default function Footer() {
                   Radical Education<br />is an <span className='text-xs sm:text-sm font-semibold'>ISO 9001:2015</span><br />certified company
                 </div>
               </div>
-              <div className='flex flex-wrap justify-center sm:justify-start gap-3 sm:gap-4 text-[#005A8B]'>
-                <Link target='_blank' href="https://twitter.com/Radical_Edu_" className='text-lg sm:text-xl'><i className='pi pi-twitter'></i></Link>
-                <Link target='_blank' href="https://www.facebook.com/profile.php?id=61556350017734" className='text-lg sm:text-xl'><i className='pi pi-facebook'></i></Link>
-                <Link target='_blank' href="https://www.instagram.com/radicaleducationofficial/" className='text-lg sm:text-xl'><i className='pi pi-instagram'></i></Link>
-                <Link target='_blank' href="https://www.linkedin.com/company/radical-education-official/about/?viewAsMember=true" className='text-lg sm:text-xl'><i className='pi pi-linkedin'></i></Link>
-                <Link target='_blank' href="https://whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P" className='text-lg sm:text-xl'><i className='pi pi-whatsapp'></i></Link>
-                <Link target='_blank' href="https://t.me/radicaleducation" className='text-lg sm:text-xl'><i className='pi pi-telegram'></i></Link>
-                <Link target='_blank' href="https://www.youtube.com/@radicaleducationofficial" className='text-lg sm:text-xl'><i className='pi pi-youtube'></i></Link>
+              <div className='hidden lg:flex items-center gap-4'>
+                <Link href="https://twitter.com/Radical_Edu_" target='_blank'>
+                  <Image src='/images/twitter.svg' width='16' height='16' alt="" />
+                </Link>
+                <Link href="https://www.facebook.com/profile.php?id=61556350017734" target='_blank'>
+                  <Image src='/images/facebook.svg' width='18' height='18' alt="" />
+                </Link>
+                <Link href="https://www.instagram.com/radicaleducationofficial/" target='_blank'>
+                  <Image src='/images/instagram.svg' width='16' height='16' alt="" />
+                </Link>
+                <Link href="https://www.linkedin.com/company/radical-education-official/about/?viewAsMember=true" target='_blank'>
+                  <Image src='/images/linkedin.svg' width='16' height='16' alt="" />
+                </Link>
+                <Link href="https://whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P" target='_blank'>
+                  <Image src='/images/whatsapp.svg' width='20' height='20' alt="" />
+                </Link>
+                <Link href="https://t.me/radicaleducation" target='_blank'>
+                  <Image src='/images/teligram.svg' width='18' height='18' alt="" />
+                </Link>
+                <Link href="https://www.youtube.com/@radicaleducationofficial" target='_blank'>
+                  <Image src='/images/youtube.svg' width='20' height='20' alt="" />
+                </Link>
               </div>
             </div>
 

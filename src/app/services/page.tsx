@@ -24,9 +24,11 @@ export default function ServicesPage() {
       </div>
 
       {/* Cards */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-10 lg:gap-12 xl:gap-14">
         {services.map((service) => (
-          <ServiceCard key={service.slug} service={service} />
+          <div key={service.slug} className="flex justify-center">
+            <ServiceCard service={service} />
+          </div>
         ))}
       </div>
 
