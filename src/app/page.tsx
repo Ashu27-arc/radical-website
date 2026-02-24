@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "primereact/button";
@@ -7,7 +8,6 @@ import {
   AutoComplete,
   AutoCompleteCompleteEvent,
 } from "primereact/autocomplete";
-import { useState } from "react";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import NewsMarquee from "@/components/NewsMarquee";
 import StatsCounter from "@/components/home/StatsCounter";
@@ -147,7 +147,7 @@ export default function Home() {
                     </i>
                   </Button>
                 </Link>
-                <div className="move-x text-nowrap text-[#00CFB212] text-[180px] md:text-[200px] lg:text-[230px] font-bold absolute left-[1px] top-[55%] left-[-20px] -z-1">
+                <div className="move-x text-nowrap text-[#00CFB212] text-[180px] md:text-[200px] lg:text-[230px] font-bold absolute top-[55%] left-[-20px] -z-1">
                   Radical
                 </div>
               </div>
@@ -165,24 +165,30 @@ export default function Home() {
           <div className="mb-20">
             <StatsCounter />
           </div>
-          <div className="flex flex-col md:flex-row gap-6 sm:gap-8 md:gap-10 lg:gap-20 xl:gap-30 md:items-center mb-16 sm:mb-20 md:mb-24 lg:mb-30">
-            <div className="md:w-13/20 w-full lg:pr-10 xl:pr-40 fadeLeft text-center md:text-left">
-              <div className="text-[#0B2E3C] uppercase text-xs sm:text-sm font-semibold tracking-widest mb-3 sm:mb-4 md:mb-5 lg:mb-6">
-                OUR SERVICES
+          <div className="lg:px-16 xl:px-32">
+            <div className="flex flex-col md:flex-row gap-6 sm:gap-8 md:gap-10 lg:gap-20 xl:gap-30 md:items-center mb-16 sm:mb-20 md:mb-24 lg:mb-30">
+              <div className="md:w-3/5 w-full lg:pr-10 xl:pr-20 fadeLeft text-center md:text-left">
+                <div className="text-[#0B2E3C] uppercase text-xs sm:text-sm font-semibold tracking-widest mb-3 sm:mb-4 md:mb-5 lg:mb-6">
+                  OUR SERVICES
+                </div>
+                <h2 className="text-black text-4xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-4xl font-bold leading-tight lg:whitespace-nowrap">
+                  From <span className="text-[#287FC4]">Rank to Admission,</span>
+                  <br /> We Handle It All
+                </h2>
               </div>
-              <h2 className="text-black text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-5xl font-bold leading-tight">
-                From <span className="text-[#287FC4]">Rank to Admission,</span>{" "}
-                We Handle It All
-              </h2>
-            </div>
-            <div className="md:w-7/20 w-full fadeRight px-4 sm:px-6 md:px-0 text-center md:text-left">
-              <div className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed">
-                With trusted experts and real-time updates, we help you navigate
-                NEET counselling easily
+              <div className="md:w-2/5 w-full fadeRight px-4 sm:px-6 md:px-0 text-center md:text-left">
+                <div className="text-sm sm:text-base md:text-lg lg:text-[16px] text-gray-700 leading-relaxed">
+                  <span className="md:block lg:whitespace-nowrap">
+                    With trusted experts and real-time updates, we help you
+                  </span>
+                  <span className="md:block lg:whitespace-nowrap">
+                    navigate NEET counselling easily
+                  </span>
+                </div>
               </div>
             </div>
+            <ServicesDropdown services={services} />
           </div>
-          <ServicesDropdown services={services} />
         </div>
       </section>
       <section
@@ -211,7 +217,7 @@ export default function Home() {
           <div className="fadeUp text-center">
             <div className="md:w-5/10 w-full mx-auto">
               <div className="text-black uppercase text-sm font-semibold tracking-widest mb-4 lg:mb-6">
-                Countries We Offer 
+                Countries We Offer
               </div>
               <h2 className="text-black md:text-5xl text-4xl font-bold">
                 Discover Where Your{" "}
@@ -238,7 +244,7 @@ export default function Home() {
             </div>
             <div className="fadeRight text-center md:text-left text-white">
               <div className="text-white font-semibold text-sm uppercase">
-                Why Choose Us? 
+                Why Choose Us?
               </div>
               <h2 className="text-6xl font-bold my-6">
                 Secure. <span className="text-[#00CFB2]">Support. Success</span>
@@ -247,7 +253,7 @@ export default function Home() {
                 Our commitment to providing students with extensive support and
                 requisite resources is the driving force here at Radical
                 Education. Rooted in creativity and quality, we offer a clear,
-                reliable path to achieving goals. 
+                reliable path to achieving goals.
               </div>
             </div>
           </div>
@@ -260,7 +266,7 @@ export default function Home() {
               OUR <span className="text-[#287FC4]">SUCESSFUL STORIES</span>
             </h2>
             <div className="uppercase text-[#00CFB240] leading-12 text-[42px] md:text-5xl lg:text-7xl font-black">
-              HEAR FORM OUR STUDENT
+              HEAR FROM OUR STUDENT
             </div>
           </div>
           <div className="grid gap-6 md:grid-cols-3 grid-cols-1">

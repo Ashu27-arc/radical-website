@@ -11,7 +11,6 @@ export default function CounselorForm() {
 
     const [form, setForm] = useState({
         name: '',
-        email: '',
         mobile: '',
         course: '',
         state: '',
@@ -82,7 +81,6 @@ export default function CounselorForm() {
 
     const handleSubmit = async () => {
         if (!form.name.trim()) return showError('Name is required');
-        if (!form.email.trim()) return showError('Email is required');
         if (!form.mobile.trim()) return showError('Mobile number is required');
 
         if (!/^\d{10}$/.test(form.mobile)) {
@@ -119,7 +117,6 @@ export default function CounselorForm() {
 
                 setForm({
                     name: '',
-                    email: '',
                     mobile: '',
                     course: '',
                     state: '',
@@ -161,25 +158,6 @@ export default function CounselorForm() {
                     </span>
                 </div>
 
-                {/* Email */}
-                <div className="p-inputgroup flex">
-                    <span className="p-inputgroup-addon bg-white! border-r-0">
-                        <i className="pi pi-envelope"></i>
-                    </span>
-                    <span className="p-float-label flex-1">
-                        <InputText
-                            id="email"
-                            value={form.email}
-                            onChange={(e) =>
-                                setForm({ ...form, email: e.target.value })
-                            }
-                            className="w-full border-l-0! pl-0!"
-                        />
-                        <label htmlFor="email" className="text-sm">
-                            Email Address*
-                        </label>
-                    </span>
-                </div>
 
                 {/* Mobile */}
                 <div className="p-inputgroup flex">

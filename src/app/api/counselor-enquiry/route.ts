@@ -5,9 +5,9 @@ import CounselorEnquiry from '@/models/CounselorEnquiry';
 export async function POST(request: NextRequest) {
     try {
         const body = await request.json();
-        const { name, email, mobile, course, state } = body;
+        const { name, mobile, course, state } = body;
 
-        if (!name || !email || !mobile || !course || !state) {
+        if (!name || !mobile || !course || !state) {
             return NextResponse.json(
                 { success: false, message: 'Please fill all required fields' },
                 { status: 400 }
@@ -24,7 +24,6 @@ export async function POST(request: NextRequest) {
 
         const doc = await CounselorEnquiry.create({
             name: String(name).trim(),
-            email: String(email).trim().toLowerCase(),
             mobile: String(mobile).trim(),
             course: String(course).trim(),
             state: String(state).trim(),
@@ -37,7 +36,6 @@ export async function POST(request: NextRequest) {
             data: {
                 id: doc._id.toString(),
                 name: doc.name,
-                email: doc.email
             }
         });
     } catch (error) {

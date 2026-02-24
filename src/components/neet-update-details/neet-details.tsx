@@ -204,12 +204,6 @@ export default function NeetDetails() {
                             </div>
                             <div>
                                 <InputText
-                                    placeholder="email address"
-                                    className="w-full p-3 bg-gray-50 border-none rounded-lg text-sm focus:ring-1 focus:ring-blue-200"
-                                />
-                            </div>
-                            <div>
-                                <InputText
                                     placeholder="mobile no"
                                     className="w-full p-3 bg-gray-50 border-none rounded-lg text-sm focus:ring-1 focus:ring-blue-200"
                                 />

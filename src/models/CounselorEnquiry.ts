@@ -2,7 +2,6 @@ import mongoose, { Schema, model, models } from 'mongoose';
 
 export interface ICounselorEnquiry {
     name: string;
-    email: string;
     mobile: string;
     course: string;
     state: string;
@@ -14,12 +13,6 @@ const CounselorEnquirySchema = new Schema<ICounselorEnquiry>({
         type: String,
         required: [true, 'Name is required'],
         trim: true
-    },
-    email: {
-        type: String,
-        required: [true, 'Email is required'],
-        trim: true,
-        lowercase: true
     },
     mobile: {
         type: String,

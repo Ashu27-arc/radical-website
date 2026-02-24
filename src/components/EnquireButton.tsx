@@ -71,7 +71,6 @@ export default function EnquireButton() {
 
   const [form, setForm] = useState({
     name: '',
-    email: '',
     mobile: '',
     course: '',
   });
@@ -100,7 +99,6 @@ export default function EnquireButton() {
 
   const handleSubmit = () => {
     if (!form.name.trim()) return showError('Name is required');
-    if (!form.email.trim()) return showError('Email is required');
     if (!form.mobile.trim()) return showError('Mobile number is required');
 
     if (!/^\d{10}$/.test(form.mobile)) {
@@ -120,7 +118,6 @@ export default function EnquireButton() {
 
     setForm({
       name: '',
-      email: '',
       mobile: '',
       course: '',
     });
@@ -194,25 +191,6 @@ export default function EnquireButton() {
                 </span>
               </div>
 
-              {/* Email */}
-              <div className="p-inputgroup">
-                <span className="p-inputgroup-addon bg-white!">
-                  <i className="pi pi-envelope"></i>
-                </span>
-                <span className="p-float-label">
-                  <InputText
-                    id="email"
-                    value={form.email}
-                    onChange={(e) =>
-                      setForm({ ...form, email: e.target.value })
-                    }
-                    className="w-full border-l-0! pl-0!"
-                  />
-                  <label htmlFor="email" className="text-sm">
-                    Email Address*
-                  </label>
-                </span>
-              </div>
 
               {/* Mobile */}
               <div className="p-inputgroup">
@@ -260,7 +238,7 @@ export default function EnquireButton() {
                   </label>
                 </span>
               </div>
-              <div>    
+              <div>
                 <Button
                   label="SUBMIT"
                   icon="pi pi-arrow-right"
@@ -268,7 +246,7 @@ export default function EnquireButton() {
                   className="w-full bg-gradient-to-l! from-[#00CFB2]! to-[#005A8B]! border-[#00CFB2]!"
                   onClick={handleSubmit}
                 />
-              </div> 
+              </div>
               <div className='grid grid-cols-2 gap-2'>
                 <div>
                   <Link href="tel:+919797972465" className='rounded-lg flex items-center gap-2 p-2 w-full bg-gradient-to-r! from-[#00CFB2]! to-[#005A8B]! border-[#00CFB2]!'>
@@ -296,7 +274,7 @@ export default function EnquireButton() {
                     </div>
                   </Link>
                 </div>
-              </div> 
+              </div>
             </div>
           </div>
 
@@ -362,7 +340,7 @@ export default function EnquireButton() {
                 ))}
               </div>
             </div>
-            
+
           </div>
         </div>
       </Dialog>
