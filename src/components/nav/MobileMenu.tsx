@@ -23,6 +23,7 @@ export default function MobileMenu({ visible, setVisible }: MobileMenuProps) {
     const [titleStack, setTitleStack] = useState<string[]>(['Menu']);
     const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
     const [studyIndiaDropdownOpen, setStudyIndiaDropdownOpen] = useState(false);
+    const [studyAbroadDropdownOpen, setStudyAbroadDropdownOpen] = useState(false);
 
     const openSubMenu = (item: MenuItem) => {
         if (item.label === 'Services') {
@@ -30,17 +31,24 @@ export default function MobileMenu({ visible, setVisible }: MobileMenuProps) {
             setServicesDropdownOpen(!servicesDropdownOpen);
             return;
         }
-        
+
         if (item.label === 'Study India') {
             // Toggle study india dropdown instead of navigating to submenu
             setStudyIndiaDropdownOpen(!studyIndiaDropdownOpen);
             return;
         }
-        
+
+        if (item.label === 'Study Abroad') {
+            // Toggle study abroad dropdown instead of navigating to submenu
+            setStudyAbroadDropdownOpen(!studyAbroadDropdownOpen);
+            return;
+        }
+
         // Close dropdowns when opening other submenus
         setServicesDropdownOpen(false);
         setStudyIndiaDropdownOpen(false);
-        
+        setStudyAbroadDropdownOpen(false);
+
         if (item.items) {
             setMenuStack(prev => [...prev, item.items as MenuItem[]]);
             setTitleStack(prev => [...prev, item.label as string]);
@@ -52,6 +60,7 @@ export default function MobileMenu({ visible, setVisible }: MobileMenuProps) {
         setTitleStack(prev => prev.slice(0, -1));
         setServicesDropdownOpen(false); // Close services dropdown when going back
         setStudyIndiaDropdownOpen(false); // Close study india dropdown when going back
+        setStudyAbroadDropdownOpen(false); // Close study abroad dropdown when going back
     };
 
     /* ================= HEADER ================= */
@@ -64,6 +73,7 @@ export default function MobileMenu({ visible, setVisible }: MobileMenuProps) {
                 setVisible(false);
                 setServicesDropdownOpen(false); // Reset dropdown state when closing
                 setStudyIndiaDropdownOpen(false); // Reset study india dropdown state when closing
+                setStudyAbroadDropdownOpen(false); // Reset study abroad dropdown state when closing
             }}>
                 <i className="pi pi-times text-xl text-black"></i>
             </button>
@@ -74,6 +84,7 @@ export default function MobileMenu({ visible, setVisible }: MobileMenuProps) {
         setVisible(false);
         setServicesDropdownOpen(false); // Reset dropdown state when hiding
         setStudyIndiaDropdownOpen(false); // Reset study india dropdown state when hiding
+        setStudyAbroadDropdownOpen(false); // Reset study abroad dropdown state when hiding
     };
 
     return (
@@ -130,6 +141,7 @@ export default function MobileMenu({ visible, setVisible }: MobileMenuProps) {
                                                                     setVisible(false);
                                                                     setServicesDropdownOpen(false);
                                                                     setStudyIndiaDropdownOpen(false);
+                                                                    setStudyAbroadDropdownOpen(false);
                                                                 }}
                                                                 className="flex-1 text-[14px] hover:text-blue-600 active:text-blue-700 transition-colors duration-200"
                                                             >
@@ -142,53 +154,59 @@ export default function MobileMenu({ visible, setVisible }: MobileMenuProps) {
                                                         )}
 
                                                         {item.items && (
-                                                            <i className={`pi transition-all duration-200 hover:scale-110 hover:text-[#005A8B] ${
-                                                                item.label === 'Services' && servicesDropdownOpen 
-                                                                    ? 'pi-chevron-up' 
-                                                                    : item.label === 'Services' 
+                                                            <i className={`pi transition-all duration-200 hover:scale-110 hover:text-[#005A8B] ${item.label === 'Services' && servicesDropdownOpen
+                                                                ? 'pi-chevron-up'
+                                                                : item.label === 'Services'
                                                                     ? 'pi-chevron-down'
                                                                     : item.label === 'Study India' && studyIndiaDropdownOpen
-                                                                    ? 'pi-chevron-up'
-                                                                    : item.label === 'Study India'
-                                                                    ? 'pi-chevron-down'
-                                                                    : 'pi-angle-right'
-                                                            }`}></i>
+                                                                        ? 'pi-chevron-up'
+                                                                        : item.label === 'Study India'
+                                                                            ? 'pi-chevron-down'
+                                                                            : item.label === 'Study Abroad' && studyAbroadDropdownOpen
+                                                                                ? 'pi-chevron-up'
+                                                                                : item.label === 'Study Abroad'
+                                                                                    ? 'pi-chevron-down'
+                                                                                    : 'pi-angle-right'
+                                                                }`}></i>
                                                         )}
                                                     </div>
 
                                                     {/* Services Dropdown */}
                                                     {item.label === 'Services' && item.items && (
-                                                        <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                                                            servicesDropdownOpen 
-                                                                ? 'max-h-[400px] opacity-100' 
-                                                                : 'max-h-0 opacity-0'
-                                                        }`}>
-                                                            <div className="bg-gray-50 border-t border-gray-200">
+                                                        <div className={`overflow-hidden transition-all duration-300 ease-in-out ${servicesDropdownOpen
+                                                            ? 'max-h-[500px] opacity-100 my-2'
+                                                            : 'max-h-0 opacity-0'
+                                                            }`}>
+                                                            <div className="bg-white rounded-2xl shadow-[0_4px_20px_-5px_rgba(0,0,0,0.15)] border border-gray-100 mx-3 ml-6 overflow-hidden">
                                                                 {(item.items as MenuItem[]).map((subItem, subIndex) => (
                                                                     <div key={subIndex} className="border-b border-gray-100 last:border-b-0">
-                                                                        {subItem.url ? (
+                                                                        {subItem.items ? (
+                                                                            <div
+                                                                                className="flex items-center justify-between px-6 py-3 cursor-pointer hover:bg-white active:bg-gray-100 transition-colors duration-200"
+                                                                                onClick={() => openSubMenu(subItem)}
+                                                                            >
+                                                                                <span className="flex-1 text-[13px] text-gray-700">
+                                                                                    {subItem.label}
+                                                                                </span>
+                                                                                <i className="pi pi-arrow-circle-right text-lg text-[#005A8B]"></i>
+                                                                            </div>
+                                                                        ) : subItem.url ? (
                                                                             <Link
                                                                                 href={subItem.url}
                                                                                 onClick={() => {
                                                                                     setVisible(false);
                                                                                     setServicesDropdownOpen(false);
                                                                                     setStudyIndiaDropdownOpen(false);
+                                                                                    setStudyAbroadDropdownOpen(false);
                                                                                 }}
-                                                                                className="block px-6 py-3 text-[13px] text-gray-700 hover:text-[#005A8B] hover:bg-white active:bg-gray-100 transition-all duration-200"
+                                                                                className="flex items-center justify-between px-6 py-3 text-[13px] text-gray-700 hover:text-[#005A8B] hover:bg-white active:bg-gray-100 transition-all duration-200"
                                                                             >
-                                                                                {subItem.label}
+                                                                                <span>{subItem.label}</span>
+                                                                                <i className="pi pi-arrow-circle-right text-[#005A8B] text-lg"></i>
                                                                             </Link>
                                                                         ) : (
-                                                                            <div
-                                                                                className="flex items-center justify-between px-6 py-3 cursor-pointer hover:bg-white active:bg-gray-100 transition-colors duration-200"
-                                                                                onClick={() => subItem.items ? openSubMenu(subItem) : null}
-                                                                            >
-                                                                                <span className="flex-1 text-[13px] text-gray-700">
-                                                                                    {subItem.label}
-                                                                                </span>
-                                                                                {subItem.items && (
-                                                                                    <i className="pi pi-angle-right text-xs text-gray-500 transition-all duration-200 hover:scale-110 hover:text-[#005A8B]"></i>
-                                                                                )}
+                                                                            <div className="px-6 py-3 text-[13px] text-gray-700">
+                                                                                {subItem.label}
                                                                             </div>
                                                                         )}
                                                                     </div>
@@ -199,37 +217,84 @@ export default function MobileMenu({ visible, setVisible }: MobileMenuProps) {
 
                                                     {/* Study India Dropdown */}
                                                     {item.label === 'Study India' && item.items && (
-                                                        <div className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                                                            studyIndiaDropdownOpen 
-                                                                ? 'max-h-[600px] opacity-100' 
-                                                                : 'max-h-0 opacity-0'
-                                                        }`}>
-                                                            <div className="bg-gray-50 border-t border-gray-200">
+                                                        <div className={`overflow-hidden transition-all duration-300 ease-in-out ${studyIndiaDropdownOpen
+                                                            ? 'max-h-[600px] opacity-100 my-2'
+                                                            : 'max-h-0 opacity-0'
+                                                            }`}>
+                                                            <div className="bg-white rounded-2xl shadow-[0_4px_20px_-5px_rgba(0,0,0,0.15)] border border-gray-100 mx-3 ml-6 overflow-hidden">
                                                                 {(item.items as MenuItem[]).map((subItem, subIndex) => (
                                                                     <div key={subIndex} className="border-b border-gray-100 last:border-b-0">
-                                                                        {subItem.url ? (
+                                                                        {subItem.items ? (
+                                                                            <div
+                                                                                className="flex items-center justify-between px-6 py-3 cursor-pointer hover:bg-white active:bg-gray-100 transition-colors duration-200"
+                                                                                onClick={() => openSubMenu(subItem)}
+                                                                            >
+                                                                                <span className="flex-1 text-[13px] text-gray-700">
+                                                                                    {subItem.label}
+                                                                                </span>
+                                                                                <i className="pi pi-arrow-circle-right text-lg text-[#005A8B]"></i>
+                                                                            </div>
+                                                                        ) : subItem.url ? (
                                                                             <Link
                                                                                 href={subItem.url}
                                                                                 onClick={() => {
                                                                                     setVisible(false);
                                                                                     setStudyIndiaDropdownOpen(false);
                                                                                     setServicesDropdownOpen(false);
+                                                                                    setStudyAbroadDropdownOpen(false);
                                                                                 }}
-                                                                                className="block px-6 py-3 text-[13px] text-gray-700 hover:text-[#005A8B] hover:bg-white active:bg-gray-100 transition-all duration-200"
+                                                                                className="flex items-center justify-between px-6 py-3 text-[13px] text-gray-700 hover:text-[#005A8B] hover:bg-white active:bg-gray-100 transition-all duration-200"
                                                                             >
-                                                                                {subItem.label}
+                                                                                <span>{subItem.label}</span>
+                                                                                <i className="pi pi-arrow-circle-right text-[#005A8B] text-lg"></i>
                                                                             </Link>
                                                                         ) : (
+                                                                            <div className="px-6 py-3 text-[13px] text-gray-700">
+                                                                                {subItem.label}
+                                                                            </div>
+                                                                        )}
+                                                                    </div>
+                                                                ))}
+                                                            </div>
+                                                        </div>
+                                                    )}
+
+                                                    {/* Study Abroad Dropdown */}
+                                                    {item.label === 'Study Abroad' && item.items && (
+                                                        <div className={`overflow-hidden transition-all duration-300 ease-in-out ${studyAbroadDropdownOpen
+                                                            ? 'max-h-[800px] opacity-100 my-2'
+                                                            : 'max-h-0 opacity-0'
+                                                            }`}>
+                                                            <div className="bg-white rounded-2xl shadow-[0_4px_20px_-5px_rgba(0,0,0,0.15)] border border-gray-100 mx-3 ml-6 overflow-hidden">
+                                                                {(item.items as MenuItem[]).map((subItem, subIndex) => (
+                                                                    <div key={subIndex} className="border-b border-gray-100 last:border-b-0">
+                                                                        {subItem.items ? (
                                                                             <div
                                                                                 className="flex items-center justify-between px-6 py-3 cursor-pointer hover:bg-white active:bg-gray-100 transition-colors duration-200"
-                                                                                onClick={() => subItem.items ? openSubMenu(subItem) : null}
+                                                                                onClick={() => openSubMenu(subItem)}
                                                                             >
                                                                                 <span className="flex-1 text-[13px] text-gray-700">
                                                                                     {subItem.label}
                                                                                 </span>
-                                                                                {subItem.items && (
-                                                                                    <i className="pi pi-angle-right text-xs text-gray-500 transition-all duration-200 hover:scale-110 hover:text-[#005A8B]"></i>
-                                                                                )}
+                                                                                <i className="pi pi-arrow-circle-right text-lg text-[#005A8B]"></i>
+                                                                            </div>
+                                                                        ) : subItem.url ? (
+                                                                            <Link
+                                                                                href={subItem.url}
+                                                                                onClick={() => {
+                                                                                    setVisible(false);
+                                                                                    setStudyAbroadDropdownOpen(false);
+                                                                                    setServicesDropdownOpen(false);
+                                                                                    setStudyIndiaDropdownOpen(false);
+                                                                                }}
+                                                                                className="flex items-center justify-between px-6 py-3 text-[13px] text-gray-700 hover:text-[#005A8B] hover:bg-white active:bg-gray-100 transition-all duration-200"
+                                                                            >
+                                                                                <span>{subItem.label}</span>
+                                                                                <i className="pi pi-arrow-circle-right text-[#005A8B] text-lg"></i>
+                                                                            </Link>
+                                                                        ) : (
+                                                                            <div className="px-6 py-3 text-[13px] text-gray-700">
+                                                                                {subItem.label}
                                                                             </div>
                                                                         )}
                                                                     </div>
