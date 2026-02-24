@@ -10,14 +10,14 @@ export default function Footer() {
 
   const tabContent: Record<'study-abroad' | 'mbbs' | 'bds' | 'ayush' | 'md' | 'ms', { label: string; url: string }[]> = {
     'study-abroad': [
-      { label: 'Nepal', url: '/nepal' },
-      { label: 'Russia', url: '/russia' },
-      { label: 'Georgia', url: '/georgia' },
-      { label: 'Singapore', url: '/singapore' },
-      { label: 'Bangladesh', url: '/bangladesh' },
-      { label: 'Uzbekistan', url: '/uzbekistan' },
-      { label: 'Kazakhstan', url: '/kazakhstan' },
-      { label: 'Kyrgyzstan', url: '/kyrgyzstan' },
+      { label: 'Nepal', url: '/mbbs-abroad-admission/nepal/' },
+      { label: 'Russia', url: '/mbbs-abroad-admission/russia/' },
+      { label: 'Georgia', url: '/mbbs-abroad-admission/georgia/' },
+      { label: 'Singapore', url: '/mbbs-abroad-admission/singapore/' },
+      { label: 'Bangladesh', url: '/mbbs-abroad-admission/bangladesh/' },
+      { label: 'Uzbekistan', url: '/mbbs-abroad-admission/uzbekistan/' },
+      { label: 'Kazakhstan', url: '/mbbs-abroad-admission/kazakhstan/' },
+      { label: 'Kyrgyzstan', url: '/mbbs-abroad-admission/kyrgyzstan/' },
     ],
     'mbbs': [
       { label: 'Andhra Pradesh', url: '/mbbs-andhra-pradesh' },
@@ -302,7 +302,7 @@ export default function Footer() {
         <div className="container px-4 sm:px-6 lg:px-3">
           <div className="mb-4 sm:mb-6">
             <div className="flex flex-wrap justify-center gap-1.5 sm:gap-2 md:gap-3">
-              <button 
+              <button
                 onClick={() => setActiveTab('study-abroad')}
                 className={`relative z-2 overflow-hidden px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 
                 rounded-full border border-white
@@ -312,13 +312,13 @@ export default function Footer() {
                 before:bg-white
                 before:transition-transform before:duration-300
                 before:z-[-1]
-                ${activeTab === 'study-abroad' 
-                  ? 'text-[#005A8B] before:translate-y-0' 
-                  : 'text-white before:translate-y-[100%] hover:text-[#005A8B] hover:before:-translate-y-0'
-                }`}>
+                ${activeTab === 'study-abroad'
+                    ? 'text-[#005A8B] before:translate-y-0'
+                    : 'text-white before:translate-y-[100%] hover:text-[#005A8B] hover:before:-translate-y-0'
+                  }`}>
                 Study Abroad
               </button>
-              <button 
+              <button
                 onClick={() => setActiveTab('mbbs')}
                 className={`relative z-2 overflow-hidden px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 
                 rounded-full border border-white
@@ -328,13 +328,13 @@ export default function Footer() {
                 before:bg-white
                 before:transition-transform before:duration-300
                 before:z-[-1]
-                ${activeTab === 'mbbs' 
-                  ? 'text-[#005A8B] before:translate-y-0' 
-                  : 'text-white before:translate-y-[100%] hover:text-[#005A8B] hover:before:-translate-y-0'
-                }`}>
+                ${activeTab === 'mbbs'
+                    ? 'text-[#005A8B] before:translate-y-0'
+                    : 'text-white before:translate-y-[100%] hover:text-[#005A8B] hover:before:-translate-y-0'
+                  }`}>
                 MBBS
               </button>
-              <button 
+              <button
                 onClick={() => setActiveTab('bds')}
                 className={`relative z-2 overflow-hidden px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 
                 rounded-full border border-white
@@ -344,13 +344,13 @@ export default function Footer() {
                 before:bg-white
                 before:transition-transform before:duration-300
                 before:z-[-1]
-                ${activeTab === 'bds' 
-                  ? 'text-[#005A8B] before:translate-y-0' 
-                  : 'text-white before:translate-y-[100%] hover:text-[#005A8B] hover:before:-translate-y-0'
-                }`}>
+                ${activeTab === 'bds'
+                    ? 'text-[#005A8B] before:translate-y-0'
+                    : 'text-white before:translate-y-[100%] hover:text-[#005A8B] hover:before:-translate-y-0'
+                  }`}>
                 BDS
               </button>
-              <button 
+              <button
                 onClick={() => setActiveTab('ayush')}
                 className={`relative z-2 overflow-hidden px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 
                 rounded-full border border-white
@@ -360,13 +360,13 @@ export default function Footer() {
                 before:bg-white
                 before:transition-transform before:duration-300
                 before:z-[-1]
-                ${activeTab === 'ayush' 
-                  ? 'text-[#005A8B] before:translate-y-0' 
-                  : 'text-white before:translate-y-[100%] hover:text-[#005A8B] hover:before:-translate-y-0'
-                }`}>
+                ${activeTab === 'ayush'
+                    ? 'text-[#005A8B] before:translate-y-0'
+                    : 'text-white before:translate-y-[100%] hover:text-[#005A8B] hover:before:-translate-y-0'
+                  }`}>
                 AYUSH
               </button>
-              <button 
+              <button
                 onClick={() => setActiveTab('md')}
                 className={`relative z-2 overflow-hidden px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 
                 rounded-full border border-white
@@ -376,13 +376,13 @@ export default function Footer() {
                 before:bg-white
                 before:transition-transform before:duration-300
                 before:z-[-1]
-                ${activeTab === 'md' 
-                  ? 'text-[#005A8B] before:translate-y-0' 
-                  : 'text-white before:translate-y-[100%] hover:text-[#005A8B] hover:before:-translate-y-0'
-                }`}>
+                ${activeTab === 'md'
+                    ? 'text-[#005A8B] before:translate-y-0'
+                    : 'text-white before:translate-y-[100%] hover:text-[#005A8B] hover:before:-translate-y-0'
+                  }`}>
                 MD
               </button>
-              <button 
+              <button
                 onClick={() => setActiveTab('ms')}
                 className={`relative z-2 overflow-hidden px-2 py-1 sm:px-3 sm:py-1.5 md:px-4 md:py-2 
                 rounded-full border border-white
@@ -392,10 +392,10 @@ export default function Footer() {
                 before:bg-white
                 before:transition-transform before:duration-300
                 before:z-[-1]
-                ${activeTab === 'ms' 
-                  ? 'text-[#005A8B] before:translate-y-0' 
-                  : 'text-white before:translate-y-[100%] hover:text-[#005A8B] hover:before:-translate-y-0'
-                }`}>
+                ${activeTab === 'ms'
+                    ? 'text-[#005A8B] before:translate-y-0'
+                    : 'text-white before:translate-y-[100%] hover:text-[#005A8B] hover:before:-translate-y-0'
+                  }`}>
                 MS
               </button>
             </div>
@@ -403,8 +403,8 @@ export default function Footer() {
           <div className="flex flex-wrap justify-center items-center gap-x-1 sm:gap-x-2 md:gap-x-4 gap-y-1.5 sm:gap-y-2 text-white text-[10px] xs:text-xs sm:text-sm pt-3 sm:pt-4 md:pt-6">
             {tabContent[activeTab].map((item, index) => (
               <Fragment key={item.url}>
-                <Link 
-                  href={item.url} 
+                <Link
+                  href={item.url}
                   className="relative flex items-center gap-0.5 sm:gap-1 shrink-0 max-w-[140px] sm:max-w-none
                   after:absolute after:left-3 after:bottom-0 sm:after:left-5
                   after:h-[1px] after:w-0
@@ -423,7 +423,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="text-white text-center py-4 sm:py-6 text-xs sm:text-sm bg-[#00446A] px-4">
-       Radical Education 2025 | All rights reserved | BINARAMA | <Link href="/privacy-policy" className="hover:text-[#fff]">Privacy Policy</Link> | <Link href="/refund-policy" className="hover:text-[#fff]">Refund Policy</Link> | <Link href="/terms-condition" className="hover:text-[#fff]">Terms & Conditions</Link>
+        Radical Education 2025 | All rights reserved | BINARAMA | <Link href="/privacy-policy" className="hover:text-[#fff]">Privacy Policy</Link> | <Link href="/refund-policy" className="hover:text-[#fff]">Refund Policy</Link> | <Link href="/terms-condition" className="hover:text-[#fff]">Terms & Conditions</Link>
       </div>
     </footer>
   );

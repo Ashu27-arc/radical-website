@@ -99,7 +99,7 @@ export default function CounselorForm() {
 
         setLoading(true);
         try {
-            const response = await fetch('/api/counselor-enquiry', {
+            const response = await fetch('/api/counselor-enquiry/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

@@ -25,6 +25,7 @@ export default async function CountryPage({ params }: CountryPageProps) {
     georgia: Georgia,
     uzbekistan: Uzbekistan,
     bangladesh: Bangladesh,
+    kyrgyzstan: Russia, // Placeholder
   };
 
   const CountryComponent = countryComponents[country.toLowerCase()];
@@ -46,5 +47,6 @@ export function generateStaticParams() {
     { country: 'georgia' },
     { country: 'uzbekistan' },
     { country: 'bangladesh' },
+    { country: 'kyrgyzstan' },
   ];
 }

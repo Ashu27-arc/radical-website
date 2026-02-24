@@ -183,7 +183,7 @@ export default function CareersPage() {
         formDataToSend.append('resume', resumeFile);
       }
 
-      const response = await fetch('/api/submit-resume', {
+      const response = await fetch('/api/submit-resume/', {
         method: 'POST',
         body: formDataToSend
       });
@@ -221,7 +221,7 @@ export default function CareersPage() {
           />
           <div className="absolute inset-0"></div>
         </div>
-        
+
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-6 pt-8 md:pt-15">
             <h1 className="text-3xl md:text-5xl font-bold text-black mb-4">
@@ -248,26 +248,26 @@ export default function CareersPage() {
       <section className="py-12 md:py-20 bg-white relative overflow-hidden">
         {/* Watermark */}
         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-          <img 
-            src="/logo.webp" 
-            alt="Radical" 
+          <img
+            src="/logo.webp"
+            alt="Radical"
             className="w-[300px] md:w-[500px] lg:w-[400px] h-auto select-none opacity-10 transform rotate-[-5deg]"
           />
         </div>
-        
+
         <div className="container mx-auto px-4 relative z-10">
           <h2 className="text-3xl md:text-5xl font-bold text-center mb-8 md:mb-12">
             Why Work With <span className="text-[#287FC4]">Us?</span>
           </h2>
           <div className="max-w-5xl mx-auto text-gray-600 space-y-4 md:space-y-6 leading-relaxed text-sm md:text-base">
             <p>
-              Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite Your Friends And Unlock 
-              Exclusive Benefits—Earn More With Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits—Earn More 
+              Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite Your Friends And Unlock
+              Exclusive Benefits—Earn More With Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits—Earn More
               With Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral.
             </p>
             <p>
-              Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite Your Friends And Unlock 
-              Exclusive Benefits—Earn More With Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits—Earn More 
+              Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite Your Friends And Unlock
+              Exclusive Benefits—Earn More With Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits—Earn More
               With Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral.
             </p>
           </div>
@@ -282,14 +282,14 @@ export default function CareersPage() {
             Our <span className="text-[#287FC4]">Work Environment</span>
           </h2>
         </div>
-        
+
         <div className="relative pb-8">
           {/* Horizontal shadow line */}
           <div className="absolute left-0 right-0 top-[280px] md:top-[328px] h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent shadow-sm"></div>
-          
+
           {/* Mobile: Slide Animation with Original Layout */}
           <div className="md:hidden relative overflow-hidden">
-            <div 
+            <div
               className="flex transition-transform duration-500 ease-in-out gap-4 min-w-max pl-4"
               style={{ transform: `translateX(-${currentSlide * 240}px)` }}
             >
@@ -327,16 +327,15 @@ export default function CareersPage() {
                 </div>
               ))}
             </div>
-            
+
             {/* Navigation Dots - Mobile Only */}
             <div className="flex justify-center mt-6 space-x-2">
               {workEnvironmentData.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => goToSlide(index)}
-                  className={`w-2 h-2 rounded-full transition-colors duration-300 ${
-                    currentSlide === index ? 'bg-[#287FC4]' : 'bg-gray-300'
-                  }`}
+                  className={`w-2 h-2 rounded-full transition-colors duration-300 ${currentSlide === index ? 'bg-[#287FC4]' : 'bg-gray-300'
+                    }`}
                 />
               ))}
             </div>
@@ -381,7 +380,7 @@ export default function CareersPage() {
             </div>
           </div>
         </div>
-        
+
         <style jsx>{`
           .scrollbar-hide::-webkit-scrollbar {
             display: none;
@@ -399,7 +398,7 @@ export default function CareersPage() {
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 md:mb-8">
             Latest <span className="text-[#287FC4]">Openings</span>
           </h2>
-          
+
           {jobsData.length === 0 ? (
             // No Openings Message
             <div className="max-w-4xl mx-auto py-6 md:py-8">
@@ -447,7 +446,7 @@ export default function CareersPage() {
                     {job.description}
                   </p>
                   <div>
-                    <button 
+                    <button
                       onClick={() => openModal(job)}
                       className="text-green-500 text-sm md:text-base font-semibold hover:text-green-600 inline-flex items-center gap-2"
                     >
@@ -560,11 +559,11 @@ export default function CareersPage() {
       {isModalOpen && (
         <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
           {/* Blue Background Overlay - Full Screen */}
-          <div 
+          <div
             className="fixed inset-0 bg-[#287FC478]"
             onClick={closeModal}
           ></div>
-          
+
           {/* Modal Content */}
           <div className="relative bg-white rounded-lg shadow-2xl max-w-2xl w-full overflow-hidden max-h-[90vh] overflow-y-auto">
             {/* Close Button */}
@@ -609,7 +608,7 @@ export default function CareersPage() {
               </div>
 
               <div className="flex justify-left">
-                <button 
+                <button
                   onClick={scrollToResumeSection}
                   className="bg-[#005A8B] hover:bg-[#005A8B] text-white font-semibold px-8 md:px-10 py-2 md:py-2.5 text-sm md:text-base rounded-[100px] transition-colors shadow-lg"
                 >
@@ -625,11 +624,11 @@ export default function CareersPage() {
       {showSuccessPopup && (
         <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4">
           {/* Blue Background Overlay - Same as Job Modal */}
-          <div 
+          <div
             className="fixed inset-0 bg-[#287FC478]"
             onClick={() => setShowSuccessPopup(false)}
           ></div>
-          
+
           {/* Popup Content - Reduced Size */}
           <div className="relative bg-white rounded-2xl shadow-2xl max-w-sm w-full p-6 md:p-8 text-center">
             {/* Decorative Elements - Scaled Down */}
@@ -638,15 +637,15 @@ export default function CareersPage() {
             <div className="absolute top-6 right-12 w-1.5 h-1.5 bg-orange-400" style={{ clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)' }}></div>
             <div className="absolute top-6 right-6 w-3 h-3 rounded-full bg-orange-500"></div>
             <div className="absolute top-12 right-3 w-1.5 h-1.5 rounded-full bg-blue-400"></div>
-            
+
             <div className="absolute top-14 left-3 w-6 h-0.5 rounded-full bg-pink-400 transform -rotate-12"></div>
             <div className="absolute top-16 right-8 w-6 h-0.5 rounded-full bg-blue-500 transform rotate-12"></div>
-            
+
             <div className="absolute bottom-24 left-4 w-1.5 h-1.5 rounded-full bg-blue-300"></div>
             <div className="absolute bottom-20 right-6 w-1.5 h-1.5 bg-pink-400" style={{ clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)' }}></div>
             <div className="absolute bottom-18 right-3 w-1.5 h-1.5 bg-orange-400" style={{ clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)' }}></div>
             <div className="absolute bottom-16 left-8 w-2 h-2 rounded-full bg-purple-400"></div>
-            
+
             {/* Success Icon - Reduced Size */}
             <div className="relative mx-auto w-24 h-24 mb-4">
               {/* Light green background circle */}

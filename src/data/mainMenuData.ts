@@ -163,7 +163,7 @@ export const mainMenuData: MenuItem[] = [
       // NEPAL
       {
         label: 'Nepal',
-        url: '/mbbs-in-nepal/',
+        url: '/mbbs-abroad-admission/nepal/',
         items: [
           { label: 'Birat Medical College, Biratnagar', url: '/birat-medical-college-bmc-nepal-2025-26/' },
           { label: 'College of Medical Sciences (CMC), Bharatpur', url: '/college-of-medical-sciences-cmc-nepal/' },
@@ -188,11 +188,11 @@ export const mainMenuData: MenuItem[] = [
           { label: 'Pokhara Academy of Health Sciences, Pokhara', url: '/pokhara-academy-of-health-sciences-nepal/' },
         ],
       },
-      
+
       // RUSSIA
       {
         label: 'Russia',
-        url: '/mbbs-in-russia/',
+        url: '/mbbs-abroad-admission/russia/',
         items: [
           { label: 'Altai State Medical University, Barnaul', url: '/altai-state-medical-university-russia/' },
           { label: 'Bashkir State Medical University, Ufa', url: '/bashkir-state-medical-university-russia/' },
@@ -236,7 +236,7 @@ export const mainMenuData: MenuItem[] = [
       // GEORGIA
       {
         label: 'Georgia',
-        url: '/mbbs-in-georgia/',
+        url: '/mbbs-abroad-admission/georgia/',
         items: [
           { label: 'Batumi Shota Rustaveli State University, Batumi', url: '/batumi-shota-rustaveli-state-university/' },
           { label: 'Caucasus International University, Tbilisi', url: '/caucasus-international-university/' },
@@ -253,7 +253,7 @@ export const mainMenuData: MenuItem[] = [
       // SINGAPORE
       {
         label: 'Singapore',
-        url: '/mbbs-in-singapore/',
+        url: '/mbbs-abroad-admission/singapore/',
         items: [
           { label: 'Lee Kong Chian University, Singapore', url: '/lee-kong-chian-university/' },
           { label: 'National University of Singapore', url: '/national-university-of-singapore/' },
@@ -264,7 +264,7 @@ export const mainMenuData: MenuItem[] = [
       // BANGLADESH
       {
         label: 'Bangladesh',
-        url: '/mbbs-in-bangladesh/',
+        url: '/mbbs-abroad-admission/bangladesh/',
         items: [
           { label: 'Popular Medical College, Dhaka', url: '/popular-medical-collegebangladesh/' },
           { label: 'Dhaka National Medical College, Dhaka', url: '/dhaka-national-medical-college/' },
@@ -285,7 +285,7 @@ export const mainMenuData: MenuItem[] = [
       // UZBEKISTAN
       {
         label: 'Uzbekistan',
-        url: '/mbbs-in-uzbekistan/',
+        url: '/mbbs-abroad-admission/uzbekistan/',
         items: [
           { label: 'Bukhara State Medical College, Bukhara', url: '/bukhara-state-medical-college/' },
           { label: 'Samarkand State Medical College, Samarkand', url: '/samarkand-state-medical-college/' },
@@ -297,7 +297,7 @@ export const mainMenuData: MenuItem[] = [
       // KAZAKHSTAN
       {
         label: 'Kazakhstan',
-        url: '/mbbs-in-kazakhstan/',
+        url: '/mbbs-abroad-admission/kazakhstan/',
         items: [
           { label: 'Al-Farabi Kazakh National Medical University', url: '/al-farabi-kazakh-national-medical-university/' },
           { label: 'Asfendiyarov Kazakh National Medical University', url: '/asfendiyarov-kazakh-national-medical-university/' },
@@ -311,7 +311,7 @@ export const mainMenuData: MenuItem[] = [
       // KYRGYZSTAN
       {
         label: 'Kyrgyzstan',
-        url: '/mbbs-in-kyrgyzstan/',
+        url: '/mbbs-abroad-admission/kyrgyzstan/',
         items: [
           { label: 'Medical Faculty & Asian Medical Institute, Kant', url: '/medical-faculty-and-asian-medical-institute-kyrgyzstan/' },
           { label: 'Osh International Medical University, Osh', url: '/osh-international-medical-university-kyrgyzstan/' },
@@ -348,6 +348,6 @@ export const mainMenuData: MenuItem[] = [
     label: 'Our team',
     url: '/our-team/',
   },
-  
+
 ];
 

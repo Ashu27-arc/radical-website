@@ -28,7 +28,7 @@ export default function AyushCounselling2025() {
     setSubmitMessage(null);
 
     try {
-      const response = await fetch('/api/ayush-counselling', {
+      const response = await fetch('/api/ayush-counselling/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -115,11 +115,10 @@ export default function AyushCounselling2025() {
 
                   <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
                     {submitMessage && (
-                      <div className={`p-3 rounded-lg text-sm ${
-                        submitMessage.type === 'success' 
-                          ? 'bg-green-100 text-green-700 border border-green-300' 
+                      <div className={`p-3 rounded-lg text-sm ${submitMessage.type === 'success'
+                          ? 'bg-green-100 text-green-700 border border-green-300'
                           : 'bg-red-100 text-red-700 border border-red-300'
-                      }`}>
+                        }`}>
                         {submitMessage.text}
                       </div>
                     )}

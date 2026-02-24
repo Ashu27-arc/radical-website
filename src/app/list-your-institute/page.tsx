@@ -71,12 +71,12 @@ export default function InstituteListPage() {
       formDataToSend.append("emailAddress", formData.emailAddress);
       formDataToSend.append("phoneNo", formData.phoneNo);
       formDataToSend.append("instituteDescription", formData.instituteDescription);
-      
+
       if (formData.image) {
         formDataToSend.append("image", formData.image);
       }
 
-      const response = await fetch("/api/submit-institute", {
+      const response = await fetch("/api/submit-institute/", {
         method: "POST",
         body: formDataToSend,
       });
@@ -103,7 +103,7 @@ export default function InstituteListPage() {
           instituteDescription: "",
           image: null,
         });
-        
+
         // Scroll to top to show success message
         window.scrollTo({ top: 0, behavior: "smooth" });
       } else {
@@ -380,5 +380,5 @@ export default function InstituteListPage() {
         </div>
       </div>
     </div>
-  ); 
+  );
 }

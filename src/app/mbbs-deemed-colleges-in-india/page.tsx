@@ -26,7 +26,7 @@ export default function MBBSDeemedCollegesPage() {
         setSubmitMessage(null);
 
         try {
-            const response = await fetch('/api/deemed-college-enquiry', {
+            const response = await fetch('/api/deemed-college-enquiry/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -89,7 +89,7 @@ export default function MBBSDeemedCollegesPage() {
                         {/* Paragraphs with watermark background */}
                         <div className="relative rounded-lg overflow-hidden">
                             {/* Watermark background image */}
-                            <div 
+                            <div
                                 className="absolute inset-0 bg-no-repeat bg-center pointer-events-none opacity-30 sm:opacity-40 md:opacity-50"
                                 style={{
                                     backgroundImage: "url('/images/deemed/Radical-Logo.webp')",
@@ -97,7 +97,7 @@ export default function MBBSDeemedCollegesPage() {
                                     zIndex: 0
                                 }}
                             ></div>
-                            
+
                             {/* Content with relative positioning to appear above watermark */}
                             <div className="relative z-10 space-y-3 sm:space-y-4">
                                 <p>
@@ -135,7 +135,7 @@ export default function MBBSDeemedCollegesPage() {
                         {/* Private Medical Colleges Table */}
                         <div className="relative overflow-x-auto -mx-1 sm:mx-0 max-w-full rounded-lg border border-gray-200">
                             {/* Watermark background image */}
-                            <div 
+                            <div
                                 className="absolute inset-0 bg-no-repeat bg-center pointer-events-none opacity-20 sm:opacity-30 md:opacity-40 lg:opacity-50"
                                 style={{
                                     backgroundImage: "url('/images/deemed/Radical-Logo.webp')",
@@ -143,7 +143,7 @@ export default function MBBSDeemedCollegesPage() {
                                     zIndex: 0
                                 }}
                             ></div>
-                            
+
                             {/* Table with relative positioning to appear above watermark */}
                             <div className="relative z-10 min-w-[320px] sm:min-w-0">
                                 <table className="w-full border-collapse border border-gray-300 text-[10px] sm:text-xs md:text-sm table-fixed sm:table-auto">
@@ -154,7 +154,7 @@ export default function MBBSDeemedCollegesPage() {
                                             <th className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 text-left">
                                                 <div className="flex items-center gap-1">
                                                     <svg width="12" height="12" className="sm:w-4 sm:h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="black"/>
+                                                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="black" />
                                                     </svg>
                                                     <span className="hidden sm:inline">Location</span>
                                                     <span className="sm:hidden">Loc.</span>
@@ -220,7 +220,7 @@ export default function MBBSDeemedCollegesPage() {
                                         <th className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 text-left">
                                             <div className="flex items-center gap-1">
                                                 <svg width="12" height="12" className="sm:w-4 sm:h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="black"/>
+                                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="black" />
                                                 </svg>
                                                 <span className="hidden sm:inline">Location</span>
                                                 <span className="sm:hidden">Loc.</span>
@@ -387,11 +387,10 @@ export default function MBBSDeemedCollegesPage() {
                         </h3>
 
                         {submitMessage && (
-                            <div className={`mb-4 p-3 rounded-lg text-sm ${
-                                submitMessage.type === 'success' 
-                                    ? 'bg-green-100 text-green-700 border border-green-300' 
+                            <div className={`mb-4 p-3 rounded-lg text-sm ${submitMessage.type === 'success'
+                                    ? 'bg-green-100 text-green-700 border border-green-300'
                                     : 'bg-red-100 text-red-700 border border-red-300'
-                            }`}>
+                                }`}>
                                 {submitMessage.text}
                             </div>
                         )}
@@ -438,7 +437,7 @@ export default function MBBSDeemedCollegesPage() {
                                 disabled={isSubmitting}
                             />
 
-                            <button 
+                            <button
                                 type="submit"
                                 disabled={isSubmitting}
                                 className="cursor-pointer w-full mt-2 bg-gradient-to-r from-[#63CDB4] to-[#0077BF] text-white py-2.5 sm:py-3 rounded-lg sm:rounded-xl font-semibold text-sm sm:text-base touch-manipulation min-h-[50px] disabled:opacity-50 disabled:cursor-not-allowed"
@@ -516,7 +515,7 @@ export default function MBBSDeemedCollegesPage() {
                     </div>
                 </div>
             </div>
-            
+
             {/* Connect With Us Section */}
             <div className="py-8 sm:py-10 md:py-12 lg:py-14 xl:py-16 text-center px-3 sm:px-4 md:px-6">
                 <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-[#00CFB240] break-words">
@@ -561,8 +560,8 @@ function FAQSection() {
     return (
         <div className="space-y-3 sm:space-y-4">
             {faqs.map((faq, index) => (
-                <div 
-                    key={index} 
+                <div
+                    key={index}
                     className="bg-white border border-gray-200 rounded-lg shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md"
                 >
                     <button
@@ -573,23 +572,22 @@ function FAQSection() {
                             {index + 1}. {faq.question}
                         </h3>
                         <div className={`transform transition-transform duration-300 flex-shrink-0 ${openFAQ === index ? 'rotate-180' : ''}`}>
-                            <svg 
-                                className="w-4 h-4 sm:w-5 sm:h-5 text-gray-500" 
-                                fill="none" 
-                                stroke="currentColor" 
+                            <svg
+                                className="w-4 h-4 sm:w-5 sm:h-5 text-gray-500"
+                                fill="none"
+                                stroke="currentColor"
                                 viewBox="0 0 24 24"
                             >
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                             </svg>
                         </div>
                     </button>
-                    
-                    <div 
-                        className={`transition-all duration-300 ease-in-out ${
-                            openFAQ === index 
-                                ? 'max-h-96 opacity-100' 
+
+                    <div
+                        className={`transition-all duration-300 ease-in-out ${openFAQ === index
+                                ? 'max-h-96 opacity-100'
                                 : 'max-h-0 opacity-0'
-                        } overflow-hidden`}
+                            } overflow-hidden`}
                     >
                         <div className="px-3 sm:px-4 pb-3 sm:pb-4 border-t border-gray-100">
                             <p className="text-gray-600 text-xs sm:text-sm leading-relaxed pt-2 sm:pt-3 animate-fadeIn">

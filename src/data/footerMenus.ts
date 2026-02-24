@@ -54,12 +54,12 @@ export const mbbsIndia: MenuItem[] = [
 ];
 
 export const mbbsAbroad: MenuItem[] = [
-  { label: 'MBBS In Russia', icon: 'pi pi-angle-right', url: '/mbbs-abroad-admission/russia' },
-  { label: 'MBBS In Kazakhstan', icon: 'pi pi-angle-right', url: '/mbbs-abroad-admission/kazakhstan' },
-  { label: 'MBBS In Nepal', icon: 'pi pi-angle-right', url: '/mbbs-abroad-admission/nepal' },
-  { label: 'MBBS In Singapore', icon: 'pi pi-angle-right', url: '/mbbs-abroad-admission/singapore' },
-  { label: 'MBBS In Georgia', icon: 'pi pi-angle-right', url: '/mbbs-abroad-admission/georgia' },
-  { label: 'MBBS In Uzbekistan', icon: 'pi pi-angle-right', url: '/mbbs-abroad-admission/uzbekistan' },
-  { label: 'MBBS In Bangladesh', icon: 'pi pi-angle-right', url: '/mbbs-abroad-admission/bangladesh' },
+  { label: 'MBBS In Russia', icon: 'pi pi-angle-right', url: '/mbbs-abroad-admission/russia/' },
+  { label: 'MBBS In Kazakhstan', icon: 'pi pi-angle-right', url: '/mbbs-abroad-admission/kazakhstan/' },
+  { label: 'MBBS In Nepal', icon: 'pi pi-angle-right', url: '/mbbs-abroad-admission/nepal/' },
+  { label: 'MBBS In Singapore', icon: 'pi pi-angle-right', url: '/mbbs-abroad-admission/singapore/' },
+  { label: 'MBBS In Georgia', icon: 'pi pi-angle-right', url: '/mbbs-abroad-admission/georgia/' },
+  { label: 'MBBS In Uzbekistan', icon: 'pi pi-angle-right', url: '/mbbs-abroad-admission/uzbekistan/' },
+  { label: 'MBBS In Bangladesh', icon: 'pi pi-angle-right', url: '/mbbs-abroad-admission/bangladesh/' },
 ];
 
