@@ -9,10 +9,11 @@ import { Dropdown } from 'primereact/dropdown';
 import Link from 'next/link';
 import { Image } from 'primereact/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Autoplay } from 'swiper/modules';
+import { Navigation, Autoplay, Pagination } from 'swiper/modules';
 
 import 'swiper/css';
 import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
 
 const sliderData = [
@@ -132,12 +133,12 @@ export default function EnquireButton() {
       {/* Floating Vertical Button */}
       <button
         onClick={() => setVisible(true)}
-        className="bg-[#CB1E17]! 
-          fixed right-[-70px] top-1/2 z-50
+        className="
+          fixed right-[-65px] md:right-[-70px] top-1/2 z-50
           bg-[#CB1E17] text-white tracking-widest
-          px-6 py-3 rounded-t-2xl shadow-xl
-          hover:bg-red-600 transition
-          flex items-center gap-2 text-xs cursor-pointer
+          px-4 md:px-6 py-2.5 md:py-3 rounded-t-2xl shadow-xl
+          hover:bg-red-600 transition-all duration-300
+          flex items-center gap-2 text-[10px] md:text-xs cursor-pointer
         "
         style={{
           transform: 'translateY(-50%) rotate(-90deg)',
@@ -145,7 +146,7 @@ export default function EnquireButton() {
         }}
       >
         ENQUIRE NOW
-        <i className="pi pi-envelope text-xs!"></i>
+        <i className="pi pi-envelope text-[10px] md:text-xs!"></i>
       </button>
 
       {/* Modal */}
@@ -156,192 +157,223 @@ export default function EnquireButton() {
         modal
         className="w-[95vw] max-w-[900px] noDialogHeader DialogBodyNoPadding transparentDialog rounded-lg"
       >
-        <div className="grid lg:grid-cols-2 grid-cols-1 rounded-lg overflow-hidden relative">
-          <button onClick={() => setVisible(false)} className='btnico absolute right-[10px] top-[10px] cursor-pointer'>
+        <div className="rounded-lg overflow-hidden relative">
+          <button onClick={() => setVisible(false)} className='btnico absolute right-[10px] top-[10px] cursor-pointer z-50'>
             <i className='pi pi-times-circle text-xl!'></i>
           </button>
-          <div className="md:px-6 px-4 lg:py-8 md:py-6 py-4 bg-[#e7fffc]">
-            <div className="space-y-5">
-              <div>
-                <div className="text-3xl font-bold text-black mb-1">
-                  Request a <span className="text-[#00CFB2]">Callback</span>
-                </div>
-                <div className="text-black">
-                  Stay Ahead for NEET 2025! Get Expert Guidance & Latest Update.
-                </div>
-              </div>
-
-              {/* Name */}
-              <div className="p-inputgroup">
-                <span className="p-inputgroup-addon bg-white!">
-                  <i className="pi pi-user"></i>
-                </span>
-                <span className="p-float-label">
-                  <InputText
-                    id="name"
-                    value={form.name}
-                    onChange={(e) =>
-                      setForm({ ...form, name: e.target.value })
-                    }
-                    className="w-full border-l-0! pl-0!"
-                  />
-                  <label htmlFor="name" className="text-sm">
-                    Full Name*
-                  </label>
-                </span>
-              </div>
-
-
-              {/* Mobile */}
-              <div className="p-inputgroup">
-                <span className="p-inputgroup-addon bg-white!">
-                  <i className="pi pi-phone"></i>
-                </span>
-                <span className="p-float-label">
-                  <InputText
-                    id="mobile"
-                    value={form.mobile}
-                    keyfilter="int"
-                    maxLength={10}
-                    onChange={(e) =>
-                      setForm({
-                        ...form,
-                        mobile: e.target.value.replace(/\D/g, ''),
-                      })
-                    }
-                    className="w-full border-l-0!"
-                    style={{ paddingLeft: 0 }}
-                  />
-                  <label htmlFor="mobile" className="text-sm">
-                    Mobile Number*
-                  </label>
-                </span>
-              </div>
-
-              {/* Course (Required) */}
-              <div className="p-inputgroup">
-                <span className="p-inputgroup-addon bg-white!">
-                  <i className="pi pi-book"></i>
-                </span>
-                <span className="p-float-label w-full">
-                  <Dropdown
-                    id="course"
-                    value={form.course}
-                    options={courseOptions}
-                    onChange={(e) =>
-                      setForm({ ...form, course: e.value })
-                    }
-                    className="w-full border-l-0!"
-                  />
-                  <label htmlFor="course" className="text-sm">
-                    Select Course*
-                  </label>
-                </span>
-              </div>
-              <div>
-                <Button
-                  label="SUBMIT"
-                  icon="pi pi-arrow-right"
-                  iconPos="right"
-                  className="w-full bg-gradient-to-l! from-[#00CFB2]! to-[#005A8B]! border-[#00CFB2]!"
-                  onClick={handleSubmit}
-                />
-              </div>
-              <div className='grid grid-cols-2 gap-2'>
-                <div>
-                  <Link href="tel:+919797972465" className='rounded-lg flex items-center gap-2 p-2 w-full bg-gradient-to-r! from-[#00CFB2]! to-[#005A8B]! border-[#00CFB2]!'>
+          <Swiper
+            modules={[Navigation, Pagination]}
+            navigation
+            pagination={{ clickable: true }}
+            spaceBetween={0}
+            breakpoints={{
+              1024: {
+                slidesPerView: 2,
+                enabled: false,
+              },
+              0: {
+                slidesPerView: 1,
+                enabled: true,
+              }
+            }}
+            className="enquiryModalSlider lg:h-[600px]"
+          >
+            <SwiperSlide className="!h-auto lg:!h-full">
+              <div className="px-4 py-10 md:px-6 md:py-12 lg:p-10 bg-[#e7fffc] h-full flex flex-col">
+                <div className="space-y-4 md:space-y-5 lg:space-y-8 flex-grow flex flex-col justify-between">
+                  <div className="space-y-4 md:space-y-5">
                     <div>
-                      <div className='h-9 w-9 flex items-center justify-center rounded-full border-2 border-[#fff]'>
-                        <i className='pi pi-phone text-white text-[14px]!'></i>
+                      <div className="text-2xl md:text-3xl font-bold text-black mb-1">
+                        Request a <span className="text-[#00CFB2]">Callback</span>
+                      </div>
+                      <div className="text-sm md:text-base text-black opacity-80">
+                        Stay Ahead for NEET 2025! Get Expert Guidance & Latest Update.
                       </div>
                     </div>
-                    <div>
-                      <div className='text-white font-bold text-sm'>+919797972465</div>
-                      <div className='text-black text-[10px] text-nowrap'>Call for a Consultation!</div>
-                    </div>
-                  </Link>
-                </div>
-                <div>
-                  <Link href="#" className='rounded-lg flex items-center gap-2 px-2 py-1 w-full bg-gradient-to-l! from-[#00CFB2]! to-[#005A8B]! border-[#00CFB2]!'>
-                    <div>
-                      <div className='h-9 w-9 flex items-center justify-center rounded-full border-2 border-[#fff]'>
-                        <i className='pi pi-whatsapp text-white text-[18px]!'></i>
+
+                    {/* Form Fields */}
+                    <div className="space-y-5 md:space-y-6 lg:space-y-8">
+                      {/* Name */}
+                      <div className="p-inputgroup">
+                        <span className="p-inputgroup-addon bg-white! border-gray-300!">
+                          <i className="pi pi-user"></i>
+                        </span>
+                        <span className="p-float-label">
+                          <InputText
+                            id="name"
+                            value={form.name}
+                            onChange={(e) =>
+                              setForm({ ...form, name: e.target.value })
+                            }
+                            className="w-full border-l-0! pl-0! py-3.5! lg:py-4!"
+                          />
+                          <label htmlFor="name" className="text-sm">
+                            Full Name*
+                          </label>
+                        </span>
+                      </div>
+
+                      {/* Mobile */}
+                      <div className="p-inputgroup">
+                        <span className="p-inputgroup-addon bg-white! border-gray-300!">
+                          <i className="pi pi-phone"></i>
+                        </span>
+                        <span className="p-float-label">
+                          <InputText
+                            id="mobile"
+                            value={form.mobile}
+                            keyfilter="int"
+                            maxLength={10}
+                            onChange={(e) =>
+                              setForm({
+                                ...form,
+                                mobile: e.target.value.replace(/\D/g, ''),
+                              })
+                            }
+                            className="w-full border-l-0! pl-0! py-3.5! lg:py-4!"
+                          />
+                          <label htmlFor="mobile" className="text-sm">
+                            Mobile Number*
+                          </label>
+                        </span>
+                      </div>
+
+                      {/* Course */}
+                      <div className="p-inputgroup">
+                        <span className="p-inputgroup-addon bg-white! border-gray-300!">
+                          <i className="pi pi-book"></i>
+                        </span>
+                        <span className="p-float-label w-full">
+                          <Dropdown
+                            id="course"
+                            value={form.course}
+                            options={courseOptions}
+                            onChange={(e) =>
+                              setForm({ ...form, course: e.value })
+                            }
+                            className="w-full border-l-0! h-[52px] lg:h-[60px] flex items-center"
+                          />
+                          <label htmlFor="course" className="text-sm">
+                            Select Course*
+                          </label>
+                        </span>
                       </div>
                     </div>
+
                     <div>
-                      <div className='text-white font-bold text-xs'>NEET 2026 LATEST UPDATES</div>
-                      <div className='text-black text-[8px] text-nowrap'>Join Our WhatsApp Channel Now</div>
-                    </div>
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="md:px-6 px-4 lg:py-8 md:py-6 py-4 bg-white">
-            <div className='space-y-4'>
-              <div className='w-full'>
-                <Swiper
-                  modules={[Navigation, Autoplay]}
-                  navigation
-                  autoplay={{ delay: 3000, disableOnInteraction: false, }}
-                  loop
-                  className="px-2! flotingFormSlider"
-                >
-                  {sliderData.map((item) => (
-                    <SwiperSlide key={item.id}>
-                      <Link className='' href={item.link}>
-                        <div className="flex items-center gap-4 cursor-pointer">
-                          <div className="w-20 h-14 relative shrink-0 flex items-center">
-                            <Image
-                              src={item.image}
-                              alt={item.title}
-                              className="object-cover rounded-md"
-                            />
-                          </div>
-
-                          <div>
-                            <h3 className="font-semibold text-gray-800 mb-1 text-sm md:text-base line-clamp-1">
-                              {item.title}
-                            </h3>
-                            <p className="text-xs text-gray-500">{item.date}</p>
-                          </div>
-                        </div>
-                      </Link>
-                    </SwiperSlide>
-                  ))}
-                </Swiper>
-              </div>
-              {/* ================= TITLE ================= */}
-              <h2 className="font-medium text-gray-900">
-                How Radical Education Supports <br className="hidden sm:block" />
-                You in Securing Admissions
-              </h2>
-
-              {/* ================= CARDS ================= */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {cardsData.map((card) => (
-                  <div
-                    key={card.id}
-                    className="border border-[#00CFB2] rounded-xl px-2 py-3 space-y-2 text-center"
-                  >
-                    <div className="w-[56px] relative inline-flex items-center">
-                      <Image
-                        src={card.image}
-                        alt={card.title}
-                        className="object-contain"
+                      <Button
+                        label="SUBMIT"
+                        icon="pi pi-arrow-right"
+                        iconPos="right"
+                        className="w-full py-4 lg:py-5 bg-gradient-to-l! from-[#00CFB2]! to-[#005A8B]! border-[#00CFB2]! text-base lg:text-lg font-bold shadow-lg"
+                        onClick={handleSubmit}
                       />
                     </div>
-
-                    <p className="font-medium text-gray-800 text-sm">
-                      {card.title}
-                    </p>
                   </div>
-                ))}
-              </div>
-            </div>
 
-          </div>
+                  <div className='grid grid-cols-1 lg:grid-cols-2 gap-3 mt-auto'>
+                    <Link href="tel:+919797972465" className='rounded-xl flex items-center gap-3 p-2.5 w-full bg-gradient-to-r! from-[#00CFB2]! to-[#005A8B]! border-[#00CFB2]! transition-transform hover:scale-[1.02]'>
+                      <div className='h-9 w-9 flex items-center justify-center rounded-full border border-white/40 bg-white/10 shrink-0'>
+                        <i className='pi pi-phone text-white text-sm'></i>
+                      </div>
+                      <div className="min-w-0">
+                        <div className='text-white font-bold text-[13px] truncate'>+919797972465</div>
+                        <div className='text-white/80 text-[9px] whitespace-nowrap'>Call for Consultation!</div>
+                      </div>
+                    </Link>
+
+                    <Link href="#" className='rounded-xl flex items-center gap-3 p-2.5 w-full bg-gradient-to-l! from-[#00CFB2]! to-[#005A8B]! border-[#00CFB2]! transition-transform hover:scale-[1.02]'>
+                      <div className='h-9 w-9 flex items-center justify-center rounded-full border border-white/40 bg-white/10 shrink-0'>
+                        <i className='pi pi-whatsapp text-white text-lg'></i>
+                      </div>
+                      <div className="min-w-0">
+                        <div className='text-white font-bold text-[13px] truncate'>WHATSAPP UPDATES</div>
+                        <div className='text-white/80 text-[9px] whitespace-nowrap'>Join Our Channel Now</div>
+                      </div>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+
+            <SwiperSlide className="!h-auto lg:!h-full">
+              <div className="px-4 py-10 md:px-6 md:py-12 lg:p-10 bg-white h-full flex flex-col">
+                <div className='space-y-6 md:space-y-4 flex-grow flex flex-col justify-between'>
+                  <div className='w-full relative group'>
+                    {/* Custom Navigation Icons (Desktop Only) */}
+                    <div className="hidden lg:flex absolute -left-6 top-1/2 -translate-y-1/2 z-10 cursor-pointer swiper-prev-btn">
+                      <i className="pi pi-chevron-left text-[#00CFB2] text-lg font-bold"></i>
+                    </div>
+                    <div className="hidden lg:flex absolute -right-6 top-1/2 -translate-y-1/2 z-10 cursor-pointer swiper-next-btn">
+                      <i className="pi pi-chevron-right text-[#00CFB2] text-lg font-bold"></i>
+                    </div>
+
+                    <Swiper
+                      modules={[Navigation, Autoplay]}
+                      navigation={{
+                        prevEl: '.swiper-prev-btn',
+                        nextEl: '.swiper-next-btn',
+                      }}
+                      autoplay={{ delay: 3000, disableOnInteraction: false, }}
+                      loop
+                      className="px-2! flotingFormSlider"
+                    >
+                      {sliderData.map((item) => (
+                        <SwiperSlide key={item.id}>
+                          <Link className='' href={item.link}>
+                            <div className="flex items-center gap-4 cursor-pointer">
+                              <div className="w-20 md:w-24 h-14 md:h-16 relative shrink-0 flex items-center">
+                                <Image
+                                  src={item.image}
+                                  alt={item.title}
+                                  className="object-cover rounded-md shadow-sm"
+                                />
+                              </div>
+
+                              <div className="min-w-0">
+                                <h3 className="font-semibold text-gray-800 mb-1 text-sm md:text-base line-clamp-1">
+                                  {item.title}
+                                </h3>
+                                <p className="text-[10px] md:text-xs text-gray-500 font-medium">{item.date}</p>
+                              </div>
+                            </div>
+                          </Link>
+                        </SwiperSlide>
+                      ))}
+                    </Swiper>
+                  </div>
+
+                  {/* ================= TITLE ================= */}
+                  <h2 className="font-bold text-gray-900 text-2xl md:text-xl leading-tight">
+                    How Radical Education Supports <br className="hidden sm:block" />
+                    You in Securing Admissions
+                  </h2>
+
+                  {/* ================= CARDS ================= */}
+                  <div className="grid grid-cols-2 lg:grid-cols-2 gap-3 md:gap-4 mt-auto">
+                    {cardsData.map((card) => (
+                      <div
+                        key={card.id}
+                        className="border border-[#00CFB2]/30 bg-gray-50/30 rounded-xl p-3 md:py-4 flex flex-col items-center justify-center space-y-2 text-center transition-all hover:border-[#00CFB2] hover:bg-white hover:shadow-md group"
+                      >
+                        <div className="w-10 md:w-14 relative inline-flex items-center transition-transform group-hover:scale-110">
+                          <Image
+                            src={card.image}
+                            alt={card.title}
+                            className="object-contain"
+                          />
+                        </div>
+
+                        <p className="font-medium text-gray-700 text-[11px] md:text-sm leading-tight">
+                          {card.title}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </SwiperSlide>
+          </Swiper>
         </div>
       </Dialog>
     </>

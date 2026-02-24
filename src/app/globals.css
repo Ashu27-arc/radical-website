@@ -386,20 +386,20 @@ body {
         -webkit-box-shadow: 0 0 0 1000px white inset !important;
         -webkit-text-fill-color: #000 !important;
     }
-    
+
     /* Override autofill for specific form elements */
     .form-input:-webkit-autofill,
     .form-textarea:-webkit-autofill {
         -webkit-text-fill-color: white !important;
     }
-    
+
     /* Force placeholder colors to dark gray */
     input::placeholder,
     textarea::placeholder {
         color: #374151 !important;
         opacity: 1 !important;
     }
-    
+
     /* Most aggressive placeholder override */
     *::placeholder {
         color: #374151 !important;
@@ -1461,4 +1461,49 @@ input:autofill {
     border-radius: 20px;
     padding: 8px 16px;
     display: inline-block;
+}
+
+/* Custom Swiper Pagination for Enquiry Modal */
+.enquiryModalSlider .swiper-pagination {
+    bottom: 10px !important;
+}
+
+.enquiryModalSlider .swiper-pagination-bullet {
+    width: 25px !important;
+    height: 2px !important;
+    border-radius: 1px !important;
+    background: #00CFB2 !important;
+    opacity: 0.3 !important;
+    transition: all 0.3s ease !important;
+}
+
+.enquiryModalSlider .swiper-pagination-bullet-active {
+    width: 40px !important;
+    opacity: 1 !important;
+    background: linear-gradient(to right, #00CFB2, #005A8B) !important;
+}
+
+.enquiryModalSlider .swiper-button-next,
+.enquiryModalSlider .swiper-button-prev {
+    color: #00CFB2 !important;
+    background: white;
+    width: 30px !important;
+    height: 30px !important;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.enquiryModalSlider .swiper-button-next:after,
+.enquiryModalSlider .swiper-button-prev:after {
+    font-size: 16px !important;
+    font-weight: bold;
+}
+
+@media (min-width: 1024px) {
+
+    .enquiryModalSlider .swiper-pagination,
+    .enquiryModalSlider .swiper-button-next,
+    .enquiryModalSlider .swiper-button-prev {
+        display: none !important;
+    }
 }
