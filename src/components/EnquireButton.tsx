@@ -73,8 +73,11 @@ export default function EnquireButton() {
   const [form, setForm] = useState({
     name: '',
     mobile: '',
+    email: '',
     course: '',
   });
+
+  const [loading, setLoading] = useState(false);
 
   const courseOptions = [
     { label: 'MBBS INDIA', value: 'MBBS INDIA' },
@@ -98,7 +101,7 @@ export default function EnquireButton() {
     });
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = async () => {
     if (!form.name.trim()) return showError('Name is required');
     if (!form.mobile.trim()) return showError('Mobile number is required');
 
@@ -106,24 +109,54 @@ export default function EnquireButton() {
       return showError('Mobile number must be exactly 10 digits');
     }
 
+    if (form.email && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+      return showError('Invalid email address');
+    }
+
     if (!form.course) {
       return showError('Please select a course');
     }
 
-    toast.current?.show({
-      severity: 'success',
-      summary: 'Enquiry Submitted',
-      detail: 'We will contact you shortly',
-      life: 3000,
-    });
+    setLoading(true);
+    try {
+      const response = await fetch('/api/counselor-enquiry/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...form,
+          state: 'Floating Form' // Providing a default state for the backend
+        }),
+      });
 
-    setForm({
-      name: '',
-      mobile: '',
-      course: '',
-    });
+      const result = await response.json();
 
-    setVisible(false);
+      if (result.success) {
+        toast.current?.show({
+          severity: 'success',
+          summary: 'Enquiry Submitted',
+          detail: 'We will contact you shortly',
+          life: 3000,
+        });
+
+        setForm({
+          name: '',
+          mobile: '',
+          email: '',
+          course: '',
+        });
+
+        setVisible(false);
+      } else {
+        showError(result.message || 'Submission failed');
+      }
+    } catch (error) {
+      showError('Network error. Please try again.');
+      console.error('Submission error:', error);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -179,8 +212,8 @@ export default function EnquireButton() {
             className="enquiryModalSlider lg:h-[600px]"
           >
             <SwiperSlide className="!h-auto lg:!h-full">
-              <div className="px-4 py-10 md:px-6 md:py-12 lg:p-10 bg-[#e7fffc] h-full flex flex-col">
-                <div className="space-y-4 md:space-y-5 lg:space-y-8 flex-grow flex flex-col justify-between">
+              <div className="px-4 py-10 md:px-6 md:py-12 lg:p-8 bg-[#e7fffc] h-full flex flex-col">
+                <div className="space-y-4 md:space-y-5 lg:space-y-6 flex-grow flex flex-col justify-between lg:justify-start">
                   <div className="space-y-4 md:space-y-5">
                     <div>
                       <div className="text-2xl md:text-3xl font-bold text-black mb-1">
@@ -192,7 +225,7 @@ export default function EnquireButton() {
                     </div>
 
                     {/* Form Fields */}
-                    <div className="space-y-5 md:space-y-6 lg:space-y-8">
+                    <div className="space-y-5 md:space-y-6 lg:space-y-5">
                       {/* Name */}
                       <div className="p-inputgroup">
                         <span className="p-inputgroup-addon bg-white! border-gray-300!">
@@ -205,10 +238,30 @@ export default function EnquireButton() {
                             onChange={(e) =>
                               setForm({ ...form, name: e.target.value })
                             }
-                            className="w-full border-l-0! pl-0! py-3.5! lg:py-4!"
+                            className="w-full border-l-0! pl-0! py-3.5! lg:py-3.5!"
                           />
                           <label htmlFor="name" className="text-sm">
                             Full Name*
+                          </label>
+                        </span>
+                      </div>
+
+                      {/* Email */}
+                      <div className="p-inputgroup">
+                        <span className="p-inputgroup-addon bg-white! border-gray-300!">
+                          <i className="pi pi-envelope"></i>
+                        </span>
+                        <span className="p-float-label">
+                          <InputText
+                            id="email"
+                            value={form.email}
+                            onChange={(e) =>
+                              setForm({ ...form, email: e.target.value })
+                            }
+                            className="w-full border-l-0! pl-0! py-3.5! lg:py-3.5!"
+                          />
+                          <label htmlFor="email" className="text-sm">
+                            Email Address
                           </label>
                         </span>
                       </div>
@@ -230,7 +283,7 @@ export default function EnquireButton() {
                                 mobile: e.target.value.replace(/\D/g, ''),
                               })
                             }
-                            className="w-full border-l-0! pl-0! py-3.5! lg:py-4!"
+                            className="w-full border-l-0! pl-0! py-3.5! lg:py-3.5!"
                           />
                           <label htmlFor="mobile" className="text-sm">
                             Mobile Number*
@@ -251,7 +304,7 @@ export default function EnquireButton() {
                             onChange={(e) =>
                               setForm({ ...form, course: e.value })
                             }
-                            className="w-full border-l-0! h-[52px] lg:h-[60px] flex items-center"
+                            className="w-full border-l-0! h-[52px] lg:h-[54px] flex items-center"
                           />
                           <label htmlFor="course" className="text-sm">
                             Select Course*
@@ -265,14 +318,15 @@ export default function EnquireButton() {
                         label="SUBMIT"
                         icon="pi pi-arrow-right"
                         iconPos="right"
-                        className="w-full py-4 lg:py-5 bg-gradient-to-l! from-[#00CFB2]! to-[#005A8B]! border-[#00CFB2]! text-base lg:text-lg font-bold shadow-lg"
+                        className="w-full py-4 lg:py-4 bg-gradient-to-l! from-[#00CFB2]! to-[#007EC8]! border-[#00CFB2]! text-base lg:text-lg font-bold shadow-lg"
                         onClick={handleSubmit}
+                        loading={loading}
                       />
                     </div>
                   </div>
 
-                  <div className='grid grid-cols-1 lg:grid-cols-2 gap-3 mt-auto'>
-                    <Link href="tel:+919797972465" className='rounded-xl flex items-center gap-3 p-2.5 w-full bg-gradient-to-r! from-[#00CFB2]! to-[#005A8B]! border-[#00CFB2]! transition-transform hover:scale-[1.02]'>
+                  <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 mt-auto lg:-mt-2'>
+                    <Link href="tel:+919797972465" className='rounded-xl flex items-center gap-3 p-2.5 w-full bg-gradient-to-r! from-[#00CFB2]! to-[#287FC4]! border-[#00CFB2]! transition-transform hover:scale-[1.02]'>
                       <div className='h-9 w-9 flex items-center justify-center rounded-full border border-white/40 bg-white/10 shrink-0'>
                         <i className='pi pi-phone text-white text-sm'></i>
                       </div>
@@ -282,12 +336,12 @@ export default function EnquireButton() {
                       </div>
                     </Link>
 
-                    <Link href="#" className='rounded-xl flex items-center gap-3 p-2.5 w-full bg-gradient-to-l! from-[#00CFB2]! to-[#005A8B]! border-[#00CFB2]! transition-transform hover:scale-[1.02]'>
-                      <div className='h-9 w-9 flex items-center justify-center rounded-full border border-white/40 bg-white/10 shrink-0'>
-                        <i className='pi pi-whatsapp text-white text-lg'></i>
+                    <Link href="#" className='rounded-xl flex items-center gap-3 p-2.5 w-full bg-gradient-to-l! from-[#00CFB2]! to-[#287FC4]! border-[#00CFB2]! transition-transform hover:scale-[1.02]'>
+                      <div className='flex items-center justify-center shrink-0'>
+                        <i className='pi pi-whatsapp text-green-500 text-3xl!'></i>
                       </div>
                       <div className="min-w-0">
-                        <div className='text-white font-bold text-[13px] truncate'>WHATSAPP UPDATES</div>
+                        <div className='text-white font-bold text-[13px] md:text-[12px] lg:text-[10px] truncate'>NEET 2026 LATEST <br /> UPDATES</div>
                         <div className='text-white/80 text-[9px] whitespace-nowrap'>Join Our Channel Now</div>
                       </div>
                     </Link>
@@ -344,7 +398,7 @@ export default function EnquireButton() {
                   </div>
 
                   {/* ================= TITLE ================= */}
-                  <h2 className="font-bold text-gray-900 text-2xl md:text-xl leading-tight">
+                  <h2 className="font-bold text-gray-900 text-xl md:text-xl leading-tight">
                     How Radical Education Supports <br className="hidden sm:block" />
                     You in Securing Admissions
                   </h2>
