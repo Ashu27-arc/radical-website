@@ -93,7 +93,7 @@ body {
     }
 
     50% {
-        transform: translateY(50px)
+        transform: translateY(20px)
     }
 
     to {
@@ -111,7 +111,7 @@ body {
     }
 
     50% {
-        transform: translateX(50px)
+        transform: translateX(20px)
     }
 
     to {
@@ -261,7 +261,7 @@ body {
     }
 
     50% {
-        transform: translateY(50px)
+        transform: translateY(20px)
     }
 
     to {
@@ -279,7 +279,7 @@ body {
     }
 
     50% {
-        transform: translateX(50px)
+        transform: translateX(20px)
     }
 
     to {

@@ -136,7 +136,7 @@ export default function MBBSAbroadAdmission() {
     return (
         <div className="min-h-screen">
             {/* Hero Section */}
-            <section className="relative bg-gradient-to-r from-[#0B5A7D] to-[#0E7BA8] py-4 sm:py-6 md:py-8 lg:py-10 overflow-hidden">
+            <section className="relative bg-gradient-to-r from-[#0B5A7D] to-[#0E7BA8] py-4 sm:py-6 md:py-8 lg:pb-10 lg:pt-20 overflow-hidden">
                 <div className="absolute inset-0 opacity-30 sm:opacity-40">
                     {/* Left Bottom Corner Image */}
                     <div className="absolute -bottom-2 sm:-bottom-4 md:-bottom-8 lg:-bottom-16 left-0 w-8 h-8 sm:w-10 sm:h-10 md:w-16 md:h-16 lg:w-24 lg:h-24 xl:w-60 xl:h-60 2xl:w-48 2xl:h-48">
@@ -145,18 +145,18 @@ export default function MBBSAbroadAdmission() {
                             alt="Decorative"
                             width={384}
                             height={384}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover movingY"
                         />
                     </div>
 
                     {/* Right Top Corner Image */}
-                    <div className="absolute top-1 sm:top-2 right-0 w-8 h-8 sm:w-10 sm:h-10 md:w-16 md:h-16 lg:w-24 lg:h-24 xl:w-60 xl:h-60 2xl:w-48 2xl:h-48">
+                    <div className="absolute top-1 sm:top-2 right-0 md:w-[250px] md:h-[250px] w-40 h-40">
                         <Image
                             src="/images/study-abroad/right.webp"
                             alt="Decorative"
                             width={384}
                             height={384}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover movingY"
                         />
                     </div>
                 </div>
@@ -205,7 +205,7 @@ export default function MBBSAbroadAdmission() {
                 <div className="container mx-auto px-4 sm:px-6 md:px-8">
                     <div className="mb-6 sm:mb-8 md:mb-12 flex flex-col md:flex-row items-start justify-between gap-4">
                         <div>
-                            <p className="text-gray-600 text-xs sm:text-sm md:text-base uppercase tracking-wider mb-2">
+                            <p className="text-gray-600 font-semibold text-xs sm:text-sm md:text-base uppercase tracking-wider mb-2">
                                 COUNTRIES
                             </p>
                             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#0B2E3C]">
@@ -227,7 +227,7 @@ export default function MBBSAbroadAdmission() {
                                 href={`/mbbs-abroad-admission/${country.slug}`}
                                 className="block"
                             >
-                                <div className="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300 overflow-hidden aspect-square flex flex-col cursor-pointer">
+                                <div className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition-shadow duration-300 overflow-hidden aspect-square flex flex-col cursor-pointer">
                                     {/* Card Header */}
                                     <div className="p-3 sm:p-4 flex items-center justify-between border-b flex-shrink-0">
                                         <div className="flex items-center gap-2 sm:gap-3">
@@ -539,9 +539,9 @@ export default function MBBSAbroadAdmission() {
                 </div>
             </section>
             {/* Why Abroad Section */}
-            <section className="py-8 sm:py-12 md:py-16 bg-[#005A8B] relative overflow-hidden mx-2 sm:mx-4 md:mx-8 lg:mx-20 xl:mx-30 rounded-2xl">
+            <section className="mb-16 py-8 sm:py-12 md:py-16 bg-[#005A8B] relative overflow-hidden mx-2 sm:mx-4 md:mx-8 lg:mx-20 xl:mx-30 rounded-2xl">
                 {/* Top Left Corner Image - Outside opacity div */}
-                <div className="absolute -top-10 sm:-top-20 md:-top-35 left-2 sm:left-5 w-20 h-20 sm:w-40 sm:h-40 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-96 xl:h-96 z-10">
+                <div className="absolute -top-10 sm:-top-20 md:-top-35 left-0 sm:left-0 w-20 h-20 sm:w-40 sm:h-40 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-96 xl:h-96 z-10">
                     <Image
                         src="/images/study-abroad/left.webp"
                         alt="Decorative"
@@ -571,7 +571,7 @@ export default function MBBSAbroadAdmission() {
                 <div className="container mx-auto px-4 sm:px-6 md:px-8 relative z-10">
                     <div className="max-w-4xl mx-auto">
                         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white text-center mb-6 sm:mb-8 md:mb-12">
-                            Why <span className="text-[#4FC3F7]">Abroad</span>
+                            Why <span className="text-[#63CDB4]">Abroad</span>
                         </h2>
 
                         <div className="space-y-3 sm:space-y-4 md:space-y-6 text-sm sm:text-base md:text-lg">
@@ -588,9 +588,9 @@ export default function MBBSAbroadAdmission() {
             </section>
 
             {/* Cost Breakdown Section */}
-            <section className="py-8 sm:py-12 md:py-16 bg-gradient-to-br from-blue-50 to-blue-100 px-4 sm:px-6 md:px-12 lg:px-24 xl:px-32">
+            <section className="">
                 <div className="container mx-auto px-2 sm:px-4 md:px-6">
-                    <div className="max-w-5xl mx-auto">
+                    <div className="bg-gradient-to-br from-blue-50 to-blue-100 p-10 rounded-2xl">
                         <div className="text-center mb-6 sm:mb-8 md:mb-12">
                             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-[#0B2E3C] mb-3 md:mb-4">
                                 Cost Breakdown
@@ -715,13 +715,13 @@ export default function MBBSAbroadAdmission() {
             </section>
 
             {/* Notes */}
-            <section className="container mx-auto px-4 sm:px-6 md:px-8 lg:px-20 mb-12 sm:mb-16 md:mb-24">
-                <div className="max-w-5xl mx-auto">
-                    <div className="mt-4 sm:mt-6 bg-white border-2 border-dashed border-gray-300 rounded-xl p-3 sm:p-4 md:p-6">
+            <section className="container mx-auto px-2 sm:px-4 md:px-6 lg:px-17 mb-12 sm:mb-16 md:mb-24">
+                <div className="">
+                    <div className="mt-4 sm:mt-6 bg-white border-1 border-dashed border-[#2CBF0F] rounded-xl p-3 sm:p-4 md:p-6">
                         <div className="space-y-2">
                             <div className="flex items-start gap-2">
-                                <span className="text-red-500 font-bold flex-shrink-0 text-sm sm:text-base md:text-lg">Note:-</span>
-                                <div className="space-y-1 text-xs sm:text-sm md:text-base">
+                                <span className="text-[#FF0000] font-bold flex-shrink-0 text-sm sm:text-base md:text-lg">Note:-</span>
+                                <div className="space-y-1 text-[#2CBF0F] font-semibold text-xs sm:text-sm md:text-base">
                                     <p className="text-green-600">
                                         1. This Service Charge Includes The Visa Charges But Does Not Cover The Ticket Charges.
                                     </p>
