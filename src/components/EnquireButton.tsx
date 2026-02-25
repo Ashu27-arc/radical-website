@@ -68,6 +68,7 @@ const cardsData = [
 
 export default function EnquireButton() {
   const [visible, setVisible] = useState(false);
+  const [showSuccess, setShowSuccess] = useState(false);
   const toast = useRef<Toast>(null);
 
   const [form, setForm] = useState({
@@ -148,6 +149,7 @@ export default function EnquireButton() {
         });
 
         setVisible(false);
+        setShowSuccess(true);
       } else {
         showError(result.message || 'Submission failed');
       }
@@ -428,6 +430,59 @@ export default function EnquireButton() {
               </div>
             </SwiperSlide>
           </Swiper>
+        </div>
+      </Dialog>
+
+      {/* Success Popup */}
+      <Dialog
+        visible={showSuccess}
+        onHide={() => setShowSuccess(false)}
+        modal
+        showHeader={false}
+        className="w-[95vw] max-w-[550px] rounded-3xl overflow-hidden p-0 successDialog"
+        contentClassName="p-0 rounded-3xl"
+      >
+        <div className="bg-white p-6 md:p-10 flex flex-col items-center text-center relative">
+          <button
+            onClick={() => setShowSuccess(false)}
+            className="absolute right-5 top-5 text-gray-400 hover:text-gray-600 transition-colors z-10"
+          >
+            <i className="pi pi-times text-xl"></i>
+          </button>
+
+          <div className="w-full max-w-[240px] md:max-w-[320px] mb-6 mt-4">
+            <img
+              src="images/popup-enquiry.webp"
+              alt="Success Illustration"
+              className="w-full h-auto"
+            />
+          </div>
+
+          <h2 className="text-lg sm:text-xl md:text-2xl font-extrabold text-[#002B5B] mb-4 leading-tight whitespace-nowrap">
+            Thanks For <span className="text-[#39B54A]">Connecting With Us!</span>
+          </h2>
+
+          <p className="text-[#4A4A4A] text-sm md:text-lg leading-relaxed mb-6 md:mb-10 max-w-[550px]">
+            We've Successfully Received Your Query. Our Counselor Will Connect
+            <br className="hidden md:block" /> With You Within 24 Hours To Guide You Further.
+          </p>
+
+          <div className="flex flex-col sm:flex-row gap-3 md:gap-4 w-full px-2">
+            <Link
+              href="/"
+              onClick={() => setShowSuccess(false)}
+              className="flex-1 py-3 md:py-4 bg-[#005E9F] text-white font-bold rounded-full text-center hover:bg-[#004a7c] transition-all text-base md:text-lg shadow-lg"
+            >
+              Back To Home
+            </Link>
+            <Link
+              href="/courses"
+              onClick={() => setShowSuccess(false)}
+              className="flex-1 py-3 md:py-4 bg-white border-2 border-[#005E9F] text-[#005E9F] font-bold rounded-full text-center hover:bg-blue-50 transition-all text-base md:text-lg shadow-sm"
+            >
+              Explore Programs
+            </Link>
+          </div>
         </div>
       </Dialog>
     </>

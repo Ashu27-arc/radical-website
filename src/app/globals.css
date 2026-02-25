@@ -486,6 +486,14 @@ input:autofill {
     backdrop-filter: blur(14.5px)
 }
 
+.successDialog.p-dialog .p-dialog-content {
+    border-radius: 1.5rem !important;
+}
+
+.successDialog.p-dialog {
+    border: none !important;
+}
+
 /* FAQ Animation */
 @keyframes fadeIn {
     from {
