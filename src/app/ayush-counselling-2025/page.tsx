@@ -28,7 +28,7 @@ export default function AyushCounselling2025() {
     setSubmitMessage(null);
 
     try {
-      const response = await fetch('/api/ayush-counselling/', {
+      const response = await fetch('/api/ayush-counselling', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -116,8 +116,8 @@ export default function AyushCounselling2025() {
                   <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">
                     {submitMessage && (
                       <div className={`p-3 rounded-lg text-sm ${submitMessage.type === 'success'
-                        ? 'bg-green-100 text-green-700 border border-green-300'
-                        : 'bg-red-100 text-red-700 border border-red-300'
+                          ? 'bg-green-100 text-green-700 border border-green-300'
+                          : 'bg-red-100 text-red-700 border border-red-300'
                         }`}>
                         {submitMessage.text}
                       </div>
@@ -202,9 +202,9 @@ export default function AyushCounselling2025() {
       </div>
 
       {/* Courses Section */}
-      <div className="py-12 sm:py-16 md:py-20 bg-[#EFF6FF] relative overflow-hidden">
-        <div className="container mx-auto px-3 md:px-4">
-          <div className="text-center mb-12">
+      <div className="py-12 sm:py-16 md:py-20 bg-white relative overflow-hidden">
+        <div className="container mx-auto px-3 md:px-20">
+          <div className="text-center mb-20">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-3 sm:mb-4">
               Explore AYUSH Courses
             </h2>
@@ -214,135 +214,117 @@ export default function AyushCounselling2025() {
           </div>
 
           {/* Course Cards Grid */}
-          <div className="flex flex-col justify-start md:flex-row flex-wrap -m-4 md:-m-6">
+          <div className="flex flex-col justify-center md:flex-row flex-wrap -m-6">
             {/* BAMS Card */}
-            <div className='w-full md:w-1/2 lg:w-1/3 p-4 md:p-6'>
-              <div className="bg-white rounded-[2rem] shadow-xl shadow-blue-500/5 border border-[#DBEFDC] p-8 flex flex-col items-center relative overflow-hidden h-full transition-transform hover:scale-[1.02] group">
-                <div className="flex items-center justify-between w-full mb-8">
-                  <div className="w-12 h-12 bg-[#DBEFDC]/50 rounded-2xl flex items-center justify-center">
-                    <img src="/images/ayush/plant.webp" alt="Plant" className="w-6 h-6" />
+            <div className='w-full md:w-1/2 lg:w-1/3 p-4'>
+              <div className="relative text-center z-3 p-10 rounded-xl border-2 border-[#DBEFDC] shadow-lg overflow-hidden">
+                <div className="flex items-center justify-between mb-8">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#DBEFDC] rounded-full flex items-center justify-center">
+                    <img src="/images/ayush/plant.webp" alt="Plant" className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
-                  <span className="bg-[#DBEFDC]/50 text-[#4CAF50] px-4 py-1.5 rounded-full text-sm font-semibold">
+                  <span className="bg-[#4CAF501A] text-[#4CAF50] px-4 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium">
                     Ayurveda
                   </span>
                 </div>
-
-                <h3 className="text-2xl font-black text-[#4CAF50] mb-4">BAMS</h3>
-                <h4 className="text-lg font-extrabold text-[#1A202C] mb-4 text-center leading-tight">
-                  Bachelor Of Ayurvedic <br /> Medicine & Surgery
+                <h3 className="text-xl text-center sm:text-2xl font-bold text-[#4CAF50] mb-6">BAMS</h3>
+                <h4 className="w-full text-sm sm:text-base font-semibold text-gray-800 mb-4">
+                  Bachelor Of Ayurvedic Medicine & Surgery
                 </h4>
-
-                <p className="text-gray-500 text-sm leading-relaxed text-center font-medium max-w-xs">
+                <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-8">
                   Ancient Indian Medicine System Focusing On Natural Healing Through Herbs, Lifestyle, And Holistic Treatments For Complete Wellness.
                 </p>
-
-                {/* Bottom Decorative Tab */}
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-50 h-4 bg-[#DBEFDC]/50 rounded-t-xl"></div>
+                <div className='absolute -bottom-5 bg-[#DBEFDC] rounded-full h-10 w-[200px] left-[50%] -translate-x-[50%]'></div>
               </div>
             </div>
 
             {/* BHMS Card */}
-            <div className='w-full md:w-1/2 lg:w-1/3 p-4 md:p-6'>
-              <div className="bg-white rounded-[2rem] shadow-xl shadow-blue-500/5 border border-[#EFCCEA] p-8 flex flex-col items-center relative overflow-hidden h-full transition-transform hover:scale-[1.02] group">
-                <div className="flex items-center justify-between w-full mb-8">
-                  <div className="w-12 h-12 bg-[#EFCCEA]/50 rounded-2xl flex items-center justify-center">
-                    <img src="/images/ayush/herbal.webp" alt="Plant" className="w-6 h-6" />
+            <div className='w-full md:w-1/2 lg:w-1/3 p-4'>
+              <div className="relative text-center z-3 p-10 rounded-xl border-2 border-[#EFCCEA] shadow-lg overflow-hidden">
+                  <div className="flex items-center justify-between mb-8">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#EFCCEA] rounded-full flex items-center justify-center">
+                      <img src="/images/ayush/herbal.webp" alt="Plant" className="w-5 h-5 sm:w-6 sm:h-6" />
+                    </div>
+                    <span className="bg-[#EFCCEA] text-[#B00096] px-4 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium">
+                      Homeopathy
+                    </span>
                   </div>
-                  <span className="bg-[#EFCCEA]/50 text-[#B00096] px-4 py-1.5 rounded-full text-sm font-semibold">
-                    Homeopathy
-                  </span>
-                </div>
-
-                <h3 className="text-2xl font-black text-[#B00096] mb-4">BHMS</h3>
-                <h4 className="text-lg font-extrabold text-[#1A202C] mb-4 text-center leading-tight">
-                  Bachelor Of Homeopathic <br /> Medicine & Surgery
-                </h4>
-
-                <p className="text-gray-500 text-sm leading-relaxed text-center font-medium max-w-xs">
-                  Gentle Healing Approach Using Highly Diluted Substances To Stimulate The Body's Natural Healing Processes And Restore Balance.
-                </p>
-
-                {/* Bottom Decorative Tab */}
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-50 h-4 bg-[#EFCCEA]/50 rounded-t-xl"></div>
+                  <h3 className="text-xl text-center sm:text-2xl font-bold text-[#B00096] mb-6">BHMS</h3>
+                  <h4 className="w-full text-sm sm:text-base font-semibold text-gray-800 mb-4">
+                    Bachelor Of Homeopathic Medicine & Surgery
+                  </h4>
+                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-8">
+                    Gentle Healing Approach Using Highly Diluted Substances To Stimulate The Body's Natural Healing Processes And Restore Balance.
+                  </p>
+                  <div className='absolute -bottom-5 bg-[#EFCCEA] rounded-full h-10 w-[200px] left-[50%] -translate-x-[50%]'></div>
               </div>
             </div>
 
             {/* BUMS Card */}
-            <div className='w-full md:w-1/2 lg:w-1/3 p-4 md:p-6'>
-              <div className="bg-white rounded-[2rem] shadow-xl shadow-blue-500/5 border border-[#CDE9EE] p-8 flex flex-col items-center relative overflow-hidden h-full transition-transform hover:scale-[1.02] group">
-                <div className="flex items-center justify-between w-full mb-8">
-                  <div className="w-12 h-12 bg-[#CDE9EE]/50 rounded-2xl flex items-center justify-center">
-                    <img src="/images/ayush/c.webp" alt="Plant" className="w-6 h-6" />
+            <div className='w-full md:w-1/2 lg:w-1/3 p-4'>
+              <div className="relative text-center z-3 p-10 rounded-xl border-2 border-[#EFCCEA] shadow-lg overflow-hidden">
+                  <div className="flex items-center justify-between mb-8">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#CDE9EE] rounded-full flex items-center justify-center">
+                      <img src="/images/ayush/c.webp" alt="Plant" className="w-5 h-5 sm:w-6 sm:h-6" />
+                    </div>
+                    <span className="bg-[#CDE9EE] text-[#0791AB] px-4 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium">
+                      Unani
+                    </span>
                   </div>
-                  <span className="bg-[#CDE9EE]/50 text-[#0791AB] px-4 py-1.5 rounded-full text-sm font-semibold">
-                    Unani
-                  </span>
-                </div>
-
-                <h3 className="text-2xl font-black text-[#0791AB] mb-4">BUMS</h3>
-                <h4 className="text-lg font-extrabold text-[#1A202C] mb-4 text-center leading-tight">
-                  Bachelor Of Unani <br /> Medicine & Surgery
-                </h4>
-
-                <p className="text-gray-500 text-sm leading-relaxed text-center font-medium max-w-xs">
-                  Traditional Greco-Arabic Medicine Emphasizing Natural Remedies, Diet Regulation, And Maintaining Body's Natural Equilibrium.
-                </p>
-
-                {/* Bottom Decorative Tab */}
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-50 h-4 bg-[#CDE9EE]/50 rounded-t-xl"></div>
+                  <h3 className="text-xl text-center sm:text-2xl font-bold text-[#0791AB] mb-6">BUMS</h3>
+                  <h4 className="w-full text-sm sm:text-base font-semibold text-gray-800 mb-4">
+                    Bachelor Of Unani Medicine & Surgery
+                  </h4>
+                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-8">
+                    Traditional Greco-Arabic Medicine Emphasizing Natural Remedies, Diet Regulation, And Maintaining Body's Natural Equilibrium.
+                  </p>
+                  <div className='absolute -bottom-5 bg-[#CDE9EE] rounded-full h-10 w-[200px] left-[50%] -translate-x-[50%]'></div>
               </div>
             </div>
 
             {/* BSMS Card */}
-            <div className='w-full md:w-1/2 lg:w-1/3 p-4 md:p-6'>
-              <div className="bg-white rounded-[2rem] shadow-xl shadow-blue-500/5 border border-[#D5D9DE] p-8 flex flex-col items-center relative overflow-hidden h-full transition-transform hover:scale-[1.02] group">
-                <div className="flex items-center justify-between w-full mb-8">
-                  <div className="w-12 h-12 bg-[#D5D9DE]/50 rounded-2xl flex items-center justify-center">
-                    <img src="/images/ayush/c-1.webp" alt="Plant" className="w-6 h-6" />
+            <div className='w-full md:w-1/2 lg:w-1/3 p-4'>
+                <div className="relative text-center z-3 p-10 rounded-xl border-2 border-[#D5D9DE] shadow-lg overflow-hidden">
+                  <div className="flex items-center justify-between mb-8">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#D5D9DE] rounded-full flex items-center justify-center">
+                      <img src="/images/ayush/c-1.webp" alt="Plant" className="w-5 h-5 sm:w-6 sm:h-6" />
+                    </div>
+                    <span className="bg-[#D5D9DE] text-[#2F4159] px-4 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium">
+                      Siddha
+                    </span>
                   </div>
-                  <span className="bg-[#D5D9DE]/50 text-[#2F4159] px-4 py-1.5 rounded-full text-sm font-semibold">
-                    Siddha
-                  </span>
+                  <h3 className="text-xl text-center sm:text-2xl font-bold text-[#2F4159] mb-6">BSMS</h3>
+                  <h4 className="w-full text-sm sm:text-base font-semibold text-gray-800 mb-4">
+                    Bachelor Of Siddha Medicine & Surgery
+                  </h4>
+                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed md:px-6 mb-8">
+                    Ancient Tamil System Of Medicine Using Natural Substances, Minerals, And Metals For Comprehensive Healing And Longevity.
+                  </p>
+                  <div className='absolute -bottom-5 bg-[#D5D9DE] rounded-full h-10 w-[200px] left-[50%] -translate-x-[50%]'></div>
                 </div>
-
-                <h3 className="text-2xl font-black text-[#2F4159] mb-4">BSMS</h3>
-                <h4 className="text-lg font-extrabold text-[#1A202C] mb-4 text-center leading-tight">
-                  Bachelor Of Siddha <br /> Medicine & Surgery
-                </h4>
-
-                <p className="text-gray-500 text-sm leading-relaxed text-center font-medium max-w-xs">
-                  Ancient Tamil System Of Medicine Using Natural Substances, Minerals, And Metals For Comprehensive Healing And Longevity.
-                </p>
-
-                {/* Bottom Decorative Tab */}
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-50 h-4 bg-[#D5D9DE]/50 rounded-t-xl"></div>
-              </div>
             </div>
 
             {/* BNYS Card */}
-            <div className='w-full md:w-1/2 lg:w-1/3 p-4 md:p-6'>
-              <div className="bg-white rounded-[2rem] shadow-xl shadow-blue-500/5 border border-[#FCDFDF] p-8 flex flex-col items-center relative overflow-hidden h-full transition-transform hover:scale-[1.02] group">
-                <div className="flex items-center justify-between w-full mb-8">
-                  <div className="w-12 h-12 bg-[#FCDFDF]/50 rounded-2xl flex items-center justify-center">
-                    <img src="/images/ayush/om.webp" alt="Plant" className="w-6 h-6" />
+            <div className='w-full md:w-1/2 lg:w-1/3 p-4'>
+                <div className="relative text-center z-3 p-10 rounded-xl border-2 border-[#D5D9DE] shadow-lg overflow-hidden">
+                  <div className="flex items-center justify-between mb-8">
+                    <div className="w-10 h-10 sm:w-12 sm:h-12 bg-[#FCDFDF] rounded-xl flex items-center justify-center">
+                      <img src="/images/ayush/om.webp" alt="Plant" className="w-5 h-5 sm:w-6 sm:h-6" />
+                    </div>
+                    <span className="bg-[#FCDFDF] text-[#EE6161] px-4 sm:px-4 py-2 rounded-full text-xs sm:text-sm font-medium">
+                      Yoga & Naturopathy
+                    </span>
                   </div>
-                  <span className="bg-[#FCDFDF]/50 text-[#EE6161] px-4 py-1.5 rounded-full text-sm font-semibold">
-                    Yoga & Naturopathy
-                  </span>
+
+                  <h3 className="text-xl text-center sm:text-2xl font-bold text-[#EE6161] mb-6">BNYS</h3>
+                  <h4 className="w-full text-sm sm:text-base font-semibold text-gray-800 mb-4">
+                    Bachelor Of Naturopathy & Yoga Sciences
+                  </h4>
+
+                  <p className="text-gray-600 text-xs sm:text-sm leading-relaxed mb-8">
+                    Holistic Approach Combining Yoga Practices, Natural Therapies, And Lifestyle Modifications For Optimal Health And Wellness.
+                  </p>
+                  <div className='absolute -bottom-5 bg-[#FCDFDF] rounded-full h-10 w-[200px] left-[50%] -translate-x-[50%]'></div>
                 </div>
-
-                <h3 className="text-2xl font-black text-[#EE6161] mb-4">BNYS</h3>
-                <h4 className="text-lg font-extrabold text-[#1A202C] mb-4 text-center leading-tight">
-                  Bachelor Of Naturopathy <br /> & Yoga Sciences
-                </h4>
-
-                <p className="text-gray-500 text-sm leading-relaxed text-center font-medium max-w-xs">
-                  Holistic Approach Combining Yoga Practices, Natural Therapies, And Lifestyle Modifications For Optimal Health And Wellness.
-                </p>
-
-                {/* Bottom Decorative Tab */}
-                <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-50 h-4 bg-[#FCDFDF]/50 rounded-t-xl"></div>
-              </div>
             </div>
           </div>
         </div>
@@ -455,119 +437,55 @@ export default function AyushCounselling2025() {
       </div>
 
       {/* AYUSH Admission Process Section */}
-      <div className="pb-24 pt-16 bg-[#E8F1F2]">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-20">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+      <div className="pb-12 sm:pb-16 md:pb-20 bg-[#EFF6FF]">
+        <div className="container mx-auto px-3 md:px-4">
+          <div className="text-center mb-10">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-3 sm:mb-4">
               AYUSH Admission Process
             </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto px-4">
               Simple 4-step process to secure your AYUSH medical college admission
             </p>
           </div>
 
-          <div className="relative">
-            {/* Desktop Arrows */}
-            <div className="hidden lg:block absolute top-[60%] left-0 w-full z-0">
-              <div className="flex justify-between px-[12%]">
-                {/* Arrow 1 to 2 */}
-                <div className="relative w-1/4">
-                  <svg className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-20" viewBox="0 0 200 40" fill="none">
-                    <path d="M5 5C50 45 150 45 195 5" stroke="#00D2B1" strokeWidth="2" strokeDasharray="6 6" strokeLinecap="round" />
-                    <path d="M195 5L185 3.5M195 5L193.5 15" stroke="#00D2B1" strokeWidth="2" strokeLinecap="round" />
-                  </svg>
+          <div className='md:bg-[#E2EEEF] md:py-20 md:px-10 px-5 relative z-2'>           
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-20 sm:gap-6">
+              <div className="overflow-hidden bg-[url('/images/card1.webp')] bg-no-repeat bg-[length:100%_100%]">
+                <div className="py-36 px-10">
+                  <h3 className="text-base sm:text-lg font-bold text-black mb-4 text-center">Register With Us</h3>
+                  <p className="text-black text-xs sm:text-sm leading-relaxed text-center">
+                    Fill The Form And Get Registered With Radical Education
+                  </p>
                 </div>
-                {/* Arrow 2 to 3 */}
-                <div className="relative w-1/4">
-                  <svg className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-20" viewBox="0 0 200 40" fill="none">
-                    <path d="M5 5C50 45 150 45 195 5" stroke="#2E81CE" strokeWidth="2" strokeDasharray="6 6" strokeLinecap="round" />
-                    <path d="M195 5L185 3.5M195 5L193.5 15" stroke="#2E81CE" strokeWidth="2" strokeLinecap="round" />
-                  </svg>
+              </div>
+              <div className="overflow-hidden bg-[url('/images/card2.webp')] bg-no-repeat bg-[length:100%_100%]">
+                <div className="py-36 px-10">
+                  <h3 className="text-base sm:text-lg font-bold text-black mb-4 text-center">Expert Counselling</h3>
+                  <p className="text-black text-xs sm:text-sm leading-relaxed text-center">
+                    Get Personalized AYUSH Stream And College Guidance
+                  </p>
                 </div>
-                {/* Arrow 3 to 4 */}
-                <div className="relative w-1/4">
-                  <svg className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-20" viewBox="0 0 200 40" fill="none">
-                    <path d="M5 5C50 45 150 45 195 5" stroke="#00D2B1" strokeWidth="2" strokeDasharray="6 6" strokeLinecap="round" />
-                    <path d="M195 5L185 3.5M195 5L193.5 15" stroke="#00D2B1" strokeWidth="2" strokeLinecap="round" />
-                  </svg>
+              </div>
+              <div className="overflow-hidden bg-[url('/images/card3.webp')] bg-no-repeat bg-[length:100%_100%]">
+                <div className="py-36 px-10">
+                  <h3 className="text-base sm:text-lg font-bold text-black mb-4 text-center">Select College</h3>
+                  <p className="text-black text-xs sm:text-sm leading-relaxed text-center">
+                    Choose Your Preferred AYUSH College And Stream
+                  </p>
+                </div>
+              </div>
+              <div className="overflow-hidden bg-[url('/images/card4.webp')] bg-no-repeat bg-[length:100%_100%]">
+                <div className="py-36 px-10">
+                  <h3 className="text-base sm:text-lg font-bold text-black mb-4 text-center">Confirm Admission</h3>
+                  <p className="text-black text-xs sm:text-sm leading-relaxed text-center">
+                    Complete Documentation And Start Your AYUSH Journey
+                  </p>
                 </div>
               </div>
             </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 relative z-10">
-              {/* Step 1 - Register With Us */}
-              <div className="relative flex flex-col group">
-                <div className="bg-white rounded-3xl shadow-xl overflow-hidden h-full flex flex-col transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
-                  <div className="bg-[#00D2B1] h-16 relative flex justify-center">
-                    <div className="absolute top-4 w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg border-4 border-[#00D2B1]/10">
-                      <span className="text-gray-700 font-extrabold text-2xl">01</span>
-                    </div>
-                  </div>
-                  <div className="pt-12 pb-14 px-6 flex-1 flex flex-col items-center">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">Register With Us</h3>
-                    <p className="text-gray-500 text-sm leading-relaxed text-center font-medium">
-                      Fill The Form And Get Registered With Radical Education
-                    </p>
-                  </div>
-                  <div className="absolute bottom-0 right-0 w-3/4 h-12 bg-[#00D2B1]" style={{ clipPath: 'polygon(20% 0, 100% 60%, 100% 100%, 0 100%)' }}></div>
-                </div>
-              </div>
-
-              {/* Step 2 - Expert Counselling */}
-              <div className="relative flex flex-col group">
-                <div className="bg-white rounded-3xl shadow-xl overflow-hidden h-full flex flex-col transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
-                  <div className="bg-[#2E81CE] h-16 relative flex justify-center">
-                    <div className="absolute top-4 w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg border-4 border-[#2E81CE]/10">
-                      <span className="text-gray-700 font-extrabold text-2xl">02</span>
-                    </div>
-                  </div>
-                  <div className="pt-12 pb-14 px-6 flex-1 flex flex-col items-center">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">Expert Counselling</h3>
-                    <p className="text-gray-500 text-sm leading-relaxed text-center font-medium">
-                      Get Personalized AYUSH Stream And <br className="hidden lg:block" /> College Guidance
-                    </p>
-                  </div>
-                  <div className="absolute bottom-0 right-0 w-3/4 h-12 bg-[#2E81CE]" style={{ clipPath: 'polygon(20% 0, 100% 60%, 100% 100%, 0 100%)' }}></div>
-                </div>
-              </div>
-
-              {/* Step 3 - Select College */}
-              <div className="relative flex flex-col group">
-                <div className="bg-white rounded-3xl shadow-xl overflow-hidden h-full flex flex-col transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
-                  <div className="bg-[#00D2B1] h-16 relative flex justify-center">
-                    <div className="absolute top-4 w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg border-4 border-[#00D2B1]/10">
-                      <span className="text-gray-700 font-extrabold text-2xl">03</span>
-                    </div>
-                  </div>
-                  <div className="pt-12 pb-14 px-6 flex-1 flex flex-col items-center">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">Select College</h3>
-                    <p className="text-gray-500 text-sm leading-relaxed text-center font-medium">
-                      Choose Your Preferred AYUSH <br className="hidden lg:block" /> College And Stream
-                    </p>
-                  </div>
-                  <div className="absolute bottom-0 right-0 w-3/4 h-12 bg-[#00D2B1]" style={{ clipPath: 'polygon(20% 0, 100% 60%, 100% 100%, 0 100%)' }}></div>
-                </div>
-              </div>
-
-              {/* Step 4 - Confirm Admission */}
-              <div className="relative flex flex-col group">
-                <div className="bg-white rounded-3xl shadow-xl overflow-hidden h-full flex flex-col transition-all duration-500 hover:shadow-2xl hover:-translate-y-2">
-                  <div className="bg-[#2E81CE] h-16 relative flex justify-center">
-                    <div className="absolute top-4 w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg border-4 border-[#2E81CE]/10">
-                      <span className="text-gray-700 font-extrabold text-2xl">04</span>
-                    </div>
-                  </div>
-                  <div className="pt-12 pb-14 px-6 flex-1 flex flex-col items-center">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">Confirm Admission</h3>
-                    <p className="text-gray-500 text-sm leading-relaxed text-center font-medium">
-                      Complete Documentation And Start <br className="hidden lg:block" /> Your AYUSH Journey
-                    </p>
-                  </div>
-                  <div className="absolute bottom-0 right-0 w-3/4 h-12 bg-[#2E81CE]" style={{ clipPath: 'polygon(20% 0, 100% 60%, 100% 100%, 0 100%)' }}></div>
-                </div>
-              </div>
-            </div>
-          </div>
+            <img src="/images/arroww.svg" className='hidden md:block w-full md:px-20 lg:px-35 -mt-10 relative -z-1' alt=''/>
+            <img src="/images/arrowwMob.svg" className='md:hidden w-[100px] h-auto absolute left-[50%] top-[50%] -translate-x-1/2 -translate-y-1/2 -z-1' alt=''/>
+          </div> 
         </div>
       </div>
 
