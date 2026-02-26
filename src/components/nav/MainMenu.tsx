@@ -35,10 +35,6 @@ export default function MainMenu({ mainMenuData }: any) {
         }, 500);
     };
 
-    const handleLevel2Leave = () => {
-        closeTimerRef.current = setTimeout(() => setOpenLevel2(null), 500);
-    };
-
     return (
         <>
             {loading ? (
@@ -75,24 +71,20 @@ export default function MainMenu({ mainMenuData }: any) {
                                             <li
                                                 key={j}
                                                 className="group/item"
-                                                onMouseEnter={() => {
-                                                    clearCloseTimer();
-                                                    if (level2.items && level2.items.length > 0) setOpenLevel2(`${i}-${j}`);
-                                                }}
-                                                onMouseLeave={() =>
-                                                    level2.items && level2.items.length > 0 ? handleLevel2Leave() : undefined
-                                                }
                                             >
                                                 <Link
                                                     href={level2.url || '#'}
                                                     className="flex items-center justify-between gap-2 px-4 py-3 text-sm hover:bg-gray-50"
+                                                    onClick={(e) => {
+                                                        if (level2.items && level2.items.length > 0) {
+                                                            e.preventDefault();
+                                                            const id = `${i}-${j}`;
+                                                            setOpenLevel2((prev) => (prev === id ? null : id));
+                                                        }
+                                                    }}
                                                 >
                                                     <span>{level2.label}</span>
-                                                    {level2.items && level2.items.length > 0 ? (
-                                                        <span className="w-7 h-7 rounded-full bg-transparent flex items-center justify-center shrink-0 border border-white">
-                                                            <i className="pi pi-arrow-right text-white text-xs flex items-center justify-center" />
-                                                        </span>
-                                                    ) : (
+                                                    {level2.items && level2.items.length > 0 && (
                                                         <span className="w-7 h-7 rounded-full bg-transparent flex items-center justify-center shrink-0 border border-white">
                                                             <i className="pi pi-arrow-right text-white text-xs flex items-center justify-center" />
                                                         </span>
