@@ -98,7 +98,7 @@ const BlogsPage = () => {
 
   const publishedBlogs = blogs.filter((b) => b.status === 'Published');
   const categories = ['All', ...Array.from(new Set(publishedBlogs.map((b) => b.category).filter(Boolean)))];
-  
+
   // Connection status indicator
   const connectionStatus = (
     <div className="flex items-center justify-end mb-4 pr-4">
@@ -108,7 +108,7 @@ const BlogsPage = () => {
       </span>
     </div>
   );
-  
+
   // Reset to first page when filters change and ensure page is valid
   useEffect(() => {
     setCurrentPage((prev) => {
@@ -122,7 +122,7 @@ const BlogsPage = () => {
       return prev > maxPages ? 1 : prev;
     });
   }, [activeCategory, searchQuery, publishedBlogs]);
-  
+
   const filtered = publishedBlogs.filter((b) => {
     const matchCategory = activeCategory === 'All' || b.category === activeCategory;
     const matchSearch = !searchQuery.trim() ||
@@ -130,20 +130,20 @@ const BlogsPage = () => {
       (b.excerpt && b.excerpt.toLowerCase().includes(searchQuery.toLowerCase()));
     return matchCategory && matchSearch;
   });
-  
+
   // Handle case where there aren't enough blogs - use paginated data
   const indexOfLastBlog = currentPage * blogsPerPage;
   const indexOfFirstBlog = indexOfLastBlog - blogsPerPage;
-  
+
   const currentBlogs = filtered.slice(indexOfFirstBlog, indexOfLastBlog);
   const totalPages = Math.max(1, Math.ceil(filtered.length / blogsPerPage));
 
   // Use paginated data for featured and sidebar
   const featuredBlog = currentBlogs[0] || null;
-  const sidebarBlogs = currentBlogs.length > 1 
-    ? currentBlogs.slice(1, Math.min(4, currentBlogs.length)) 
+  const sidebarBlogs = currentBlogs.length > 1
+    ? currentBlogs.slice(1, Math.min(4, currentBlogs.length))
     : [];
-  
+
   const gridBlogs = currentBlogs;
   const getCategoryColor = (cat: string) => categoryColors[cat] || defaultCategoryColor;
   const formatDate = (d: string) => {
@@ -163,64 +163,61 @@ const BlogsPage = () => {
   const renderPagination = () => {
     const pages = [];
     const maxVisiblePages = 5;
-    
+
     let startPage = Math.max(1, currentPage - Math.floor(maxVisiblePages / 2));
     let endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
-    
+
     // Adjust start page if we're near the end
     if (endPage - startPage + 1 < maxVisiblePages) {
       startPage = Math.max(1, endPage - maxVisiblePages + 1);
     }
-    
+
     // Previous button
     pages.push(
       <button
         key="prev"
         onClick={() => handlePageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className={`px-4 md:px-6 py-2 text-sm md:text-base font-medium transition-colors ${
-          currentPage === 1
+        className={`px-4 md:px-6 py-2 text-sm md:text-base font-medium transition-colors ${currentPage === 1
             ? 'text-gray-300 cursor-not-allowed'
             : 'text-gray-400 hover:text-gray-600'
-        }`}
+          }`}
       >
         Previous
       </button>
     );
-    
+
     // Page numbers
     for (let i = startPage; i <= endPage; i++) {
       pages.push(
         <button
           key={i}
           onClick={() => handlePageChange(i)}
-          className={`w-10 h-10 md:w-12 md:h-12 rounded-full text-sm md:text-base font-medium transition-all duration-300 ${
-            i === currentPage
+          className={`w-10 h-10 md:w-12 md:h-12 rounded-full text-sm md:text-base font-medium transition-all duration-300 ${i === currentPage
               ? 'bg-blue-500 text-white shadow-lg scale-110'
               : 'text-gray-600 hover:bg-gray-100'
-          }`}
+            }`}
         >
           {i}
         </button>
       );
     }
-    
+
     // Next button
     pages.push(
       <button
         key="next"
         onClick={() => handlePageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className={`px-4 md:px-6 py-2 text-sm md:text-base font-medium transition-colors ${
-          currentPage === totalPages
+        className={`px-4 md:px-6 py-2 text-sm md:text-base font-medium transition-colors ${currentPage === totalPages
             ? 'text-gray-300 cursor-not-allowed'
             : 'text-gray-400 hover:text-gray-600'
-        }`}
+          }`}
       >
         Next
       </button>
     );
-    
+
     return pages;
   };
 
@@ -258,7 +255,7 @@ const BlogsPage = () => {
           <div ref={scrollRef} className="flex justify-start md:justify-center overflow-hidden md:overflow-x-auto [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
             <div className="flex space-x-2 md:space-x-8 p-2 rounded-full min-w-max">
               {/* Left Arrow Button - Hidden on mobile */}
-              <button 
+              <button
                 onClick={() => scroll('left')}
                 className="hidden md:flex w-10 h-10 rounded-full bg-white shadow-md hover:shadow-lg transition-shadow items-center justify-center"
               >
@@ -289,7 +286,7 @@ const BlogsPage = () => {
                 </button>
               ))}
               {/* Right Arrow Button - Hidden on mobile */}
-              <button 
+              <button
                 onClick={() => scroll('right')}
                 className="hidden md:flex w-10 h-10 rounded-full bg-white shadow-md hover:shadow-lg transition-shadow items-center justify-center"
               >
@@ -336,7 +333,7 @@ const BlogsPage = () => {
           {/* Main Blog Post */}
           <div className="lg:col-span-2 animate-fadeIn" style={{ animationDelay: '0.1s' }}>
             {featuredBlog ? (
-              <Link href={`/blogs/${featuredBlog.slug}`} className="block">
+              <Link href={`/${featuredBlog.slug}`} className="block">
                 <div className="bg-white rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer">
                   <div className="relative h-48 md:h-80">
                     {featuredBlog.featuredImage ? (
@@ -384,7 +381,7 @@ const BlogsPage = () => {
           <div className="space-y-4 md:space-y-6">
             {sidebarBlogs.length > 0 ? (
               sidebarBlogs.map((post, index) => (
-                <Link key={post.id} href={`/blogs/${post.slug}`} className="block animate-fadeIn" style={{ animationDelay: `${0.2 + index * 0.1}s` }}>
+                <Link key={post.id} href={`/${post.slug}`} className="block animate-fadeIn" style={{ animationDelay: `${0.2 + index * 0.1}s` }}>
                   <div className={`bg-white rounded-lg p-4 md:p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer ${index < sidebarBlogs.length - 1 ? 'border-b-2 border-gray-200' : ''}`}>
                     <span className={`inline-block ${getCategoryColor(post.category)} px-3 py-1 rounded-full text-xs md:text-sm mb-3 md:mb-4`}>
                       {post.category}
@@ -419,7 +416,7 @@ const BlogsPage = () => {
         <div className="mt-16 md:mt-30">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {gridBlogs.map((blog, index) => (
-              <Link key={blog.id} href={`/blogs/${blog.slug}`} className="block animate-fadeIn" style={{ animationDelay: `${0.3 + index * 0.1}s` }}>
+              <Link key={blog.id} href={`/${blog.slug}`} className="block animate-fadeIn" style={{ animationDelay: `${0.3 + index * 0.1}s` }}>
                 <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer">
                   <div className="relative h-40 md:h-48">
                     {blog.featuredImage ? (
