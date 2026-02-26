@@ -416,43 +416,59 @@ const BlogsPage = () => {
         <div className="mt-16 md:mt-30">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
             {gridBlogs.map((blog, index) => (
-              <Link key={blog.id} href={`/${blog.slug}`} className="block animate-fadeIn" style={{ animationDelay: `${0.3 + index * 0.1}s` }}>
-                <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer">
-                  <div className="relative h-40 md:h-48">
-                    {blog.featuredImage ? (
-                      <Image
-                        src={blog.featuredImage}
-                        alt={blog.title}
-                        fill
-                        className="object-contain"
-                      />
-                    ) : (
-                      <Image
-                        src={["/images/blogs/card.webp", "/images/blogs/card-1.webp", "/images/blogs/card-2.webp"][index % 3]}
-                        alt={blog.title}
-                        fill
-                        className="object-contain"
-                      />
-                    )}
-                  </div>
-                  <div className="p-4 md:p-6">
-                    <span className={`inline-block ${getCategoryColor(blog.category)} px-3 py-1 rounded-full text-xs md:text-sm mb-2 md:mb-3`}>
-                      {blog.category}
-                    </span>
-                    <h3 className="text-base md:text-lg font-bold text-gray-800 mb-2 md:mb-3 hover:text-blue-600 transition-colors line-clamp-2">
-                      {blog.title}
-                    </h3>
-                    <p className="text-gray-600 text-xs md:text-sm mb-3 md:mb-4 line-clamp-2">
-                      {blog.excerpt || blog.title}
-                    </p>
-                    <div className="flex items-center text-gray-500 text-xs">
-                      <span>{blog.author}</span>
-                      <span className="mx-2">•</span>
-                      <span>{formatDate(blog.date)}</span>
+              <React.Fragment key={blog.id}>
+                <Link href={`/${blog.slug}`} className="block animate-fadeIn" style={{ animationDelay: `${0.3 + index * 0.1}s` }}>
+                  <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer">
+                    <div className="relative h-40 md:h-48">
+                      {blog.featuredImage ? (
+                        <Image
+                          src={blog.featuredImage}
+                          alt={blog.title}
+                          fill
+                          className="object-contain"
+                        />
+                      ) : (
+                        <Image
+                          src={["/images/blogs/card.webp", "/images/blogs/card-1.webp", "/images/blogs/card-2.webp"][index % 3]}
+                          alt={blog.title}
+                          fill
+                          className="object-contain"
+                        />
+                      )}
+                    </div>
+                    <div className="p-4 md:p-6">
+                      <span className={`inline-block ${getCategoryColor(blog.category)} px-3 py-1 rounded-full text-xs md:text-sm mb-2 md:mb-3`}>
+                        {blog.category}
+                      </span>
+                      <h3 className="text-base md:text-lg font-bold text-gray-800 mb-2 md:mb-3 hover:text-blue-600 transition-colors line-clamp-2">
+                        {blog.title}
+                      </h3>
+                      <p className="text-gray-600 text-xs md:text-sm mb-3 md:mb-4 line-clamp-2">
+                        {blog.excerpt || blog.title}
+                      </p>
+                      <div className="flex items-center text-gray-500 text-xs">
+                        <span>{blog.author}</span>
+                        <span className="mx-2">•</span>
+                        <span>{formatDate(blog.date)}</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              </Link>
+                </Link>
+                {/* Inline banner between blogs */}
+                {((index + 1) % 4 === 0) && (
+                  <div
+                    className="bg-gradient-to-r from-teal-400 to-blue-500 rounded-lg overflow-hidden shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 col-span-1 md:col-span-2 lg:col-span-3"
+                  >
+                    <Image
+                      src={index % 2 === 0 ? '/images/blogs/ad-1.webp' : '/images/blogs/ad.webp'}
+                      alt="Promotional banner"
+                      width={1200}
+                      height={300}
+                      className="w-full h-auto object-cover"
+                    />
+                  </div>
+                )}
+              </React.Fragment>
             ))}
           </div>
 

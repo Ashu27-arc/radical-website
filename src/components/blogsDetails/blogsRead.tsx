@@ -239,7 +239,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
 
                                 {/* Blog Content */}
                                 <div
-                                    className="prose max-w-none text-gray-700 leading-relaxed mb-8 text-sm md:text-base prose-headings:text-gray-800 prose-p:mb-4 break-words overflow-wrap-anywhere"
+                                    className="max-w-none text-gray-800 mb-8 text-[15px] md:text-[17px] leading-8 space-y-4 break-words"
                                     style={{ wordBreak: 'break-word', overflowWrap: 'anywhere' }}
                                     dangerouslySetInnerHTML={{ __html: blog.content || blog.excerpt || '' }}
                                 />

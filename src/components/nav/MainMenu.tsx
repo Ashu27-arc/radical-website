@@ -69,12 +69,12 @@ export default function MainMenu({ mainMenuData }: any) {
 
                                 {level1.items && level1.items.length > 0 && (
                                     <ul
-                                        className={`secondLVLmnu absolute left-0 top-full z-50 min-w-[220px] bg-white rounded-2xl py-1 px-1 shadow-lg ${openLevel1 === i ? 'block' : 'hidden'}`}
+                                        className={`secondLVLmnu absolute left-0 top-full z-50 min-w-[220px] bg-white rounded-2xl px-1 shadow-lg ${openLevel1 === i ? 'block' : 'hidden'}`}
                                     >
                                         {level1.items.map((level2: any, j: number) => (
                                             <li
                                                 key={j}
-                                                className="relative group/item"
+                                                className="group/item"
                                                 onMouseEnter={() => {
                                                     clearCloseTimer();
                                                     if (level2.items && level2.items.length > 0) setOpenLevel2(`${i}-${j}`);
@@ -101,7 +101,7 @@ export default function MainMenu({ mainMenuData }: any) {
 
                                                 {level2.items && level2.items.length > 0 && (
                                                     <ul
-                                                        className={`thirdLVLmnu absolute left-full top-0 z-50 min-w-[220px] bg-[#DFF1FF] rounded-2xl py-1 px-1 shadow-lg ${openLevel2 === `${i}-${j}` ? 'block' : 'hidden'}`}
+                                                        className={`thirdLVLmnu absolute left-full top-0 z-50 min-w-[220px] bg-[#DFF1FF] rounded-2xl px-1 shadow-lg ${openLevel2 === `${i}-${j}` ? 'block' : 'hidden'}`}
                                                     >
                                                         {level2.items.map((level3: any, k: number) => (
                                                             <li key={k}>

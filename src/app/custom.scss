@@ -56,6 +56,9 @@
 /* Dropdown box - rounded corners + shadow (Services, Study India etc.) */
 .hdrBtm .firstLVLmnu ul.secondLVLmnu,
 .hdrBtm .firstLVLmnu ul.thirdLVLmnu {
+    /* sabhi dropdown submenu bilkul upar se open hon, beech mein gap na rahe */
+    margin-top: 0 !important;
+    padding-top: 0 !important;
     border-radius: 1rem;
     box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
 }
