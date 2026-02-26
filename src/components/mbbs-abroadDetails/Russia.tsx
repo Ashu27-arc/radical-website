@@ -4,7 +4,7 @@ const Russia = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <div className="relative text-white py-12 md:py-32 lg:py-50 px-4 md:px-6 overflow-hidden" style={{
+      <div className="relative text-white py-15 md:py-32 lg:py-50 px-4 md:px-6 overflow-hidden" style={{
         backgroundImage: 'url(/images/study-abroad/heroSection.webp)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
@@ -15,7 +15,6 @@ const Russia = () => {
       {/* Main Content Section */}
       <div className="container mx-auto py-8 md:py-16 px-4 md:px-6">
         <div className="flex flex-col lg:flex-row gap-8 md:gap-12">
-          {/* Left Content */}
           {/* Left Content */}
           <div className="lg:w-2/3 relative">
             {/* Watermark */}
@@ -52,33 +51,28 @@ const Russia = () => {
             </div>
           </div>
 
-          {/* Right Sidebar - Consultation Card */}
-          <div className="lg:w-1/2 relative flex justify-center mt-8 lg:mt-16">
-            <div className="bg-[#E3F4F3] rounded-lg shadow-lg p-4 md:p-6 lg:p-8 relative overflow-visible w-full max-w-[280px] sm:max-w-xs lg:max-w-md lg:w-90 h-auto lg:h-60 flex flex-col justify-center items-center text-center">
+          {/* Right Section - Card + Image side by side (both mobile and desktop) */}
+          <div className="w-full lg:w-1/2 flex flex-row items-end lg:items-center overflow-visible mt-6 lg:mt-0">
 
-              <div className="relative z-10 flex flex-col justify-center items-center h-full">
-                <h3 className="text-sm md:text-base lg:text-xl font-bold text-gray-800 mb-2 md:mb-3 lg:mb-6 leading-tight">
-                  Are you interested in<br />
-                  studying medicine<br />
-                  in Russia?
-                </h3>
-
-                <div className="mt-2 md:mt-3 lg:mt-6">
-                  <button className="bg-gradient-to-r from-[#28C4B4] to-[#287FC4] hover:from-[#28C4B4] hover:to-[#287FC4] text-white font-semibold py-2 md:py-2.5 lg:py-4 px-4 md:px-5 lg:px-8 rounded-full transition-all duration-300 text-[10px] md:text-xs lg:text-base">
-                    BOOK CONSULTATION
-                  </button>
-                </div>
-              </div>
+            {/* Consultation Card - left side */}
+            <div className="relative z-0 bg-[#E3F4F3] rounded-2xl shadow-lg p-4 lg:p-8 flex flex-col justify-center items-start text-left shrink-0 w-[250px] h-[170px] sm:w-[250px] sm:h-[250px] md:w-[290px] md:h-[290px] lg:w-[360px] lg:h-[250px] self-end mb-4 lg:mb-8">
+              <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-gray-800 mb-3 lg:mb-6 leading-snug">
+                Are you interested in<br />
+                studying medicine<br />
+                in Russia?
+              </h3>
+              <button className="bg-gradient-to-r from-[#28C4B4] to-[#287FC4] text-white font-semibold py-2 px-4 lg:py-3 lg:px-6 rounded-full transition-all duration-300 text-xs lg:text-sm whitespace-nowrap">
+                BOOK CONSULTATION
+              </button>
             </div>
 
-            {/* Image positioned outside card on the right */}
-            <div className="absolute -right-2 sm:-right-4 md:-right-8 lg:-right-28 top-1/2 transform -translate-y-1/2 z-20">
+            {/* Doctor Image - right side, taller, overflowing upward */}
+            <div className="relative z-10 -ml-12 sm:-ml-16 md:-ml-20 lg:-ml-28 flex-1 h-[290px] sm:h-[340px] md:h-[390px] lg:h-[480px] self-end pointer-events-none">
               <Image
                 src="/images/study-abroad/main-content.webp"
                 alt="Medical consultant"
-                width={300}
-                height={300}
-                className="object-contain w-28 sm:w-40 md:w-52 lg:w-[300px]"
+                fill
+                className="object-contain object-bottom pointer-events-auto"
               />
             </div>
           </div>

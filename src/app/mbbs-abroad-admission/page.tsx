@@ -137,9 +137,9 @@ export default function MBBSAbroadAdmission() {
         <div className="min-h-screen">
             {/* Hero Section */}
             <section className="relative bg-gradient-to-r from-[#0B5A7D] to-[#0E7BA8] py-4 sm:py-6 md:py-8 lg:pb-10 lg:pt-20 overflow-hidden">
-                <div className="absolute inset-0 opacity-30 sm:opacity-40">
-                    {/* Left Bottom Corner Image */}
-                    <div className="absolute -bottom-2 sm:-bottom-4 md:-bottom-8 lg:-bottom-16 left-0 w-8 h-8 sm:w-10 sm:h-10 md:w-16 md:h-16 lg:w-24 lg:h-24 xl:w-60 xl:h-60 2xl:w-48 2xl:h-48">
+                <div className="absolute inset-0 opacity-40">
+                    {/* Left Bottom Corner / Top on Mobile Image */}
+                    <div className="absolute -top-10 sm:top-auto bottom-auto sm:-bottom-16 -left-4 sm:left-0 w-[200px] h-[200px] sm:w-60 sm:h-60 xl:w-60 xl:h-60 2xl:w-48 2xl:h-48">
                         <Image
                             src="/images/study-abroad/left.webp"
                             alt="Decorative"
@@ -150,7 +150,7 @@ export default function MBBSAbroadAdmission() {
                     </div>
 
                     {/* Right Top Corner Image */}
-                    <div className="absolute top-1 sm:top-2 right-0 md:w-[250px] md:h-[250px] w-40 h-40">
+                    <div className="absolute -top-10 sm:top-2 -right-4 sm:right-0 w-[200px] h-[200px] sm:w-[250px] sm:h-[250px]">
                         <Image
                             src="/images/study-abroad/right.webp"
                             alt="Decorative"
@@ -541,24 +541,24 @@ export default function MBBSAbroadAdmission() {
             {/* Why Abroad Section */}
             <section className="mb-16 py-8 sm:py-12 md:py-16 bg-[#005A8B] relative overflow-hidden mx-2 sm:mx-4 md:mx-8 lg:mx-20 xl:mx-30 rounded-2xl">
                 {/* Top Left Corner Image - Outside opacity div */}
-                <div className="absolute -top-10 sm:-top-20 md:-top-35 left-0 sm:left-0 w-20 h-20 sm:w-40 sm:h-40 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-96 xl:h-96 z-10">
+                <div className="absolute -bottom-10 sm:bottom-auto sm:-top-20 md:-top-35 left-0 w-[200px] h-[200px] sm:w-40 sm:h-40 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-96 xl:h-96 z-10">
                     <Image
                         src="/images/study-abroad/left.webp"
                         alt="Decorative"
                         width={400}
                         height={400}
-                        className="w-full h-full object-left opacity-60 sm:opacity-80 drop-shadow-lg"
+                        className="w-full h-full object-left opacity-80 drop-shadow-lg"
                     />
                 </div>
 
                 {/* Bottom Right Corner Image - Outside opacity div */}
-                <div className="absolute -bottom-10 sm:-bottom-20 md:-bottom-30 right-0 w-20 h-20 sm:w-40 sm:h-40 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-96 xl:h-96 z-10">
+                <div className="absolute -top-10 sm:top-auto sm:-bottom-20 md:-bottom-30 right-0 w-[200px] h-[200px] sm:w-40 sm:h-40 md:w-60 md:h-60 lg:w-80 lg:h-80 xl:w-96 xl:h-96 z-10">
                     <Image
                         src="/images/study-abroad/right.webp"
                         alt="Decorative"
                         width={400}
                         height={400}
-                        className="w-full h-full object-cover opacity-60 sm:opacity-80 drop-shadow-lg"
+                        className="w-full h-full object-cover opacity-80 drop-shadow-lg"
                     />
                 </div>
 

@@ -4,7 +4,7 @@ const Russia = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <div className="relative text-white py-20 sm:py-28 md:py-40 lg:py-50 px-4 md:px-6 overflow-hidden" style={{
+      <div className="relative text-white py-15 md:py-32 lg:py-50 px-4 md:px-6 overflow-hidden" style={{
         backgroundImage: 'url(/images/study-abroad/kazakshstanHero.webp)',
         backgroundSize: 'cover',
         backgroundPosition: 'center',
@@ -53,32 +53,32 @@ const Russia = () => {
           </div>
 
           {/* Right Sidebar - Consultation Card */}
-          <div className="w-full lg:w-1/2 relative flex flex-col lg:flex-row justify-center items-center mt-8 lg:mt-16">
-            <div className="bg-[#E3F4F3] rounded-lg shadow-lg p-6 md:p-8 relative overflow-hidden w-full max-w-md lg:w-90 h-auto md:h-60 flex flex-col justify-center items-center text-center">
+          <div className="lg:w-1/2 relative flex justify-center mt-8 lg:mt-16">
+            <div className="bg-[#E3F4F3] rounded-lg shadow-lg p-4 md:p-6 lg:p-8 relative overflow-visible w-full max-w-[280px] sm:max-w-xs lg:max-w-md lg:w-90 h-auto lg:h-60 flex flex-col justify-center items-center text-center">
 
-              <div className="relative z-10 flex flex-col justify-center items-center h-full w-full">
-                <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-4 md:mb-6 leading-tight text-center md:text-left md:text-justify">
+              <div className="relative z-10 flex flex-col justify-center items-center h-full">
+                <h3 className="text-sm md:text-base lg:text-xl font-bold text-gray-800 mb-2 md:mb-3 lg:mb-6 leading-tight">
                   Are you interested in<br />
                   studying medicine<br />
                   in Russia?
                 </h3>
 
-                <div className="mt-4 md:mt-6">
-                  <button className="bg-gradient-to-r from-[#28C4B4] to-[#287FC4] hover:from-[#28C4B4] hover:to-[#287FC4] text-white font-semibold py-3 md:py-4 px-6 md:px-8 rounded-full transition-all duration-300 text-sm md:text-base">
+                <div className="mt-2 md:mt-3 lg:mt-6">
+                  <button className="bg-gradient-to-r from-[#28C4B4] to-[#287FC4] hover:from-[#28C4B4] hover:to-[#287FC4] text-white font-semibold py-2 md:py-2.5 lg:py-4 px-4 md:px-5 lg:px-8 rounded-full transition-all duration-300 text-[10px] md:text-xs lg:text-base">
                     BOOK CONSULTATION
                   </button>
                 </div>
               </div>
             </div>
 
-            {/* Image - Visible on all devices */}
-            <div className="mt-6 lg:mt-0 lg:absolute lg:-right-28 lg:top-1/2 lg:transform lg:-translate-y-1/2 z-20">
+            {/* Image positioned outside card on the right */}
+            <div className="absolute -right-2 sm:-right-4 md:-right-8 lg:-right-28 top-1/2 transform -translate-y-1/2 z-20">
               <Image
                 src="/images/study-abroad/main-content.webp"
                 alt="Medical consultant"
                 width={300}
                 height={300}
-                className="object-contain w-48 h-48 sm:w-56 sm:h-56 md:w-64 md:h-64 lg:w-[300px] lg:h-[300px]"
+                className="object-contain w-28 sm:w-40 md:w-52 lg:w-[300px]"
               />
             </div>
           </div>
