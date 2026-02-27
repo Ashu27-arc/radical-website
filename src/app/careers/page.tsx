@@ -277,7 +277,7 @@ export default function CareersPage() {
       {/* Work Environment Section */}
       <section className="py-12 md:py-16">
         <div className="container mx-auto px-4">
-          <p className="text-gray-500 font-bold text-xs md:text-sm text-left mb-2">About Us Radical Education</p>
+          <p className="text-gray-500 font-bold text-xs md:text-sm text-left md:mb-4 mb-6">About Us Radical Education</p>
           <h2 className="text-2xl md:text-4xl font-bold text-left mb-8 md:mb-12">
             Our <span className="text-[#287FC4]">Work Environment</span>
           </h2>
@@ -393,15 +393,16 @@ export default function CareersPage() {
       </section>
 
       {/* Latest Openings Section */}
-      <section className="py-8 md:py-12 bg-[#DFF1FF] px-4 md:px-10 lg:px-20">
+      <section className="">
         <div className="container mx-auto">
+          <div className="py-8 md:py-12 bg-[#DFF1FF] px-4 md:px-12 rounded-xl">
           <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 md:mb-8">
             Latest <span className="text-[#287FC4]">Openings</span>
           </h2>
 
           {jobsData.length === 0 ? (
             // No Openings Message
-            <div className="max-w-4xl mx-auto py-6 md:py-8">
+            <div className="py-6 md:py-8">
               <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8">
                 <div className="flex-shrink-0">
                   <Image
@@ -426,11 +427,11 @@ export default function CareersPage() {
             </div>
           ) : (
             // Job Cards Grid
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-6xl mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
               {jobsData.map((job, index) => (
-                <div key={index} className="bg-white rounded-lg p-5 md:p-6 shadow-md">
+                <div key={index} className="bg-white rounded-xl p-5 md:p-6 shadow-lg">
                   <div className="flex justify-left mb-4">
-                    <div className="w-14 h-14 md:w-16 md:h-16 bg-blue-100 flex items-center justify-center overflow-hidden">
+                    <div className="w-14 h-14 md:w-16 rounded-lg md:h-16 bg-blue-100 flex items-center justify-center overflow-hidden">
                       <Image
                         src="/images/careers/job-icon.webp"
                         alt="Job Icon"
@@ -440,18 +441,18 @@ export default function CareersPage() {
                       />
                     </div>
                   </div>
-                  <h3 className="text-base md:text-lg font-bold text-gray-800 mb-2">{job.title}</h3>
-                  <p className="text-red-500 text-xs md:text-sm mb-3">experience:- {job.experience}</p>
+                  <h3 className="text-xl font-bold text-gray-800 mb-2">{job.title}</h3>
+                  <p className="text-red-500 text-xs md:text-sm font-medium mb-4 pb-4 border-b border-[#00000040]">experience:- {job.experience}</p>
                   <p className="text-gray-600 text-xs md:text-sm leading-relaxed mb-4">
                     {job.description}
                   </p>
                   <div>
                     <button
                       onClick={() => openModal(job)}
-                      className="text-green-500 text-sm md:text-base font-semibold hover:text-green-600 inline-flex items-center gap-2"
+                      className="cursor-pointer text-green-500 text-sm font-semibold hover:text-green-600 inline-flex items-center gap-2"
                     >
                       APPLY NOW
-                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-4 h-4 -mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     </button>
@@ -460,6 +461,7 @@ export default function CareersPage() {
               ))}
             </div>
           )}
+          </div>
         </div>
       </section>
 
@@ -470,26 +472,11 @@ export default function CareersPage() {
             Submit Your <span className="text-[#287FC4]">Resume</span>
           </h2>
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 lg:grid-cols-2 rounded-2xl overflow-hidden shadow-xl">
-              {/* Left Side - Image */}
-              <div className="relative h-64 md:h-96 lg:h-auto min-h-[250px] lg:min-h-[400px]">
-                <Image
-                  src="/images/careers/resume-image.webp"
-                  alt="Resume"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-
-              {/* Right Side - Form */}
-              <div className="relative p-6 md:p-12 flex items-center overflow-hidden">
-                <Image
-                  src="/images/careers/resume-image.webp"
-                  alt="Background"
-                  fill
-                  className="object-cover opacity-50"
-                />
-                <div className="absolute inset-0 bg-gradient-to-br from-[#005A8B]/80 to-[#63CDB4]/80"></div>
+            <div className="grid grid-cols-1 md:grid-cols-2 bg-[url('/images/careers/resume-image.webp')] bg-cover bg-center bg-no-repeat rounded-2xl overflow-hidden shadow-xl">
+              
+              <div className="md:order-2 relative px-6 md:px-12 py-10 md:py-20 flex items-center overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#005A8B]/50 to-[#63CDB4]/50"></div>
+                <div className="absolute inset-0 backdrop-blur-[10px]"></div>
                 <form onSubmit={handleSubmit} className="space-y-4 md:space-y-5 w-full relative z-10">
                   {submitMessage && (
                     <div className={`p-3 rounded-lg text-sm ${submitMessage.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
@@ -519,7 +506,7 @@ export default function CareersPage() {
                     value={formData.opening}
                     onChange={handleInputChange}
                     required
-                    className="w-full px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base rounded-lg bg-white border border-gray-300 focus:ring-2 focus:ring-blue-400 focus:outline-none text-gray-500"
+                    className="h-[49px] w-full px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base rounded-lg bg-white border border-gray-300 focus:ring-2 focus:ring-blue-400 focus:outline-none text-gray-500"
                   >
                     <option value="">Select Opening</option>
                     {jobsData.map((job, index) => (
@@ -544,12 +531,13 @@ export default function CareersPage() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-gradient-to-br from-[#0077BF] to-[#63CDB4] hover:bg-blue-700 text-white font-semibold py-2.5 md:py-3 text-sm md:text-base rounded-lg transition-colors shadow-lg disabled:opacity-50 disabled:cursor-not-allowed"
+                    className="bg-[linear-gradient(270deg,#287FC4_0%,#00CFB2_100%)] opacity-80 cursor-pointer w-full text-white font-semibold py-2.5 md:py-3 text-sm md:text-base rounded-lg shadow-lg"
                   >
                     {isSubmitting ? 'Submitting...' : 'Submit'}
                   </button>
                 </form>
               </div>
+              <div className="md:order-1 min-h-[300px]"></div>
             </div>
           </div>
         </div>
