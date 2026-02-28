@@ -1551,10 +1551,13 @@ input:autofill {
     }
 }
 
-/* Reduce spacing around embeds (banner/form) in blog content */
+/* Reduce spacing around embeds (banner/form/FAQ) in blog content */
 .blog-content .crm-embed {
-    margin: 6px auto !important;
+    margin: 2px auto !important;
+}
+.blog-content * + .crm-embed {
+    margin-top: 0.125rem !important;
 }
 .blog-content .crm-embed + * {
-    margin-top: 0.25rem !important;
+    margin-top: 0.125rem !important;
 }
