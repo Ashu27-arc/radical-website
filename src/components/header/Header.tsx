@@ -27,7 +27,7 @@ export default function Header() {
             </div>
           </Link>|
           <Link className='text-[#121212]' href="/neet-ug-india-admission/">PAY ONLINE</Link>|
-          <Link href="/neet-webinar" className='text-[#121212] relative'>NEET WEBINAR
+          <Link href="/neet-webinar" className='text-[#121212] relative'>NEET BHAIYA
             <div className='absolute right-[-5px] top-[-5px]'>
               <span className="relative flex size-2">
                 <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#FF0000] opacity-75"></span>
@@ -79,7 +79,7 @@ export default function Header() {
                   </div>
                 </Link>|
                 <Link className='text-[#121212]' href="/neet-ug-india-admission/">PAY ONLINE</Link>|
-                <Link href="/neet-webinar" className='text-[#121212] relative'>NEET WEBINAR
+                <Link href="/neet-webinar" className='text-[#121212] relative'>NEET BHAIYA
                   <div className='absolute right-[-5px] top-[-5px]'>
                     <span className="relative flex size-2">
                       <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#FF0000] opacity-75"></span>

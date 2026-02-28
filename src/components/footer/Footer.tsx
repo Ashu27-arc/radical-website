@@ -198,24 +198,27 @@ export default function Footer() {
         <div className="container px-4 sm:px-6 lg:px-3">
           <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 text-[#4A4A4A]'>
 
-            <div className='text-center sm:text-left'>
-              <div className='flex justify-center sm:justify-start'>
+            <div className=''>
+              <div className='flex'>
                 <Link href="/" className="">
                   <Image src="/logo.webp" alt="Logo" width="140" height="auto" className='w-32 sm:w-40 md:w-44' />
                 </Link>
               </div>
-              <div className="text-xs sm:text-sm my-4 sm:my-6 pb-4 sm:pb-6 border-b border-[#0B2E3C]">
-                Invite your friends and unlock exclusive benefits—earn more with every successful referral.
+              <div className="text-xs sm:text-sm my-4 sm:my-6 pb-6 sm:pb-8 border-b border-[#0B2E3C]">
+                We offer personalised sessions specially for your NEET rank, academic profile, budget, and career goals. This approach helps you understand your best options and make informed decisions for your medical future.
               </div>
-              <div className='flex flex-col sm:flex-row items-center sm:items-start gap-3 sm:gap-4 mb-6 sm:mb-8'>
+              <div className='flex items-center justify-between gap-3 sm:gap-4 mb-6 sm:mb-8'>
                 <div>
                   <Image src='/images/iso.webp' alt='ISO' width='50' height='50' className='w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16' />
+                </div>
+                <div className=''>
+                  <Image src='/images/meme.webp' alt='MeMe' width='72' height='72' className='' />
                 </div>
                 <div className='text-[10px] xs:text-xs sm:text-xs text-[#0B2E3C] leading-tight sm:leading-3 text-center sm:text-left'>
                   Radical Education<br />is an <span className='text-xs sm:text-sm font-semibold'>ISO 9001:2015</span><br />certified company
                 </div>
               </div>
-              <div className='hidden lg:flex items-center gap-4'>
+              <div className='flex items-center gap-4'>
                 <Link href="https://twitter.com/Radical_Edu_" target='_blank'>
                   <Image src='/images/twitter.svg' width='16' height='16' alt="" />
                 </Link>
@@ -240,14 +243,14 @@ export default function Footer() {
               </div>
             </div>
 
-            <div className='text-center sm:text-left'>
+            <div className='text-left'>
               <h4 className="font-semibold text-[#005A8B] text-sm sm:text-base mb-3">Important Links</h4>
               <ul className="space-y-2 sm:space-y-3 mb-6">
                 {importantLinks.map((item, index) => (
                   <li key={index}>
                     <Link
                       href={item.url || '#'}
-                      className="flex items-center justify-center sm:justify-start gap-1 text-xs sm:text-sm transition text-nowrap hover:text-[#005A8B]"
+                      className="flex items-center gap-1 text-xs sm:text-sm transition text-nowrap hover:text-[#005A8B]"
                     >
                       <i className={`${item.icon || 'pi pi-angle-right'} text-xs`} />
                       <span className='truncate'>{item.label}</span>
@@ -256,14 +259,14 @@ export default function Footer() {
                 ))}
               </ul>
             </div>
-            <div className='lg:pl-20 text-center sm:text-left'>
+            <div className='lg:pl-20 text-left'>
               <h4 className="font-semibold text-[#005A8B] text-sm sm:text-base mb-3">Quick Links</h4>
               <ul className="space-y-2 sm:space-y-3 mb-6">
                 {quickLinks.map((item, index) => (
                   <li key={index}>
                     <Link
                       href={item.url || '#'}
-                      className="flex items-center justify-center sm:justify-start gap-1 text-xs sm:text-sm transition hover:text-[#005A8B]"
+                      className="flex items-center gap-1 text-xs sm:text-sm transition hover:text-[#005A8B]"
                     >
                       <i className={`${item.icon || 'pi pi-angle-right'} text-xs`} />
                       <span className='truncate'>{item.label}</span>
@@ -273,21 +276,21 @@ export default function Footer() {
               </ul>
             </div>
 
-            <div className='lg:pl-20 text-center sm:text-left'>
+            <div className='lg:pl-20 text-left'>
               <h4 className="font-semibold text-[#005A8B] text-sm sm:text-base mb-3">Contact Us</h4>
-              <ul className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
-                <li className="flex items-center justify-center sm:justify-start gap-2">
+              <ul className="space-y-4 text-xs sm:text-sm">
+                <li className="flex items-center gap-2">
                   <i className="pi pi-phone text-xs sm:text-sm" />
                   <span className='truncate'>97 97 97 24 65</span>
                 </li>
-                <li className="flex items-center justify-center sm:justify-start gap-2">
+                <li className="flex items-center gap-2">
                   <i className="pi pi-envelope text-xs sm:text-sm" />
                   <span className='truncate'>info@radicaleducation.in</span>
                 </li>
-                <li className="flex items-start justify-center sm:justify-start gap-2">
-                  <i className="pi pi-map-marker mt-0.5 text-xs sm:text-sm" />
+                <li className="flex items-start gap-2">
+                  <i className="pi pi-map-marker md:mt-0.5 -mt-0.5 text-xs sm:text-sm" />
                   <span className='text-center sm:text-left'>
-                    C-56/30, 3rd Floor, Sector-62<br />
+                    C-56/30, 3rd Floor, Sector-62<br className='hidden md:block' />
                     Noida, Uttar Pradesh
                   </span>
                 </li>
@@ -400,12 +403,12 @@ export default function Footer() {
               </button>
             </div>
           </div>
-          <div className="flex flex-wrap justify-center items-center gap-x-1 sm:gap-x-2 md:gap-x-4 gap-y-1.5 sm:gap-y-2 text-white text-[10px] xs:text-xs sm:text-sm pt-3 sm:pt-4 md:pt-6">
+          <div className="md:px-0 px-8  w-full flex flex-wrap justify-between md:justify-center md:items-center gap-x-1 sm:gap-x-2 md:gap-x-4 gap-y-1.5 sm:gap-y-2 text-white text-[10px] xs:text-xs sm:text-sm pt-3 sm:pt-4 md:pt-6">
             {tabContent[activeTab].map((item, index) => (
               <Fragment key={item.url}>
                 <Link
                   href={item.url}
-                  className="relative flex items-center gap-0.5 sm:gap-1 shrink-0 max-w-[140px] sm:max-w-none
+                  className="w-[50%] md:w-auto relative flex items-center gap-0.5 sm:gap-1 shrink-0 max-w-[140px] sm:max-w-none
                   after:absolute after:left-3 after:bottom-0 sm:after:left-5
                   after:h-[1px] after:w-0
                   after:bg-white

@@ -122,41 +122,45 @@ export default function NeetUgIndiaAdmissionPage() {
                                 </ul>
                                 <div className="flex flex-col gap-3">
                                     <Button className="text-[#005787]! border-[#DFF1FF]! bg-[#DFF1FF]! w-full flex gap-2 items-center" rounded>
-                                        <i className="pi pi-phone"></i> Talk to an Expert
-                                    </Button>
-                                    <Button className="text-[#ffffff]! border-[#005787]! bg-[#005787]! w-full flex gap-2 items-center" rounded>
                                         Pay now <i className="pi pi-arrow-right"></i>
                                     </Button>
                                 </div>
                             </div>
                         ))}
                     </div>
-                    <div className="p-8 lg:p-12 rounded-xl bg-[url('/images/planBg.webp')] bg-cover bg-center bg-no-repeat mb-6">
+                    <div className="p-8 lg:p-12 rounded-xl bg-[url('/images/planBg.webp')] bg-cover bg-center bg-no-repeat mb-16">
                         <div className="flex justify-between gap-2 items-center">
-                            <div className="text-black fadeLeft font-bold text-xl md:text-4xl">Get 35% OFF on the Ultimate<br className="hidden md:block" /> Plan – Now at just</div>
                             <div>
-                                <div className="fadeRight inline-flex px-8! py-3 text-white text-2xl rounded-lg bg-[#FF0000] font-semibold">₹ 84,499/-</div>
+                                <div className="flex justify-between gap-2 items-center">
+                                    <div className="text-black fadeUp font-bold text-xl md:text-4xl">Get 35% OFF on the Ultimate Plan - Now at just</div>
+                                </div>
+                                <div className="mt-5 fadeUp flex text-[#538AA1] gap-2 items-center">
+                                    <div className="md:inline-flex hidden">
+                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0.26202 5.827L4.05311 6.88145C4.09837 6.89451 4.13957 6.91882 4.17287 6.95213C4.20618 6.98543 4.23049 7.02663 4.24355 7.07188L5.29801 10.863C5.31442 10.9205 5.34912 10.971 5.39685 11.007C5.44457 11.043 5.50272 11.0625 5.5625 11.0625C5.62228 11.0625 5.68043 11.043 5.72816 11.007C5.77588 10.971 5.81058 10.9205 5.827 10.863L6.88145 7.07188C6.89451 7.02663 6.91882 6.98543 6.95213 6.95213C6.98543 6.91882 7.02663 6.89451 7.07188 6.88145L10.863 5.827C10.9205 5.81058 10.971 5.77588 11.007 5.72816C11.043 5.68043 11.0625 5.62228 11.0625 5.5625C11.0625 5.50272 11.043 5.44457 11.007 5.39685C10.971 5.34912 10.9205 5.31442 10.863 5.29801L7.07188 4.24355C7.02663 4.23049 6.98543 4.20618 6.95213 4.17287C6.91882 4.13957 6.89451 4.09837 6.88145 4.05311L5.827 0.26202C5.81058 0.20454 5.77588 0.153974 5.72816 0.117974C5.68043 0.0819737 5.62228 0.0625 5.5625 0.0625C5.50272 0.0625 5.44457 0.0819737 5.39685 0.117974C5.34912 0.153974 5.31442 0.20454 5.29801 0.26202L4.24355 4.05311C4.23049 4.09837 4.20618 4.13957 4.17287 4.17287C4.13957 4.20618 4.09837 4.23049 4.05311 4.24355L0.26202 5.29801C0.20454 5.31442 0.153974 5.34912 0.117974 5.39685C0.0819737 5.44457 0.0625 5.50272 0.0625 5.5625C0.0625 5.62228 0.0819737 5.68043 0.117974 5.72816C0.153974 5.77588 0.20454 5.81058 0.26202 5.827Z" fill="url(#paint0_linear_3023_1298)" stroke="#FCD34D" stroke-width="0.125" stroke-linecap="round" stroke-linejoin="round" />
+                                            <defs>
+                                                <linearGradient id="paint0_linear_3023_1298" x1="3.16089" y1="1.40464" x2="7.96411" y2="9.72036" gradientUnits="userSpaceOnUse">
+                                                    <stop stop-color="#FCD966" />
+                                                    <stop offset="0.0001" stop-color="#FCD966" />
+                                                    <stop offset="1" stop-color="#FCCD34" />
+                                                </linearGradient>
+                                            </defs>
+                                        </svg>
+                                    </div>
+                                    <div>Note:- One Shot Payment (NO PARTIAL PAYMENT, NO NEGOTIATIONS)</div>
+                                </div>
+                            </div>
+                            <div>
+                                <div className="fadeRight inline-flex px-4 md:px-8! py-3 text-white md:text-2xl text-lg rounded-lg bg-[#FF0000] font-semibold">₹ 84,499/-</div>
                             </div>
                         </div>
+
                     </div>
-                    <div className="mb-10 fadeUp flex text-[#2CBF0F] border rounded-xl border-dashed border-[#2CBF0F] gap-2 items-center lg:justify-center mx-auto w-full lg:w-5/10 p-4 lg:px-8 lg:py-4">
-                        <div className="">Note:-</div>
-                        <div>One Shot Payment (NO PARTIAL PAYMENT, NO NEGOTIATIONS)</div>
-                    </div>
-                    <section id="connect-counselor" className="pb-8 md:pb-16 bg-[#F4F7F8]">
-                        <div className="container mx-auto px-3 md:px-4">
-                            <div className="relative rounded-2xl md:rounded-3xl overflow-hidden min-h-[350px] md:min-h-[480px] flex items-center">
-                                <video
-                                    autoPlay
-                                    loop
-                                    muted
-                                    playsInline
-                                    className="absolute inset-0 w-full h-full object-cover pointer-events-none opacity-30"
-                                >
-                                    <source src="/videos/radical.mp4" type="video/mp4" />
-                                </video>
-                                <div className="relative z-10 w-full px-6 md:px-12 lg:px-16 max-w-full md:max-w-3xl">
-                                    <h2 className="text-3xl md:text-4xl lg:text-[42px] font-bold text-black mb-3 md:mb-4 leading-tight">
+                    <section id="connect-counselor" className="mb-16">
+                        <div className="">
+                            <div className="bg-[#F4F7F8] rounded-2xl md:rounded-3xl overflow-hidden flex gap-4 items-center">
+                                <div className="w-[60%] lg:p-10 md:p-8 p-4 relative z-2">
+                                    <h2 className="text-lg md:text-4xl lg:text-[42px] font-bold text-black mb-3 md:mb-4 leading-tight">
                                         Book Your <span className="text-[#61C9B8]">20 MIN Free<br className="hidden md:block" /> Counselling Session</span> Today
                                     </h2>
                                     <p className="text-sm md:text-base text-[#1E242C] mb-6 md:mb-8 font-medium">
@@ -168,6 +172,17 @@ export default function NeetUgIndiaAdmissionPage() {
                                     >
                                         Book Now
                                     </a>
+                                </div>
+                                <div className="w-[40%]">
+                                    <video
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                        className="w-full md:scale-[1] scale-[1.6] md:ml-0 -ml-7"
+                                    >
+                                        <source src="/videos/radical.mp4" type="video/mp4" />
+                                    </video>
                                 </div>
                             </div>
                         </div>
