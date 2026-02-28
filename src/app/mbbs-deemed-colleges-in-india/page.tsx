@@ -568,9 +568,14 @@ function FAQSection() {
                         onClick={() => toggleFAQ(index)}
                         className="w-full p-3 sm:p-4 text-left flex justify-between items-center hover:bg-gray-50 transition-colors duration-200"
                     >
-                        <h3 className="font-semibold text-gray-800 text-xs sm:text-sm pr-2 sm:pr-4 leading-tight">
-                            {index + 1}. {faq.question}
-                        </h3>
+                        <div className="flex items-center">
+                            <span className={`w-6 h-6 flex items-center justify-center text-lg font-bold text-blue-600 transition-transform duration-300 ${openFAQ === index ? 'rotate-45' : ''}`}>
+                                +
+                            </span>
+                            <h3 className="font-semibold text-gray-800 text-xs sm:text-sm pl-2 sm:pl-3 leading-tight">
+                                {index + 1}. {faq.question}
+                            </h3>
+                        </div>
                         <div className={`transform transition-transform duration-300 flex-shrink-0 ${openFAQ === index ? 'rotate-180' : ''}`}>
                             <svg
                                 className="w-4 h-4 sm:w-5 sm:h-5 text-gray-500"
