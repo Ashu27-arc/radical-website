@@ -1550,3 +1550,11 @@ input:autofill {
         transform: rotate(-15deg) translateX(50%);
     }
 }
+
+/* Reduce spacing around embeds (banner/form) in blog content */
+.blog-content .crm-embed {
+    margin: 6px auto !important;
+}
+.blog-content .crm-embed + * {
+    margin-top: 0.25rem !important;
+}

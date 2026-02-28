@@ -39,6 +39,11 @@ apiClient.interceptors.response.use(
   }
 );
 
+export interface BlogFaq {
+  question: string;
+  answer: string;
+}
+
 export interface Blog {
   id: string;
   title: string;
@@ -55,6 +60,7 @@ export interface Blog {
   metaTitle?: string;
   metaDescription?: string;
   metaKeywords?: string;
+  faqs?: BlogFaq[];
 }
 
 export interface NeetUpdate {
