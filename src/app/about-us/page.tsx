@@ -1,6 +1,24 @@
 "use client";
 
 export default function AboutUsPage() {
+  const steps = [
+    {
+      id: 1,
+      title: "Comprehensive Career Support",
+      desc: `Upon Completing The Course, We Continue To Provide Support To Ensure Students Move Towards A More Promising Future.`,
+    },
+    {
+      id: 2,
+      title: "Stay Informed",
+      desc: `Receive Prompt Alerts And Updates Regarding Admissions, Assignments, And Fee Deadlines, Along With Other Essential Information.`,
+    },
+    {
+      id: 3,
+      title: "Impartial Advice",
+      desc: `We Are Dedicated To Assisting Students On Their Paths To Career Progression And Personal Development, Free From Any Prejudices.`,
+    },
+  ];
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -197,49 +215,45 @@ export default function AboutUsPage() {
             </div>
           </div>
 
-          {/* Features Grid - Full Width */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 lg:gap-16 mt-16">
-            {/* Card 1 */}
-            <div className="relative group pt-4">
-              {/* Inner Card */}
-              <div className="relative bg-[#F4F9FF] rounded-[2rem] p-8 md:p-10 text-center h-full min-h-[300px] flex flex-col justify-center shadow-sm">
-                <h3 className="text-xl font-bold text-[#1B7AB8] mb-6">
-                  Comprehensive <br /> Career Support
-                </h3>
-                <p className="text-gray-600 text-[15px] leading-relaxed">
-                  Upon Completing The Course, We Continue To Provide
-                  Support To Ensure Students Move Towards A
-                  More Promising Future.
-                </p>
-              </div>
-            </div>
+          {/* Features Grid - Replaced with Steps layout */}
+          <div className="relative mt-8 md:mt-16 pb-12 w-full max-w-6xl mx-auto px-4 md:px-0">
+            <div className="grid md:grid-cols-3 gap-8 md:gap-10 relative z-10">
+              {steps.map((step) => (
+                <div
+                  key={step.id}
+                  className="relative flex flex-col items-center pt-5 h-full"
+                >
+                  {/* Umbrella Line */}
+                  <div className="hidden md:block absolute top-[36px] left-0 right-0 h-[65%] rounded-t-[2.5rem] border-t-[1.5px] border-l-[1.5px] border-r-[1.5px] border-[#2563eb] pointer-events-none z-0">
+                    <div className="absolute -left-[5.5px] -bottom-[5px] w-[10px] h-[10px] bg-[#2563eb] rounded-full"></div>
+                    <div className="absolute -right-[5.5px] -bottom-[5px] w-[10px] h-[10px] bg-[#2563eb] rounded-full"></div>
+                  </div>
 
-            {/* Card 2 */}
-            <div className="relative group pt-4">
-              <div className="relative bg-[#F4F9FF] rounded-[2rem] p-8 md:p-10 text-center h-full min-h-[300px] flex flex-col justify-center shadow-sm">
-                <h3 className="text-xl font-bold text-[#1B7AB8] mb-6 leading-tight">
-                  Stay Informed
-                </h3>
-                <p className="text-gray-600 text-[15px] leading-relaxed">
-                  Receive Prompt Alerts And Updates Regarding Admissions,
-                  Assignments, And Fee Deadlines, Along With Other Essential
-                  Information.
-                </p>
-              </div>
-            </div>
+                  {/* Top Badge */}
+                  <div
+                    className="bg-[#2563eb] text-white flex items-center justify-center w-[120px] h-[34px] font-semibold text-[17px] relative z-10 mb-6"
+                    style={{
+                      clipPath:
+                        "polygon(16px 0%, calc(100% - 16px) 0%, 100% 50%, calc(100% - 16px) 100%, 16px 100%, 0% 50%)",
+                    }}
+                  >
+                    {step.id}
+                  </div>
 
-            {/* Card 3 */}
-            <div className="relative group pt-4">
-              <div className="relative bg-[#F4F9FF] rounded-[2rem] p-8 md:p-10 text-center h-full min-h-[300px] flex flex-col justify-center shadow-sm">
-                <h3 className="text-xl font-bold text-[#1B7AB8] mb-6">
-                  Impartial Advice
-                </h3>
-                <p className="text-gray-600 text-[15px] leading-relaxed">
-                  We Are Dedicated To Assisting Students On Their Paths To
-                  Career Progression And Personal Development, Free From
-                  Any Prejudices
-                </p>
-              </div>
+                  {/* Card */}
+                  <div className="bg-[#fbfcff] shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-gray-100 w-full md:w-[calc(100%-2.5rem)] rounded-2xl p-6 sm:p-8 text-center relative z-10 flex-1 flex flex-col items-center justify-start min-h-[260px]">
+                    <h3 className="text-blue-700 font-bold text-[17px] mb-4">
+                      {step.title}
+                    </h3>
+                    <p className="text-gray-600 text-[14px] leading-relaxed font-medium">
+                      {step.desc}
+                    </p>
+
+                    {/* Bottom Triangle */}
+                    <div className="absolute -bottom-[20px] left-1/2 -translate-x-1/2 w-0 h-0 border-l-[20px] border-l-transparent border-t-[20px] border-t-[#2563eb] border-r-[20px] border-r-transparent"></div>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
@@ -252,52 +266,69 @@ export default function AboutUsPage() {
             FEATURED ACROSS
           </h2>
 
-          {/* Media Logos Grid */}
-          <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 sm:gap-6 max-w-5xl mx-auto">
-            {/* Row 1 */}
-            <div className="bg-white rounded-xl sm:rounded-2xl shadow-md p-4 sm:p-6 md:p-8 flex items-center justify-center h-24 sm:h-28 md:h-32">
-              <img
-                src="/images/about/feature-1.webp"
-                alt="APN News"
-                className="max-h-8 sm:max-h-10 md:max-h-12 max-w-full object-contain"
-              />
-            </div>
-            <div className="bg-white rounded-xl sm:rounded-2xl shadow-md p-4 sm:p-6 md:p-8 flex items-center justify-center h-24 sm:h-28 md:h-32">
-              <img
-                src="/images/about/feature-2.webp"
-                alt="Hindustan"
-                className="max-h-8 sm:max-h-10 md:max-h-12 max-w-full object-contain"
-              />
-            </div>
-            <div className="bg-white rounded-xl sm:rounded-2xl shadow-md p-4 sm:p-6 md:p-8 flex items-center justify-center h-24 sm:h-28 md:h-32">
-              <img
-                src="/images/about/feature-3.webp"
-                alt="BIS Infotech"
-                className="max-h-8 sm:max-h-10 md:max-h-12 max-w-full object-contain"
-              />
+          {/* Media Logos Animated Rows */}
+          <style dangerouslySetInnerHTML={{
+            __html: `
+            @keyframes marqueeLeft {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+            @keyframes marqueeRight {
+              0% { transform: translateX(-50%); }
+              100% { transform: translateX(0); }
+            }
+            .animate-marquee-left {
+              display: flex;
+              width: max-content;
+              animation: marqueeLeft 35s linear infinite;
+            }
+            .animate-marquee-right {
+              display: flex;
+              width: max-content;
+              animation: marqueeRight 35s linear infinite;
+            }
+            .animate-marquee-left:hover, .animate-marquee-right:hover {
+              animation-play-state: paused;
+            }
+            .mask-image-fade {
+              -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+              mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+            }
+          `}} />
+
+          <div className="w-full overflow-hidden flex flex-col gap-6 relative mask-image-fade py-4">
+            {/* Row 1 - Left */}
+            <div className="animate-marquee-left gap-4 sm:gap-6">
+              {[...Array(6)].map((_, i) => (
+                <div key={`row1-${i}`} className="flex gap-4 sm:gap-6">
+                  <div className="w-48 sm:w-56 md:w-64 bg-white rounded-xl sm:rounded-2xl shadow-md p-4 sm:p-6 md:p-8 flex items-center justify-center h-24 sm:h-28 md:h-32 shrink-0">
+                    <img src="/images/about/feature-1.webp" alt="APN News" className="max-h-8 sm:max-h-10 md:max-h-12 max-w-full object-contain" />
+                  </div>
+                  <div className="w-48 sm:w-56 md:w-64 bg-white rounded-xl sm:rounded-2xl shadow-md p-4 sm:p-6 md:p-8 flex items-center justify-center h-24 sm:h-28 md:h-32 shrink-0">
+                    <img src="/images/about/feature-2.webp" alt="Hindustan" className="max-h-8 sm:max-h-10 md:max-h-12 max-w-full object-contain" />
+                  </div>
+                  <div className="w-48 sm:w-56 md:w-64 bg-white rounded-xl sm:rounded-2xl shadow-md p-4 sm:p-6 md:p-8 flex items-center justify-center h-24 sm:h-28 md:h-32 shrink-0">
+                    <img src="/images/about/feature-3.webp" alt="BIS Infotech" className="max-h-8 sm:max-h-10 md:max-h-12 max-w-full object-contain" />
+                  </div>
+                </div>
+              ))}
             </div>
 
-            {/* Row 2 */}
-            <div className="bg-white rounded-xl sm:rounded-2xl shadow-md p-4 sm:p-6 md:p-8 flex items-center justify-center h-24 sm:h-28 md:h-32">
-              <img
-                src="/images/about/feature-4.webp"
-                alt="Dainik Bhaskar"
-                className="max-h-8 sm:max-h-10 md:max-h-12 max-w-full object-contain"
-              />
-            </div>
-            <div className="bg-white rounded-xl sm:rounded-2xl shadow-md p-4 sm:p-6 md:p-8 flex items-center justify-center h-24 sm:h-28 md:h-32">
-              <img
-                src="/images/about/feature-5.webp"
-                alt="Hindustan Times"
-                className="max-h-8 sm:max-h-10 md:max-h-12 max-w-full object-contain"
-              />
-            </div>
-            <div className="bg-white rounded-xl sm:rounded-2xl shadow-md p-4 sm:p-6 md:p-8 flex items-center justify-center h-24 sm:h-28 md:h-32">
-              <img
-                src="/images/about/feature-6.webp"
-                alt="Dainik Jagran"
-                className="max-h-8 sm:max-h-10 md:max-h-12 max-w-full object-contain"
-              />
+            {/* Row 2 - Right */}
+            <div className="animate-marquee-right gap-4 sm:gap-6">
+              {[...Array(6)].map((_, i) => (
+                <div key={`row2-${i}`} className="flex gap-4 sm:gap-6">
+                  <div className="w-48 sm:w-56 md:w-64 bg-white rounded-xl sm:rounded-2xl shadow-md p-4 sm:p-6 md:p-8 flex items-center justify-center h-24 sm:h-28 md:h-32 shrink-0">
+                    <img src="/images/about/feature-4.webp" alt="Dainik Bhaskar" className="max-h-8 sm:max-h-10 md:max-h-12 max-w-full object-contain" />
+                  </div>
+                  <div className="w-48 sm:w-56 md:w-64 bg-white rounded-xl sm:rounded-2xl shadow-md p-4 sm:p-6 md:p-8 flex items-center justify-center h-24 sm:h-28 md:h-32 shrink-0">
+                    <img src="/images/about/feature-5.webp" alt="Hindustan Times" className="max-h-8 sm:max-h-10 md:max-h-12 max-w-full object-contain" />
+                  </div>
+                  <div className="w-48 sm:w-56 md:w-64 bg-white rounded-xl sm:rounded-2xl shadow-md p-4 sm:p-6 md:p-8 flex items-center justify-center h-24 sm:h-28 md:h-32 shrink-0">
+                    <img src="/images/about/feature-6.webp" alt="Dainik Jagran" className="max-h-8 sm:max-h-10 md:max-h-12 max-w-full object-contain" />
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
