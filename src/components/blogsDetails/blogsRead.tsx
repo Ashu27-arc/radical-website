@@ -17,6 +17,12 @@ const formatDate = (d: string) => {
     return isNaN(date.getTime()) ? d : date.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
 };
 
+/** Process FAQ answer HTML so links open in new tab */
+const processFaqAnswer = (html: string) => {
+    if (!html) return '';
+    return html.replace(/<a\s+/gi, '<a target="_blank" rel="noopener noreferrer" ');
+};
+
 const BlogsRead = ({ slug }: BlogsReadProps) => {
     const [searchTerm, setSearchTerm] = useState('');
     const [activeCategory, setActiveCategory] = useState('All');
@@ -239,10 +245,56 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
 
                                 {/* Blog Content */}
                                 <div
-                                    className="max-w-none text-gray-800 mb-8 text-[15px] md:text-[17px] leading-8 space-y-4 break-words"
+                                    className="blog-content max-w-none text-gray-800 mb-4 text-[15px] md:text-[17px] leading-8 space-y-4 break-words"
                                     style={{ wordBreak: 'break-word', overflowWrap: 'anywhere' }}
                                     dangerouslySetInnerHTML={{ __html: blog.content || blog.excerpt || '' }}
                                 />
+
+                                {/* FAQs Section - SEO friendly accordion */}
+                                {blog.faqs && blog.faqs.length > 0 && (
+                                    <div className="mt-4 mb-6 border border-gray-200 rounded-xl overflow-hidden bg-white shadow-sm">
+                                        <h2 className="text-xl md:text-2xl font-bold text-gray-800 px-6 py-4 bg-gray-50 border-b border-gray-200">
+                                            Frequently Asked Questions
+                                        </h2>
+                                        <div className="divide-y divide-gray-200">
+                                            {blog.faqs.map((faq, idx) => (
+                                                <details
+                                                    key={idx}
+                                                    className="group [&_summary::-webkit-details-marker]:hidden [&_summary::marker]:hidden"
+                                                >
+                                                    <summary className="px-6 py-4 cursor-pointer list-none hover:bg-gray-50 transition-colors">
+                                                        <span className="font-medium text-gray-800">{faq.question}</span>
+                                                    </summary>
+                                                    <div
+                                                        className="px-6 pb-4 pt-0 text-gray-600 text-[15px] leading-relaxed [&_a]:text-blue-600 [&_a]:underline hover:[&_a]:text-blue-800"
+                                                        dangerouslySetInnerHTML={{ __html: processFaqAnswer(faq.answer) }}
+                                                    />
+                                                </details>
+                                            ))}
+                                        </div>
+                                    </div>
+                                )}
+
+                                {/* JSON-LD FAQ schema for SEO */}
+                                {blog.faqs && blog.faqs.length > 0 && (
+                                    <script
+                                        type="application/ld+json"
+                                        dangerouslySetInnerHTML={{
+                                            __html: JSON.stringify({
+                                                "@context": "https://schema.org",
+                                                "@type": "FAQPage",
+                                                mainEntity: blog.faqs.map((faq) => ({
+                                                    "@type": "Question",
+                                                    name: faq.question,
+                                                    acceptedAnswer: {
+                                                        "@type": "Answer",
+                                                        text: (faq.answer || '').replace(/<[^>]+>/g, '').trim() || faq.answer
+                                                    }
+                                                }))
+                                            })
+                                        }}
+                                    />
+                                )}
                             </>
                         )}
 
