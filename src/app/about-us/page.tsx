@@ -198,28 +198,9 @@ export default function AboutUsPage() {
           </div>
 
           {/* Features Grid - Full Width */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-16 md:gap-8 mt-16">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 lg:gap-16 mt-16">
             {/* Card 1 */}
             <div className="relative group pt-4">
-              {/* Decorative Frame */}
-              <div className="absolute -inset-2 md:-inset-3 border-2 border-[#1B7AB8] rounded-[2.5rem] pointer-events-none">
-                {/* Hexagon Top */}
-                <div
-                  className="absolute -top-4 left-1/2 -translate-x-1/2 w-16 h-8 bg-[#1B7AB8] flex items-center justify-center text-white font-bold"
-                  style={{ clipPath: 'polygon(20% 0%, 80% 0%, 100% 50%, 80% 100%, 20% 100%, 0% 50%)' }}
-                >
-                  1
-                </div>
-                {/* Side Dots */}
-                <div className="absolute top-[45%] -left-[9px] w-4 h-4 bg-[#1B7AB8] rounded-full border-2 border-white" />
-                <div className="absolute top-[45%] -right-[9px] w-4 h-4 bg-[#1B7AB8] rounded-full border-2 border-white" />
-                {/* Bottom Triangle */}
-                <div
-                  className="absolute -bottom-5 left-1/2 -translate-x-1/2 w-10 h-6 bg-[#1B7AB8]"
-                  style={{ clipPath: 'polygon(0% 0%, 100% 0%, 50% 100%)' }}
-                />
-              </div>
-
               {/* Inner Card */}
               <div className="relative bg-[#F4F9FF] rounded-[2rem] p-8 md:p-10 text-center h-full min-h-[300px] flex flex-col justify-center shadow-sm">
                 <h3 className="text-xl font-bold text-[#1B7AB8] mb-6">
@@ -235,22 +216,6 @@ export default function AboutUsPage() {
 
             {/* Card 2 */}
             <div className="relative group pt-4">
-              <div className="absolute -inset-2 md:-inset-3 border-2 border-[#1B7AB8] rounded-[2.5rem] pointer-events-none">
-                <div
-                  className="absolute -top-4 left-1/2 -translate-x-1/2 w-16 h-8 bg-[#1B7AB8] flex items-center justify-center text-white font-bold"
-                  style={{ clipPath: 'polygon(20% 0%, 80% 0%, 100% 50%, 80% 100%, 20% 100%, 0% 50%)' }}
-                >
-                  2
-                </div>
-                <div className="absolute top-[45%] -left-[9px] w-4 h-4 bg-[#1B7AB8] rounded-full border-2 border-white" />
-                <div className="absolute top-[45%] -right-[9px] w-4 h-4 bg-[#1B7AB8] rounded-full border-2 border-white" />
-                {/* Bottom Triangle */}
-                <div
-                  className="absolute -bottom-5 left-1/2 -translate-x-1/2 w-10 h-6 bg-[#1B7AB8]"
-                  style={{ clipPath: 'polygon(0% 0%, 100% 0%, 50% 100%)' }}
-                />
-              </div>
-
               <div className="relative bg-[#F4F9FF] rounded-[2rem] p-8 md:p-10 text-center h-full min-h-[300px] flex flex-col justify-center shadow-sm">
                 <h3 className="text-xl font-bold text-[#1B7AB8] mb-6 leading-tight">
                   Stay Informed
@@ -265,22 +230,6 @@ export default function AboutUsPage() {
 
             {/* Card 3 */}
             <div className="relative group pt-4">
-              <div className="absolute -inset-2 md:-inset-3 border-2 border-[#1B7AB8] rounded-[2.5rem] pointer-events-none">
-                <div
-                  className="absolute -top-4 left-1/2 -translate-x-1/2 w-16 h-8 bg-[#1B7AB8] flex items-center justify-center text-white font-bold"
-                  style={{ clipPath: 'polygon(20% 0%, 80% 0%, 100% 50%, 80% 100%, 20% 100%, 0% 50%)' }}
-                >
-                  3
-                </div>
-                <div className="absolute top-[45%] -left-[9px] w-4 h-4 bg-[#1B7AB8] rounded-full border-2 border-white" />
-                <div className="absolute top-[45%] -right-[9px] w-4 h-4 bg-[#1B7AB8] rounded-full border-2 border-white" />
-                {/* Bottom Triangle */}
-                <div
-                  className="absolute -bottom-5 left-1/2 -translate-x-1/2 w-10 h-6 bg-[#1B7AB8]"
-                  style={{ clipPath: 'polygon(0% 0%, 100% 0%, 50% 100%)' }}
-                />
-              </div>
-
               <div className="relative bg-[#F4F9FF] rounded-[2rem] p-8 md:p-10 text-center h-full min-h-[300px] flex flex-col justify-center shadow-sm">
                 <h3 className="text-xl font-bold text-[#1B7AB8] mb-6">
                   Impartial Advice
