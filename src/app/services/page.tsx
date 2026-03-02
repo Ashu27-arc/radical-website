@@ -45,6 +45,7 @@ export default function ServicesPage() {
         </Link>
       </div>
     </section>
+    </>
   );
 }
 

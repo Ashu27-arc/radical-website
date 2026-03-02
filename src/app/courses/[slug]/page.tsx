@@ -55,5 +55,6 @@ export default async function CourseDetailsPage({ params }: PageProps) {
         </div>
       </div>
     </section>
+    </>
   );
 }

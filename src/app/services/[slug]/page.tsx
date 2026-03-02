@@ -43,5 +43,6 @@ export default async function ServiceDetails({ params }: PageProps) {
         </p>
       </div>
     </section>
+    </>
   );
 }
