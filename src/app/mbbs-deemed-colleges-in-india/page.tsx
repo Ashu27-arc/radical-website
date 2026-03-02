@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 export default function MBBSDeemedCollegesPage() {
     const [formData, setFormData] = useState({
@@ -56,6 +57,7 @@ export default function MBBSDeemedCollegesPage() {
 
     return (
         <div className="min-h-screen">
+            <FloatingWhatsApp />
             <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-7 xl:gap-8">
 
                 {/* LEFT CONTENT */}

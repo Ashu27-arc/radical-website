@@ -3,6 +3,7 @@
 import { courses } from '@/data/courses';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
+import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 
 
 type PageProps = {
@@ -32,7 +33,9 @@ export default async function CourseDetailsPage({ params }: PageProps) {
   
 
   return (
-    <section className="bg-[#0B5C87] min-h-screen py-16">
+    <>
+      <FloatingWhatsApp />
+      <section className="bg-[#0B5C87] min-h-screen py-16">
       <div className="container mx-auto px-4 max-w-5xl">
         <div className="bg-white rounded-xl overflow-hidden shadow-lg">
           <Image

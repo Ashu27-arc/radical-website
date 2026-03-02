@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 export default function StudyAbroadPage() {
     const [showAllCountries, setShowAllCountries] = useState(false);
@@ -46,6 +47,7 @@ export default function StudyAbroadPage() {
 
     return (
         <div className="min-h-screen bg-gray-50">
+            <FloatingWhatsApp />
             {/* Hero Section */}
             <div className="relative bg-gradient-to-r from-blue-600 to-blue-800 text-white">
                 <div className="absolute inset-0">

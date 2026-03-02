@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { Image } from "primereact/image";
 import { useState } from "react";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 export const universities = [
   { id: 1, title: "Assam", image: "/images/Frame1321317787-8.webp", url: "/assam" },
@@ -48,6 +49,7 @@ export default function CounsellingAuthorityPage() {
 
     return (
         <section className="lg:pb-15 lg:pt-30 py-10 overflow-hidden text-[#4A4A4A]">
+            <FloatingWhatsApp />
             <div className="container px-3 md:px-4">
                 <h6 className="uppercase text-sm font-semibold text-black mb-4 fadeUp">NEET 2025-</h6>
                 <h1 className="font-bold text-black text-2xl md:text-4xl mb-8 fadeUp">Counselling Authorities</h1>

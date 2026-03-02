@@ -6,34 +6,34 @@ interface BlogSidebarProps {
 
 const BlogSidebar = ({ className = "" }: BlogSidebarProps) => {
     return (
-        <div className={`lg:col-span-1 mt-8 lg:mt-8 lg:ml-auto lg:mr-0 animate-fadeIn mb-20 lg:fixed lg:right-8 lg:top-40 lg:w-[calc((100%-1024px)/2+256px)] lg:max-w-sm lg:h-[calc(100vh-11rem)] lg:overflow-y-auto lg:overscroll-contain lg:pr-4 scrollbar-hide ${className}`} style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
-            {/* Get In Touch Form - Fixed/Sticky */}
-            <div className="sticky top-0 z-10">
-                <div className="bg-[#E1F2FF] p-4 md:p-6 rounded-lg transition-transform hover:scale-[1.01] duration-300 shadow-sm">
-                    <h3 className="text-lg md:text-xl font-bold text-gray-800 mb-4 text-center">Get In Touch</h3>
-                    <div className="space-y-4">
+        <div className={`w-full px-4 sm:px-6 lg:px-0 lg:col-span-1 mt-6 sm:mt-8 lg:ml-auto lg:mr-0 animate-fadeIn mb-12 sm:mb-16 lg:mb-20 lg:sticky lg:top-32 lg:w-full lg:max-w-sm lg:self-start lg:h-[calc(100vh-8rem)] lg:overflow-y-auto scrollbar-hide ${className}`} style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
+            {/* Get In Touch Form */}
+            <div className="mb-30">
+                <div className="bg-[#E1F2FF] p-4 sm:p-5 md:p-6 rounded-lg transition-transform hover:scale-[1.01] duration-300 shadow-sm">
+                    <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-800 mb-3 sm:mb-4 text-center">Get In Touch</h3>
+                    <div className="space-y-3 sm:space-y-4">
                         <input
                             type="text"
                             placeholder="Name"
-                            className="w-full bg-white p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base transition-shadow focus:shadow-md placeholder-gray-700"
+                            className="w-full bg-white p-2.5 sm:p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base transition-shadow focus:shadow-md placeholder-gray-700"
                         />
                         <input
                             type="email"
                             placeholder="Email Address"
-                            className="w-full bg-white p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base transition-shadow focus:shadow-md placeholder-gray-700"
+                            className="w-full bg-white p-2.5 sm:p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base transition-shadow focus:shadow-md placeholder-gray-700"
                         />
                         <input
                             type="tel"
                             placeholder="Mobile No"
-                            className="w-full bg-white p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base transition-shadow focus:shadow-md placeholder-gray-700"
+                            className="w-full bg-white p-2.5 sm:p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base transition-shadow focus:shadow-md placeholder-gray-700"
                         />
-                        <select className="w-full bg-white p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-500 text-sm md:text-base transition-shadow focus:shadow-md">
+                        <select className="w-full bg-white p-2.5 sm:p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-500 text-sm md:text-base transition-shadow focus:shadow-md">
                             <option>Select Course</option>
                             <option>MBBS</option>
                             <option>BDS</option>
                             <option>NEET PG</option>
                         </select>
-                        <button className="w-full bg-gradient-to-r from-[#63CDB4] to-[#0077BF] hover:from-[#0077BF] hover:to-[#63CDB4] text-white py-3 rounded-lg font-medium hover:from-teal-500 hover:to-blue-600 transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg text-sm md:text-base">
+                        <button className="w-full bg-gradient-to-r from-[#63CDB4] to-[#0077BF] hover:from-[#0077BF] hover:to-[#63CDB4] text-white py-2.5 sm:py-3 rounded-lg font-medium transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg text-sm md:text-base">
                             Submit
                         </button>
                     </div>
@@ -41,48 +41,48 @@ const BlogSidebar = ({ className = "" }: BlogSidebarProps) => {
             </div>
 
             {/* Related Section - Scrollable */}
-            <div className="bg-[#E1F2FF] p-4 md:p-6 rounded-lg -mt-1">
-                <h3 className="text-lg md:text-xl font-bold text-[#287FC4] mb-6 ml-4 md:ml-10">Related</h3>
-                <div className="space-y-6">
+            <div className="bg-[#E1F2FF] p-4 sm:p-5 md:p-6 rounded-lg mt-4 sm:mt-6 lg:-mt-30">
+                <h3 className="text-base sm:text-lg md:text-xl font-bold text-[#287FC4] mb-4 sm:mb-5 md:mb-6 ml-2 sm:ml-4 md:ml-10">Related</h3>
+                <div className="space-y-4 sm:space-y-5 md:space-y-6">
                     {/* Related Post 1 */}
-                    <div className="p-4 mx-4 rounded-lg border-[#ABABAB] border-b hover:bg-gray-50 transition-colors duration-300 cursor-pointer group">
-                        <h4 className="font-semibold text-gray-800 mb-2 leading-tight text-sm md:text-base group-hover:text-[#287FC4] transition-colors break-words">
+                    <div className="p-3 sm:p-4 mx-2 sm:mx-3 md:mx-4 rounded-lg border-[#ABABAB] border-b hover:bg-gray-50 transition-colors duration-300 cursor-pointer group">
+                        <h4 className="font-semibold text-gray-800 mb-1.5 sm:mb-2 leading-tight text-sm md:text-base group-hover:text-[#287FC4] transition-colors break-words">
                             NEET Exam in India: Your Gateway to a Bright Medical
                         </h4>
                         <div className="text-gray-500 text-xs md:text-sm">
                             <span>Garima Pareek</span>
-                            <span className="mx-2">•</span>
+                            <span className="mx-1.5 sm:mx-2">•</span>
                             <span>15 Jan 2025</span>
                         </div>
                     </div>
 
                     {/* Related Post 2 */}
-                    <div className="p-4 mx-4 rounded-lg border-[#ABABAB] border-b hover:bg-gray-50 transition-colors duration-300 cursor-pointer group">
-                        <h4 className="font-semibold text-[#000000] mb-2 leading-tight text-sm md:text-base group-hover:text-[#287FC4] transition-colors break-words">
+                    <div className="p-3 sm:p-4 mx-2 sm:mx-3 md:mx-4 rounded-lg border-[#ABABAB] border-b hover:bg-gray-50 transition-colors duration-300 cursor-pointer group">
+                        <h4 className="font-semibold text-[#000000] mb-1.5 sm:mb-2 leading-tight text-sm md:text-base group-hover:text-[#287FC4] transition-colors break-words">
                             NEET Exam in India: Your Gateway to a Bright Medical
                         </h4>
                         <div className="text-gray-500 text-xs md:text-sm">
                             <span>Garima Pareek</span>
-                            <span className="mx-2">•</span>
+                            <span className="mx-1.5 sm:mx-2">•</span>
                             <span>15 Jan 2025</span>
                         </div>
                     </div>
 
                     {/* Related Post 3 */}
-                    <div className="p-4 mx-4 rounded-lg border-[#ABABAB] border-b hover:bg-gray-50 transition-colors duration-300 cursor-pointer group">
-                        <h4 className="font-semibold text-[#000000] mb-2 leading-tight text-sm md:text-base group-hover:text-[#287FC4] transition-colors break-words">
+                    <div className="p-3 sm:p-4 mx-2 sm:mx-3 md:mx-4 rounded-lg border-[#ABABAB] border-b hover:bg-gray-50 transition-colors duration-300 cursor-pointer group">
+                        <h4 className="font-semibold text-[#000000] mb-1.5 sm:mb-2 leading-tight text-sm md:text-base group-hover:text-[#287FC4] transition-colors break-words">
                             NEET Exam in India: Your Gateway to a Bright Medical
                         </h4>
                         <div className="text-gray-500 text-xs md:text-sm">
                             <span>Garima Pareek</span>
-                            <span className="mx-2">•</span>
+                            <span className="mx-1.5 sm:mx-2">•</span>
                             <span>15 Jan 2025</span>
                         </div>
                     </div>
                 </div>
 
                 {/* Advertisement Banners */}
-                <div className="mt-8 mx-4 space-y-4">
+                <div className="mt-6 sm:mt-7 md:mt-8 mx-2 sm:mx-3 md:mx-4 space-y-3 sm:space-y-4">
                     <div className="bg-gradient-to-r from-teal-400 to-blue-500 rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-xl">
                         <img
                             src="/images/blogs/ad-1.webp"

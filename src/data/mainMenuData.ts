@@ -77,11 +77,11 @@ export const mainMenuData: MenuItem[] = [
             { label: 'Sree Lakshmi Narayana Institute of Medical Sciences, Puducherry', url: '/sree-lakshmi-narayana-medical-institute/' },
             { label: 'Vinayaka Missions Medical College, Karaikal', url: '/vinayaka-missions-medical-college-karaikal/' },
           ] as MenuItem[]
-        ).sort((a, b) => a.label.localeCompare(b.label)),
+        ).sort((a, b) => (a.label || '').localeCompare(b.label || '')),
       },
 
       {
-        label: 'MBBS – 2025',
+        label: 'MBBS',
         url: '/mbbs-in-india/',
         items: [
           { label: 'Andhra Pradesh', url: '/mbbs-in-andhra-pradesh/' },
@@ -117,7 +117,7 @@ export const mainMenuData: MenuItem[] = [
       },
 
       {
-        label: 'BDS – 2025',
+        label: 'Dental',
         url: '/bds-in-india/',
         items: [
           { label: 'Andhra Pradesh', url: '/bds-in-andhra-pradesh/' },
@@ -152,8 +152,7 @@ export const mainMenuData: MenuItem[] = [
         ],
       },
 
-      { label: 'Ayush – 2025', url: '/ayush-counselling-2025/' },
-      { label: 'Webinar NEET-UG 2025', url: '/neet-webinar/' },
+      { label: 'Ayush', url: '/ayush-counselling-2025/' },
       { label: 'NEET Counselling Authorities', url: '/counselling-authority/' },
     ],
   },

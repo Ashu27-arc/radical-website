@@ -8,6 +8,7 @@ import { galleryData } from "@/data/galleryData";
 import { useEffect, useState } from "react";
 import GalleryModal from "@/components/gallery/GalleryModal";
 import GalleryCard from "@/components/gallery/GalleryCard";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 const countries = [
     { name: 'India', flag: '/images/india.webp' },
@@ -47,6 +48,7 @@ export default function GalleryPage() {
 
     return (
         <>
+            <FloatingWhatsApp />
             <div className="bg-[#F4F7F8]">
                 <section className="lg:py-60 md:py-40 py-20 relative overflow-hidden z-2 bg-[url('/images/galleryHero.webp')] bg-cover bg-center bg-no-repeat">
                     <div className="absolute inset-0 bg-black/50 -z-1" />

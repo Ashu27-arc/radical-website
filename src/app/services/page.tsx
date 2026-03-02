@@ -3,6 +3,7 @@
 import ServiceCard from "@/components/home/ServiceCard";
 import { services } from "@/data/services";
 import Link from "next/link";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 export const metadata = {
   title: "Our Services",
@@ -11,7 +12,9 @@ export const metadata = {
 
 export default function ServicesPage() {
   return (
-    <section className="max-w-7xl mx-auto px-4 py-20">
+    <>
+      <FloatingWhatsApp />
+      <section className="max-w-7xl mx-auto px-4 py-20">
       {/* Header */}
       <div className="text-center mb-14">
         <h1 className="text-3xl font-bold text-gray-800">

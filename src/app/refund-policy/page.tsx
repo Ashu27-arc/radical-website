@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { Image } from "primereact/image";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 
 
@@ -9,6 +10,7 @@ import { Image } from "primereact/image";
 export default function RefundPolicyPage() {
     return (
         <>
+            <FloatingWhatsApp />
             <div className="h-[60px] hidden lg:block"></div>
             <div className="py-10 lg:py-20 bg-[#F4F7F8]">
                 <div className="container px-3 md:px-4">

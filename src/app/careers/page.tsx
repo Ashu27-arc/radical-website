@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 interface JobDetails {
   title: string;
@@ -209,6 +210,7 @@ export default function CareersPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <FloatingWhatsApp />
       {/* Hero Section */}
       <section className="relative py-16 md:py-34">
         <div className="absolute inset-0 z-0">

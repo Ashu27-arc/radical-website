@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 export default function InstituteListPage() {
   const [formData, setFormData] = useState({
@@ -124,6 +125,7 @@ export default function InstituteListPage() {
 
   return (
     <div className="min-h-screen bg-gray-100">
+      <FloatingWhatsApp />
       {/* Success Message Banner */}
       {submitMessage && submitMessage.type === "success" && (
         <div className="bg-gradient-to-r from-green-500 to-green-600 text-white py-6 px-4 shadow-lg">

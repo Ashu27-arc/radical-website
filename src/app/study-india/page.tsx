@@ -2,6 +2,7 @@
 
 import { Button } from "primereact/button";
 import { Image } from "primereact/image";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 const studyIndiaLists = [
     {
@@ -68,6 +69,7 @@ export default function StudyIndiaPage() {
 
     return (
         <>
+            <FloatingWhatsApp />
             <section id="connect-counselor" className="pb-8 md:pb-16 bg-[#F4F7F8]">
                 <div className="container mx-auto px-3 md:px-4">
                     <div className="relative rounded-2xl md:rounded-3xl overflow-hidden min-h-[350px] md:min-h-[480px] flex items-center">

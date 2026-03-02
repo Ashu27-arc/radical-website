@@ -1,5 +1,7 @@
 "use client";
 
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+
 export default function AboutUsPage() {
   const steps = [
     {
@@ -21,6 +23,7 @@ export default function AboutUsPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      <FloatingWhatsApp />
       {/* Hero Section */}
       <section className="relative min-h-[500px] md:h-[90vh] md:min-h-[400px] md:max-h-[600px] bg-gradient-to-br from-[#0B5A8E] to-[#1B7AB8] text-white overflow-hidden flex items-center py-8 md:py-0">
         <div className="container mx-auto px-4 md:px-8 w-full">

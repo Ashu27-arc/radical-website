@@ -3,6 +3,7 @@
 import CounselorForm from "@/components/CounselorForm";
 import Link from "next/link";
 import { Image } from "primereact/image";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 
 
@@ -10,6 +11,7 @@ import { Image } from "primereact/image";
 export default function ContactPage() {
     return (
         <>
+            <FloatingWhatsApp />
             <div className="bg-[#F4F7F8]">
                 <section className="lg:py-40 md:py-30 py-20 relative overflow-hidden z-2 bg-[url('/images/contactHero.webp')] bg-cover bg-center bg-no-repeat">
                     <div className="absolute inset-0 bg-black/50 -z-1" />

@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import GoogleReviews from '@/components/GoogleReviews';
+import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 
 export default function AyushCounselling2025() {
   const [formData, setFormData] = useState({
@@ -58,6 +59,7 @@ export default function AyushCounselling2025() {
 
   return (
     <div className="min-h-screen bg-gray-50 overflow-x-hidden">
+      <FloatingWhatsApp />
       {/* Hero Section */}
       <div className="relative text-white pt-12 md:pt-20 lg:pt-24 pb-12 md:pb-16 lg:pb-10" style={{
         backgroundImage: 'url(/images/ayush-counselling-2025-Hero.webp)',

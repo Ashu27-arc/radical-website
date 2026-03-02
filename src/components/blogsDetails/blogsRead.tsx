@@ -6,6 +6,7 @@ import Link from 'next/link';
 import BlogSidebar from './BlogSidebar';
 import { getBlogBySlug, type Blog } from '@/lib/api';
 import { useWebSocket } from '@/hooks/useWebSocket';
+import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 
 interface BlogsReadProps {
     slug: string;
@@ -66,8 +67,9 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
     const categories = ['All', 'Education', 'Exams', 'Government', 'Careers'];
 
     const handleSearch = () => {
-        // Handle search functionality
-        console.log('Searching for:', searchTerm);
+        if (searchTerm.trim()) {
+            window.location.href = `/blogs?search=${encodeURIComponent(searchTerm.trim())}`;
+        }
     };
 
     const scroll = (direction: 'left' | 'right') => {
@@ -84,6 +86,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
 
     return (
         <div className="w-full bg-gray-50 relative animate-fadeIn">
+            <FloatingWhatsApp />
             {/* Fixed Search Section */}
             <div className="sticky top-24 md:top-28 z-10 bg-gray-50 py-4 md:py-6 shadow-sm">
                 <div className="max-w-6xl mx-auto px-4">
@@ -186,10 +189,10 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
             {/* Scrollable Content */}
             <div className="pt-4">
                 {/* main content */}
-                <div className="max-w-7xl mx-auto px-4 mt-8 lg:ml-22 overflow-hidden">
+                <div className="max-w-7xl mx-auto px-4 mt-8 lg:ml-22">
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8">
                     {/* Blog Content - Left Side */}
-                    <div className="lg:col-span-2 overflow-hidden">
+                    <div className="lg:col-span-2">
                         {loading ? (
                             <div className="animate-pulse space-y-4">
                                 <div className="h-6 bg-gray-200 rounded w-24" />
@@ -323,7 +326,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                             </div>
 
                             {/* Comment Form */}
-                            <div className="space-y-4">
+                            <div className="space-y-5 mb-12 md:mb-16">
                                 <textarea
                                     placeholder="write your comment here..."
                                     className="w-full p-3 md:p-4 border border-gray-300 rounded-lg resize-none h-24 md:h-32 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base"

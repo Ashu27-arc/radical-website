@@ -1,6 +1,7 @@
 import { services } from "@/data/services";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 type PageProps = {
   params: Promise<{
@@ -28,7 +29,9 @@ export default async function ServiceDetails({ params }: PageProps) {
   }
 
   return (
-    <section className="max-w-4xl mx-auto px-4 py-20">
+    <>
+      <FloatingWhatsApp />
+      <section className="max-w-4xl mx-auto px-4 py-20">
       <Link href="/services" className="text-blue-500 underline">
         ← Back to Services
       </Link>

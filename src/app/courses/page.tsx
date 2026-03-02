@@ -2,10 +2,13 @@
 
 import CourseCard from '@/components/home/CourseCard';
 import { courses } from '@/data/courses';
+import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 
 export default function CoursesPage() {
   return (
-    <section className="bg-[#0B5C87] min-h-screen py-16">
+    <>
+      <FloatingWhatsApp />
+      <section className="bg-[#0B5C87] min-h-screen py-16">
       <div className="container mx-auto px-4">
         <h1 className="text-white text-3xl font-semibold mb-10">
           Our Courses
@@ -18,6 +21,7 @@ export default function CoursesPage() {
         </div>
       </div>
     </section>
+    </>
   );
 }
 

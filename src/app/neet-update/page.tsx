@@ -6,6 +6,7 @@ import { Suspense } from "react";
 import NeetDetails from "@/components/neet-update-details/neet-details";
 import { useWebSocket } from "@/hooks/useWebSocket";
 import { getNeetUpdates, type NeetUpdate as ApiNeetUpdate } from "@/lib/api";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 // Define types for NEET updates (using the imported type)
 interface NeetUpdate extends ApiNeetUpdate {
@@ -171,6 +172,7 @@ const NeetUpdateContent = () => {
 
     return (
         <div className="bg-[#Fdfdfd] min-h-screen pb-10 md:pb-20 py-1">
+            <FloatingWhatsApp />
             {/* Hero Section */}
             <section className="relative w-full h-[350px] sm:h-[400px] md:h-[500px]">
                 {/* Background Image */}

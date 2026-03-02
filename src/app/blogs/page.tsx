@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { getBlogs, type Blog } from '@/lib/api';
 import { useWebSocket } from '@/hooks/useWebSocket';
 import CounselorForm from '@/components/CounselorForm';
+import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 
 const categoryColors: Record<string, string> = {
   'Educational': 'bg-teal-500 text-white',
@@ -223,6 +224,7 @@ const BlogsPage = () => {
 
   return (
     <div className="min-h-screen">
+      <FloatingWhatsApp />
       {/* Header Section */}
       <div className="bg-white py-2 md:py-4 animate-fadeIn">
         <div className="container mx-auto px-4">

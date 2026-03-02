@@ -1,5 +1,6 @@
 import Image from "next/image";
 import CounselorForm from "@/components/CounselorForm";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 export default function OurTeam() {
     const teamMembers = [
@@ -49,6 +50,7 @@ export default function OurTeam() {
 
     return (
         <div className="min-h-screen">
+            <FloatingWhatsApp />
             {/* Hero Section */}
             <section className="relative h-[300px] md:h-[600px] flex items-center justify-center overflow-hidden">
                 <Image
@@ -157,7 +159,7 @@ export default function OurTeam() {
                                         <span className="text-xs text-green-600">{member.available ? "Available" : "Unavailable"}</span>
                                     </div>
                                     <a
-                                        href="#connect-counselor"
+                                        href="https://www.neetbhaiya.in/dedicated-counsellor"
                                         className="mt-auto w-full py-3 px-3 rounded-full bg-[#DFF1FF] text-[#005A8B] font-semibold text-center text-xs hover:bg-[#DFF1FF] transition-colors"
                                     >
                                         Book A Call

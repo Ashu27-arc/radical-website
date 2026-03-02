@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 export default function MBBSAbroadAdmission() {
     const countries = [
@@ -135,6 +136,7 @@ export default function MBBSAbroadAdmission() {
 
     return (
         <div className="min-h-screen">
+            <FloatingWhatsApp />
             {/* Hero Section */}
             <section className="relative bg-gradient-to-r from-[#0B5A7D] to-[#0E7BA8] py-4 sm:py-6 md:py-8 lg:pb-10 lg:pt-20 overflow-hidden">
                 <div className="absolute inset-0 opacity-40">

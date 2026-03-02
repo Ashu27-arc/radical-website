@@ -1,8 +1,10 @@
 import Image from 'next/image';
+import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 
 const Russia = () => {
   return (
     <div className="min-h-screen bg-gray-50">
+      <FloatingWhatsApp />
       {/* Hero Section */}
       <div className="relative text-white py-15 md:py-32 lg:py-50 px-4 md:px-6 overflow-hidden" style={{
         backgroundImage: 'url(/images/study-abroad/kazakshstanHero.webp)',
