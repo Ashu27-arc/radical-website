@@ -1528,12 +1528,12 @@ input:autofill {
     position: absolute;
     width: 200%;
     height: 100%;
-    background: linear-gradient(90deg, 
-        transparent 0%, 
-        rgba(0, 207, 178, 0.05) 45%, 
-        rgba(0, 207, 178, 0.2) 50%, 
-        rgba(0, 207, 178, 0.05) 55%, 
-        transparent 100%);
+    background: linear-gradient(90deg,
+            transparent 0%,
+            rgba(0, 207, 178, 0.05) 45%,
+            rgba(0, 207, 178, 0.2) 50%,
+            rgba(0, 207, 178, 0.05) 55%,
+            transparent 100%);
     transform: rotate(-15deg);
     animation: snake-beam 10s linear infinite;
 }
@@ -1546,6 +1546,7 @@ input:autofill {
     0% {
         transform: rotate(-15deg) translateX(-100%);
     }
+
     100% {
         transform: rotate(-15deg) translateX(50%);
     }
@@ -1555,9 +1556,24 @@ input:autofill {
 .blog-content .crm-embed {
     margin: 2px auto !important;
 }
-.blog-content * + .crm-embed {
+
+.blog-content *+.crm-embed {
     margin-top: 0.125rem !important;
 }
-.blog-content .crm-embed + * {
+
+.blog-content .crm-embed+* {
     margin-top: 0.125rem !important;
+}
+
+/* Hide scrollbar but keep functionality */
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+    /* Chrome, Safari and Opera */
 }

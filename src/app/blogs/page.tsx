@@ -235,30 +235,89 @@ const BlogsPage = () => {
               </span>
             </div>
           </div>
-          {/* Search Bar */}
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 -mb-4 py-4 md:py-8">
-            <div className="w-full max-w-2xl">
-              <input
-                type="text"
-                placeholder="Search your blog here"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full px-4 md:px-6 py-3 shadow-lg drop-shadow-lg rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base placeholder-gray-700"
-              />
+          <div className="md:fixed md:top-32 md:left-0 md:right-0 z-20 bg-white px-4 pb-4 md:pb-6 md:shadow-md">
+            {/* Search Bar */}
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 -mb-4 py-4 md:py-8">
+              <div className="w-full max-w-2xl relative">
+                <input
+                  type="text"
+                  placeholder="Search your blog here"
+                  value={searchQuery}
+                  onChange={(e) => setSearchQuery(e.target.value)}
+                  className="w-full px-4 md:px-6 pr-12 py-3 shadow-lg drop-shadow-lg rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base placeholder-gray-700"
+                />
+                <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-5 w-5 text-gray-500"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M21 21l-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15z"
+                    />
+                  </svg>
+                </div>
+              </div>
             </div>
-            <button className="bg-[#005A8B] text-white px-6 md:px-8 py-3 rounded-full hover:bg-blue-700 transition-colors whitespace-nowrap text-sm md:text-base w-full sm:w-auto">
-              Search
-            </button>
-          </div>
 
-          {/* Category Tabs */}
-          <div ref={scrollRef} className="flex justify-start md:justify-center overflow-hidden md:overflow-x-auto [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-            <div className="flex space-x-2 md:space-x-8 p-2 rounded-full min-w-max">
-              {/* Left Arrow Button - Hidden on mobile */}
-              <button
-                onClick={() => scroll('left')}
-                className="hidden md:flex w-10 h-10 rounded-full bg-white shadow-md hover:shadow-lg transition-shadow items-center justify-center"
-              >
+            {/* Category Tabs */}
+            <div ref={scrollRef} className="flex justify-start md:justify-center overflow-hidden md:overflow-x-auto [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+              <div className="flex space-x-2 md:space-x-8 p-2 rounded-full min-w-max">
+                {/* Left Arrow Button - Hidden on mobile */}
+                <button
+                  onClick={() => scroll('left')}
+                  className="hidden md:flex w-10 h-10 rounded-full bg-white shadow-md hover:shadow-lg transition-shadow items-center justify-center"
+                >
+                  <Image
+                    src="/images/blogs/left-arrow.webp"
+                    alt="Previous"
+                    width={20}
+                    height={20}
+                    className="object-contain"
+                  />
+                </button>
+                {categories.map((category, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setActiveCategory(category)}
+                    className={`px-3 md:px-6 py-2 rounded-full transition-colors text-sm md:text-base whitespace-nowrap ${activeCategory === category
+                      ? 'bg-[#005A8B] text-white'
+                      : category === 'Education'
+                        ? 'bg-[#BFE6DB] text-[#00A88E]'
+                        : category === 'Exams'
+                          ? 'bg-[#FFE0B2] text-[#C77700]'
+                          : category === 'Careers'
+                            ? 'bg-[#D5DCE5] text-[#004E89]'
+                            : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                      }`}
+                  >
+                    {category}
+                  </button>
+                ))}
+                {/* Right Arrow Button - Hidden on mobile */}
+                <button
+                  onClick={() => scroll('right')}
+                  className="hidden md:flex w-10 h-10 rounded-full bg-white shadow-md hover:shadow-lg transition-shadow items-center justify-center"
+                >
+                  <Image
+                    src="/images/blogs/right-arrow.webp"
+                    alt="Next"
+                    width={20}
+                    height={20}
+                    className="object-contain"
+                  />
+                </button>
+              </div>
+            </div>
+
+            {/* Mobile Only Arrows */}
+            <div className="flex md:hidden justify-center space-x-4 mt-4 w-full">
+              <button onClick={() => scroll('left')} className="w-10 h-10 rounded-full bg-white shadow-md hover:shadow-lg transition-shadow flex items-center justify-center">
                 <Image
                   src="/images/blogs/left-arrow.webp"
                   alt="Previous"
@@ -267,29 +326,7 @@ const BlogsPage = () => {
                   className="object-contain"
                 />
               </button>
-              {categories.map((category, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveCategory(category)}
-                  className={`px-3 md:px-6 py-2 rounded-full transition-colors text-sm md:text-base whitespace-nowrap ${activeCategory === category
-                    ? 'bg-[#005A8B] text-white'
-                    : category === 'Education'
-                      ? 'bg-[#BFE6DB] text-[#00A88E]'
-                      : category === 'Exams'
-                        ? 'bg-[#FFE0B2] text-[#C77700]'
-                        : category === 'Careers'
-                          ? 'bg-[#D5DCE5] text-[#004E89]'
-                          : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                    }`}
-                >
-                  {category}
-                </button>
-              ))}
-              {/* Right Arrow Button - Hidden on mobile */}
-              <button
-                onClick={() => scroll('right')}
-                className="hidden md:flex w-10 h-10 rounded-full bg-white shadow-md hover:shadow-lg transition-shadow items-center justify-center"
-              >
+              <button onClick={() => scroll('right')} className="w-10 h-10 rounded-full bg-white shadow-md hover:shadow-lg transition-shadow flex items-center justify-center">
                 <Image
                   src="/images/blogs/right-arrow.webp"
                   alt="Next"
@@ -300,33 +337,11 @@ const BlogsPage = () => {
               </button>
             </div>
           </div>
-
-          {/* Mobile Only Arrows */}
-          <div className="flex md:hidden justify-center space-x-4 mt-4 w-full">
-            <button onClick={() => scroll('left')} className="w-10 h-10 rounded-full bg-white shadow-md hover:shadow-lg transition-shadow flex items-center justify-center">
-              <Image
-                src="/images/blogs/left-arrow.webp"
-                alt="Previous"
-                width={20}
-                height={20}
-                className="object-contain"
-              />
-            </button>
-            <button onClick={() => scroll('right')} className="w-10 h-10 rounded-full bg-white shadow-md hover:shadow-lg transition-shadow flex items-center justify-center">
-              <Image
-                src="/images/blogs/right-arrow.webp"
-                alt="Next"
-                width={20}
-                height={20}
-                className="object-contain"
-              />
-            </button>
-          </div>
         </div>
       </div>
 
       {/* Blog Content */}
-      <div className="container mx-auto px-4 py-2 md:py-4">
+      <div className="container mx-auto px-4 py-2 md:py-4 md:pt-[280px]">
         <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6 md:mb-8">Fresh Update</h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 relative">
@@ -377,7 +392,7 @@ const BlogsPage = () => {
             )}
           </div>
 
-          {/* Sidebar */}
+          {/* Sidebar - Fixed on Desktop */}
           <div className="space-y-4 md:space-y-6">
             {sidebarBlogs.length > 0 ? (
               sidebarBlogs.map((post, index) => (
