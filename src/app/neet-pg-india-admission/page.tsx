@@ -5,6 +5,12 @@ import { Button } from "primereact/button";
 import { useEffect, useState } from "react";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
+import { Swiper, SwiperSlide } from 'swiper/react'
+import { Navigation, Pagination, Autoplay } from 'swiper/modules'
+
+import 'swiper/css'
+
+
 const branches = [
     {
         title: "Internal Medicine",
@@ -165,43 +171,24 @@ const features = [
 
 const videos = [
     {
-      id: 1,
-      title: 'Successful Admission',
-      youtubeId: 'dQw4w9WgXcQ',
+        id: 1,
+        title: 'Successful Admission',
+        youtubeId: 'dQw4w9WgXcQ',
     },
     {
-      id: 2,
-      title: "Ishika's Govt. MBBS Seat Journey",
-      youtubeId: '9bZkp7q19f0',
+        id: 2,
+        title: "Ishika's Govt. MBBS Seat Journey",
+        youtubeId: '9bZkp7q19f0',
     },
     {
-      id: 3,
-      title: 'Successful Admission',
-      youtubeId: '3JZ_D3ELwOQ',
+        id: 3,
+        title: 'Successful Admission',
+        youtubeId: '3JZ_D3ELwOQ',
     },
-  ];
+];
 
 export default function NeetPgIndiaAdmissionPage() {
-    const [visibleCount, setVisibleCount] = useState(24);
-    useEffect(() => {
-        const handleResize = () => {
-            if (window.innerWidth < 768) {
-                setVisibleCount(4);
-            } else {
-                setVisibleCount(12);
-            }
-        };
 
-        handleResize();
-        window.addEventListener("resize", handleResize);
-        return () => window.removeEventListener("resize", handleResize);
-    }, []);
-
-    const loadMore = () => {
-        setVisibleCount((prev) => prev + 4);
-    };
-
-    const visibleItems = branches.slice(0, visibleCount);
     return (
         <>
             <FloatingWhatsApp />
@@ -218,31 +205,8 @@ export default function NeetPgIndiaAdmissionPage() {
                 <div className="container px-3 md:px-4">
                     <h6 className="text-black font-semibold mb-6 fadeUp">Courses</h6>
                     <h2 className='text-black text-4xl font-bold mb-6 lg:mb-10 fadeUp mb-8'>PG Branches</h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 fadeUp">
-                        {visibleItems.map((item, index) => (
-                            <div
-                                key={index}
-                                className={`${item.color} rounded-2xl p-5 hover:shadow-md transition`}
-                            >
-                                <div className="w-14 h-14 flex items-center justify-center rounded-full bg-white shadow mb-4">
-                                    <img
-                                        src={item.icon}
-                                        alt={item.title}
-                                        className="w-8 h-8 object-contain"
-                                    />
-                                </div>
 
-                                <h3 className="font-semibold text-gray-900 text-sm">
-                                    {item.title}
-                                </h3>
-                                <div className="border-t border-black/25 my-4"></div>
-                                <p className="text-xs text-gray-600 leading-relaxed">
-                                    {item.desc}
-                                </p>
-                            </div>
-                        ))}
-                    </div>
-
+                    {/* 
                     {visibleCount < branches.length && (
                         <div className="text-center mt-8">
                             <button
@@ -252,20 +216,93 @@ export default function NeetPgIndiaAdmissionPage() {
                                 View More
                             </button>
                         </div>
-                    )}
+                    )} */}
+                </div>
+                <div className="fadeUp">
+                    <Swiper
+                        modules={[Autoplay]}
+                        spaceBetween={24}
+                        slidesPerView={1.2}
+                        centeredSlides={true}
+                        loop={true}
+                        navigation
+                        pagination={{ clickable: true }}
+                        autoplay={{
+                            delay: 3000,
+                            disableOnInteraction: false,
+                        }}
+                        breakpoints={{
+                            640: {
+                                slidesPerView: 1.5,
+                            },
+                            768: {
+                                slidesPerView: 2.5,
+                            },
+                            1024: {
+                                slidesPerView: 3.5,
+                            },
+                        }}
+                    >
+                        {branches.map((item, index) => (
+                            <SwiperSlide key={index}>
+                                <div
+                                    className={`${item.color} rounded-2xl p-5 hover:shadow-md transition h-full`}
+                                >
+                                    <div className="w-14 h-14 flex items-center justify-center rounded-full bg-white shadow mb-4">
+                                        <img
+                                            src={item.icon}
+                                            alt={item.title}
+                                            className="w-8 h-8 object-contain"
+                                        />
+                                    </div>
+
+                                    <h3 className="font-semibold text-gray-900 text-sm">
+                                        {item.title}
+                                    </h3>
+
+                                    <div className="border-t border-black/25 my-4"></div>
+
+                                    <p className="text-xs text-gray-600 leading-relaxed">
+                                        {item.desc}
+                                    </p>
+                                </div>
+                            </SwiperSlide>
+                        ))}
+                    </Swiper>
                 </div>
             </section>
-            <section className="pt-10 lg:pt-15 overflow-hidden bg-[url('/images/anExpert.webp')] bg-cover bg-center bg-no-repeat">
-                <div className="container px-3 md:px-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 md:gap-4 lg:gap-10">
+            <section className="py-10 lg:py-15 overflow-hidden bg-[url('/images/anExpert.webp')] bg-cover bg-center bg-no-repeat">
+                <div className="container px-3 md:px-4 lg:px-20">
+                    <div className="grid grid-cols-1 md:grid-cols-2 md:gap-4 lg:gap-30">
                         <div className="relative">
-                            <div className="absolute right-0 top-20">
-                                <Button size="small" icon="pi pi-phone" label="Talk to an expert" className='move-y text-white! bg-[#005787]! border-[#005787]!' rounded />
-                            </div>
-                            <Image src="/images/anEept.webp" height="529" width="552" className="move-x w-full max-w-[550px] h-auto" alt="" />
+                            <Image src="/images/csdcsdcs.webp" width="572" height="764" className="move-x w-full max-w-[455px] h-auto" alt="" />
                         </div>
                         <div>
-                            <div className="relative z-2 lg:p-8 p-6 rounded-2xl lg:rounded-4xl shadow-[0px_1px_2px_0px_#0000001A,0px_3px_3px_0px_#00000017,0px_7px_4px_0px_#0000000D,0px_12px_5px_0px_#00000003,0px_19px_5px_0px_#00000000] bg-white">
+                            <div
+                                style={{
+                                backgroundImage: "url('/images/borderShape3.webp')",
+                                }}
+                                className={`prcCardStyle1 fadeUp overflow-hidden relative z-1 rounded-2xl border-2 border-[#42ACCF] bg-[#D3F4FF] p-6 lg:px-6 lg:py-8 shadow-md hover:shadow-xl transition`}
+                            >
+                                <div className="text-lg font-semibold text-[#0B2E3C] uppercase">Standard</div>
+                                <div className="text-xs text-[#0B2E3C] mb-6">I designed a web UI for an AI-powered HR Co-Pil I </div>
+                                <div className="font-bold lg:text-5xl text-4xl mb-8">₹ 9,999</div>
+                                <div className="text-xs text-[#0B2E3C] mb-5">Features</div>
+                                <ul className="space-y-4 text-sm text-gray-700 mb-8">
+                                    {features.map((item, index) => (
+                                        <li key={index} className="flex gap-2">
+                                            <span className="text-yellow-500">✦</span>
+                                            <span>{item}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                                <div className="flex flex-col gap-3">
+                                    <Button className="text-[#005787]! border-[#DFF1FF]! bg-[#DFF1FF]! w-full flex gap-2 items-center" rounded>
+                                        Pay now <i className="pi pi-arrow-right"></i>
+                                    </Button>
+                                </div>
+                            </div>
+                            {/* <div className="relative z-2 lg:p-8 p-6 rounded-2xl lg:rounded-4xl shadow-[0px_1px_2px_0px_#0000001A,0px_3px_3px_0px_#00000017,0px_7px_4px_0px_#0000000D,0px_12px_5px_0px_#00000003,0px_19px_5px_0px_#00000000] bg-white">
                                 <svg className="absolute left-0 right-0 top-0 -z-10 w-full h-auto" viewBox="0 0 561 353" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M47.9725 267.501C35.1584 257.971 19.0739 243.37 9.16839 234.107C3.25522 228.578 0 220.828 0 212.732V30C0 13.4315 13.4315 0 30 0H530.344C546.982 0 560.441 13.5394 560.343 30.1767L559.267 212.914C559.22 220.903 555.996 228.545 550.233 234.077C540.091 243.814 523.653 259.311 513.404 267.501C368.59 383.228 196.719 378.128 47.9725 267.501Z" fill="url(#paint0_linear_350_142)" />
                                     <defs>
@@ -302,7 +339,7 @@ export default function NeetPgIndiaAdmissionPage() {
                                         </ul>
                                     </div>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>
@@ -311,7 +348,7 @@ export default function NeetPgIndiaAdmissionPage() {
                 <div className="container px-3 md:px-4">
                     <div className="p-8 rounded-xl bg-[url('/images/addmi.webp')] bg-cover bg-center bg-no-repeat mb-6">
                         <div className="flex flex-wrap gap-2 fadeUp items-end justify-center">
-                            <div className="text-white lg:text-4xl text-2xl font-bold">Admission Service Charge :-</div><br className="md:hidden block"/>
+                            <div className="text-white lg:text-4xl text-2xl font-bold">Admission Service Charge :-</div><br className="md:hidden block" />
                             <div className="font-light text-[#CACACA] relative -top-0.5">₹ 1,29,999 </div>
                             <div className="font-bold lg:text-4xl text-2xl py-1 px-2 bg-white text-[#FF0000] font-semibold">₹ 84,499/-</div>
                         </div>
@@ -325,29 +362,29 @@ export default function NeetPgIndiaAdmissionPage() {
                             <div>1. This service charge includes the Visa charges but does not cover the Ticket charges.</div>
                             <div>2. Get the offer price 99,999 before NEET Result</div>
                         </div>
-                    </div> 
+                    </div>
                     <div className='mb-10 fadeUp text-center'>
                         <h2 className='text-black text-4xl font-bold mb-4'>OUR <span className='text-[#287FC4]'>SUCESSFUL STORIES</span></h2>
                         <div className='uppercase text-[#00CFB240] leading-12 text-[42px] md:text-5xl lg:text-7xl font-black'>HEAR FORM OUR STUDENT</div>
                     </div>
                     <div className="grid gap-6 md:grid-cols-3 grid-cols-1">
                         {videos.map((video) => (
-                        <div
-                            key={video.id}
-                            className="fadeUp relative min-w-[340px] h-[240px] rounded-xl overflow-hidden shadow-lg"
-                        >
-                            {/* YouTube Video */}
-                            <iframe
-                                className="absolute inset-0 w-full h-[240px]"
-                                src={`https://www.youtube.com/embed/${video.youtubeId}`}
-                                title={video.title}
-                                frameBorder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                allowFullScreen
-                            />
-                        </div>
+                            <div
+                                key={video.id}
+                                className="fadeUp relative min-w-[340px] h-[240px] rounded-xl overflow-hidden shadow-lg"
+                            >
+                                {/* YouTube Video */}
+                                <iframe
+                                    className="absolute inset-0 w-full h-[240px]"
+                                    src={`https://www.youtube.com/embed/${video.youtubeId}`}
+                                    title={video.title}
+                                    frameBorder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                />
+                            </div>
                         ))}
-                    </div>                               
+                    </div>
                 </div>
             </section>
         </>

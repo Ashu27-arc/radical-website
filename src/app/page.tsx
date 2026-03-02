@@ -352,7 +352,7 @@ export default function Home() {
         <div className="absolute left-0 right-0 top-0 bottom-0 bg-black/70 -z-1 rounded-lg" />
         <div className="container px-3 md:px-4">
           <div className="relative z-2 w-full rounded-lg py-10 px-4 md:px-10 md:py-20">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-white">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 text-white">
               <div>
                 <p className="uppercase font-semibold text-sm tracking-widest text-gray-300 mb-10">
                   Testimonial
@@ -361,7 +361,9 @@ export default function Home() {
                   Feedback <br /> From Students
                 </h2>
               </div>
-              <TestimonialSlider />
+              <div className="pt-4 md:pt-10 lg:pt-14">
+                <TestimonialSlider />
+              </div>
             </div>
           </div>
         </div>
