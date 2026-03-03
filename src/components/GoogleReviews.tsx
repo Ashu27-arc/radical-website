@@ -84,7 +84,12 @@ export default function GoogleReviews() {
                 </span>
               </div>
 
-              <Button rounded size="small" className="bg-[#005A8B]! border-[#005A8B]!">
+              <Button 
+                rounded 
+                size="small" 
+                className="bg-[#005A8B]! border-[#005A8B]!"
+                onClick={() => window.open('https://share.google/qEFvxixqABZThuidJ', '_blank')}
+              >
                 Write a Review
               </Button>
             </>

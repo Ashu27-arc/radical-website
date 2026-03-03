@@ -65,9 +65,9 @@ export default function TestimonialsPage() {
                 />
 
                 {/* Content */}
-                <div className="relative z-10 max-w-6xl mx-auto px-3 sm:px-4 h-full flex flex-col justify-center items-center text-center text-white">
+                <div className="relative z-10 max-w-6xl mx-auto px-3 sm:px-4 h-full flex flex-col justify-center items-center text-center text-white pt-2 sm:pt-3 md:pt-4">
 
-                    <h1 className="text-lg sm:text-xl md:text-3xl lg:text-4xl font-bold leading-tight uppercase px-2 max-w-4xl">
+                    <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold leading-tight uppercase px-2 max-w-3xl">
                         What Students Says About <br className="hidden sm:block" />
                         <span className="text-white">Radical Education</span>
                     </h1>
@@ -80,7 +80,7 @@ export default function TestimonialsPage() {
                     {/* Video Card */}
                     <div className="mt-4 sm:mt-6 md:mt-10 relative flex items-center justify-center w-full px-2 sm:px-4">
                         {/* Main Video Card */}
-                        <div className="relative rounded-lg sm:rounded-xl overflow-hidden shadow-2xl w-full max-w-[90%] sm:max-w-[95%] md:max-w-[500px] lg:max-w-[600px] h-[180px] sm:h-[200px] md:h-[260px] lg:h-[320px] z-10">
+                        <div className="relative rounded-lg sm:rounded-xl overflow-hidden shadow-2xl w-full max-w-[80%] sm:max-w-[85%] md:max-w-[400px] lg:max-w-[480px] h-[150px] sm:h-[170px] md:h-[210px] lg:h-[260px] z-10">
                             <img
                                 src="/images/reviews/review-3.webp"
                                 className="w-full h-full object-cover object-center"

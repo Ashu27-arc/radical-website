@@ -348,7 +348,7 @@ const BlogsPage = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 relative">
           {/* Main Blog Post */}
-          <div className="lg:col-span-2 animate-fadeIn" style={{ animationDelay: '0.1s' }}>
+          <div className="lg:col-span-2 animate-fadeIn rounded-lg shadow-[0_12px_30px_rgba(0,0,0,0.3)]" style={{ animationDelay: '0.1s' }}>
             {featuredBlog ? (
               <Link href={`/${featuredBlog.slug}`} className="block">
                 <div className="bg-white rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer">
@@ -435,8 +435,8 @@ const BlogsPage = () => {
             {gridBlogs.map((blog, index) => (
               <React.Fragment key={blog.id}>
                 <Link href={`/${blog.slug}`} className="block animate-fadeIn" style={{ animationDelay: `${0.3 + index * 0.1}s` }}>
-                  <div className="bg-white rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer">
-                    <div className="relative h-40 md:h-48">
+                  <div className="bg-white rounded-lg overflow-hidden shadow-[0_8px_20px_rgba(0,0,0,0.2)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.3)] transition-all duration-300 hover:-translate-y-1 cursor-pointer">
+                    <div className="relative h-40 md:h-48 rounded-t-lg overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.15)]">
                       {blog.featuredImage ? (
                         <Image
                           src={blog.featuredImage}
