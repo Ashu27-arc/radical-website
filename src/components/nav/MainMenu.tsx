@@ -8,6 +8,7 @@ export default function MainMenu({ mainMenuData }: any) {
     const [loading, setLoading] = useState(true);
     const [openLevel1, setOpenLevel1] = useState<number | null>(null);
     const [openLevel2, setOpenLevel2] = useState<string | null>(null); // "level1Index-level2Index"
+    const [selectedLevel3, setSelectedLevel3] = useState<string | null>(null); // "level1Index-level2Index-level3Index"
     const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
     useEffect(() => {
@@ -25,13 +26,23 @@ export default function MainMenu({ mainMenuData }: any) {
     const handleLevel1Enter = (i: number) => {
         clearCloseTimer();
         setOpenLevel1(i);
-        setOpenLevel2(null);
+        // Automatically select first submenu item if it has children
+        const firstItemWithChildren = mainMenuData[i]?.items?.findIndex((item: any) => item.items && item.items.length > 0);
+        if (firstItemWithChildren !== -1) {
+            setOpenLevel2(`${i}-${firstItemWithChildren}`);
+            // Auto-select first item in level 3 submenu
+            setSelectedLevel3(`${i}-${firstItemWithChildren}-0`);
+        } else {
+            setOpenLevel2(null);
+            setSelectedLevel3(null);
+        }
     };
 
     const handleLevel1Leave = () => {
         closeTimerRef.current = setTimeout(() => {
             setOpenLevel1(null);
             setOpenLevel2(null);
+            setSelectedLevel3(null);
         }, 500);
     };
 
@@ -65,16 +76,35 @@ export default function MainMenu({ mainMenuData }: any) {
 
                                 {level1.items && level1.items.length > 0 && (
                                     <ul
-                                        className={`secondLVLmnu absolute left-0 top-full z-50 min-w-[220px] bg-white rounded-2xl px-1 shadow-lg ${openLevel1 === i ? 'block' : 'hidden'}`}
+                                        className={`secondLVLmnu absolute left-0 top-full z-50 min-w-[220px] bg-white p-2 shadow-lg ${openLevel1 === i ? 'block' : 'hidden'}`}
+                                        style={{ borderRadius: '16px' }}
                                     >
                                         {level1.items.map((level2: any, j: number) => (
                                             <li
                                                 key={j}
                                                 className="group/item"
+                                                onMouseEnter={() => {
+                                                    const id = `${i}-${j}`;
+                                                    if (level2.items && level2.items.length > 0) {
+                                                        setOpenLevel2(id);
+                                                        // Auto-select first item in level 3 submenu
+                                                        setSelectedLevel3(`${id}-0`);
+                                                    } else {
+                                                        // Close any open submenu when hovering over item without children
+                                                        setOpenLevel2(null);
+                                                        setSelectedLevel3(null);
+                                                    }
+                                                }}
                                             >
                                                 <Link
                                                     href={level2.url || '#'}
-                                                    className="flex items-center justify-between gap-2 px-4 py-3 text-sm hover:bg-gray-50"
+                                                    className={`flex items-center justify-between gap-2 px-4 py-3 text-sm transition-colors overflow-hidden ${openLevel2 === `${i}-${j}` ? 'bg-gray-100' : 'hover:bg-gray-100'}`}
+                                                    style={{ 
+                                                        borderTopLeftRadius: '12px',
+                                                        borderTopRightRadius: '12px',
+                                                        borderBottomLeftRadius: '12px',
+                                                        borderBottomRightRadius: '12px'
+                                                    }}
                                                     onClick={(e) => {
                                                         if (level2.items && level2.items.length > 0) {
                                                             e.preventDefault();
@@ -93,13 +123,23 @@ export default function MainMenu({ mainMenuData }: any) {
 
                                                 {level2.items && level2.items.length > 0 && (
                                                     <ul
-                                                        className={`thirdLVLmnu absolute left-full top-0 z-50 min-w-[220px] bg-[#DFF1FF] rounded-2xl px-1 shadow-lg ${openLevel2 === `${i}-${j}` ? 'block' : 'hidden'}`}
+                                                        className={`thirdLVLmnu absolute left-full top-0 z-50 min-w-[220px] bg-[#DFF1FF] p-2 shadow-lg ${openLevel2 === `${i}-${j}` ? 'block' : 'hidden'}`}
+                                                        style={{ borderRadius: '16px' }}
                                                     >
                                                         {level2.items.map((level3: any, k: number) => (
-                                                            <li key={k}>
+                                                            <li 
+                                                                key={k}
+                                                                onMouseEnter={() => setSelectedLevel3(`${i}-${j}-${k}`)}
+                                                            >
                                                                 <Link
                                                                     href={level3.url || '#'}
-                                                                    className="block px-4 py-3 text-sm hover:bg-white/60"
+                                                                    className={`block px-4 py-3 text-sm transition-colors overflow-hidden ${selectedLevel3 === `${i}-${j}-${k}` ? 'bg-white/70' : 'hover:bg-white/70'}`}
+                                                                    style={{ 
+                                                                        borderTopLeftRadius: '12px',
+                                                                        borderTopRightRadius: '12px',
+                                                                        borderBottomLeftRadius: '12px',
+                                                                        borderBottomRightRadius: '12px'
+                                                                    }}
                                                                 >
                                                                     {level3.label}
                                                                 </Link>

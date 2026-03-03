@@ -180,7 +180,7 @@ export default function InstituteListPage() {
           </div>
           <div className="hidden lg:block flex-shrink-0">
             <Image
-              src="/logo.webp"
+              src="/radical-logo2.svg"
               alt="Radical Education"
               width={300}
               height={120}

@@ -8,11 +8,88 @@ import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 export default function TestimonialsPage() {
     const [leftImageIndex, setLeftImageIndex] = useState(0);
     const [rightImageIndex, setRightImageIndex] = useState(1);
+    const [selectedYear, setSelectedYear] = useState(2026);
 
     const images = [
         '/images/reviews/review.webp',
         '/images/reviews/review-2.webp',
     ];
+
+    // Student data organized by year
+    const studentsByYear = {
+        2026: [
+            { name: 'Aarav Gupta', college: 'AIIMS, New Delhi', image: '' },
+            { name: 'Diya Sharma', college: 'JIPMER, Puducherry', image: '' },
+            { name: 'Vihaan Patel', college: 'CMC, Vellore', image: '' },
+            { name: 'Anaya Singh', college: 'KGMU, Lucknow', image: '' },
+            { name: 'Reyansh Kumar', college: 'MAMC, New Delhi', image: '' },
+            { name: 'Aadhya Reddy', college: 'BHU, Varanasi', image: '' },
+            { name: 'Arjun Mehta', college: 'LHMC, New Delhi', image: '' },
+            { name: 'Saanvi Verma', college: 'AIIMS, Rishikesh', image: '' },
+        ],
+        2025: [
+            { name: 'Kabir Joshi', college: 'AFMC, Pune', image: '' },
+            { name: 'Myra Nair', college: 'SGPGI, Lucknow', image: '' },
+            { name: 'Advait Das', college: 'NIMHANS, Bangalore', image: '' },
+            { name: 'Kiara Iyer', college: 'PGI, Chandigarh', image: '' },
+            { name: 'Vivaan Singh', college: 'GMC, Mumbai', image: '' },
+            { name: 'Anika Agarwal', college: 'RMLIMS, Lucknow', image: '' },
+            { name: 'Ayaan Roy', college: 'KGMC, Lucknow', image: '' },
+            { name: 'Navya Desai', college: 'AIIMS, Jodhpur', image: '' },
+        ],
+        2024: [
+            { name: 'Farzan Danish', college: 'Jamia Hamdard, New Delhi', image: '' },
+            { name: 'Priya Sharma', college: 'AIIMS, New Delhi', image: '' },
+            { name: 'Rahul Kumar', college: 'JIPMER, Puducherry', image: '' },
+            { name: 'Ananya Singh', college: 'CMC, Vellore', image: '' },
+            { name: 'Arjun Patel', college: 'KGMU, Lucknow', image: '' },
+            { name: 'Sneha Reddy', college: 'MAMC, New Delhi', image: '' },
+            { name: 'Vikram Mehta', college: 'BHU, Varanasi', image: '' },
+            { name: 'Ishita Gupta', college: 'LHMC, New Delhi', image: '' },
+        ],
+        2023: [
+            { name: 'Aditya Verma', college: 'AIIMS, Rishikesh', image: '' },
+            { name: 'Kavya Nair', college: 'AFMC, Pune', image: '' },
+            { name: 'Rohan Das', college: 'SGPGI, Lucknow', image: '' },
+            { name: 'Meera Iyer', college: 'NIMHANS, Bangalore', image: '' },
+            { name: 'Karan Singh', college: 'PGI, Chandigarh', image: '' },
+            { name: 'Divya Joshi', college: 'GMC, Mumbai', image: '' },
+            { name: 'Siddharth Roy', college: 'RMLIMS, Lucknow', image: '' },
+            { name: 'Pooja Agarwal', college: 'KGMC, Lucknow', image: '' },
+        ],
+        2022: [
+            { name: 'Amit Sharma', college: 'AIIMS, Jodhpur', image: '' },
+            { name: 'Riya Kapoor', college: 'VMMC, New Delhi', image: '' },
+            { name: 'Nikhil Jain', college: 'UCMS, New Delhi', image: '' },
+            { name: 'Tanvi Desai', college: 'GSVM, Kanpur', image: '' },
+            { name: 'Harsh Malhotra', college: 'LLRM, Meerut', image: '' },
+            { name: 'Sakshi Bansal', college: 'KGMU, Lucknow', image: '' },
+            { name: 'Varun Khanna', college: 'IMS BHU, Varanasi', image: '' },
+            { name: 'Nisha Pandey', college: 'AIIMS, Patna', image: '' },
+        ],
+        2021: [
+            { name: 'Rajesh Kumar', college: 'AIIMS, Bhopal', image: '' },
+            { name: 'Anjali Mishra', college: 'KGMU, Lucknow', image: '' },
+            { name: 'Deepak Singh', college: 'BHU, Varanasi', image: '' },
+            { name: 'Neha Gupta', college: 'MAMC, New Delhi', image: '' },
+            { name: 'Manish Yadav', college: 'LHMC, New Delhi', image: '' },
+            { name: 'Swati Sharma', college: 'VMMC, New Delhi', image: '' },
+            { name: 'Vishal Tiwari', college: 'GSVM, Kanpur', image: '' },
+            { name: 'Priyanka Singh', college: 'LLRM, Meerut', image: '' },
+        ],
+        2020: [
+            { name: 'Suresh Patel', college: 'AIIMS, Raipur', image: '' },
+            { name: 'Madhuri Jain', college: 'JIPMER, Puducherry', image: '' },
+            { name: 'Ashok Kumar', college: 'CMC, Vellore', image: '' },
+            { name: 'Sunita Reddy', college: 'NIMHANS, Bangalore', image: '' },
+            { name: 'Ramesh Verma', college: 'PGI, Chandigarh', image: '' },
+            { name: 'Geeta Agarwal', college: 'GMC, Mumbai', image: '' },
+            { name: 'Mukesh Roy', college: 'AFMC, Pune', image: '' },
+            { name: 'Rekha Desai', college: 'SGPGI, Lucknow', image: '' },
+        ],
+    };
+
+    const years = Object.keys(studentsByYear).map(Number).sort((a, b) => b - a);
 
     const handleLeftImageClick = () => {
         setLeftImageIndex((prev) => (prev === 0 ? 1 : 0));
@@ -110,16 +187,40 @@ export default function TestimonialsPage() {
                         Our Successful Student's
                     </h3>
 
+                    {/* Year Tabs */}
+                    <div className="flex justify-center gap-2 sm:gap-3 md:gap-4 mt-4 sm:mt-6 md:mt-8">
+                        {years.map((year) => (
+                            <button
+                                key={year}
+                                onClick={() => setSelectedYear(year)}
+                                className={`px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 rounded-lg font-semibold text-xs sm:text-sm md:text-base transition-all duration-300 ${
+                                    selectedYear === year
+                                        ? 'bg-[#0c5d87] text-white shadow-lg scale-105'
+                                        : 'bg-white text-[#0c5d87] hover:bg-[#0c5d87]/10'
+                                }`}
+                            >
+                                {year}
+                            </button>
+                        ))}
+                    </div>
+
                     {/* Student Grid */}
                     <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 lg:gap-8 mt-6 sm:mt-8 md:mt-10 lg:mt-12">
-                        {[...Array(8)].map((_, i) => (
-                            <div key={i} className="flex flex-col items-center">
-                                <div className="w-20 h-20 sm:w-24 sm:h-32 md:w-28 md:h-36 lg:w-32 lg:h-40 bg-[#005A8B] rounded-md shadow-sm"></div>
+                        {studentsByYear[selectedYear as keyof typeof studentsByYear]?.map((student: { name: string; college: string; image: string }, i: number) => (
+                            <div key={i} className="flex flex-col items-center group">
+                                <div className="relative mb-2">
+                                    {/* Year Badge - Left Top */}
+                                    <div className="absolute -left-2 top-0 bg-[#0c5d87] text-white text-[10px] sm:text-xs font-bold px-2 sm:px-3 py-1 shadow-md whitespace-nowrap">
+                                        {selectedYear}
+                                    </div>
+                                    <div className="w-20 h-20 sm:w-24 sm:h-32 md:w-28 md:h-36 lg:w-32 lg:h-40 bg-[#005A8B] shadow-sm overflow-hidden transition-transform duration-300 group-hover:scale-105">
+                                    </div>
+                                </div>
                                 <p className="mt-2 sm:mt-3 font-semibold text-xs sm:text-sm text-gray-800 leading-tight">
-                                    Farzan Danish
+                                    {student.name}
                                 </p>
                                 <p className="text-[10px] sm:text-xs text-gray-500 px-1 text-center leading-tight">
-                                    Jamia Hamdard, New Delhi
+                                    {student.college}
                                 </p>
                             </div>
                         ))}
