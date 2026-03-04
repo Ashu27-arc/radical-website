@@ -119,8 +119,8 @@ export default function Header() {
                 </Button>
               </div>
               <div className='lg:hidden'>
-                <Link href="/neet-update" className='gradient-border'>
-                  <span className='gradient-border-inner text-xs relative'>
+                <Link href="/neet-update" className='gradient-border2'>
+                  <span className='gradient-border-inner text-xs relative pr-8! inline-flex'>
                     <span className='text-nowrap'>NEET UPDATE</span>
                     <Image src='/images/mic.webp' width='40' height='50' alt='' className='absolute right-[-8px] top-0 animate-bounce' />
                   </span>
@@ -138,8 +138,8 @@ export default function Header() {
             <div className='flex gap-5 items-center'>
               <div className="flex gap-3">
                 <Button size="small" icon="pi pi-youtube" label="YOUTUBE" className='text-white! bg-[#CB1E17]! border-[#CB1E17]!' rounded />
-                <Link href="/neet-update" className='gradient-border'>
-                  <span className='gradient-border-inner relative'>
+                <Link href="/neet-update" className='gradient-border2'>
+                  <span className='gradient-border-inner relative pr-10! inline-flex'>
                     <span className='text-center'>NEET UPDATE</span>
                     <Image src='/images/mic.webp' width='50' height='60' alt='' className='absolute right-[-15px] -top-1.5 animate-bounce' />
                   </span>
