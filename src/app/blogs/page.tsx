@@ -237,9 +237,9 @@ const BlogsPage = () => {
               </span>
             </div>
           </div>
-          <div className="md:fixed md:top-32 md:left-0 md:right-0 z-20 bg-white px-4 pb-4 md:pb-6 md:shadow-md">
+          <div className="md:fixed md:top-32 left-0 right-0 z-20 bg-white px-4 pb-4 md:pb-6 md:shadow-md">
             {/* Search Bar */}
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 -mb-4 py-4 md:py-8">
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 -mb-2 py-0 md:py-8">
               <div className="w-full max-w-2xl relative">
                 <input
                   type="text"
@@ -343,7 +343,7 @@ const BlogsPage = () => {
       </div>
 
       {/* Blog Content */}
-      <div className="container mx-auto px-4 py-2 md:py-4 md:pt-[280px]">
+      <div className="container mx-auto px-4 py-2 pt-4 sm:pt-[240px] md:pt-[260px] lg:pt-[280px] md:py-6">
         <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6 md:mb-8">Fresh Update</h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 relative">
@@ -352,7 +352,7 @@ const BlogsPage = () => {
             {featuredBlog ? (
               <Link href={`/${featuredBlog.slug}`} className="block">
                 <div className="bg-white rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer">
-                  <div className="relative h-48 md:h-80">
+                  <div className="relative h-48 sm:h-60 md:h-72 lg:h-80">
                     {featuredBlog.featuredImage ? (
                       <Image
                         src={featuredBlog.featuredImage}
@@ -436,7 +436,7 @@ const BlogsPage = () => {
               <React.Fragment key={blog.id}>
                 <Link href={`/${blog.slug}`} className="block animate-fadeIn" style={{ animationDelay: `${0.3 + index * 0.1}s` }}>
                   <div className="bg-white rounded-lg overflow-hidden shadow-[0_8px_20px_rgba(0,0,0,0.2)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.3)] transition-all duration-300 hover:-translate-y-1 cursor-pointer">
-                    <div className="relative h-40 md:h-48 rounded-t-lg overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.15)]">
+                    <div className="relative h-40 sm:h-44 md:h-48 lg:h-52 rounded-t-lg overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.15)]">
                       {blog.featuredImage ? (
                         <Image
                           src={blog.featuredImage}
@@ -507,7 +507,7 @@ const BlogsPage = () => {
           {/* Combined container for image and form */}
           <div className="relative rounded-2xl overflow-hidden mx-4 md:mx-0">
             {/* Background Image */}
-            <div className="relative h-[300px] md:h-[500px]">
+            <div className="relative h-72 sm:h-80 md:h-[420px] lg:h-[480px]">
               <Image
                 src="/images/blogs/contact.webp"
                 alt="Contact Background"
@@ -515,12 +515,12 @@ const BlogsPage = () => {
                 className="object-cover"
               />
               {/* Overlay */}
-              <div className="absolute inset-0 bg-opacity-30"></div>
+              <div className="absolute inset-0 bg-black bg-opacity-30"></div>
             </div>
           </div>
 
           {/* Form Container - Outside background */}
-          <div className="flex justify-center -mt-40 md:-mt-90 relative z-10 px-4">
+          <div className="flex justify-center -mt-40 md:-mt-48 lg:-mt-56 relative z-10 px-4">
             <div className="bg-[#005A8B] bg-opacity-90 rounded-2xl p-6 md:p-8 w-full max-w-md mx-auto shadow-2xl">
               <CounselorForm />
             </div>
