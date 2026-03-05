@@ -18,6 +18,16 @@ const formatDate = (d: string) => {
     return isNaN(date.getTime()) ? d : date.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
 };
 
+// Remove background colors from pasted HTML (copied from other sites/CRMs)
+const sanitizeBlogContent = (html: string) => {
+    if (!html) return '';
+
+    // Remove inline background-color and background styles
+    return html
+        .replace(/background-color\s*:\s*[^;"]*;?/gi, '')
+        .replace(/background\s*:\s*[^;"]*;?/gi, '');
+};
+
 /** Process FAQ answer HTML so links open in new tab */
 const processFaqAnswer = (html: string) => {
     if (!html) return '';
@@ -88,7 +98,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
         <div className="w-full bg-gray-50 relative animate-fadeIn">
             <FloatingWhatsApp />
             {/* Fixed Search Section */}
-            <div className="sticky top-24 md:top-28 z-10 bg-gray-50 py-4 md:py-6 shadow-sm">
+            <div className="sticky top-20 md:top-28 z-10 bg-gray-50 py-4 md:py-6 shadow-sm">
                 <div className="max-w-6xl mx-auto px-4">
                     {connectionStatus}
                     {/* Search Section */}
@@ -252,7 +262,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                                 <div
                                     className="blog-content max-w-none text-gray-800 mb-4 text-[15px] md:text-[17px] leading-8 space-y-4 break-words"
                                     style={{ wordBreak: 'break-word', overflowWrap: 'anywhere' }}
-                                    dangerouslySetInnerHTML={{ __html: blog.content || blog.excerpt || '' }}
+                                    dangerouslySetInnerHTML={{ __html: sanitizeBlogContent(blog.content || blog.excerpt || '') }}
                                 />
 
                                 {/* FAQs Section - SEO friendly accordion */}
