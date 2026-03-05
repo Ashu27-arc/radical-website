@@ -98,7 +98,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
         <div className="w-full bg-gray-50 relative animate-fadeIn">
             <FloatingWhatsApp />
             {/* Fixed Search Section */}
-            <div className="sticky top-20 md:top-28 z-10 bg-gray-50 py-4 md:py-6 shadow-sm">
+            <div className="sticky top-12 md:top-28 z-10 bg-gray-50 py-2 md:py-6 shadow-sm">
                 <div className="max-w-6xl mx-auto px-4">
                     {connectionStatus}
                     {/* Search Section */}
