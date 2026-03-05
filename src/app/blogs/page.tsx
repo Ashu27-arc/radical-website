@@ -376,7 +376,7 @@ const BlogsPage = () => {
                     <h3 className="text-lg md:text-2xl font-bold text-gray-800 mb-3 md:mb-4 hover:text-blue-600 transition-colors">
                       {featuredBlog.title}
                     </h3>
-                    <p className="text-sm md:text-base text-gray-600 mb-3 md:mb-4 line-clamp-2">
+                    <p className="text-sm md:text-base text-gray-600 text-justify mb-3 md:mb-4 line-clamp-2">
                       {featuredBlog.excerpt || featuredBlog.title}
                     </p>
                     <div className="flex items-center text-gray-500 text-xs md:text-sm">
@@ -406,7 +406,7 @@ const BlogsPage = () => {
                     <h4 className="text-base md:text-lg font-bold text-gray-800 mb-2 md:mb-3 hover:text-blue-600 transition-colors">
                       {post.title}
                     </h4>
-                    <p className="text-gray-600 text-xs md:text-sm mb-3 md:mb-4 line-clamp-2">
+                    <p className="text-gray-600 text-xs md:text-sm text-justify mb-3 md:mb-4 line-clamp-2">
                       {post.excerpt || post.title}
                     </p>
                     <div className="flex items-center text-gray-500 text-xs">
@@ -460,7 +460,7 @@ const BlogsPage = () => {
                       <h3 className="text-base md:text-lg font-bold text-gray-800 mb-2 md:mb-3 hover:text-blue-600 transition-colors line-clamp-2">
                         {blog.title}
                       </h3>
-                      <p className="text-gray-600 text-xs md:text-sm mb-3 md:mb-4 line-clamp-2">
+                      <p className="text-gray-600 text-xs md:text-sm text-justify mb-3 md:mb-4 line-clamp-2">
                         {blog.excerpt || blog.title}
                       </p>
                       <div className="flex items-center text-gray-500 text-xs">
