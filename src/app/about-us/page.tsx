@@ -227,14 +227,14 @@ export default function AboutUsPage() {
                   className="relative flex flex-col items-center pt-5 h-full"
                 >
                   {/* Umbrella Line */}
-                  <div className="hidden md:block absolute top-[36px] left-0 right-0 h-[65%] rounded-t-[2.5rem] border-t-[1.5px] border-l-[1.5px] border-r-[1.5px] border-[#2563eb] pointer-events-none z-0">
-                    <div className="absolute -left-[5.5px] -bottom-[5px] w-[10px] h-[10px] bg-[#2563eb] rounded-full"></div>
-                    <div className="absolute -right-[5.5px] -bottom-[5px] w-[10px] h-[10px] bg-[#2563eb] rounded-full"></div>
+                  <div className="hidden md:block absolute top-[36px] left-0 right-0 h-[65%] rounded-t-[2.5rem] border-t-[1.5px] border-l-[1.5px] border-r-[1.5px] border-[#287FC4] pointer-events-none z-0">
+                    <div className="absolute -left-[5.5px] -bottom-[5px] w-[10px] h-[10px] bg-[#287FC4] rounded-full"></div>
+                    <div className="absolute -right-[5.5px] -bottom-[5px] w-[10px] h-[10px] bg-[#287FC4] rounded-full"></div>
                   </div>
 
                   {/* Top Badge */}
                   <div
-                    className="bg-[#2563eb] text-white flex items-center justify-center w-[120px] h-[34px] font-semibold text-[17px] relative z-10 mb-6"
+                    className="bg-[#287FC4] text-white flex items-center justify-center w-[120px] h-[34px] font-semibold text-[17px] relative z-10 mb-6"
                     style={{
                       clipPath:
                         "polygon(16px 0%, calc(100% - 16px) 0%, 100% 50%, calc(100% - 16px) 100%, 16px 100%, 0% 50%)",
@@ -253,7 +253,7 @@ export default function AboutUsPage() {
                     </p>
 
                     {/* Bottom Triangle */}
-                    <div className="absolute -bottom-[20px] left-1/2 -translate-x-1/2 w-0 h-0 border-l-[20px] border-l-transparent border-t-[20px] border-t-[#2563eb] border-r-[20px] border-r-transparent"></div>
+                    <div className="absolute -bottom-[20px] left-1/2 -translate-x-1/2 w-0 h-0 border-l-[20px] border-l-transparent border-t-[20px] border-t-[#287FC4] border-r-[20px] border-r-transparent"></div>
                   </div>
                 </div>
               ))}
@@ -343,7 +343,7 @@ export default function AboutUsPage() {
           <div className="grid md:grid-cols-3 gap-6 md:gap-8 items-stretch">
             {/* Mission Card */}
             <div className="bg-white rounded-2xl sm:rounded-3xl shadow-lg overflow-hidden border border-gray-100 p-6 sm:p-8 relative">
-              <div className="absolute top-4 right-4 w-20 h-20 sm:w-24 sm:h-24">
+              <div className="absolute -top-1 right-0 w-20 h-20 sm:w-24 sm:h-24">
                 <img
                   src="/images/about/ellipse.webp"
                   alt="Mission Icon"
@@ -375,7 +375,7 @@ export default function AboutUsPage() {
 
             {/* Vision Card */}
             <div className="bg-white rounded-2xl sm:rounded-3xl shadow-lg overflow-hidden border border-gray-100 p-6 sm:p-8 relative">
-              <div className="absolute top-4 right-4 w-20 h-20 sm:w-24 sm:h-24">
+              <div className="absolute -top-1 right-0 w-20 h-20 sm:w-24 sm:h-24">
                 <img
                   src="/images/about/ellipse.webp"
                   alt="Vision Icon"
