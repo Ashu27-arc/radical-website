@@ -197,13 +197,14 @@ export default function AboutUsPage() {
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
           <div className="flex flex-col md:flex-row gap-6 md:gap-8 mb-8 md:mb-12">
-            <div className="md:w-1/3">
-              <h2 className="text-3xl sm:text-4xl md:text-4xl font-bold text-gray-900">
-                Why Choose Us
+            <div className="md:w-1/3 flex flex-col items-center md:items-start">
+              <h2 className="text-3xl sm:text-4xl md:text-4xl font-bold text-gray-900 text-center md:text-left">
+                Why Choose Us ?
               </h2>
+              <div className="w-80 sm:w-88 h-1 mt-4 bg-[#00CFB2] md:hidden rounded"></div>
             </div>
             <div className="md:w-2/3">
-              <div className="border-l-4 border-[#00CFB2] pl-4 md:pl-6 mb-6 md:mb-8">
+              <div className="md:border-l-4 md:border-[#00CFB2] md:pl-6 mb-6 md:mb-8">
                 <p className="text-sm sm:text-base md:text-base text-gray-600 leading-relaxed">
                   Choosing The Right College Is A Crucial Decision That Can
                   Shape Your Future Career
@@ -227,7 +228,7 @@ export default function AboutUsPage() {
                   className="relative flex flex-col items-center pt-5 h-full"
                 >
                   {/* Umbrella Line */}
-                  <div className="hidden md:block absolute top-[36px] left-0 right-0 h-[65%] rounded-t-[2.5rem] border-t-[1.5px] border-l-[1.5px] border-r-[1.5px] border-[#287FC4] pointer-events-none z-0">
+                  <div className="block absolute top-[36px] left-0 right-0 h-[65%] rounded-t-[2.5rem] border-t-[1.5px] border-l-[1.5px] border-r-[1.5px] border-[#287FC4] pointer-events-none z-0">
                     <div className="absolute -left-[5.5px] -bottom-[5px] w-[10px] h-[10px] bg-[#287FC4] rounded-full"></div>
                     <div className="absolute -right-[5.5px] -bottom-[5px] w-[10px] h-[10px] bg-[#287FC4] rounded-full"></div>
                   </div>
@@ -244,7 +245,7 @@ export default function AboutUsPage() {
                   </div>
 
                   {/* Card */}
-                  <div className="bg-[#fbfcff] shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-gray-100 w-full md:w-[calc(100%-2.5rem)] rounded-2xl p-6 sm:p-8 text-center relative z-10 flex-1 flex flex-col items-center justify-start min-h-[260px]">
+                  <div className="bg-[#fbfcff] shadow-[0_8px_30px_rgb(0,0,0,0.12)] border border-gray-100 w-[calc(100%-2rem)] md:w-[calc(100%-2.5rem)] rounded-2xl p-6 sm:p-8 text-center relative z-10 flex-1 flex flex-col items-center justify-start min-h-[260px]">
                     <h3 className="text-blue-700 font-bold text-[17px] mb-4">
                       {step.title}
                     </h3>
