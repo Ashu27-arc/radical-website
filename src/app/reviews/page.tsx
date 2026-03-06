@@ -216,7 +216,7 @@ export default function TestimonialsPage() {
                         Our <span className="text-[#0c5d87]">Successful <br className="md:hidden" /> Student's</span>
                     </h3>
 
-                    <div 
+                    <div
                         ref={scrollContainerRef}
                         onMouseDown={handleMouseDown}
                         onMouseLeave={handleMouseLeave}
