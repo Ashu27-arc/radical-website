@@ -77,7 +77,7 @@ export const mainMenuData: MenuItem[] = [
             { label: 'Sree Lakshmi Narayana Institute of Medical Sciences, Puducherry', url: '/sree-lakshmi-narayana-medical-institute/' },
             { label: 'Vinayaka Missions Medical College, Karaikal', url: '/vinayaka-missions-medical-college-karaikal/' },
           ] as MenuItem[]
-        ).sort((a, b) => a.label.localeCompare(b.label)),
+        ).sort((a, b) => (a.label as string).localeCompare(b.label as string)),
       },
 
       {
