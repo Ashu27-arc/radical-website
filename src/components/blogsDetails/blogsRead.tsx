@@ -23,9 +23,21 @@ const sanitizeBlogContent = (html: string) => {
     if (!html) return '';
 
     // Remove inline background-color and background styles
-    return html
+    let result = html
         .replace(/background-color\s*:\s*[^;"]*;?/gi, '')
         .replace(/background\s*:\s*[^;"]*;?/gi, '');
+
+    // Add allow="popups" to iframes so links (e.g. WhatsApp) inside embedded banners can open
+    result = result.replace(
+        /<iframe(?=\s)([^>]*?)(\s*\/?>)/gi,
+        (_, attrs, close) => {
+            if (/allow\s*=/i.test(attrs)) {
+                return `<iframe${attrs}${close}`;
+            }
+            return `<iframe${attrs} allow="popups"${close}`;
+        }
+    );
+    return result;
 };
 
 /** Process FAQ answer HTML so links open in new tab */
