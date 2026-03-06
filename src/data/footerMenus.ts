@@ -3,11 +3,11 @@ import { MenuItem } from 'primereact/menuitem';
 
 
 export const importantLinks: MenuItem[] = [
-  { label: 'NEET College Predictor', icon: 'pi pi-angle-right', url: '/neet-college-predictor' },
-  { label: 'OPEN/CLOSE State Details 2025', icon: 'pi pi-angle-right', url: '/open-close-state-2025' },
-  { label: 'Registration & Security Charges For NEET UG', icon: 'pi pi-angle-right', url: '/neet-registration-fee' },
-  { label: 'State Wise PG Reservation After UG', icon: 'pi pi-angle-right', url: '/pg-reservation' },
-  { label: 'NEET UG BOND 2025', icon: 'pi pi-angle-right', url: '/neet-ug-bond-2025' },
+  { label: 'NEET College Predictor', icon: 'pi pi-angle-right', url: 'https://www.neetbhaiya.in/college-predictor' },
+  { label: 'OPEN/CLOSE State Details 2025', icon: 'pi pi-angle-right', url: 'https://www.neetbhaiya.in/open-close-state' },
+  { label: 'Registration & Security Charges For NEET UG', icon: 'pi pi-angle-right', url: 'https://www.neetbhaiya.in/rs-charges' },
+  { label: 'State Wise PG Reservation After UG', icon: 'pi pi-angle-right', url: 'https://www.neetbhaiya.in/pg-reservation' },
+  { label: 'NEET UG BOND 2025', icon: 'pi pi-angle-right', url: 'https://www.neetbhaiya.in/bond-details' },
   { label: 'List Your Institute With Us', icon: 'pi pi-angle-right', url: '/list-your-institute' }
 ];
 
