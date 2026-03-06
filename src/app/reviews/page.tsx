@@ -1,14 +1,19 @@
 "use client";
 
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import GoogleReviews from '@/components/GoogleReviews';
 import TestimonialSlider from '@/components/TestimonialSlider';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
+import NewsMarquee from '@/components/NewsMarquee';
 
 export default function TestimonialsPage() {
     const [leftImageIndex, setLeftImageIndex] = useState(0);
     const [rightImageIndex, setRightImageIndex] = useState(1);
     const [selectedYear, setSelectedYear] = useState(2026);
+    const scrollContainerRef = useRef<HTMLDivElement>(null);
+    const [isDragging, setIsDragging] = useState(false);
+    const [startX, setStartX] = useState(0);
+    const [scrollLeft, setScrollLeft] = useState(0);
 
     const images = [
         '/images/reviews/review.webp',
@@ -100,6 +105,30 @@ export default function TestimonialsPage() {
         setLeftImageIndex((prev) => (prev === 0 ? 1 : 0));
         setRightImageIndex((prev) => (prev === 0 ? 1 : 0));
     };
+
+    const handleMouseDown = (e: React.MouseEvent) => {
+        if (!scrollContainerRef.current) return;
+        setIsDragging(true);
+        setStartX(e.pageX - scrollContainerRef.current.offsetLeft);
+        setScrollLeft(scrollContainerRef.current.scrollLeft);
+    };
+
+    const handleMouseLeave = () => {
+        setIsDragging(false);
+    };
+
+    const handleMouseUp = () => {
+        setIsDragging(false);
+    };
+
+    const handleMouseMove = (e: React.MouseEvent) => {
+        if (!isDragging || !scrollContainerRef.current) return;
+        e.preventDefault();
+        const x = e.pageX - scrollContainerRef.current.offsetLeft;
+        const walk = (x - startX) * 2; // Scroll-fast
+        scrollContainerRef.current.scrollLeft = scrollLeft - walk;
+    };
+
     return (
         <div className="w-full bg-white">
             <FloatingWhatsApp />
@@ -110,7 +139,7 @@ export default function TestimonialsPage() {
                 {/* Background images */}
                 <div className="absolute inset-0">
                     <img
-                        src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1920&h=1080&fit=crop"
+                        src="/images/reviews/review-bg.webp"
                         className="w-full h-full object-cover"
                         alt="Background"
                     />
@@ -178,26 +207,31 @@ export default function TestimonialsPage() {
                     </div>
                 </div>
             </section>
-
+            <NewsMarquee />
             {/* =================== OUR SUCCESSFUL STUDENTS =================== */}
-            <section className="bg-[#DFF1FF] py-6 sm:py-8 md:py-12 lg:py-16 mt-6 sm:mt-8 md:mt-12 lg:mt-15">
+            <section className="bg-[#DFF1FF] py-6 sm:py-8 md:py-12 lg:py-16 -mt-1 sm:mt-8 md:mt-12 lg:mt-16">
                 <div className="max-w-6xl mx-auto px-3 sm:px-4 md:px-6 text-center">
-                    <p className="text-xs uppercase text-gray-500 tracking-wide">Our Student's</p>
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-[#0c5d87] mt-2">
-                        Our Successful Student's
+                    <p className="text-xs font-bold uppercase text-[#000000] tracking-wide">Our Student's</p>
+                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold uppercase text-[#000000] mt-2">
+                        Our <span className="text-[#0c5d87]">Successful <br className="md:hidden" /> Student's</span>
                     </h3>
 
-                    {/* Year Tabs */}
-                    <div className="flex justify-center gap-2 sm:gap-3 md:gap-4 mt-4 sm:mt-6 md:mt-8">
+                    <div 
+                        ref={scrollContainerRef}
+                        onMouseDown={handleMouseDown}
+                        onMouseLeave={handleMouseLeave}
+                        onMouseUp={handleMouseUp}
+                        onMouseMove={handleMouseMove}
+                        className={`flex justify-start md:justify-center overflow-x-auto whitespace-nowrap scrollbar-hide py-2 gap-2 sm:gap-3 md:gap-4 mt-4 sm:mt-6 md:mt-8 px-2 ${isDragging ? 'cursor-grabbing' : 'cursor-grab'} select-none`}
+                    >
                         {years.map((year) => (
                             <button
                                 key={year}
                                 onClick={() => setSelectedYear(year)}
-                                className={`px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 rounded-lg font-semibold text-xs sm:text-sm md:text-base transition-all duration-300 ${
-                                    selectedYear === year
-                                        ? 'bg-[#0c5d87] text-white shadow-lg scale-105'
-                                        : 'bg-white text-[#0c5d87] hover:bg-[#0c5d87]/10'
-                                }`}
+                                className={`shrink-0 px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 rounded-lg font-semibold text-xs sm:text-sm md:text-base transition-all duration-300 ${selectedYear === year
+                                    ? 'bg-[#0c5d87] text-white shadow-lg scale-105'
+                                    : 'bg-white text-[#0c5d87] hover:bg-[#0c5d87]/10'
+                                    }`}
                             >
                                 {year}
                             </button>
@@ -213,13 +247,13 @@ export default function TestimonialsPage() {
                                     <div className="absolute -left-2 top-0 bg-[#0c5d87] text-white text-[10px] sm:text-xs font-bold px-2 sm:px-3 py-1 shadow-md whitespace-nowrap">
                                         {selectedYear}
                                     </div>
-                                    <div className="w-20 h-20 sm:w-24 sm:h-32 md:w-28 md:h-36 lg:w-32 lg:h-40 bg-[#005A8B] shadow-sm overflow-hidden transition-transform duration-300 group-hover:scale-105">
+                                    <div className="w-20 h-20 sm:w-24 sm:h-32 md:w-28 md:h-36 lg:w-32 lg:h-40 bg-[#005A8B] rounded-xl shadow-sm overflow-hidden transition-transform duration-300 group-hover:scale-105">
                                     </div>
                                 </div>
-                                <p className="mt-2 sm:mt-3 font-semibold text-xs sm:text-sm text-gray-800 leading-tight">
+                                <p className="mt-2 sm:mt-3 font-semibold text-xs sm:text-sm text-[#000000] leading-tight">
                                     {student.name}
                                 </p>
-                                <p className="text-[10px] sm:text-xs text-gray-500 px-1 text-center leading-tight">
+                                <p className="text-[10px] sm:text-xs text-[#287FC4] px-1 text-center leading-tight">
                                     {student.college}
                                 </p>
                             </div>

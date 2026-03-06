@@ -12,24 +12,24 @@ import { Metadata } from 'next';
 import EnquireButton from '@/components/EnquireButton';
 
 export const metadata: Metadata = {
-    title: 'Radicale Education',
-    description: 'Radical Education Most Trusted and Transparent NEET Counsellor 15,783+ Students counselled 1732+ Admission Done 14+ Country Looking for admissions in MBBS INDIA ?',
+  title: 'Radical Education',
+  description: 'Radical Education Most Trusted and Transparent NEET Counsellor 15,783+ Students counselled 1732+ Admission Done 14+ Country Looking for admissions in MBBS INDIA ?',
 };
 
-export default function RootLayout({children,}: {children: React.ReactNode;}) {
+export default function RootLayout({ children, }: { children: React.ReactNode; }) {
   return (
     <html lang="en">
       <body className="flex flex-col min-h-screen">
         <ClientWrapper>
-        <Providers>
-          <ScrollEffectProvider />
-          <EnquireButton/>
-          <Header />
-          <main className="flex-grow">
-            {children}
-          </main>
-          <Footer />
-        </Providers>
+          <Providers>
+            <ScrollEffectProvider />
+            <EnquireButton />
+            <Header />
+            <main className="flex-grow">
+              {children}
+            </main>
+            <Footer />
+          </Providers>
         </ClientWrapper>
       </body>
     </html>
