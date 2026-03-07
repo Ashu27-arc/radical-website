@@ -1554,15 +1554,15 @@ input:autofill {
 
 /* Reduce spacing around embeds (banner/form/FAQ) in blog content */
 .blog-content .crm-embed {
-    margin: 2px auto !important;
+    margin: 0 auto !important;
 }
 
 .blog-content *+.crm-embed {
-    margin-top: 0.125rem !important;
+    margin-top: 0 !important;
 }
 
 .blog-content .crm-embed+* {
-    margin-top: 0.125rem !important;
+    margin-top: 0 !important;
 }
 
 /* Hide scrollbar but keep functionality */
