@@ -196,7 +196,7 @@ export default function StudyAbroadPage() {
                 </div>
             </section>
 
-            <div className="container px-3 md:px-4">
+            <div className="container px-3 md:px-4 pb-20">
                 <div className="p-8 rounded-xl bg-[url('/images/addmi.webp')] bg-cover bg-center bg-no-repeat mb-6">
                     <div className="flex flex-wrap gap-2 fadeUp items-end justify-center">
                         <div className="text-white lg:text-4xl text-2xl font-bold">Admission Service Charge :-</div><br className="md:hidden block" />

@@ -50,7 +50,7 @@ export default function GalleryPage() {
         <>
             <FloatingWhatsApp />
             <div className="bg-[#F4F7F8]">
-                <section className="lg:py-60 md:py-40 py-20 relative overflow-hidden z-2 bg-[url('/images/galleryHero.webp')] bg-cover bg-center bg-no-repeat">
+                <section className="lg:py-60 md:py-40 py-20 relative overflow-hidden z-2 bg-[url('/images/galleryHero.webp')] bg-cover bg-center bg-no-repeat bg-fixed">
                     <div className="absolute inset-0 bg-black/50 -z-1" />
                     <div className="mx-auto px-4 w-full lg:w-4/10 md:8/10 text-center fadeUp">
                         <h1 className="uppercase lg:text-5xl text-4xl font-bold text-white lg:mb-6 mb-4">OUR GALLERY</h1>
