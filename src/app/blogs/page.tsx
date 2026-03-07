@@ -344,7 +344,7 @@ const BlogsPage = () => {
 
       {/* Blog Content */}
       <div className="container mx-auto px-4 py-2 pt-4 sm:pt-[240px] md:pt-[260px] lg:pt-[280px] md:py-6">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6 md:mb-8">Fresh Update</h2>
+        <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3 md:mb-4">Fresh Update</h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 relative">
           {/* Main Blog Post */}
@@ -370,13 +370,13 @@ const BlogsPage = () => {
                     )}
                   </div>
                   <div className="p-4 md:p-6">
-                    <span className={`inline-block ${getCategoryColor(featuredBlog.category)} px-3 py-1 rounded-full text-xs md:text-sm mb-3 md:mb-4`}>
+                    <span className={`inline-block ${getCategoryColor(featuredBlog.category)} px-3 py-1 rounded-full text-xs md:text-sm mb-2`}>
                       {featuredBlog.category}
                     </span>
-                    <h3 className="text-lg md:text-2xl font-bold text-gray-800 mb-3 md:mb-4 hover:text-blue-600 transition-colors">
+                    <h3 className="text-lg md:text-2xl font-bold text-gray-800 mb-2 hover:text-blue-600 transition-colors">
                       {featuredBlog.title}
                     </h3>
-                    <p className="text-sm md:text-base text-gray-600 text-justify mb-3 md:mb-4 line-clamp-2">
+                    <p className="text-sm md:text-base text-gray-600 text-justify mb-2 line-clamp-2">
                       {featuredBlog.excerpt || featuredBlog.title}
                     </p>
                     <div className="flex items-center text-gray-500 text-xs md:text-sm">
@@ -400,13 +400,13 @@ const BlogsPage = () => {
               sidebarBlogs.map((post, index) => (
                 <Link key={post.id} href={`/${post.slug}`} className="block animate-fadeIn" style={{ animationDelay: `${0.2 + index * 0.1}s` }}>
                   <div className={`bg-white rounded-lg p-4 md:p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer ${index < sidebarBlogs.length - 1 ? 'border-b-2 border-gray-200' : ''}`}>
-                    <span className={`inline-block ${getCategoryColor(post.category)} px-3 py-1 rounded-full text-xs md:text-sm mb-3 md:mb-4`}>
+                    <span className={`inline-block ${getCategoryColor(post.category)} px-3 py-1 rounded-full text-xs md:text-sm mb-2`}>
                       {post.category}
                     </span>
-                    <h4 className="text-base md:text-lg font-bold text-gray-800 mb-2 md:mb-3 hover:text-blue-600 transition-colors">
+                    <h4 className="text-base md:text-lg font-bold text-gray-800 mb-1 md:mb-2 hover:text-blue-600 transition-colors">
                       {post.title}
                     </h4>
-                    <p className="text-gray-600 text-xs md:text-sm text-justify mb-3 md:mb-4 line-clamp-2">
+                    <p className="text-gray-600 text-xs md:text-sm text-justify mb-2 line-clamp-2">
                       {post.excerpt || post.title}
                     </p>
                     <div className="flex items-center text-gray-500 text-xs">
@@ -454,13 +454,13 @@ const BlogsPage = () => {
                       )}
                     </div>
                     <div className="p-4 md:p-6">
-                      <span className={`inline-block ${getCategoryColor(blog.category)} px-3 py-1 rounded-full text-xs md:text-sm mb-2 md:mb-3`}>
+                      <span className={`inline-block ${getCategoryColor(blog.category)} px-3 py-1 rounded-full text-xs md:text-sm mb-1 md:mb-2`}>
                         {blog.category}
                       </span>
-                      <h3 className="text-base md:text-lg font-bold text-gray-800 mb-2 md:mb-3 hover:text-blue-600 transition-colors line-clamp-2">
+                      <h3 className="text-base md:text-lg font-bold text-gray-800 mb-1 md:mb-2 hover:text-blue-600 transition-colors line-clamp-2">
                         {blog.title}
                       </h3>
-                      <p className="text-gray-600 text-xs md:text-sm text-justify mb-3 md:mb-4 line-clamp-2">
+                      <p className="text-gray-600 text-xs md:text-sm text-justify mb-2 line-clamp-2">
                         {blog.excerpt || blog.title}
                       </p>
                       <div className="flex items-center text-gray-500 text-xs">

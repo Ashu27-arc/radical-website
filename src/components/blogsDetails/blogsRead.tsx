@@ -233,19 +233,19 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                         ) : (
                             <>
                                 {/* Blog Category Badge */}
-                                <div className="mb-4">
+                                <div className="mb-2">
                                     <span className="inline-block text-[#00A88E] px-3 py-1 rounded text-sm font-medium bg-[#BFE6DB]">
                                         {blog.category}
                                     </span>
                                 </div>
 
                                 {/* Blog Title */}
-                                <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-4 break-words">
+                                <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-2 break-words">
                                     {blog.title}
                                 </h1>
 
                                 {/* Blog Meta */}
-                                <div className="flex items-center text-gray-500 text-sm mb-6">
+                                <div className="flex items-center text-gray-500 text-sm mb-3">
                                     <span>{blog.author}</span>
                                     <span className="mx-2">•</span>
                                     <span>{formatDate(blog.date)}</span>
