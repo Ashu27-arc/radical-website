@@ -270,9 +270,9 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                                     )}
                                 </div>
 
-                                {/* Blog Content - justified, Metropolis font */}
+                                {/* Blog Content - only paragraphs justified; no gap between headings/title/description */}
                                 <div
-                                    className="blog-content max-w-none text-gray-800 mb-4 text-[15px] md:text-[17px] leading-8 space-y-4 break-words text-justify"
+                                    className="blog-content max-w-none text-gray-800 mb-4 text-[15px] md:text-[17px] leading-8 break-words [&_p]:text-justify [&_p]:mb-4 [&_h1]:m-0 [&_h2]:m-0 [&_h3]:m-0 [&_h4]:m-0 [&_h5]:m-0 [&_h6]:m-0"
                                     style={{ wordBreak: 'break-word', overflowWrap: 'anywhere', fontFamily: 'Metropolis, sans-serif' }}
                                     dangerouslySetInnerHTML={{ __html: sanitizeBlogContent(blog.content || blog.excerpt || '') }}
                                 />
