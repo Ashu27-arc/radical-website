@@ -10,8 +10,8 @@ const neetupadmissionplans = [
         title: "STANDARD",
         subtitle: "I designed a web UI for an AI-powered HR Co-Pil I ",
         price: "₹ 9,999",
-        color: "bg-[#FFCBC5]",
-        border: "border-[#C9746C]",
+        color: "bg-[#B6FFA7]",
+        border: "border-[#2CBF0F]",
         bgImage: "/images/borderShape1.webp",
         features: [
             "MBBS / BDS",
@@ -160,31 +160,23 @@ export default function NeetUgIndiaAdmissionPage() {
                     </div>
                     <section id="connect-counselor" className="mb-16">
                         <div className="">
-                            <div className="bg-[#F4F7F8] rounded-2xl md:rounded-3xl overflow-hidden flex gap-4 items-center">
-                                <div className="w-[60%] lg:p-10 md:p-8 p-4 relative z-2">
-                                    <h2 className="text-lg md:text-4xl lg:text-[42px] font-bold text-black mb-3 md:mb-4 leading-tight">
+                            <div className="bg-[#F4F7F8] rounded-2xl md:rounded-3xl overflow-hidden flex gap-4 md:px-10 md:pt-10 lg:px-16 lg:pt-16 px-4 pt-4">
+                                <div className="w-[60%] relative z-2">
+                                    <h2 className="text-sm md:text-4xl lg:text-[42px] font-bold text-black mb-2 md:mb-4 leading-tight">
                                         Book Your <span className="text-[#61C9B8]">20 MIN Free<br className="hidden md:block" /> Counselling Session</span> Today
                                     </h2>
-                                    <p className="text-sm md:text-base text-[#1E242C] mb-6 md:mb-8 font-medium">
+                                    <p className="text-xs md:text-base text-[#1E242C] mb-1 md:mb-8 font-medium">
                                         Google Meet | Zoom | Microsoft Teams | Whatsapp Available
                                     </p>
                                     <a
                                         href="#connect-counselor"
-                                        className="inline-flex items-center justify-center px-8 py-3 rounded-[60px] bg-[#FF3D6B] text-white font-semibold text-sm md:text-base hover:bg-[#e0355f] transition-colors shadow-lg hover:shadow-xl"
+                                        className="inline-flex items-center justify-center lg:px-8 lg:py-3 px-3 py-1 rounded-[60px] bg-[#FF3D6B] text-white font-semibold text-xs md:text-base hover:bg-[#e0355f] transition-colors shadow-lg hover:shadow-xl"
                                     >
                                         Book Now
                                     </a>
                                 </div>
                                 <div className="w-[40%]">
-                                    <video
-                                        autoPlay
-                                        loop
-                                        muted
-                                        playsInline
-                                        className="w-full md:scale-[1] scale-[1.6] md:ml-0 -ml-7"
-                                    >
-                                        <source src="/videos/radical.mp4" type="video/mp4" />
-                                    </video>
+                                    <img src="/images/session.webp" alt="" className="w-full" />
                                 </div>
                             </div>
                         </div>
