@@ -107,10 +107,10 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
     };
 
     return (
-        <div className="w-full min-w-0 bg-gray-50 relative animate-fadeIn overflow-x-hidden">
+        <div className="w-full min-w-0 bg-gray-50 relative animate-fadeIn">
             <FloatingWhatsApp />
             {/* Fixed Search Section - responsive padding & spacing */}
-            <div className="sticky top-12 sm:top-14 md:top-20 lg:top-28 z-10 bg-gray-50 py-2 sm:py-4 md:py-6 shadow-sm">
+            <div className="sticky top-[72px] sm:top-[80px] md:top-[90px] lg:top-[120px] z-10 bg-gray-50 py-2 sm:py-4 md:py-6 shadow-sm">
                 <div className="max-w-6xl mx-auto px-3 sm:px-4 md:px-6">
                     {connectionStatus}
                     {/* Search Section */}
