@@ -1553,15 +1553,21 @@ input:autofill {
 }
 
 /* Reduce spacing around embeds (banner/form/FAQ) in blog content */
-.blog-content .crm-embed {
-    margin: 0 auto !important;
+.blog-content .crm-embed,
+.blog-content iframe {
+    margin: 0.5rem auto !important;
+    display: block !important;
 }
 
-.blog-content *+.crm-embed {
+/* Remove top margin if an embed follows any element to reduce double spacing */
+.blog-content * + .crm-embed,
+.blog-content * + iframe {
     margin-top: 0 !important;
 }
 
-.blog-content .crm-embed+* {
+/* Remove top margin of elements following an embed */
+.blog-content .crm-embed + *,
+.blog-content iframe + * {
     margin-top: 0 !important;
 }
 

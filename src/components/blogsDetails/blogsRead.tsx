@@ -18,7 +18,7 @@ const formatDate = (d: string) => {
     return isNaN(date.getTime()) ? d : date.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
 };
 
-// Remove background colors from pasted HTML (copied from other sites/CRMs)
+// Remove background colors from pasted HTML (copied from other sites/CRMs) and fix spacing
 const sanitizeBlogContent = (html: string) => {
     if (!html) return '';
 
@@ -27,16 +27,32 @@ const sanitizeBlogContent = (html: string) => {
         .replace(/background-color\s*:\s*[^;"]*;?/gi, '')
         .replace(/background\s*:\s*[^;"]*;?/gi, '');
 
-    // Add allow="popups" to iframes so links (e.g. WhatsApp) inside embedded banners can open
+    // 1. Remove empty paragraphs or paragraphs with only &nbsp; that add unnecessary space
+    result = result.replace(/<p>\s*(?:&nbsp;)?\s*<\/p>/gi, '');
+
+    // 2. Add allow="popups" AND class="crm-embed" to iframes so they styles correctly
     result = result.replace(
         /<iframe(?=\s)([^>]*?)(\s*\/?>)/gi,
         (_, attrs, close) => {
-            if (/allow\s*=/i.test(attrs)) {
-                return `<iframe${attrs}${close}`;
+            let newAttrs = attrs;
+            if (!/allow\s*=/i.test(newAttrs)) {
+                newAttrs += ' allow="popups"';
             }
-            return `<iframe${attrs} allow="popups"${close}`;
+            if (!/class\s*=/i.test(newAttrs)) {
+                newAttrs += ' class="crm-embed"';
+            } else if (!/crm-embed/.test(newAttrs)) {
+                newAttrs = newAttrs.replace(/class=["']([^"']*)["']/i, (_: string, c: string) => `class="${c} crm-embed"`);
+            }
+            return `<iframe${newAttrs}${close}`;
         }
     );
+
+    // 3. Unwrap iframes from paragraphs to eliminate paragraph margins around banners
+    result = result.replace(/<p>\s*(<iframe[^>]*>.*?<\/iframe>)\s*<\/p>/gi, '$1');
+    
+    // 4. Reduce multiple consecutive <br> tags to a single one
+    result = result.replace(/(<br\s*\/?>\s*){2,}/gi, '<br />');
+
     return result;
 };
 
@@ -247,7 +263,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                                 </div>
 
                                 {/* Blog Image - responsive height */}
-                                <div className="mb-4 sm:mb-6 relative w-full h-40 min-[400px]:h-48 sm:h-52 md:h-60 lg:h-64 rounded-lg overflow-hidden">
+                                <div className="mb-3 sm:mb-4 relative w-full h-40 min-[400px]:h-48 sm:h-52 md:h-60 lg:h-64 rounded-lg overflow-hidden">
                                     {blog.featuredImage ? (
                                             <Image
                                                 src={blog.featuredImage}
@@ -267,7 +283,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
 
                                 {/* Blog Content - responsive text & line height */}
                                 <div
-                                    className="blog-content max-w-none text-gray-800 mb-4 text-sm sm:text-[15px] md:text-[17px] leading-7 sm:leading-8 wrap-break-word [&_p]:text-justify [&_p]:mb-4 [&_h1]:m-0 [&_h2]:m-0 [&_h3]:m-0 [&_h4]:m-0 [&_h5]:m-0 [&_h6]:m-0 [&_img]:max-w-full [&_img]:h-auto"
+                                    className="blog-content max-w-none text-gray-800 mb-4 text-sm sm:text-[15px] md:text-[17px] leading-7 sm:leading-8 wrap-break-word [&_p]:text-justify [&_p]:mb-3 sm:[&_p]:mb-3 [&_h1]:m-0 [&_h2]:m-0 [&_h3]:m-0 [&_h4]:m-0 [&_h5]:m-0 [&_h6]:m-0 [&_img]:max-w-full [&_img]:h-auto [&_iframe]:my-2 [&_iframe]:mx-auto [&_iframe]:block"
                                     style={{ wordBreak: 'break-word', overflowWrap: 'anywhere', fontFamily: 'Metropolis, sans-serif' }}
                                     dangerouslySetInnerHTML={{ __html: sanitizeBlogContent(blog.content || blog.excerpt || '') }}
                                 />

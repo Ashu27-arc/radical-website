@@ -82,7 +82,7 @@ const BlogSidebar = ({ className = "" }: BlogSidebarProps) => {
                 </div>
 
                 {/* Advertisement Banners */}
-                <div className="mt-6 sm:mt-7 md:mt-8 mx-2 sm:mx-3 md:mx-4 space-y-3 sm:space-y-4">
+                <div className="mt-4 sm:mt-5 md:mt-6 mx-2 sm:mx-3 md:mx-4 space-y-3 sm:space-y-4">
                     <div className="bg-gradient-to-r from-teal-400 to-blue-500 rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-xl">
                         <img
                             src="/images/blogs/ad-1.webp"
