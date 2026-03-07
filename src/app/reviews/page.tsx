@@ -152,7 +152,7 @@ export default function TestimonialsPage() {
                 </div>
 
                 {/* Blue overlay */}
-                <div className="absolute inset-0 bg-[#0a5b87]/80"></div>
+                <div className="absolute inset-0 bg-[#0a5b87]/40"></div>
 
                 {/* Left Image */}
                 <img
@@ -179,8 +179,8 @@ export default function TestimonialsPage() {
                     </h1>
 
                     <p className="mt-3 sm:mt-4 md:mt-5 max-w-2xl text-xs sm:text-sm md:text-base text-[#d2ebff] px-2 leading-relaxed">
-                        I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps HRs <br className="hidden md:block" />
-                        Generate Job Descriptions And Screen Resumes
+                        Helping Thousands of Medical Students Achieve Their Dreams <br className="hidden md:block" />
+                        With Expert Guidance and Personalised Counselling
                     </p>
 
                     {/* Video Card */}
@@ -248,6 +248,11 @@ export default function TestimonialsPage() {
                                         {selectedYear}
                                     </div>
                                     <div className="w-20 h-20 sm:w-24 sm:h-32 md:w-28 md:h-36 lg:w-32 lg:h-40 bg-[#005A8B] rounded-xl shadow-sm overflow-hidden transition-transform duration-300 group-hover:scale-105">
+                                        <img
+                                            src={`/images/testi${(i % 20) + 1}.webp`}
+                                            className="w-full h-full object-cover"
+                                            alt={student.name}
+                                        />
                                     </div>
                                 </div>
                                 <p className="mt-2 sm:mt-3 font-semibold text-xs sm:text-sm text-[#000000] leading-tight">
