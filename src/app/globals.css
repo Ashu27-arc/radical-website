@@ -1555,7 +1555,7 @@ input:autofill {
 /* Reduce spacing around embeds (banner/form/FAQ) in blog content */
 .blog-content .crm-embed,
 .blog-content iframe {
-    margin: 0.5rem auto !important;
+    margin: 0.1rem auto !important;
     display: block !important;
 }
 

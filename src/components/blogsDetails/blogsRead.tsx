@@ -27,10 +27,12 @@ const sanitizeBlogContent = (html: string) => {
         .replace(/background-color\s*:\s*[^;"]*;?/gi, '')
         .replace(/background\s*:\s*[^;"]*;?/gi, '');
 
-    // 1. Remove empty paragraphs or paragraphs with only &nbsp; that add unnecessary space
-    result = result.replace(/<p>\s*(?:&nbsp;)?\s*<\/p>/gi, '');
+    // 1. Remove empty paragraphs, line breaks, or paragraphs with only &nbsp; that add unnecessary space
+    result = result
+        .replace(/<p>\s*(?:&nbsp;|<br\s*\/?>)*\s*<\/p>/gi, '')
+        .replace(/<div>\s*(?:&nbsp;|<br\s*\/?>)*\s*<\/div>/gi, '');
 
-    // 2. Add allow="popups" AND class="crm-embed" to iframes so they styles correctly
+    // 2. Add allow="popups" AND class="crm-embed" to iframes so they style correctly
     result = result.replace(
         /<iframe(?=\s)([^>]*?)(\s*\/?>)/gi,
         (_, attrs, close) => {
@@ -47,13 +49,16 @@ const sanitizeBlogContent = (html: string) => {
         }
     );
 
-    // 3. Unwrap iframes from paragraphs to eliminate paragraph margins around banners
-    result = result.replace(/<p>\s*(<iframe[^>]*>.*?<\/iframe>)\s*<\/p>/gi, '$1');
+    // 3. Unwrap iframes and .crm-embed from paragraphs to eliminate paragraph margins
+    result = result
+        .replace(/<p>\s*(<iframe[^>]*>.*?<\/iframe>)\s*<\/p>/gi, '$1')
+        .replace(/<p>\s*(<div class="crm-embed"[^>]*>.*?<\/div>)\s*<\/p>/gi, '$1');
     
     // 4. Reduce multiple consecutive <br> tags to a single one
     result = result.replace(/(<br\s*\/?>\s*){2,}/gi, '<br />');
 
-    return result;
+    // 5. Final trim of whitespace at start/end
+    return result.trim();
 };
 
 /** Process FAQ answer HTML so links open in new tab */
