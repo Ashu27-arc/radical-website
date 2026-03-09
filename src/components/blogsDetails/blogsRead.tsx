@@ -49,15 +49,19 @@ const sanitizeBlogContent = (html: string) => {
         }
     );
 
-    // 3. Unwrap iframes and .crm-embed from paragraphs to eliminate paragraph margins
+    // 3. Unwrap iframes, .crm-embed, and img from paragraphs to eliminate paragraph margins
     result = result
         .replace(/<p>\s*(<iframe[^>]*>.*?<\/iframe>)\s*<\/p>/gi, '$1')
-        .replace(/<p>\s*(<div class="crm-embed"[^>]*>.*?<\/div>)\s*<\/p>/gi, '$1');
-    
+        .replace(/<p>\s*(<div class="crm-embed"[^>]*>.*?<\/div>)\s*<\/p>/gi, '$1')
+        .replace(/<p>\s*(<img[^>]+>)\s*<\/p>/gi, '$1');
+
     // 4. Reduce multiple consecutive <br> tags to a single one
     result = result.replace(/(<br\s*\/?>\s*){2,}/gi, '<br />');
 
-    // 5. Final trim of whitespace at start/end
+    // 5. Remove any <br> tags or spaces that immediately follow an image to prevent white space
+    result = result.replace(/(<img[^>]+>)\s*(?:<br\s*\/?>\s*)+/gi, '$1');
+
+    // 6. Final trim of whitespace at start/end
     return result.trim();
 };
 
@@ -74,7 +78,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
     const [blog, setBlog] = useState<Blog | null>(null);
     const [loading, setLoading] = useState(true);
     const { addMessageHandler, isConnected } = useWebSocket();
-    
+
     // Connection status indicator - responsive
     const connectionStatus = (
         <div className="flex items-center justify-end mb-2 sm:mb-4 pr-2 sm:pr-4">
@@ -103,7 +107,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                 window.location.href = '/blogs';
             }
         });
-        
+
         return () => removeHandler();
     }, [addMessageHandler, blog?.id]);
 
@@ -157,119 +161,119 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                             </button>
                         </div>
 
-                    {/* Category Filter Buttons - responsive gap & scroll */}
-                    <div className="flex bg-white lg:bg-transparent rounded-full lg:rounded-none shadow-sm lg:shadow-none p-1.5 sm:p-1 lg:p-0 items-center gap-1 sm:gap-2 flex-1 min-w-0 w-full lg:w-auto overflow-hidden">
-                        {/* Left Arrow - Desktop/Tablet */}
-                        <button
-                            onClick={() => scroll('left')}
-                            className="hidden md:flex w-8 h-8 rounded-full bg-white shadow-sm hover:shadow-md transition-all duration-200 items-center justify-center shrink-0 border border-gray-200 hover:border-gray-300 hover:scale-110 active:scale-95"
-                        >
-                            <Image src="/images/blogs/left-arrow.webp" alt="Scroll Left" width={16} height={16} className="object-contain opacity-60 hover:opacity-100" />
-                        </button>
+                        {/* Category Filter Buttons - responsive gap & scroll */}
+                        <div className="flex bg-white lg:bg-transparent rounded-full lg:rounded-none shadow-sm lg:shadow-none p-1.5 sm:p-1 lg:p-0 items-center gap-1 sm:gap-2 flex-1 min-w-0 w-full lg:w-auto overflow-hidden">
+                            {/* Left Arrow - Desktop/Tablet */}
+                            <button
+                                onClick={() => scroll('left')}
+                                className="hidden md:flex w-8 h-8 rounded-full bg-white shadow-sm hover:shadow-md transition-all duration-200 items-center justify-center shrink-0 border border-gray-200 hover:border-gray-300 hover:scale-110 active:scale-95"
+                            >
+                                <Image src="/images/blogs/left-arrow.webp" alt="Scroll Left" width={16} height={16} className="object-contain opacity-60 hover:opacity-100" />
+                            </button>
 
-                        <div
-                            ref={categoryContainerRef}
-                            className="flex gap-3 sm:gap-6 md:gap-8 lg:gap-10 items-center flex-1 overflow-x-auto scrollbar-hide py-1 min-w-0"
-                            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-                        >
-                            {categories.map((category) => (
-                                <button
-                                    key={category}
-                                    onClick={() => setActiveCategory(category)}
-                                    className={`px-3 sm:px-4 md:px-6 py-2 rounded-full font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 text-xs sm:text-sm whitespace-nowrap shrink-0 min-h-[40px] sm:min-h-0 ${activeCategory === category
-                                        ? category === 'All'
-                                            ? 'bg-[#2CBF0F] text-white shadow-md'
-                                            : category === 'Education'
-                                                ? 'bg-[#BFE6DB] text-[#00A88E] shadow-md'
-                                                : category === 'Exams'
-                                                    ? 'bg-[#FFE0B2] text-[#C77700] shadow-md'
-                                                    : category === 'Government'
-                                                        ? 'bg-[#D5DCE5] text-[#2C3E50] shadow-md'
-                                                        : category === 'Careers'
-                                                            ? 'bg-[#C9E2FF] text-[#004E89] shadow-md'
-                                                            : 'bg-[#C9E2FF] text-[#004E89] shadow-md'
-                                        : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50 hover:border-gray-300'
-                                        }`}
-                                >
-                                    {category}
-                                </button>
-                            ))}
+                            <div
+                                ref={categoryContainerRef}
+                                className="flex gap-3 sm:gap-6 md:gap-8 lg:gap-10 items-center flex-1 overflow-x-auto scrollbar-hide py-1 min-w-0"
+                                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                            >
+                                {categories.map((category) => (
+                                    <button
+                                        key={category}
+                                        onClick={() => setActiveCategory(category)}
+                                        className={`px-3 sm:px-4 md:px-6 py-2 rounded-full font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 text-xs sm:text-sm whitespace-nowrap shrink-0 min-h-[40px] sm:min-h-0 ${activeCategory === category
+                                            ? category === 'All'
+                                                ? 'bg-[#2CBF0F] text-white shadow-md'
+                                                : category === 'Education'
+                                                    ? 'bg-[#BFE6DB] text-[#00A88E] shadow-md'
+                                                    : category === 'Exams'
+                                                        ? 'bg-[#FFE0B2] text-[#C77700] shadow-md'
+                                                        : category === 'Government'
+                                                            ? 'bg-[#D5DCE5] text-[#2C3E50] shadow-md'
+                                                            : category === 'Careers'
+                                                                ? 'bg-[#C9E2FF] text-[#004E89] shadow-md'
+                                                                : 'bg-[#C9E2FF] text-[#004E89] shadow-md'
+                                            : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50 hover:border-gray-300'
+                                            }`}
+                                    >
+                                        {category}
+                                    </button>
+                                ))}
+                            </div>
+
+                            {/* Right Arrow - Desktop/Tablet */}
+                            <button
+                                onClick={() => scroll('right')}
+                                className="hidden md:flex w-8 h-8 rounded-full bg-white shadow-sm hover:shadow-md transition-all duration-200 items-center justify-center shrink-0 border border-gray-200 hover:border-gray-300 hover:scale-110 active:scale-95"
+                            >
+                                <Image src="/images/blogs/right-arrow.webp" alt="Scroll Right" width={16} height={16} className="object-contain opacity-60 hover:opacity-100" />
+                            </button>
                         </div>
 
-                        {/* Right Arrow - Desktop/Tablet */}
-                        <button
-                            onClick={() => scroll('right')}
-                            className="hidden md:flex w-8 h-8 rounded-full bg-white shadow-sm hover:shadow-md transition-all duration-200 items-center justify-center shrink-0 border border-gray-200 hover:border-gray-300 hover:scale-110 active:scale-95"
-                        >
-                            <Image src="/images/blogs/right-arrow.webp" alt="Scroll Right" width={16} height={16} className="object-contain opacity-60 hover:opacity-100" />
-                        </button>
-                    </div>
-
-                    {/* Mobile Arrows Row - Only visible on small screens */}
-                    <div className="flex md:hidden justify-center gap-3 sm:gap-4 w-full mt-2">
-                        <button
-                            onClick={() => scroll('left')}
-                            className="flex w-11 h-11 sm:w-10 sm:h-10 rounded-full bg-white shadow-md hover:shadow-lg transition-all duration-200 items-center justify-center border border-gray-100 active:scale-95 min-h-[44px] min-w-[44px]"
-                        >
-                            <Image src="/images/blogs/left-arrow.webp" alt="Scroll Left" width={20} height={20} className="object-contain" />
-                        </button>
-                        <button
-                            onClick={() => scroll('right')}
-                            className="flex w-11 h-11 sm:w-10 sm:h-10 rounded-full bg-white shadow-md hover:shadow-lg transition-all duration-200 items-center justify-center border border-gray-100 active:scale-95 min-h-[44px] min-w-[44px]"
-                        >
-                            <Image src="/images/blogs/right-arrow.webp" alt="Scroll Right" width={20} height={20} className="object-contain" />
-                        </button>
+                        {/* Mobile Arrows Row - Only visible on small screens */}
+                        <div className="flex md:hidden justify-center gap-3 sm:gap-4 w-full mt-2">
+                            <button
+                                onClick={() => scroll('left')}
+                                className="flex w-11 h-11 sm:w-10 sm:h-10 rounded-full bg-white shadow-md hover:shadow-lg transition-all duration-200 items-center justify-center border border-gray-100 active:scale-95 min-h-[44px] min-w-[44px]"
+                            >
+                                <Image src="/images/blogs/left-arrow.webp" alt="Scroll Left" width={20} height={20} className="object-contain" />
+                            </button>
+                            <button
+                                onClick={() => scroll('right')}
+                                className="flex w-11 h-11 sm:w-10 sm:h-10 rounded-full bg-white shadow-md hover:shadow-lg transition-all duration-200 items-center justify-center border border-gray-100 active:scale-95 min-h-[44px] min-w-[44px]"
+                            >
+                                <Image src="/images/blogs/right-arrow.webp" alt="Scroll Right" width={20} height={20} className="object-contain" />
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
             </div>
 
             {/* Scrollable Content */}
             <div className="pt-2 sm:pt-4">
                 {/* main content */}
                 <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 mt-4 sm:mt-6 md:mt-8 lg:ml-22">
-                <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-                    {/* Blog Content - Left Side */}
-                    <div className="lg:col-span-2">
-                        {loading ? (
-                            <div className="animate-pulse space-y-3 sm:space-y-4">
-                                <div className="h-5 sm:h-6 bg-gray-200 rounded w-20 sm:w-24" />
-                                <div className="h-6 sm:h-8 bg-gray-200 rounded w-[85%] sm:w-3/4" />
-                                <div className="h-4 bg-gray-200 rounded w-1/3" />
-                                <div className="h-40 sm:h-48 md:h-56 bg-gray-200 rounded-lg" />
-                                <div className="h-4 bg-gray-200 rounded w-full" />
-                                <div className="h-4 bg-gray-200 rounded w-full" />
-                            </div>
-                        ) : !blog ? (
-                            <div className="text-center py-8 sm:py-12 px-2">
-                                <h2 className="text-lg sm:text-xl font-bold text-gray-800 mb-2">Blog not found</h2>
-                                <p className="text-gray-600 mb-4 text-sm sm:text-base">The blog you are looking for does not exist or has been removed.</p>
-                                <Link href="/blogs" className="text-[#005A8B] hover:underline font-medium text-sm sm:text-base">← Back to Blogs</Link>
-                            </div>
-                        ) : (
-                            <>
-                                {/* Blog Category Badge */}
-                                <div className="mb-2">
-                                    <span className="inline-block text-[#00A88E] px-2.5 sm:px-3 py-0.5 sm:py-1 rounded text-xs sm:text-sm font-medium bg-[#BFE6DB]">
-                                        {blog.category}
-                                    </span>
+                    <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+                        {/* Blog Content - Left Side */}
+                        <div className="lg:col-span-2">
+                            {loading ? (
+                                <div className="animate-pulse space-y-3 sm:space-y-4">
+                                    <div className="h-5 sm:h-6 bg-gray-200 rounded w-20 sm:w-24" />
+                                    <div className="h-6 sm:h-8 bg-gray-200 rounded w-[85%] sm:w-3/4" />
+                                    <div className="h-4 bg-gray-200 rounded w-1/3" />
+                                    <div className="h-40 sm:h-48 md:h-56 bg-gray-200 rounded-lg" />
+                                    <div className="h-4 bg-gray-200 rounded w-full" />
+                                    <div className="h-4 bg-gray-200 rounded w-full" />
                                 </div>
-
-                                {/* Blog Title - responsive typography */}
-                                <h1 className="text-lg min-[400px]:text-xl sm:text-2xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-2 wrap-break-word leading-tight">
-                                    {blog.title}
-                                </h1>
-
-                                {/* Blog Meta - wraps on small screens */}
-                                <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-gray-500 text-xs sm:text-sm mb-3">
-                                    <span>{blog.author}</span>
-                                    <span className="hidden sm:inline">•</span>
-                                    <span>{formatDate(blog.date)}</span>
+                            ) : !blog ? (
+                                <div className="text-center py-8 sm:py-12 px-2">
+                                    <h2 className="text-lg sm:text-xl font-bold text-gray-800 mb-2">Blog not found</h2>
+                                    <p className="text-gray-600 mb-4 text-sm sm:text-base">The blog you are looking for does not exist or has been removed.</p>
+                                    <Link href="/blogs" className="text-[#005A8B] hover:underline font-medium text-sm sm:text-base">← Back to Blogs</Link>
                                 </div>
+                            ) : (
+                                <>
+                                    {/* Blog Category Badge */}
+                                    <div className="mb-2">
+                                        <span className="inline-block text-[#00A88E] px-2.5 sm:px-3 py-0.5 sm:py-1 rounded text-xs sm:text-sm font-medium bg-[#BFE6DB]">
+                                            {blog.category}
+                                        </span>
+                                    </div>
 
-                                {/* Blog Image - responsive height */}
-                                <div className="mb-3 sm:mb-4 relative w-full h-40 min-[400px]:h-48 sm:h-52 md:h-60 lg:h-64 rounded-lg overflow-hidden">
-                                    {blog.featuredImage ? (
+                                    {/* Blog Title - responsive typography */}
+                                    <h1 className="text-lg min-[400px]:text-xl sm:text-2xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-2 wrap-break-word leading-tight">
+                                        {blog.title}
+                                    </h1>
+
+                                    {/* Blog Meta - wraps on small screens */}
+                                    <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-gray-500 text-xs sm:text-sm mb-3">
+                                        <span>{blog.author}</span>
+                                        <span className="hidden sm:inline">•</span>
+                                        <span>{formatDate(blog.date)}</span>
+                                    </div>
+
+                                    {/* Blog Image - responsive height */}
+                                    <div className="mb-3 sm:mb-4 relative w-full h-40 min-[400px]:h-48 sm:h-52 md:h-60 lg:h-64 rounded-lg overflow-hidden">
+                                        {blog.featuredImage ? (
                                             <Image
                                                 src={blog.featuredImage}
                                                 alt={blog.title}
@@ -277,121 +281,121 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                                                 className="object-cover rounded-lg"
                                             />
                                         ) : (
-                                        <Image
-                                            src="/images/blogs/card.webp"
-                                            alt={blog.title}
-                                            fill
-                                            className="object-cover rounded-lg"
+                                            <Image
+                                                src="/images/blogs/card.webp"
+                                                alt={blog.title}
+                                                fill
+                                                className="object-cover rounded-lg"
+                                            />
+                                        )}
+                                    </div>
+
+                                    {/* Blog Content - responsive text & line height */}
+                                    <div
+                                        className="blog-content max-w-none text-gray-800 mb-4 text-sm sm:text-[15px] md:text-[17px] leading-7 sm:leading-8 wrap-break-word [&_p]:text-justify [&_p]:mb-3 sm:[&_p]:mb-3 [&_p:has(img)]:!mb-0 sm:[&_p:has(img)]:!mb-0 [&_figure]:!m-0 [&_figure]:!p-0 [&_h1]:m-0 [&_h2]:m-0 [&_h3]:m-0 [&_h4]:m-0 [&_h5]:m-0 [&_h6]:m-0 [&_img]:max-w-full [&_img]:h-auto [&_img]:block [&_img]:!m-0 [&_img]:!p-0 [&_iframe]:my-2 [&_iframe]:mx-auto [&_iframe]:block"
+                                        style={{ wordBreak: 'break-word', overflowWrap: 'anywhere', fontFamily: 'Metropolis, sans-serif' }}
+                                        dangerouslySetInnerHTML={{ __html: sanitizeBlogContent(blog.content || blog.excerpt || '') }}
+                                    />
+
+                                    {/* FAQs Section - responsive padding & typography */}
+                                    {blog.faqs && blog.faqs.length > 0 && (
+                                        <div className="mt-4 mb-4 sm:mb-6 border border-gray-200 rounded-lg sm:rounded-xl overflow-hidden bg-white shadow-sm">
+                                            <h2 className="text-base sm:text-xl md:text-2xl font-bold text-gray-800 px-3 py-3 sm:px-4 sm:py-4 md:px-6 md:py-4 bg-gray-50 border-b border-gray-200">
+                                                Frequently Asked Questions
+                                            </h2>
+                                            <div className="divide-y divide-gray-200 [&>*:first-child]:border-t-0">
+                                                {blog.faqs.map((faq, idx) => (
+                                                    <details
+                                                        key={idx}
+                                                        className="group [&_summary::-webkit-details-marker]:hidden [&_summary::marker]:hidden"
+                                                    >
+                                                        <summary className="flex items-start gap-2 sm:gap-3 px-3 py-2.5 sm:px-6 sm:py-2.5 cursor-pointer list-none hover:bg-gray-50 transition-colors">
+                                                            <span className="shrink-0 w-6 h-6 flex items-center justify-center rounded-full bg-gray-200 text-gray-700 font-bold text-sm group-open:hidden">+</span>
+                                                            <span className="shrink-0 w-6 h-6 hidden group-open:flex items-center justify-center rounded-full bg-indigo-100 text-indigo-700 font-bold text-base leading-none">−</span>
+                                                            <span className="font-medium text-gray-800 flex-1 text-sm sm:text-base min-w-0">{faq.question}</span>
+                                                        </summary>
+                                                        <div
+                                                            className="pl-11 sm:pl-13 pr-3 sm:pr-4 md:pr-6 pb-3 pt-0 text-gray-600 text-sm sm:text-[15px] leading-relaxed [&_a]:text-blue-600 [&_a]:underline hover:[&_a]:text-blue-800"
+                                                            dangerouslySetInnerHTML={{ __html: processFaqAnswer(faq.answer) }}
+                                                        />
+                                                    </details>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
+
+                                    {/* JSON-LD FAQ schema for SEO */}
+                                    {blog.faqs && blog.faqs.length > 0 && (
+                                        <script
+                                            type="application/ld+json"
+                                            dangerouslySetInnerHTML={{
+                                                __html: JSON.stringify({
+                                                    "@context": "https://schema.org",
+                                                    "@type": "FAQPage",
+                                                    mainEntity: blog.faqs.map((faq) => ({
+                                                        "@type": "Question",
+                                                        name: faq.question,
+                                                        acceptedAnswer: {
+                                                            "@type": "Answer",
+                                                            text: (faq.answer || '').replace(/<[^>]+>/g, '').trim() || faq.answer
+                                                        }
+                                                    }))
+                                                })
+                                            }}
                                         />
                                     )}
+                                </>
+                            )}
+
+                            {/* Comment Section - responsive spacing & touch targets */}
+                            <div className="pt-6 sm:pt-8">
+                                <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-800 mb-4 sm:mb-6">Comment</h3>
+
+                                {/* Social Share Icons - touch-friendly on mobile */}
+                                <div className="flex items-center flex-wrap gap-2 sm:gap-3 md:gap-4 mb-4 sm:mb-6">
+                                    <button className="w-10 h-10 sm:w-8 sm:h-8 bg-black text-white rounded flex items-center justify-center min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0" aria-label="Share on X">
+                                        <span className="text-sm">𝕏</span>
+                                    </button>
+                                    <button className="w-10 h-10 sm:w-8 sm:h-8 bg-blue-600 text-white rounded flex items-center justify-center min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0" aria-label="Share on Facebook">
+                                        <span className="text-sm">f</span>
+                                    </button>
+                                    <button className="w-10 h-10 sm:w-8 sm:h-8 bg-blue-700 text-white rounded flex items-center justify-center min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0" aria-label="Share on LinkedIn">
+                                        <span className="text-sm">in</span>
+                                    </button>
+                                    <button className="w-10 h-10 sm:w-8 sm:h-8 bg-gray-600 text-white rounded flex items-center justify-center min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0" aria-label="Share via Email">
+                                        <span className="text-sm">✉</span>
+                                    </button>
                                 </div>
 
-                                {/* Blog Content - responsive text & line height */}
-                                <div
-                                    className="blog-content max-w-none text-gray-800 mb-4 text-sm sm:text-[15px] md:text-[17px] leading-7 sm:leading-8 wrap-break-word [&_p]:text-justify [&_p]:mb-3 sm:[&_p]:mb-3 [&_h1]:m-0 [&_h2]:m-0 [&_h3]:m-0 [&_h4]:m-0 [&_h5]:m-0 [&_h6]:m-0 [&_img]:max-w-full [&_img]:h-auto [&_iframe]:my-2 [&_iframe]:mx-auto [&_iframe]:block"
-                                    style={{ wordBreak: 'break-word', overflowWrap: 'anywhere', fontFamily: 'Metropolis, sans-serif' }}
-                                    dangerouslySetInnerHTML={{ __html: sanitizeBlogContent(blog.content || blog.excerpt || '') }}
-                                />
-
-                                {/* FAQs Section - responsive padding & typography */}
-                                {blog.faqs && blog.faqs.length > 0 && (
-                                    <div className="mt-4 mb-4 sm:mb-6 border border-gray-200 rounded-lg sm:rounded-xl overflow-hidden bg-white shadow-sm">
-                                        <h2 className="text-base sm:text-xl md:text-2xl font-bold text-gray-800 px-3 py-3 sm:px-4 sm:py-4 md:px-6 md:py-4 bg-gray-50 border-b border-gray-200">
-                                            Frequently Asked Questions
-                                        </h2>
-                                        <div className="divide-y divide-gray-200 [&>*:first-child]:border-t-0">
-                                            {blog.faqs.map((faq, idx) => (
-                                                <details
-                                                    key={idx}
-                                                    className="group [&_summary::-webkit-details-marker]:hidden [&_summary::marker]:hidden"
-                                                >
-                                                    <summary className="flex items-start gap-2 sm:gap-3 px-3 py-2.5 sm:px-6 sm:py-2.5 cursor-pointer list-none hover:bg-gray-50 transition-colors">
-                                                        <span className="shrink-0 w-6 h-6 flex items-center justify-center rounded-full bg-gray-200 text-gray-700 font-bold text-sm group-open:hidden">+</span>
-                                                        <span className="shrink-0 w-6 h-6 hidden group-open:flex items-center justify-center rounded-full bg-indigo-100 text-indigo-700 font-bold text-base leading-none">−</span>
-                                                        <span className="font-medium text-gray-800 flex-1 text-sm sm:text-base min-w-0">{faq.question}</span>
-                                                    </summary>
-                                                    <div
-                                                        className="pl-11 sm:pl-13 pr-3 sm:pr-4 md:pr-6 pb-3 pt-0 text-gray-600 text-sm sm:text-[15px] leading-relaxed [&_a]:text-blue-600 [&_a]:underline hover:[&_a]:text-blue-800"
-                                                        dangerouslySetInnerHTML={{ __html: processFaqAnswer(faq.answer) }}
-                                                    />
-                                                </details>
-                                            ))}
-                                        </div>
+                                {/* Comment Form - responsive */}
+                                <div className="space-y-4 sm:space-y-5 mb-8 sm:mb-12 md:mb-16">
+                                    <textarea
+                                        placeholder="write your comment here..."
+                                        className="w-full p-3 sm:p-4 border border-gray-300 rounded-lg resize-none h-20 sm:h-24 md:h-32 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base min-h-[80px]"
+                                    />
+                                    <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
+                                        <input
+                                            type="text"
+                                            placeholder="name"
+                                            className="flex-1 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base min-h-[44px]"
+                                        />
+                                        <input
+                                            type="email"
+                                            placeholder="email address"
+                                            className="flex-1 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base min-h-[44px]"
+                                        />
+                                        <button className="w-full sm:w-auto bg-gradient-to-r from-[#63CDB4] to-[#0077BF] hover:from-[#0077BF] hover:to-[#63CDB4] text-white px-4 md:px-6 py-3 rounded-lg font-medium transition-all duration-200 text-sm md:text-base min-h-[44px]">
+                                            Post ➤
+                                        </button>
                                     </div>
-                                )}
-
-                                {/* JSON-LD FAQ schema for SEO */}
-                                {blog.faqs && blog.faqs.length > 0 && (
-                                    <script
-                                        type="application/ld+json"
-                                        dangerouslySetInnerHTML={{
-                                            __html: JSON.stringify({
-                                                "@context": "https://schema.org",
-                                                "@type": "FAQPage",
-                                                mainEntity: blog.faqs.map((faq) => ({
-                                                    "@type": "Question",
-                                                    name: faq.question,
-                                                    acceptedAnswer: {
-                                                        "@type": "Answer",
-                                                        text: (faq.answer || '').replace(/<[^>]+>/g, '').trim() || faq.answer
-                                                    }
-                                                }))
-                                            })
-                                        }}
-                                    />
-                                )}
-                            </>
-                        )}
-
-                        {/* Comment Section - responsive spacing & touch targets */}
-                        <div className="pt-6 sm:pt-8">
-                            <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-800 mb-4 sm:mb-6">Comment</h3>
-
-                            {/* Social Share Icons - touch-friendly on mobile */}
-                            <div className="flex items-center flex-wrap gap-2 sm:gap-3 md:gap-4 mb-4 sm:mb-6">
-                                <button className="w-10 h-10 sm:w-8 sm:h-8 bg-black text-white rounded flex items-center justify-center min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0" aria-label="Share on X">
-                                    <span className="text-sm">𝕏</span>
-                                </button>
-                                <button className="w-10 h-10 sm:w-8 sm:h-8 bg-blue-600 text-white rounded flex items-center justify-center min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0" aria-label="Share on Facebook">
-                                    <span className="text-sm">f</span>
-                                </button>
-                                <button className="w-10 h-10 sm:w-8 sm:h-8 bg-blue-700 text-white rounded flex items-center justify-center min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0" aria-label="Share on LinkedIn">
-                                    <span className="text-sm">in</span>
-                                </button>
-                                <button className="w-10 h-10 sm:w-8 sm:h-8 bg-gray-600 text-white rounded flex items-center justify-center min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0" aria-label="Share via Email">
-                                    <span className="text-sm">✉</span>
-                                </button>
-                            </div>
-
-                            {/* Comment Form - responsive */}
-                            <div className="space-y-4 sm:space-y-5 mb-8 sm:mb-12 md:mb-16">
-                                <textarea
-                                    placeholder="write your comment here..."
-                                    className="w-full p-3 sm:p-4 border border-gray-300 rounded-lg resize-none h-20 sm:h-24 md:h-32 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base min-h-[80px]"
-                                />
-                                <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                                    <input
-                                        type="text"
-                                        placeholder="name"
-                                        className="flex-1 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base min-h-[44px]"
-                                    />
-                                    <input
-                                        type="email"
-                                        placeholder="email address"
-                                        className="flex-1 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base min-h-[44px]"
-                                    />
-                                    <button className="w-full sm:w-auto bg-gradient-to-r from-[#63CDB4] to-[#0077BF] hover:from-[#0077BF] hover:to-[#63CDB4] text-white px-4 md:px-6 py-3 rounded-lg font-medium transition-all duration-200 text-sm md:text-base min-h-[44px]">
-                                        Post ➤
-                                    </button>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    {/* Sidebar - Right Side */}
-                    <BlogSidebar />
+                        {/* Sidebar - Right Side */}
+                        <BlogSidebar />
+                    </div>
                 </div>
-            </div>
             </div>
         </div>
     );
