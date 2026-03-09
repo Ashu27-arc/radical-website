@@ -50,7 +50,7 @@ export default function ServicesDropdown({ services }: ServicesDropdownProps) {
             <Link href={`/services/${service.slug}`}>
               <div
                 style={{ backgroundColor: service.color.includes('[') ? service.color.match(/\[(.*?)\]/)?.[1] : undefined }}
-                className={`relative rounded-2xl md:p-8 py-8 px-2 md:h-[200px] h-[130px] cursor-pointer 
+                className={`relative rounded-2xl md:p-8 py-8 px-2 md:h-[180px] h-[130px] cursor-pointer 
                 ${!service.color.includes('[') ? service.color : ''} shadow-lg hover:shadow-xl transition-all duration-300 
                 md:hover:transform-none hover:scale-105 active:scale-95`}
               >
@@ -65,7 +65,7 @@ export default function ServicesDropdown({ services }: ServicesDropdownProps) {
 
                 {/* Title */}
                 <div className="md:mt-16 mt-10 text-center">
-                  <h3 className="font-semibold md:text-lg text-sm lg:px-8" style={{ color: service.text.includes('[') ? service.text.match(/\[(.*?)\]/)?.[1] : undefined }}>
+                  <h3 className="font-semibold md:text-lg text-sm" style={{ color: service.text.includes('[') ? service.text.match(/\[(.*?)\]/)?.[1] : undefined }}>
                     {service.title}
                   </h3>
                 </div>
