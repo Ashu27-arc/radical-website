@@ -27,10 +27,9 @@ const sanitizeBlogContent = (html: string) => {
         .replace(/background-color\s*:\s*[^;"]*;?/gi, '')
         .replace(/background\s*:\s*[^;"]*;?/gi, '');
 
-    // 1. Remove empty paragraphs, line breaks, or paragraphs with only &nbsp; that add unnecessary space
-    result = result
-        .replace(/<p>\s*(?:&nbsp;|<br\s*\/?>)*\s*<\/p>/gi, '')
-        .replace(/<div>\s*(?:&nbsp;|<br\s*\/?>)*\s*<\/div>/gi, '');
+    // 1. Strip ALL height attributes from images so they don't leave empty vertical gaps 
+    result = result.replace(/(<img[^>]*?)\s+height=["'][^"']*["']/gi, '$1');
+    result = result.replace(/(<img[^>]*?)\s+style=["'][^"']*height:[^;"]*;?["']/gi, '$1');
 
     // 2. Add allow="popups" AND class="crm-embed" to iframes so they style correctly
     result = result.replace(
@@ -49,19 +48,44 @@ const sanitizeBlogContent = (html: string) => {
         }
     );
 
-    // 3. Unwrap iframes, .crm-embed, and img from paragraphs to eliminate paragraph margins
+    // 3. Remove all <br> tags entirely to ensure no extra whitespace anywhere before processing wrappers
+    result = result.replace(/<br\s*\/?>/gi, '');
+
+    // 4. Unwrap iframes, .crm-embed, and img from ANY generic wrappers (p, div, figure) to eliminate parent margins
     result = result
-        .replace(/<p>\s*(<iframe[^>]*>.*?<\/iframe>)\s*<\/p>/gi, '$1')
-        .replace(/<p>\s*(<div class="crm-embed"[^>]*>.*?<\/div>)\s*<\/p>/gi, '$1')
-        .replace(/<p>\s*(<img[^>]+>)\s*<\/p>/gi, '$1');
+        .replace(/<(?:p|div|figure)[^>]*>\s*(<iframe[^>]*>.*?<\/iframe>)\s*<\/(?:p|div|figure)>/gi, '$1')
+        .replace(/<(?:p|div|figure)[^>]*>\s*(<div class="crm-embed"[^>]*>.*?<\/div>)\s*<\/(?:p|div|figure)>/gi, '$1')
+        .replace(/<(?:p|div|figure)[^>]*>\s*(<a[^>]*>\s*<img[^>]+>\s*<\/a>|<img[^>]+>)\s*<\/(?:p|div|figure)>/gi, '$1')
+        // Second pass in case of double wrapping (e.g. <div><p><img></p></div>)
+        .replace(/<(?:p|div|figure)[^>]*>\s*(<a[^>]*>\s*<img[^>]+>\s*<\/a>|<img[^>]+>)\s*<\/(?:p|div|figure)>/gi, '$1');
 
-    // 4. Reduce multiple consecutive <br> tags to a single one
-    result = result.replace(/(<br\s*\/?>\s*){2,}/gi, '<br />');
+    // 5. Remove empty paragraphs, divs, spans recursively (handles <div><p>&nbsp;</p></div> etc.)
+    let prev;
+    do {
+        prev = result;
+        result = result.replace(/<(p|div|span|h[1-6]|figure|strong|b|em|i|a)[^>]*>\s*(?:&nbsp;|\u00A0|\s)*\s*<\/\1>/gi, '');
+    } while (result !== prev);
 
-    // 5. Remove any <br> tags or spaces that immediately follow an image to prevent white space
-    result = result.replace(/(<img[^>]+>)\s*(?:<br\s*\/?>\s*)+/gi, '$1');
+    // 6. Force inject margin-bottom: 0 onto all images to prevent CRM inline styles from overriding. Also reset padding and display.
+    result = result.replace(/<img([^>]*)>/gi, (match, attrs) => {
+        // Strip out existing margin and padding from inline style to avoid conflicts
+        let cleanAttrs = attrs.replace(/margin[^:]*:[^;"]*;?/gi, '').replace(/padding[^:]*:[^;"]*;?/gi, '');
+        if (/style="/i.test(cleanAttrs)) {
+            return `<img${cleanAttrs.replace(/style="/i, 'style="margin: 0 !important; padding: 0 !important; display: block !important; ')}>`;
+        } else if (/style='/i.test(cleanAttrs)) {
+            return `<img${cleanAttrs.replace(/style='/i, "style='margin: 0 !important; padding: 0 !important; display: block !important; ")}>`;
+        } else {
+            return `<img${cleanAttrs} style="margin: 0 !important; padding: 0 !important; display: block !important;">`;
+        }
+    });
 
-    // 6. Final trim of whitespace at start/end
+    // 7. Remove zero-width spaces or other invisible chars that might create layout space
+    result = result.replace(/[\u200B-\u200D\uFEFF]/g, '');
+
+    // 8. Trim spaces between image and the next block element completely
+    result = result.replace(/(<img[^>]+>|<\/a>)\s+(?=<)/gi, '$1');
+
+    // 9. Final trim of whitespace at start/end
     return result.trim();
 };
 
@@ -292,7 +316,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
 
                                     {/* Blog Content - responsive text & line height */}
                                     <div
-                                        className="blog-content max-w-none text-gray-800 mb-4 text-sm sm:text-[15px] md:text-[17px] leading-7 sm:leading-8 wrap-break-word [&_p]:text-justify [&_p]:mb-3 sm:[&_p]:mb-3 [&_p:has(img)]:!mb-0 sm:[&_p:has(img)]:!mb-0 [&_figure]:!m-0 [&_figure]:!p-0 [&_h1]:m-0 [&_h2]:m-0 [&_h3]:m-0 [&_h4]:m-0 [&_h5]:m-0 [&_h6]:m-0 [&_img]:max-w-full [&_img]:h-auto [&_img]:block [&_img]:!m-0 [&_img]:!p-0 [&_iframe]:my-2 [&_iframe]:mx-auto [&_iframe]:block"
+                                        className="blog-content max-w-none text-gray-800 mb-4 text-sm sm:text-[15px] md:text-[17px] leading-7 sm:leading-8 wrap-break-word [&_p]:text-justify [&_p]:mb-3 sm:[&_p]:mb-3 [&_p:has(img)]:!mb-0 sm:[&_p:has(img)]:!mb-0 [&_figure]:!m-0 [&_figure]:!p-0 [&_h1]:m-0 [&_h2]:m-0 [&_h3]:m-0 [&_h4]:m-0 [&_h5]:m-0 [&_h6]:m-0 [&_img]:max-w-full [&_img]:h-auto [&_img]:!block [&_img]:!m-0 [&_img]:!p-0 [&_img+*]:!mt-0 [&_a:has(img)]:!block [&_a:has(img)]:!m-0 [&_a:has(img)]:!p-0 [&_a:has(img)]:!leading-[0px] [&_a:has(img)]:!text-[0px] [&_a:has(img)+*]:!mt-0 [&_iframe]:my-2 [&_iframe]:mx-auto [&_iframe]:!block"
                                         style={{ wordBreak: 'break-word', overflowWrap: 'anywhere', fontFamily: 'Metropolis, sans-serif' }}
                                         dangerouslySetInnerHTML={{ __html: sanitizeBlogContent(blog.content || blog.excerpt || '') }}
                                     />

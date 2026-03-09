@@ -180,8 +180,8 @@ const BlogsPage = () => {
         onClick={() => handlePageChange(currentPage - 1)}
         disabled={currentPage === 1}
         className={`px-4 md:px-6 py-2 text-sm md:text-base font-medium transition-colors ${currentPage === 1
-            ? 'text-gray-300 cursor-not-allowed'
-            : 'text-gray-400 hover:text-gray-600'
+          ? 'text-gray-300 cursor-not-allowed'
+          : 'text-gray-400 hover:text-gray-600'
           }`}
       >
         Previous
@@ -195,8 +195,8 @@ const BlogsPage = () => {
           key={i}
           onClick={() => handlePageChange(i)}
           className={`w-10 h-10 md:w-12 md:h-12 rounded-full text-sm md:text-base font-medium transition-all duration-300 ${i === currentPage
-              ? 'bg-blue-500 text-white shadow-lg scale-110'
-              : 'text-gray-600 hover:bg-gray-100'
+            ? 'bg-blue-500 text-white shadow-lg scale-110'
+            : 'text-gray-600 hover:bg-gray-100'
             }`}
         >
           {i}
@@ -211,8 +211,8 @@ const BlogsPage = () => {
         onClick={() => handlePageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
         className={`px-4 md:px-6 py-2 text-sm md:text-base font-medium transition-colors ${currentPage === totalPages
-            ? 'text-gray-300 cursor-not-allowed'
-            : 'text-gray-400 hover:text-gray-600'
+          ? 'text-gray-300 cursor-not-allowed'
+          : 'text-gray-400 hover:text-gray-600'
           }`}
       >
         Next
@@ -474,14 +474,14 @@ const BlogsPage = () => {
                 {/* Inline banner between blogs */}
                 {((index + 1) % 4 === 0) && (
                   <div
-                    className="bg-gradient-to-r from-teal-400 to-blue-500 rounded-lg overflow-hidden shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 col-span-1 md:col-span-2 lg:col-span-3"
+                    className="bg-gradient-to-r from-teal-400 to-blue-500 rounded-lg overflow-hidden shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 col-span-1 md:col-span-2 lg:col-span-3 flex flex-col"
                   >
                     <Image
                       src={index % 2 === 0 ? '/images/blogs/ad-1.webp' : '/images/blogs/ad.webp'}
                       alt="Promotional banner"
                       width={1200}
                       height={300}
-                      className="w-full h-auto object-cover"
+                      className="w-full h-auto object-cover block !m-0 !p-0"
                     />
                   </div>
                 )}

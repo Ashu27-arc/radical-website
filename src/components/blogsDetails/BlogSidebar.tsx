@@ -83,18 +83,18 @@ const BlogSidebar = ({ className = "" }: BlogSidebarProps) => {
 
                 {/* Advertisement Banners */}
                 <div className="mt-4 sm:mt-5 md:mt-6 mx-2 sm:mx-3 md:mx-4 space-y-3 sm:space-y-4">
-                    <div className="bg-gradient-to-r from-teal-400 to-blue-500 rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-xl">
+                    <div className="bg-gradient-to-r from-teal-400 to-blue-500 rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-xl flex flex-col">
                         <img
                             src="/images/blogs/ad-1.webp"
                             alt="Study MBBS in Kyrgyzstan"
-                            className="w-full h-auto opacity-90 hover:opacity-100 transition-opacity"
+                            className="w-full h-auto opacity-90 hover:opacity-100 transition-opacity block m-0 p-0"
                         />
                     </div>
-                    <div className="bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-xl">
+                    <div className="bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-xl flex flex-col">
                         <img
                             src="/images/blogs/ad.webp"
                             alt="NEET PG Admission"
-                            className="w-full h-auto opacity-90 hover:opacity-100 transition-opacity"
+                            className="w-full h-auto opacity-90 hover:opacity-100 transition-opacity block m-0 p-0"
                         />
                     </div>
                 </div>
