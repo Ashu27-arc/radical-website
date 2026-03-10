@@ -38,9 +38,9 @@ export default function ContactPage() {
                                 <div className="-ml-2"><Image src="/images/callUs.webp" className="" alt="" width="110" height="110" /></div>
                                 <h4 className="my-3 text-xl font-semibold text-[#0A1A2F] -mt-2">Call Us</h4>
                                 <div className="text-sm text-[#555555] mb-6">Speak to us directly with experienced counselors at your disposal to resolve doubts, understanding counseling procedures and receiving total guidance for NEET and medical admissions.</div>
-                                <Link href="tel:7827600930">
+                                <Link href="tel:9797972465">
                                     <div className="flex items-center gap-2 justify-between text-[#089241] font-semibold">
-                                        <div className="">+91 7827600930</div>
+                                        <div className="">+91 97 97 97 2465</div>
                                         <i className="pi pi-arrow-right"></i>
                                     </div>
                                 </Link>
