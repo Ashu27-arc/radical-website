@@ -281,7 +281,7 @@ export default function Footer() {
               <ul className="space-y-4 text-xs sm:text-sm">
                 <li className="flex items-center gap-2">
                   <i className="pi pi-phone text-xs sm:text-sm" />
-                  <span className='truncate'>97 97 97 24 65</span>
+                  <span className='truncate'>7827600930</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <i className="pi pi-envelope text-xs sm:text-sm" />

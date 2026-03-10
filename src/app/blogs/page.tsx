@@ -16,8 +16,12 @@ const categoryColors: Record<string, string> = {
   'Careers': 'bg-blue-500 text-white',
   'MBBS in India': 'bg-green-500 text-white',
   'MBBS Abroad': 'bg-teal-500 text-white',
+  'Study Abroad': 'bg-teal-500 text-white',
   'NEET UG': 'bg-red-500 text-white',
+  'Neet UG': 'bg-red-500 text-white',
   'NEET PG': 'bg-yellow-500 text-white',
+  'Neet PG': 'bg-yellow-500 text-white',
+  'Notification': 'bg-blue-500 text-white',
   'Development': 'bg-purple-500 text-white',
 };
 
@@ -98,7 +102,7 @@ const BlogsPage = () => {
   };
 
   const publishedBlogs = blogs.filter((b) => b.status === 'Published');
-  const categories = ['All', ...Array.from(new Set(publishedBlogs.map((b) => b.category).filter(Boolean)))];
+  const categories = ['All', ...Array.from(new Set(publishedBlogs.flatMap((b) => b.category?.split(',').map(c => c.trim())).filter(Boolean)))];
 
   // Connection status indicator
   const connectionStatus = (
@@ -114,7 +118,7 @@ const BlogsPage = () => {
   useEffect(() => {
     setCurrentPage((prev) => {
       const maxPages = Math.ceil(publishedBlogs.filter((b) => {
-        const matchCategory = activeCategory === 'All' || b.category === activeCategory;
+        const matchCategory = activeCategory === 'All' || (b.category && b.category.split(',').map(c => c.trim()).includes(activeCategory));
         const matchSearch = !searchQuery.trim() ||
           b.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
           (b.excerpt && b.excerpt.toLowerCase().includes(searchQuery.toLowerCase()));
@@ -125,7 +129,7 @@ const BlogsPage = () => {
   }, [activeCategory, searchQuery, publishedBlogs]);
 
   const filtered = publishedBlogs.filter((b) => {
-    const matchCategory = activeCategory === 'All' || b.category === activeCategory;
+    const matchCategory = activeCategory === 'All' || (b.category && b.category.split(',').map(c => c.trim()).includes(activeCategory));
     const matchSearch = !searchQuery.trim() ||
       b.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
       (b.excerpt && b.excerpt.toLowerCase().includes(searchQuery.toLowerCase()));
@@ -370,9 +374,13 @@ const BlogsPage = () => {
                     )}
                   </div>
                   <div className="p-4 md:p-6">
-                    <span className={`inline-block ${getCategoryColor(featuredBlog.category)} px-3 py-1 rounded-full text-xs md:text-sm mb-2`}>
-                      {featuredBlog.category}
-                    </span>
+                    <div className="flex flex-wrap gap-2 mb-2">
+                      {featuredBlog.category?.split(',').map((c) => c.trim()).filter(Boolean).map((cat, idx) => (
+                        <span key={idx} className={`inline-block ${getCategoryColor(cat)} px-3 py-1 rounded-full text-xs md:text-sm`}>
+                          {cat}
+                        </span>
+                      ))}
+                    </div>
                     <h3 className="text-lg md:text-2xl font-bold text-gray-800 mb-2 hover:text-blue-600 transition-colors">
                       {featuredBlog.title}
                     </h3>
@@ -400,9 +408,13 @@ const BlogsPage = () => {
               sidebarBlogs.map((post, index) => (
                 <Link key={post.id} href={`/${post.slug}`} className="block animate-fadeIn" style={{ animationDelay: `${0.2 + index * 0.1}s` }}>
                   <div className={`bg-white rounded-lg p-4 md:p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer ${index < sidebarBlogs.length - 1 ? 'border-b-2 border-gray-200' : ''}`}>
-                    <span className={`inline-block ${getCategoryColor(post.category)} px-3 py-1 rounded-full text-xs md:text-sm mb-2`}>
-                      {post.category}
-                    </span>
+                    <div className="flex flex-wrap gap-2 mb-2">
+                      {post.category?.split(',').map((c) => c.trim()).filter(Boolean).map((cat, idx) => (
+                        <span key={idx} className={`inline-block ${getCategoryColor(cat)} px-3 py-1 rounded-full text-xs md:text-sm`}>
+                          {cat}
+                        </span>
+                      ))}
+                    </div>
                     <h4 className="text-base md:text-lg font-bold text-gray-800 mb-1 md:mb-2 hover:text-blue-600 transition-colors">
                       {post.title}
                     </h4>
@@ -454,9 +466,13 @@ const BlogsPage = () => {
                       )}
                     </div>
                     <div className="p-4 md:p-6">
-                      <span className={`inline-block ${getCategoryColor(blog.category)} px-3 py-1 rounded-full text-xs md:text-sm mb-1 md:mb-2`}>
-                        {blog.category}
-                      </span>
+                      <div className="flex flex-wrap gap-2 mb-1 md:mb-2">
+                        {blog.category?.split(',').map((c) => c.trim()).filter(Boolean).map((cat, idx) => (
+                          <span key={idx} className={`inline-block ${getCategoryColor(cat)} px-3 py-1 rounded-full text-xs md:text-sm`}>
+                            {cat}
+                          </span>
+                        ))}
+                      </div>
                       <h3 className="text-base md:text-lg font-bold text-gray-800 mb-1 md:mb-2 hover:text-blue-600 transition-colors line-clamp-2">
                         {blog.title}
                       </h3>

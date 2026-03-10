@@ -328,12 +328,12 @@ export default function EnquireButton() {
                   </div>
 
                   <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 mt-auto lg:-mt-2'>
-                    <Link href="tel:+919797972465" className='rounded-xl flex items-center gap-3 p-2.5 w-full bg-gradient-to-r! from-[#00CFB2]! to-[#287FC4]! border-[#00CFB2]! transition-transform hover:scale-[1.02]'>
+                    <Link href="tel:+917827600930" className='rounded-xl flex items-center gap-3 p-2.5 w-full bg-gradient-to-r! from-[#00CFB2]! to-[#287FC4]! border-[#00CFB2]! transition-transform hover:scale-[1.02]'>
                       <div className='h-9 w-9 flex items-center justify-center rounded-full border border-white/40 bg-white/10 shrink-0'>
                         <i className='pi pi-phone text-white text-sm'></i>
                       </div>
                       <div className="min-w-0">
-                        <div className='text-white font-bold text-[13px] truncate'>+919797972465</div>
+                        <div className='text-white font-bold text-[13px] truncate'>+917827600930</div>
                         <div className='text-white/80 text-[9px] whitespace-nowrap'>Call for Consultation!</div>
                       </div>
                     </Link>

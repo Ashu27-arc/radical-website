@@ -277,10 +277,12 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                             ) : (
                                 <>
                                     {/* Blog Category Badge */}
-                                    <div className="mb-2">
-                                        <span className="inline-block text-[#00A88E] px-2.5 sm:px-3 py-0.5 sm:py-1 rounded text-xs sm:text-sm font-medium bg-[#BFE6DB]">
-                                            {blog.category}
-                                        </span>
+                                    <div className="mb-2 flex flex-wrap gap-2">
+                                        {blog.category?.split(',').map((c) => c.trim()).filter(Boolean).map((cat, idx) => (
+                                            <span key={idx} className="inline-block text-[#00A88E] px-2.5 sm:px-3 py-0.5 sm:py-1 rounded text-xs sm:text-sm font-medium bg-[#BFE6DB]">
+                                                {cat}
+                                            </span>
+                                        ))}
                                     </div>
 
                                     {/* Blog Title - responsive typography */}
