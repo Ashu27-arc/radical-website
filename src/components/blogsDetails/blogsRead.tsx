@@ -323,6 +323,34 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                                         dangerouslySetInnerHTML={{ __html: sanitizeBlogContent(blog.content || blog.excerpt || '') }}
                                     />
 
+                                    {/* PDF Download Section - High Impact & Premium */}
+                                    {blog.pdf && (
+                                        <div className="my-8 p-6 sm:p-8 bg-gradient-to-br from-indigo-50 via-white to-blue-50 rounded-2xl border-2 border-indigo-100 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6 transition-all hover:shadow-md">
+                                            <div className="flex items-center gap-5">
+                                                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-red-100 rounded-2xl flex items-center justify-center shrink-0 shadow-inner">
+                                                    <svg className="w-10 h-10 sm:w-12 h-12 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 13h6m-3-3v6" />
+                                                    </svg>
+                                                </div>
+                                                <div>
+                                                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-1">Detailed Guide Available</h3>
+                                                    <p className="text-gray-600 text-sm sm:text-base">Download the full PDF version of this blog for offline reading.</p>
+                                                </div>
+                                            </div>
+                                            <a
+                                                href={blog.pdf}
+                                                download={`${blog.slug || 'blog'}-detailed-guide.pdf`}
+                                                className="w-full sm:w-auto px-10 py-4 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all flex items-center justify-center gap-3 active:scale-95"
+                                            >
+                                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                                                </svg>
+                                                DOWNLOAD PDF
+                                            </a>
+                                        </div>
+                                    )}
+
                                     {/* FAQs Section - responsive padding & typography */}
                                     {blog.faqs && blog.faqs.length > 0 && (
                                         <div className="mt-4 mb-4 sm:mb-6 border border-gray-200 rounded-lg sm:rounded-xl overflow-hidden bg-white shadow-sm">

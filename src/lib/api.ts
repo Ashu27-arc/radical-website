@@ -61,6 +61,7 @@ export interface Blog {
   metaDescription?: string;
   metaKeywords?: string;
   faqs?: BlogFaq[];
+  pdf?: string;
 }
 
 export interface NeetUpdate {
