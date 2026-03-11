@@ -165,7 +165,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                     {/* Search Section */}
                     <div className="flex flex-col lg:flex-row gap-3 sm:gap-4 items-stretch lg:items-start justify-start">
                         {/* Search Input with Icon */}
-                        <div className="relative w-full max-w-full sm:max-w-md lg:max-w-sm lg:-ml-10">
+                        <div className="relative w-full lg:max-w-[450px] md:max-w-[320px] max-w-full">
                             <input
                                 type="text"
                                 placeholder="search your blog here"
@@ -186,7 +186,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                         </div>
 
                         {/* Category Filter Buttons - responsive gap & scroll */}
-                        <div className="flex bg-white lg:bg-transparent rounded-full lg:rounded-none shadow-sm lg:shadow-none p-1.5 sm:p-1 lg:p-0 items-center gap-1 sm:gap-2 flex-1 min-w-0 w-full lg:w-auto overflow-hidden">
+                        <div className="flex bg-white lg:bg-transparent rounded-full lg:rounded-none shadow-sm lg:shadow-none p-1.5 sm:p-1 lg:p-0 items-center gap-1 sm:gap-3 flex-1 min-w-0 w-full lg:w-auto overflow-hidden">
                             {/* Left Arrow - Desktop/Tablet */}
                             <button
                                 onClick={() => scroll('left')}
@@ -197,7 +197,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
 
                             <div
                                 ref={categoryContainerRef}
-                                className="flex gap-3 sm:gap-6 md:gap-8 lg:gap-10 items-center flex-1 overflow-x-auto scrollbar-hide py-1 min-w-0"
+                                className="flex gap-3 md:gap-4 items-center flex-1 overflow-x-auto scrollbar-hide py-1 min-w-0"
                                 style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                             >
                                 {categories.map((category) => (

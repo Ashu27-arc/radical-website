@@ -302,16 +302,22 @@ export default function InstituteListPage() {
                 <label className="block text-white mb-1.5 sm:mb-2 text-sm sm:text-base">
                   Institute Description
                 </label>
-                <textarea
-                  name="instituteDescription"
-                  value={formData.instituteDescription}
-                  onChange={handleInputChange}
-                  placeholder="Tell us about your institute"
-                  rows={5}
-                  className="form-textarea w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50 resize-none"
-                  style={{ color: 'white' }}
-                  required
-                ></textarea>
+                <div className="relative placeholderCOlorWhite">
+                  <textarea
+                    name="instituteDescription"
+                    value={formData.instituteDescription}
+                    onChange={handleInputChange}
+                    placeholder=" "
+                    rows={5}
+                    className="peer form-textarea w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white focus:outline-none focus:ring-2 focus:ring-white/50 resize-none"
+                    style={{ color: 'white' }}
+                    required
+                  ></textarea>
+
+                  <span className="pointer-events-none absolute left-[15px] top-[12px] text-white/50 transition-all duration-200 peer-focus:opacity-0 peer-[&:not(:placeholder-shown)]:opacity-0">
+                    Tell us about your institute
+                  </span>
+                </div>
                 <div className="mt-3 sm:mt-4">
                   <label
                     htmlFor="imageUpload"
@@ -337,34 +343,49 @@ export default function InstituteListPage() {
               {/* Address */}
               <div className="md:col-span-1">
                 <label className="block text-white mb-1.5 sm:mb-2 text-sm sm:text-base">Address</label>
-                <input
-                  type="text"
-                  name="address.houseNo"
-                  value={formData.address.houseNo}
-                  onChange={handleInputChange}
-                  placeholder="House No./Building No."
-                  className="form-input w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50 mb-2 sm:mb-3"
-                  required
-                />
-                <input
-                  type="text"
-                  name="address.streetLocality"
-                  value={formData.address.streetLocality}
-                  onChange={handleInputChange}
-                  placeholder="Street/Locality"
-                  className="form-input w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50 mb-2 sm:mb-3"
-                  required
-                />
-                <input
-                  type="text"
-                  name="address.landmark"
-                  value={formData.address.landmark}
-                  onChange={handleInputChange}
-                  placeholder="Landmark"
-                  className="form-input w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50 mb-2 sm:mb-3"
-                  style={{ color: 'white' }}
-                  required
-                />
+                <div className="relative placeholderCOlorWhite">
+                  <input
+                    type="text"
+                    name="address.houseNo"
+                    value={formData.address.houseNo}
+                    onChange={handleInputChange}
+                    placeholder=""
+                    className="peer form-input w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50 mb-2 sm:mb-3"
+                    required
+                  />
+                  <span className="pointer-events-none absolute left-[15px] top-[12px] text-white/50 transition-all duration-200 peer-focus:opacity-0 peer-[&:not(:placeholder-shown)]:opacity-0">
+                    House No./Building No.
+                  </span>
+                </div>
+                <div className="relative placeholderCOlorWhite">
+                  <input
+                    type="text"
+                    name="address.streetLocality"
+                    value={formData.address.streetLocality}
+                    onChange={handleInputChange}
+                    placeholder=""
+                    className="peer form-input w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50 mb-2 sm:mb-3"
+                    required
+                  />
+                  <span className="pointer-events-none absolute left-[15px] top-[12px] text-white/50 transition-all duration-200 peer-focus:opacity-0 peer-[&:not(:placeholder-shown)]:opacity-0">
+                    Street/Locality
+                  </span>
+                </div>
+                <div className="relative placeholderCOlorWhite">
+                  <input
+                    type="text"
+                    name="address.landmark"
+                    value={formData.address.landmark}
+                    onChange={handleInputChange}
+                    placeholder=""
+                    className="peer form-input w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50 mb-2 sm:mb-3"
+                    style={{ color: 'white' }}
+                    required
+                  />
+                  <span className="pointer-events-none absolute left-[15px] top-[12px] text-white/50 transition-all duration-200 peer-focus:opacity-0 peer-[&:not(:placeholder-shown)]:opacity-0">
+                    Landmark
+                  </span>
+                </div>
               </div>
             </div>
 

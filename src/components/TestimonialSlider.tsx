@@ -182,15 +182,12 @@ export default function TestimonialSlider() {
                       </p>
                     </div>
                   </div>
-                  <div className="flex mt-6">
-                    {[1, 2, 3].map((_, i) => (
-                      <img
-                        key={i}
-                        src={item.image}
-                        alt={item.name}
-                        className="w-10 h-10 rounded-full border-2 border-black -ml-3 first:ml-0 object-cover"
-                      />
-                    ))}
+                  <div className="flex mt-6 pl-6">
+                   <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-10 h-10 rounded-full border-2 border-black object-cover"
+                    />
                   </div>
                 </div>
             </SwiperSlide>
