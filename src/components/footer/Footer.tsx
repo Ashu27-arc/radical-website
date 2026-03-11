@@ -208,11 +208,11 @@ export default function Footer() {
                 We offer personalised sessions specially for your NEET rank, academic profile, budget, and career goals. This approach helps you understand your best options and make informed decisions for your medical future.
               </div>
               <div className='flex items-center justify-between gap-3 sm:gap-4 mb-6 sm:mb-8'>
-                <div>
-                  <Image src='/images/iso.webp' alt='ISO' width='50' height='50' className='w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16' />
-                </div>
                 <div className=''>
                   <Image src='/images/meme.webp' alt='MeMe' width='72' height='72' className='' />
+                </div>
+                <div>
+                  <Image src='/images/iso.webp' alt='ISO' width='50' height='50' className='w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16' />
                 </div>
                 <div className='text-[10px] xs:text-xs sm:text-xs text-[#0B2E3C] leading-tight sm:leading-3 text-center sm:text-left'>
                   Radical Education<br />is an <span className='text-xs sm:text-sm font-semibold'>ISO 9001:2015</span><br />certified company

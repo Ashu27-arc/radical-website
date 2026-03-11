@@ -114,9 +114,11 @@ export default function Header() {
                 </Link>
               </div>
               <div className='lg:hidden'>
-                <Button size="small" className='text-white! bg-[#CB1E17]! border-[#CB1E17]! p-0! h-10 w-10 flex justify-center items-center' rounded>
-                  <i className='pi pi-youtube text-xl!'></i>
-                </Button>
+                <Link href="https://www.youtube.com/@radicaleducationofficial" target="_blank">
+                  <Button size="small" className='text-white! bg-[#CB1E17]! border-[#CB1E17]! p-0! h-10 w-10 flex justify-center items-center' rounded>
+                    <i className='pi pi-youtube text-xl!'></i>
+                  </Button>
+                </Link>
               </div>
               <div className='lg:hidden'>
                 <Link href="/neet-update" className='gradient-border2'>
@@ -137,7 +139,9 @@ export default function Header() {
             <div className='deskMnu'><MainMenu mainMenuData={mainMenuData} /></div>
             <div className='flex gap-5 items-center'>
               <div className="flex gap-3">
-                <Button size="small" icon="pi pi-youtube" label="YOUTUBE" className='text-white! bg-[#CB1E17]! border-[#CB1E17]!' rounded />
+                <Link href="https://www.youtube.com/@radicaleducationofficial" target="_blank">
+                  <Button size="small" icon="pi pi-youtube" label="YOUTUBE" className='text-white! bg-[#CB1E17]! border-[#CB1E17]!' rounded />
+                </Link>
                 <Link href="/neet-update" className='gradient-border2'>
                   <span className='gradient-border-inner relative pr-10! inline-flex'>
                     <span className='text-center'>NEET UPDATE</span>

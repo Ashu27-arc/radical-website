@@ -53,96 +53,96 @@ export default function GoogleReviews() {
   }, []);
 
   return (
-      <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+    <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
 
-        {/* LEFT PANEL */}
-        <div>
-          {loading ? (
-            <>
-              <Skeleton height="1.8rem" width="90%" />
-              <Skeleton height="1rem" width="70%" className="mt-2" />
-              <Skeleton height="2.5rem" width="150px" className="mt-5 rounded-full" />
-            </>
-          ) : (
-            <>
-                <div className="flex items-center gap-3">
-                    <div>
-                        <div className="h-[60px] w-[65px]">
-                            <Image src="/images/favicon.webp" width={60} height={65} className="w-full h-full" alt=""/>
-                        </div>
-                    </div>
-                    <h2 className="text-2xl font-semibold text-[#005A8B] m-0">{data?.name}</h2>
+      {/* LEFT PANEL */}
+      <div>
+        {loading ? (
+          <>
+            <Skeleton height="1.8rem" width="90%" />
+            <Skeleton height="1rem" width="70%" className="mt-2" />
+            <Skeleton height="2.5rem" width="150px" className="mt-5 rounded-full" />
+          </>
+        ) : (
+          <>
+            <div className="flex items-center gap-3">
+              <div>
+                <div className="h-[60px] w-[65px]">
+                  <Image src="/images/favicon.webp" width={60} height={65} className="w-full h-full" alt="" />
                 </div>
-              
-
-              <div className="flex items-center gap-2 mt-2 mb-4">
-                <div className="text-orange-400">
-                  {"★★★★★".slice(0, Math.round(data!.rating))}
-                </div>
-                <span className="text-sm text-gray-600">
-                  {data?.user_ratings_total} Google Reviews
-                </span>
               </div>
-
-              <Button 
-                rounded 
-                size="small" 
-                className="bg-[#005A8B]! border-[#005A8B]!"
-                onClick={() => window.open('https://share.google/qEFvxixqABZThuidJ', '_blank')}
-              >
-                Write a Review
-              </Button>
-            </>
-          )}
-        </div>
-
-        {/* REVIEW CARDS */}
-        <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {(loading ? Array(3).fill(null) : data?.reviews)?.map((review: any, i) => (
-            <div key={i} className="border rounded-xl p-5 shadow-sm bg-white">
-              {loading ? (
-                <>
-                  <div className="flex items-center gap-3 mb-3">
-                    <Skeleton shape="circle" size="40px" />
-                    <div className="flex-1">
-                      <Skeleton width="70%" height="0.9rem" />
-                      <Skeleton width="40%" height="0.7rem" className="mt-1" />
-                    </div>
-                  </div>
-                  <Skeleton width="60%" height="0.8rem" className="mb-2" />
-                  <Skeleton height="3rem" />
-                </>
-              ) : (
-                <>
-                  <div className="flex items-center gap-3 mb-2">
-                    <Image
-                      src={review.profile_photo_url}
-                      alt={review.author_name}
-                      width={40}
-                      height={40}
-                      className="rounded-full"
-                    />
-                    <div>
-                      <p className="text-sm font-medium">{review.author_name}</p>
-                      <p className="text-xs text-gray-500">
-                        {new Date(review.time * 1000).toLocaleDateString()}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="text-orange-400 mb-2">
-                    {"★★★★★".slice(0, review.rating)}
-                  </div>
-
-                  <p className="text-sm text-gray-600 line-clamp-4">
-                    {review.text}
-                  </p>
-                </>
-              )}
+              <h2 className="text-2xl font-semibold text-[#005A8B] m-0">{data?.name}</h2>
             </div>
-          ))}
-        </div>
+
+
+            <div className="flex items-center gap-2 mt-2 mb-4">
+              <div className="text-orange-400">
+                {"★★★★★".slice(0, Math.round(data!.rating))}
+              </div>
+              <span className="text-sm text-gray-600">
+                {data?.user_ratings_total} Google Reviews
+              </span>
+            </div>
+
+            <Button
+              rounded
+              size="small"
+              className="bg-[#005A8B]! border-[#005A8B]!"
+              onClick={() => window.open('https://share.google/qEFvxixqABZThuidJ', '_blank')}
+            >
+              Write a Review
+            </Button>
+          </>
+        )}
       </div>
+
+      {/* REVIEW CARDS */}
+      <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {(loading ? Array(3).fill(null) : data?.reviews)?.map((review: any, i) => (
+          <div key={i} className="border rounded-xl p-5 shadow-sm bg-white">
+            {loading ? (
+              <>
+                <div className="flex items-center gap-3 mb-3">
+                  <Skeleton shape="circle" size="40px" />
+                  <div className="flex-1">
+                    <Skeleton width="70%" height="0.9rem" />
+                    <Skeleton width="40%" height="0.7rem" className="mt-1" />
+                  </div>
+                </div>
+                <Skeleton width="60%" height="0.8rem" className="mb-2" />
+                <Skeleton height="3rem" />
+              </>
+            ) : (
+              <>
+                <div className="flex items-center gap-3 mb-2">
+                  <Image
+                    src={review.profile_photo_url}
+                    alt={review.author_name}
+                    width={40}
+                    height={40}
+                    className="rounded-full"
+                  />
+                  <div>
+                    <p className="text-sm font-medium">{review.author_name}</p>
+                    <p className="text-xs text-gray-500">
+                      {new Date(review.time * 1000).toLocaleDateString()}
+                    </p>
+                  </div>
+                </div>
+
+                <div className="text-orange-400 mb-2">
+                  {"★★★★★".slice(0, review.rating)}
+                </div>
+
+                <p className="text-sm text-gray-600 line-clamp-4">
+                  {review.text}
+                </p>
+              </>
+            )}
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 

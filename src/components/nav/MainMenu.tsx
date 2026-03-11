@@ -67,6 +67,7 @@ export default function MainMenu({ mainMenuData }: any) {
                                 <Link
                                     href={level1.url || '#'}
                                     className="flex items-center gap-2 px-2 py-2 text-white"
+                                    target={level1.target}
                                 >
                                     {level1.label}
                                     {level1.items && level1.items.length > 0 && (
@@ -99,6 +100,7 @@ export default function MainMenu({ mainMenuData }: any) {
                                                 <Link
                                                     href={level2.url || '#'}
                                                     className={`flex items-center justify-between gap-2 px-4 py-3 text-sm transition-colors overflow-hidden ${openLevel2 === `${i}-${j}` ? 'bg-gray-100' : 'hover:bg-gray-100'}`}
+                                                    target={level2.target}
                                                     style={{ 
                                                         borderTopLeftRadius: '12px',
                                                         borderTopRightRadius: '12px',
@@ -134,6 +136,7 @@ export default function MainMenu({ mainMenuData }: any) {
                                                                 <Link
                                                                     href={level3.url || '#'}
                                                                     className={`block px-4 py-3 text-sm transition-colors overflow-hidden ${selectedLevel3 === `${i}-${j}-${k}` ? 'bg-white/70' : 'hover:bg-white/70'}`}
+                                                                    target={level3.target}
                                                                     style={{ 
                                                                         borderTopLeftRadius: '12px',
                                                                         borderTopRightRadius: '12px',

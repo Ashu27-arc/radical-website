@@ -62,17 +62,17 @@ const videos = [
     {
         id: 1,
         title: 'Successful Admission',
-        youtubeId: 'dQw4w9WgXcQ',
+        youtubeId: 'lxu2tSAE1Mc',
     },
     {
         id: 2,
         title: "Ishika's Govt. MBBS Seat Journey",
-        youtubeId: '9bZkp7q19f0',
+        youtubeId: 'EyE0WkRxVLc',
     },
     {
         id: 3,
         title: 'Successful Admission',
-        youtubeId: '3JZ_D3ELwOQ',
+        youtubeId: 'rjw9AifGzDA',
     },
 ];
 

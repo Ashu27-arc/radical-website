@@ -71,17 +71,17 @@ const videos = [
     {
         id: 1,
         title: 'Successful Admission',
-        youtubeId: 'dQw4w9WgXcQ',
+        youtubeId: 'lxu2tSAE1Mc',
     },
     {
         id: 2,
         title: "Ishika's Govt. MBBS Seat Journey",
-        youtubeId: '9bZkp7q19f0',
+        youtubeId: 'EyE0WkRxVLc',
     },
     {
         id: 3,
         title: 'Successful Admission',
-        youtubeId: '3JZ_D3ELwOQ',
+        youtubeId: 'rjw9AifGzDA',
     },
 ];
 
@@ -108,22 +108,22 @@ export default function NeetUgIndiaAdmissionPage() {
                                 style={{
                                     backgroundImage: `url(${plan.bgImage})`,
                                 }}
-                                className={`prcCardStyle1 fadeUp overflow-hidden relative z-1 rounded-2xl border-2 ${plan.border} ${plan.color} p-6 lg:px-6 lg:py-8 shadow-md hover:shadow-xl transition`}
+                                className={`prcCardStyle1 group fadeUp overflow-hidden relative z-1 rounded-2xl border-2 ${plan.border} ${plan.color} p-6 lg:px-6 lg:py-8 shadow-md hover:shadow-xl hover:bg-[#287FC4] transition-all duration-300`}
                             >
-                                <div className="text-lg font-semibold text-[#0B2E3C] uppercase">{plan.title}</div>
-                                <div className="text-xs text-[#0B2E3C] mb-6">{plan.subtitle}</div>
-                                <div className="font-bold lg:text-5xl text-4xl mb-8">{plan.price}</div>
-                                <div className="text-xs text-[#0B2E3C] mb-5">What’s included?</div>
-                                <ul className="space-y-4 text-sm text-gray-700 mb-8">
+                                <div className="text-lg font-semibold text-[#0B2E3C] group-hover:text-white transition-colors uppercase">{plan.title}</div>
+                                <div className="text-xs text-[#0B2E3C] group-hover:text-white transition-colors mb-6">{plan.subtitle}</div>
+                                <div className="font-bold lg:text-5xl text-4xl group-hover:text-white transition-colors mb-8">{plan.price}</div>
+                                <div className="text-xs text-[#0B2E3C] group-hover:text-white transition-colors mb-5">What’s included?</div>
+                                <ul className="space-y-4 text-sm text-gray-700 group-hover:text-white transition-colors mb-8">
                                     {plan.features.map((item, index) => (
                                         <li key={index} className="flex gap-2">
-                                            <span className="text-yellow-500">✦</span>
-                                            <span>{item}</span>
+                                            <span className="text-yellow-500 group-hover:text-white transition-colors">✦</span>
+                                            <span className="group-hover:text-white transition-colors">{item}</span>
                                         </li>
                                     ))}
                                 </ul>
                                 <div className="flex flex-col gap-3">
-                                    <Button className="text-[#005787]! border-[#DFF1FF]! bg-[#DFF1FF]! w-full flex gap-2 items-center" rounded>
+                                    <Button className="text-[#005787]! border-[#DFF1FF]! bg-[#DFF1FF]! w-full flex gap-2 items-center hover:scale-105 group-hover:bg-white! group-hover:text-[#287FC4]! transition-all duration-300" rounded>
                                         Pay now <i className="pi pi-arrow-right"></i>
                                     </Button>
                                 </div>
@@ -182,8 +182,8 @@ export default function NeetUgIndiaAdmissionPage() {
                         </div>
                     </section>
                     <div className='mb-10 fadeUp text-center'>
-                        <h2 className='text-black text-4xl font-bold mb-4'>OUR <span className='text-[#287FC4]'>SUCESSFUL STORIES</span></h2>
-                        <div className='uppercase text-[#00CFB240] leading-12 text-[42px] md:text-5xl lg:text-7xl font-black'>HEAR FORM OUR STUDENT</div>
+                        <h2 className='text-black text-4xl font-bold mb-4'>OUR <span className='text-[#287FC4]'>SUCCESSFUL STORIES</span></h2>
+                        <div className='uppercase text-[#00CFB240] leading-12 text-[42px] md:text-5xl lg:text-7xl font-black'>HEAR FROM OUR STUDENTS</div>
                     </div>
                     <div className="grid gap-6 md:grid-cols-3 grid-cols-1">
                         {videos.map((video) => (

@@ -81,7 +81,7 @@ export const mainMenuData: MenuItem[] = [
       },
 
       {
-        label: 'MBBS – 2025',
+        label: 'MBBS',
         url: '/mbbs-in-india/',
         items: [
           { label: 'Andhra Pradesh', url: '/mbbs-in-andhra-pradesh/' },
@@ -117,7 +117,7 @@ export const mainMenuData: MenuItem[] = [
       },
 
       {
-        label: 'BDS – 2025',
+        label: 'BDS',
         url: '/bds-in-india/',
         items: [
           { label: 'Andhra Pradesh', url: '/bds-in-andhra-pradesh/' },
@@ -152,8 +152,8 @@ export const mainMenuData: MenuItem[] = [
         ],
       },
 
-      { label: 'Ayush – 2025', url: '/ayush-counselling-2025/' },
-      { label: 'Webinar NEET-UG 2025', url: '/neet-webinar/' },
+      { label: 'Ayush', url: '/ayush-counselling-2025/' },
+      // { label: 'Webinar NEET-UG', url: '/neet-webinar/' },
       { label: 'NEET Counselling Authorities', url: '/counselling-authority/' },
     ],
   },
@@ -350,6 +350,10 @@ export const mainMenuData: MenuItem[] = [
     label: 'Our team',
     url: '/our-team/',
   },
-
+  // {
+  //   label: 'YouTube',
+  //   url: 'https://www.youtube.com/@radicaleducationofficial',
+  //   target: '_blank',
+  // },
 ];
 

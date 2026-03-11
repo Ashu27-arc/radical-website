@@ -186,7 +186,7 @@ export default function TestimonialSlider() {
                    <img
                       src={item.image}
                       alt={item.name}
-                      className="w-10 h-10 rounded-full border-2 border-black object-cover"
+                      className="w-16 h-16 rounded-full border-2 border-black object-cover"
                     />
                   </div>
                 </div>

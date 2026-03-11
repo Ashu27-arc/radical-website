@@ -137,6 +137,7 @@ export default function MobileMenu({ visible, setVisible }: MobileMenuProps) {
                                                         {item.url ? (
                                                             <Link
                                                                 href={item.url}
+                                                                target={item.target}
                                                                 onClick={() => {
                                                                     setVisible(false);
                                                                     setServicesDropdownOpen(false);
@@ -313,13 +314,15 @@ export default function MobileMenu({ visible, setVisible }: MobileMenuProps) {
 
                     {/* ================= FOOTER ================= */}
                     <div className="p-3 bg-[#f1f1f1] flex flex-col gap-2">
-                        <Button
-                            size="small"
-                            icon="pi pi-youtube"
-                            label="YOUTUBE"
-                            className="text-white! bg-[#CB1E17]! border-[#CB1E17]!"
-                            rounded
-                        />
+                        <Link href="https://www.youtube.com/@radicaleducationofficial" target="_blank">
+                            <Button
+                                size="small"
+                                icon="pi pi-youtube"
+                                label="YOUTUBE"
+                                className="text-white! bg-[#CB1E17]! border-[#CB1E17]! w-full"
+                                rounded
+                            />
+                        </Link>
 
                         <button className="pl-4 h-[43px] pr-12 rounded-full cursor-pointer relative text-white! bg-gradient-to-r! from-[#00CFB2]! to-[#005A8B]! border-[#00CFB2]!">
                             <span>NEET UPDATE</span>

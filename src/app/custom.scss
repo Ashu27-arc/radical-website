@@ -22,6 +22,7 @@
                     }
                 }
             }
+
             >li:first-child {
                 >ul {
                     background: #fff;
@@ -65,10 +66,11 @@
 }
 
 /* Ensure dropdown shows on hover - Study India, Study Abroad, Services, all items */
-.hdrBtm .firstLVLmnu > li:hover > ul.secondLVLmnu {
+.hdrBtm .firstLVLmnu>li:hover>ul.secondLVLmnu {
     display: block !important;
 }
-.hdrBtm .firstLVLmnu li[class*="group/item"]:hover > ul.thirdLVLmnu {
+
+.hdrBtm .firstLVLmnu li[class*="group/item"]:hover>ul.thirdLVLmnu {
     display: block !important;
 }
 
@@ -280,6 +282,7 @@
 }
 
 .prcCardStyle1 {
+    transition: all 0.3s ease-in-out;
     &:after {
         content: '';
         z-index: -1;
@@ -290,6 +293,11 @@
         bottom: 0;
         background: #fff;
         background: linear-gradient(0deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 1) 60%, rgba(255, 255, 255, 0) 100%);
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    &:hover:after {
+        opacity: 0;
     }
 }
 
@@ -314,58 +322,58 @@
 }
 
 .gradient-border2 {
-  place-content: center;
-  color: white;
-  text-shadow: 0 1px 0 #000;
-  --border-angle: 0turn;
-  --main-bg: conic-gradient(
-      from var(--border-angle),
-      #fff,
-      #fff 5%,
-      #fff 60%,
-      #fff 95%
-    );
-  
-  border: solid 3px transparent;
-  border-radius: 2em;
-  --gradient-border: conic-gradient(from var(--border-angle), transparent 10%, #fff, #B6FF2A 100%, transparent);
-  
-  background: 
-    var(--main-bg) padding-box,
-    var(--gradient-border) border-box, 
-    var(--main-bg) border-box;
-  background-position: center center;
-  animation: bg-spin 3s linear infinite;
+    place-content: center;
+    color: white;
+    text-shadow: 0 1px 0 #000;
+    --border-angle: 0turn;
+    --main-bg: conic-gradient(from var(--border-angle),
+            #fff,
+            #fff 5%,
+            #fff 60%,
+            #fff 95%);
 
-  @keyframes bg-spin {
-    to {
-      --border-angle: 1turn;
+    border: solid 3px transparent;
+    border-radius: 2em;
+    --gradient-border: conic-gradient(from var(--border-angle), transparent 10%, #fff, #B6FF2A 100%, transparent);
+
+    background:
+        var(--main-bg) padding-box,
+        var(--gradient-border) border-box,
+        var(--main-bg) border-box;
+    background-position: center center;
+    animation: bg-spin 3s linear infinite;
+
+    @keyframes bg-spin {
+        to {
+            --border-angle: 1turn;
+        }
     }
-  }
 
 }
 
 @property --border-angle {
-  syntax: "<angle>";
-  inherits: true;
-  initial-value: 0turn;
+    syntax: "<angle>";
+    inherits: true;
+    initial-value: 0turn;
 }
-textarea.placeholderCOlorWhite::placeholder{
-    color: rgba(255,255,255,0.6) !important;
+
+textarea.placeholderCOlorWhite::placeholder {
+    color: rgba(255, 255, 255, 0.6) !important;
     opacity: 1 !important;
 }
 
-textarea.placeholderCOlorWhite::-webkit-input-placeholder{
-    color: rgba(255,255,255,0.6) !important;
+textarea.placeholderCOlorWhite::-webkit-input-placeholder {
+    color: rgba(255, 255, 255, 0.6) !important;
     opacity: 1 !important;
 }
 
-textarea.placeholderCOlorWhite:-ms-input-placeholder{
-    color: rgba(255,255,255,0.6) !important;
+textarea.placeholderCOlorWhite:-ms-input-placeholder {
+    color: rgba(255, 255, 255, 0.6) !important;
     opacity: 1 !important;
 }
-.form-textarea.placeholderCOlorWhite::placeholder{
-    color: rgba(255,255,255,0.6) !important;
+
+.form-textarea.placeholderCOlorWhite::placeholder {
+    color: rgba(255, 255, 255, 0.6) !important;
     opacity: 1 !important;
 }
 
@@ -383,11 +391,13 @@ textarea.placeholderCOlorWhite:-ms-input-placeholder{
             padding-left: 12px;
             padding-right: 12px;
         }
+
         .flex.items-center.justify-between {
             >div:first-child {
                 width: 50%;
                 justify-content: flex-start;
             }
+
             >div:last-child {
                 width: 50%;
                 justify-content: flex-end;
@@ -411,10 +421,12 @@ textarea.placeholderCOlorWhite:-ms-input-placeholder{
             transform: translateY(0);
         }
     }
+
     .pi-angle-up,
     .pi-angle-down {
         transition: all 0.2s ease-in-out;
     }
+
     .cursor-pointer {
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
 
@@ -427,6 +439,7 @@ textarea.placeholderCOlorWhite:-ms-input-placeholder{
             transition: transform 0.1s ease-in-out;
         }
     }
+
     .mobile-menu-level {
         .cursor-pointer {
             &:hover {
@@ -438,6 +451,7 @@ textarea.placeholderCOlorWhite:-ms-input-placeholder{
             }
         }
     }
+
     .mobile-menu-level {
         div {
             position: relative;
@@ -448,6 +462,7 @@ textarea.placeholderCOlorWhite:-ms-input-placeholder{
             }
         }
     }
+
     .service-card-mobile {
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
 
@@ -457,6 +472,7 @@ textarea.placeholderCOlorWhite:-ms-input-placeholder{
             transition: all 0.1s ease-in-out;
         }
     }
+
     .mobile-btn-hover {
         -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
 
@@ -466,14 +482,17 @@ textarea.placeholderCOlorWhite:-ms-input-placeholder{
             transition: all 0.1s ease-in-out;
         }
     }
+
     .mobile-menu-level li {
         min-height: 48px;
+
         .cursor-pointer {
             min-height: 48px;
             display: flex;
             align-items: center;
         }
     }
+
     .mobile-menu-level .cursor-pointer {
         position: relative;
 
@@ -501,6 +520,7 @@ textarea.placeholderCOlorWhite:-ms-input-placeholder{
             pointer-events: none;
         }
     }
+
     .mobile-menu-level li {
         position: relative;
         overflow: hidden;
@@ -526,6 +546,7 @@ textarea.placeholderCOlorWhite:-ms-input-placeholder{
             opacity: 0;
         }
     }
+
     .mobile-services-dropdown {
         .bg-gray-50 {
             background-color: #f8fafc !important;
@@ -550,6 +571,7 @@ textarea.placeholderCOlorWhite:-ms-input-placeholder{
         }
     }
 }
+
 @media screen and (max-width: 767px) {
     .active\:shadow-xl:active {
         box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
@@ -562,6 +584,7 @@ textarea.placeholderCOlorWhite:-ms-input-placeholder{
     .active\:shadow-md:active {
         box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
     }
+
     .active\:scale-105:active {
         transform: scale(1.05) !important;
     }
@@ -569,6 +592,7 @@ textarea.placeholderCOlorWhite:-ms-input-placeholder{
     .active\:scale-110:active {
         transform: scale(1.1) !important;
     }
+
     .active\:opacity-60:active {
         opacity: 0.6 !important;
     }
@@ -576,6 +600,7 @@ textarea.placeholderCOlorWhite:-ms-input-placeholder{
     .active\:opacity-100:active {
         opacity: 1 !important;
     }
+
     .active\:bg-gray-50:active {
         background-color: #f9fafb !important;
     }
@@ -583,9 +608,11 @@ textarea.placeholderCOlorWhite:-ms-input-placeholder{
     .active\:bg-blue-700:active {
         background-color: #1d4ed8 !important;
     }
+
     .active\:border-gray-300:active {
         border-color: #d1d5db !important;
     }
+
     .transition-all,
     .transition-transform,
     .transition-shadow,
@@ -595,6 +622,7 @@ textarea.placeholderCOlorWhite:-ms-input-placeholder{
         transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1) !important;
         transition-duration: 150ms !important;
     }
+
     .group:active .group-active\:scale-105 {
         transform: scale(1.05) !important;
     }
@@ -606,9 +634,11 @@ textarea.placeholderCOlorWhite:-ms-input-placeholder{
     .group:active .group-active\:block {
         display: block !important;
     }
+
     * {
         -webkit-tap-highlight-color: transparent;
     }
+
     button,
     a,
     .cursor-pointer,
@@ -616,6 +646,7 @@ textarea.placeholderCOlorWhite:-ms-input-placeholder{
         -webkit-tap-highlight-color: rgba(0, 90, 139, 0.1);
     }
 }
+
 @keyframes fade-in-up {
     from {
         opacity: 0;
@@ -663,6 +694,7 @@ textarea.placeholderCOlorWhite:-ms-input-placeholder{
 .animate-slide-in-right {
     animation: slide-in-right 0.8s ease-out forwards;
 }
+
 .animation-delay-200 {
     animation-delay: 0.2s;
 }
@@ -702,7 +734,9 @@ textarea.placeholderCOlorWhite:-ms-input-placeholder{
 .animation-delay-1500 {
     animation-delay: 1.5s;
 }
+
 @media screen and (min-width: 768px) {
+
     .animate-ping,
     .animate-bounce,
     .animate-pulse,
@@ -728,16 +762,19 @@ textarea.placeholderCOlorWhite:-ms-input-placeholder{
     .animate-process-delay-3 {
         animation: none !important;
     }
+
     [class*="hover:scale-"]:hover,
     [class*="hover:rotate-"]:hover,
     [class*="hover:-rotate-"]:hover {
         transform: none !important;
     }
+
     .transition-all:not(.firstLVLmnu *):not(.secondLVLmnu *):not(.thirdLVLmnu *),
     .transition-transform:not(.firstLVLmnu *):not(.secondLVLmnu *):not(.thirdLVLmnu *),
     .transition-shadow:not(.firstLVLmnu *):not(.secondLVLmnu *):not(.thirdLVLmnu *) {
         transition: none !important;
     }
+
     .group:hover [class*="group-hover:block"] {
         display: block !important;
     }
