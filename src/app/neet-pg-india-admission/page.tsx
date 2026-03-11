@@ -173,17 +173,17 @@ const videos = [
     {
         id: 1,
         title: 'Successful Admission',
-        youtubeId: 'dQw4w9WgXcQ',
+        youtubeId: 'lxu2tSAE1Mc',
     },
     {
         id: 2,
         title: "Ishika's Govt. MBBS Seat Journey",
-        youtubeId: '9bZkp7q19f0',
+        youtubeId: 'EyE0WkRxVLc',
     },
     {
         id: 3,
         title: 'Successful Admission',
-        youtubeId: '3JZ_D3ELwOQ',
+        youtubeId: 'rjw9AifGzDA',
     },
 ];
 
@@ -280,7 +280,7 @@ export default function NeetPgIndiaAdmissionPage() {
                         <div>
                             <div
                                 style={{
-                                backgroundImage: "url('/images/borderShape3.webp')",
+                                    backgroundImage: "url('/images/borderShape3.webp')",
                                 }}
                                 className={`prcCardStyle1 fadeUp overflow-hidden relative z-1 rounded-2xl border-2 border-[#42ACCF] bg-[#D3F4FF] p-6 lg:px-6 lg:py-8 shadow-md hover:shadow-xl transition`}
                             >
@@ -349,11 +349,11 @@ export default function NeetPgIndiaAdmissionPage() {
                     <div className="p-8 rounded-xl bg-[url('/images/addmi.webp')] bg-cover bg-center bg-no-repeat mb-6">
                         <div className="flex flex-wrap gap-2 fadeUp items-end justify-center">
                             <div className="text-white lg:text-4xl text-2xl font-bold">Admission Service Charge :-</div><br className="md:hidden block" />
-                            <div className="font-light text-[#CACACA] relative -top-0.5">₹ 1,29,999 </div>
+                            <div className="font-light text-[#CACACA] relative -top-0.5 line-through">₹ 1,29,999 </div>
                             <div className="font-bold lg:text-4xl text-2xl py-1 px-2 bg-white text-[#FF0000] font-semibold">₹ 84,499/-</div>
                         </div>
                         <div className="text-center mt-8 fadeUp">
-                            <Button size="small" label="BOOK NOW" className='text-white! bg-[#005787]! border-[#005787]!' rounded />
+                            <Button size="small" label="BUY NOW" className='text-white! bg-[#005787]! border-[#005787]!' rounded />
                         </div>
                     </div>
                     <div className="lg:mb-15 mb-10 fadeUp flex text-[#2CBF0F] border rounded-xl border-dashed border-[#2CBF0F] gap-2 lg:justify-center mx-auto w-full lg:w-7/10 p-4 lg:px-8 lg:py-4">
