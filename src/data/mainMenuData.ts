@@ -117,7 +117,7 @@ export const mainMenuData: MenuItem[] = [
       },
 
       {
-        label: 'BDS',
+        label: 'Dental',
         url: '/bds-in-india/',
         items: [
           { label: 'Andhra Pradesh', url: '/bds-in-andhra-pradesh/' },
