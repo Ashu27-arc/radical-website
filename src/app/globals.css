@@ -1560,14 +1560,14 @@ input:autofill {
 }
 
 /* Remove top margin if an embed follows any element to reduce double spacing */
-.blog-content * + .crm-embed,
-.blog-content * + iframe {
+.blog-content *+.crm-embed,
+.blog-content *+iframe {
     margin-top: 0 !important;
 }
 
 /* Remove top margin of elements following an embed */
-.blog-content .crm-embed + *,
-.blog-content iframe + * {
+.blog-content .crm-embed+*,
+.blog-content iframe+* {
     margin-top: 0 !important;
 }
 

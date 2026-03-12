@@ -14,15 +14,14 @@ const categoryColors: Record<string, string> = {
   'Exams': 'bg-orange-500 text-white',
   'Government': 'bg-gray-600 text-white',
   'Careers': 'bg-blue-500 text-white',
-  'MBBS in India': 'bg-green-500 text-white',
+  'MBBS in India': 'text-green-500',
   'MBBS Abroad': 'bg-teal-500 text-white',
   'Study Abroad': 'bg-teal-500 text-white',
   'NEET UG': 'bg-red-500 text-white',
-  'Neet UG': 'bg-red-500 text-white',
+  'Neet UG': 'text-red-500',
   'NEET PG': 'bg-yellow-500 text-white',
-  'Neet PG': 'bg-yellow-500 text-white',
+  'Neet PG': 'text-yellow-500',
   'Notification': 'bg-blue-500 text-white',
-  'Development': 'bg-purple-500 text-white',
 };
 
 const defaultCategoryColor = 'bg-[#005A8B] text-white';
@@ -297,7 +296,7 @@ const BlogsPage = () => {
                               ? 'bg-[#FFE0B2] text-[#C77700] shadow-md'
                               : category === 'Government'
                                 ? 'bg-[#D5DCE5] text-[#2C3E50] shadow-md'
-                                : category === 'Careers'
+                                : category === 'Neet-UG'
                                   ? 'bg-[#C9E2FF] text-[#004E89] shadow-md'
                                   : 'bg-[#C9E2FF] text-[#004E89] shadow-md'
                         : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50 hover:border-gray-300'
@@ -343,10 +342,10 @@ const BlogsPage = () => {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 relative">
           {/* Main Blog Post */}
-          <div className="lg:col-span-2 animate-fadeIn rounded-lg shadow-[0_12px_30px_rgba(0,0,0,0.3)]" style={{ animationDelay: '0.1s' }}>
+          <div className="lg:col-span-2 animate-fadeIn rounded-lg" style={{ animationDelay: '0.1s' }}>
             {featuredBlog ? (
               <Link href={`/${featuredBlog.slug}`} className="block">
-                <div className="bg-white rounded-lg overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-1 cursor-pointer">
+                <div className="bg-white rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 cursor-pointer">
                   <div className="relative h-48 sm:h-60 md:h-72 lg:h-80">
                     {featuredBlog.featuredImage ? (
                       <Image
@@ -364,10 +363,10 @@ const BlogsPage = () => {
                       />
                     )}
                   </div>
-                  <div className="p-4 md:p-6">
+                  <div className="px-4 pt-2 pb-4 md:px-6 md:pt-3 md:pb-6">
                     <div className="flex flex-wrap gap-2 mb-2">
                       {featuredBlog.category?.split(',').map((c) => c.trim()).filter(Boolean).map((cat, idx) => (
-                        <span key={idx} className={`inline-block ${getCategoryColor(cat)} px-3 py-1 rounded-full text-xs md:text-sm`}>
+                        <span key={idx} className={`inline-block ${getCategoryColor(cat)} px-3 py-1 rounded-full text-base md:text-base`}>
                           {cat}
                         </span>
                       ))}
@@ -398,7 +397,7 @@ const BlogsPage = () => {
             {sidebarBlogs.length > 0 ? (
               sidebarBlogs.map((post, index) => (
                 <Link key={post.id} href={`/${post.slug}`} className="block animate-fadeIn" style={{ animationDelay: `${0.2 + index * 0.1}s` }}>
-                  <div className={`bg-white rounded-lg p-4 md:p-6 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer ${index < sidebarBlogs.length - 1 ? 'border-b-2 border-gray-200' : ''}`}>
+                  <div className={`bg-white rounded-lg p-4 md:p-6 transition-all duration-300 hover:-translate-y-1 cursor-pointer ${index < sidebarBlogs.length - 1 ? 'border-b-2 border-gray-200' : ''}`}>
                     <div className="flex flex-wrap gap-2 mb-2">
                       {post.category?.split(',').map((c) => c.trim()).filter(Boolean).map((cat, idx) => (
                         <span key={idx} className={`inline-block ${getCategoryColor(cat)} px-3 py-1 rounded-full text-xs md:text-sm`}>
@@ -438,8 +437,8 @@ const BlogsPage = () => {
             {gridBlogs.map((blog, index) => (
               <React.Fragment key={blog.id}>
                 <Link href={`/${blog.slug}`} className="block animate-fadeIn" style={{ animationDelay: `${0.3 + index * 0.1}s` }}>
-                  <div className="bg-white rounded-lg overflow-hidden shadow-[0_8px_20px_rgba(0,0,0,0.2)] hover:shadow-[0_12px_30px_rgba(0,0,0,0.3)] transition-all duration-300 hover:-translate-y-1 cursor-pointer">
-                    <div className="relative h-40 sm:h-44 md:h-48 lg:h-52 rounded-t-lg overflow-hidden shadow-[0_4px_12px_rgba(0,0,0,0.15)]">
+                  <div className="bg-white rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 cursor-pointer">
+                    <div className="relative h-40 sm:h-44 md:h-48 lg:h-52 rounded-t-lg overflow-hidden">
                       {blog.featuredImage ? (
                         <Image
                           src={blog.featuredImage}
@@ -456,7 +455,7 @@ const BlogsPage = () => {
                         />
                       )}
                     </div>
-                    <div className="p-4 md:p-6">
+                    <div className="px-4 pt-2 pb-4 md:px-6 md:pt-3 md:pb-6">
                       <div className="flex flex-wrap gap-2 mb-1 md:mb-2">
                         {blog.category?.split(',').map((c) => c.trim()).filter(Boolean).map((cat, idx) => (
                           <span key={idx} className={`inline-block ${getCategoryColor(cat)} px-3 py-1 rounded-full text-xs md:text-sm`}>

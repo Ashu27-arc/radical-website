@@ -9,7 +9,7 @@ import NewsMarquee from '@/components/NewsMarquee';
 export default function TestimonialsPage() {
     const [leftImageIndex, setLeftImageIndex] = useState(0);
     const [rightImageIndex, setRightImageIndex] = useState(1);
-    const [selectedYear, setSelectedYear] = useState(2026);
+    const [selectedYear, setSelectedYear] = useState(2025);
     const scrollContainerRef = useRef<HTMLDivElement>(null);
     const [isDragging, setIsDragging] = useState(false);
     const [startX, setStartX] = useState(0);
@@ -22,16 +22,6 @@ export default function TestimonialsPage() {
 
     // Student data organized by year
     const studentsByYear = {
-        2026: [
-            { name: 'Aarav Gupta', college: 'AIIMS, New Delhi', image: '' },
-            { name: 'Diya Sharma', college: 'JIPMER, Puducherry', image: '' },
-            { name: 'Vihaan Patel', college: 'CMC, Vellore', image: '' },
-            { name: 'Anaya Singh', college: 'KGMU, Lucknow', image: '' },
-            { name: 'Reyansh Kumar', college: 'MAMC, New Delhi', image: '' },
-            { name: 'Aadhya Reddy', college: 'BHU, Varanasi', image: '' },
-            { name: 'Arjun Mehta', college: 'LHMC, New Delhi', image: '' },
-            { name: 'Saanvi Verma', college: 'AIIMS, Rishikesh', image: '' },
-        ],
         2025: [
             { name: 'Kabir Joshi', college: 'AFMC, Pune', image: '' },
             { name: 'Myra Nair', college: 'SGPGI, Lucknow', image: '' },
@@ -51,46 +41,6 @@ export default function TestimonialsPage() {
             { name: 'Sneha Reddy', college: 'MAMC, New Delhi', image: '' },
             { name: 'Vikram Mehta', college: 'BHU, Varanasi', image: '' },
             { name: 'Ishita Gupta', college: 'LHMC, New Delhi', image: '' },
-        ],
-        2023: [
-            { name: 'Aditya Verma', college: 'AIIMS, Rishikesh', image: '' },
-            { name: 'Kavya Nair', college: 'AFMC, Pune', image: '' },
-            { name: 'Rohan Das', college: 'SGPGI, Lucknow', image: '' },
-            { name: 'Meera Iyer', college: 'NIMHANS, Bangalore', image: '' },
-            { name: 'Karan Singh', college: 'PGI, Chandigarh', image: '' },
-            { name: 'Divya Joshi', college: 'GMC, Mumbai', image: '' },
-            { name: 'Siddharth Roy', college: 'RMLIMS, Lucknow', image: '' },
-            { name: 'Pooja Agarwal', college: 'KGMC, Lucknow', image: '' },
-        ],
-        2022: [
-            { name: 'Amit Sharma', college: 'AIIMS, Jodhpur', image: '' },
-            { name: 'Riya Kapoor', college: 'VMMC, New Delhi', image: '' },
-            { name: 'Nikhil Jain', college: 'UCMS, New Delhi', image: '' },
-            { name: 'Tanvi Desai', college: 'GSVM, Kanpur', image: '' },
-            { name: 'Harsh Malhotra', college: 'LLRM, Meerut', image: '' },
-            { name: 'Sakshi Bansal', college: 'KGMU, Lucknow', image: '' },
-            { name: 'Varun Khanna', college: 'IMS BHU, Varanasi', image: '' },
-            { name: 'Nisha Pandey', college: 'AIIMS, Patna', image: '' },
-        ],
-        2021: [
-            { name: 'Rajesh Kumar', college: 'AIIMS, Bhopal', image: '' },
-            { name: 'Anjali Mishra', college: 'KGMU, Lucknow', image: '' },
-            { name: 'Deepak Singh', college: 'BHU, Varanasi', image: '' },
-            { name: 'Neha Gupta', college: 'MAMC, New Delhi', image: '' },
-            { name: 'Manish Yadav', college: 'LHMC, New Delhi', image: '' },
-            { name: 'Swati Sharma', college: 'VMMC, New Delhi', image: '' },
-            { name: 'Vishal Tiwari', college: 'GSVM, Kanpur', image: '' },
-            { name: 'Priyanka Singh', college: 'LLRM, Meerut', image: '' },
-        ],
-        2020: [
-            { name: 'Suresh Patel', college: 'AIIMS, Raipur', image: '' },
-            { name: 'Madhuri Jain', college: 'JIPMER, Puducherry', image: '' },
-            { name: 'Ashok Kumar', college: 'CMC, Vellore', image: '' },
-            { name: 'Sunita Reddy', college: 'NIMHANS, Bangalore', image: '' },
-            { name: 'Ramesh Verma', college: 'PGI, Chandigarh', image: '' },
-            { name: 'Geeta Agarwal', college: 'GMC, Mumbai', image: '' },
-            { name: 'Mukesh Roy', college: 'AFMC, Pune', image: '' },
-            { name: 'Rekha Desai', college: 'SGPGI, Lucknow', image: '' },
         ],
     };
 
@@ -243,10 +193,7 @@ export default function TestimonialsPage() {
                         {studentsByYear[selectedYear as keyof typeof studentsByYear]?.map((student: { name: string; college: string; image: string }, i: number) => (
                             <div key={i} className="flex flex-col items-center group">
                                 <div className="relative mb-2">
-                                    {/* Year Badge - Left Top */}
-                                    <div className="absolute -left-2 top-0 bg-[#0c5d87] text-white text-[10px] sm:text-xs font-bold px-2 sm:px-3 py-1 shadow-md whitespace-nowrap">
-                                        {selectedYear}
-                                    </div>
+
                                     <div className="w-20 h-20 sm:w-24 sm:h-32 md:w-28 md:h-36 lg:w-32 lg:h-40 bg-[#005A8B] rounded-xl shadow-sm overflow-hidden transition-transform duration-300 group-hover:scale-105">
                                         <img
                                             src={`/images/testi${(i % 20) + 1}.webp`}
