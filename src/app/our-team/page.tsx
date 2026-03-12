@@ -191,7 +191,7 @@ export default function OurTeam() {
                 <div className="container mx-auto px-3 md:px-4">
                     <div className="relative rounded-2xl md:rounded-3xl overflow-hidden">
                         <Image
-                            src="/images/Banner-Neet-Bhaiya.webp"
+                            src="/images/banner-neet-bhaiya.webp"
                             alt="Book Free Counselling Session"
                             width={1200}
                             height={480}
