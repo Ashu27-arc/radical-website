@@ -226,7 +226,7 @@ const BlogsPage = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <>
       <FloatingWhatsApp />
       {/* Header Section */}
       <div className="bg-white py-2 md:py-4 animate-fadeIn">
@@ -244,7 +244,7 @@ const BlogsPage = () => {
       </div>
 
       {/* Sticky Search and Category Section */}
-      <div className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-s border-b border-gray-200 transition-all duration-200">
+      <div className="sticky top-[100px] md:top-[110px] lg:top-[120px] z-40 bg-white/95 backdrop-blur-sm shadow-lg border-b border-gray-200 transition-all duration-200">
         <div className="container mx-auto px-4 py-3 md:py-4">
           <div className="max-w-6xl mx-auto px-3 sm:px-4 md:px-6">
             {/* Search Section */}
@@ -337,7 +337,8 @@ const BlogsPage = () => {
       </div>
 
       {/* Blog Content */}
-      <div className="container mx-auto px-4 py-2 pt-4 md:py-6">
+      <div className="min-h-screen">
+        <div className="container mx-auto px-4 py-2 pt-4 md:py-6">
         <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3 md:mb-4">Fresh Update</h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 relative">
@@ -521,10 +522,11 @@ const BlogsPage = () => {
               <CounselorForm />
             </div>
           </div>
+          </div>
         </div>
+        {connectionStatus}
       </div>
-      {connectionStatus}
-    </div>
+    </>
   );
 };
 
