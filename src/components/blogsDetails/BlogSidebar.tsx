@@ -6,7 +6,7 @@ interface BlogSidebarProps {
 
 const BlogSidebar = ({ className = "" }: BlogSidebarProps) => {
     return (
-        <div className={`w-full px-4 sm:px-6 lg:px-0 lg:col-span-1 mt-6 sm:mt-8 lg:ml-auto lg:mr-0 animate-fadeIn mb-12 sm:mb-16 lg:mb-20 lg:sticky lg:top-32 lg:w-full lg:max-w-sm lg:self-start lg:h-[calc(100vh-8rem)] lg:overflow-y-auto scrollbar-hide ${className}`} style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
+        <div className={`w-full px-4 sm:px-6 lg:px-0 lg:col-span-1 lg:ml-auto lg:mr-0 animate-fadeIn mb-12 sm:mb-16 lg:mb-20 lg:sticky lg:top-32 lg:w-full lg:max-w-sm lg:self-start lg:h-[calc(100vh-8rem)] lg:overflow-y-auto scrollbar-hide ${className}`} style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
             {/* Get In Touch Form */}
             <div className="mb-30">
                 <div className="bg-[#E1F2FF] p-4 sm:p-5 md:p-6 rounded-lg transition-transform hover:scale-[1.01] duration-300 shadow-sm">

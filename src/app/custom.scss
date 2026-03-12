@@ -3,7 +3,9 @@
     max-width: 1330px;
     margin: 0 auto;
 }
-
+.blog-content ifrem{
+    margin-bottom: 20px !important;
+}
 .hdrBtm {
     .deskMnu {
         .firstLVLmnu {
@@ -60,7 +62,6 @@
 .hdrBtm .firstLVLmnu ul.thirdLVLmnu {
     /* sabhi dropdown submenu bilkul upar se open hon, beech mein gap na rahe */
     margin-top: 0 !important;
-    padding-top: 0 !important;
     border-radius: 1rem;
     box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
 }
@@ -79,13 +80,20 @@
     // border-radius: 0 !important;
 }
 
-.hdrBtm .firstLVLmnu>li:nth-child(2)>ul,
-.hdrBtm .firstLVLmnu>li:nth-child(3)>ul {
+.hdrBtm .firstLVLmnu>li:nth-child(2)>ul{
     min-height: 352px;
 }
-
-.hdrBtm .firstLVLmnu>li:nth-child(2)>ul>li>ul,
+.hdrBtm .firstLVLmnu>li:nth-child(3)>ul, .hdrBtm .firstLVLmnu>li:nth-child(3)>ul>li>ul {
+    min-height: 432px;
+    max-height: 432px;
+}
 .hdrBtm .firstLVLmnu>li:nth-child(3)>ul>li>ul {
+    min-height: 432px;
+    max-height: 432px;
+    overflow: auto;
+}
+
+.hdrBtm .firstLVLmnu>li:nth-child(2)>ul>li>ul {
     min-height: 352px;
     max-height: 352px;
     overflow: auto;

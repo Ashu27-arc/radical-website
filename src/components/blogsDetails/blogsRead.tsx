@@ -7,6 +7,7 @@ import BlogSidebar from './BlogSidebar';
 import { getBlogBySlug, type Blog } from '@/lib/api';
 import { useWebSocket } from '@/hooks/useWebSocket';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
+import { usePathname } from 'next/navigation';
 
 interface BlogsReadProps {
     slug: string;
@@ -155,6 +156,11 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
         }
     };
 
+
+    const pathname = usePathname()
+  const siteUrl = "https://radicaleducation.in"
+  const url = `${siteUrl}${pathname}`
+
     return (
         <div className="w-full min-w-0 bg-gray-50 relative animate-fadeIn">
             <FloatingWhatsApp />
@@ -277,9 +283,9 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                             ) : (
                                 <>
                                     {/* Blog Category Badge */}
-                                    <div className="mb-2 flex flex-wrap gap-2">
+                                    <div className="mb-2 flex flex-wrap gap-2 mt-8">
                                         {blog.category?.split(',').map((c) => c.trim()).filter(Boolean).map((cat, idx) => (
-                                            <span key={idx} className="inline-block text-[#00A88E] px-2.5 sm:px-3 py-0.5 sm:py-1 rounded text-xs sm:text-sm font-medium bg-[#BFE6DB]">
+                                            <span key={idx} className="inline-block text-[#00A88E] pr-2.5 sm:pr-3 rounded text-xs sm:text-sm font-medium">
                                                 {cat}
                                             </span>
                                         ))}
@@ -405,20 +411,43 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                             <div className="pt-6 sm:pt-8">
                                 <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-800 mb-4 sm:mb-6">Comment</h3>
 
-                                {/* Social Share Icons - touch-friendly on mobile */}
-                                <div className="flex items-center flex-wrap gap-2 sm:gap-3 md:gap-4 mb-4 sm:mb-6">
-                                    <button className="w-10 h-10 sm:w-8 sm:h-8 bg-black text-white rounded flex items-center justify-center min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0" aria-label="Share on X">
-                                        <span className="text-sm">𝕏</span>
-                                    </button>
-                                    <button className="w-10 h-10 sm:w-8 sm:h-8 bg-blue-600 text-white rounded flex items-center justify-center min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0" aria-label="Share on Facebook">
-                                        <span className="text-sm">f</span>
-                                    </button>
-                                    <button className="w-10 h-10 sm:w-8 sm:h-8 bg-blue-700 text-white rounded flex items-center justify-center min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0" aria-label="Share on LinkedIn">
-                                        <span className="text-sm">in</span>
-                                    </button>
-                                    <button className="w-10 h-10 sm:w-8 sm:h-8 bg-gray-600 text-white rounded flex items-center justify-center min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0" aria-label="Share via Email">
-                                        <span className="text-sm">✉</span>
-                                    </button>
+                                <div className="flex items-center gap-4 mb-6">
+                                    <Link
+                                        href={`https://twitter.com/intent/tweet?url=${url}`}
+                                        target="_blank"
+                                    >
+                                        <Image src="/images/twitter.svg" width={16} height={16} alt="Twitter"/>
+                                    </Link>
+                                    <Link
+                                        href={`https://www.facebook.com/sharer/sharer.php?u=${url}`}
+                                        target="_blank"
+                                    >
+                                        <Image src="/images/facebook.svg" width={18} height={18} alt="Facebook"/>
+                                    </Link>
+                                    <Link href={`https://www.instagram.com/?url=${url}`} target='_blank'>
+                                        <Image src='/images/instagram.svg' width='16' height='16' alt="" />
+                                    </Link>
+                                    <Link
+                                        href={`https://www.linkedin.com/sharing/share-offsite/?url=${url}`}
+                                        target="_blank"
+                                    >
+                                        <Image src="/images/linkedin.svg" width={16} height={16} alt="LinkedIn"/>
+                                    </Link>
+                                    <Link
+                                        href={`https://wa.me/?text=${url}`}
+                                        target="_blank"
+                                    >
+                                        <Image src="/images/whatsapp.svg" width={20} height={20} alt="Whatsapp"/>
+                                    </Link>
+                                    <Link
+                                        href={`https://t.me/share/url?url=${url}`}
+                                        target="_blank"
+                                    >
+                                        <Image src="/images/teligram.svg" width={18} height={18} alt="Telegram"/>
+                                    </Link>
+                                    <Link href={`https://www.youtube.com/share?url=${url}`} target='_blank'>
+                                        <Image src='/images/youtube.svg' width='20' height='20' alt="" />
+                                    </Link>
                                 </div>
 
                                 {/* Comment Form - responsive */}

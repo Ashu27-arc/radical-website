@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
+import Link from 'next/link';
 
 const Russia = () => {
   return (
@@ -66,9 +67,11 @@ const Russia = () => {
                 </h3>
 
                 <div className="mt-2 md:mt-3 lg:mt-6">
-                  <button className="bg-gradient-to-r from-[#28C4B4] to-[#287FC4] hover:from-[#28C4B4] hover:to-[#287FC4] text-white font-semibold py-2 md:py-2.5 lg:py-4 px-4 md:px-5 lg:px-8 rounded-full transition-all duration-300 text-[10px] md:text-xs lg:text-base">
+                  <Link href="https://www.neetbhaiya.in/dedicated-counsellor" target='_blank'>
+                  <button className="cursor-pointer bg-gradient-to-r from-[#28C4B4] to-[#287FC4] hover:from-[#28C4B4] hover:to-[#287FC4] text-white font-semibold py-2 md:py-2.5 lg:py-4 px-4 md:px-5 lg:px-8 rounded-full transition-all duration-300 text-[10px] md:text-xs lg:text-base">
                     BOOK CONSULTATION
                   </button>
+                  </Link>
                 </div>
               </div>
             </div>

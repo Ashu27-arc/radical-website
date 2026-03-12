@@ -77,7 +77,7 @@ export default function MainMenu({ mainMenuData }: any) {
 
                                 {level1.items && level1.items.length > 0 && (
                                     <ul
-                                        className={`secondLVLmnu absolute left-0 top-full z-50 min-w-[220px] bg-white pt-2 px-2 pb-0 shadow-lg ${openLevel1 === i ? 'block' : 'hidden'}`}
+                                        className={`secondLVLmnu absolute left-0 top-full z-50 min-w-[220px] bg-white pt-2 px-2 pb-2 shadow-lg ${openLevel1 === i ? 'block' : 'hidden'}`}
                                         style={{ borderRadius: '16px' }}
                                     >
                                         {level1.items.map((level2: any, j: number) => (
@@ -125,7 +125,7 @@ export default function MainMenu({ mainMenuData }: any) {
 
                                                 {level2.items && level2.items.length > 0 && (
                                                     <ul
-                                                        className={`thirdLVLmnu absolute left-full top-0 z-50 min-w-[220px] bg-[#DFF1FF] pt-2 px-2 pb-0 shadow-lg ${openLevel2 === `${i}-${j}` ? 'block' : 'hidden'}`}
+                                                        className={`thirdLVLmnu absolute left-full top-0 z-50 min-w-[220px] bg-[#DFF1FF] pt-2 px-2 pb-2 shadow-lg ${openLevel2 === `${i}-${j}` ? 'block' : 'hidden'}`}
                                                         style={{ borderRadius: '16px' }}
                                                     >
                                                         {level2.items.map((level3: any, k: number) => (

@@ -145,7 +145,7 @@ const BlogsPage = () => {
   // Use paginated data for featured and sidebar
   const featuredBlog = currentBlogs[0] || null;
   const sidebarBlogs = currentBlogs.length > 1
-    ? currentBlogs.slice(1, Math.min(4, currentBlogs.length))
+    ? currentBlogs.slice(1, Math.min(3, currentBlogs.length))
     : [];
 
   const gridBlogs = currentBlogs;
@@ -346,27 +346,29 @@ const BlogsPage = () => {
             {featuredBlog ? (
               <Link href={`/${featuredBlog.slug}`} className="block">
                 <div className="bg-white rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 cursor-pointer">
-                  <div className="relative h-48 sm:h-60 md:h-72 lg:h-80">
+                  <div className="relative">
                     {featuredBlog.featuredImage ? (
                       <Image
                         src={featuredBlog.featuredImage}
                         alt={featuredBlog.title}
-                        fill
-                        className="object-contain"
+                        width={400}
+                          height={400}
+                          className="w-full h-auto"
                       />
                     ) : (
                       <Image
                         src="/images/blogs/b.webp"
                         alt={featuredBlog.title}
-                        fill
-                        className="object-contain"
+                        width={400}
+                          height={400}
+                          className="w-full h-auto"
                       />
                     )}
                   </div>
-                  <div className="px-4 pt-2 pb-4 md:px-6 md:pt-3 md:pb-6">
+                  <div className="pt-2 pb-4 md:pt-3 md:pb-6">
                     <div className="flex flex-wrap gap-2 mb-2">
                       {featuredBlog.category?.split(',').map((c) => c.trim()).filter(Boolean).map((cat, idx) => (
-                        <span key={idx} className={`inline-block ${getCategoryColor(cat)} px-3 py-1 rounded-full text-base md:text-base`}>
+                        <span key={idx} className={`inline-block ${getCategoryColor(cat)} pr-3 rounded-full text-base md:text-base`}>
                           {cat}
                         </span>
                       ))}
@@ -374,10 +376,10 @@ const BlogsPage = () => {
                     <h3 className="text-lg md:text-2xl font-bold text-gray-800 mb-2 hover:text-blue-600 transition-colors">
                       {featuredBlog.title}
                     </h3>
-                    <p className="text-sm md:text-base text-gray-600 text-justify mb-2 line-clamp-2">
+                    <p className="text-sm md:text-base text-gray-600 text-justify mb-4 line-clamp-2">
                       {featuredBlog.excerpt || featuredBlog.title}
                     </p>
-                    <div className="flex items-center text-gray-500 text-xs md:text-sm">
+                    <div className="flex items-center text-[#ABABAB] text-xs md:text-sm">
                       <span>{featuredBlog.author}</span>
                       <span className="mx-2">•</span>
                       <span>{formatDate(featuredBlog.date)}</span>
@@ -393,14 +395,14 @@ const BlogsPage = () => {
           </div>
 
           {/* Sidebar - Fixed on Desktop */}
-          <div className="space-y-4 md:space-y-6">
+          <div className="space-y-4 md:space-y-8">
             {sidebarBlogs.length > 0 ? (
               sidebarBlogs.map((post, index) => (
                 <Link key={post.id} href={`/${post.slug}`} className="block animate-fadeIn" style={{ animationDelay: `${0.2 + index * 0.1}s` }}>
-                  <div className={`bg-white rounded-lg p-4 md:p-6 transition-all duration-300 hover:-translate-y-1 cursor-pointer ${index < sidebarBlogs.length - 1 ? 'border-b-2 border-gray-200' : ''}`}>
+                  <div className={`bg-white md:pb-8 pb-4 transition-all duration-300 hover:-translate-y-1 cursor-pointer ${index < sidebarBlogs.length - 1 ? 'border-b-2 border-gray-200' : ''}`}>
                     <div className="flex flex-wrap gap-2 mb-2">
                       {post.category?.split(',').map((c) => c.trim()).filter(Boolean).map((cat, idx) => (
-                        <span key={idx} className={`inline-block ${getCategoryColor(cat)} px-3 py-1 rounded-full text-xs md:text-sm`}>
+                        <span key={idx} className={`inline-block ${getCategoryColor(cat)} pr-3 rounded-full text-xs md:text-sm`}>
                           {cat}
                         </span>
                       ))}
@@ -408,10 +410,10 @@ const BlogsPage = () => {
                     <h4 className="text-base md:text-lg font-bold text-gray-800 mb-1 md:mb-2 hover:text-blue-600 transition-colors">
                       {post.title}
                     </h4>
-                    <p className="text-gray-600 text-xs md:text-sm text-justify mb-2 line-clamp-2">
+                    <p className="text-gray-600 text-xs md:text-sm text-justify mb-4 line-clamp-2">
                       {post.excerpt || post.title}
                     </p>
-                    <div className="flex items-center text-gray-500 text-xs">
+                    <div className="flex items-center text-[#ABABAB] text-xs">
                       <span>{post.author}</span>
                       <span className="mx-2">•</span>
                       <span>{formatDate(post.date)}</span>
@@ -433,32 +435,34 @@ const BlogsPage = () => {
 
         {/* Blog Cards Grid */}
         <div className="mt-16 md:mt-30">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
             {gridBlogs.map((blog, index) => (
               <React.Fragment key={blog.id}>
                 <Link href={`/${blog.slug}`} className="block animate-fadeIn" style={{ animationDelay: `${0.3 + index * 0.1}s` }}>
                   <div className="bg-white rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 cursor-pointer">
-                    <div className="relative h-40 sm:h-44 md:h-48 lg:h-52 rounded-t-lg overflow-hidden">
+                    <div className="relative rounded-t-lg overflow-hidden">
                       {blog.featuredImage ? (
                         <Image
                           src={blog.featuredImage}
                           alt={blog.title}
-                          fill
-                          className="object-contain"
+                          width={400}
+                          height={400}
+                          className="w-full h-auto"
                         />
                       ) : (
                         <Image
                           src={["/images/blogs/card.webp", "/images/blogs/card-1.webp", "/images/blogs/card-2.webp"][index % 3]}
                           alt={blog.title}
-                          fill
-                          className="object-contain"
+                          width={400}
+                          height={400}
+                          className="w-full h-auto"
                         />
                       )}
                     </div>
-                    <div className="px-4 pt-2 pb-4 md:px-6 md:pt-3 md:pb-6">
+                    <div className="pt-4">
                       <div className="flex flex-wrap gap-2 mb-1 md:mb-2">
                         {blog.category?.split(',').map((c) => c.trim()).filter(Boolean).map((cat, idx) => (
-                          <span key={idx} className={`inline-block ${getCategoryColor(cat)} px-3 py-1 rounded-full text-xs md:text-sm`}>
+                          <span key={idx} className={`inline-block ${getCategoryColor(cat)} pr-3 rounded-full text-xs md:text-sm`}>
                             {cat}
                           </span>
                         ))}
