@@ -108,22 +108,22 @@ export default function NeetUgIndiaAdmissionPage() {
                                 style={{
                                     backgroundImage: `url(${plan.bgImage})`,
                                 }}
-                                className={`prcCardStyle1 group fadeUp overflow-hidden relative z-1 rounded-2xl border-2 ${plan.border} ${plan.color} p-6 lg:px-6 lg:py-8 shadow-md hover:shadow-xl hover:bg-[#287FC4] transition-all duration-300`}
+                                className={`prcCardStyle1 group fadeUp overflow-hidden relative z-1 rounded-2xl border-2 ${plan.border} hover:border-[#007EC8] ${plan.color} hover:bg-[#B8EAFB] p-6 lg:px-6 lg:py-8 shadow-md hover:shadow-2xl hover:scale-[1.03] transition-all duration-300 cursor-pointer`}
                             >
-                                <div className="text-lg font-semibold text-[#0B2E3C] group-hover:text-white transition-colors uppercase">{plan.title}</div>
-                                <div className="text-xs text-[#0B2E3C] group-hover:text-white transition-colors mb-6">{plan.subtitle}</div>
-                                <div className="font-bold lg:text-5xl text-4xl group-hover:text-white transition-colors mb-8">{plan.price}</div>
-                                <div className="text-xs text-[#0B2E3C] group-hover:text-white transition-colors mb-5">What’s included?</div>
-                                <ul className="space-y-4 text-sm text-gray-700 group-hover:text-white transition-colors mb-8">
+                                <div className="text-lg font-semibold text-[#0B2E3C] group-hover:text-[#005787] transition-colors duration-300 uppercase">{plan.title}</div>
+                                <div className="text-xs text-[#0B2E3C] group-hover:text-[#005787] transition-colors duration-300 mb-6">{plan.subtitle}</div>
+                                <div className="font-bold lg:text-5xl text-4xl group-hover:text-[#005787] transition-colors duration-300 mb-8">{plan.price}</div>
+                                <div className="text-xs text-[#0B2E3C] group-hover:text-[#005787] transition-colors duration-300 mb-5">What's included?</div>
+                                <ul className="space-y-4 text-sm text-gray-700 mb-8">
                                     {plan.features.map((item, index) => (
                                         <li key={index} className="flex gap-2">
-                                            <span className="text-yellow-500 group-hover:text-white transition-colors">✦</span>
-                                            <span className="group-hover:text-white transition-colors">{item}</span>
+                                            <span className="text-yellow-500 group-hover:text-[#007EC8] transition-colors duration-300">✦</span>
+                                            <span className="group-hover:text-[#0B2E3C] transition-colors duration-300">{item}</span>
                                         </li>
                                     ))}
                                 </ul>
                                 <div className="flex flex-col gap-3">
-                                    <Button className="text-[#005787]! border-[#DFF1FF]! bg-[#DFF1FF]! w-full flex gap-2 items-center hover:scale-105 group-hover:bg-white! group-hover:text-[#287FC4]! transition-all duration-300" rounded>
+                                    <Button className="text-[#005787]! border-[#DFF1FF]! bg-[#DFF1FF]! group-hover:bg-[#005787]! group-hover:text-white! group-hover:border-[#005787]! w-full flex gap-2 items-center transition-all duration-300" rounded>
                                         Pay now <i className="pi pi-arrow-right"></i>
                                     </Button>
                                 </div>
