@@ -241,113 +241,104 @@ const BlogsPage = () => {
               </span>
             </div>
           </div>
-          <div className="md:fixed md:top-32 left-0 right-0 z-20 bg-white px-4 pb-4 md:pb-6 md:shadow-md">
-            {/* Search Bar */}
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 -mb-2 py-0 md:py-8">
-              <div className="w-full max-w-2xl relative">
+        </div>
+      </div>
+
+      {/* Sticky Search and Category Section */}
+      <div className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm shadow-s border-b border-gray-200 transition-all duration-200">
+        <div className="container mx-auto px-4 py-3 md:py-4">
+          <div className="max-w-6xl mx-auto px-3 sm:px-4 md:px-6">
+            {/* Search Section */}
+            <div className="flex flex-col lg:flex-row gap-2 sm:gap-3 items-stretch lg:items-start justify-start">
+              {/* Search Input with Icon */}
+              <div className="relative w-full lg:max-w-[450px] md:max-w-[320px] max-w-full">
                 <input
                   type="text"
-                  placeholder="Search your blog here"
+                  placeholder="search your blog here"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full px-4 md:px-6 pr-12 py-3 shadow-lg drop-shadow-lg rounded-full focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base placeholder-gray-700"
+                  className="w-full px-3 sm:px-4 py-2.5 sm:py-2 pr-11 sm:pr-12 rounded-full bg-white shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700 placeholder-gray-400 text-sm sm:text-base min-h-[44px] sm:min-h-0"
                 />
-                <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-5 w-5 text-gray-500"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M21 21l-4.35-4.35M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15z"
-                    />
+                <button
+                  className="absolute right-1.5 sm:right-2 top-1/2 -translate-y-1/2 bg-[#005A8B] hover:bg-blue-700 text-white p-2 sm:p-2 rounded-full transition-colors duration-200 min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0 flex items-center justify-center"
+                  aria-label="Search"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                   </svg>
-                </div>
+                </button>
               </div>
-            </div>
 
-            {/* Category Tabs */}
-            <div ref={scrollRef} className="flex justify-start md:justify-center overflow-hidden md:overflow-x-auto [&::-webkit-scrollbar]:hidden" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
-              <div className="flex space-x-2 md:space-x-8 p-2 rounded-full min-w-max">
-                {/* Left Arrow Button - Hidden on mobile */}
+              {/* Category Filter Buttons - responsive gap & scroll */}
+              <div className="flex bg-white lg:bg-transparent rounded-full lg:rounded-none shadow-sm lg:shadow-none p-1.5 sm:p-1 lg:p-0 items-center gap-1 sm:gap-3 flex-1 min-w-0 w-full lg:w-auto overflow-hidden">
+                {/* Left Arrow - Desktop/Tablet */}
                 <button
                   onClick={() => scroll('left')}
-                  className="hidden md:flex w-10 h-10 rounded-full bg-white shadow-md hover:shadow-lg transition-shadow items-center justify-center"
+                  className="hidden md:flex w-8 h-8 rounded-full bg-white shadow-sm hover:shadow-md transition-all duration-200 items-center justify-center shrink-0 border border-gray-200 hover:border-gray-300 hover:scale-110 active:scale-95"
                 >
-                  <Image
-                    src="/images/blogs/left-arrow.webp"
-                    alt="Previous"
-                    width={20}
-                    height={20}
-                    className="object-contain"
-                  />
+                  <Image src="/images/blogs/left-arrow.webp" alt="Scroll Left" width={16} height={16} className="object-contain opacity-60 hover:opacity-100" />
                 </button>
-                {categories.map((category, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setActiveCategory(category)}
-                    className={`px-3 md:px-6 py-2 rounded-full transition-colors text-sm md:text-base whitespace-nowrap ${activeCategory === category
-                      ? 'bg-[#005A8B] text-white'
-                      : category === 'Education'
-                        ? 'bg-[#BFE6DB] text-[#00A88E]'
-                        : category === 'Exams'
-                          ? 'bg-[#FFE0B2] text-[#C77700]'
-                          : category === 'Careers'
-                            ? 'bg-[#D5DCE5] text-[#004E89]'
-                            : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
-                      }`}
-                  >
-                    {category}
-                  </button>
-                ))}
-                {/* Right Arrow Button - Hidden on mobile */}
+
+                <div
+                  ref={scrollRef}
+                  className="flex gap-3 md:gap-4 items-center flex-1 overflow-x-auto scrollbar-hide py-1 min-w-0"
+                  style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+                >
+                  {categories.map((category) => (
+                    <button
+                      key={category}
+                      onClick={() => setActiveCategory(category)}
+                      className={`px-3 sm:px-4 md:px-6 py-2 rounded-full font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 text-xs sm:text-sm whitespace-nowrap shrink-0 min-h-[40px] sm:min-h-0 ${activeCategory === category
+                        ? category === 'All'
+                          ? 'bg-[#2CBF0F] text-white shadow-md'
+                          : category === 'Education'
+                            ? 'bg-[#BFE6DB] text-[#00A88E] shadow-md'
+                            : category === 'Exams'
+                              ? 'bg-[#FFE0B2] text-[#C77700] shadow-md'
+                              : category === 'Government'
+                                ? 'bg-[#D5DCE5] text-[#2C3E50] shadow-md'
+                                : category === 'Careers'
+                                  ? 'bg-[#C9E2FF] text-[#004E89] shadow-md'
+                                  : 'bg-[#C9E2FF] text-[#004E89] shadow-md'
+                        : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50 hover:border-gray-300'
+                        }`}
+                    >
+                      {category}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Right Arrow - Desktop/Tablet */}
                 <button
                   onClick={() => scroll('right')}
-                  className="hidden md:flex w-10 h-10 rounded-full bg-white shadow-md hover:shadow-lg transition-shadow items-center justify-center"
+                  className="hidden md:flex w-8 h-8 rounded-full bg-white shadow-sm hover:shadow-md transition-all duration-200 items-center justify-center shrink-0 border border-gray-200 hover:border-gray-300 hover:scale-110 active:scale-95"
                 >
-                  <Image
-                    src="/images/blogs/right-arrow.webp"
-                    alt="Next"
-                    width={20}
-                    height={20}
-                    className="object-contain"
-                  />
+                  <Image src="/images/blogs/right-arrow.webp" alt="Scroll Right" width={16} height={16} className="object-contain opacity-60 hover:opacity-100" />
                 </button>
               </div>
-            </div>
 
-            {/* Mobile Only Arrows */}
-            <div className="flex md:hidden justify-center space-x-4 mt-4 w-full">
-              <button onClick={() => scroll('left')} className="w-10 h-10 rounded-full bg-white shadow-md hover:shadow-lg transition-shadow flex items-center justify-center">
-                <Image
-                  src="/images/blogs/left-arrow.webp"
-                  alt="Previous"
-                  width={20}
-                  height={20}
-                  className="object-contain"
-                />
-              </button>
-              <button onClick={() => scroll('right')} className="w-10 h-10 rounded-full bg-white shadow-md hover:shadow-lg transition-shadow flex items-center justify-center">
-                <Image
-                  src="/images/blogs/right-arrow.webp"
-                  alt="Next"
-                  width={20}
-                  height={20}
-                  className="object-contain"
-                />
-              </button>
+              {/* Mobile Arrows Row - Only visible on small screens */}
+              <div className="flex md:hidden justify-center gap-3 sm:gap-4 w-full mt-1">
+                <button
+                  onClick={() => scroll('left')}
+                  className="flex w-11 h-11 sm:w-10 sm:h-10 rounded-full bg-white shadow-md hover:shadow-lg transition-all duration-200 items-center justify-center border border-gray-100 active:scale-95 min-h-[44px] min-w-[44px]"
+                >
+                  <Image src="/images/blogs/left-arrow.webp" alt="Scroll Left" width={20} height={20} className="object-contain" />
+                </button>
+                <button
+                  onClick={() => scroll('right')}
+                  className="flex w-11 h-11 sm:w-10 sm:h-10 rounded-full bg-white shadow-md hover:shadow-lg transition-all duration-200 items-center justify-center border border-gray-100 active:scale-95 min-h-[44px] min-w-[44px]"
+                >
+                  <Image src="/images/blogs/right-arrow.webp" alt="Scroll Right" width={20} height={20} className="object-contain" />
+                </button>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
       {/* Blog Content */}
-      <div className="container mx-auto px-4 py-2 pt-4 sm:pt-[240px] md:pt-[260px] lg:pt-[280px] md:py-6">
+      <div className="container mx-auto px-4 py-2 pt-4 md:py-6">
         <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3 md:mb-4">Fresh Update</h2>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 relative">
@@ -487,20 +478,6 @@ const BlogsPage = () => {
                     </div>
                   </div>
                 </Link>
-                {/* Inline banner between blogs */}
-                {((index + 1) % 4 === 0) && (
-                  <div
-                    className="bg-gradient-to-r from-teal-400 to-blue-500 rounded-lg overflow-hidden shadow-md hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300 col-span-1 md:col-span-2 lg:col-span-3 flex flex-col"
-                  >
-                    <Image
-                      src={index % 2 === 0 ? '/images/blogs/ad-1.webp' : '/images/blogs/ad.webp'}
-                      alt="Promotional banner"
-                      width={1200}
-                      height={300}
-                      className="w-full h-auto object-cover block !m-0 !p-0"
-                    />
-                  </div>
-                )}
               </React.Fragment>
             ))}
           </div>
