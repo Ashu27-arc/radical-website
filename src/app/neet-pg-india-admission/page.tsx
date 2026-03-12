@@ -173,17 +173,17 @@ const videos = [
     {
         id: 1,
         title: 'Successful Admission',
-        youtubeId: 'lxu2tSAE1Mc',
+        youtubeId: 'jfq8RbTIrtI',
     },
     {
         id: 2,
         title: "Ishika's Govt. MBBS Seat Journey",
-        youtubeId: 'EyE0WkRxVLc',
+        youtubeId: 'hwYjHX5pk9w',
     },
     {
         id: 3,
         title: 'Successful Admission',
-        youtubeId: 'rjw9AifGzDA',
+        youtubeId: 'CxDL_T4CWs8',
     },
 ];
 
@@ -282,22 +282,22 @@ export default function NeetPgIndiaAdmissionPage() {
                                 style={{
                                     backgroundImage: "url('/images/borderShape3.webp')",
                                 }}
-                                className={`prcCardStyle1 fadeUp overflow-hidden relative z-1 rounded-2xl border-2 border-[#42ACCF] bg-[#D3F4FF] p-6 lg:px-6 lg:py-8 shadow-md hover:shadow-xl transition`}
+                                className={`group prcCardStyle1 fadeUp overflow-hidden relative z-1 rounded-2xl border-2 border-[#42ACCF] hover:border-[#007EC8] bg-[#D3F4FF] hover:bg-[#B8EAFB] p-6 lg:px-6 lg:py-8 shadow-md hover:shadow-2xl hover:scale-[1.03] transition-all duration-300 cursor-pointer`}
                             >
-                                <div className="text-lg font-semibold text-[#0B2E3C] uppercase">Standard</div>
-                                <div className="text-xs text-[#0B2E3C] mb-6">I designed a web UI for an AI-powered HR Co-Pil I </div>
-                                <div className="font-bold lg:text-5xl text-4xl mb-8">₹ 9,999</div>
-                                <div className="text-xs text-[#0B2E3C] mb-5">Features</div>
+                                <div className="text-lg font-semibold text-[#0B2E3C] group-hover:text-[#005787] uppercase transition-colors duration-300">Standard</div>
+                                <div className="text-xs text-[#0B2E3C] group-hover:text-[#005787] mb-6 transition-colors duration-300">I designed a web UI for an AI-powered HR Co-Pil I </div>
+                                <div className="font-bold lg:text-5xl text-4xl mb-8 group-hover:text-[#005787] transition-colors duration-300">₹ 9,999</div>
+                                <div className="text-xs text-[#0B2E3C] group-hover:text-[#005787] mb-5 transition-colors duration-300">Features</div>
                                 <ul className="space-y-4 text-sm text-gray-700 mb-8">
                                     {features.map((item, index) => (
                                         <li key={index} className="flex gap-2">
-                                            <span className="text-yellow-500">✦</span>
-                                            <span>{item}</span>
+                                            <span className="text-yellow-500 group-hover:text-[#007EC8] transition-colors duration-300">✦</span>
+                                            <span className="group-hover:text-[#0B2E3C] transition-colors duration-300">{item}</span>
                                         </li>
                                     ))}
                                 </ul>
                                 <div className="flex flex-col gap-3">
-                                    <Button className="text-[#005787]! border-[#DFF1FF]! bg-[#DFF1FF]! w-full flex gap-2 items-center" rounded>
+                                    <Button className="text-[#005787]! border-[#DFF1FF]! bg-[#DFF1FF]! group-hover:bg-[#005787]! group-hover:text-white! group-hover:border-[#005787]! w-full flex gap-2 items-center transition-all duration-300" rounded>
                                         Pay now <i className="pi pi-arrow-right"></i>
                                     </Button>
                                 </div>

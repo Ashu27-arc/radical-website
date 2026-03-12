@@ -10,7 +10,7 @@ interface Props {
 
 export default function CourseCard({ course }: Props) {
   return (
-    <Link href={`/courses/${course.slug}`}>
+    <Link href="/blogs">
       <div className="relative group rounded-xl overflow-hidden shadow-lg cursor-pointer">
         {/* Image */}
         <Image
