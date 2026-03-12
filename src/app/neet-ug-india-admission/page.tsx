@@ -156,13 +156,18 @@ export default function NeetUgIndiaAdmissionPage() {
                         </div>
                     </div>
                     <section id="connect-counselor" className="mb-16">
-                        <div className="w-full">
+                        <a 
+                            href="https://www.neetbhaiya.in/" 
+                            target="_blank" 
+                            rel="noopener noreferrer"
+                            className="block w-full"
+                        >
                             <img 
                                 src="/images/banner-neet-bhaiya.webp" 
                                 alt="Book Your Free Counselling Session" 
                                 className="w-full rounded-2xl md:rounded-3xl object-cover"
                             />
-                        </div>
+                        </a>
                     </section>
                     <div className='mb-10 fadeUp text-center'>
                         <h2 className='text-black text-4xl font-bold mb-4'>OUR <span className='text-[#287FC4]'>SUCCESSFUL STORIES</span></h2>

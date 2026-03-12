@@ -189,7 +189,12 @@ export default function OurTeam() {
             {/* Connect With Counselor Section - Book Free Counselling Banner */}
             <section id="connect-counselor" className="pb-8 md:pb-16 bg-[#F4F7F8]">
                 <div className="container mx-auto px-3 md:px-4">
-                    <div className="relative rounded-2xl md:rounded-3xl overflow-hidden">
+                    <a 
+                        href="https://www.neetbhaiya.in/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="block relative rounded-2xl md:rounded-3xl overflow-hidden"
+                    >
                         <Image
                             src="/images/banner-neet-bhaiya.webp"
                             alt="Book Free Counselling Session"
@@ -197,7 +202,7 @@ export default function OurTeam() {
                             height={480}
                             className="w-full h-auto"
                         />
-                    </div>
+                    </a>
                 </div>
             </section>
         </div>
