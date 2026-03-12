@@ -7,26 +7,13 @@ export default function OurTeam() {
         {
             name: "Hitashi Aggarwal",
             role: "NEET UG/PG COUNSELOR",
-<<<<<<< HEAD
             image: "/images/011.webp",
             experience: "Experience: 7+ Years",
-=======
-            image: "/images/01.webp",
-            experience: "7+ years of experience",
-            available: true,
-        },
-        {
-            name: "Shiavanshu Shakya",
-            role: "NEET UG/PG COUNSELOR",
-            image: "/images/07.webp",
-            experience: "3+ years of experience",
->>>>>>> 23d80334f63b2834aa4c94e28ee46d7c3155f76d
             available: true,
         },
         {
             name: "Shivanshu shakya",
             role: "NEET UG/PG COUNSELOR",
-<<<<<<< HEAD
             image: "/images/022.webp",
             experience: "Experience: 3+ Years",
             available: true,
@@ -36,70 +23,41 @@ export default function OurTeam() {
             role: "NEET UG/PG COUNSELOR",
             image: "/images/033.webp",
             experience: "Experience: 4+ Years",
-=======
-            image: "/images/02.webp",
-            experience: "4+ years of experience",
->>>>>>> 23d80334f63b2834aa4c94e28ee46d7c3155f76d
             available: true,
         },
         {
             name: "Raj Kishore",
             role: "NEET UG/PG COUNSELOR",
-<<<<<<< HEAD
             image: "/images/044.webp",
             experience: "Experience: 3+ Years",
-=======
-            image: "/images/03.webp",
-            experience: "3+ years of experience",
->>>>>>> 23d80334f63b2834aa4c94e28ee46d7c3155f76d
             available: true,
         },
         {
             name: "Sudakshina Singh",
             role: "NEET UG/PG COUNSELOR",
-<<<<<<< HEAD
             image: "/images/055.webp",
             experience: "Experience: 4+ Years",
-=======
-            image: "/images/04.webp",
-            experience: "4+ years of experience",
->>>>>>> 23d80334f63b2834aa4c94e28ee46d7c3155f76d
             available: true,
         },
         {
             name: "Manish Jha",
             role: "NEET UG/PG COUNSELOR",
-<<<<<<< HEAD
             image: "/images/066.webp",
             experience: "Experience: 5+ Years",
-=======
-            image: "/images/08.webp",
-            experience: "5+ years of experience",
->>>>>>> 23d80334f63b2834aa4c94e28ee46d7c3155f76d
             available: true,
         },
         {
             name: "Rangnath Jha",
             role: "NEET UG/PG COUNSELOR",
-<<<<<<< HEAD
             image: "/images/077.webp",
             experience: "Experience: 6+ Years",
-=======
-            image: "/images/06.webp",
-            experience: "6+ years of experience",
->>>>>>> 23d80334f63b2834aa4c94e28ee46d7c3155f76d
             available: true,
         },
         {
             name: "Shashwat Pandey",
             role: "NEET UG/PG COUNSELOR",
-<<<<<<< HEAD
             image: "/images/088.webp",
             experience: "Experience: 4+ Years",
-=======
-            image: "/images/09.webp",
-            experience: "4+ years of experience",
->>>>>>> 23d80334f63b2834aa4c94e28ee46d7c3155f76d
             available: true,
         },
     ];
@@ -110,11 +68,7 @@ export default function OurTeam() {
             {/* Hero Section */}
             <section className="relative h-[300px] md:h-[600px] flex items-center justify-center overflow-hidden">
                 <Image
-<<<<<<< HEAD
                     src="/images/OurTeamHero.webp"
-=======
-                    src="/images/our-team-banner.webp"
->>>>>>> 23d80334f63b2834aa4c94e28ee46d7c3155f76d
                     alt="Team Hero"
                     fill
                     className="object-cover w-full h-full"
@@ -234,7 +188,6 @@ export default function OurTeam() {
 
             <section id="connect-counselor" className="pb-16">
                 <div className="container mx-auto px-3 md:px-4">
-<<<<<<< HEAD
                     <Image
                         src="/images/teamBanner.webp"
                         alt="team Banner"
@@ -242,22 +195,6 @@ export default function OurTeam() {
                         height={300}
                         className="h-auto w-full"
                     />
-=======
-                    <a 
-                        href="https://www.neetbhaiya.in/" 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="block relative rounded-2xl md:rounded-3xl overflow-hidden"
-                    >
-                        <Image
-                            src="/images/banner-neet-bhaiya.webp"
-                            alt="Book Free Counselling Session"
-                            width={1200}
-                            height={480}
-                            className="w-full h-auto"
-                        />
-                    </a>
->>>>>>> 23d80334f63b2834aa4c94e28ee46d7c3155f76d
                 </div>
             </section>
         </div>
