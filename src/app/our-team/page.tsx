@@ -8,42 +8,56 @@ export default function OurTeam() {
             name: "Hitashi Aggarwal",
             role: "NEET UG/PG COUNSELOR",
             image: "/images/01.webp",
-            experience: "12 years of experience",
+            experience: "7+ years of experience",
+            available: true,
+        },
+        {
+            name: "Shiavanshu Shakya",
+            role: "NEET UG/PG COUNSELOR",
+            image: "/images/07.webp",
+            experience: "3+ years of experience",
             available: true,
         },
         {
             name: "Pooja",
             role: "NEET UG/PG COUNSELOR",
             image: "/images/02.webp",
-            experience: "12 years of experience",
+            experience: "4+ years of experience",
             available: true,
         },
         {
             name: "Raj Kishore",
             role: "NEET UG/PG COUNSELOR",
             image: "/images/03.webp",
-            experience: "12 years of experience",
+            experience: "3+ years of experience",
             available: true,
         },
         {
             name: "Sudakshina Singh",
             role: "NEET UG/PG COUNSELOR",
             image: "/images/04.webp",
-            experience: "12 years of experience",
+            experience: "4+ years of experience",
             available: true,
         },
         {
-            name: "Anupama Chauhan",
+            name: "Manish Jha",
             role: "NEET UG/PG COUNSELOR",
-            image: "/images/05.webp",
-            experience: "12 years of experience",
+            image: "/images/08.webp",
+            experience: "5+ years of experience",
             available: true,
         },
         {
             name: "Rangnath Jha",
             role: "NEET UG/PG COUNSELOR",
             image: "/images/06.webp",
-            experience: "12 years of experience",
+            experience: "6+ years of experience",
+            available: true,
+        },
+        {
+            name: "Shashwat Pandey",
+            role: "NEET UG/PG COUNSELOR",
+            image: "/images/09.webp",
+            experience: "4+ years of experience",
             available: true,
         },
     ];
@@ -54,7 +68,7 @@ export default function OurTeam() {
             {/* Hero Section */}
             <section className="relative h-[300px] md:h-[600px] flex items-center justify-center overflow-hidden">
                 <Image
-                    src="/images/OurTeam.webp"
+                    src="/images/our-team-banner.webp"
                     alt="Team Hero"
                     fill
                     className="object-cover w-full h-full"
@@ -175,30 +189,14 @@ export default function OurTeam() {
             {/* Connect With Counselor Section - Book Free Counselling Banner */}
             <section id="connect-counselor" className="pb-8 md:pb-16 bg-[#F4F7F8]">
                 <div className="container mx-auto px-3 md:px-4">
-                    <div className="relative rounded-2xl md:rounded-3xl overflow-hidden min-h-[350px] md:min-h-[480px] flex items-center">
-                        <video
-                            autoPlay
-                            loop
-                            muted
-                            playsInline
-                            className="absolute inset-0 w-full h-full object-cover pointer-events-none opacity-30"
-                        >
-                            <source src="/videos/radical.mp4" type="video/mp4" />
-                        </video>
-                        <div className="relative z-10 w-full px-6 md:px-12 lg:px-16 max-w-full md:max-w-3xl">
-                            <h2 className="text-3xl md:text-4xl lg:text-[42px] font-bold text-black mb-3 md:mb-4 leading-tight">
-                                Book Your <span className="text-[#61C9B8]">20 MIN Free<br className="hidden md:block" /> Counselling Session</span> Today
-                            </h2>
-                            <p className="text-sm md:text-base text-[#1E242C] mb-6 md:mb-8 font-medium">
-                                Google Meet | Zoom | Microsoft Teams | Whatsapp Available
-                            </p>
-                            <a
-                                href="#connect-counselor"
-                                className="inline-flex items-center justify-center px-8 py-3 rounded-[60px] bg-[#FF3D6B] text-white font-semibold text-sm md:text-base hover:bg-[#e0355f] transition-colors shadow-lg hover:shadow-xl"
-                            >
-                                Book Now
-                            </a>
-                        </div>
+                    <div className="relative rounded-2xl md:rounded-3xl overflow-hidden">
+                        <Image
+                            src="/images/Banner-Neet-Bhaiya.webp"
+                            alt="Book Free Counselling Session"
+                            width={1200}
+                            height={480}
+                            className="w-full h-auto"
+                        />
                     </div>
                 </div>
             </section>

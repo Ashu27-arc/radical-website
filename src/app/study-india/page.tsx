@@ -62,17 +62,17 @@ const videos = [
     {
         id: 1,
         title: 'Successful Admission',
-        youtubeId: 'lxu2tSAE1Mc',
+        youtubeId: 'jfq8RbTIrtI',
     },
     {
         id: 2,
         title: "Ishika's Govt. MBBS Seat Journey",
-        youtubeId: 'EyE0WkRxVLc',
+        youtubeId: 'hwYjHX5pk9w',
     },
     {
         id: 3,
         title: 'Successful Admission',
-        youtubeId: 'rjw9AifGzDA',
+        youtubeId: 'CxDL_T4CWs8',
     },
 ];
 
@@ -123,26 +123,12 @@ duration-300"
             <section className="py-10 lg:py-15">
                 <div className="container px-3 md:px-4">
                     <section id="connect-counselor" className="mb-16">
-                        <div className="">
-                            <div className="bg-[#F4F7F8] rounded-2xl md:rounded-3xl overflow-hidden flex gap-4 md:px-10 md:pt-10 lg:px-16 lg:pt-16 px-4 pt-4">
-                                <div className="w-[60%] relative z-2">
-                                    <h2 className="text-sm md:text-4xl lg:text-[42px] font-bold text-black mb-2 md:mb-4 leading-tight">
-                                        Book Your <span className="text-[#61C9B8]">20 MIN Free<br className="hidden md:block" /> Counselling Session</span> Today
-                                    </h2>
-                                    <p className="text-xs md:text-base text-[#1E242C] mb-1 md:mb-8 font-medium">
-                                        Google Meet | Zoom | Microsoft Teams | Whatsapp Available
-                                    </p>
-                                    <a
-                                        href="#connect-counselor"
-                                        className="inline-flex items-center justify-center lg:px-8 lg:py-3 px-3 py-1 rounded-[60px] bg-[#FF3D6B] text-white font-semibold text-xs md:text-base hover:bg-[#e0355f] transition-colors shadow-lg hover:shadow-xl"
-                                    >
-                                        Book Now
-                                    </a>
-                                </div>
-                                <div className="w-[40%]">
-                                    <img src="/images/session.webp" alt="" className="w-full" />
-                                </div>
-                            </div>
+                        <div className="w-full">
+                            <img 
+                                src="/images/banner-neet-bhaiya.webp" 
+                                alt="Book Your Free Counselling Session" 
+                                className="w-full rounded-2xl md:rounded-3xl object-cover"
+                            />
                         </div>
                     </section>
                     <div className='mb-10 fadeUp text-center'>

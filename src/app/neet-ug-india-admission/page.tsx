@@ -1,7 +1,6 @@
 "use client";
 
 import { Button } from "primereact/button";
-import { Image } from "primereact/image";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 const neetupadmissionplans = [
@@ -90,7 +89,6 @@ export default function NeetUgIndiaAdmissionPage() {
         <>
             <FloatingWhatsApp />
             <section className="lg:py-45 md:py-36 py-20 relative overflow-hidden z-2 bg-[url('/images/neet-ug-india-admission-hero.webp')] bg-cover bg-center bg-no-repeat">
-                {/* <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,126,200,1)_0%,rgba(80,166,217,1)_20%,rgba(255,255,255,0)_87%)] -z-1" /> */}
                 <div className="container px-3 md:px-4 fadeUp">
                     <div className="w-full lg:w-4/10 md:8/10 md:text-left text-center">
                         <h1 className="uppercase lg:text-5xl text-4xl font-bold text-white lg:mb-6 mb-4">NEET UG <br className="hidden lg:block" />ADMISSION</h1>
@@ -139,12 +137,12 @@ export default function NeetUgIndiaAdmissionPage() {
                                 <div className="mt-5 fadeUp flex text-[#538AA1] gap-2 items-center">
                                     <div className="md:inline-flex hidden">
                                         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M0.26202 5.827L4.05311 6.88145C4.09837 6.89451 4.13957 6.91882 4.17287 6.95213C4.20618 6.98543 4.23049 7.02663 4.24355 7.07188L5.29801 10.863C5.31442 10.9205 5.34912 10.971 5.39685 11.007C5.44457 11.043 5.50272 11.0625 5.5625 11.0625C5.62228 11.0625 5.68043 11.043 5.72816 11.007C5.77588 10.971 5.81058 10.9205 5.827 10.863L6.88145 7.07188C6.89451 7.02663 6.91882 6.98543 6.95213 6.95213C6.98543 6.91882 7.02663 6.89451 7.07188 6.88145L10.863 5.827C10.9205 5.81058 10.971 5.77588 11.007 5.72816C11.043 5.68043 11.0625 5.62228 11.0625 5.5625C11.0625 5.50272 11.043 5.44457 11.007 5.39685C10.971 5.34912 10.9205 5.31442 10.863 5.29801L7.07188 4.24355C7.02663 4.23049 6.98543 4.20618 6.95213 4.17287C6.91882 4.13957 6.89451 4.09837 6.88145 4.05311L5.827 0.26202C5.81058 0.20454 5.77588 0.153974 5.72816 0.117974C5.68043 0.0819737 5.62228 0.0625 5.5625 0.0625C5.50272 0.0625 5.44457 0.0819737 5.39685 0.117974C5.34912 0.153974 5.31442 0.20454 5.29801 0.26202L4.24355 4.05311C4.23049 4.09837 4.20618 4.13957 4.17287 4.17287C4.13957 4.20618 4.09837 4.23049 4.05311 4.24355L0.26202 5.29801C0.20454 5.31442 0.153974 5.34912 0.117974 5.39685C0.0819737 5.44457 0.0625 5.50272 0.0625 5.5625C0.0625 5.62228 0.0819737 5.68043 0.117974 5.72816C0.153974 5.77588 0.20454 5.81058 0.26202 5.827Z" fill="url(#paint0_linear_3023_1298)" stroke="#FCD34D" stroke-width="0.125" stroke-linecap="round" stroke-linejoin="round" />
+                                            <path d="M0.26202 5.827L4.05311 6.88145C4.09837 6.89451 4.13957 6.91882 4.17287 6.95213C4.20618 6.98543 4.23049 7.02663 4.24355 7.07188L5.29801 10.863C5.31442 10.9205 5.34912 10.971 5.39685 11.007C5.44457 11.043 5.50272 11.0625 5.5625 11.0625C5.62228 11.0625 5.68043 11.043 5.72816 11.007C5.77588 10.971 5.81058 10.9205 5.827 10.863L6.88145 7.07188C6.89451 7.02663 6.91882 6.98543 6.95213 6.95213C6.98543 6.91882 7.02663 6.89451 7.07188 6.88145L10.863 5.827C10.9205 5.81058 10.971 5.77588 11.007 5.72816C11.043 5.68043 11.0625 5.62228 11.0625 5.5625C11.0625 5.50272 11.043 5.44457 11.007 5.39685C10.971 5.34912 10.9205 5.31442 10.863 5.29801L7.07188 4.24355C7.02663 4.23049 6.98543 4.20618 6.95213 4.17287C6.91882 4.13957 6.89451 4.09837 6.88145 4.05311L5.827 0.26202C5.81058 0.20454 5.77588 0.153974 5.72816 0.117974C5.68043 0.0819737 5.62228 0.0625 5.5625 0.0625C5.50272 0.0625 5.44457 0.0819737 5.39685 0.117974C5.34912 0.153974 5.31442 0.20454 5.29801 0.26202L4.24355 4.05311C4.23049 4.09837 4.20618 4.13957 4.17287 4.17287C4.13957 4.20618 4.09837 4.23049 4.05311 4.24355L0.26202 5.29801C0.20454 5.31442 0.153974 5.34912 0.117974 5.39685C0.0819737 5.44457 0.0625 5.50272 0.0625 5.5625C0.0625 5.62228 0.0819737 5.68043 0.117974 5.72816C0.153974 5.77588 0.20454 5.81058 0.26202 5.827Z" fill="url(#paint0_linear_3023_1298)" stroke="#FCD34D" strokeWidth="0.125" strokeLinecap="round" strokeLinejoin="round" />
                                             <defs>
                                                 <linearGradient id="paint0_linear_3023_1298" x1="3.16089" y1="1.40464" x2="7.96411" y2="9.72036" gradientUnits="userSpaceOnUse">
-                                                    <stop stop-color="#FCD966" />
-                                                    <stop offset="0.0001" stop-color="#FCD966" />
-                                                    <stop offset="1" stop-color="#FCCD34" />
+                                                    <stop stopColor="#FCD966" />
+                                                    <stop offset="0.0001" stopColor="#FCD966" />
+                                                    <stop offset="1" stopColor="#FCCD34" />
                                                 </linearGradient>
                                             </defs>
                                         </svg>
@@ -153,32 +151,17 @@ export default function NeetUgIndiaAdmissionPage() {
                                 </div>
                             </div>
                             <div>
-                                <div className="fadeRight inline-flex px-4 md:px-8! py-3 text-white md:text-2xl text-lg rounded-lg bg-[#FF0000] font-semibold">₹ 84,499/-</div>
+                                <div className="fadeRight inline-flex px-4 md:px-8! py-3 text-white md:text-2xl text-lg rounded-lg bg-[#FF0000] font-semibold">₹ 84,499/-</div>
                             </div>
                         </div>
-
                     </div>
                     <section id="connect-counselor" className="mb-16">
-                        <div className="">
-                            <div className="bg-[#F4F7F8] rounded-2xl md:rounded-3xl overflow-hidden flex gap-4 md:px-10 md:pt-10 lg:px-16 lg:pt-16 px-4 pt-4">
-                                <div className="w-[60%] relative z-2">
-                                    <h2 className="text-sm md:text-4xl lg:text-[42px] font-bold text-black mb-2 md:mb-4 leading-tight">
-                                        Book Your <span className="text-[#61C9B8]">20 MIN Free<br className="hidden md:block" /> Counselling Session</span> Today
-                                    </h2>
-                                    <p className="text-xs md:text-base text-[#1E242C] mb-1 md:mb-8 font-medium">
-                                        Google Meet | Zoom | Microsoft Teams | Whatsapp Available
-                                    </p>
-                                    <a
-                                        href="#connect-counselor"
-                                        className="inline-flex items-center justify-center lg:px-8 lg:py-3 px-3 py-1 rounded-[60px] bg-[#FF3D6B] text-white font-semibold text-xs md:text-base hover:bg-[#e0355f] transition-colors shadow-lg hover:shadow-xl"
-                                    >
-                                        Book Now
-                                    </a>
-                                </div>
-                                <div className="w-[40%]">
-                                    <img src="/images/session.webp" alt="" className="w-full" />
-                                </div>
-                            </div>
+                        <div className="w-full">
+                            <img 
+                                src="/images/banner-neet-bhaiya.webp" 
+                                alt="Book Your Free Counselling Session" 
+                                className="w-full rounded-2xl md:rounded-3xl object-cover"
+                            />
                         </div>
                     </section>
                     <div className='mb-10 fadeUp text-center'>
@@ -191,12 +174,10 @@ export default function NeetUgIndiaAdmissionPage() {
                                 key={video.id}
                                 className="fadeUp relative min-w-[340px] h-[240px] rounded-xl overflow-hidden shadow-lg"
                             >
-                                {/* YouTube Video */}
                                 <iframe
                                     className="absolute inset-0 w-full h-[240px]"
                                     src={`https://www.youtube.com/embed/${video.youtubeId}`}
                                     title={video.title}
-                                    frameBorder="0"
                                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                                     allowFullScreen
                                 />
