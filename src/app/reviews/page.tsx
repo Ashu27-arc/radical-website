@@ -10,50 +10,55 @@ export default function TestimonialsPage() {
     const [leftImageIndex, setLeftImageIndex] = useState(0);
     const [rightImageIndex, setRightImageIndex] = useState(1);
     const [selectedYear, setSelectedYear] = useState(2025);
+    const [videoPopup, setVideoPopup] = useState<{ id: number; title: string; youtubeId: string } | null>(null);
     const scrollContainerRef = useRef<HTMLDivElement>(null);
     const [isDragging, setIsDragging] = useState(false);
     const [startX, setStartX] = useState(0);
     const [scrollLeft, setScrollLeft] = useState(0);
 
-    const images = [
-        '/images/reviews/review.webp',
-        '/images/reviews/review-2.webp',
+    // Video data for testimonials
+    const videos = [
+        { id: 1, title: 'Student Success Story 1', youtubeId: 'jfq8RbTIrtI' },
+        { id: 2, title: 'Student Success Story 2', youtubeId: 'hwYjHX5pk9w' },
+        { id: 3, title: 'Main Testimonial Video', youtubeId: 'CxDL_T4CWs8' },
     ];
 
     // Student data organized by year
     const studentsByYear = {
         2025: [
-            { name: 'Kabir Joshi', college: 'AFMC, Pune', image: '' },
-            { name: 'Myra Nair', college: 'SGPGI, Lucknow', image: '' },
-            { name: 'Advait Das', college: 'NIMHANS, Bangalore', image: '' },
-            { name: 'Kiara Iyer', college: 'PGI, Chandigarh', image: '' },
-            { name: 'Vivaan Singh', college: 'GMC, Mumbai', image: '' },
-            { name: 'Anika Agarwal', college: 'RMLIMS, Lucknow', image: '' },
-            { name: 'Ayaan Roy', college: 'KGMC, Lucknow', image: '' },
-            { name: 'Navya Desai', college: 'AIIMS, Jodhpur', image: '' },
+            { name: 'Etshamul Haque', college: 'NCRIMS, Meerut', image: '/2025/std1.jpg' },
+            { name: 'Anant Deep Singhal', college: 'MFMC, MUZAFFARNAGAR', image: '/2025/std2.jpg' },
+            { name: 'Yashvi Agarwal', college: 'MRMCW, Hyderabad', image: '/2025/std3.jpg' },
+            { name: 'Kumar Amlendu', college: 'PGI, Chandigarh', image: '/2025/std4.jpg' },
+            { name: 'Shreya Jain', college: 'GMC, Mumbai', image: '/2025/std5.jpg' },
+            { name: 'Piyush Bisht', college: 'RMLIMS, Lucknow', image: '/2025/std6.jpg' },
+            { name: 'Kshiraj Luthra', college: 'KGMC, Lucknow', image: '/2025/std7.jpg' },
+            { name: 'Sangam Yadav', college: 'AIIMS, Jodhpur', image: '/2025/std8.jpg' },
         ],
         2024: [
-            { name: 'Farzan Danish', college: 'Jamia Hamdard, New Delhi', image: '' },
-            { name: 'Priya Sharma', college: 'AIIMS, New Delhi', image: '' },
-            { name: 'Rahul Kumar', college: 'JIPMER, Puducherry', image: '' },
-            { name: 'Ananya Singh', college: 'CMC, Vellore', image: '' },
-            { name: 'Arjun Patel', college: 'KGMU, Lucknow', image: '' },
-            { name: 'Sneha Reddy', college: 'MAMC, New Delhi', image: '' },
-            { name: 'Vikram Mehta', college: 'BHU, Varanasi', image: '' },
-            { name: 'Ishita Gupta', college: 'LHMC, New Delhi', image: '' },
+            { name: 'Mishthi Tiwari', college: 'Jamia Hamdard, New Delhi', image: '' },
+            { name: 'Ashta Bhatnagar', college: 'AIIMS, New Delhi', image: '' },
+            { name: 'Aishwarya Singh', college: 'JIPMER, Puducherry', image: '' },
+            { name: 'Harsh Kumar', college: 'CMC, Vellore', image: '' },
+            { name: 'Praveen', college: 'KGMU, Lucknow', image: '' },
+            { name: 'Zoha Azeem', college: 'MAMC, New Delhi', image: '' },
+            { name: 'Prena', college: 'BHU, Varanasi', image: '' },
+            { name: 'Sheetal Kumari', college: 'LHMC, New Delhi', image: '' },
         ],
     };
 
     const years = Object.keys(studentsByYear).map(Number).sort((a, b) => b - a);
 
-    const handleLeftImageClick = () => {
-        setLeftImageIndex((prev) => (prev === 0 ? 1 : 0));
-        setRightImageIndex((prev) => (prev === 0 ? 1 : 0));
+    const handleLeftVideoClick = () => {
+        setVideoPopup(videos[0]);
     };
 
-    const handleRightImageClick = () => {
-        setLeftImageIndex((prev) => (prev === 0 ? 1 : 0));
-        setRightImageIndex((prev) => (prev === 0 ? 1 : 0));
+    const handleRightVideoClick = () => {
+        setVideoPopup(videos[1]);
+    };
+
+    const handleCenterVideoClick = () => {
+        setVideoPopup(videos[2]);
     };
 
     const handleMouseDown = (e: React.MouseEvent) => {
@@ -104,21 +109,49 @@ export default function TestimonialsPage() {
                 {/* Blue overlay */}
                 <div className="absolute inset-0 bg-[#0a5b87]/40"></div>
 
-                {/* Left Image */}
-                <img
-                    src={images[leftImageIndex]}
-                    onClick={handleLeftImageClick}
-                    className="absolute -left-18 sm:left-1 xl:-left-30 top-[66%] -translate-y-1/2 w-[120px] sm:w-[180px] md:w-[220px] lg:w-[280px] xl:w-[400px] h-[100px] sm:h-[100px] md:h-[130px] lg:h-[160px] xl:h-[220px] object-cover rounded-lg opacity-40 z-20 cursor-pointer transition-all duration-500 ease-in-out hover:opacity-60 hover:scale-105"
-                    alt="Review"
-                />
+                {/* Left Video Thumbnail */}
+                <button
+                    type="button"
+                    onClick={handleLeftVideoClick}
+                    className="absolute -left-18 sm:left-1 xl:-left-30 top-[66%] -translate-y-1/2 w-[120px] sm:w-[180px] md:w-[220px] lg:w-[280px] xl:w-[400px] h-[100px] sm:h-[100px] md:h-[130px] lg:h-[160px] xl:h-[220px] rounded-lg opacity-40 z-20 cursor-pointer transition-all duration-500 ease-in-out hover:opacity-60 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 group"
+                >
+                    <img
+                        src={`https://img.youtube.com/vi/${videos[0].youtubeId}/hqdefault.jpg`}
+                        alt={videos[0].title}
+                        className="w-full h-full object-cover rounded-lg"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 transition-transform duration-300 group-hover:scale-110">
+                            <img
+                                src="/images/reviews/you-tube.webp"
+                                className="w-full h-full object-contain"
+                                alt="Play button"
+                            />
+                        </div>
+                    </div>
+                </button>
 
-                {/* Right Image */}
-                <img
-                    src={images[rightImageIndex]}
-                    onClick={handleRightImageClick}
-                    className="absolute -right-18 sm:right-2 xl:-right-30 top-[66%] -translate-y-1/2 w-[120px] sm:w-[180px] md:w-[220px] lg:w-[280px] xl:w-[400px] h-[100px] sm:h-[100px] md:h-[130px] lg:h-[160px] xl:h-[220px] object-cover rounded-lg opacity-40 z-20 cursor-pointer transition-all duration-500 ease-in-out hover:opacity-60 hover:scale-105"
-                    alt="Review"
-                />
+                {/* Right Video Thumbnail */}
+                <button
+                    type="button"
+                    onClick={handleRightVideoClick}
+                    className="absolute -right-18 sm:right-2 xl:-right-30 top-[66%] -translate-y-1/2 w-[120px] sm:w-[180px] md:w-[220px] lg:w-[280px] xl:w-[400px] h-[100px] sm:h-[100px] md:h-[130px] lg:h-[160px] xl:h-[220px] rounded-lg opacity-40 z-20 cursor-pointer transition-all duration-500 ease-in-out hover:opacity-60 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 group"
+                >
+                    <img
+                        src={`https://img.youtube.com/vi/${videos[1].youtubeId}/hqdefault.jpg`}
+                        alt={videos[1].title}
+                        className="w-full h-full object-cover rounded-lg"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center">
+                        <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 transition-transform duration-300 group-hover:scale-110">
+                            <img
+                                src="/images/reviews/you-tube.webp"
+                                className="w-full h-full object-contain"
+                                alt="Play button"
+                            />
+                        </div>
+                    </div>
+                </button>
 
                 {/* Content */}
                 <div className="relative z-10 max-w-6xl mx-auto px-3 sm:px-4 h-full flex flex-col justify-center items-center text-center text-white pt-2 sm:pt-3 md:pt-4">
@@ -136,24 +169,33 @@ export default function TestimonialsPage() {
                     {/* Video Card */}
                     <div className="mt-4 sm:mt-6 md:mt-10 relative flex items-center justify-center w-full px-2 sm:px-4">
                         {/* Main Video Card */}
-                        <div className="relative rounded-lg sm:rounded-xl overflow-hidden shadow-2xl w-full max-w-[80%] sm:max-w-[85%] md:max-w-[400px] lg:max-w-[480px] h-[150px] sm:h-[170px] md:h-[210px] lg:h-[260px] z-10">
+                        <button
+                            type="button"
+                            className="relative rounded-lg sm:rounded-xl overflow-hidden shadow-2xl w-full max-w-[80%] sm:max-w-[85%] md:max-w-[400px] lg:max-w-[480px] h-[150px] sm:h-[170px] md:h-[210px] lg:h-[260px] z-10 cursor-pointer focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 group"
+                            onClick={handleCenterVideoClick}
+                        >
                             <img
-                                src="/images/reviews/review-3.webp"
+                                src={`https://img.youtube.com/vi/${videos[2].youtubeId}/hqdefault.jpg`}
                                 className="w-full h-full object-cover object-center"
-                                alt="Video thumbnail"
+                                alt={videos[2].title}
                             />
 
                             {/* Play Button */}
                             <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 rounded-full flex items-center justify-center shadow-lg cursor-pointer hover:scale-110 transition-transform transform -translate-y-1">
+                                <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 transition-transform duration-300 group-hover:scale-110">
                                     <img
                                         src="/images/reviews/you-tube.webp"
-                                        className="w-1/2 h-1/2 object-contain p-1"
+                                        className="w-full h-full object-contain"
                                         alt="Play button"
                                     />
                                 </div>
                             </div>
-                        </div>
+
+                            {/* Video Title Overlay */}
+                            <span className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-3 py-2 text-white text-sm font-medium">
+                                {videos[2].title}
+                            </span>
+                        </button>
                     </div>
                 </div>
             </section>
@@ -196,7 +238,7 @@ export default function TestimonialsPage() {
 
                                     <div className="w-20 h-20 sm:w-24 sm:h-32 md:w-28 md:h-36 lg:w-32 lg:h-40 bg-[#005A8B] rounded-xl shadow-sm overflow-hidden transition-transform duration-300 group-hover:scale-105">
                                         <img
-                                            src={`/images/testi${(i % 20) + 1}.webp`}
+                                            src={student.image || `/images/testi${(i % 20) + 1}.webp`}
                                             className="w-full h-full object-cover"
                                             alt={student.name}
                                         />
@@ -241,6 +283,55 @@ export default function TestimonialsPage() {
                     </div>
                 </div>
             </section>
+
+            {/* Video popup modal - same design as home page */}
+            {videoPopup && (
+                <div
+                    className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60"
+                    onClick={() => setVideoPopup(null)}
+                    role="dialog"
+                    aria-modal="true"
+                    aria-label="Video player"
+                >
+                    <div
+                        className="relative w-full max-w-4xl rounded-2xl overflow-hidden bg-white shadow-2xl"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <div className="p-3 bg-[#F4F7F8]">
+                            <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-black">
+                                <button
+                                    type="button"
+                                    onClick={() => setVideoPopup(null)}
+                                    className="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center transition-colors"
+                                    aria-label="Close"
+                                >
+                                    <svg
+                                        className="w-5 h-5"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={2}
+                                            d="M6 18L18 6M6 6l12 12"
+                                        />
+                                    </svg>
+                                </button>
+                                <iframe
+                                    className="absolute inset-0 w-full h-full"
+                                    src={`https://www.youtube.com/embed/${videoPopup.youtubeId}`}
+                                    title={videoPopup.title}
+                                    frameBorder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
     );
 }
