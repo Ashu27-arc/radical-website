@@ -232,14 +232,14 @@ const BlogsPage = () => {
       <div className="bg-white py-2 md:py-4 animate-fadeIn">
         <div className="container mx-auto px-4">
           {/* Live: CRM se blog post hote hi yahan update (WebSocket) */}
-          <div className="flex justify-end mb-2">
+          {/* <div className="flex justify-end mb-2">
             <div className="flex items-center gap-2">
               <div className={`w-2 h-2 rounded-full ${isConnected ? 'bg-green-500 animate-pulse' : 'bg-amber-500'}`} />
               <span className="text-xs text-gray-500">
                 {isConnected ? 'Live – CRM updates yahan turant dikhenge' : 'Reconnecting…'}
               </span>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
 
@@ -339,189 +339,189 @@ const BlogsPage = () => {
       {/* Blog Content */}
       <div className="min-h-screen">
         <div className="container mx-auto px-4 py-2 pt-4 md:py-6">
-        <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3 md:mb-4">Fresh Update</h2>
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3 md:mb-4">Fresh Update</h2>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 relative">
-          {/* Main Blog Post */}
-          <div className="lg:col-span-2 animate-fadeIn rounded-lg" style={{ animationDelay: '0.1s' }}>
-            {featuredBlog ? (
-              <Link href={`/${featuredBlog.slug}`} className="block">
-                <div className="bg-white rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 cursor-pointer">
-                  <div className="relative">
-                    {featuredBlog.featuredImage ? (
-                      <Image
-                        src={featuredBlog.featuredImage}
-                        alt={featuredBlog.title}
-                        width={400}
-                          height={400}
-                          className="w-full h-auto"
-                      />
-                    ) : (
-                      <Image
-                        src="/images/blogs/b.webp"
-                        alt={featuredBlog.title}
-                        width={400}
-                          height={400}
-                          className="w-full h-auto"
-                      />
-                    )}
-                  </div>
-                  <div className="pt-2 pb-4 md:pt-3 md:pb-6">
-                    <div className="flex flex-wrap gap-2 mb-2">
-                      {featuredBlog.category?.split(',').map((c) => c.trim()).filter(Boolean).map((cat, idx) => (
-                        <span key={idx} className={`inline-block ${getCategoryColor(cat)} pr-3 rounded-full text-base md:text-base`}>
-                          {cat}
-                        </span>
-                      ))}
-                    </div>
-                    <h3 className="text-lg md:text-2xl font-bold text-gray-800 mb-2 hover:text-blue-600 transition-colors">
-                      {featuredBlog.title}
-                    </h3>
-                    <p className="text-sm md:text-base text-gray-600 text-justify mb-4 line-clamp-2">
-                      {featuredBlog.excerpt || featuredBlog.title}
-                    </p>
-                    <div className="flex items-center text-[#ABABAB] text-xs md:text-sm">
-                      <span>{featuredBlog.author}</span>
-                      <span className="mx-2">•</span>
-                      <span>{formatDate(featuredBlog.date)}</span>
-                    </div>
-                  </div>
-                </div>
-              </Link>
-            ) : (
-              <div className="bg-white rounded-lg overflow-hidden border border-gray-200 p-8 text-center text-gray-500">
-                {loading ? 'Loading...' : 'No published blogs yet. Check back later.'}
-              </div>
-            )}
-          </div>
-
-          {/* Sidebar - Fixed on Desktop */}
-          <div className="space-y-4 md:space-y-8">
-            {sidebarBlogs.length > 0 ? (
-              sidebarBlogs.map((post, index) => (
-                <Link key={post.id} href={`/${post.slug}`} className="block animate-fadeIn" style={{ animationDelay: `${0.2 + index * 0.1}s` }}>
-                  <div className={`bg-white md:pb-8 pb-4 transition-all duration-300 hover:-translate-y-1 cursor-pointer ${index < sidebarBlogs.length - 1 ? 'border-b-2 border-gray-200' : ''}`}>
-                    <div className="flex flex-wrap gap-2 mb-2">
-                      {post.category?.split(',').map((c) => c.trim()).filter(Boolean).map((cat, idx) => (
-                        <span key={idx} className={`inline-block ${getCategoryColor(cat)} pr-3 rounded-full text-xs md:text-sm`}>
-                          {cat}
-                        </span>
-                      ))}
-                    </div>
-                    <h4 className="text-base md:text-lg font-bold text-gray-800 mb-1 md:mb-2 hover:text-blue-600 transition-colors">
-                      {post.title}
-                    </h4>
-                    <p className="text-gray-600 text-xs md:text-sm text-justify mb-4 line-clamp-2">
-                      {post.excerpt || post.title}
-                    </p>
-                    <div className="flex items-center text-[#ABABAB] text-xs">
-                      <span>{post.author}</span>
-                      <span className="mx-2">•</span>
-                      <span>{formatDate(post.date)}</span>
-                    </div>
-                  </div>
-                </Link>
-              ))
-            ) : (
-              <div className="bg-white rounded-lg p-6 text-center text-gray-500 border-2 border-dashed border-gray-200">
-                <p className="text-sm md:text-base">No additional blogs available</p>
-                <p className="text-xs md:text-sm mt-2">More blogs will appear here as they are published</p>
-              </div>
-            )}
-          </div>
-
-          {/* Extended horizontal line that spans full width */}
-          <div className="absolute -bottom-4 left-0 right-0 border-b-3 border-gray-200 lg:col-span-3"></div>
-        </div>
-
-        {/* Blog Cards Grid */}
-        <div className="mt-16 md:mt-30">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
-            {gridBlogs.map((blog, index) => (
-              <React.Fragment key={blog.id}>
-                <Link href={`/${blog.slug}`} className="block animate-fadeIn" style={{ animationDelay: `${0.3 + index * 0.1}s` }}>
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 relative">
+            {/* Main Blog Post */}
+            <div className="lg:col-span-2 animate-fadeIn rounded-lg" style={{ animationDelay: '0.1s' }}>
+              {featuredBlog ? (
+                <Link href={`/${featuredBlog.slug}`} className="block">
                   <div className="bg-white rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 cursor-pointer">
-                    <div className="relative rounded-t-lg overflow-hidden">
-                      {blog.featuredImage ? (
+                    <div className="relative">
+                      {featuredBlog.featuredImage ? (
                         <Image
-                          src={blog.featuredImage}
-                          alt={blog.title}
+                          src={featuredBlog.featuredImage}
+                          alt={featuredBlog.title}
                           width={400}
                           height={400}
                           className="w-full h-auto"
                         />
                       ) : (
                         <Image
-                          src={["/images/blogs/card.webp", "/images/blogs/card-1.webp", "/images/blogs/card-2.webp"][index % 3]}
-                          alt={blog.title}
+                          src="/images/blogs/b.webp"
+                          alt={featuredBlog.title}
                           width={400}
                           height={400}
                           className="w-full h-auto"
                         />
                       )}
                     </div>
-                    <div className="pt-4">
-                      <div className="flex flex-wrap gap-2 mb-1 md:mb-2">
-                        {blog.category?.split(',').map((c) => c.trim()).filter(Boolean).map((cat, idx) => (
+                    <div className="pt-2 pb-4 md:pt-3 md:pb-6">
+                      <div className="flex flex-wrap gap-2 mb-2">
+                        {featuredBlog.category?.split(',').map((c) => c.trim()).filter(Boolean).map((cat, idx) => (
+                          <span key={idx} className={`inline-block ${getCategoryColor(cat)} pr-3 rounded-full text-base md:text-base`}>
+                            {cat}
+                          </span>
+                        ))}
+                      </div>
+                      <h3 className="text-lg md:text-2xl font-bold text-gray-800 mb-2 hover:text-blue-600 transition-colors">
+                        {featuredBlog.title}
+                      </h3>
+                      <p className="text-sm md:text-base text-gray-600 text-justify mb-4 line-clamp-2">
+                        {featuredBlog.excerpt || featuredBlog.title}
+                      </p>
+                      <div className="flex items-center text-[#ABABAB] text-xs md:text-sm">
+                        <span>{featuredBlog.author}</span>
+                        <span className="mx-2">•</span>
+                        <span>{formatDate(featuredBlog.date)}</span>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              ) : (
+                <div className="bg-white rounded-lg overflow-hidden border border-gray-200 p-8 text-center text-gray-500">
+                  {loading ? 'Loading...' : 'No published blogs yet. Check back later.'}
+                </div>
+              )}
+            </div>
+
+            {/* Sidebar - Fixed on Desktop */}
+            <div className="space-y-4 md:space-y-8">
+              {sidebarBlogs.length > 0 ? (
+                sidebarBlogs.map((post, index) => (
+                  <Link key={post.id} href={`/${post.slug}`} className="block animate-fadeIn" style={{ animationDelay: `${0.2 + index * 0.1}s` }}>
+                    <div className={`bg-white md:pb-8 pb-4 transition-all duration-300 hover:-translate-y-1 cursor-pointer ${index < sidebarBlogs.length - 1 ? 'border-b-2 border-gray-200' : ''}`}>
+                      <div className="flex flex-wrap gap-2 mb-2">
+                        {post.category?.split(',').map((c) => c.trim()).filter(Boolean).map((cat, idx) => (
                           <span key={idx} className={`inline-block ${getCategoryColor(cat)} pr-3 rounded-full text-xs md:text-sm`}>
                             {cat}
                           </span>
                         ))}
                       </div>
-                      <h3 className="text-base md:text-lg font-bold text-gray-800 mb-1 md:mb-2 hover:text-blue-600 transition-colors line-clamp-2">
-                        {blog.title}
-                      </h3>
-                      <p className="text-gray-600 text-xs md:text-sm text-justify mb-2 line-clamp-2">
-                        {blog.excerpt || blog.title}
+                      <h4 className="text-base md:text-lg font-bold text-gray-800 mb-1 md:mb-2 hover:text-blue-600 transition-colors">
+                        {post.title}
+                      </h4>
+                      <p className="text-gray-600 text-xs md:text-sm text-justify mb-4 line-clamp-2">
+                        {post.excerpt || post.title}
                       </p>
-                      <div className="flex items-center text-gray-500 text-xs">
-                        <span>{blog.author}</span>
+                      <div className="flex items-center text-[#ABABAB] text-xs">
+                        <span>{post.author}</span>
                         <span className="mx-2">•</span>
-                        <span>{formatDate(blog.date)}</span>
+                        <span>{formatDate(post.date)}</span>
                       </div>
                     </div>
-                  </div>
-                </Link>
-              </React.Fragment>
-            ))}
+                  </Link>
+                ))
+              ) : (
+                <div className="bg-white rounded-lg p-6 text-center text-gray-500 border-2 border-dashed border-gray-200">
+                  <p className="text-sm md:text-base">No additional blogs available</p>
+                  <p className="text-xs md:text-sm mt-2">More blogs will appear here as they are published</p>
+                </div>
+              )}
+            </div>
+
+            {/* Extended horizontal line that spans full width */}
+            <div className="absolute -bottom-4 left-0 right-0 border-b-3 border-gray-200 lg:col-span-3"></div>
           </div>
 
-          {/* Pagination */}
-          <div className="flex justify-center items-center mt-8 md:mt-12">
-            <div className="flex justify-center items-center gap-2 md:gap-4 bg-white shadow-lg rounded-full px-6 md:px-8 py-3 md:py-4">
-              {renderPagination()}
+          {/* Blog Cards Grid */}
+          <div className="mt-16 md:mt-30">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+              {gridBlogs.map((blog, index) => (
+                <React.Fragment key={blog.id}>
+                  <Link href={`/${blog.slug}`} className="block animate-fadeIn" style={{ animationDelay: `${0.3 + index * 0.1}s` }}>
+                    <div className="bg-white rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 cursor-pointer">
+                      <div className="relative rounded-t-lg overflow-hidden">
+                        {blog.featuredImage ? (
+                          <Image
+                            src={blog.featuredImage}
+                            alt={blog.title}
+                            width={400}
+                            height={400}
+                            className="w-full h-auto"
+                          />
+                        ) : (
+                          <Image
+                            src={["/images/blogs/card.webp", "/images/blogs/card-1.webp", "/images/blogs/card-2.webp"][index % 3]}
+                            alt={blog.title}
+                            width={400}
+                            height={400}
+                            className="w-full h-auto"
+                          />
+                        )}
+                      </div>
+                      <div className="pt-4">
+                        <div className="flex flex-wrap gap-2 mb-1 md:mb-2">
+                          {blog.category?.split(',').map((c) => c.trim()).filter(Boolean).map((cat, idx) => (
+                            <span key={idx} className={`inline-block ${getCategoryColor(cat)} pr-3 rounded-full text-xs md:text-sm`}>
+                              {cat}
+                            </span>
+                          ))}
+                        </div>
+                        <h3 className="text-base md:text-lg font-bold text-gray-800 mb-1 md:mb-2 hover:text-blue-600 transition-colors line-clamp-2">
+                          {blog.title}
+                        </h3>
+                        <p className="text-gray-600 text-xs md:text-sm text-justify mb-2 line-clamp-2">
+                          {blog.excerpt || blog.title}
+                        </p>
+                        <div className="flex items-center text-gray-500 text-xs">
+                          <span>{blog.author}</span>
+                          <span className="mx-2">•</span>
+                          <span>{formatDate(blog.date)}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </Link>
+                </React.Fragment>
+              ))}
+            </div>
+
+            {/* Pagination */}
+            <div className="flex justify-center items-center mt-8 md:mt-12">
+              <div className="flex justify-center items-center gap-2 md:gap-4 bg-white shadow-lg rounded-full px-6 md:px-8 py-3 md:py-4">
+                {renderPagination()}
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* contact form */}
-        <div className="mt-12 md:mt-16 mb-6 md:mb-8 animate-fadeIn" style={{ animationDelay: '0.9s' }}>
-          {/* Title */}
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-6 md:mb-8 text-center px-4">
-            Connect With <span className="text-blue-400">Our Counselor</span>
-          </h2>
+          {/* contact form */}
+          <div className="mt-12 md:mt-16 mb-6 md:mb-8 animate-fadeIn" style={{ animationDelay: '0.9s' }}>
+            {/* Title */}
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-6 md:mb-8 text-center px-4">
+              Connect With <span className="text-blue-400">Our Counselor</span>
+            </h2>
 
-          {/* Combined container for image and form */}
-          <div className="relative rounded-2xl overflow-hidden mx-4 md:mx-0">
-            {/* Background Image */}
-            <div className="relative h-72 sm:h-80 md:h-[420px] lg:h-[480px]">
-              <Image
-                src="/images/blogs/contact.webp"
-                alt="Contact Background"
-                fill
-                className="object-cover"
-              />
-              {/* Overlay */}
-              <div className="absolute inset-0 bg-opacity-30"></div>
+            {/* Combined container for image and form */}
+            <div className="relative rounded-2xl overflow-hidden mx-4 md:mx-0">
+              {/* Background Image */}
+              <div className="relative h-72 sm:h-80 md:h-[420px] lg:h-[480px]">
+                <Image
+                  src="/images/blogs/contact.webp"
+                  alt="Contact Background"
+                  fill
+                  className="object-cover"
+                />
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-opacity-30"></div>
+              </div>
             </div>
-          </div>
 
-          {/* Form Container - Outside background */}
-          <div className="flex justify-center -mt-40 md:-mt-48 lg:-mt-56 relative z-10 px-4">
-            <div className="bg-[#005A8B] bg-opacity-90 rounded-2xl p-6 md:p-8 w-full max-w-md mx-auto shadow-2xl">
-              <CounselorForm />
+            {/* Form Container - Outside background */}
+            <div className="flex justify-center -mt-40 md:-mt-48 lg:-mt-56 relative z-10 px-4">
+              <div className="bg-[#005A8B] bg-opacity-90 rounded-2xl p-6 md:p-8 w-full max-w-md mx-auto shadow-2xl">
+                <CounselorForm />
+              </div>
             </div>
-          </div>
           </div>
         </div>
         {connectionStatus}

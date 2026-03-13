@@ -87,9 +87,9 @@ export default function OurTeam() {
                 </div>
             </section>
 
-            <section className="overflow-hidden bg-[#F4F7F8]">
+            {/* <section className="overflow-hidden bg-[#F4F7F8]">
                 <div className="container mx-auto px-3 md:px-4">
-                    {/* Founder */}
+                    {/* Founder 
                     <div className="grid md:grid-cols-2 grid-cols-1 gap-8 md:gap-12 mb-12">
                         <div className="md:order-2">
                             <Image
@@ -135,10 +135,10 @@ export default function OurTeam() {
                         </div>
                     </div>
                 </div>
-            </section>
+            </section> */}
             <section className="bg-[#F4F7F8] py-10 md:py-16 lg:py-20">
                 <div className="container mx-auto px-3 md:px-4">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 gap-4 md:gap-6 max-w-6xl lg:pr-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:gap-6 max-w-6xl mx-auto">
                         {teamMembers.map((member, index) => (
                             <div
                                 key={index}
@@ -189,7 +189,7 @@ export default function OurTeam() {
             <section id="connect-counselor" className="pb-16">
                 <div className="container mx-auto px-3 md:px-4">
                     <Image
-                        src="/images/teamBanner.webp"
+                        src="/images/banner-neet-bhaiya.webp"
                         alt="team Banner"
                         width={400}
                         height={300}
