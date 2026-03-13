@@ -231,8 +231,8 @@ const NeetUpdateContent = () => {
             )}
 
             {/* Search & Filter Section */}
-            <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-6 md:py-12">
-                <div className="flex flex-col xl:flex-row items-center justify-between gap-6">
+            <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-2 md:py-4">
+                <div className="flex flex-col xl:flex-row items-center justify-start gap-3">
                     {/* Search Bar */}
                     <div className="relative w-full sm:w-[320px]">
                         <input
@@ -246,7 +246,7 @@ const NeetUpdateContent = () => {
                     </div>
 
                     {/* Filters */}
-                    <div className="flex flex-wrap items-center gap-2 sm:gap-3 w-full xl:w-auto justify-center xl:justify-end">
+                    <div className="flex flex-wrap items-center gap-2 sm:gap-3 w-full xl:w-auto justify-center xl:justify-start">
                         <button className="h-9 sm:h-10 px-4 sm:px-6 rounded-full bg-[#2CBF0F] text-white font-medium hover:bg-[#34a834] transition shadow-sm text-sm">
                             All
                         </button>
