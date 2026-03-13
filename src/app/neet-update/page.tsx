@@ -231,24 +231,22 @@ const NeetUpdateContent = () => {
             )}
 
             {/* Search & Filter Section */}
-            <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-6 md:py-12">
-                <div className="flex flex-col xl:flex-row items-center justify-between gap-6">
+            <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-2 md:py-3">
+                <div className="flex flex-col xl:flex-row items-center justify-start gap-3 xl:gap-5">
                     {/* Search Bar */}
-                    <div className="flex flex-col sm:flex-row items-center gap-3 w-full xl:w-auto">
-                        <div className="relative w-full sm:w-[320px]">
-                            <input
-                                type="text"
-                                placeholder="search here"
-                                className="w-full h-11 sm:h-12 rounded-full pl-6 pr-4 bg-white border border-gray-100 shadow-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-100 text-sm"
-                            />
-                        </div>
-                        <button className="h-11 sm:h-12 w-full sm:w-auto px-8 rounded-full bg-[#005A8B] text-white font-medium hover:bg-[#024d7a] transition shadow-md text-sm">
-                            Search
+                    <div className="relative w-full sm:w-[320px]">
+                        <input
+                            type="text"
+                            placeholder="search here"
+                            className="w-full h-11 sm:h-12 rounded-full pl-6 pr-14 bg-white border border-gray-100 shadow-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-100 text-sm"
+                        />
+                        <button className="absolute right-1.5 top-1/2 -translate-y-1/2 h-8 w-8 sm:h-9 sm:w-9 rounded-full bg-[#005A8B] text-white flex items-center justify-center hover:bg-[#024d7a] transition shadow-md">
+                            <i className="pi pi-search text-xs sm:text-sm"></i>
                         </button>
                     </div>
 
                     {/* Filters */}
-                    <div className="flex flex-wrap items-center gap-2 sm:gap-3 w-full xl:w-auto justify-center xl:justify-end">
+                    <div className="flex flex-wrap items-center gap-2 w-full xl:w-auto justify-start">
                         <button className="h-9 sm:h-10 px-4 sm:px-6 rounded-full bg-[#2CBF0F] text-white font-medium hover:bg-[#34a834] transition shadow-sm text-sm">
                             All
                         </button>
