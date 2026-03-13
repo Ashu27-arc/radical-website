@@ -49,7 +49,7 @@ export const galleryData: GalleryData = {
     {
       month: 'FEBRUARY',
       year: 2024,
-      mainImage: '/images/g2.webp',
+      mainImage: '/images/gallery/2024.webp',
       events: [
         {
           title: 'Education Expo Delhi',
@@ -271,7 +271,7 @@ export const galleryData: GalleryData = {
     {
       month: 'JANUARY',
       year: 2025,
-      mainImage: '/images/g1.webp',
+      mainImage: '/images/gallery/g7.webp',
       events: [
         {
           title: 'New Year Counselling Drive',
@@ -290,7 +290,7 @@ export const galleryData: GalleryData = {
     {
       month: 'FEBRUARY',
       year: 2025,
-      mainImage: '/images/g2.webp',
+      mainImage: '/images/gallery/g8.webp',
       events: [
         {
           title: 'University Fair',
@@ -309,18 +309,59 @@ export const galleryData: GalleryData = {
     {
       month: 'OCTOBER',
       year: 2025,
-      mainImage: '/images/gallery/g7.webp',
+      mainImage: '/images/gallery/2025/october/1.webp',
       events: [
         {
           title: 'University Fair',
           date: '18 Oct 2025',
           images: [
-            '/images/gallery/g8.webp',
-            '/images/gallery/g9.webp',
-            '/images/g3.webp',
-            '/images/g4.webp',
-            '/images/g5.webp',
-            '/images/g6.webp',
+            '/images/gallery/2025/october/1.webp',
+            '/images/gallery/2025/october/2.webp',
+            '/images/gallery/2025/october/3.webp',
+            '/images/gallery/2025/october/4.webp',
+            '/images/gallery/2025/october/5.webp',
+            '/images/gallery/2025/october/6.webp',
+            '/images/gallery/2025/october/7.webp',
+            '/images/gallery/2025/october/8.webp',
+            '/images/gallery/2025/october/9.webp',
+            '/images/gallery/2025/october/10.webp',
+            '/images/gallery/2025/october/11.webp',
+          ],
+        },
+      ],
+    },
+    {
+      month: 'NOVEMBER',
+      year: 2025,
+      mainImage: '/images/gallery/g9.webp',
+      events: [
+        {
+          title: 'University Fair',
+          date: '18 Dec 2025',
+          images: [
+            '/images/gallery/2025/november/n1.webp',
+            '/images/gallery/2025/november/n2.webp',
+            '/images/gallery/2025/november/n3.webp',
+            '/images/gallery/2025/november/n4.webp',
+            '/images/gallery/2025/november/n5.webp',
+          ],
+        },
+      ],
+    },
+    {
+      month: 'DECEMBER',
+      year: 2025,
+      mainImage: '/images/gallery/2025/december/d1.webp',
+      events: [
+        {
+          title: 'University Fair',
+          date: '18 Dec 2025',
+          images: [
+            '/images/gallery/2025/december/d1.webp',
+            '/images/gallery/2025/december/d2.webp',
+            '/images/gallery/2025/december/d3.webp',
+            '/images/gallery/2025/december/d4.webp',
+            '/images/gallery/2025/december/d5.webp',
           ],
         },
       ],
@@ -352,5 +393,3 @@ export const galleryData: GalleryData = {
     // 👉 Continue same structure for full year
   ],
 };
-
-
