@@ -306,6 +306,25 @@ export const galleryData: GalleryData = {
         },
       ],
     },
+    {
+      month: 'OCTOBER',
+      year: 2025,
+      mainImage: '/images/gallery/g7.webp',
+      events: [
+        {
+          title: 'University Fair',
+          date: '18 Oct 2025',
+          images: [
+            '/images/gallery/g8.webp',
+            '/images/gallery/g9.webp',
+            '/images/g3.webp',
+            '/images/g4.webp',
+            '/images/g5.webp',
+            '/images/g6.webp',
+          ],
+        },
+      ],
+    },
     // 👉 Continue same structure till DECEMBER 2025
   ],
 
