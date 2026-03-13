@@ -353,7 +353,7 @@ export default function NeetPgIndiaAdmissionPage() {
                             <div className="font-bold lg:text-4xl text-2xl py-1 px-2 bg-white text-[#FF0000] font-semibold">₹ 84,499/-</div>
                         </div>
                         <div className="text-center mt-8 fadeUp">
-                            <Button size="small" label="BUY NOW" className='text-white! bg-[#005787]! border-[#005787]!' rounded />
+                            <Button size="small" label="BUY NOW" className='text-white! bg-[#005787]! border-[#005787]! hover:bg-[#004469]! hover:shadow-2xl hover:scale-105 transition-all hover:animate-none' rounded />
                         </div>
                     </div>
                     <div className="lg:mb-15 mb-10 fadeUp flex text-[#2CBF0F] border rounded-xl border-dashed border-[#2CBF0F] gap-2 lg:justify-center mx-auto w-full lg:w-7/10 p-4 lg:px-8 lg:py-4">

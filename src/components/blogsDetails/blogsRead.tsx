@@ -102,17 +102,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
     const categoryContainerRef = useRef<HTMLDivElement>(null);
     const [blog, setBlog] = useState<Blog | null>(null);
     const [loading, setLoading] = useState(true);
-    const { addMessageHandler, isConnected } = useWebSocket();
-
-    // Connection status indicator - responsive
-    const connectionStatus = (
-        <div className="flex items-center justify-end mb-2 sm:mb-4 pr-2 sm:pr-4">
-            <span className={`inline-flex items-center text-[10px] sm:text-xs ${isConnected ? 'text-green-600' : 'text-red-600'}`}>
-                <span className={`inline-block w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full mr-1.5 sm:mr-2 shrink-0 ${isConnected ? 'bg-green-600' : 'bg-red-600'}`}></span>
-                <span className="truncate">{isConnected ? 'Live Updates Active' : 'Live Updates Offline'}</span>
-            </span>
-        </div>
-    );
+    const { addMessageHandler } = useWebSocket();
 
     useEffect(() => {
         getBlogBySlug(slug).then((data) => {
@@ -158,8 +148,8 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
 
 
     const pathname = usePathname()
-  const siteUrl = "https://radicaleducation.in"
-  const url = `${siteUrl}${pathname}`
+    const siteUrl = "https://radicaleducation.in"
+    const url = `${siteUrl}${pathname}`
 
     return (
         <div className="w-full min-w-0 bg-gray-50 relative animate-fadeIn">
@@ -167,7 +157,6 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
             {/* Fixed Search Section - responsive padding & spacing */}
             <div className="sticky top-[72px] sm:top-[80px] md:top-[90px] lg:top-[120px] z-10 bg-gray-50 py-2 sm:py-4 md:py-6 shadow-sm">
                 <div className="max-w-6xl mx-auto px-3 sm:px-4 md:px-6">
-                    {connectionStatus}
                     {/* Search Section */}
                     <div className="flex flex-col lg:flex-row gap-3 sm:gap-4 items-stretch lg:items-start justify-start">
                         {/* Search Input with Icon */}
@@ -416,13 +405,13 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                                         href={`https://twitter.com/intent/tweet?url=${url}`}
                                         target="_blank"
                                     >
-                                        <Image src="/images/twitter.svg" width={16} height={16} alt="Twitter"/>
+                                        <Image src="/images/twitter.svg" width={16} height={16} alt="Twitter" />
                                     </Link>
                                     <Link
                                         href={`https://www.facebook.com/sharer/sharer.php?u=${url}`}
                                         target="_blank"
                                     >
-                                        <Image src="/images/facebook.svg" width={18} height={18} alt="Facebook"/>
+                                        <Image src="/images/facebook.svg" width={18} height={18} alt="Facebook" />
                                     </Link>
                                     <Link href={`https://www.instagram.com/?url=${url}`} target='_blank'>
                                         <Image src='/images/instagram.svg' width='16' height='16' alt="" />
@@ -431,19 +420,19 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                                         href={`https://www.linkedin.com/sharing/share-offsite/?url=${url}`}
                                         target="_blank"
                                     >
-                                        <Image src="/images/linkedin.svg" width={16} height={16} alt="LinkedIn"/>
+                                        <Image src="/images/linkedin.svg" width={16} height={16} alt="LinkedIn" />
                                     </Link>
                                     <Link
                                         href={`https://wa.me/?text=${url}`}
                                         target="_blank"
                                     >
-                                        <Image src="/images/whatsapp.svg" width={20} height={20} alt="Whatsapp"/>
+                                        <Image src="/images/whatsapp.svg" width={20} height={20} alt="Whatsapp" />
                                     </Link>
                                     <Link
                                         href={`https://t.me/share/url?url=${url}`}
                                         target="_blank"
                                     >
-                                        <Image src="/images/teligram.svg" width={18} height={18} alt="Telegram"/>
+                                        <Image src="/images/teligram.svg" width={18} height={18} alt="Telegram" />
                                     </Link>
                                     <Link href={`https://www.youtube.com/share?url=${url}`} target='_blank'>
                                         <Image src='/images/youtube.svg' width='20' height='20' alt="" />

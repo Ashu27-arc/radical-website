@@ -20,8 +20,7 @@ export default function Header() {
           <Link className='text-[#121212]' href="tel:+91 9797972465">97 97 97 24 65</Link>|
           <Link href="https://www.neetbhaiya.in/college-predictor" className='text-[#121212] relative'>NEET COLLEGE PREDICTOR
             <div className='absolute right-[-5px] top-[-5px]'>
-              <span className="relative flex size-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#FF0000] opacity-75"></span>
+              <span className="relative flex size-2 animate-blink">
                 <span className="relative inline-flex size-2 rounded-full bg-[#FF0000]"></span>
               </span>
             </div>
@@ -29,8 +28,7 @@ export default function Header() {
           <Link className='text-[#121212]' href="/neet-ug-india-admission/">PAY ONLINE</Link>|
           <Link href="https://www.neetbhaiya.in/" className='text-[#121212] relative'>NEET BHAIYA
             <div className='absolute right-[-5px] top-[-5px]'>
-              <span className="relative flex size-2">
-                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#FF0000] opacity-75"></span>
+              <span className="relative flex size-2 animate-blink">
                 <span className="relative inline-flex size-2 rounded-full bg-[#FF0000]"></span>
               </span>
             </div>
@@ -72,8 +70,7 @@ export default function Header() {
                 <Link className='text-[#121212]' href="tel:+91 9797972465">97 97 97 24 65</Link>|
                 <Link href="https://www.neetbhaiya.in/college-predictor" className='text-[#121212] relative'>NEET COLLEGE PREDICTOR
                   <div className='absolute right-[-5px] top-[-5px]'>
-                    <span className="relative flex size-2">
-                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#FF0000] opacity-75"></span>
+                    <span className="relative flex size-2 animate-blink">
                       <span className="relative inline-flex size-2 rounded-full bg-[#FF0000]"></span>
                     </span>
                   </div>
@@ -81,8 +78,7 @@ export default function Header() {
                 <Link className='text-[#121212]' href="/neet-ug-india-admission/">PAY ONLINE</Link>|
                 <Link href="https://www.neetbhaiya.in/" className='text-[#121212] relative'>NEET BHAIYA
                   <div className='absolute right-[-5px] top-[-5px]'>
-                    <span className="relative flex size-2">
-                      <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#FF0000] opacity-75"></span>
+                    <span className="relative flex size-2 animate-blink">
                       <span className="relative inline-flex size-2 rounded-full bg-[#FF0000]"></span>
                     </span>
                   </div>

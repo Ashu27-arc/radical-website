@@ -170,7 +170,7 @@ export default function EnquireButton() {
         onClick={() => setVisible(true)}
         className="
           fixed right-[-65px] md:right-[-70px] top-1/2 z-50
-          bg-[#CB1E17] text-white tracking-widest
+          bg-[#FFCE1B] text-black tracking-widest
           px-4 md:px-6 py-2.5 md:py-3 rounded-t-2xl shadow-xl
           hover:bg-red-600 transition-all duration-300
           flex items-center gap-2 text-[10px] md:text-xs cursor-pointer
