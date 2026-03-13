@@ -18,7 +18,7 @@ const WebSocketProvider = ({ children }: WebSocketProviderProps) => {
       {/* Connection status indicator */}
       {isConnected && (
         <div className="fixed bottom-4 right-4 z-40">
-          <div className="flex items-center gap-2 bg-green-100 text-green-800 px-3 py-2 rounded-full text-xs font-medium shadow-sm animate-pulse">
+          <div className="flex items-center gap-2 bg-green-100 text-green-800 px-3 py-2 rounded-full text-xs font-medium shadow-sm animate-blink">
             <div className="w-2 h-2 bg-green-500 rounded-full"></div>
             <span>Live Updates</span>
           </div>
