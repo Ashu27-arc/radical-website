@@ -426,7 +426,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="text-white text-center py-4 sm:py-6 text-xs sm:text-sm bg-[#00446A] px-4">
-        Radical Education 2025 | All rights reserved | BINARAMA | <Link href="/privacy-policy" className="hover:text-[#fff]">Privacy Policy</Link> | <Link href="/refund-policy" className="hover:text-[#fff]">Refund Policy</Link> | <Link href="/terms-condition" className="hover:text-[#fff]">Terms & Conditions</Link>
+        Radical Education 2025 | All rights reserved | <Link href="https://binarama.com/" target="_blank" className="hover:text-[#fff]">BINARAMA</Link> | <Link href="/privacy-policy" className="hover:text-[#fff]">Privacy Policy</Link> | <Link href="/refund-policy" className="hover:text-[#fff]">Refund Policy</Link> | <Link href="/terms-condition" className="hover:text-[#fff]">Terms & Conditions</Link>
       </div>
     </footer>
   );
