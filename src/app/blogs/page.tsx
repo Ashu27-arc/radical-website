@@ -21,7 +21,7 @@ const categoryColors: Record<string, string> = {
   'Neet UG': 'text-red-500',
   'NEET PG': 'bg-yellow-500 text-white',
   'Neet PG': 'text-yellow-500',
-  'Notification': 'bg-blue-500 text-white',
+  'Notification': 'text-blue-500',
 };
 
 const defaultCategoryColor = 'bg-[#005A8B] text-white';
@@ -512,7 +512,7 @@ const BlogsPage = () => {
                 className="object-cover"
               />
               {/* Overlay */}
-              <div className="absolute inset-0 bg-black bg-opacity-30"></div>
+              <div className="absolute inset-0 bg-opacity-30"></div>
             </div>
           </div>
 
