@@ -205,9 +205,14 @@ export default function Home() {
               <span className="text-[#00CFB2]">All Medical Courses</span>
             </h2>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 fadeUp">
+          <div className="flex flex-wrap justify-center gap-6 fadeUp">
             {courses.map((course) => (
-              <CourseCard key={course.slug} course={course} />
+              <div 
+                key={course.slug} 
+                className="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]"
+              >
+                <CourseCard course={course} />
+              </div>
             ))}
           </div>
         </div>
