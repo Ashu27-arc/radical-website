@@ -245,10 +245,10 @@ const BlogsPage = () => {
 
       {/* Sticky Search and Category Section */}
       <div className="sticky top-[100px] md:top-[110px] lg:top-[120px] z-40 bg-white/95 backdrop-blur-sm shadow-lg border-b border-gray-200 transition-all duration-200">
-        <div className="container mx-auto px-4 py-3 md:py-4">
+        <div className="container mx-auto px-4 py-4 md:py-6">
           <div className="max-w-6xl mx-auto px-3 sm:px-4 md:px-6">
             {/* Search Section */}
-            <div className="flex flex-col lg:flex-row gap-2 sm:gap-3 items-stretch lg:items-start justify-start">
+            <div className="flex flex-col lg:flex-row gap-4 sm:gap-4 items-stretch lg:items-center justify-start">
               {/* Search Input with Icon */}
               <div className="relative w-full lg:max-w-[450px] md:max-w-[320px] max-w-full">
                 <input
@@ -269,11 +269,11 @@ const BlogsPage = () => {
               </div>
 
               {/* Category Filter Buttons - responsive gap & scroll */}
-              <div className="flex bg-white lg:bg-transparent rounded-full lg:rounded-none shadow-sm lg:shadow-none p-1.5 sm:p-1 lg:p-0 items-center gap-1 sm:gap-3 flex-1 min-w-0 w-full lg:w-auto overflow-hidden">
+              <div className="flex bg-white lg:bg-transparent rounded-full lg:rounded-none shadow-sm lg:shadow-none p-1.5 sm:p-1 lg:p-0 items-center gap-2 sm:gap-3 flex-1 min-w-0 w-full lg:w-auto overflow-hidden">
                 {/* Left Arrow - Desktop/Tablet */}
                 <button
                   onClick={() => scroll('left')}
-                  className="hidden md:flex w-8 h-8 rounded-full bg-white shadow-sm hover:shadow-md transition-all duration-200 items-center justify-center shrink-0 border border-gray-200 hover:border-gray-300 hover:scale-110 active:scale-95"
+                  className="hidden md:flex w-10 h-10 rounded-full bg-white shadow-sm hover:shadow-md transition-all duration-200 items-center justify-center shrink-0 border border-gray-200 hover:border-gray-300 hover:scale-110 active:scale-95"
                 >
                   <Image src="/images/blogs/left-arrow.webp" alt="Scroll Left" width={16} height={16} className="object-contain opacity-60 hover:opacity-100" />
                 </button>
@@ -310,7 +310,7 @@ const BlogsPage = () => {
                 {/* Right Arrow - Desktop/Tablet */}
                 <button
                   onClick={() => scroll('right')}
-                  className="hidden md:flex w-8 h-8 rounded-full bg-white shadow-sm hover:shadow-md transition-all duration-200 items-center justify-center shrink-0 border border-gray-200 hover:border-gray-300 hover:scale-110 active:scale-95"
+                  className="hidden md:flex w-10 h-10 rounded-full bg-white shadow-sm hover:shadow-md transition-all duration-200 items-center justify-center shrink-0 border border-gray-200 hover:border-gray-300 hover:scale-110 active:scale-95"
                 >
                   <Image src="/images/blogs/right-arrow.webp" alt="Scroll Right" width={16} height={16} className="object-contain opacity-60 hover:opacity-100" />
                 </button>
