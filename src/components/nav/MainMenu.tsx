@@ -108,11 +108,13 @@ export default function MainMenu({ mainMenuData }: any) {
                                                         borderBottomRightRadius: '12px'
                                                     }}
                                                     onClick={(e) => {
-                                                        if (level2.items && level2.items.length > 0) {
+                                                        // Only prevent default if there's no URL or URL is '#'
+                                                        if (level2.items && level2.items.length > 0 && (!level2.url || level2.url === '#')) {
                                                             e.preventDefault();
                                                             const id = `${i}-${j}`;
                                                             setOpenLevel2((prev) => (prev === id ? null : id));
                                                         }
+                                                        // If there's a valid URL, allow navigation even if there are children
                                                     }}
                                                 >
                                                     <span>{level2.label}</span>
