@@ -14,6 +14,10 @@ import EnquireButton from '@/components/EnquireButton';
 export const metadata: Metadata = {
   title: 'Radical Education',
   description: 'Radical Education Most Trusted and Transparent NEET Counsellor 15,783+ Students counselled 1732+ Admission Done 14+ Country Looking for admissions in MBBS INDIA ?',
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function RootLayout({ children, }: { children: React.ReactNode; }) {
