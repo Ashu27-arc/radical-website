@@ -9,22 +9,23 @@ import CounselorForm from '@/components/CounselorForm';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 
 const categoryColors: Record<string, string> = {
-  'Educational': 'bg-teal-500 text-white',
-  'Education': 'bg-teal-500 text-white',
-  'Exams': 'bg-orange-500 text-white',
-  'Government': 'bg-gray-600 text-white',
-  'Careers': 'bg-blue-500 text-white',
-  'MBBS in India': 'text-green-500',
-  'MBBS Abroad': 'bg-teal-500 text-white',
-  'Study Abroad': 'bg-teal-500 text-white',
-  'NEET UG': 'bg-red-500 text-white',
-  'Neet UG': 'text-red-500',
-  'NEET PG': 'bg-yellow-500 text-white',
-  'Neet PG': 'text-yellow-500',
-  'Notification': 'text-blue-500',
+  'Educational': 'bg-[#BFE6DB] text-[#00A88E]',
+  'Education': 'bg-[#BFE6DB] text-[#00A88E]',
+  'Exams': 'bg-[#FFE0B2] text-[#C77700]',
+  'Government': 'bg-[#D5DCE5] text-[#2C3E50]',
+  'Careers': 'bg-[#C9E2FF] text-[#004E89]',
+  'MBBS in India': 'bg-[#E8F5E9] text-[#2E7D32]',
+  'MBBS Abroad': 'bg-[#BFE6DB] text-[#00A88E]',
+  'Study Abroad': 'bg-[#BFE6DB] text-[#00A88E]',
+  'NEET UG': 'bg-[#FFEBEE] text-[#D32F2F]',
+  'Neet UG': 'bg-[#FFEBEE] text-[#D32F2F]',
+  'Neet-UG': 'bg-[#FFEBEE] text-[#D32F2F]',
+  'NEET PG': 'bg-[#FFF9C4] text-[#F9A825]',
+  'Neet PG': 'bg-[#FFF9C4] text-[#F9A825]',
+  'Notification': 'bg-[#E1F5FE] text-[#0288D1]',
 };
 
-const defaultCategoryColor = 'bg-[#005A8B] text-white';
+const defaultCategoryColor = 'bg-[#E3F2FD] text-[#005A8B]';
 
 const BlogsPage = () => {
   const [activeCategory, setActiveCategory] = useState('All');
@@ -150,6 +151,10 @@ const BlogsPage = () => {
 
   const gridBlogs = currentBlogs;
   const getCategoryColor = (cat: string) => categoryColors[cat] || defaultCategoryColor;
+  const getCategoryTextColor = (cat: string) => {
+    const style = getCategoryColor(cat);
+    return style.split(' ').find(s => s.startsWith('text-')) || style;
+  };
   const formatDate = (d: string) => {
     if (!d) return '';
     const date = new Date(d);
@@ -283,28 +288,24 @@ const BlogsPage = () => {
                   className="flex gap-3 md:gap-4 items-center flex-1 overflow-x-auto scrollbar-hide py-1 min-w-0"
                   style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                 >
-                  {categories.map((category) => (
-                    <button
-                      key={category}
-                      onClick={() => setActiveCategory(category)}
-                      className={`px-3 sm:px-4 md:px-5 py-1.5 rounded-full font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 text-xs sm:text-sm whitespace-nowrap shrink-0 ${activeCategory === category
-                        ? category === 'All'
-                          ? 'bg-[#2CBF0F] text-white shadow-md'
-                          : category === 'Education'
-                            ? 'bg-[#BFE6DB] text-[#00A88E] shadow-md'
-                            : category === 'Exams'
-                              ? 'bg-[#FFE0B2] text-[#C77700] shadow-md'
-                              : category === 'Government'
-                                ? 'bg-[#D5DCE5] text-[#2C3E50] shadow-md'
-                                : category === 'Neet-UG'
-                                  ? 'bg-[#C9E2FF] text-[#004E89] shadow-md'
-                                  : 'bg-[#C9E2FF] text-[#004E89] shadow-md'
-                        : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50 hover:border-gray-300'
-                        }`}
-                    >
-                      {category}
-                    </button>
-                  ))}
+                  {categories.map((category) => {
+                    const isActive = activeCategory === category;
+                    const isAll = category === 'All';
+                    const themeStyle = isAll ? 'bg-white text-gray-600 border-gray-200' : (categoryColors[category] || defaultCategoryColor);
+
+                    return (
+                      <button
+                        key={category}
+                        onClick={() => setActiveCategory(category)}
+                        className={`px-3 sm:px-4 md:px-5 py-1.5 rounded-full font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 text-xs sm:text-sm whitespace-nowrap shrink-0 border ${isActive
+                            ? 'bg-[#005A8B] text-white border-[#005A8B] shadow-md'
+                            : `${themeStyle} ${isAll ? '' : 'border-transparent'} hover:bg-[#005A8B] hover:text-white hover:border-[#005A8B]`
+                          }`}
+                      >
+                        {category}
+                      </button>
+                    );
+                  })}
                 </div>
 
                 {/* Right Arrow - Desktop/Tablet */}
@@ -369,7 +370,7 @@ const BlogsPage = () => {
                     <div className="pt-2 pb-4 md:pt-3 md:pb-6">
                       <div className="flex flex-wrap gap-2 mb-2">
                         {featuredBlog.category?.split(',').map((c) => c.trim()).filter(Boolean).map((cat, idx) => (
-                          <span key={idx} className={`inline-block ${getCategoryColor(cat)} pr-3 rounded-full text-base md:text-base`}>
+                          <span key={idx} className={`inline-block ${getCategoryTextColor(cat)} font-semibold text-xs md:text-sm`}>
                             {cat}
                           </span>
                         ))}
@@ -403,7 +404,7 @@ const BlogsPage = () => {
                     <div className={`bg-white md:pb-8 pb-4 transition-all duration-300 hover:-translate-y-1 cursor-pointer ${index < sidebarBlogs.length - 1 ? 'border-b-2 border-gray-200' : ''}`}>
                       <div className="flex flex-wrap gap-2 mb-2">
                         {post.category?.split(',').map((c) => c.trim()).filter(Boolean).map((cat, idx) => (
-                          <span key={idx} className={`inline-block ${getCategoryColor(cat)} pr-3 rounded-full text-xs md:text-sm`}>
+                          <span key={idx} className={`inline-block ${getCategoryTextColor(cat)} font-semibold text-xs md:text-sm`}>
                             {cat}
                           </span>
                         ))}
@@ -463,7 +464,7 @@ const BlogsPage = () => {
                       <div className="pt-4">
                         <div className="flex flex-wrap gap-2 mb-1 md:mb-2">
                           {blog.category?.split(',').map((c) => c.trim()).filter(Boolean).map((cat, idx) => (
-                            <span key={idx} className={`inline-block ${getCategoryColor(cat)} pr-3 rounded-full text-xs md:text-sm`}>
+                            <span key={idx} className={`inline-block ${getCategoryTextColor(cat)} font-semibold text-xs md:text-sm`}>
                               {cat}
                             </span>
                           ))}

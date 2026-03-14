@@ -12,6 +12,13 @@ export default function MBBSDeemedCollegesPage() {
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [submitMessage, setSubmitMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
+    const [searchTerm, setSearchTerm] = useState('');
+
+    const handleSearch = () => {
+        if (searchTerm.trim()) {
+            window.location.href = `/blogs?search=${encodeURIComponent(searchTerm.trim())}`;
+        }
+    };
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
@@ -150,7 +157,7 @@ export default function MBBSDeemedCollegesPage() {
                             <div className="relative z-10 min-w-[320px] sm:min-w-0">
                                 <table className="w-full border-collapse border border-gray-300 text-[10px] sm:text-xs md:text-sm table-fixed sm:table-auto">
                                     <thead>
-                                        <tr className="bg-[#E1F2FF]">
+                                        <tr className="bg-[#D4ECFF]">
                                             <th className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 text-left">S.NO</th>
                                             <th className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 text-left">NAME of the College</th>
                                             <th className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 text-left">
@@ -216,7 +223,7 @@ export default function MBBSDeemedCollegesPage() {
                         <div className="overflow-x-auto -mx-1 sm:mx-0 max-w-full rounded-lg border border-gray-200">
                             <table className="w-full border-collapse border border-gray-300 text-[10px] sm:text-xs md:text-sm min-w-[320px] sm:min-w-0 table-fixed sm:table-auto">
                                 <thead>
-                                    <tr className="bg-[#E1F2FF]">
+                                    <tr className="bg-[#D4ECFF]">
                                         <th className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 text-left">S.NO</th>
                                         <th className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 text-left">NAME of the College</th>
                                         <th className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 text-left">
@@ -299,7 +306,7 @@ export default function MBBSDeemedCollegesPage() {
                             <div className="overflow-x-auto -mx-1 sm:mx-0 max-w-full rounded-lg border border-gray-200">
                                 <table className="w-full border-collapse border border-gray-300 bg-white text-[10px] sm:text-xs md:text-sm min-w-[240px]">
                                     <thead>
-                                        <tr className="bg-[#E1F2FF]">
+                                        <tr className="bg-[#D4ECFF]">
                                             <th className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 md:py-3 text-left font-semibold">Category</th>
                                             <th className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 md:py-3 text-center font-semibold">
                                                 <span className="hidden sm:inline">Government Colleges Cutoff<br />(NEET Score)</span>
@@ -366,32 +373,40 @@ export default function MBBSDeemedCollegesPage() {
                 </div>
 
                 {/* RIGHT SIDEBAR */}
-                <div className="pt-4 lg:pt-30 space-y-4 sm:space-y-5 md:space-y-6 bg-[#E1F2FF] min-h-0 lg:min-h-screen min-w-0">
+                <div className="pt-4 lg:pt-30 space-y-4 sm:space-y-5 md:space-y-6 bg-[#D4ECFF] min-h-0 lg:min-h-screen min-w-0 lg:sticky lg:top-[132px] lg:self-start lg:h-[calc(100vh-132px)] lg:overflow-y-auto scrollbar-hide animate-fadeIn" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
 
                     {/* SEARCH */}
-                    <div className="bg-[#E1F2FF] px-4 md:px-5 lg:px-6 rounded-lg sm:rounded-xl m-0">
-                        <div className="flex rounded-full overflow-hidden border border-gray-200 sm:border-0 shadow-sm">
+                    <div className="bg-[#D4ECFF] px-4 md:px-5 lg:px-6 rounded-lg sm:rounded-xl m-0">
+                        <div className="relative flex items-center">
                             <input
                                 type="text"
                                 placeholder="search your blog here"
-                                className="h-9 sm:h-10 flex-1 min-w-0 px-3 sm:px-4 outline-none text-xs sm:text-sm bg-white placeholder-gray-700"
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                                onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+                                className="w-full h-9 sm:h-10 rounded-full bg-white shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 px-4 sm:px-5 text-xs sm:text-sm !placeholder-[#B3B3B3]"
                             />
-                            <button className="cursor-pointer bg-[#005A8B] text-white px-3 sm:px-4 py-2 sm:py-2 text-xs sm:text-sm font-medium touch-manipulation">
-                                Search
+                            <button
+                                onClick={handleSearch}
+                                className="absolute right-1 top-1/2 -translate-y-1/2 bg-[#005A8B] hover:bg-blue-700 text-white h-7 w-7 sm:h-8 sm:w-8 rounded-full transition-colors duration-200 flex items-center justify-center cursor-pointer"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 sm:h-5 sm:w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                </svg>
                             </button>
                         </div>
                     </div>
 
                     {/* GET IN TOUCH */}
-                    <div className="bg-[#E1F2FF] p-4 md:p-5 lg:p-6 rounded-lg sm:rounded-xl m-0">
+                    <div className="bg-[#D4ECFF] p-4 md:p-5 lg:p-6 rounded-lg sm:rounded-xl m-0 transition-transform hover:scale-[1.01] duration-300 shadow-sm">
                         <h3 className="text-xl md:text-2xl font-bold text-center text-gray-800 mb-6">
                             Get In Touch
                         </h3>
 
                         {submitMessage && (
                             <div className={`mb-4 p-3 rounded-lg text-sm ${submitMessage.type === 'success'
-                                    ? 'bg-green-100 text-green-700 border border-green-300'
-                                    : 'bg-red-100 text-red-700 border border-red-300'
+                                ? 'bg-green-100 text-green-700 border border-green-300'
+                                : 'bg-red-100 text-red-700 border border-red-300'
                                 }`}>
                                 {submitMessage.text}
                             </div>
@@ -404,7 +419,7 @@ export default function MBBSDeemedCollegesPage() {
                                 placeholder="Name"
                                 value={formData.name}
                                 onChange={handleInputChange}
-                                className="bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm min-h-[50px] touch-manipulation placeholder-gray-700"
+                                className="bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm text-gray-900 min-h-[50px] touch-manipulation placeholder-gray-700"
                                 required
                                 disabled={isSubmitting}
                             />
@@ -414,7 +429,7 @@ export default function MBBSDeemedCollegesPage() {
                                 placeholder="Email Address"
                                 value={formData.email}
                                 onChange={handleInputChange}
-                                className="bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm min-h-[50px] touch-manipulation placeholder-gray-700"
+                                className="bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm text-gray-900 min-h-[50px] touch-manipulation placeholder-gray-700"
                                 required
                                 disabled={isSubmitting}
                             />
@@ -424,7 +439,7 @@ export default function MBBSDeemedCollegesPage() {
                                 placeholder="Mobile Number"
                                 value={formData.mobile}
                                 onChange={handleInputChange}
-                                className="bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm min-h-[50px] touch-manipulation placeholder-gray-700"
+                                className="bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm text-gray-900 min-h-[50px] touch-manipulation placeholder-gray-700"
                                 required
                                 disabled={isSubmitting}
                             />
@@ -434,7 +449,7 @@ export default function MBBSDeemedCollegesPage() {
                                 placeholder="Select Course"
                                 value={formData.course}
                                 onChange={handleInputChange}
-                                className="bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm min-h-[50px] touch-manipulation placeholder-gray-700"
+                                className="bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm text-gray-900 min-h-[50px] touch-manipulation placeholder-gray-700"
                                 required
                                 disabled={isSubmitting}
                             />
@@ -450,15 +465,15 @@ export default function MBBSDeemedCollegesPage() {
                     </div>
 
                     {/* RELATED */}
-                    <div className="bg-[#E1F2FF] p-4 md:p-5 lg:p-6 m-0">
+                    <div className="bg-[#D4ECFF] p-4 md:p-5 lg:p-6 m-0">
                         <h3 className="text-base sm:text-lg font-bold text-[#287FC4] mb-3 sm:mb-4">
                             Related
                         </h3>
 
                         <div className="space-y-3 sm:space-y-4">
                             {[1, 2, 3].map((item) => (
-                                <div key={item} className="border-b border-gray-600 pb-2 sm:pb-3 last:border-b-0">
-                                    <h4 className="font-semibold text-gray-800 text-xs sm:text-sm md:text-base leading-tight">
+                                <div key={item} className="border-b border-[#ABABAB] pb-2 sm:pb-3 last:border-b-0 cursor-pointer group transition-colors duration-300">
+                                    <h4 className="font-semibold text-gray-800 text-xs sm:text-sm md:text-base leading-tight group-hover:text-[#287FC4] transition-colors">
                                         NEET Exam in India: Your Gateway to a Bright Medical
                                     </h4>
                                     <p className="text-xs text-gray-500 mt-1">
@@ -472,7 +487,7 @@ export default function MBBSDeemedCollegesPage() {
                     {/* ADVERTISEMENT BANNERS */}
                     <div className="lg:space-y-6 space-y-4 px-4 md:px-5 lg:px-6">
                         {/* Kyrgyzstan Banner */}
-                        <div className="rounded-lg sm:rounded-xl overflow-hidden max-w-full">
+                        <div className="rounded-lg sm:rounded-xl overflow-hidden max-w-full transform hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-xl">
                             <Image
                                 src="/images/deemed/banner-k.webp"
                                 alt="Study MBBS in Kyrgyzstan"
@@ -483,7 +498,7 @@ export default function MBBSDeemedCollegesPage() {
                         </div>
 
                         {/* NEET PG Banner */}
-                        <div className="rounded-lg sm:rounded-xl overflow-hidden max-w-full">
+                        <div className="rounded-lg sm:rounded-xl overflow-hidden max-w-full transform hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-xl">
                             <Image
                                 src="/images/deemed/banner-n.webp"
                                 alt="NEET PG Admission"
@@ -494,7 +509,7 @@ export default function MBBSDeemedCollegesPage() {
                         </div>
 
                         {/* Study Abroad Banner */}
-                        <div className="rounded-lg sm:rounded-xl overflow-hidden max-w-full">
+                        <div className="rounded-lg sm:rounded-xl overflow-hidden max-w-full transform hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-xl">
                             <Image
                                 src="/images/deemed/banner-mg.webp"
                                 alt="Study Abroad"
@@ -505,7 +520,7 @@ export default function MBBSDeemedCollegesPage() {
                         </div>
 
                         {/* Study India Banner */}
-                        <div className="rounded-lg sm:rounded-xl overflow-hidden max-w-full">
+                        <div className="rounded-lg sm:rounded-xl overflow-hidden max-w-full transform hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-xl">
                             <Image
                                 src="/images/deemed/banner-mp.webp"
                                 alt="Study in India"
@@ -592,8 +607,8 @@ function FAQSection() {
 
                     <div
                         className={`transition-all duration-300 ease-in-out ${openFAQ === index
-                                ? 'max-h-96 opacity-100'
-                                : 'max-h-0 opacity-0'
+                            ? 'max-h-96 opacity-100'
+                            : 'max-h-0 opacity-0'
                             } overflow-hidden`}
                     >
                         <div className="px-3 sm:px-4 pb-3 sm:pb-4 border-t border-gray-100">
