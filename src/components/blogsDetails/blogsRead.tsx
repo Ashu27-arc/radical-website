@@ -19,6 +19,32 @@ const formatDate = (d: string) => {
     return isNaN(date.getTime()) ? d : date.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
 };
 
+const categoryColors: Record<string, string> = {
+    'Educational': 'bg-[#BFE6DB] text-[#00A88E]',
+    'Education': 'bg-[#BFE6DB] text-[#00A88E]',
+    'Exams': 'bg-[#FFE0B2] text-[#C77700]',
+    'Government': 'bg-[#D5DCE5] text-[#2C3E50]',
+    'Careers': 'bg-[#C9E2FF] text-[#004E89]',
+    'MBBS in India': 'bg-[#E8F5E9] text-[#2E7D32]',
+    'MBBS Abroad': 'bg-[#BFE6DB] text-[#00A88E]',
+    'Study Abroad': 'bg-[#BFE6DB] text-[#00A88E]',
+    'NEET UG': 'bg-[#FFEBEE] text-[#D32F2F]',
+    'Neet UG': 'bg-[#FFEBEE] text-[#D32F2F]',
+    'Neet-UG': 'bg-[#FFEBEE] text-[#D32F2F]',
+    'NEET PG': 'bg-[#FFF9C4] text-[#F9A825]',
+    'Neet PG': 'bg-[#FFF9C4] text-[#F9A825]',
+    'Notification': 'bg-[#E1F5FE] text-[#0288D1]',
+};
+
+const defaultCategoryColor = 'bg-[#E3F2FD] text-[#005A8B]';
+
+const getCategoryColor = (cat: string) => categoryColors[cat] || defaultCategoryColor;
+
+const getCategoryTextColor = (cat: string) => {
+    const style = getCategoryColor(cat);
+    return style.split(' ').find(s => s.startsWith('text-')) || style;
+};
+
 // Remove background colors from pasted HTML (copied from other sites/CRMs) and fix spacing
 const sanitizeBlogContent = (html: string) => {
     if (!html) return '';
@@ -195,28 +221,24 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                                 className="flex gap-3 md:gap-4 items-center flex-1 overflow-x-auto scrollbar-hide py-1 min-w-0"
                                 style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
                             >
-                                {categories.map((category) => (
-                                    <button
-                                        key={category}
-                                        onClick={() => setActiveCategory(category)}
-                                        className={`px-3 sm:px-4 md:px-5 py-1.5 rounded-full font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 text-xs sm:text-sm whitespace-nowrap shrink-0 ${activeCategory === category
-                                            ? category === 'All'
-                                                ? 'bg-[#2CBF0F] text-white shadow-md'
-                                                : category === 'Education'
-                                                    ? 'bg-[#BFE6DB] text-[#00A88E] shadow-md'
-                                                    : category === 'Exams'
-                                                        ? 'bg-[#FFE0B2] text-[#C77700] shadow-md'
-                                                        : category === 'Government'
-                                                            ? 'bg-[#D5DCE5] text-[#2C3E50] shadow-md'
-                                                            : category === 'Careers'
-                                                                ? 'bg-[#C9E2FF] text-[#004E89] shadow-md'
-                                                                : 'bg-[#C9E2FF] text-[#004E89] shadow-md'
-                                            : 'bg-white text-gray-600 border border-gray-200 hover:bg-gray-50 hover:border-gray-300'
-                                            }`}
-                                    >
-                                        {category}
-                                    </button>
-                                ))}
+                                {categories.map((category) => {
+                                    const isActive = activeCategory === category;
+                                    const isAll = category === 'All';
+                                    const themeStyle = isAll ? 'bg-white text-gray-600 border-gray-200' : (categoryColors[category] || defaultCategoryColor);
+
+                                    return (
+                                        <button
+                                            key={category}
+                                            onClick={() => setActiveCategory(category)}
+                                            className={`px-3 sm:px-4 md:px-5 py-1.5 rounded-full font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 text-xs sm:text-sm whitespace-nowrap shrink-0 border ${isActive
+                                                ? 'bg-[#005A8B] text-white border-[#005A8B] shadow-md'
+                                                : `${themeStyle} ${isAll ? '' : 'border-transparent'} hover:bg-[#005A8B] hover:text-white hover:border-[#005A8B]`
+                                                }`}
+                                        >
+                                            {category}
+                                        </button>
+                                    );
+                                })}
                             </div>
 
                             {/* Right Arrow - Desktop/Tablet */}
@@ -274,7 +296,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                                     {/* Blog Category Badge */}
                                     <div className="mb-2 flex flex-wrap gap-2 mt-8">
                                         {blog.category?.split(',').map((c) => c.trim()).filter(Boolean).map((cat, idx) => (
-                                            <span key={idx} className="inline-block text-[#00A88E] pr-2.5 sm:pr-3 rounded text-xs sm:text-sm font-medium">
+                                            <span key={idx} className={`inline-block ${getCategoryTextColor(cat)} text-xs sm:text-sm font-semibold`}>
                                                 {cat}
                                             </span>
                                         ))}
