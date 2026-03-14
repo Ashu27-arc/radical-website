@@ -41,7 +41,7 @@ const NeetUpdateContent = () => {
     const [loading, setLoading] = useState(true);
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 6;
-    
+
     // Calculate pagination values
     const totalPages = Math.ceil(articles.length / itemsPerPage);
     const startIndex = (currentPage - 1) * itemsPerPage;
@@ -88,7 +88,7 @@ const NeetUpdateContent = () => {
     useEffect(() => {
         const removeHandler = addMessageHandler((data) => {
             console.log('Received NEET update message:', data);
-            
+
             switch (data.type) {
                 case 'NEW_NEET_UPDATE':
                     if (data.update) {
@@ -100,19 +100,19 @@ const NeetUpdateContent = () => {
                                 year: 'numeric'
                             })
                         };
-                        
+
                         // Add to the beginning of the list
                         setArticles(prev => [newArticle, ...prev]);
                         // Increment new update counter
                         setNewUpdateCount(prev => prev + 1);
-                        
+
                         // Auto-reset counter after 10 seconds
                         setTimeout(() => {
                             setNewUpdateCount(0);
                         }, 10000);
                     }
                     break;
-                    
+
                 case 'UPDATE_NEET_UPDATE':
                     if (data.update) {
                         const updatedArticle = {
@@ -123,16 +123,16 @@ const NeetUpdateContent = () => {
                                 year: 'numeric'
                             })
                         };
-                        
+
                         // Update existing article
-                        setArticles(prev => 
-                            prev.map(article => 
+                        setArticles(prev =>
+                            prev.map(article =>
                                 article.id === data.update.id ? updatedArticle : article
                             )
                         );
                     }
                     break;
-                    
+
                 case 'DELETE_NEET_UPDATE':
                     if (data.updateId) {
                         // Remove deleted article
@@ -231,32 +231,30 @@ const NeetUpdateContent = () => {
             )}
 
             {/* Search & Filter Section */}
-            <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-6 md:py-12">
-                <div className="flex flex-col xl:flex-row items-center justify-start gap-4 sm:gap-6">
+            <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-1 md:py-2">
+                <div className="flex flex-col xl:flex-row items-center justify-start gap-2">
                     {/* Search Bar */}
-                    <div className="flex flex-col sm:flex-row items-center gap-3 w-full xl:w-auto">
-                        <div className="relative w-full sm:w-[320px]">
-                            <input
-                                type="text"
-                                placeholder="search here"
-                                className="w-full h-11 sm:h-12 rounded-full pl-6 pr-4 bg-white border border-gray-100 shadow-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-100 text-sm"
-                            />
-                        </div>
-                        <button className="h-11 sm:h-12 w-full sm:w-auto px-8 rounded-full bg-[#005A8B] text-white font-medium hover:bg-[#024d7a] transition shadow-md text-sm">
-                            Search
+                    <div className="relative w-full sm:w-[320px]">
+                        <input
+                            type="text"
+                            placeholder="search here"
+                            className="w-full h-9 sm:h-10 rounded-full pl-5 pr-12 bg-white border border-gray-100 shadow-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-100 text-sm"
+                        />
+                        <button className="absolute right-1 top-1/2 -translate-y-1/2 h-7 w-7 sm:h-8 sm:w-8 rounded-full bg-[#005A8B] text-white flex items-center justify-center hover:bg-[#024d7a] transition shadow-md">
+                            <i className="pi pi-search text-xs sm:text-sm"></i>
                         </button>
                     </div>
 
                     {/* Filters */}
-                    <div className="flex flex-wrap items-center gap-2 sm:gap-3 w-full xl:w-auto justify-center xl:justify-start">
-                        <button className="h-9 sm:h-10 px-4 sm:px-6 rounded-full bg-[#2CBF0F] text-white font-medium hover:bg-[#34a834] transition shadow-sm text-sm">
+                    <div className="flex flex-wrap items-center gap-2 w-full xl:w-auto justify-center xl:justify-start">
+                        <button className="h-8 sm:h-9 px-3 sm:px-4 rounded-full bg-[#2CBF0F] text-white font-medium hover:bg-[#34a834] transition shadow-sm text-sm">
                             All
                         </button>
 
                         <div className="relative">
                             <button
                                 onClick={() => setIsCourseOpen(!isCourseOpen)}
-                                className="h-9 sm:h-10 px-4 sm:px-6 rounded-full bg-[#E0F4FF] text-[#035f94] font-medium flex items-center gap-2 hover:bg-[#d1e9fc] transition shadow-sm text-sm"
+                                className="h-8 sm:h-9 px-3 sm:px-4 rounded-full bg-[#E0F4FF] text-[#035f94] font-medium flex items-center gap-2 hover:bg-[#d1e9fc] transition shadow-sm text-sm"
                             >
                                 Course
                                 <i className={`pi pi-chevron-down text-[10px] sm:text-xs transition-transform ${isCourseOpen ? 'rotate-180' : ''}`}></i>
@@ -299,7 +297,7 @@ const NeetUpdateContent = () => {
                         {["Year", "Months", "State"].map((filter) => (
                             <div key={filter} className="relative">
                                 <button
-                                    className="h-9 sm:h-10 px-4 sm:px-6 rounded-full bg-[#E0F4FF] text-[#035f94] font-medium flex items-center gap-2 hover:bg-[#d1e9fc] transition shadow-sm text-sm"
+                                    className="h-8 sm:h-9 px-3 sm:px-4 rounded-full bg-[#E0F4FF] text-[#035f94] font-medium flex items-center gap-2 hover:bg-[#d1e9fc] transition shadow-sm text-sm"
                                 >
                                     {filter}
                                     <i className="pi pi-chevron-down text-[10px] sm:text-xs"></i>
@@ -319,42 +317,42 @@ const NeetUpdateContent = () => {
                 ) : (
                     <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 sm:gap-8">
                         {currentArticles.map((article, index) => (
-                        <Link
-                            key={`${article.id}-${startIndex + index}`}
-                            href="?details=true"
-                            target="_blank"
-                            className="bg-white rounded-2xl p-3 sm:p-4 transition border border-gray-50 flex flex-col sm:flex-row gap-4 sm:gap-6 items-start hover:shadow-md transition-shadow cursor-pointer block"
-                        >
-                            <div className="w-full sm:w-[180px] md:w-[200px] h-[180px] sm:h-[160px] flex-shrink-0 rounded-xl overflow-hidden relative block">
-                                <img
-                                    src={getArticleImageSrc(article.imageUrl)}
-                                    alt="Article Thumbnail"
-                                    className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
-                                    onError={(e) => {
-                                        const target = e.currentTarget;
-                                        if (target.src !== PLACEHOLDER_IMAGE) {
-                                            target.src = PLACEHOLDER_IMAGE;
-                                        }
-                                    }}
-                                />
-                            </div>
-                            <div className="flex-1 py-1 sm:pr-2">
-                                <span className="text-[#38b6ff] text-[10px] sm:text-xs font-semibold block mb-1 sm:mb-2">
-                                    {article.date}
-                                </span>
-                                <div>
-                                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 leading-tight mb-2 sm:mb-3 hover:text-[#035f94] transition-colors line-clamp-2">
-                                        {article.title}
-                                    </h3>
+                            <Link
+                                key={`${article.id}-${startIndex + index}`}
+                                href="?details=true"
+                                target="_blank"
+                                className="bg-white rounded-2xl p-3 sm:p-4 transition border border-gray-50 flex flex-col sm:flex-row gap-4 sm:gap-6 items-start hover:shadow-md transition-shadow cursor-pointer block"
+                            >
+                                <div className="w-full sm:w-[180px] md:w-[200px] h-[180px] sm:h-[160px] flex-shrink-0 rounded-xl overflow-hidden relative block">
+                                    <img
+                                        src={getArticleImageSrc(article.imageUrl)}
+                                        alt="Article Thumbnail"
+                                        className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-500"
+                                        onError={(e) => {
+                                            const target = e.currentTarget;
+                                            if (target.src !== PLACEHOLDER_IMAGE) {
+                                                target.src = PLACEHOLDER_IMAGE;
+                                            }
+                                        }}
+                                    />
                                 </div>
-                                <p className="text-gray-500 text-xs sm:text-sm leading-relaxed mb-1 line-clamp-2 sm:line-clamp-3">
-                                    {article.description}
-                                </p>
-                                <div className="mt-2 text-gray-500 text-xs sm:text-sm">
-                                    <span className="text-gray-400 hover:text-[#035f94] transition block">Read More...</span>
+                                <div className="flex-1 py-1 sm:pr-2">
+                                    <span className="text-[#38b6ff] text-[10px] sm:text-xs font-semibold block mb-1 sm:mb-2">
+                                        {article.date}
+                                    </span>
+                                    <div>
+                                        <h3 className="text-lg sm:text-xl font-bold text-gray-900 leading-tight mb-2 sm:mb-3 hover:text-[#035f94] transition-colors line-clamp-2">
+                                            {article.title}
+                                        </h3>
+                                    </div>
+                                    <p className="text-gray-500 text-xs sm:text-sm leading-relaxed mb-1 line-clamp-2 sm:line-clamp-3">
+                                        {article.description}
+                                    </p>
+                                    <div className="mt-2 text-gray-500 text-xs sm:text-sm">
+                                        <span className="text-gray-400 hover:text-[#035f94] transition block">Read More...</span>
+                                    </div>
                                 </div>
-                            </div>
-                        </Link>
+                            </Link>
                         ))}
                     </div>
                 )}
@@ -364,32 +362,32 @@ const NeetUpdateContent = () => {
             {articles.length > 0 && (
                 <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 pb-8 sm:pb-12">
                     <div className="bg-white rounded-full py-1.5 sm:py-2 px-3 sm:px-4 inline-flex items-center justify-center gap-1 mx-auto relative left-1/2 -translate-x-1/2 shadow-sm border border-gray-100 overflow-x-auto max-w-[90vw] no-scrollbar">
-                    <button 
-                        onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
-                        disabled={currentPage === 1}
-                        className={`whitespace-now600 px-2 h-8 sm:h-10 flex items-center justify-center transition text-xs sm:text-sm ${currentPage === 1 ? 'text-gray-300 cursor-not-allowed' : 'text-gray-400 hover:text-gray-600'}`}>
-                        <i className="pi pi-chevron-left text-[10px] sm:text-xs mr-1"></i> Prev
-                    </button>
-
-                    {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
                         <button
-                            key={pageNum}
-                            onClick={() => setCurrentPage(pageNum)}
-                            className={`w-7 h-7 sm:w-8 sm:h-8 flex-shrink-0 flex items-center justify-center rounded-full text-xs sm:text-sm font-medium transition-all ${pageNum === currentPage
-                                ? "bg-[#2980b9] text-white shadow-md"
-                                : "text-gray-500 hover:bg-gray-50"
-                                }`}
-                        >
-                            {pageNum}
+                            onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                            disabled={currentPage === 1}
+                            className={`whitespace-now600 px-2 h-8 sm:h-10 flex items-center justify-center transition text-xs sm:text-sm ${currentPage === 1 ? 'text-gray-300 cursor-not-allowed' : 'text-gray-400 hover:text-gray-600'}`}>
+                            <i className="pi pi-chevron-left text-[10px] sm:text-xs mr-1"></i> Prev
                         </button>
-                    ))}
 
-                    <button 
-                        onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
-                        disabled={currentPage === totalPages}
-                        className={`whitespace-nowrap px-2 h-8 sm:h-10 flex items-center justify-center transition text-xs sm:text-sm ${currentPage === totalPages ? 'text-gray-300 cursor-not-allowed' : 'text-gray-400 hover:text-gray-600'}`}>
-                        Next <i className="pi pi-chevron-right text-[10px] sm:text-xs ml-1"></i>
-                    </button>
+                        {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
+                            <button
+                                key={pageNum}
+                                onClick={() => setCurrentPage(pageNum)}
+                                className={`w-7 h-7 sm:w-8 sm:h-8 flex-shrink-0 flex items-center justify-center rounded-full text-xs sm:text-sm font-medium transition-all ${pageNum === currentPage
+                                    ? "bg-[#2980b9] text-white shadow-md"
+                                    : "text-gray-500 hover:bg-gray-50"
+                                    }`}
+                            >
+                                {pageNum}
+                            </button>
+                        ))}
+
+                        <button
+                            onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                            disabled={currentPage === totalPages}
+                            className={`whitespace-nowrap px-2 h-8 sm:h-10 flex items-center justify-center transition text-xs sm:text-sm ${currentPage === totalPages ? 'text-gray-300 cursor-not-allowed' : 'text-gray-400 hover:text-gray-600'}`}>
+                            Next <i className="pi pi-chevron-right text-[10px] sm:text-xs ml-1"></i>
+                        </button>
                     </div>
                 </section>
             )}

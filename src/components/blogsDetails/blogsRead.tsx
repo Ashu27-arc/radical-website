@@ -158,7 +158,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
             <div className="sticky top-[72px] sm:top-[80px] md:top-[90px] lg:top-[132px] z-10 bg-gray-50 py-2 sm:py-3 md:py-4 shadow-sm">
                 <div className="max-w-6xl mx-auto px-3 sm:px-4 md:px-6">
                     {/* Search Section */}
-                    <div className="flex flex-col lg:flex-row gap-3 sm:gap-4 items-stretch lg:items-start justify-start">
+                    <div className="flex flex-col lg:flex-row gap-2 sm:gap-2 items-stretch lg:items-start justify-start">
                         {/* Search Input with Icon */}
                         <div className="relative w-full lg:max-w-[450px] md:max-w-[320px] max-w-full">
                             <input
@@ -167,11 +167,11 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
                                 onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
-                                className="w-full px-3 sm:px-4 py-2.5 sm:py-2 pr-11 sm:pr-12 rounded-full bg-white shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700 placeholder-gray-400 text-sm sm:text-base min-h-[44px] sm:min-h-0"
+                                className="w-full px-3 sm:px-4 h-9 sm:h-10 rounded-full bg-white shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700 placeholder-gray-400 text-sm sm:text-base"
                             />
                             <button
                                 onClick={handleSearch}
-                                className="absolute right-1.5 sm:right-2 top-1/2 -translate-y-1/2 bg-[#005A8B] hover:bg-blue-700 text-white p-2 sm:p-2 rounded-full transition-colors duration-200 min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0 flex items-center justify-center"
+                                className="absolute right-1 top-1/2 -translate-y-1/2 bg-[#005A8B] hover:bg-blue-700 text-white h-7 w-7 sm:h-8 sm:w-8 rounded-full transition-colors duration-200 flex items-center justify-center"
                                 aria-label="Search"
                             >
                                 <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -199,7 +199,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                                     <button
                                         key={category}
                                         onClick={() => setActiveCategory(category)}
-                                        className={`px-3 sm:px-4 md:px-6 py-2 rounded-full font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 text-xs sm:text-sm whitespace-nowrap shrink-0 min-h-[40px] sm:min-h-0 ${activeCategory === category
+                                        className={`px-3 sm:px-4 md:px-5 py-1.5 rounded-full font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 text-xs sm:text-sm whitespace-nowrap shrink-0 ${activeCategory === category
                                             ? category === 'All'
                                                 ? 'bg-[#2CBF0F] text-white shadow-md'
                                                 : category === 'Education'
