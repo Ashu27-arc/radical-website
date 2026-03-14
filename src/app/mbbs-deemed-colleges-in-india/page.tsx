@@ -370,13 +370,13 @@ export default function MBBSDeemedCollegesPage() {
 
                     {/* SEARCH */}
                     <div className="bg-[#E1F2FF] px-4 md:px-5 lg:px-6 rounded-lg sm:rounded-xl m-0">
-                        <div className="flex rounded-full overflow-hidden border border-gray-200 sm:border-0">
+                        <div className="flex rounded-full overflow-hidden border border-gray-200 sm:border-0 shadow-sm">
                             <input
                                 type="text"
                                 placeholder="search your blog here"
-                                className="h-[50px] flex-1 min-w-0 px-3 sm:px-4 py-2.5 sm:py-2 outline-none text-xs sm:text-sm bg-white placeholder-gray-700"
+                                className="h-9 sm:h-10 flex-1 min-w-0 px-3 sm:px-4 outline-none text-xs sm:text-sm bg-white placeholder-gray-700"
                             />
-                            <button className="cursor-pointer bg-[#005A8B] text-white px-3 sm:px-4 md:px-6 py-2.5 sm:py-2 text-xs sm:text-sm font-medium touch-manipulation">
+                            <button className="cursor-pointer bg-[#005A8B] text-white px-3 sm:px-4 py-2 sm:py-2 text-xs sm:text-sm font-medium touch-manipulation">
                                 Search
                             </button>
                         </div>

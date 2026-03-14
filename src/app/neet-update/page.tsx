@@ -231,30 +231,30 @@ const NeetUpdateContent = () => {
             )}
 
             {/* Search & Filter Section */}
-            <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-2 md:py-4">
-                <div className="flex flex-col xl:flex-row items-center justify-start gap-3">
+            <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-1 md:py-2">
+                <div className="flex flex-col xl:flex-row items-center justify-start gap-2">
                     {/* Search Bar */}
                     <div className="relative w-full sm:w-[320px]">
                         <input
                             type="text"
                             placeholder="search here"
-                            className="w-full h-11 sm:h-12 rounded-full pl-6 pr-14 bg-white border border-gray-100 shadow-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-100 text-sm"
+                            className="w-full h-9 sm:h-10 rounded-full pl-5 pr-12 bg-white border border-gray-100 shadow-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-100 text-sm"
                         />
-                        <button className="absolute right-1.5 top-1/2 -translate-y-1/2 h-8 w-8 sm:h-9 sm:w-9 rounded-full bg-[#005A8B] text-white flex items-center justify-center hover:bg-[#024d7a] transition shadow-md">
+                        <button className="absolute right-1 top-1/2 -translate-y-1/2 h-7 w-7 sm:h-8 sm:w-8 rounded-full bg-[#005A8B] text-white flex items-center justify-center hover:bg-[#024d7a] transition shadow-md">
                             <i className="pi pi-search text-xs sm:text-sm"></i>
                         </button>
                     </div>
 
                     {/* Filters */}
-                    <div className="flex flex-wrap items-center gap-2 sm:gap-3 w-full xl:w-auto justify-center xl:justify-start">
-                        <button className="h-9 sm:h-10 px-4 sm:px-6 rounded-full bg-[#2CBF0F] text-white font-medium hover:bg-[#34a834] transition shadow-sm text-sm">
+                    <div className="flex flex-wrap items-center gap-2 w-full xl:w-auto justify-center xl:justify-start">
+                        <button className="h-8 sm:h-9 px-3 sm:px-4 rounded-full bg-[#2CBF0F] text-white font-medium hover:bg-[#34a834] transition shadow-sm text-sm">
                             All
                         </button>
 
                         <div className="relative">
                             <button
                                 onClick={() => setIsCourseOpen(!isCourseOpen)}
-                                className="h-9 sm:h-10 px-4 sm:px-6 rounded-full bg-[#E0F4FF] text-[#035f94] font-medium flex items-center gap-2 hover:bg-[#d1e9fc] transition shadow-sm text-sm"
+                                className="h-8 sm:h-9 px-3 sm:px-4 rounded-full bg-[#E0F4FF] text-[#035f94] font-medium flex items-center gap-2 hover:bg-[#d1e9fc] transition shadow-sm text-sm"
                             >
                                 Course
                                 <i className={`pi pi-chevron-down text-[10px] sm:text-xs transition-transform ${isCourseOpen ? 'rotate-180' : ''}`}></i>
@@ -297,7 +297,7 @@ const NeetUpdateContent = () => {
                         {["Year", "Months", "State"].map((filter) => (
                             <div key={filter} className="relative">
                                 <button
-                                    className="h-9 sm:h-10 px-4 sm:px-6 rounded-full bg-[#E0F4FF] text-[#035f94] font-medium flex items-center gap-2 hover:bg-[#d1e9fc] transition shadow-sm text-sm"
+                                    className="h-8 sm:h-9 px-3 sm:px-4 rounded-full bg-[#E0F4FF] text-[#035f94] font-medium flex items-center gap-2 hover:bg-[#d1e9fc] transition shadow-sm text-sm"
                                 >
                                     {filter}
                                     <i className="pi pi-chevron-down text-[10px] sm:text-xs"></i>

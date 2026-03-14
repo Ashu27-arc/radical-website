@@ -244,11 +244,11 @@ const BlogsPage = () => {
       </div>
 
       {/* Sticky Search and Category Section */}
-      <div className="sticky top-[100px] md:top-[110px] lg:top-[120px] z-40 bg-white/95 backdrop-blur-sm shadow-lg border-b border-gray-200 transition-all duration-200">
-        <div className="container mx-auto px-4 py-4 md:py-6">
+      <div className="sticky top-[100px] md:top-[110px] lg:top-[130px] z-40 bg-white/95 backdrop-blur-sm shadow-lg border-b border-gray-200 transition-all duration-200">
+        <div className="container mx-auto px-4 py-1.5 md:py-2">
           <div className="max-w-6xl mx-auto px-3 sm:px-4 md:px-6">
             {/* Search Section */}
-            <div className="flex flex-col lg:flex-row gap-4 sm:gap-4 items-stretch lg:items-center justify-start">
+            <div className="flex flex-col lg:flex-row gap-2 sm:gap-2 items-stretch lg:items-center justify-start">
               {/* Search Input with Icon */}
               <div className="relative w-full lg:max-w-[450px] md:max-w-[320px] max-w-full">
                 <input
@@ -256,10 +256,10 @@ const BlogsPage = () => {
                   placeholder="search your blog here"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full px-3 sm:px-4 py-2.5 sm:py-2 pr-11 sm:pr-12 rounded-full bg-white shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700 placeholder-gray-400 text-sm sm:text-base min-h-[44px] sm:min-h-0"
+                  className="w-full px-3 sm:px-4 h-9 sm:h-10 rounded-full bg-white shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700 placeholder-gray-400 text-sm sm:text-base"
                 />
                 <button
-                  className="absolute right-1.5 sm:right-2 top-1/2 -translate-y-1/2 bg-[#005A8B] hover:bg-blue-700 text-white p-2 sm:p-2 rounded-full transition-colors duration-200 min-w-[44px] min-h-[44px] sm:min-w-0 sm:min-h-0 flex items-center justify-center"
+                  className="absolute right-1 top-1/2 -translate-y-1/2 bg-[#005A8B] hover:bg-blue-700 text-white h-7 w-7 sm:h-8 sm:w-8 rounded-full transition-colors duration-200 flex items-center justify-center"
                   aria-label="Search"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -287,7 +287,7 @@ const BlogsPage = () => {
                     <button
                       key={category}
                       onClick={() => setActiveCategory(category)}
-                      className={`px-3 sm:px-4 md:px-6 py-2 rounded-full font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 text-xs sm:text-sm whitespace-nowrap shrink-0 min-h-[40px] sm:min-h-0 ${activeCategory === category
+                      className={`px-3 sm:px-4 md:px-5 py-1.5 rounded-full font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 text-xs sm:text-sm whitespace-nowrap shrink-0 ${activeCategory === category
                         ? category === 'All'
                           ? 'bg-[#2CBF0F] text-white shadow-md'
                           : category === 'Education'
