@@ -155,7 +155,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
         <div className="w-full min-w-0 bg-gray-50 relative animate-fadeIn">
             <FloatingWhatsApp />
             {/* Fixed Search Section - responsive padding & spacing */}
-            <div className="sticky top-[72px] sm:top-[80px] md:top-[90px] lg:top-[120px] z-10 bg-gray-50 py-2 sm:py-4 md:py-6 shadow-sm">
+            <div className="sticky top-[72px] sm:top-[80px] md:top-[90px] lg:top-[132px] z-10 bg-gray-50 py-2 sm:py-3 md:py-4 shadow-sm">
                 <div className="max-w-6xl mx-auto px-3 sm:px-4 md:px-6">
                     {/* Search Section */}
                     <div className="flex flex-col lg:flex-row gap-3 sm:gap-4 items-stretch lg:items-start justify-start">
@@ -248,9 +248,9 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
             </div>
 
             {/* Scrollable Content */}
-            <div className="pt-2 sm:pt-4">
+            <div className="lg:pt-14 md:pt-8 pt-6">
                 {/* main content */}
-                <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 mt-4 sm:mt-6 md:mt-8 lg:ml-22">
+                <div className="container px-4 mt-4 sm:mt-6 md:mt-8">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
                         {/* Blog Content - Left Side */}
                         <div className="lg:col-span-2">

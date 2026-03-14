@@ -298,7 +298,7 @@ export default function Home() {
           {/* Video popup modal - design with blue header & light background */}
           {videoPopup && (
             <div
-              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60"
+              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 z-100"
               onClick={() => setVideoPopup(null)}
               role="dialog"
               aria-modal="true"
