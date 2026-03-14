@@ -189,7 +189,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                         <div className="relative w-full lg:max-w-[450px] md:max-w-[320px] max-w-full">
                             <input
                                 type="text"
-                                placeholder="search your blog here"
+                                placeholder="search your dream college"
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
                                 onKeyDown={(e) => e.key === 'Enter' && handleSearch()}

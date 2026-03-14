@@ -258,7 +258,7 @@ const BlogsPage = () => {
               <div className="relative w-full lg:max-w-[450px] md:max-w-[320px] max-w-full">
                 <input
                   type="text"
-                  placeholder="search your blog here"
+                  placeholder="search your dream college"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full px-3 sm:px-4 h-9 sm:h-10 rounded-full bg-white shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700 placeholder-gray-400 text-sm sm:text-base"
