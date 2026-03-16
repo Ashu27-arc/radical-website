@@ -78,6 +78,22 @@ const BlogsPage = () => {
             setBlogs((prev) => prev.filter((b) => b.id !== data.blogId));
           }
           break;
+        case 'BULK_BANNER_UPDATE':
+          // Update all currently cached blogs with the new banner
+          const { newBannerUrl } = data;
+          if (newBannerUrl) {
+            setBlogs((prev) => prev.map((blog) => {
+              if (!blog.content) return blog;
+              const bannerRegex = /<div class="crm-embed"[^>]*>[\s\S]*?<iframe[^>]*src="https:\/\/xform-blogs\.vercel\.app\/banner[\s\S]*?<\/iframe>[\s\S]*?<\/div>|<iframe[^>]*src="https:\/\/xform-blogs\.vercel\.app\/banner[\s\S]*?<\/iframe>|<div class="crm-embed"[^>]*>[\s\S]*?<img[^>]*alt="Banner"[\s\S]*?<\/div>|<img[^>]*alt="Banner"[^>]*>/gi;
+              if (bannerRegex.test(blog.content)) {
+                 const newBannerHtml = `<div class="crm-embed" contenteditable="false" style="width:100%;max-width:900px;margin:0 auto;margin-bottom:20px;"><img src="${newBannerUrl}" alt="Banner" style="display:block;width:100%;height:auto;border-radius:12px;overflow:hidden;" /></div>`;
+                 bannerRegex.lastIndex = 0;
+                 return { ...blog, content: blog.content.replace(bannerRegex, newBannerHtml) };
+              }
+              return blog;
+            }));
+          }
+          break;
       }
     });
     return () => removeHandler();

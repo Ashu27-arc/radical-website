@@ -146,6 +146,17 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
             } else if (data.type === 'DELETE_BLOG' && data.blogId === blog?.id) {
                 // Redirect to blogs page if current blog is deleted
                 window.location.href = '/blogs';
+            } else if (data.type === 'BULK_BANNER_UPDATE') {
+                // Update banner in real-time if matches
+                const { newBannerUrl } = data;
+                if (newBannerUrl && blog?.content) {
+                    const bannerRegex = /<div class="crm-embed"[^>]*>[\s\S]*?<iframe[^>]*src="https:\/\/xform-blogs\.vercel\.app\/banner[\s\S]*?<\/iframe>[\s\S]*?<\/div>|<iframe[^>]*src="https:\/\/xform-blogs\.vercel\.app\/banner[\s\S]*?<\/iframe>|<div class="crm-embed"[^>]*>[\s\S]*?<img[^>]*alt="Banner"[\s\S]*?<\/div>|<img[^>]*alt="Banner"[^>]*>/gi;
+                    if (bannerRegex.test(blog.content)) {
+                        const newBannerHtml = `<div class="crm-embed" contenteditable="false" style="width:100%;max-width:900px;margin:0 auto;margin-bottom:20px;"><img src="${newBannerUrl}" alt="Banner" style="display:block;width:100%;height:auto;border-radius:12px;overflow:hidden;" /></div>`;
+                        bannerRegex.lastIndex = 0;
+                        setBlog({ ...blog, content: blog.content.replace(bannerRegex, newBannerHtml) });
+                    }
+                }
             }
         });
 
