@@ -25,7 +25,7 @@ interface PlaceData {
 const FALLBACK_DATA: PlaceData = {
   name: "Radical Education | RDLEDU Pvt Ltd",
   rating: 4.9,
-  user_ratings_total: 69,
+  user_ratings_total: 127,
   reviews: [
     {
       author_name: "Sonam Yadav",
