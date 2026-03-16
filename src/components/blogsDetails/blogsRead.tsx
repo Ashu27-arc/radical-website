@@ -58,11 +58,32 @@ const sanitizeBlogContent = (html: string) => {
     result = result.replace(/(<img[^>]*?)\s+height=["'][^"']*["']/gi, '$1');
     result = result.replace(/(<img[^>]*?)\s+style=["'][^"']*height:[^;"]*;?["']/gi, '$1');
 
-    // 2. Add allow="popups" AND class="crm-embed" to iframes so they style correctly
+    // 2. Add allow="popups" AND class="crm-embed" to iframes and force minimum height for xform-blogs embeds
     result = result.replace(
         /<iframe(?=\s)([^>]*?)(\s*\/?>)/gi,
-        (_, attrs, close) => {
+        (match: string, attrs: string, close: string) => {
             let newAttrs = attrs;
+
+            // Force enough height for xform-blogs iframes (WhatsApp/Banners) to prevent cut-off
+            if (/xform-blogs\.vercel\.app/i.test(newAttrs)) {
+                const isWhatsApp = /whatsapp/i.test(newAttrs);
+                const targetHeight = isWhatsApp ? '550px' : '500px';
+
+                if (/height\s*:\s*[^;"]*/i.test(newAttrs)) {
+                    // Replace existing inline style height
+                    newAttrs = newAttrs.replace(/height\s*:\s*(\d+)px/i, (match: string, h: string) => {
+                        return parseInt(h) < 400 ? `height:${targetHeight}` : match;
+                    });
+                } else if (!/style\s*=/i.test(newAttrs)) {
+                    newAttrs += ` style="height:${targetHeight};"`;
+                } else {
+                    newAttrs = newAttrs.replace(/style=["']([^"']*)["']/i, (_: string, s: string) => {
+                        if (!/height\s*:/i.test(s)) return `style="${s};height:${targetHeight};"`;
+                        return `style="${s}"`.replace(/height\s*:\s*(\d+)px/i, (m: string, h: string) => parseInt(h) < 400 ? `height:${targetHeight}` : m);
+                    });
+                }
+            }
+
             if (!/allow\s*=/i.test(newAttrs)) {
                 newAttrs += ' allow="popups"';
             }
@@ -94,7 +115,7 @@ const sanitizeBlogContent = (html: string) => {
     } while (result !== prev);
 
     // 6. Force inject margin-bottom: 0 onto all images to prevent CRM inline styles from overriding. Also reset padding and display.
-    result = result.replace(/<img([^>]*)>/gi, (match, attrs) => {
+    result = result.replace(/<img([^>]*)>/gi, (match: string, attrs: string) => {
         // Strip out existing margin and padding from inline style to avoid conflicts
         let cleanAttrs = attrs.replace(/margin[^:]*:[^;"]*;?/gi, '').replace(/padding[^:]*:[^;"]*;?/gi, '');
         if (/style="/i.test(cleanAttrs)) {
@@ -150,7 +171,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                 // Update banner in real-time if matches
                 const { newBannerUrl } = data;
                 if (newBannerUrl && blog?.content) {
-                    const bannerRegex = /<div class="crm-embed"[^>]*>[\s\S]*?<iframe[^>]*src="https:\/\/xform-blogs\.vercel\.app\/banner[\s\S]*?<\/iframe>[\s\S]*?<\/div>|<iframe[^>]*src="https:\/\/xform-blogs\.vercel\.app\/banner[\s\S]*?<\/iframe>|<div class="crm-embed"[^>]*>[\s\S]*?<img[^>]*alt="Banner"[\s\S]*?<\/div>|<img[^>]*alt="Banner"[^>]*>/gi;
+                    const bannerRegex = /<div class="crm-embed"[^>]*>[\s\S]*?<iframe[^>]*src="https:\/\/xform-blogs\.vercel\.app\/(banner|whatsapp)[^"]*"[\s\S]*?<\/iframe>[\s\S]*?<\/div>|<iframe[^>]*src="https:\/\/xform-blogs\.vercel\.app\/(banner|whatsapp)[^"]*"[\s\S]*?<\/iframe>|<div class="crm-embed"[^>]*>[\s\S]*?<img[^>]*alt="Banner"[\s\S]*?<\/div>|<img[^>]*alt="Banner"[^>]*>/gi;
                     if (bannerRegex.test(blog.content)) {
                         const newBannerHtml = `<div class="crm-embed" contenteditable="false" style="width:100%;max-width:900px;margin:0 auto;margin-bottom:20px;"><img src="${newBannerUrl}" alt="Banner" style="display:block;width:100%;height:auto;border-radius:12px;overflow:hidden;" /></div>`;
                         bannerRegex.lastIndex = 0;
