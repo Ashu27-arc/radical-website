@@ -168,12 +168,12 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                 // Redirect to blogs page if current blog is deleted
                 window.location.href = '/blogs';
             } else if (data.type === 'BULK_BANNER_UPDATE') {
-                // Update banner in real-time if matches
-                const { newBannerUrl } = data;
-                if (newBannerUrl && blog?.content) {
-                    const bannerRegex = /<div class="crm-embed"[^>]*>[\s\S]*?<iframe[^>]*src="https:\/\/xform-blogs\.vercel\.app\/(banner|whatsapp)[^"]*"[\s\S]*?<\/iframe>[\s\S]*?<\/div>|<iframe[^>]*src="https:\/\/xform-blogs\.vercel\.app\/(banner|whatsapp)[^"]*"[\s\S]*?<\/iframe>|<div class="crm-embed"[^>]*>[\s\S]*?<img[^>]*alt="Banner"[\s\S]*?<\/div>|<img[^>]*alt="Banner"[^>]*>/gi;
+                if (data.newBannerUrl && blog && blog.content) {
+                    // Highly aggressive regex to match all banner/widget variations (supports single/double quotes)
+                    const bannerRegex = /<div class="crm-embed"[^>]*>[\s\S]*?<iframe[^>]*src=["']https?:\/\/xform-blogs\.vercel\.app\/[^"']*["'][\s\S]*?<\/iframe>[\s\S]*?<\/div>|<iframe[^>]*src=["']https?:\/\/xform-blogs\.vercel\.app\/[^"']*["'][\s\S]*?<\/iframe>|<div class="crm-embed"[^>]*>[\s\S]*?<img[^>]*src=["'][^"']*\/uploads\/blogs\/blog-banner-[^"']*["'][\s\S]*?<\/iframe>|<img[^>]*src=["'][^"']*\/uploads\/blogs\/blog-banner-[^"']*["'][^>]*>|<div class="crm-embed"[^>]*>[\s\S]*?<img[^>]*alt=["'](Banner|Widget|Blog Banner|WhatsApp Banner|WhatsApp Widget)["'][^>]*>[\s\S]*?<\/div>|<img[^>]*alt=["'](Banner|Widget|Blog Banner|WhatsApp Banner|WhatsApp Widget)["'][^>]*>/gi;
+                    
                     if (bannerRegex.test(blog.content)) {
-                        const newBannerHtml = `<div class="crm-embed" contenteditable="false" style="width:100%;max-width:900px;margin:0 auto;margin-bottom:20px;"><img src="${newBannerUrl}" alt="Banner" style="display:block;width:100%;height:auto;border-radius:12px;overflow:hidden;" /></div>`;
+                        const newBannerHtml = `<div class="crm-embed" contenteditable="false" style="width:100%;max-width:900px;margin:20px auto;clear:both;"><img src="${data.newBannerUrl}" alt="Banner" style="display:block;width:100%;height:auto;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.1);" /></div>`;
                         bannerRegex.lastIndex = 0;
                         setBlog({ ...blog, content: blog.content.replace(bannerRegex, newBannerHtml) });
                     }
