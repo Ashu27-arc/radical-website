@@ -55,7 +55,7 @@ export default function Footer() {
     ],
     'bds': [
       { label: 'Andhra Pradesh', url: '/bds-andhra-pradesh' },
-      { label: 'BDS', url: '/bds-arunachal-pradesh' },
+      { label: 'Arunachal Pradesh', url: '/bds-arunachal-pradesh' },
       { label: 'Assam', url: '/bds-assam' },
       { label: 'Bihar', url: '/bds-bihar' },
       { label: 'Chhattisgarh', url: '/bds-chhattisgarh' },
