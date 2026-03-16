@@ -207,8 +207,8 @@ export default function Home() {
           </div>
           <div className="flex flex-wrap justify-center gap-6 fadeUp">
             {courses.map((course) => (
-              <div 
-                key={course.slug} 
+              <div
+                key={course.slug}
                 className="w-full sm:w-[calc(50%-0.75rem)] lg:w-[calc(33.333%-1rem)]"
               >
                 <CourseCard course={course} />
