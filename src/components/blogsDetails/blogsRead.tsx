@@ -67,19 +67,20 @@ const sanitizeBlogContent = (html: string) => {
             // Force enough height for xform-blogs iframes (WhatsApp/Banners) to prevent cut-off
             if (/xform-blogs\.vercel\.app/i.test(newAttrs)) {
                 const isWhatsApp = /whatsapp/i.test(newAttrs);
-                const targetHeight = isWhatsApp ? '550px' : '500px';
+                const targetHeight = isWhatsApp ? '1200px' : '1000px';
+                const targetHeightInt = parseInt(targetHeight);
 
                 if (/height\s*:\s*[^;"]*/i.test(newAttrs)) {
                     // Replace existing inline style height
                     newAttrs = newAttrs.replace(/height\s*:\s*(\d+)px/i, (match: string, h: string) => {
-                        return parseInt(h) < 400 ? `height:${targetHeight}` : match;
+                        return parseInt(h) < targetHeightInt ? `height:${targetHeight}` : match;
                     });
                 } else if (!/style\s*=/i.test(newAttrs)) {
                     newAttrs += ` style="height:${targetHeight};"`;
                 } else {
                     newAttrs = newAttrs.replace(/style=["']([^"']*)["']/i, (_: string, s: string) => {
                         if (!/height\s*:/i.test(s)) return `style="${s};height:${targetHeight};"`;
-                        return `style="${s}"`.replace(/height\s*:\s*(\d+)px/i, (m: string, h: string) => parseInt(h) < 400 ? `height:${targetHeight}` : m);
+                        return `style="${s}"`.replace(/height\s*:\s*(\d+)px/i, (m: string, h: string) => parseInt(h) < targetHeightInt ? `height:${targetHeight}` : m);
                     });
                 }
             }
@@ -170,7 +171,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
             } else if (data.type === 'BULK_BANNER_UPDATE') {
                 if (data.newBannerUrl && blog && blog.content) {
                     // Highly aggressive regex to match all banner/widget variations (supports single/double quotes)
-                    const bannerRegex = /<div class="crm-embed"[^>]*>[\s\S]*?<iframe[^>]*src=["']https?:\/\/xform-blogs\.vercel\.app\/[^"']*["'][\s\S]*?<\/iframe>[\s\S]*?<\/div>|<iframe[^>]*src=["']https?:\/\/xform-blogs\.vercel\.app\/[^"']*["'][\s\S]*?<\/iframe>|<div class="crm-embed"[^>]*>[\s\S]*?<img[^>]*src=["'][^"']*\/uploads\/blogs\/blog-banner-[^"']*["'][\s\S]*?<\/iframe>|<img[^>]*src=["'][^"']*\/uploads\/blogs\/blog-banner-[^"']*["'][^>]*>|<div class="crm-embed"[^>]*>[\s\S]*?<img[^>]*alt=["'](Banner|Widget|Blog Banner|WhatsApp Banner|WhatsApp Widget)["'][^>]*>[\s\S]*?<\/div>|<img[^>]*alt=["'](Banner|Widget|Blog Banner|WhatsApp Banner|WhatsApp Widget)["'][^>]*>/gi;
+                    const bannerRegex = /<div class="crm-embed"[^>]*>[\s\S]*?<iframe[^>]*src=["']https?:\/\/xform-blogs\.vercel\.app\/[^"']*["'][\s\S]*?<\/iframe>[\s\S]*?<\/div>|<iframe[^>]*src=["']https?:\/\/xform-blogs\.vercel\.app\/[^"']*["'][\s\S]*?<\/iframe>|<div class="crm-embed"[^>]*>[\s\S]*?<img[^>]*src=["'][^"']*\/uploads\/blogs\/blog-banner-[^"']*["'][\s\S]*?<\/div>|<img[^>]*src=["'][^"']*\/uploads\/blogs\/blog-banner-[^"']*["'][^>]*>|<div class="crm-embed"[^>]*>[\s\S]*?<img[^>]*alt=["'](Banner|Widget|Blog Banner|WhatsApp Banner|WhatsApp Widget)["'][^>]*>[\s\S]*?<\/div>|<img[^>]*alt=["'](Banner|Widget|Blog Banner|WhatsApp Banner|WhatsApp Widget)["'][^>]*>/gi;
                     
                     if (bannerRegex.test(blog.content)) {
                         const newBannerHtml = `<div class="crm-embed" contenteditable="false" style="width:100%;max-width:900px;margin:20px auto;clear:both;"><img src="${data.newBannerUrl}" alt="Banner" style="display:block;width:100%;height:auto;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.1);" /></div>`;
