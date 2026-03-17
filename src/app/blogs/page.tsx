@@ -84,11 +84,11 @@ const BlogsPage = () => {
           if (newBannerUrl) {
             setBlogs((prev) => prev.map((blog) => {
               if (!blog.content) return blog;
-              const bannerRegex = /<div class="crm-embed"[^>]*>[\s\S]*?<iframe[^>]*src="https:\/\/xform-blogs\.vercel\.app\/banner[\s\S]*?<\/iframe>[\s\S]*?<\/div>|<iframe[^>]*src="https:\/\/xform-blogs\.vercel\.app\/banner[\s\S]*?<\/iframe>|<div class="crm-embed"[^>]*>[\s\S]*?<img[^>]*alt="Banner"[\s\S]*?<\/div>|<img[^>]*alt="Banner"[^>]*>/gi;
+              const bannerRegex = /<div class="crm-embed"[^>]*>[\s\S]*?<iframe[^>]*src=["']https?:\/\/xform-blogs\.vercel\.app\/[^"']*["'][\s\S]*?<\/iframe>[\s\S]*?<\/div>|<iframe[^>]*src=["']https?:\/\/xform-blogs\.vercel\.app\/[^"']*["'][\s\S]*?<\/iframe>|<div class="crm-embed"[^>]*>[\s\S]*?<img[^>]*src=["'][^"']*\/uploads\/blogs\/blog-banner-[^"']*["'][\s\S]*?<\/div>|<img[^>]*src=["'][^"']*\/uploads\/blogs\/blog-banner-[^"']*["'][^>]*>|<div class="crm-embed"[^>]*>[\s\S]*?<img[^>]*alt=["'](Banner|Widget|Blog Banner|WhatsApp Banner|WhatsApp Widget)["'][^>]*>[\s\S]*?<\/div>|<img[^>]*alt=["'](Banner|Widget|Blog Banner|WhatsApp Banner|WhatsApp Widget)["'][^>]*>/gi;
               if (bannerRegex.test(blog.content)) {
-                 const newBannerHtml = `<div class="crm-embed" contenteditable="false" style="width:100%;max-width:900px;margin:0 auto;margin-bottom:20px;"><img src="${newBannerUrl}" alt="Banner" style="display:block;width:100%;height:auto;border-radius:12px;overflow:hidden;" /></div>`;
-                 bannerRegex.lastIndex = 0;
-                 return { ...blog, content: blog.content.replace(bannerRegex, newBannerHtml) };
+                const newBannerHtml = `<div class="crm-embed" contenteditable="false" style="width:100%;max-width:900px;margin:0 auto;margin-bottom:20px;"><img src="${newBannerUrl}" alt="Banner" style="display:block;width:100%;height:auto;border-radius:12px;overflow:hidden;" /></div>`;
+                bannerRegex.lastIndex = 0;
+                return { ...blog, content: blog.content.replace(bannerRegex, newBannerHtml) };
               }
               return blog;
             }));
@@ -314,8 +314,8 @@ const BlogsPage = () => {
                         key={category}
                         onClick={() => setActiveCategory(category)}
                         className={`px-3 sm:px-4 md:px-5 py-1.5 rounded-full font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 text-xs sm:text-sm whitespace-nowrap shrink-0 border ${isActive
-                            ? 'bg-[#005A8B] text-white border-[#005A8B] shadow-md'
-                            : `${themeStyle} ${isAll ? '' : 'border-transparent'} hover:bg-[#005A8B] hover:text-white hover:border-[#005A8B]`
+                          ? 'bg-[#005A8B] text-white border-[#005A8B] shadow-md'
+                          : `${themeStyle} ${isAll ? '' : 'border-transparent'} hover:bg-[#005A8B] hover:text-white hover:border-[#005A8B]`
                           }`}
                       >
                         {category}

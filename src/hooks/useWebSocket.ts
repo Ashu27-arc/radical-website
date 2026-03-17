@@ -40,7 +40,7 @@ export function useWebSocket(
     let token = null;
     if (typeof window !== 'undefined') {
       token = localStorage.getItem('token') || sessionStorage.getItem('token') || null;
-      
+
       // If no token found, check for JWT in cookies
       if (!token) {
         const cookies = document.cookie.split(';');
@@ -50,9 +50,9 @@ export function useWebSocket(
         }
       }
     }
-    
+
     console.log('WebSocket connecting with token:', token ? 'present' : 'undefined');
-    
+
     // Connect to Socket.IO server
     const newSocket = io(urlRef.current, {
       auth: token ? { token } : undefined,
@@ -105,7 +105,7 @@ export function useWebSocket(
     newSocket.on('connect_error', (error) => {
       console.error('Socket.IO connection error:', error);
       setError(`Socket.IO connection error: ${error.message || 'Unknown error'}`);
-      
+
       // Don't attempt reconnection for authentication errors
       if (error.message && error.message.includes('Authentication error')) {
         console.log('Authentication failed, stopping reconnection attempts');
@@ -116,13 +116,13 @@ export function useWebSocket(
     // Listen for all incoming messages
     newSocket.onAny((event, data) => {
       console.log('Socket.IO message received:', { type: event, ...data });
-      
+
       // Validate message structure
       if (!event || typeof event !== 'string') {
         console.warn('Invalid WebSocket message format - missing event type');
         return;
       }
-      
+
       // Notify all registered handlers
       messageHandlersRef.current.forEach((handler) => {
         try {
@@ -167,7 +167,7 @@ export function useWebSocket(
 
   useEffect(() => {
     connect();
-    
+
     return () => {
       disconnect();
     };

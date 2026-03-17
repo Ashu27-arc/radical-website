@@ -86,9 +86,9 @@ export async function getBlogs(): Promise<Blog[]> {
   try {
     const response = await apiClient.get('/api/blogs', {
       params: { _t: Date.now() },
-      headers: { 
+      headers: {
         'Cache-Control': 'no-cache, no-store, must-revalidate',
-        'Pragma': 'no-cache' 
+        'Pragma': 'no-cache'
       }
     });
     return Array.isArray(response.data) ? response.data : [];
@@ -102,9 +102,9 @@ export async function getBlogBySlug(slug: string): Promise<Blog | null> {
   try {
     const response = await apiClient.get(`/api/blogs/slug/${encodeURIComponent(slug)}`, {
       params: { _t: Date.now() },
-      headers: { 
+      headers: {
         'Cache-Control': 'no-cache, no-store, must-revalidate',
-        'Pragma': 'no-cache' 
+        'Pragma': 'no-cache'
       }
     });
     return response.data;
@@ -119,17 +119,17 @@ export async function getNeetUpdates(): Promise<NeetUpdate[]> {
   try {
     const response = await apiClient.get('/api/neet-updates', {
       params: { _t: Date.now() },
-      headers: { 
+      headers: {
         'Cache-Control': 'no-cache, no-store, must-revalidate',
-        'Pragma': 'no-cache' 
+        'Pragma': 'no-cache'
       }
     });
-    
+
     console.log('NEET updates API response:', response.data);
     return response.data.data || [];
   } catch (error) {
     console.error('Error fetching NEET updates:', error);
-    
+
     // Return mock data only in development
     if (process.env.NODE_ENV === 'development') {
       console.log('Returning mock data for development');
@@ -158,7 +158,7 @@ export async function getNeetUpdates(): Promise<NeetUpdate[]> {
         }
       ];
     }
-    
+
     throw error;
   }
 }
