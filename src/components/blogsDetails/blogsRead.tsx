@@ -64,19 +64,41 @@ const sanitizeBlogContent = (html: string) => {
         (match: string, attrs: string, close: string) => {
             let newAttrs = attrs;
 
-            // Use the CRM-specified height for xform-blogs iframes (150px for banners, 150px for WhatsApp)
             if (/xform-blogs\.vercel\.app/i.test(newAttrs)) {
-                const targetHeight = '150px';
+                // Banner / WhatsApp widget iframes → keep fixed 150px + clip overflow (unchanged)
+                const isBanner = /banner|whatsapp/i.test(newAttrs);
 
+                if (isBanner) {
+                    const targetHeight = '150px';
+                    if (/style=["'][^"']*["']/i.test(newAttrs)) {
+                        newAttrs = newAttrs.replace(/style=["']([^"']*)["']/i, (_: string, s: string) => {
+                            let res = s.replace(/height\s*:[^;"!]*(!important)?;?/gi, '');
+                            res = res.replace(/min-height\s*:[^;"!]*(!important)?;?/gi, '');
+                            return `style="${res};height:${targetHeight} !important;min-height:${targetHeight};overflow:hidden;"`;
+                        });
+                    } else {
+                        newAttrs += ` style="height:${targetHeight} !important;min-height:${targetHeight};overflow:hidden;"`;
+                    }
+                } else {
+                    // Embedded forms → only add min-height, do NOT force fixed height or clip overflow
+                    if (/style=["'][^"']*["']/i.test(newAttrs)) {
+                        newAttrs = newAttrs.replace(/style=["']([^"']*)["']/i, (_: string, s: string) => {
+                            const res = s.replace(/min-height\s*:[^;"!]*(!important)?;?/gi, '');
+                            return `style="${res};min-height:450px;"`;
+                        });
+                    } else {
+                        newAttrs += ` style="min-height:450px;"`;
+                    }
+                }
+            } else {
+                // Non-xform-blogs iframes (Google Forms, Typeform etc.) → add min-height so they don't get clipped
                 if (/style=["'][^"']*["']/i.test(newAttrs)) {
                     newAttrs = newAttrs.replace(/style=["']([^"']*)["']/i, (_: string, s: string) => {
-                        // Replace any existing height with exactly 150px
-                        let res = s.replace(/height\s*:[^;"!]*(!important)?;?/gi, '');
-                        res = res.replace(/min-height\s*:[^;"!]*(!important)?;?/gi, '');
-                        return `style="${res};height:${targetHeight} !important;min-height:${targetHeight};overflow:hidden;"`;
+                        const res = s.replace(/min-height\s*:[^;"!]*(!important)?;?/gi, '');
+                        return `style="${res};min-height:350px;"`;
                     });
                 } else {
-                    newAttrs += ` style="height:${targetHeight} !important;min-height:${targetHeight};overflow:hidden;"`;
+                    newAttrs += ` style="min-height:350px;"`;
                 }
             }
 

@@ -1647,3 +1647,22 @@ input:autofill {
     padding: 0 !important;
 }
 
+/* ── Blog content: preserve spaces around hyperlinks ─────────────────────── */
+/* Text links must stay inline so browser-rendered spaces around them show up */
+.blog-content a:not(:has(img)) {
+    display: inline !important;
+    white-space: normal;
+}
+
+/* ── Blog content: embedded iframes (forms) must not be clipped ──────────── */
+.blog-content iframe {
+    min-height: 350px;
+    display: block;
+    margin: 0 auto;
+}
+
+/* Banner/WhatsApp iframes override back to their small fixed height */
+.blog-content iframe[style*="overflow:hidden"] {
+    min-height: unset !important;
+}
+
