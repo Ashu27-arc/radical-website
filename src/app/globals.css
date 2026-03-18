@@ -1599,11 +1599,19 @@ input:autofill {
    in blog post content.
    ===================================================== */
 .blog-content .crm-embed,
-.blog-content .crm-embed * {
+.blog-content .crm-embed:not(:has(a)):not(:has(p)) * {
     margin: 0 !important;
     padding: 0 !important;
     line-height: 0 !important;
     font-size: 0 !important;
+}
+
+/* Ensure links and text inside crm-embed (if any) are visible */
+.blog-content .crm-embed a,
+.blog-content .crm-embed p,
+.blog-content .crm-embed span {
+    line-height: normal !important;
+    font-size: inherit !important;
 }
 
 .blog-content .crm-embed img {
@@ -1613,8 +1621,10 @@ input:autofill {
     vertical-align: bottom !important;
 }
 
-.blog-content iframe.crm-embed-iframe,
-.blog-content .crm-embed iframe {
+.blog-content iframe.crm-embed-iframe:not([height]),
+.blog-content iframe.crm-embed-iframe[height="150"],
+.blog-content .crm-embed iframe:not([height]),
+.blog-content .crm-embed iframe[height="150"] {
     display: block !important;
     margin: 0 !important;
     padding: 0 !important;
@@ -1623,6 +1633,14 @@ input:autofill {
     min-height: 150px !important;
     max-height: 150px !important;
     overflow: hidden !important;
+}
+
+.blog-content iframe.crm-embed-iframe[height="500"],
+.blog-content .crm-embed iframe[height="500"] {
+    min-height: 500px !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
 }
 
 /* Kill any &nbsp; or text-node whitespace that sneaks in */

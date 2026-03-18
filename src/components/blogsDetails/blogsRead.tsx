@@ -156,8 +156,8 @@ const sanitizeBlogContent = (html: string) => {
     result = result.replace(/[\u200B-\u200D\uFEFF]/g, '');
 
     // 8. Trim spaces between image and the next block element completely
-    // NOTE: Do NOT include <\/a> here — that would strip spaces between text hyperlinks
-    result = result.replace(/(<img[^>]+>)\s+(?=<)/gi, '$1');
+    // NOTE: Do NOT include <\/a> or link start here — that would strip spaces between text hyperlinks
+    result = result.replace(/(<img[^>]+>)\s+(?=<[^a/])/gi, '$1');
 
     // 9. Final trim of whitespace at start/end
     return result.trim();

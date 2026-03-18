@@ -3,8 +3,18 @@
     max-width: 1330px;
     margin: 0 auto;
 }
-.blog-content ifrem{
-    margin-bottom: 20px !important;
+.blog-content iframe {
+    margin-bottom: 24px !important;
+}
+
+.blog-content a:not(:has(img)) {
+    color: #005A8B !important;
+    text-decoration: underline !important;
+    font-weight: 600;
+}
+
+.blog-content a:not(:has(img)):hover {
+    color: #003450 !important;
 }
 .hdrBtm {
     .deskMnu {
