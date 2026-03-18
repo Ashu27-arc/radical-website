@@ -96,8 +96,9 @@ const sanitizeBlogContent = (html: string) => {
     result = result.replace(/(<\/(?:div|iframe|img)>)\s*<br\s*\/?>/gi, '$1');
     result = result.replace(/<br\s*\/?>\s*(<(?:div|iframe|img)[^>]*>)/gi, '$1');
 
-    // 3b. Strip all standalone &nbsp; text nodes (naked &nbsp; between tags cause large whitespace gaps)
-    result = result.replace(/>\s*(&nbsp;|\u00A0)+\s*</g, '><');
+    // 3b. Strip standalone &nbsp; text nodes ONLY between block-level elements (not inline/link context)
+    // We intentionally do NOT strip &nbsp; after </a> or before <a> to preserve spaces around hyperlinks
+    result = result.replace(/(<\/(?:div|p|h[1-6]|ul|ol|li|table|tr|td|th|figure|section|article|aside|header|footer|blockquote)>)\s*(?:&nbsp;|\u00A0)+\s*(?=<)/gi, '$1');
     result = result.replace(/&nbsp;(?=\s*<(?:div|p|br|h[1-6]|ul|ol|li|table|tr|td|th|img|iframe|figure|section|article|aside|header|footer|blockquote)[\s>])/gi, '');
     result = result.replace(/(?<=<\/(?:div|p|br|h[1-6]|ul|ol|li|table|tr|td|th|img|iframe|figure|section|article|aside|header|footer|blockquote)>)\s*&nbsp;/gi, '');
 
@@ -121,11 +122,11 @@ const sanitizeBlogContent = (html: string) => {
         // Strip out existing margin and padding from inline style to avoid conflicts
         let cleanAttrs = attrs.replace(/margin[^:]*:[^;"]*;?/gi, '').replace(/padding[^:]*:[^;"]*;?/gi, '');
         if (/style="/i.test(cleanAttrs)) {
-            return `<img${cleanAttrs.replace(/style="/i, 'style="margin: 0 !important; padding: 0 !important; display: block !important; ')}>`;
+            return `<img${cleanAttrs.replace(/style="/i, 'style="margin: 0 auto !important; padding: 0 !important; display: block !important; ')}>`;
         } else if (/style='/i.test(cleanAttrs)) {
-            return `<img${cleanAttrs.replace(/style='/i, "style='margin: 0 !important; padding: 0 !important; display: block !important; ")}>`;
+            return `<img${cleanAttrs.replace(/style='/i, "style='margin: 0 auto !important; padding: 0 !important; display: block !important; ")}>`;
         } else {
-            return `<img${cleanAttrs} style="margin: 0 !important; padding: 0 !important; display: block !important;">`;
+            return `<img${cleanAttrs} style="margin: 0 auto !important; padding: 0 !important; display: block !important;">`;
         }
     });
 
@@ -133,7 +134,8 @@ const sanitizeBlogContent = (html: string) => {
     result = result.replace(/[\u200B-\u200D\uFEFF]/g, '');
 
     // 8. Trim spaces between image and the next block element completely
-    result = result.replace(/(<img[^>]+>|<\/a>)\s+(?=<)/gi, '$1');
+    // NOTE: Do NOT include <\/a> here — that would strip spaces between text hyperlinks
+    result = result.replace(/(<img[^>]+>)\s+(?=<)/gi, '$1');
 
     // 9. Final trim of whitespace at start/end
     return result.trim();
@@ -210,7 +212,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                     const bannerRegex = /<div class="crm-embed"[^>]*>[\s\S]*?<iframe[^>]*src=["']https?:\/\/xform-blogs\.vercel\.app\/[^"']*["'][\s\S]*?<\/iframe>[\s\S]*?<\/div>|<iframe[^>]*src=["']https?:\/\/xform-blogs\.vercel\.app\/[^"']*["'][\s\S]*?<\/iframe>|<div class="crm-embed"[^>]*>[\s\S]*?<img[^>]*src=["'][^"']*\/uploads\/blogs\/blog-banner-[^"']*["'][\s\S]*?<\/div>|<img[^>]*src=["'][^"']*\/uploads\/blogs\/blog-banner-[^"']*["'][^>]*>|<div class="crm-embed"[^>]*>[\s\S]*?<img[^>]*alt=["'](Banner|Widget|Blog Banner|WhatsApp Banner|WhatsApp Widget)["'][^>]*>[\s\S]*?<\/div>|<img[^>]*alt=["'](Banner|Widget|Blog Banner|WhatsApp Banner|WhatsApp Widget)["'][^>]*>/gi;
                     
                     if (bannerRegex.test(blog.content)) {
-                        const newBannerHtml = `<div class="crm-embed" contenteditable="false" style="width:100%;max-width:900px;margin:0;padding:0;clear:both;"><img src="${data.newBannerUrl}" alt="Banner" style="display:block;width:100%;height:auto;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.1);margin:0;padding:0;" /></div>`;
+                        const newBannerHtml = `<div class="crm-embed" contenteditable="false" style="width:100%;max-width:900px;margin:0 auto;padding:0;clear:both;"><img src="${data.newBannerUrl}" alt="Banner" style="display:block;width:100%;height:auto;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.1);margin:0 auto;padding:0;" /></div>`;
                         bannerRegex.lastIndex = 0;
                         setBlog({ ...blog, content: blog.content.replace(bannerRegex, newBannerHtml) });
                     }
@@ -404,7 +406,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
 
                                     {/* Blog Content - responsive text & line height */}
                                     <div
-                                        className="blog-content max-w-none text-gray-800 mb-4 text-sm sm:text-[15px] md:text-[17px] leading-7 sm:leading-8 wrap-break-word [&_p]:text-justify [&_p]:mb-3 sm:[&_p]:mb-3 [&_p:has(img)]:!mb-0 sm:[&_p:has(img)]:!mb-0 [&_figure]:!m-0 [&_figure]:!p-0 [&_h1]:m-0 [&_h2]:m-0 [&_h3]:m-0 [&_h4]:m-0 [&_h5]:m-0 [&_h6]:m-0 [&_img]:max-w-full [&_img]:h-auto [&_img]:!block [&_img]:!m-0 [&_img]:!p-0 [&_img+*]:!mt-0 [&_a:has(img)]:!block [&_a:has(img)]:!m-0 [&_a:has(img)]:!p-0 [&_a:has(img)]:!leading-[0px] [&_a:has(img)]:!text-[0px] [&_a:has(img)+*]:!mt-0 [&_.crm-embed]:!m-0 [&_.crm-embed]:!p-0 [&_.crm-embed]:!block [&_.crm-embed+*]:!mt-0 [&_iframe]:!m-0 [&_iframe]:!p-0 [&_iframe]:mx-auto [&_iframe]:!block"
+                                        className="blog-content max-w-none text-gray-800 mb-4 text-sm sm:text-[15px] md:text-[17px] leading-7 sm:leading-8 wrap-break-word [&_p]:text-justify [&_p]:mb-3 sm:[&_p]:mb-3 [&_p:has(img)]:!mb-0 sm:[&_p:has(img)]:!mb-0 [&_figure]:!m-0 [&_figure]:!p-0 [&_h1]:m-0 [&_h2]:m-0 [&_h3]:m-0 [&_h4]:m-0 [&_h5]:m-0 [&_h6]:m-0 [&_img]:max-w-full [&_img]:h-auto [&_img]:!block [&_img]:!my-0 [&_img]:mx-auto [&_img]:!p-0 [&_img+*]:!mt-0 [&_a:has(img)]:!block [&_a:has(img)]:!m-0 [&_a:has(img)]:!p-0 [&_a:has(img)]:!leading-[0px] [&_a:has(img)]:!text-[0px] [&_a:has(img)+*]:!mt-0 [&_.crm-embed]:!my-0 [&_.crm-embed]:mx-auto [&_.crm-embed]:!p-0 [&_.crm-embed]:!block [&_.crm-embed+*]:!mt-0 [&_iframe]:!m-0 [&_iframe]:!p-0 [&_iframe]:mx-auto [&_iframe]:!block"
                                         style={{ wordBreak: 'break-word', overflowWrap: 'anywhere', fontFamily: 'Metropolis, sans-serif' }}
                                         dangerouslySetInnerHTML={{ __html: sanitizeBlogContent(blog.content || blog.excerpt || '') }}
                                     />
