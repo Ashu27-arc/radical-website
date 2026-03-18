@@ -166,6 +166,12 @@ const sanitizeBlogContent = (html: string) => {
     // NOTE: Do NOT include <\/a> or link start here — that would strip spaces between text hyperlinks
     result = result.replace(/(<img[^>]+>)\s+(?=<[^a/])/gi, '$1');
 
+    // 8b. Fix missing spaces around hyperlinks (common issue with editor/CRM rendering)
+    // Add a space before <a> if it's immediately preceded by text or a block element closing
+    result = result.replace(/([^\s>(])<a\s/gi, '$1 <a ');
+    // Add a space after </a> if it's immediately followed by a character that isn't space or punctuation
+    result = result.replace(/<\/a>([^\s.,!?;:)<])/gi, '</a> $1');
+
     // 9. Final trim of whitespace at start/end
     return result.trim();
 };

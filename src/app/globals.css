@@ -1670,18 +1670,14 @@ input:autofill {
     border-radius: 12px;
 }
 
-/* Clean up link spacing */
-.blog-content a:not(:has(img)) {
-    display: inline !important;
-    white-space: normal;
-    margin: 0 1px;
-}
-
 /* ── Blog content: preserve spaces around hyperlinks ─────────────────────── */
 /* Text links must stay inline so browser-rendered spaces around them show up */
 .blog-content a:not(:has(img)) {
     display: inline !important;
-    white-space: normal;
+    white-space: normal !important;
+    margin-left: 0.15rem !important;
+    margin-right: 0.15rem !important;
+    font-weight: 600 !important;
 }
 
 /* ── Blog content: embedded iframes (forms) must not be clipped ──────────── */
