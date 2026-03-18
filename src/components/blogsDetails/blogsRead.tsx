@@ -84,10 +84,10 @@ const sanitizeBlogContent = (html: string) => {
                     if (/style=["'][^"']*["']/i.test(newAttrs)) {
                         newAttrs = newAttrs.replace(/style=["']([^"']*)["']/i, (_: string, s: string) => {
                             const res = s.replace(/min-height\s*:[^;"!]*(!important)?;?/gi, '');
-                            return `style="${res};min-height:450px;"`;
+                            return `style="${res};min-height:500px;"`;
                         });
                     } else {
-                        newAttrs += ` style="min-height:450px;"`;
+                        newAttrs += ` style="min-height:500px;"`;
                     }
                 }
             } else {
@@ -144,12 +144,12 @@ const sanitizeBlogContent = (html: string) => {
         // Check if it's a banner (we want zero margin for banners)
         const isBanner = /Banner|Widget/i.test(attrs);
         const margin = isBanner ? '0' : '2rem';
-        
+
         // Strip out existing margin and padding
         let cleanAttrs = attrs.replace(/margin[^:]*:[^;"]*;?/gi, '').replace(/padding[^:]*:[^;"]*;?/gi, '');
-        
+
         const style = `margin: ${margin} auto !important; display: block; border-radius: 12px;`;
-        
+
         if (/style="/i.test(cleanAttrs)) {
             return `<img${cleanAttrs.replace(/style="/i, `style="${style} `)}>`;
         } else if (/style='/i.test(cleanAttrs)) {
@@ -239,7 +239,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                 if (data.newBannerUrl && blog && blog.content) {
                     // Highly aggressive regex to match all banner/widget variations (supports single/double quotes)
                     const bannerRegex = /<div class="crm-embed"[^>]*>[\s\S]*?<iframe[^>]*src=["']https?:\/\/xform-blogs\.vercel\.app\/[^"']*["'][\s\S]*?<\/iframe>[\s\S]*?<\/div>|<iframe[^>]*src=["']https?:\/\/xform-blogs\.vercel\.app\/[^"']*["'][\s\S]*?<\/iframe>|<div class="crm-embed"[^>]*>[\s\S]*?<img[^>]*src=["'][^"']*\/uploads\/blogs\/blog-banner-[^"']*["'][\s\S]*?<\/div>|<img[^>]*src=["'][^"']*\/uploads\/blogs\/blog-banner-[^"']*["'][^>]*>|<div class="crm-embed"[^>]*>[\s\S]*?<img[^>]*alt=["'](Banner|Widget|Blog Banner|WhatsApp Banner|WhatsApp Widget)["'][^>]*>[\s\S]*?<\/div>|<img[^>]*alt=["'](Banner|Widget|Blog Banner|WhatsApp Banner|WhatsApp Widget)["'][^>]*>/gi;
-                    
+
                     if (bannerRegex.test(blog.content)) {
                         const newBannerHtml = `<div class="crm-embed" contenteditable="false" style="width:100%;max-width:900px;margin:0 auto;padding:0;clear:both;"><img src="${data.newBannerUrl}" alt="Banner" style="display:block;width:100%;height:auto;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.1);margin:0 auto;padding:0;" /></div>`;
                         bannerRegex.lastIndex = 0;
