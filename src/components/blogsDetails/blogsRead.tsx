@@ -139,16 +139,23 @@ const sanitizeBlogContent = (html: string) => {
         result = result.replace(/<(p|div|span|h[1-6]|figure|strong|b|em|i|a)[^>]*>\s*(?:&nbsp;|\u00A0|\s)*\s*<\/\1>/gi, '');
     } while (result !== prev);
 
-    // 6. Force inject margin-bottom: 0 onto all images to prevent CRM inline styles from overriding. Also reset padding and display.
+    // 6. Force inject margin-bottom: 2rem onto all images to prevent CRM inline styles from overriding. 
     result = result.replace(/<img([^>]*)>/gi, (match: string, attrs: string) => {
-        // Strip out existing margin and padding from inline style to avoid conflicts
+        // Check if it's a banner (we want zero margin for banners)
+        const isBanner = /Banner|Widget/i.test(attrs);
+        const margin = isBanner ? '0' : '2rem';
+        
+        // Strip out existing margin and padding
         let cleanAttrs = attrs.replace(/margin[^:]*:[^;"]*;?/gi, '').replace(/padding[^:]*:[^;"]*;?/gi, '');
+        
+        const style = `margin: ${margin} auto !important; display: block; border-radius: 12px;`;
+        
         if (/style="/i.test(cleanAttrs)) {
-            return `<img${cleanAttrs.replace(/style="/i, 'style="margin: 0 auto !important; padding: 0 !important; display: block !important; ')}>`;
+            return `<img${cleanAttrs.replace(/style="/i, `style="${style} `)}>`;
         } else if (/style='/i.test(cleanAttrs)) {
-            return `<img${cleanAttrs.replace(/style='/i, "style='margin: 0 auto !important; padding: 0 !important; display: block !important; ")}>`;
+            return `<img${cleanAttrs.replace(/style='/i, `style='${style} `)}>`;
         } else {
-            return `<img${cleanAttrs} style="margin: 0 auto !important; padding: 0 !important; display: block !important;">`;
+            return `<img${cleanAttrs} style="${style}">`;
         }
     });
 
@@ -428,7 +435,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
 
                                     {/* Blog Content - responsive text & line height */}
                                     <div
-                                        className="blog-content max-w-none text-gray-800 mb-4 text-sm sm:text-[15px] md:text-[17px] leading-7 sm:leading-8 wrap-break-word [&_p]:text-justify [&_p]:mb-3 sm:[&_p]:mb-3 [&_p:has(img)]:!mb-0 sm:[&_p:has(img)]:!mb-0 [&_figure]:!m-0 [&_figure]:!p-0 [&_h1]:m-0 [&_h2]:m-0 [&_h3]:m-0 [&_h4]:m-0 [&_h5]:m-0 [&_h6]:m-0 [&_img]:max-w-full [&_img]:h-auto [&_img]:!block [&_img]:!my-0 [&_img]:mx-auto [&_img]:!p-0 [&_img+*]:!mt-0 [&_a:has(img)]:!block [&_a:has(img)]:!m-0 [&_a:has(img)]:!p-0 [&_a:has(img)]:!leading-[0px] [&_a:has(img)]:!text-[0px] [&_a:has(img)+*]:!mt-0 [&_.crm-embed]:!my-0 [&_.crm-embed]:mx-auto [&_.crm-embed]:!p-0 [&_.crm-embed]:!block [&_.crm-embed+*]:!mt-0 [&_iframe]:!m-0 [&_iframe]:!p-0 [&_iframe]:mx-auto [&_iframe]:!block"
+                                        className="blog-content max-w-none text-gray-800 mb-4 text-sm sm:text-[15px] md:text-[17px] leading-7 sm:leading-8 wrap-break-word [&_p]:text-justify [&_p]:mb-6 [&_h1]:mt-8 [&_h1]:mb-4 [&_h2]:mt-8 [&_h2]:mb-4 [&_h3]:mt-6 [&_h3]:mb-3 [&_img]:max-w-full [&_img]:h-auto [&_img]:rounded-xl [&_img]:shadow-sm [&_img]:my-8 [&_img]:mx-auto [&_a:not(:has(img))]:text-[#005A8B] [&_a:not(:has(img))]:underline [&_a:not(:has(img))]:font-semibold"
                                         style={{ wordBreak: 'break-word', overflowWrap: 'anywhere', fontFamily: 'Metropolis, sans-serif' }}
                                         dangerouslySetInnerHTML={{ __html: sanitizeBlogContent(blog.content || blog.excerpt || '') }}
                                     />

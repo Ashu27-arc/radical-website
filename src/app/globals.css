@@ -1598,20 +1598,16 @@ input:autofill {
    banners, iframes, images, and .crm-embed blocks
    in blog post content.
    ===================================================== */
-.blog-content .crm-embed,
-.blog-content .crm-embed:not(:has(a)):not(:has(p)) * {
-    margin: 0 !important;
-    padding: 0 !important;
-    line-height: 0 !important;
-    font-size: 0 !important;
+.blog-content .crm-embed {
+    margin: 2rem auto !important;
+    clear: both;
 }
 
-/* Ensure links and text inside crm-embed (if any) are visible */
-.blog-content .crm-embed a,
-.blog-content .crm-embed p,
-.blog-content .crm-embed span {
-    line-height: normal !important;
-    font-size: inherit !important;
+/* Specific styling for banners inside crm-embed to be seamless */
+.blog-content .crm-embed img[alt*="Banner"],
+.blog-content .crm-embed img[alt*="Widget"] {
+    margin: 0 auto !important;
+    border-radius: 12px;
 }
 
 .blog-content .crm-embed img {
@@ -1643,26 +1639,24 @@ input:autofill {
     overflow: visible !important;
 }
 
-/* Kill any &nbsp; or text-node whitespace that sneaks in */
-.blog-content .crm-embed + * {
+/* Allow banners and specific embeds to be seamless if they come after each other */
+.blog-content .crm-embed + .crm-embed,
+.blog-content .crm-embed + iframe.crm-embed-iframe,
+.blog-content iframe.crm-embed-iframe + .crm-embed {
     margin-top: 0 !important;
 }
 
-/* Prevent p tags containing only banners from adding margin */
-.blog-content p:has(> .crm-embed:only-child),
-.blog-content p:has(> iframe:only-child),
-.blog-content p:has(> img:only-child) {
-    margin: 0 !important;
-    padding: 0 !important;
-    line-height: 0 !important;
+/* Ensure images have consistent spacing unless they are banners */
+.blog-content img:not([alt*="Banner"]):not([alt*="Widget"]) {
+    margin: 2rem auto !important;
+    border-radius: 12px;
 }
 
-/* Nuke all spacing from p > img patterns */
-.blog-content p img,
-.blog-content p iframe {
-    display: block !important;
-    margin: 0 !important;
-    padding: 0 !important;
+/* Clean up link spacing */
+.blog-content a:not(:has(img)) {
+    display: inline !important;
+    white-space: normal;
+    margin: 0 1px;
 }
 
 /* ── Blog content: preserve spaces around hyperlinks ─────────────────────── */
