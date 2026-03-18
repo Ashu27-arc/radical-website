@@ -2,7 +2,7 @@
 import { Image } from "primereact/image";
 import CounselorForm from "@/components/CounselorForm";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
+
 import 'primeicons/primeicons.css';
 import { galleryData } from "@/data/galleryData";
 import { useEffect, useState } from "react";

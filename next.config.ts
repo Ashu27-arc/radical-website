@@ -5,12 +5,30 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   productionBrowserSourceMaps: false,
   typedRoutes: false,
+
   typescript: {
     ignoreBuildErrors: true,
   },
 
   images: {
     unoptimized: true,
+  },
+
+  compress: true,
+
+  experimental: {
+    optimizeCss: true,
+    optimizePackageImports: [
+      "primereact",
+      "swiper",
+      "lodash"
+    ],
+  },
+
+  modularizeImports: {
+    primereact: {
+      transform: "primereact/{{member}}",
+    },
   },
 };
 
