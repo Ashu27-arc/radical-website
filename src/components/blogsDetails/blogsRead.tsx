@@ -124,10 +124,10 @@ const sanitizeBlogContent = (html: string) => {
     result = result.replace(/&nbsp;(?=\s*<(?:div|p|br|h[1-6]|ul|ol|li|table|tr|td|th|img|iframe|figure|section|article|aside|header|footer|blockquote)[\s>])/gi, '');
     result = result.replace(/(?<=<\/(?:div|p|br|h[1-6]|ul|ol|li|table|tr|td|th|img|iframe|figure|section|article|aside|header|footer|blockquote)>)\s*&nbsp;/gi, '');
 
-    // 4. Unwrap iframes, .crm-embed, and img from ANY generic wrappers (p, div, figure) to eliminate parent margins
+    // 4. Unwrap iframes, .crm-embed, .crm-form-container, and img from ANY generic wrappers (p, div, figure) to eliminate parent margins
     result = result
         .replace(/<(?:p|div|figure)[^>]*>\s*(<iframe[^>]*>.*?<\/iframe>)\s*<\/(?:p|div|figure)>/gi, '$1')
-        .replace(/<(?:p|div|figure)[^>]*>\s*(<div class="crm-embed"[^>]*>.*?<\/div>)\s*<\/(?:p|div|figure)>/gi, '$1')
+        .replace(/<(?:p|div|figure)[^>]*>\s*(<div class="(?:crm-embed|crm-form-container)"[^>]*>.*?<\/div>)\s*<\/(?:p|div|figure)>/gi, '$1')
         .replace(/<(?:p|div|figure)[^>]*>\s*(<a[^>]*>\s*<img[^>]+>\s*<\/a>|<img[^>]+>)\s*<\/(?:p|div|figure)>/gi, '$1')
         // Second pass in case of double wrapping (e.g. <div><p><img></p></div>)
         .replace(/<(?:p|div|figure)[^>]*>\s*(<a[^>]*>\s*<img[^>]+>\s*<\/a>|<img[^>]+>)\s*<\/(?:p|div|figure)>/gi, '$1');

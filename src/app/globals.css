@@ -1617,10 +1617,9 @@ input:autofill {
     vertical-align: bottom !important;
 }
 
-.blog-content iframe.crm-embed-iframe:not([height]),
+.blog-content iframe.crm-embed-iframe:not([height]):not([style*="height"]),
 .blog-content iframe.crm-embed-iframe[height="150"],
-.blog-content .crm-embed iframe:not([height]),
-.blog-content .crm-embed iframe[height="150"] {
+.blog-content .crm-embed iframe {
     display: block !important;
     margin: 0 !important;
     padding: 0 !important;
@@ -1631,8 +1630,27 @@ input:autofill {
     overflow: hidden !important;
 }
 
+/* New specific container for forms to prevent clipping */
+.blog-content .crm-form-container {
+    width: 100%;
+    margin: 24px auto !important;
+    clear: both;
+    display: block !important;
+    overflow: visible !important;
+}
+
+.blog-content .crm-form-container iframe {
+    min-height: 600px !important;
+    height: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
+    display: block !important;
+    width: 100% !important;
+}
+
+/* Legacy support for forms with height="500" or height="600" without the wrapper */
 .blog-content iframe.crm-embed-iframe[height="500"],
-.blog-content .crm-embed iframe[height="500"] {
+.blog-content iframe.crm-embed-iframe[height="600"] {
     min-height: 500px !important;
     height: auto !important;
     max-height: none !important;
