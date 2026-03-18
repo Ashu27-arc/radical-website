@@ -1591,3 +1591,59 @@ input:autofill {
 .animate-blink { 
     animation: blink 1s ease-in-out infinite; 
 }
+
+/* =====================================================
+   BLOG CONTENT: Zero-space embed & banner fixes
+   Permanently removes all negative space around
+   banners, iframes, images, and .crm-embed blocks
+   in blog post content.
+   ===================================================== */
+.blog-content .crm-embed,
+.blog-content .crm-embed * {
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 0 !important;
+    font-size: 0 !important;
+}
+
+.blog-content .crm-embed img {
+    display: block !important;
+    width: 100% !important;
+    height: auto !important;
+    vertical-align: bottom !important;
+}
+
+.blog-content iframe.crm-embed-iframe,
+.blog-content .crm-embed iframe {
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    vertical-align: bottom !important;
+    height: 150px !important;
+    min-height: 150px !important;
+    max-height: 150px !important;
+    overflow: hidden !important;
+}
+
+/* Kill any &nbsp; or text-node whitespace that sneaks in */
+.blog-content .crm-embed + * {
+    margin-top: 0 !important;
+}
+
+/* Prevent p tags containing only banners from adding margin */
+.blog-content p:has(> .crm-embed:only-child),
+.blog-content p:has(> iframe:only-child),
+.blog-content p:has(> img:only-child) {
+    margin: 0 !important;
+    padding: 0 !important;
+    line-height: 0 !important;
+}
+
+/* Nuke all spacing from p > img patterns */
+.blog-content p img,
+.blog-content p iframe {
+    display: block !important;
+    margin: 0 !important;
+    padding: 0 !important;
+}
+

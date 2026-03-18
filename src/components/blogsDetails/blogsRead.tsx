@@ -64,24 +64,19 @@ const sanitizeBlogContent = (html: string) => {
         (match: string, attrs: string, close: string) => {
             let newAttrs = attrs;
 
-            // Force enough height for xform-blogs iframes (WhatsApp/Banners) to prevent cut-off
+            // Use the CRM-specified height for xform-blogs iframes (150px for banners, 150px for WhatsApp)
             if (/xform-blogs\.vercel\.app/i.test(newAttrs)) {
-                const isWhatsApp = /whatsapp/i.test(newAttrs);
-                const targetHeight = isWhatsApp ? '1200px' : '1000px';
-                const targetHeightInt = parseInt(targetHeight);
+                const targetHeight = '150px';
 
-                if (/height\s*:\s*[^;"]*/i.test(newAttrs)) {
-                    // Replace existing inline style height
-                    newAttrs = newAttrs.replace(/height\s*:\s*(\d+)px/i, (match: string, h: string) => {
-                        return parseInt(h) < targetHeightInt ? `height:${targetHeight}` : match;
-                    });
-                } else if (!/style\s*=/i.test(newAttrs)) {
-                    newAttrs += ` style="height:${targetHeight};"`;
-                } else {
+                if (/style=["'][^"']*["']/i.test(newAttrs)) {
                     newAttrs = newAttrs.replace(/style=["']([^"']*)["']/i, (_: string, s: string) => {
-                        if (!/height\s*:/i.test(s)) return `style="${s};height:${targetHeight};"`;
-                        return `style="${s}"`.replace(/height\s*:\s*(\d+)px/i, (m: string, h: string) => parseInt(h) < targetHeightInt ? `height:${targetHeight}` : m);
+                        // Replace any existing height with exactly 150px
+                        let res = s.replace(/height\s*:[^;"!]*(!important)?;?/gi, '');
+                        res = res.replace(/min-height\s*:[^;"!]*(!important)?;?/gi, '');
+                        return `style="${res};height:${targetHeight} !important;min-height:${targetHeight};overflow:hidden;"`;
                     });
+                } else {
+                    newAttrs += ` style="height:${targetHeight} !important;min-height:${targetHeight};overflow:hidden;"`;
                 }
             }
 
@@ -97,8 +92,14 @@ const sanitizeBlogContent = (html: string) => {
         }
     );
 
-    // 3. Remove all <br> tags entirely to ensure no extra whitespace anywhere before processing wrappers
-    result = result.replace(/<br\s*\/?>/gi, '');
+    // 3. Remove all <br> tags that appear right before/after embeds or images to avoid spacing
+    result = result.replace(/(<\/(?:div|iframe|img)>)\s*<br\s*\/?>/gi, '$1');
+    result = result.replace(/<br\s*\/?>\s*(<(?:div|iframe|img)[^>]*>)/gi, '$1');
+
+    // 3b. Strip all standalone &nbsp; text nodes (naked &nbsp; between tags cause large whitespace gaps)
+    result = result.replace(/>\s*(&nbsp;|\u00A0)+\s*</g, '><');
+    result = result.replace(/&nbsp;(?=\s*<(?:div|p|br|h[1-6]|ul|ol|li|table|tr|td|th|img|iframe|figure|section|article|aside|header|footer|blockquote)[\s>])/gi, '');
+    result = result.replace(/(?<=<\/(?:div|p|br|h[1-6]|ul|ol|li|table|tr|td|th|img|iframe|figure|section|article|aside|header|footer|blockquote)>)\s*&nbsp;/gi, '');
 
     // 4. Unwrap iframes, .crm-embed, and img from ANY generic wrappers (p, div, figure) to eliminate parent margins
     result = result
@@ -209,7 +210,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                     const bannerRegex = /<div class="crm-embed"[^>]*>[\s\S]*?<iframe[^>]*src=["']https?:\/\/xform-blogs\.vercel\.app\/[^"']*["'][\s\S]*?<\/iframe>[\s\S]*?<\/div>|<iframe[^>]*src=["']https?:\/\/xform-blogs\.vercel\.app\/[^"']*["'][\s\S]*?<\/iframe>|<div class="crm-embed"[^>]*>[\s\S]*?<img[^>]*src=["'][^"']*\/uploads\/blogs\/blog-banner-[^"']*["'][\s\S]*?<\/div>|<img[^>]*src=["'][^"']*\/uploads\/blogs\/blog-banner-[^"']*["'][^>]*>|<div class="crm-embed"[^>]*>[\s\S]*?<img[^>]*alt=["'](Banner|Widget|Blog Banner|WhatsApp Banner|WhatsApp Widget)["'][^>]*>[\s\S]*?<\/div>|<img[^>]*alt=["'](Banner|Widget|Blog Banner|WhatsApp Banner|WhatsApp Widget)["'][^>]*>/gi;
                     
                     if (bannerRegex.test(blog.content)) {
-                        const newBannerHtml = `<div class="crm-embed" contenteditable="false" style="width:100%;max-width:900px;margin:20px auto;clear:both;"><img src="${data.newBannerUrl}" alt="Banner" style="display:block;width:100%;height:auto;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.1);" /></div>`;
+                        const newBannerHtml = `<div class="crm-embed" contenteditable="false" style="width:100%;max-width:900px;margin:0;padding:0;clear:both;"><img src="${data.newBannerUrl}" alt="Banner" style="display:block;width:100%;height:auto;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.1);margin:0;padding:0;" /></div>`;
                         bannerRegex.lastIndex = 0;
                         setBlog({ ...blog, content: blog.content.replace(bannerRegex, newBannerHtml) });
                     }
