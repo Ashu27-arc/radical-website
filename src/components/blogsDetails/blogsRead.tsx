@@ -138,10 +138,45 @@ const sanitizeBlogContent = (html: string) => {
     return result.trim();
 };
 
-/** Process FAQ answer HTML so links open in new tab */
-const processFaqAnswer = (html: string) => {
-    if (!html) return '';
-    return html.replace(/<a\s+/gi, '<a target="_blank" rel="noopener noreferrer" ');
+/** Process FAQ answer: convert plain-text newlines and bullet points to HTML, and open links in new tab */
+const processFaqAnswer = (rawAnswer: string) => {
+    if (!rawAnswer) return '';
+
+    // If it looks like HTML (has tags), just fix links and return
+    if (/<[a-z][\s\S]*>/i.test(rawAnswer)) {
+        return rawAnswer.replace(/<a\s+/gi, '<a target="_blank" rel="noopener noreferrer" ');
+    }
+
+    // Plain text: convert bullet lines into styled list, rest into paragraphs
+    const lines = rawAnswer.split('\n');
+    let result = '';
+    let inList = false;
+
+    for (const line of lines) {
+        const trimmed = line.trim();
+        if (trimmed.startsWith('•') || trimmed.startsWith('-')) {
+            if (!inList) {
+                result += '<ul style="list-style:none;margin:6px 0;padding:0;">';
+                inList = true;
+            }
+            const content = trimmed.replace(/^[•\-]\s*/, '');
+            result += `<li style="display:flex;align-items:flex-start;gap:8px;margin-bottom:4px;"><span style="color:#005A8B;font-weight:bold;flex-shrink:0;">•</span><span>${content}</span></li>`;
+        } else {
+            if (inList) {
+                result += '</ul>';
+                inList = false;
+            }
+            if (trimmed === '') {
+                result += '<br>';
+            } else {
+                result += `<p style="margin:0 0 6px 0;">${trimmed}</p>`;
+            }
+        }
+    }
+
+    if (inList) result += '</ul>';
+
+    return result.replace(/<a\s+/gi, '<a target="_blank" rel="noopener noreferrer" ');
 };
 
 const BlogsRead = ({ slug }: BlogsReadProps) => {
