@@ -386,12 +386,12 @@ export default function Home() {
           <div className="relative">
             <div className="md:rounded-xl overflow-hidden">
               <Image
-                src="/images/counselorImg.webp"
-                alt=""
-                height={435}
-                width={1239}
-                className="w-full h-[435px] object-cover object-center"
-              />
+                  src="/images/counselorImg.webp"
+                  alt="Counselor"
+                  height={435}
+                  width={1239}
+                  className="w-full h-[435px] object-cover object-center"
+                />
             </div>
             <div className="absolute left-0 top-[80px] md:top-[105px] w-full">
               <div className="p-6 md:p-10 rounded-xl bg-[#005A8B] mx-auto lg:w-4/10 md:w-5/10 w-[90%] fadePopup">

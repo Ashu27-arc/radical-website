@@ -2,7 +2,8 @@
 
 import CounselorForm from "@/components/CounselorForm";
 import Link from "next/link";
-import { Image } from "primereact/image";
+//import { Image } from "primereact/image";
+import Image from "next/image";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 
@@ -78,7 +79,13 @@ export default function ContactPage() {
                             </div>
                             <div className='relative'>
                                 <div className='rounded-xl overflow-hidden'>
-                                    <img src="/images/counselorImg.webp" alt='' className='w-full h-[435px] object-cover object-center' />
+                                    <Image
+  src="/images/counselorImg.webp"
+  alt="Counselor"
+  height={435}
+  width={1239}
+  className="w-full h-auto object-cover object-center"
+/>
                                 </div>
                                 <div className='absolute left-0 top-[105px] w-full'>
                                     <div className='p-6 md:p-10 rounded-xl bg-[#005A8B] mx-auto lg:w-4/10 md:w-5/10 w-[90%] fadePopup'>

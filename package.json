@@ -11,6 +11,7 @@
     "clean:dev": "rimraf .next dist && npm run dev"
   },
   "dependencies": {
+    "@fullhuman/postcss-purgecss": "^8.0.0",
     "axios": "^1.13.5",
     "mongodb": "^7.0.0",
     "mongoose": "^9.1.4",
@@ -32,7 +33,7 @@
     "@types/three": "^0.182.0",
     "autoprefixer": "^10.4.22",
     "babel-plugin-react-compiler": "1.0.0",
-    "baseline-browser-mapping": "^2.10.0",
+    "baseline-browser-mapping": "^2.9.19",
     "eslint": "^9",
     "eslint-config-next": "16.0.10",
     "postcss": "^8.5.6",
