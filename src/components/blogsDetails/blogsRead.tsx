@@ -242,15 +242,12 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                 // Redirect to blogs page if current blog is deleted
                 window.location.href = '/blogs';
             } else if (data.type === 'BULK_BANNER_UPDATE') {
-                if (data.newBannerUrl && blog && blog.content) {
-                    // Highly aggressive regex to match all banner/widget variations (supports single/double quotes)
-                    const bannerRegex = /<div class="crm-embed"[^>]*>[\s\S]*?<iframe[^>]*src=["']https?:\/\/xform-blogs\.vercel\.app\/[^"']*["'][\s\S]*?<\/iframe>[\s\S]*?<\/div>|<iframe[^>]*src=["']https?:\/\/xform-blogs\.vercel\.app\/[^"']*["'][\s\S]*?<\/iframe>|<div class="crm-embed"[^>]*>[\s\S]*?<img[^>]*src=["'][^"']*\/uploads\/blogs\/blog-banner-[^"']*["'][\s\S]*?<\/div>|<img[^>]*src=["'][^"']*\/uploads\/blogs\/blog-banner-[^"']*["'][^>]*>|<div class="crm-embed"[^>]*>[\s\S]*?<img[^>]*alt=["'](Banner|Widget|Blog Banner|WhatsApp Banner|WhatsApp Widget)["'][^>]*>[\s\S]*?<\/div>|<img[^>]*alt=["'](Banner|Widget|Blog Banner|WhatsApp Banner|WhatsApp Widget)["'][^>]*>|<img[^>]*data-type=["']banner["'][^>]*>|<div class="crm-embed"[^>]*>[\s\S]*?<img[^>]*data-type=["']banner["'][^>]*>[\s\S]*?<\/div>/gi;
-
-                    if (bannerRegex.test(blog.content)) {
-                        const newBannerHtml = `<div class="crm-embed" contenteditable="false" style="width:100%;max-width:900px;margin:0 auto;padding:0;clear:both;"><img src="${data.newBannerUrl}" alt="Banner" style="display:block;width:100%;height:auto;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.1);margin:0 auto;padding:0;" /></div>`;
-                        bannerRegex.lastIndex = 0;
-                        setBlog({ ...blog, content: blog.content.replace(bannerRegex, newBannerHtml) });
-                    }
+                // For bulk updates (especially sequential), it's far safer to just refetch the latest data
+                // from the database to ensure we have the correct image for THIS specific blog.
+                if (blog?.slug) {
+                    getBlogBySlug(blog.slug).then((updatedData) => {
+                        if (updatedData) setBlog(updatedData);
+                    }).catch(console.error);
                 }
             }
         });
