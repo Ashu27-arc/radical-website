@@ -25,19 +25,14 @@ export default function RootLayout({ children, }: { children: React.ReactNode; }
   return (
     <html lang="en">
     <head>
-    <link
-  rel="preload"
-  href="/fonts/primeicons.woff2"
-  as="font"
-  type="font/woff2"
-  crossOrigin="anonymous"
-/>
-<link
-  rel="preload"
-  href="/_next/static/css/app/layout.css"
-  as="style"
-/>
-</head>
+      <link
+        rel="preload"
+        href="/fonts/primeicons.woff2"
+        as="font"
+        type="font/woff2"
+        crossOrigin="anonymous"
+      />
+    </head>
       <body className="flex flex-col min-h-screen">
         <ClientWrapper>
           <Providers>
