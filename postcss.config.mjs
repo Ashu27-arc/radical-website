@@ -9,13 +9,14 @@ const config = {
 if (process.env.NODE_ENV === "production") {
   config.plugins["@fullhuman/postcss-purgecss"] = purgecss({
     content: [
+      "./src/**/*.{js,ts,jsx,tsx}",
       "./app/**/*.{js,ts,jsx,tsx}",
       "./pages/**/*.{js,ts,jsx,tsx}",
       "./components/**/*.{js,ts,jsx,tsx}",
     ],
     defaultExtractor: (content) =>
       content.match(/[\w-/:]+(?<!:)/g) || [],
-    safelist: ["active", "show", "open"],
+    safelist: ["active", "show", "open", /^p-/, /^crm-/, /^m-/, /^w-/],
   });
 }
 
