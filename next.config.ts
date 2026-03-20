@@ -3,7 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   outputFileTracingRoot: process.cwd(),
   reactCompiler: true,
-  trailingSlash: true,
+  trailingSlash: false,
   productionBrowserSourceMaps: false,
   typedRoutes: false,
 
