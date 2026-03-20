@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@fullhuman/postcss-purgecss": "^8.0.0",
+    "@next/swc-win32-x64-msvc": "16.2.0",
     "axios": "^1.13.5",
     "mongodb": "^7.0.0",
     "mongoose": "^9.1.4",
