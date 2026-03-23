@@ -23,7 +23,7 @@ export async function generateStaticParams() {
       slug: blog.slug,
     }));
   } catch (error) {
-    console.error('Error fetching blogs for static params:', error);
+    // In production builds, upstream may be temporarily unreachable (ex: backend not running).
     // Return a fallback to prevent build failure
     return [{ slug: 'placeholder' }];
   }

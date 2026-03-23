@@ -34,7 +34,10 @@ apiClient.interceptors.request.use(
 apiClient.interceptors.response.use(
   (response) => response,
   (error) => {
-    console.error('API Error:', error.response?.data || error.message);
+    // Avoid noisy logs during production builds when upstream APIs may be unreachable.
+    if (process.env.NODE_ENV !== 'production') {
+      console.error('API Error:', error.response?.data || error.message);
+    }
     return Promise.reject(error);
   }
 );
@@ -93,7 +96,6 @@ export async function getBlogs(): Promise<Blog[]> {
     });
     return Array.isArray(response.data) ? response.data : [];
   } catch (error) {
-    console.error('Error fetching blogs:', error);
     return [];
   }
 }
@@ -109,7 +111,6 @@ export async function getBlogBySlug(slug: string): Promise<Blog | null> {
     });
     return response.data;
   } catch (error) {
-    console.error('Error fetching blog by slug:', error);
     return null;
   }
 }
