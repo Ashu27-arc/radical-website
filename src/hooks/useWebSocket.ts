@@ -57,7 +57,7 @@ export function useWebSocket(
     const newSocket = io(urlRef.current, {
       auth: token ? { token } : undefined,
       query: token ? { token } : undefined,
-      transports: ['websocket', 'polling'],
+      transports: ['polling', 'websocket'],
       reconnection: true,
       reconnectionAttempts: 10,
       reconnectionDelay: 1000,
