@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getBlogs, type Blog } from '@/lib/api';
+import { getBlogs, getBlogLinks, type Blog, type BlogLink } from '@/lib/api';
 import { useWebSocket } from '@/hooks/useWebSocket';
 import CounselorForm from '@/components/CounselorForm';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
@@ -31,6 +31,7 @@ const BlogsPage = () => {
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
   const [blogs, setBlogs] = useState<Blog[]>([]);
+  const [blogLinks, setBlogLinks] = useState<BlogLink[]>([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
   const blogsPerPage = 6;
@@ -41,13 +42,16 @@ const BlogsPage = () => {
 
   // Initial load from Next.js API (same MongoDB as CRM)
   useEffect(() => {
-    getBlogs().then((data) => {
-      setBlogs(data);
-      setLoading(false);
-    }).catch((error) => {
-      console.error('Error loading blogs:', error);
-      setLoading(false);
-    });
+    Promise.all([getBlogs(), getBlogLinks()])
+      .then(([blogsData, linksData]) => {
+        setBlogs(blogsData);
+        setBlogLinks(linksData || []);
+        setLoading(false);
+      })
+      .catch((error) => {
+        console.error('Error loading blogs:', error);
+        setLoading(false);
+      });
   }, [refreshKey]);
 
   // Real-time: CRM se blog post/update/delete par WebSocket se turant update
@@ -117,7 +121,30 @@ const BlogsPage = () => {
     }
   };
 
-  const publishedBlogs = blogs.filter((b) => b.status === 'Published');
+  // Combine blogs and links (unified view like CRM)
+  const unifiedBlogs = React.useMemo(() => {
+    const linkedBlogs = blogLinks
+      .filter(link => !blogs.some(b => b.slug === (link.link?.split('/').filter(Boolean).pop())))
+      .map(link => ({
+        id: `link-${link.idNumber || link.id}`,
+        title: link.name || 'Untitled Blog',
+        excerpt: `Study abroad database record (Category: ${link.categories || 'General'})`,
+        author: 'Radical Library',
+        status: 'Published',
+        date: link.createdAt ? new Date(link.createdAt).toLocaleDateString() : new Date().toLocaleDateString(),
+        views: 0,
+        likes: 0,
+        featuredImage: link.banner || '/images/blogs/b.webp',
+        slug: link.link?.split('/').filter(Boolean).pop() || '',
+        category: link.categories || 'General',
+        isLinkedOnly: true
+      }));
+
+    // Show everything that is NOT archived; manual ones first
+    return [...blogs, ...linkedBlogs].filter(b => (b.status || '').toLowerCase() !== 'archived');
+  }, [blogs, blogLinks]);
+
+  const publishedBlogs = unifiedBlogs; // user said "never remove", so show all published/non-archived content
   const categories = ['All', ...Array.from(new Set(publishedBlogs.flatMap((b) => b.category?.split(',').map(c => c.trim())).filter(Boolean)))];
 
   // Connection status indicator
@@ -205,7 +232,7 @@ const BlogsPage = () => {
         disabled={currentPage === 1}
         className={`px-4 md:px-6 py-2 text-sm md:text-base font-medium transition-colors ${currentPage === 1
           ? 'text-gray-300 cursor-not-allowed'
-          : 'text-gray-400 hover:text-gray-600'
+          : 'text-[#005A8B] hover:text-blue-700 font-bold'
           }`}
       >
         Previous
@@ -236,7 +263,7 @@ const BlogsPage = () => {
         disabled={currentPage === totalPages}
         className={`px-4 md:px-6 py-2 text-sm md:text-base font-medium transition-colors ${currentPage === totalPages
           ? 'text-gray-300 cursor-not-allowed'
-          : 'text-gray-400 hover:text-gray-600'
+          : 'text-[#005A8B] hover:text-blue-700 font-bold'
           }`}
       >
         Next

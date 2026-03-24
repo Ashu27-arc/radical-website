@@ -7,7 +7,7 @@ const getCrmApiUrl = () => process.env.NEXT_PUBLIC_CRM_API_URL || 'https://backe
 // Create axios instance with default configuration
 const apiClient = axios.create({
   baseURL: getCrmApiUrl(),
-  timeout: 10000,
+  timeout: 60000, // Increased to 60000ms to allow Render free tier backend to spin up
   headers: {
     'Content-Type': 'application/json',
   },
@@ -65,6 +65,19 @@ export interface Blog {
   metaKeywords?: string;
   faqs?: BlogFaq[];
   pdf?: string;
+  createdAt?: string;
+}
+
+export interface BlogLink {
+  id: string;
+  _id: string;
+  idNumber: number;
+  link: string;
+  categories: string;
+  name: string;
+  banner?: string;
+  status: string;
+  createdAt?: string;
 }
 
 export interface NeetUpdate {
@@ -88,6 +101,21 @@ export interface NeetUpdate {
 export async function getBlogs(): Promise<Blog[]> {
   try {
     const response = await apiClient.get('/api/blogs', {
+      params: { _t: Date.now() },
+      headers: {
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Pragma': 'no-cache'
+      }
+    });
+    return Array.isArray(response.data) ? response.data : [];
+  } catch (error) {
+    return [];
+  }
+}
+
+export async function getBlogLinks(): Promise<BlogLink[]> {
+  try {
+    const response = await apiClient.get('/api/blog-links', {
       params: { _t: Date.now() },
       headers: {
         'Cache-Control': 'no-cache, no-store, must-revalidate',
