@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { getBlogs, getBlogLinks, type Blog, type BlogLink } from '@/lib/api';
@@ -34,7 +34,7 @@ const BlogsPage = () => {
   const [blogLinks, setBlogLinks] = useState<BlogLink[]>([]);
   const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const blogsPerPage = 6;
+  const blogsPerPage = 12; // Increased to handle more blogs
   const scrollRef = useRef<HTMLDivElement>(null);
   const [refreshKey, setRefreshKey] = useState(0);
   const wsUrl = process.env.NEXT_PUBLIC_WS_URL || 'https://backend-radical.onrender.com';
@@ -42,9 +42,11 @@ const BlogsPage = () => {
 
   // Initial load from Next.js API (same MongoDB as CRM)
   useEffect(() => {
-    getBlogs()
-      .then((blogsData) => {
+    setLoading(true);
+    Promise.all([getBlogs(), getBlogLinks()])
+      .then(([blogsData, linksData]) => {
         setBlogs(blogsData || []);
+        setBlogLinks(linksData || []);
         setLoading(false);
       })
       .catch((error) => {
@@ -120,8 +122,41 @@ const BlogsPage = () => {
     }
   };
 
-  const publishedBlogs = blogs.filter(b => (b.status || '').toLowerCase() === 'published' && (b.status || '').toLowerCase() !== 'archived');
-  const categories = ['All', ...Array.from(new Set(publishedBlogs.flatMap((b) => b.category?.split(',').map(c => c.trim()) || []).filter(Boolean)))];
+  // Normalize combined list
+  const publishedBlogs = useMemo(() => {
+    const rawBlogs = blogs.filter(b => (b.status || '').toLowerCase() === 'published' && (b.status || '').toLowerCase() !== 'archived');
+    const rawLinks = blogLinks.filter(l => (l.status || '').toLowerCase() === 'active' || (l.status || '').toLowerCase() === 'published');
+    
+    const normalizedLinks = rawLinks.map(l => ({
+      id: l.id || l._id,
+      title: l.name,
+      excerpt: l.name,
+      author: 'Radical Education',
+      category: l.categories || 'Study Abroad',
+      status: 'Published',
+      date: l.createdAt || new Date().toISOString(),
+      featuredImage: l.banner,
+      slug: l.link || '',
+      isExternal: l.link && (l.link.startsWith('http') || l.link.startsWith('//'))
+    } as any));
+
+    return [...rawBlogs, ...normalizedLinks].sort((a, b) => {
+      const dateA = new Date(a.date || a.createdAt);
+      const dateB = new Date(b.date || b.createdAt);
+      return dateB.getTime() - dateA.getTime();
+    });
+  }, [blogs, blogLinks]);
+
+  const categories = useMemo(() => {
+    const allCats = new Set<string>(['All']);
+    publishedBlogs.forEach(b => {
+      const catStr = b.category || b.categories || '';
+      // Only split by comma to support categories with spaces (e.g. "Study Abroad")
+      const cats = catStr.split(',').map((c: string) => c.trim()).filter(Boolean);
+      cats.forEach((c: string) => allCats.add(c));
+    });
+    return Array.from(allCats);
+  }, [publishedBlogs]);
 
   // Connection status indicator
   const connectionStatus = (
@@ -133,42 +168,40 @@ const BlogsPage = () => {
     </div>
   );
 
-  // Reset to first page when filters change and ensure page is valid
-  useEffect(() => {
-    setCurrentPage((prev) => {
-      const maxPages = Math.ceil(publishedBlogs.filter((b) => {
-        const matchCategory = activeCategory === 'All' || (b.category && b.category.split(',').map(c => c.trim()).includes(activeCategory));
-        const matchSearch = !searchQuery.trim() ||
-          b.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          (b.excerpt && b.excerpt.toLowerCase().includes(searchQuery.toLowerCase()));
-        return matchCategory && matchSearch;
-      }).length / blogsPerPage);
-      return prev > maxPages ? 1 : prev;
+  const filtered = useMemo(() => {
+    return publishedBlogs.filter((b) => {
+      const catStr = b.category || b.categories || '';
+      const blogCats = catStr.split(',').map((c: string) => c.trim().toLowerCase()).filter(Boolean);
+      
+      const matchCategory = activeCategory === 'All' || 
+        blogCats.includes(activeCategory.toLowerCase());
+        
+      const matchSearch = !searchQuery.trim() ||
+        b.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        (b.excerpt && b.excerpt.toLowerCase().includes(searchQuery.toLowerCase()));
+      return matchCategory && matchSearch;
     });
   }, [activeCategory, searchQuery, publishedBlogs]);
 
-  const filtered = publishedBlogs.filter((b) => {
-    const matchCategory = activeCategory === 'All' || (b.category && b.category.split(',').map(c => c.trim()).includes(activeCategory));
-    const matchSearch = !searchQuery.trim() ||
-      b.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      (b.excerpt && b.excerpt.toLowerCase().includes(searchQuery.toLowerCase()));
-    return matchCategory && matchSearch;
-  });
+  // Reset to first page when filtering
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [activeCategory, searchQuery]);
 
-  // Handle case where there aren't enough blogs - use paginated data
+  // Use paginated data for featured and sidebar
   const indexOfLastBlog = currentPage * blogsPerPage;
   const indexOfFirstBlog = indexOfLastBlog - blogsPerPage;
-
   const currentBlogs = filtered.slice(indexOfFirstBlog, indexOfLastBlog);
   const totalPages = Math.max(1, Math.ceil(filtered.length / blogsPerPage));
 
-  // Use paginated data for featured and sidebar
-  const featuredBlog = currentBlogs[0] || null;
-  const sidebarBlogs = currentBlogs.length > 1
+  const featuredBlog = currentPage === 1 ? currentBlogs[0] || null : null;
+  const sidebarBlogs = currentPage === 1 && currentBlogs.length > 1
     ? currentBlogs.slice(1, Math.min(3, currentBlogs.length))
     : [];
 
-  const gridBlogs = currentBlogs;
+  // Grid blogs: only show items not in featured/sidebar if on first page
+  const gridBlogs = currentPage === 1 ? currentBlogs.slice(3) : currentBlogs;
+
   const getCategoryColor = (cat: string) => categoryColors[cat] || defaultCategoryColor;
   const getCategoryTextColor = (cat: string) => {
     const style = getCategoryColor(cat);
@@ -255,15 +288,6 @@ const BlogsPage = () => {
       {/* Header Section */}
       <div className="bg-white py-2 md:py-4 animate-fadeIn">
         <div className="container mx-auto px-4">
-          {/* Live: CRM se blog post hote hi yahan update (WebSocket) */}
-          {/* <div className="flex justify-end mb-2">
-            <div className="flex items-center gap-2">
-              <div className={`w-2 h-2 rounded-full ${isConnected ? 'bg-green-500 animate-pulse' : 'bg-amber-500'}`} />
-              <span className="text-xs text-gray-500">
-                {isConnected ? 'Live – CRM updates yahan turant dikhenge' : 'Reconnecting…'}
-              </span>
-            </div>
-          </div> */}
         </div>
       </div>
 
@@ -365,153 +389,159 @@ const BlogsPage = () => {
             {/* Main Blog Post */}
             <div className="lg:col-span-2 animate-fadeIn rounded-lg" style={{ animationDelay: '0.1s' }}>
               {featuredBlog ? (
-                <Link href={`/${featuredBlog.slug}`} className="block">
-                  <div className="bg-white rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 cursor-pointer">
-                    <div className="relative">
-                      {featuredBlog.featuredImage ? (
-                        <Image
-                          src={featuredBlog.featuredImage}
-                          alt={featuredBlog.title}
-                          width={400}
-                          height={400}
-                          className="w-full h-auto"
-                        />
-                      ) : (
-                        <Image
-                          src="/images/blogs/b.webp"
-                          alt={featuredBlog.title}
-                          width={400}
-                          height={400}
-                          className="w-full h-auto"
-                        />
-                      )}
+                <Link 
+                  href={featuredBlog.isExternal ? featuredBlog.slug : `/${featuredBlog.slug}`} 
+                  target={featuredBlog.isExternal ? "_blank" : "_self"}
+                  className="group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500"
+                >
+                  <div className="relative h-64 md:h-96 w-full overflow-hidden">
+                    <Image
+                      src={featuredBlog.featuredImage || '/images/blogs/card.webp'}
+                      alt={featuredBlog.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  </div>
+                  <div className="p-6 md:p-8">
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {(featuredBlog.category || featuredBlog.categories)?.split(',').map((c: string) => c.trim()).filter(Boolean).map((cat: string, idx: number) => (
+                        <span key={idx} className={`inline-block ${getCategoryTextColor(cat)} font-semibold text-xs md:text-sm px-3 py-1 rounded-full bg-opacity-20`}>
+                          {cat}
+                        </span>
+                      ))}
                     </div>
-                    <div className="pt-2 pb-4 md:pt-3 md:pb-6">
-                      <div className="flex flex-wrap gap-2 mb-2">
-                        {featuredBlog.category?.split(',').map((c) => c.trim()).filter(Boolean).map((cat, idx) => (
-                          <span key={idx} className={`inline-block ${getCategoryTextColor(cat)} font-semibold text-xs md:text-sm`}>
-                            {cat}
-                          </span>
-                        ))}
-                      </div>
-                      <h3 className="text-lg md:text-2xl font-bold text-gray-800 mb-2 hover:text-blue-600 transition-colors">
-                        {featuredBlog.title}
-                      </h3>
-                      <p className="text-sm md:text-base text-gray-600 text-justify mb-4 line-clamp-2">
-                        {featuredBlog.excerpt || featuredBlog.title}
-                      </p>
-                      <div className="flex items-center text-[#ABABAB] text-xs md:text-sm">
-                        <span>{featuredBlog.author}</span>
-                        <span className="mx-2">•</span>
-                        <span>{formatDate(featuredBlog.date)}</span>
-                      </div>
+                    <h3 className="text-xl md:text-3xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
+                      {featuredBlog.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm md:text-base line-clamp-2 md:line-clamp-3 mb-4 text-justify">
+                      {featuredBlog.excerpt || featuredBlog.title}
+                    </p>
+                    <div className="flex items-center text-gray-500 text-xs md:text-sm">
+                      <span className="font-medium">{featuredBlog.author || 'Radical Education'}</span>
+                      <span className="mx-2">•</span>
+                      <span>{formatDate(featuredBlog.date || featuredBlog.createdAt)}</span>
                     </div>
                   </div>
                 </Link>
               ) : (
-                <div className="bg-white rounded-lg overflow-hidden border border-gray-200 p-8 text-center text-gray-500">
-                  {loading ? 'Loading...' : 'No published blogs yet. Check back later.'}
+                <div className="bg-white rounded-2xl p-12 text-center text-gray-500 border border-gray-100 flex flex-col items-center justify-center">
+                  <div className="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mb-4">
+                    <svg className="w-8 h-8 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2.5 2.5 0 00-2.5-2.5H14" />
+                    </svg>
+                  </div>
+                  <p className="text-lg font-medium">{loading ? 'Loading latest blogs...' : 'No blogs match your criteria'}</p>
                 </div>
               )}
             </div>
 
-            {/* Sidebar - Fixed on Desktop */}
-            <div className="space-y-4 md:space-y-8">
+            {/* Sidebar - Recommendations */}
+            <div className="space-y-6 md:space-y-8">
               {sidebarBlogs.length > 0 ? (
                 sidebarBlogs.map((post, index) => (
-                  <Link key={post.id} href={`/${post.slug}`} className="block animate-fadeIn" style={{ animationDelay: `${0.2 + index * 0.1}s` }}>
-                    <div className={`bg-white md:pb-8 pb-4 transition-all duration-300 hover:-translate-y-1 cursor-pointer ${index < sidebarBlogs.length - 1 ? 'border-b-2 border-gray-200' : ''}`}>
+                  <Link 
+                    key={post.id} 
+                    href={post.isExternal ? post.slug : `/${post.slug}`} 
+                    target={post.isExternal ? "_blank" : "_self"}
+                    className="group block animate-fadeIn" 
+                    style={{ animationDelay: `${0.2 + index * 0.1}s` }}
+                  >
+                    <div className={`bg-white md:pb-6 pb-4 transition-all duration-300 cursor-pointer ${index < sidebarBlogs.length - 1 ? 'border-b border-gray-100' : ''}`}>
                       <div className="flex flex-wrap gap-2 mb-2">
-                        {post.category?.split(',').map((c) => c.trim()).filter(Boolean).map((cat, idx) => (
-                          <span key={idx} className={`inline-block ${getCategoryTextColor(cat)} font-semibold text-xs md:text-sm`}>
+                        {(post.category || post.categories)?.split(',').map((c: string) => c.trim()).filter(Boolean).map((cat: string, idx: number) => (
+                          <span key={idx} className={`inline-block ${getCategoryTextColor(cat)} font-semibold text-[10px] md:text-xs px-2 py-0.5 rounded-full`}>
                             {cat}
                           </span>
                         ))}
                       </div>
-                      <h4 className="text-base md:text-lg font-bold text-gray-800 mb-1 md:mb-2 hover:text-blue-600 transition-colors">
+                      <h4 className="text-base md:text-lg font-bold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors line-clamp-2">
                         {post.title}
                       </h4>
-                      <p className="text-gray-600 text-xs md:text-sm text-justify mb-4 line-clamp-2">
+                      <p className="text-gray-500 text-xs md:text-sm line-clamp-2 mb-2 text-justify">
                         {post.excerpt || post.title}
                       </p>
-                      <div className="flex items-center text-[#ABABAB] text-xs">
-                        <span>{post.author}</span>
+                      <div className="flex items-center text-gray-400 text-[10px] md:text-xs font-medium">
+                        <span>{post.author || 'Radical Education'}</span>
                         <span className="mx-2">•</span>
-                        <span>{formatDate(post.date)}</span>
+                        <span>{formatDate(post.date || post.createdAt)}</span>
                       </div>
                     </div>
                   </Link>
                 ))
               ) : (
-                <div className="bg-white rounded-lg p-6 text-center text-gray-500 border-2 border-dashed border-gray-200">
-                  <p className="text-sm md:text-base">No additional blogs available</p>
-                  <p className="text-xs md:text-sm mt-2">More blogs will appear here as they are published</p>
-                </div>
+                !loading && currentPage === 1 && (
+                  <div className="bg-white rounded-2xl p-6 text-center text-gray-400 border border-gray-100">
+                    <p className="text-sm">More highlights coming soon</p>
+                  </div>
+                )
               )}
             </div>
 
-            {/* Extended horizontal line that spans full width */}
-            <div className="absolute -bottom-4 left-0 right-0 border-b-3 border-gray-200 lg:col-span-3"></div>
+            {/* Decorative separator */}
+            <div className="absolute -bottom-6 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent lg:col-span-3"></div>
           </div>
 
           {/* Blog Cards Grid */}
-          <div className="mt-16 md:mt-30">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+          <div className="mt-16 md:mt-24">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
               {gridBlogs.map((blog, index) => (
-                <React.Fragment key={blog.id}>
-                  <Link href={`/${blog.slug}`} className="block animate-fadeIn" style={{ animationDelay: `${0.3 + index * 0.1}s` }}>
-                    <div className="bg-white rounded-lg overflow-hidden transition-all duration-300 hover:-translate-y-1 cursor-pointer">
-                      <div className="relative rounded-t-lg overflow-hidden">
-                        {blog.featuredImage ? (
-                          <Image
-                            src={blog.featuredImage}
-                            alt={blog.title}
-                            width={400}
-                            height={400}
-                            className="w-full h-auto"
-                          />
-                        ) : (
-                          <Image
-                            src={["/images/blogs/card.webp", "/images/blogs/card-1.webp", "/images/blogs/card-2.webp"][index % 3]}
-                            alt={blog.title}
-                            width={400}
-                            height={400}
-                            className="w-full h-auto"
-                          />
-                        )}
+                <Link 
+                  key={blog.id} 
+                  href={blog.isExternal ? blog.slug : `/${blog.slug}`} 
+                  target={blog.isExternal ? "_blank" : "_self"}
+                  className="group block h-full animate-fadeIn"
+                  style={{ animationDelay: `${0.1 * (index % 3)}s` }}
+                >
+                  <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full border border-gray-50">
+                    <div className="relative h-48 sm:h-56 w-full overflow-hidden">
+                      <Image
+                        src={blog.featuredImage || '/images/blogs/card.webp'}
+                        alt={blog.title}
+                        fill
+                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                    </div>
+                    <div className="p-6 flex-1 flex flex-col">
+                      <div className="flex flex-wrap gap-2 mb-3">
+                        {(blog.category || blog.categories)?.split(',').map((c: string) => c.trim()).filter(Boolean).map((cat: string, idx: number) => (
+                          <span key={idx} className={`inline-block ${getCategoryTextColor(cat)} font-semibold text-[10px] md:text-xs px-2 py-0.5 rounded-full bg-opacity-10`}>
+                            {cat}
+                          </span>
+                        ))}
                       </div>
-                      <div className="pt-4">
-                        <div className="flex flex-wrap gap-2 mb-1 md:mb-2">
-                          {blog.category?.split(',').map((c) => c.trim()).filter(Boolean).map((cat, idx) => (
-                            <span key={idx} className={`inline-block ${getCategoryTextColor(cat)} font-semibold text-xs md:text-sm`}>
-                              {cat}
-                            </span>
-                          ))}
-                        </div>
-                        <h3 className="text-base md:text-lg font-bold text-gray-800 mb-1 md:mb-2 hover:text-blue-600 transition-colors line-clamp-2">
-                          {blog.title}
-                        </h3>
-                        <p className="text-gray-600 text-xs md:text-sm text-justify mb-2 line-clamp-2">
-                          {blog.excerpt || blog.title}
-                        </p>
-                        <div className="flex items-center text-gray-500 text-xs">
-                          <span>{blog.author}</span>
-                          <span className="mx-2">•</span>
-                          <span>{formatDate(blog.date)}</span>
-                        </div>
+                      <h3 className="text-base md:text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors line-clamp-2 leading-snug">
+                        {blog.title}
+                      </h3>
+                      <p className="text-gray-600 text-sm md:text-base line-clamp-2 mb-4 text-justify mt-auto">
+                        {blog.excerpt || blog.title}
+                      </p>
+                      <div className="flex items-center text-gray-400 text-xs font-medium pt-3 border-t border-gray-50">
+                        <span>{blog.author || 'Radical Education'}</span>
+                        <span className="mx-2">•</span>
+                        <span>{formatDate(blog.date || blog.createdAt)}</span>
                       </div>
                     </div>
-                  </Link>
-                </React.Fragment>
+                  </div>
+                </Link>
               ))}
             </div>
 
-            {/* Pagination */}
-            <div className="flex justify-center items-center mt-8 md:mt-12">
-              <div className="flex justify-center items-center gap-2 md:gap-4 bg-white shadow-lg rounded-full px-6 md:px-8 py-3 md:py-4">
-                {renderPagination()}
+            {/* Empty state for grid */}
+            {gridBlogs.length === 0 && !loading && (
+              <div className="text-center py-20 bg-gray-50 rounded-3xl border-2 border-dashed border-gray-200 mt-8">
+                <p className="text-gray-400">No more blogs to display in this category</p>
               </div>
-            </div>
+            )}
+
+            {/* Pagination */}
+            {totalPages > 1 && (
+              <div className="flex justify-center items-center mt-12 md:mt-20">
+                <div className="flex justify-center items-center gap-2 md:gap-4 bg-white shadow-xl rounded-full px-6 py-3 border border-gray-100">
+                  {renderPagination()}
+                </div>
+              </div>
+            )}
           </div>
 
           {/* contact form */}
@@ -544,7 +574,9 @@ const BlogsPage = () => {
             </div>
           </div>
         </div>
-        {connectionStatus}
+        <div className="container mx-auto px-4 pb-8">
+          {connectionStatus}
+        </div>
       </div>
     </>
   );
