@@ -42,10 +42,9 @@ const BlogsPage = () => {
 
   // Initial load from Next.js API (same MongoDB as CRM)
   useEffect(() => {
-    Promise.all([getBlogs(), getBlogLinks()])
-      .then(([blogsData, linksData]) => {
-        setBlogs(blogsData);
-        setBlogLinks(linksData || []);
+    getBlogs()
+      .then((blogsData) => {
+        setBlogs(blogsData || []);
         setLoading(false);
       })
       .catch((error) => {
@@ -88,7 +87,7 @@ const BlogsPage = () => {
           if (newBannerUrl) {
             setBlogs((prev) => prev.map((blog) => {
               if (!blog.content) return blog;
-              const bannerRegex = /<div class="crm-embed"[^>]*>[\s\S]*?<iframe[^>]*src=["']https?:\/\/xform-blogs\.vercel\.app\/[^"']*["'][\s\S]*?<\/iframe>[\s\S]*?<\/div>|<iframe[^>]*src=["']https?:\/\/xform-blogs\.vercel\.app\/[^"']*["'][\s\S]*?<\/iframe>|<div class="crm-embed"[^>]*>[\s\S]*?<img[^>]*src=["'][^"']*\/uploads\/blogs\/blog-banner-[^"']*["'][\s\S]*?<\/div>|<img[^>]*src=["'][^"']*\/uploads\/blogs\/blog-banner-[^"']*["'][^>]*>|<div class="crm-embed"[^>]*>[\s\S]*?<img[^>]*alt=["'](Banner|Widget|Blog Banner|WhatsApp Banner|WhatsApp Widget)["'][^>]*>[\s\S]*?<\/div>|<img[^>]*alt=["'](Banner|Widget|Blog Banner|WhatsApp Banner|WhatsApp Widget)["'][^>]*>/gi;
+              const bannerRegex = /<div class="crm-embed"[^>]*>[\s\S]*?<iframe[^>]*src=["']https?:\/\/xform-blogs\.vercel\.app\/[^"']*["'][\s\S]*?<\/iframe>[\s\S]*?<\/div>|<iframe[^>]*src=["']https?:\/\/xform-blogs\.vercel\.app\/[^"']*["'][\s\S]*?<\/iframe>|<div class="crm-embed"[^>]*>[\s\S]*?<iframe[^>]*src=["']https?:\/\/xform-blogs\.vercel\.app\/(banner|whatsapp)[^"']*["'][\s\S]*?<\/iframe>[\s\S]*?<\/div>|<div class="crm-embed"[^>]*>[\s\S]*?<img[^>]*src=["'][^"']*\/uploads\/blogs\/blog-banner-[^"']*["'][\s\S]*?<\/div>|<img[^>]*src=["'][^"']*\/uploads\/blogs\/blog-banner-[^"']*["'][^>]*>|<div class="crm-embed"[^>]*>[\s\S]*?<img[^>]*alt=["'](Banner|Widget|Blog Banner|WhatsApp Banner|WhatsApp Widget)["'][^>]*>[\s\S]*?<\/div>|<img[^>]*alt=["'](Banner|Widget|Blog Banner|WhatsApp Banner|WhatsApp Widget)["'][^>]*>/gi;
               if (bannerRegex.test(blog.content)) {
                 const newBannerHtml = `<div class="crm-embed" contenteditable="false" style="width:100%;max-width:900px;margin:0 auto;margin-bottom:20px;"><img src="${newBannerUrl}" alt="Banner" style="display:block;width:100%;height:auto;border-radius:12px;overflow:hidden;" /></div>`;
                 bannerRegex.lastIndex = 0;
@@ -121,31 +120,8 @@ const BlogsPage = () => {
     }
   };
 
-  // Combine blogs and links (unified view like CRM)
-  const unifiedBlogs = React.useMemo(() => {
-    const linkedBlogs = blogLinks
-      .filter(link => !blogs.some(b => b.slug === (link.link?.split('/').filter(Boolean).pop())))
-      .map(link => ({
-        id: `link-${link.idNumber || link.id}`,
-        title: link.name || 'Untitled Blog',
-        excerpt: `Study abroad database record (Category: ${link.categories || 'General'})`,
-        author: 'Radical Library',
-        status: 'Published',
-        date: link.createdAt ? new Date(link.createdAt).toLocaleDateString() : new Date().toLocaleDateString(),
-        views: 0,
-        likes: 0,
-        featuredImage: link.banner || '/images/blogs/b.webp',
-        slug: link.link?.split('/').filter(Boolean).pop() || '',
-        category: link.categories || 'General',
-        isLinkedOnly: true
-      }));
-
-    // Show everything that is NOT archived; manual ones first
-    return [...blogs, ...linkedBlogs].filter(b => (b.status || '').toLowerCase() !== 'archived');
-  }, [blogs, blogLinks]);
-
-  const publishedBlogs = unifiedBlogs; // user said "never remove", so show all published/non-archived content
-  const categories = ['All', ...Array.from(new Set(publishedBlogs.flatMap((b) => b.category?.split(',').map(c => c.trim())).filter(Boolean)))];
+  const publishedBlogs = blogs.filter(b => (b.status || '').toLowerCase() === 'published' && (b.status || '').toLowerCase() !== 'archived');
+  const categories = ['All', ...Array.from(new Set(publishedBlogs.flatMap((b) => b.category?.split(',').map(c => c.trim()) || []).filter(Boolean)))];
 
   // Connection status indicator
   const connectionStatus = (
