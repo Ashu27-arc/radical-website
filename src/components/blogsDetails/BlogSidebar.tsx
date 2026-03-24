@@ -6,9 +6,9 @@ interface BlogSidebarProps {
 
 const BlogSidebar = ({ className = "" }: BlogSidebarProps) => {
     return (
-        <div className={`w-full px-4 sm:px-6 lg:px-0 lg:col-span-1 animate-fadeIn mb-12 sm:mb-16 lg:mb-20 lg:sticky lg:top-[209px] lg:w-full lg:max-w-none lg:self-start lg:h-[calc(100vh-8rem)] lg:overflow-y-auto scrollbar-hide ${className}`} style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
+        <div className={`w-full px-4 sm:px-6 lg:px-0 lg:col-span-1 animate-fadeIn mb-12 sm:mb-16 lg:mb-20 lg:sticky lg:top-[100px] lg:w-full lg:max-w-none lg:self-start lg:h-[calc(100vh-8rem)] lg:overflow-y-auto scrollbar-hide ${className}`} style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
             {/* Get In Touch Form */}
-            <div className="mb-30">
+            <div className="mb-8">
                 <div className="bg-[#E1F2FF] p-4 sm:p-5 md:p-6 rounded-lg transition-transform hover:scale-[1.01] duration-300 shadow-sm">
                     <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-800 mb-3 sm:mb-4 text-center">Get In Touch</h3>
                     <div className="space-y-3 sm:space-y-4">
@@ -41,7 +41,7 @@ const BlogSidebar = ({ className = "" }: BlogSidebarProps) => {
             </div>
 
             {/* Related Section - Scrollable */}
-            <div className="bg-[#E1F2FF] p-4 sm:p-5 md:p-6 rounded-lg mt-4 sm:mt-6 lg:-mt-30">
+            <div className="bg-[#E1F2FF] p-4 sm:p-5 md:p-6 rounded-lg mt-4 sm:mt-6">
                 <h3 className="text-base sm:text-lg md:text-xl font-bold text-[#287FC4] mb-4 sm:mb-5 md:mb-6">Related</h3>
                 <div className="space-y-4 sm:space-y-5 md:space-y-6">
                     {/* Related Post 1 */}

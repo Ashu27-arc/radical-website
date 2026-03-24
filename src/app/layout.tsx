@@ -32,7 +32,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children, }: { children: React.ReactNode; }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         <meta name="robots" content="noindex, nofollow" />
         <meta name="googlebot" content="noindex, nofollow" />
@@ -44,7 +44,7 @@ export default function RootLayout({ children, }: { children: React.ReactNode; }
           crossOrigin="anonymous"
         />
       </head>
-      <body className="flex flex-col min-h-screen">
+      <body className="flex flex-col min-h-screen" suppressHydrationWarning>
         <ClientWrapper>
           <Providers>
             <ScrollEffectProvider />

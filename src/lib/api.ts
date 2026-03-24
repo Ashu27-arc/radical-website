@@ -115,15 +115,20 @@ export async function getBlogs(): Promise<Blog[]> {
 
 export async function getBlogLinks(): Promise<BlogLink[]> {
   try {
+    const token = localStorage.getItem("token"); // login ke baad saved token
+
     const response = await apiClient.get('/api/blog-links', {
       params: { _t: Date.now() },
       headers: {
+        'Authorization': `Bearer ${token}`, // <-- ye missing tha
         'Cache-Control': 'no-cache, no-store, must-revalidate',
         'Pragma': 'no-cache'
       }
     });
+
     return Array.isArray(response.data) ? response.data : [];
   } catch (error) {
+    console.error("API Error:", error);
     return [];
   }
 }

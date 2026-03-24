@@ -283,99 +283,22 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
     return (
         <div className="w-full min-w-0 bg-gray-50 relative animate-fadeIn">
             <FloatingWhatsApp />
-            {/* Fixed Search Section - responsive padding & spacing */}
-            <div className="sticky top-[72px] sm:top-[80px] md:top-[90px] lg:top-[132px] z-10 bg-gray-50 py-2 sm:py-3 md:py-4 shadow-sm">
-                <div className="max-w-6xl mx-auto px-3 sm:px-4 md:px-6">
-                    {/* Search Section */}
-                    <div className="flex flex-col lg:flex-row gap-2 sm:gap-2 items-stretch lg:items-start justify-start">
-                        {/* Search Input with Icon */}
-                        <div className="relative w-full lg:max-w-[450px] md:max-w-[320px] max-w-full">
-                            <input
-                                type="text"
-                                placeholder="search your dream college"
-                                value={searchTerm}
-                                onChange={(e) => setSearchTerm(e.target.value)}
-                                onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
-                                className="w-full px-3 sm:px-4 h-9 sm:h-10 rounded-full bg-white shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700 placeholder-gray-400 text-sm sm:text-base"
-                            />
-                            <button
-                                onClick={handleSearch}
-                                className="absolute right-1 top-1/2 -translate-y-1/2 bg-[#005A8B] hover:bg-blue-700 text-white h-7 w-7 sm:h-8 sm:w-8 rounded-full transition-colors duration-200 flex items-center justify-center"
-                                aria-label="Search"
-                            >
-                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                                </svg>
-                            </button>
-                        </div>
-
-                        {/* Category Filter Buttons - responsive gap & scroll */}
-                        <div className="flex bg-white lg:bg-transparent rounded-full lg:rounded-none shadow-sm lg:shadow-none p-1.5 sm:p-1 lg:p-0 items-center gap-1 sm:gap-3 flex-1 min-w-0 w-full lg:w-auto overflow-hidden">
-                            {/* Left Arrow - Desktop/Tablet */}
-                            <button
-                                onClick={() => scroll('left')}
-                                className="hidden md:flex w-8 h-8 rounded-full bg-white shadow-sm hover:shadow-md transition-all duration-200 items-center justify-center shrink-0 border border-gray-200 hover:border-gray-300 hover:scale-110 active:scale-95"
-                            >
-                                <Image src="/images/blogs/left-arrow.webp" alt="Scroll Left" width={16} height={16} className="object-contain opacity-60 hover:opacity-100" />
-                            </button>
-
-                            <div
-                                ref={categoryContainerRef}
-                                className="flex gap-3 md:gap-4 items-center flex-1 overflow-x-auto scrollbar-hide py-1 min-w-0"
-                                style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
-                            >
-                                {categories.map((category) => {
-                                    const isActive = activeCategory === category;
-                                    const isAll = category === 'All';
-                                    const themeStyle = isAll ? 'bg-white text-gray-600 border-gray-200' : (categoryColors[category] || defaultCategoryColor);
-
-                                    return (
-                                        <button
-                                            key={category}
-                                            onClick={() => setActiveCategory(category)}
-                                            className={`px-3 sm:px-4 md:px-5 py-1.5 rounded-full font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 text-xs sm:text-sm whitespace-nowrap shrink-0 border ${isActive
-                                                ? 'bg-[#005A8B] text-white border-[#005A8B] shadow-md'
-                                                : `${themeStyle} ${isAll ? '' : 'border-transparent'} hover:bg-[#005A8B] hover:text-white hover:border-[#005A8B]`
-                                                }`}
-                                        >
-                                            {category}
-                                        </button>
-                                    );
-                                })}
-                            </div>
-
-                            {/* Right Arrow - Desktop/Tablet */}
-                            <button
-                                onClick={() => scroll('right')}
-                                className="hidden md:flex w-8 h-8 rounded-full bg-white shadow-sm hover:shadow-md transition-all duration-200 items-center justify-center shrink-0 border border-gray-200 hover:border-gray-300 hover:scale-110 active:scale-95"
-                            >
-                                <Image src="/images/blogs/right-arrow.webp" alt="Scroll Right" width={16} height={16} className="object-contain opacity-60 hover:opacity-100" />
-                            </button>
-                        </div>
-
-                        {/* Mobile Arrows Row - Only visible on small screens */}
-                        <div className="flex md:hidden justify-center gap-3 sm:gap-4 w-full mt-2">
-                            <button
-                                onClick={() => scroll('left')}
-                                className="flex w-11 h-11 sm:w-10 sm:h-10 rounded-full bg-white shadow-md hover:shadow-lg transition-all duration-200 items-center justify-center border border-gray-100 active:scale-95 min-h-[44px] min-w-[44px]"
-                            >
-                                <Image src="/images/blogs/left-arrow.webp" alt="Scroll Left" width={20} height={20} className="object-contain" />
-                            </button>
-                            <button
-                                onClick={() => scroll('right')}
-                                className="flex w-11 h-11 sm:w-10 sm:h-10 rounded-full bg-white shadow-md hover:shadow-lg transition-all duration-200 items-center justify-center border border-gray-100 active:scale-95 min-h-[44px] min-w-[44px]"
-                            >
-                                <Image src="/images/blogs/right-arrow.webp" alt="Scroll Right" width={20} height={20} className="object-contain" />
-                            </button>
-                        </div>
-                    </div>
+            {/* Navigation / Back Button */}
+            <div className="bg-white border-b border-gray-100 py-2">
+                <div className="max-w-6xl mx-auto px-4">
+                    <Link href="/blogs" className="text-[#005A8B] hover:underline flex items-center gap-2 font-medium">
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                        </svg>
+                        Back to Blogs
+                    </Link>
                 </div>
             </div>
 
             {/* Scrollable Content */}
-            <div className="lg:pt-14 md:pt-8 pt-6">
+            <div className="lg:pt-2 md:pt-2 pt-2">
                 {/* main content */}
-                <div className="container px-4 mt-4 sm:mt-6 md:mt-8">
+                <div className="container px-4 mt-1">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
                         {/* Blog Content - Left Side */}
                         <div className="lg:col-span-2">

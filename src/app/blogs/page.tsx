@@ -126,7 +126,7 @@ const BlogsPage = () => {
   const publishedBlogs = useMemo(() => {
     const rawBlogs = blogs.filter(b => (b.status || '').toLowerCase() === 'published' && (b.status || '').toLowerCase() !== 'archived');
     const rawLinks = blogLinks.filter(l => (l.status || '').toLowerCase() === 'active' || (l.status || '').toLowerCase() === 'published');
-    
+
     const normalizedLinks = rawLinks.map(l => ({
       id: l.id || l._id,
       title: l.name,
@@ -172,10 +172,10 @@ const BlogsPage = () => {
     return publishedBlogs.filter((b) => {
       const catStr = b.category || b.categories || '';
       const blogCats = catStr.split(',').map((c: string) => c.trim().toLowerCase()).filter(Boolean);
-      
-      const matchCategory = activeCategory === 'All' || 
+
+      const matchCategory = activeCategory === 'All' ||
         blogCats.includes(activeCategory.toLowerCase());
-        
+
       const matchSearch = !searchQuery.trim() ||
         b.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         (b.excerpt && b.excerpt.toLowerCase().includes(searchQuery.toLowerCase()));
@@ -194,13 +194,8 @@ const BlogsPage = () => {
   const currentBlogs = filtered.slice(indexOfFirstBlog, indexOfLastBlog);
   const totalPages = Math.max(1, Math.ceil(filtered.length / blogsPerPage));
 
-  const featuredBlog = currentPage === 1 ? currentBlogs[0] || null : null;
-  const sidebarBlogs = currentPage === 1 && currentBlogs.length > 1
-    ? currentBlogs.slice(1, Math.min(3, currentBlogs.length))
-    : [];
-
-  // Grid blogs: only show items not in featured/sidebar if on first page
-  const gridBlogs = currentPage === 1 ? currentBlogs.slice(3) : currentBlogs;
+  // Simple uniform grid of all blogs
+  const gridBlogs = currentBlogs;
 
   const getCategoryColor = (cat: string) => categoryColors[cat] || defaultCategoryColor;
   const getCategoryTextColor = (cat: string) => {
@@ -286,13 +281,15 @@ const BlogsPage = () => {
     <>
       <FloatingWhatsApp />
       {/* Header Section */}
-      <div className="bg-white py-2 md:py-4 animate-fadeIn">
+      {/* <div className="bg-white py-4 animate-fadeIn">
         <div className="container mx-auto px-4">
+          <h1 className="text-3xl md:text-4xl font-bold text-gray-800 text-center mb-2">Our Latest Blogs</h1>
+          <p className="text-gray-600 text-center max-w-2xl mx-auto">Stay updated with the latest in medical education, NEET updates, and admission guidance.</p>
         </div>
-      </div>
+      </div> */}
 
       {/* Sticky Search and Category Section */}
-      <div className="sticky top-[100px] md:top-[110px] lg:top-[130px] z-40 bg-white/95 backdrop-blur-sm shadow-lg border-b border-gray-200 transition-all duration-200">
+      <div className="sticky top-[80px] md:top-[130px] z-40 bg-white/95 backdrop-blur-sm shadow-md border-b border-gray-100 transition-all duration-200">
         <div className="container mx-auto px-4 py-1.5 md:py-2">
           <div className="max-w-6xl mx-auto px-3 sm:px-4 md:px-6">
             {/* Search Section */}
@@ -380,115 +377,97 @@ const BlogsPage = () => {
         </div>
       </div>
 
-      {/* Blog Content */}
-      <div className="min-h-screen">
-        <div className="container mx-auto px-4 py-6 md:py-10">
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-3 md:mb-4">Fresh Update</h2>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 relative">
-            {/* Main Blog Post */}
-            <div className="lg:col-span-2 animate-fadeIn rounded-lg" style={{ animationDelay: '0.1s' }}>
-              {featuredBlog ? (
-                <Link 
-                  href={featuredBlog.isExternal ? featuredBlog.slug : `/${featuredBlog.slug}`} 
-                  target={featuredBlog.isExternal ? "_blank" : "_self"}
-                  className="group block bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500"
+      {/* Fresh Update Section */}
+      {publishedBlogs.length > 0 && (
+        <div className="container mx-auto px-4 py-15">
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Fresh Update</h2>
+          <div className="flex flex-col lg:flex-row gap-6 lg:items-start">
+            {/* Left: Large Featured Card */}
+            {(() => {
+              const featured = publishedBlogs[0];
+              return (
+                <Link
+                  href={featured.isExternal ? featured.slug : `/${featured.slug}`}
+                  target={featured.isExternal ? '_blank' : '_self'}
+                  className="group lg:w-[70%] w-full flex-shrink-0 block"
                 >
-                  <div className="relative h-64 md:h-96 w-full overflow-hidden">
+                  <div className="rounded-2xl overflow-hidden relative h-[220px] sm:h-[270px] md:h-[310px] w-full shadow-sm">
                     <Image
-                      src={featuredBlog.featuredImage || '/images/blogs/card.webp'}
-                      alt={featuredBlog.title}
+                      src={featured.featuredImage || '/images/blogs/card.webp'}
+                      alt={featured.title}
                       fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                   </div>
-                  <div className="p-6 md:p-8">
-                    <div className="flex flex-wrap gap-2 mb-4">
-                      {(featuredBlog.category || featuredBlog.categories)?.split(',').map((c: string) => c.trim()).filter(Boolean).map((cat: string, idx: number) => (
-                        <span key={idx} className={`inline-block ${getCategoryTextColor(cat)} font-semibold text-xs md:text-sm px-3 py-1 rounded-full bg-opacity-20`}>
+                  <div className="mt-3">
+                    <div className="flex flex-wrap gap-2 mb-2">
+                      {(featured.category || featured.categories)?.split(',').map((c: string) => c.trim()).filter(Boolean).map((cat: string, idx: number) => (
+                        <span key={idx} className={`inline-block ${getCategoryColor(cat)} text-[15px] font-bold px-2 py-0.5 rounded-full`}>
                           {cat}
                         </span>
                       ))}
                     </div>
-                    <h3 className="text-xl md:text-3xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
-                      {featuredBlog.title}
+                    <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors line-clamp-2 leading-snug">
+                      {featured.title}
                     </h3>
-                    <p className="text-gray-600 text-sm md:text-base line-clamp-2 md:line-clamp-3 mb-4 text-justify">
-                      {featuredBlog.excerpt || featuredBlog.title}
+                    <p className="text-gray-500 text-sm line-clamp-2 mb-3">
+                      {featured.excerpt || featured.title}
                     </p>
-                    <div className="flex items-center text-gray-500 text-xs md:text-sm">
-                      <span className="font-medium">{featuredBlog.author || 'Radical Education'}</span>
+                    <div className="flex items-center text-gray-400 text-xs font-medium">
+                      <span>{featured.author || 'Radical Education'}</span>
                       <span className="mx-2">•</span>
-                      <span>{formatDate(featuredBlog.date || featuredBlog.createdAt)}</span>
+                      <span>{formatDate(featured.date || featured.createdAt)}</span>
                     </div>
                   </div>
                 </Link>
-              ) : (
-                <div className="bg-white rounded-2xl p-12 text-center text-gray-500 border border-gray-100 flex flex-col items-center justify-center">
-                  <div className="w-16 h-16 bg-gray-50 rounded-full flex items-center justify-center mb-4">
-                    <svg className="w-8 h-8 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9.5a2.5 2.5 0 00-2.5-2.5H14" />
-                    </svg>
-                  </div>
-                  <p className="text-lg font-medium">{loading ? 'Loading latest blogs...' : 'No blogs match your criteria'}</p>
-                </div>
-              )}
-            </div>
+              );
+            })()}
 
-            {/* Sidebar - Recommendations */}
-            <div className="space-y-6 md:space-y-8">
-              {sidebarBlogs.length > 0 ? (
-                sidebarBlogs.map((post, index) => (
-                  <Link 
-                    key={post.id} 
-                    href={post.isExternal ? post.slug : `/${post.slug}`} 
-                    target={post.isExternal ? "_blank" : "_self"}
-                    className="group block animate-fadeIn" 
-                    style={{ animationDelay: `${0.2 + index * 0.1}s` }}
-                  >
-                    <div className={`bg-white md:pb-6 pb-4 transition-all duration-300 cursor-pointer ${index < sidebarBlogs.length - 1 ? 'border-b border-gray-100' : ''}`}>
-                      <div className="flex flex-wrap gap-2 mb-2">
-                        {(post.category || post.categories)?.split(',').map((c: string) => c.trim()).filter(Boolean).map((cat: string, idx: number) => (
-                          <span key={idx} className={`inline-block ${getCategoryTextColor(cat)} font-semibold text-[10px] md:text-xs px-2 py-0.5 rounded-full`}>
-                            {cat}
-                          </span>
-                        ))}
-                      </div>
-                      <h4 className="text-base md:text-lg font-bold text-gray-800 mb-2 group-hover:text-blue-600 transition-colors line-clamp-2">
-                        {post.title}
-                      </h4>
-                      <p className="text-gray-500 text-xs md:text-sm line-clamp-2 mb-2 text-justify">
-                        {post.excerpt || post.title}
-                      </p>
-                      <div className="flex items-center text-gray-400 text-[10px] md:text-xs font-medium">
-                        <span>{post.author || 'Radical Education'}</span>
-                        <span className="mx-2">•</span>
-                        <span>{formatDate(post.date || post.createdAt)}</span>
-                      </div>
-                    </div>
-                  </Link>
-                ))
-              ) : (
-                !loading && currentPage === 1 && (
-                  <div className="bg-white rounded-2xl p-6 text-center text-gray-400 border border-gray-100">
-                    <p className="text-sm">More highlights coming soon</p>
+            {/* Right: 2 smaller list cards */}
+            <div className="lg:w-[48%] w-full flex flex-col divide-y divide-gray-200 lg:h-[310px] sm:h-[270px] h-[220px] overflow-hidden">
+              {publishedBlogs.slice(1, 3).map((blog, idx) => (
+                <Link
+                  key={`fresh-${blog.id}-${idx}`}
+                  href={blog.isExternal ? blog.slug : `/${blog.slug}`}
+                  target={blog.isExternal ? '_blank' : '_self'}
+                  className="group py-4 first:pt-0 last:pb-0 block flex-1"
+                >
+                  <div className="flex flex-wrap gap-1 mb-1">
+                    {(blog.category || blog.categories)?.split(',').map((c: string) => c.trim()).filter(Boolean).map((cat: string, catIdx: number) => (
+                      <span key={catIdx} className={`inline-block ${getCategoryTextColor(cat)} font-semibold text-[15px] px-1.5 py-0.5 rounded-full`}>
+                        {cat}
+                      </span>
+                    ))}
                   </div>
-                )
-              )}
+                  <h3 className="text-sm font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors line-clamp-2 leading-snug">
+                    {blog.title}
+                  </h3>
+                  <p className="text-gray-500 text-xs line-clamp-2 mb-1.5">
+                    {blog.excerpt || blog.title}
+                  </p>
+                  <div className="flex items-center text-gray-400 text-[10px] font-medium">
+                    <span>{blog.author || 'Radical Education'}</span>
+                    <span className="mx-1.5">•</span>
+                    <span>{formatDate(blog.date || blog.createdAt)}</span>
+                  </div>
+                </Link>
+              ))}
             </div>
-
-            {/* Decorative separator */}
-            <div className="absolute -bottom-6 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gray-200 to-transparent lg:col-span-3"></div>
           </div>
+        </div>
+      )}
+
+      {/* Blog Content */}
+      <div className="min-h-screen">
+        <div className="container mx-auto px-4 py-8">
 
           {/* Blog Cards Grid */}
-          <div className="mt-16 md:mt-24">
+          <div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
               {gridBlogs.map((blog, index) => (
-                <Link 
-                  key={blog.id} 
-                  href={blog.isExternal ? blog.slug : `/${blog.slug}`} 
+                <Link
+                  key={blog.id}
+                  href={blog.isExternal ? blog.slug : `/${blog.slug}`}
                   target={blog.isExternal ? "_blank" : "_self"}
                   className="group block h-full animate-fadeIn"
                   style={{ animationDelay: `${0.1 * (index % 3)}s` }}
@@ -559,6 +538,7 @@ const BlogsPage = () => {
                   src="/images/blogs/contact.webp"
                   alt="Contact Background"
                   fill
+                  priority
                   className="object-cover"
                 />
                 {/* Overlay */}
