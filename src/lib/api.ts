@@ -115,15 +115,23 @@ export async function getBlogs(): Promise<Blog[]> {
 
 export async function getBlogLinks(): Promise<BlogLink[]> {
   try {
-    const token = localStorage.getItem("token"); // login ke baad saved token
+    const token = typeof window !== 'undefined'
+      ? (localStorage.getItem('token') || sessionStorage.getItem('token'))
+      : null;
+
+    const headers: Record<string, string> = {
+      'Cache-Control': 'no-cache, no-store, must-revalidate',
+      'Pragma': 'no-cache'
+    };
+
+    // Authorization only when token exists; prevents "Bearer null" requests on live public users
+    if (token) {
+      headers.Authorization = `Bearer ${token}`;
+    }
 
     const response = await apiClient.get('/api/blog-links', {
       params: { _t: Date.now() },
-      headers: {
-        'Authorization': `Bearer ${token}`, // <-- ye missing tha
-        'Cache-Control': 'no-cache, no-store, must-revalidate',
-        'Pragma': 'no-cache'
-      }
+      headers
     });
 
     return Array.isArray(response.data) ? response.data : [];

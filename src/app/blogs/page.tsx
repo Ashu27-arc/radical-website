@@ -26,6 +26,9 @@ const categoryColors: Record<string, string> = {
 };
 
 const defaultCategoryColor = 'bg-[#E3F2FD] text-[#005A8B]';
+const stableCategoryOrder = ['All', 'Education', 'Exams', 'Government', 'Careers', 'MBBS in India', 'MBBS Abroad', 'Study Abroad', 'NEET UG', 'NEET PG', 'Notification'];
+const BLOGS_CACHE_KEY = 'radical_blogs_cache_v1';
+const BLOG_LINKS_CACHE_KEY = 'radical_blog_links_cache_v1';
 
 const toCategoryList = (value: unknown): string[] => {
   if (Array.isArray(value)) {
@@ -60,17 +63,62 @@ const BlogsPage = () => {
 
   // Initial load from Next.js API (same MongoDB as CRM)
   useEffect(() => {
-    setLoading(true);
-    Promise.all([getBlogs(), getBlogLinks()])
-      .then(([blogsData, linksData]) => {
-        setBlogs(blogsData || []);
-        setBlogLinks(linksData || []);
+    let isMounted = true;
+
+    let cachedBlogs: Blog[] = [];
+    let cachedLinks: BlogLink[] = [];
+
+    if (typeof window !== 'undefined') {
+      try {
+        const rawBlogs = sessionStorage.getItem(BLOGS_CACHE_KEY);
+        const rawLinks = sessionStorage.getItem(BLOG_LINKS_CACHE_KEY);
+        cachedBlogs = rawBlogs ? JSON.parse(rawBlogs) : [];
+        cachedLinks = rawLinks ? JSON.parse(rawLinks) : [];
+      } catch {
+        cachedBlogs = [];
+        cachedLinks = [];
+      }
+    }
+
+    const hasCachedData = cachedBlogs.length > 0 || cachedLinks.length > 0;
+    if (hasCachedData) {
+      setBlogs(cachedBlogs);
+      setBlogLinks(cachedLinks);
+      setLoading(false);
+    } else {
+      setLoading(true);
+    }
+
+    Promise.allSettled([getBlogs(), getBlogLinks()])
+      .then(([blogsResult, linksResult]) => {
+        if (!isMounted) return;
+
+        const blogsData = blogsResult.status === 'fulfilled' ? (blogsResult.value || []) : [];
+        const linksData = linksResult.status === 'fulfilled' ? (linksResult.value || []) : [];
+
+        // Use fresh data when available, otherwise keep cached data.
+        setBlogs(blogsData.length ? blogsData : cachedBlogs);
+        setBlogLinks(linksData.length ? linksData : cachedLinks);
         setLoading(false);
+
+        if (typeof window !== 'undefined') {
+          try {
+            if (blogsData.length) sessionStorage.setItem(BLOGS_CACHE_KEY, JSON.stringify(blogsData));
+            if (linksData.length) sessionStorage.setItem(BLOG_LINKS_CACHE_KEY, JSON.stringify(linksData));
+          } catch {
+            // Ignore storage errors.
+          }
+        }
       })
       .catch((error) => {
+        if (!isMounted) return;
         console.error('Error loading blogs:', error);
         setLoading(false);
       });
+
+    return () => {
+      isMounted = false;
+    };
   }, [refreshKey]);
 
   // Real-time: CRM se blog post/update/delete par WebSocket se turant update
@@ -166,12 +214,14 @@ const BlogsPage = () => {
   }, [blogs, blogLinks]);
 
   const categories = useMemo(() => {
-    const allCats = new Set<string>(['All']);
+    const allCats = new Set<string>(stableCategoryOrder);
     publishedBlogs.forEach(b => {
       const cats = toCategoryList(b.category || b.categories || '');
       cats.forEach((c: string) => allCats.add(c));
     });
-    return Array.from(allCats);
+    const known = stableCategoryOrder.filter((c) => allCats.has(c));
+    const dynamic = Array.from(allCats).filter((c) => !stableCategoryOrder.includes(c)).sort((a, b) => a.localeCompare(b));
+    return [...known, ...dynamic];
   }, [publishedBlogs]);
 
   // Connection status indicator
@@ -394,7 +444,18 @@ const BlogsPage = () => {
       </div>
 
       {/* Fresh Update Section */}
-      {filtered.length > 0 && (
+      {loading ? (
+        <div className="container mx-auto px-4 py-15 animate-pulse">
+          <div className="h-8 bg-gray-200 rounded w-52 mb-6" />
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div className="lg:col-span-2 h-[310px] bg-gray-200 rounded-2xl" />
+            <div className="space-y-4">
+              <div className="h-[148px] bg-gray-200 rounded-xl" />
+              <div className="h-[148px] bg-gray-200 rounded-xl" />
+            </div>
+          </div>
+        </div>
+      ) : filtered.length > 0 && (
         <div className="container mx-auto px-4 py-15">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Fresh Update</h2>
           <div className="flex flex-col lg:flex-row gap-6 lg:items-start">
@@ -480,7 +541,19 @@ const BlogsPage = () => {
           {/* Blog Cards Grid */}
           <div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
-              {gridBlogs.map((blog, index) => (
+              {loading
+                ? Array.from({ length: 6 }).map((_, index) => (
+                  <div key={`blog-skeleton-${index}`} className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-50 animate-pulse">
+                    <div className="h-48 sm:h-56 w-full bg-gray-200" />
+                    <div className="p-6 space-y-3">
+                      <div className="h-4 w-28 bg-gray-200 rounded" />
+                      <div className="h-5 w-full bg-gray-200 rounded" />
+                      <div className="h-4 w-4/5 bg-gray-200 rounded" />
+                      <div className="h-4 w-2/3 bg-gray-200 rounded" />
+                    </div>
+                  </div>
+                ))
+                : gridBlogs.map((blog, index) => (
                 <Link
                   key={blog.id}
                   href={blog.isExternal ? blog.slug : `/${blog.slug}`}
@@ -519,7 +592,7 @@ const BlogsPage = () => {
                     </div>
                   </div>
                 </Link>
-              ))}
+                ))}
             </div>
 
             {/* Empty state for grid */}
