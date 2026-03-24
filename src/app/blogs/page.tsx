@@ -27,6 +27,24 @@ const categoryColors: Record<string, string> = {
 
 const defaultCategoryColor = 'bg-[#E3F2FD] text-[#005A8B]';
 
+const toCategoryList = (value: unknown): string[] => {
+  if (Array.isArray(value)) {
+    return value.map((item) => String(item).trim()).filter(Boolean);
+  }
+
+  if (typeof value === 'string') {
+    return value.split(',').map((item) => item.trim()).filter(Boolean);
+  }
+
+  return [];
+};
+
+const normalizeCategoryForMatch = (value: string) =>
+  value
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/[^a-z0-9]/g, '');
+
 const BlogsPage = () => {
   const [activeCategory, setActiveCategory] = useState('All');
   const [searchQuery, setSearchQuery] = useState('');
@@ -150,9 +168,7 @@ const BlogsPage = () => {
   const categories = useMemo(() => {
     const allCats = new Set<string>(['All']);
     publishedBlogs.forEach(b => {
-      const catStr = b.category || b.categories || '';
-      // Only split by comma to support categories with spaces (e.g. "Study Abroad")
-      const cats = catStr.split(',').map((c: string) => c.trim()).filter(Boolean);
+      const cats = toCategoryList(b.category || b.categories || '');
       cats.forEach((c: string) => allCats.add(c));
     });
     return Array.from(allCats);
@@ -170,11 +186,11 @@ const BlogsPage = () => {
 
   const filtered = useMemo(() => {
     return publishedBlogs.filter((b) => {
-      const catStr = b.category || b.categories || '';
-      const blogCats = catStr.split(',').map((c: string) => c.trim().toLowerCase()).filter(Boolean);
+      const blogCats = toCategoryList(b.category || b.categories || '').map(normalizeCategoryForMatch);
+      const activeCategoryNormalized = normalizeCategoryForMatch(activeCategory);
 
       const matchCategory = activeCategory === 'All' ||
-        blogCats.includes(activeCategory.toLowerCase());
+        blogCats.includes(activeCategoryNormalized);
 
       const matchSearch = !searchQuery.trim() ||
         b.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -378,13 +394,13 @@ const BlogsPage = () => {
       </div>
 
       {/* Fresh Update Section */}
-      {publishedBlogs.length > 0 && (
+      {filtered.length > 0 && (
         <div className="container mx-auto px-4 py-15">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Fresh Update</h2>
           <div className="flex flex-col lg:flex-row gap-6 lg:items-start">
             {/* Left: Large Featured Card */}
             {(() => {
-              const featured = publishedBlogs[0];
+              const featured = filtered[0];
               return (
                 <Link
                   href={featured.isExternal ? featured.slug : `/${featured.slug}`}
@@ -425,7 +441,7 @@ const BlogsPage = () => {
 
             {/* Right: 2 smaller list cards */}
             <div className="lg:w-[48%] w-full flex flex-col divide-y divide-gray-200 lg:h-[310px] sm:h-[270px] h-[220px] overflow-hidden">
-              {publishedBlogs.slice(1, 3).map((blog, idx) => (
+              {filtered.slice(1, 3).map((blog, idx) => (
                 <Link
                   key={`fresh-${blog.id}-${idx}`}
                   href={blog.isExternal ? blog.slug : `/${blog.slug}`}

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "primereact/button";
@@ -24,8 +24,47 @@ export default function Home() {
   const [value, setValue] = useState<string>("");
   const [items, setItems] = useState<string[]>([]);
 
+  const collegeOptions = useMemo(
+    () => [
+      "AIIMS Delhi",
+      "Maulana Azad Medical College",
+      "King George's Medical University",
+      "Grant Medical College",
+      "Christian Medical College Vellore",
+      "Madras Medical College",
+      "Seth GS Medical College",
+      "BJ Medical College Ahmedabad",
+      "Government Medical College Nagpur",
+      "Kasturba Medical College Manipal",
+      "JIPMER Puducherry",
+      "Armed Forces Medical College Pune",
+    ],
+    []
+  );
+
   const search = (event: AutoCompleteCompleteEvent) => {
-    setItems([...Array(10).keys()].map((item) => event.query + "-" + item));
+    const query = event.query.trim().toLowerCase();
+
+    if (!query) {
+      setItems(collegeOptions);
+      return;
+    }
+
+    setItems(
+      collegeOptions.filter((college) =>
+        college.toLowerCase().includes(query)
+      )
+    );
+  };
+
+  const handleCollegeSearch = () => {
+    const query = value.trim();
+    if (!query) return;
+
+    const collegePredictorUrl = `https://www.neetbhaiya.in/college-predictor?search=${encodeURIComponent(
+      query
+    )}`;
+    window.open(collegePredictorUrl, "_blank", "noopener,noreferrer");
   };
 
   const videos = [
@@ -88,10 +127,17 @@ export default function Home() {
               suggestions={items}
               completeMethod={search}
               onChange={(e) => setValue(e.value)}
+              onKeyDown={(e) => {
+                if (e.key === "Enter") {
+                  e.preventDefault();
+                  handleCollegeSearch();
+                }
+              }}
             />
             <Button
               label="Search"
               className="bannersrchBtn bg-[#005A8B]! border-[#005A8B]! shadow-none!"
+              onClick={handleCollegeSearch}
             />
           </div>
         </div>
