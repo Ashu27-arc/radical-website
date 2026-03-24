@@ -37,7 +37,7 @@ const BlogsPage = () => {
   const blogsPerPage = 6;
   const scrollRef = useRef<HTMLDivElement>(null);
   const [refreshKey, setRefreshKey] = useState(0);
-  const wsUrl = process.env.NEXT_PUBLIC_WS_URL || 'wss://backend-radical.onrender.com';
+  const wsUrl = process.env.NEXT_PUBLIC_WS_URL || 'https://backend-radical.onrender.com';
   const { addMessageHandler, isConnected } = useWebSocket(wsUrl);
 
   // Initial load from Next.js API (same MongoDB as CRM)
