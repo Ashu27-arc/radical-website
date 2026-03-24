@@ -22,7 +22,7 @@ export const courses: Course[] = [
     slug: 'bds',
     title: 'BDS',
     shortDesc:
-      'A respected and financially comfortable pathway for dental professionals.',
+      'A respected and financially viable pathway for dental professionals.',
     fullDesc:
       'BDS focuses on dental sciences, clinical dentistry, and patient care with global exposure and promising career growth.',
     image: '/images/courseCard2.webp',

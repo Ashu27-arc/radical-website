@@ -616,7 +616,7 @@ const BlogsPage = () => {
           <div className="mt-12 md:mt-16 mb-6 md:mb-8 animate-fadeIn" style={{ animationDelay: '0.9s' }}>
             {/* Title */}
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-gray-800 mb-6 md:mb-8 text-center px-4">
-              Connect With <span className="text-blue-400">Our Counselor</span>
+              Connect With <span className="text-blue-400">Our Counsellor</span>
             </h2>
 
             {/* Combined container for image and form */}

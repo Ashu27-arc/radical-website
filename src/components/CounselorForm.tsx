@@ -233,7 +233,7 @@ export default function CounselorForm() {
                         className="mt-1"
                     />
                     <label htmlFor="consent" className="text-sm text-white">
-                        I consent to receiving Calls, WhatsApp, Email and Google RCS from Edwise to assist with this enquiry.
+                        I consent to receiving Calls, WhatsApp, Email and Google RCS to assist with this enquiry.
                     </label>
                 </div>
 

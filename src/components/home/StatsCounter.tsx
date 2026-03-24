@@ -8,7 +8,7 @@ export default function StatsCounter() {
 
   const stats = [
     { value: 15783, suffix: '+', label: 'STUDENTS COUNSELLED' },
-    { value: 75, suffix: '+', label: 'EXPERT COUNSELORS' },
+    { value: 75, suffix: '+', label: 'EXPERT COUNSELLORS' },
     { value: 250, suffix: '+', label: 'COLLEGES / UNIVERSITIES\nASSOCIATION' },
     { value: 100, suffix: '%', label: 'SUCCESS RATE' },
   ];

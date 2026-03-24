@@ -112,7 +112,7 @@ export default function Home() {
             Expert Assistance
           </h1>
           <div className="text-lg lg:px-16 px-3 md:mb-8 mb-6 fadeUp">
-            Get complete guidance, accurate information, and counseling{" "}
+            Get complete guidance, accurate information, and counselling{" "}
             <br className="hidden lg:block" />
             suited to you and your dreams.
           </div>
@@ -158,10 +158,9 @@ export default function Home() {
                 <div className="text-[#4A4A4A] mb-4 lg:mb-6 leading-7 relative">
                   <span className="absolute left-[-20px] top-0 bottom-0 w-[2px] bg-[#00CFB2]" />
                   <div>
-                    Presenting you a platform that presents different
-                    Institutions that offer varied courses for the students.
+                    Presenting a platform that offers varied courses across different institutions.
                     Whether you want to pursue your education in India or
-                    abroad, Radical Education..
+                    abroad, Radical Education.
                   </div>
                 </div>
                 <Link href="/about-us">
@@ -218,7 +217,7 @@ export default function Home() {
                   OUR SERVICES
                 </div>
                 <h2 className="text-black text-4xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-4xl font-bold leading-tight lg:whitespace-nowrap">
-                  From <span className="text-[#287FC4]">Rank to Admission,</span>
+                  From <span className="text-[#287FC4]">Rank to Admission </span>
                   <br /> We Handle It All
                 </h2>
               </div>
@@ -314,10 +313,10 @@ export default function Home() {
         <div className="container px-3 md:px-4">
           <div className="mb-10 fadeUp text-center">
             <h2 className="text-black text-4xl font-bold mb-4">
-              OUR <span className="text-[#287FC4]">SUCESSFUL STORIES</span>
+              OUR <span className="text-[#287FC4]">SUCCESSFUL STORIES</span>
             </h2>
             <div className="uppercase text-[#00CFB240] leading-12 text-[42px] md:text-5xl lg:text-7xl font-black">
-              HEAR FROM OUR STUDENT
+              HEAR FROM OUR STUDENTS
             </div>
           </div>
           <div className="grid gap-6 md:grid-cols-3 grid-cols-1">
@@ -425,7 +424,7 @@ export default function Home() {
             <h2 className="text-black text-4xl font-bold">
               Connect with{" "}
               <span className="text-[#287FC4] md:inline-flex block">
-                Our Counselor
+                Our Counsellor
               </span>
             </h2>
           </div>
@@ -433,7 +432,7 @@ export default function Home() {
             <div className="md:rounded-xl overflow-hidden">
               <Image
                   src="/images/counselorImg.webp"
-                  alt="Counselor"
+                  alt="Counsellor"
                   height={435}
                   width={1239}
                   className="w-full h-[435px] object-cover object-center"

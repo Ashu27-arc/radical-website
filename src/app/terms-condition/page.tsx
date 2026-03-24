@@ -46,7 +46,7 @@ export default function TermsConditionPage() {
                                             Helps connect students with institutes and education partners.
                                         </li>
                                         <li>
-                                            Offers counseling services and guidance, either online or in person.
+                                            Offers counselling services and guidance, either online or in person.
                                         </li>
                                         <li>
                                             We do not guarantee admission, placement, visa success, or academic success.
@@ -88,7 +88,7 @@ export default function TermsConditionPage() {
                                             Students must personally verify institute details before taking admission.
                                         </li>
                                         <li>
-                                            Counseling is offered purely for guidance purposes.
+                                            counselling is offered purely for guidance purposes.
                                         </li>
                                     </ul>
                                 </section>

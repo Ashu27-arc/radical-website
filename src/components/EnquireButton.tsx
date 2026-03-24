@@ -463,7 +463,7 @@ export default function EnquireButton() {
           </h2>
 
           <p className="text-[#4A4A4A] text-sm md:text-lg leading-relaxed mb-6 md:mb-10 max-w-[550px]">
-            We've Successfully Received Your Query. Our Counselor Will Connect
+            We've Successfully Received Your Query. Our Counsellor Will Connect
             <br className="hidden md:block" /> With You Within 24 Hours To Guide You Further.
           </p>
 

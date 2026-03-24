@@ -6,56 +6,56 @@ export default function OurTeam() {
     const teamMembers = [
         {
             name: "Hitashi Aggarwal",
-            role: "NEET UG/PG COUNSELOR",
+            role: "NEET UG/PG COUNSELLOR",
             image: "/images/011.webp",
             experience: "Experience: 7+ Years",
             available: true,
         },
         {
             name: "Shivanshu shakya",
-            role: "NEET UG/PG COUNSELOR",
+            role: "NEET UG/PG COUNSELLOR",
             image: "/images/022.webp",
             experience: "Experience: 3+ Years",
             available: true,
         },
         {
             name: "Pooja Kumari",
-            role: "NEET UG/PG COUNSELOR",
+            role: "NEET UG/PG COUNSELLOR",
             image: "/images/033.webp",
             experience: "Experience: 4+ Years",
             available: true,
         },
         {
             name: "Raj Kishore",
-            role: "NEET UG/PG COUNSELOR",
+            role: "NEET UG/PG COUNSELLOR",
             image: "/images/044.webp",
             experience: "Experience: 3+ Years",
             available: true,
         },
         {
             name: "Sudakshina Singh",
-            role: "NEET UG/PG COUNSELOR",
+            role: "NEET UG/PG COUNSELLOR",
             image: "/images/055.webp",
             experience: "Experience: 4+ Years",
             available: true,
         },
         {
             name: "Manish Jha",
-            role: "NEET UG/PG COUNSELOR",
+            role: "NEET UG/PG COUNSELLOR",
             image: "/images/066.webp",
             experience: "Experience: 5+ Years",
             available: true,
         },
         {
             name: "Rangnath Jha",
-            role: "NEET UG/PG COUNSELOR",
+            role: "NEET UG/PG COUNSELLOR",
             image: "/images/077.webp",
             experience: "Experience: 6+ Years",
             available: true,
         },
         {
             name: "Shashwat Pandey",
-            role: "NEET UG/PG COUNSELOR",
+            role: "NEET UG/PG COUNSELLOR",
             image: "/images/088.webp",
             experience: "Experience: 4+ Years",
             available: true,
@@ -82,7 +82,7 @@ export default function OurTeam() {
                         FUTURE CAREER
                     </h1>
                     <p className="text-base">
-                        Our team of “professional medical counselor you can trust” works to <br className="md:block hidden" /> secure academic journey.
+                        Our team of “professional medical counsellor you can trust” works to <br className="md:block hidden" /> secure academic journey.
                     </p>
                 </div>
             </section>

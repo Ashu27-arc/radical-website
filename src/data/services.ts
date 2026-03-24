@@ -2,7 +2,7 @@
 
 export const services = [
   {
-    title: "Data Driven NEET Counselling",
+    title: "Data-Driven NEET Counselling",
     slug: "data-driven-neet-counselling",
     color: "bg-[#FFF0E6]",
     text: "text-[#FF8C38]",

@@ -8,51 +8,51 @@ import 'swiper/css/navigation';
 const testimonials = [
   {
     name: "Mishthi Tiwari",
-    subtitle: "BAMS - Quadra Institute Of Ayurveda, Roorkee",
+    subtitle: "BAMS - Quadra Institute of Ayurveda, Roorkee",
     content:
-      "Radical Education’s counseling was amazing! They gave me the right study tips, helped with time management, and kept me motivated. I’m now in my dream medical college!",
+      "Radical Education’s counselling was amazing! They gave me the right study tips, helped with time management, and kept me motivated. I’m now in my dream medical college!",
     image: "/images/testi1.webp",
   },
   {
     name: "Astha Bhatnagar",
     subtitle: "BAMS - DY Patil, Navi Mumbai",
     content:
-      "Radical Education Review is the best educational guide. With their expert advice, I secured admission to a medical college. Highly recommend them for MBBS admission and MCC counselling.",
+      "Radical Education is the best educational guide. With their expert advice, I secured admission to a medical college. Highly recommend them for MBBS admission and MCC counselling.",
     image: "/images/testi2.webp",
   },
   {
     name: "Aishwarya Singh",
     subtitle: "BAMS - Uttaranchal Ayurvedic College, Uttarakhand",
     content:
-      "Team Radical Education provided unmatched clarity at every step. With their best counselors, I successfully got admission to a BAMS college in Uttarakhand.",
+      "Team Radical Education provided unmatched clarity at every step. With their best Counsellors, I successfully got admission to a BAMS college in Uttarakhand.",
     image: "/images/testi3.webp",
   },
   {
     name: "Harsh Kumar",
     subtitle: "BAMS - Satya Ayurvedic Medical College, Haryana",
     content:
-      "They helped me through every step of my NEET counseling and admission process. Clear guidance and professional support helped me save my year.",
+      "They helped me through every step of my NEET counselling and admission process. Clear guidance and professional support helped me save my year.",
     image: "/images/testi4.webp",
   },
   {
     name: "Praveen",
     subtitle: "BAMS - Kaya Ayurvedic College, Nainital",
     content:
-      "The team handled registration, choice filling, and documentation during counseling. Their support helped me secure admission and save my academic year.",
+      "The team handled registration, choice filling, and documentation during counselling. Their support helped me secure admission and save my academic year.",
     image: "/images/testi5.webp",
   },
   {
     name: "Zoha Azeem",
     subtitle: "BAMS - JSPS Govt Homoeopathic Medical College, Hyderabad",
     content:
-      "Raj Kishore sir helped me at every step of the counseling procedure. He cleared all my doubts and ensured my admission was secured successfully.",
+      "Raj Kishore sir helped me at every step of the counselling procedure. He cleared all my doubts and ensured my admission was secured successfully.",
     image: "/images/testi6.webp",
   },
   {
     name: "Prerna",
     subtitle: "BDS - SGT Dental College, Gurugram",
     content:
-      "Radical Education’s expert counselors helped me explore my career options and choose the right path. Their advice made a huge impact.",
+      "Radical Education’s expert Counsellors helped me explore my career options and choose the right path. Their advice made a huge impact.",
     image: "/images/testi7.webp",
   },
   {
@@ -66,21 +66,21 @@ const testimonials = [
     name: "Anshul",
     subtitle: "MBBS - Rama Medical College, Hapur",
     content:
-      "With Amar sir and his team’s support, I successfully secured an MBBS seat. I highly recommend NEET students connect with Radical Education.",
+      "With Amar sir and his team’s support, I successfully secured an MBBS seat. I highly recommend NEET students to connect with Radical Education.",
     image: "/images/testi9.webp",
   },
   {
     name: "Dhruvika Aggarwal",
     subtitle: "MBBS - Rama Medical College, Hapur",
     content:
-      "Their detailed counseling on career options, study strategies, and mental well-being made all the difference during NEET preparation.",
+      "Their detailed counselling on career options, study strategies, and mental well-being made all the difference during NEET preparation.",
     image: "/images/testi10.webp",
   },
   {
     name: "Abhay Raj Singh",
     subtitle: "MBBS - Integral Medical College, Lucknow",
     content:
-      "Thanks to Radical Education’s guidance, I successfully got admission to a medical college. Highly trusted and effective counseling team.",
+      "Thanks to Radical Education’s guidance, I successfully got admission to a medical college. Highly trusted and effective counselling team.",
     image: "/images/testi11.webp",
   },
   {
@@ -108,28 +108,28 @@ const testimonials = [
     name: "Om Chaturvedi",
     subtitle: "MBBS - Sudha Medical College, Kota",
     content:
-      "This was my first NEET attempt and I had no idea about counseling. Amar sir and Shivanshu sir supported me throughout the process.",
+      "This was my first NEET attempt and I had no idea about counselling. Amar sir and Shivanshu sir supported me throughout the process.",
     image: "/images/testi15.webp",
   },
   {
     name: "Arjun Kaushal",
     subtitle: "MBBS - Raja Rajeswari Medical College",
     content:
-      "Alok sir guided me through counseling, documentation, and reporting. His support was extremely helpful for me and my parents.",
+      "Alok sir guided me through counselling, documentation, and reporting. His support was extremely helpful for me and my parents.",
     image: "/images/testi16.webp",
   },
   {
     name: "Vipin Kumar",
     subtitle: "MBBS - Pacific Medical College, Udaipur",
     content:
-      "Radical Education’s counseling helped me turn my passion into a career. Their professional advice gave me clarity and confidence.",
+      "Radical Education’s counselling helped me turn my passion into a career. Their professional advice gave me clarity and confidence.",
     image: "/images/testi17.webp",
   },
   {
     name: "Mishty Gautam",
     subtitle: "MBBS - Pacific Medical College, Udaipur",
     content:
-      "Radical Education’s counselors offered insightful advice that helped me choose the right career path in medicine.",
+      "Radical Education’s Counsellors offered insightful advice that helped me choose the right career path in medicine.",
     image: "/images/testi18.webp",
   },
   {
@@ -143,7 +143,7 @@ const testimonials = [
     name: "Tushar Arora",
     subtitle: "MBBS - Pacific Medical College, Udaipur",
     content:
-      "Radical Education’s counselors provided the best advice and motivation. Their support helped me secure my place in medical college.",
+      "Radical Education’s Counsellors provided the best advice and motivation. Their support helped me secure my place in medical college.",
     image: "/images/testi20.webp",
   },
 ];

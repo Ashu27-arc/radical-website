@@ -189,13 +189,13 @@ export default function GalleryPage() {
                     <div className='container px-3 md:px-4'>
                         <div className="counselorForm">
                             <div className='mb-10 fadeUp text-center'>
-                                <h2 className='text-black text-4xl font-bold'>Connect with <span className='text-[#287FC4]'>Our Counselor</span></h2>
+                                <h2 className='text-black text-4xl font-bold'>Connect with <span className='text-[#287FC4]'>Our Counsellor</span></h2>
                             </div>
                             <div className='relative'>
                                 <div className='rounded-xl overflow-hidden'>
                                     <Image
                                       src="/images/counselorImg.webp"
-                                      alt="Counselor"
+                                      alt="Counsellor"
                                       height={435}
                                       width={1239}
                                       className="w-full h-[435px] object-cover object-center"

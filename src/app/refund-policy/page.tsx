@@ -141,7 +141,7 @@ export default function RefundPolicyPage() {
                                         Refund Policy
                                     </h2>
                                     <p className="text-gray-700 leading-relaxed">
-                                        All registration and counseling fees paid to Radical Education
+                                        All registration and counselling fees paid to Radical Education
                                         are non-refundable. This includes situations where you decide
                                         not to go through the admission process or do not get admitted.
                                     </p>

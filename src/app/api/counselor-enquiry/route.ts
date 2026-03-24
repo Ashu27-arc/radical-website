@@ -40,7 +40,7 @@ export async function POST(request: NextRequest) {
             }
         });
     } catch (error) {
-        console.error('❌ Error submitting counselor enquiry:', error);
+        console.error('❌ Error submitting Counsellor enquiry:', error);
         return NextResponse.json(
             { success: false, message: 'Something went wrong. Please try again.' },
             { status: 500 }
