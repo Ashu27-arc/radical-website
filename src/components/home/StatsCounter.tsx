@@ -60,19 +60,19 @@ export default function StatsCounter() {
   return (
       <div
         ref={ref}
-        className="w-full md:bg-[#DFF1FF] rounded-xl md:px-6 md:py-8 relative z-2"
+        className="text-white relative z-2"
       >
-        <div className="grid grid-cols-2 md:grid-cols-4 md:gap-0 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
           {stats.map((item, i) => (
-            <div key={i} className="relative text-center py-4 fadeUp md:bg-transparent bg-[#DFF1FF] rounded-xl">
+            <div key={i} className="flex items-center gap-2 relative fadeUp bg-transparent rounded-xl px-6">
               {/* NUMBER */}
-              <div className="text-3xl md:text-4xl font-bold text-[#005A8B]">
+              <div className="text-2xl md:text-3xl font-bold text-white">
                 {counts[i].toLocaleString()}
                 {item.suffix}
               </div>
 
               {/* LABEL */}
-              <div className="mt-2 text-xs md:text-sm font-medium text-[#005A8B] whitespace-pre-line uppercase">
+              <div className="text-xs md:text-sm text-white whitespace-pre-line uppercase">
                 {item.label}
               </div>
 

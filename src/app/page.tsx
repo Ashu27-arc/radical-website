@@ -19,6 +19,8 @@ import GoogleReviews from "@/components/GoogleReviews";
 import TestimonialSlider from "@/components/TestimonialSlider";
 import CounselorForm from "@/components/CounselorForm";
 import Earth3D from "@/components/Earth3D";
+import AdmissionReality from "@/components/home/AdmissionReality";
+import CategoryCards from "@/components/home/CategoryCards";
 
 export default function Home() {
   const [value, setValue] = useState<string>("");
@@ -108,13 +110,11 @@ export default function Home() {
         </video>
         <div className="container px-3 md:px-4 lg:px-40 text-center text-white">
           <h1 className="text-white font-bold text-4xl md:text-[50px] leading-10 md:leading-15 md:mb-5 mb-3 fadeUp">
-            Secure Your Medical Seat With <br className="hidden lg:block" />
-            Expert Assistance
+            Secure your Medical seat easily <br className="block" />
+            <span className="font-light">with expert assistance</span>
           </h1>
-          <div className="text-lg lg:px-16 px-3 md:mb-8 mb-6 fadeUp">
-            Get complete guidance, accurate information, and counselling{" "}
-            <br className="hidden lg:block" />
-            suited to you and your dreams.
+          <div className="text-lg lg:px-16 px-3 md:mb-8 mb-6 font-semibold fadeUp">
+            Get complete guidance, accurate information and expert counselling <br className="hidden lg:block" />suited to you and your dreams.
           </div>
           <div className="p-inputgroup bannersrch mx-auto lg:max-w-[580px] fadeUp">
             <span className="p-inputgroup-addon pr-0! border-r-0! bg-white! shadow-none! border-[#fff]!">
@@ -144,62 +144,79 @@ export default function Home() {
       </section>
       <FloatingWhatsApp />
       <NewsMarquee />
-      <section className="py-16 bg-[#F4F7F8] overflow-hidden">
+      <section className="lg:pt-24 pt-16 overflow-hidden">
         <div className="container px-3 md:px-4">
           <div className="flex flex-col md:flex-row gap-8">
             <div className="md:w-13/20 w-full fadeLeft text-center md:text-left">
-              <div className="lg:pr-60 md:pr-10 lg:pl-6 pl-3 relative z-2">
-                <div className="text-[#0B2E3C] uppercase text-sm font-semibold tracking-widest mb-4 lg:mb-6">
-                  ABOUT US
-                </div>
-                <h2 className="text-black text-4xl md:text-5xl font-bold mb-4 lg:mb-6">
-                  About <span className="text-[#287FC4]">Radical</span>
+              <div className="lg:pr-30 md:pr-10 lg:pl-6 pl-3 relative z-2">
+                <h2 className="text-4xl md:text-5xl font-light leading-tight text-gray-800 text-center">
+                  A complete guide for your <br />
+                  <span className="bg-gradient-to-r from-[#1ec8a5] font-bold to-[#0d8f9e] bg-clip-text text-transparent">
+                    Medical Counselling needs
+                  </span>
                 </h2>
-                <div className="text-[#4A4A4A] mb-4 lg:mb-6 leading-7 relative">
-                  <span className="absolute left-[-20px] top-0 bottom-0 w-[2px] bg-[#00CFB2]" />
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:gap-10 gap-6 w-full max-w-6xl lg:px-10 mt-10">
                   <div>
-                    Presenting a platform that offers varied courses across different institutions.
-                    Whether you want to pursue your education in India or
-                    abroad, Radical Education.
+                    <div className="group relative rounded-[28px] p-6 text-white overflow-hidden shadow-lg transition-all duration-300 
+        bg-[linear-gradient(#F7C873_0%,#F39C12_50%,#D68910_100%)]
+        hover:scale-105 hover:shadow-2xl">
+                      <div className="flex justify-center mb-4 relative">
+                        <img src={'/images/rp.webp'} width={80} height={106} alt="" />
+                      </div>
+                      <div className="flex items-center gap-2 justify-between">
+                        <div className="text-xl font-bold leading-tight">
+                          Rank <br /> Predictor
+                        </div>
+                        <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M4.95788 5.98717C-2.03613 13.5495 -1.57512 25.3484 5.98689 32.3421C13.5489 39.3358 25.3481 38.8751 32.3418 31.3131C39.3355 23.7511 38.8748 11.9519 31.3128 4.95817C23.7508 -2.03553 11.9516 -1.57483 4.95788 5.98717ZM26.2679 23.1113L22.6846 23.2512L22.4478 17.1845L13.6982 26.645L11.0652 24.2099L19.8147 14.7493L13.748 14.9862L13.6081 11.403L25.792 10.9273L26.2679 23.1113Z" fill="white" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="md:col-span-2 flex flex-col gap-5">
+                    <button className="group flex items-center justify-between rounded-full px-6 py-3 text-white 
+          bg-[linear-gradient(90deg,#27AEDC_0%,#3FE198_100%)]
+          shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer">
+                      <span className="font-semibold text-sm md:text-lg">
+                        NEET UG India Admissions
+                      </span>
+                      <div className="bg-white text-black w-8 h-8 flex items-center justify-center rounded-full 
+            transition-all duration-300 group-hover:translate-x-1">
+                        <i className="pi pi-arrow-up-right text-sm"></i>
+                      </div>
+                    </button>
+                    <button className="group flex items-center justify-between rounded-full px-6 py-3 text-white 
+          bg-[linear-gradient(90deg,#F6C667_0%,#F04E23_100%)]
+          shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer">
+                      <span className="font-semibold text-sm md:text-lg">
+                        NEET PG India Admissions
+                      </span>
+                      <div className="bg-white text-black w-8 h-8 flex items-center justify-center rounded-full 
+            transition-all duration-300 group-hover:translate-x-1">
+                        <i className="pi pi-arrow-up-right text-sm"></i>
+                      </div>
+                    </button>
+                    <button className="group flex items-center justify-between rounded-full px-6 py-3 text-white 
+          bg-[linear-gradient(90deg,#677CE7_0%,#754FA7_100%)]
+          shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer">
+                      <span className="font-semibold text-sm md:text-lg">
+                        MBBS Abroad Admissions
+                      </span>
+                      <div className="bg-white text-black w-8 h-8 flex items-center justify-center rounded-full 
+            transition-all duration-300 group-hover:translate-x-1">
+                        <i className="pi pi-arrow-up-right text-sm"></i>
+                      </div>
+                    </button>
                   </div>
                 </div>
-                <Link href="/about-us">
-                  <Button
-                    className="bg-[#005A8B]! border-[#005A8B]! py-2.5! pr-3! gap-2"
-                    rounded
-                  >
-                    <span>Read more</span>
-                    <i>
-                      <svg
-                        width="26"
-                        height="26"
-                        viewBox="0 0 31 31"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M17.2441 10.8496C17.3278 10.8493 17.4111 10.8659 17.4883 10.8975H17.4893C17.5664 10.9292 17.6368 10.976 17.6963 11.0352L21.6055 14.9219L21.6855 15.0186C21.7088 15.0531 21.728 15.0902 21.7441 15.1289C21.7766 15.2063 21.7937 15.2894 21.7939 15.373C21.7942 15.4568 21.778 15.5399 21.7461 15.6172C21.7143 15.6945 21.6674 15.7649 21.6084 15.8242L17.7217 19.7334C17.6026 19.8532 17.4405 19.9212 17.2715 19.9219C17.1023 19.9224 16.9392 19.8556 16.8193 19.7363C16.6995 19.6172 16.6314 19.4552 16.6309 19.2861C16.6303 19.117 16.6971 18.954 16.8164 18.834L19.6191 16.0166L8.48926 16.0488C8.32037 16.0492 8.15798 15.9825 8.03809 15.8633C7.91829 15.7441 7.85011 15.5822 7.84961 15.4131C7.84918 15.2442 7.91603 15.0817 8.03516 14.9619C8.15428 14.8421 8.31637 14.7748 8.48535 14.7744L19.6143 14.7412L16.7969 11.9404C16.677 11.8212 16.609 11.6592 16.6084 11.4902C16.6079 11.321 16.6748 11.158 16.7939 11.0381C16.9131 10.9183 17.0751 10.8502 17.2441 10.8496Z"
-                          fill="white"
-                          stroke="white"
-                          strokeWidth="0.3"
-                        />
-                        <path
-                          d="M15.5 1C23.5081 1 30 7.49187 30 15.5C30 23.5081 23.5081 30 15.5 30C7.49187 30 1 23.5081 1 15.5C1 7.49187 7.49187 1 15.5 1Z"
-                          stroke="white"
-                          strokeWidth="2"
-                        />
-                      </svg>
-                    </i>
-                  </Button>
-                </Link>
-                <div className="move-x text-nowrap text-[#00CFB212] text-[180px] md:text-[200px] lg:text-[230px] font-bold absolute top-[55%] left-[-20px] -z-1">
+                <div className="move-x text-nowrap text-[#00CFB212] text-[180px] md:text-[200px] lg:text-[230px] font-bold absolute -top-[50px] left-[-20px] -z-1 leading-[0.8]">
                   Radical
                 </div>
               </div>
             </div>
             <div className="md:w-7/20 w-full fadePopup px-10 md:px-0">
               <Image
-                src="/images/about-redical.webp"
+                src="/images/new-abt.webp"
                 width={516}
                 height={540}
                 alt=""
@@ -207,9 +224,45 @@ export default function Home() {
               />
             </div>
           </div>
-          <div className="mb-20">
-            <StatsCounter />
+        </div>
+      </section>
+      <section className="py-8 overflow-hidden bg-[#353535]">
+        <div className="container px-3 md:px-4">
+          <StatsCounter />
+        </div>
+      </section>
+      <section className="py-24 bg-[#f7f6ff]">
+        <div className="container px-3 md:px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-5xl font-semibold text-gray-800">
+              Welcome to the{" "}
+              <span className="text-red-500 font-bold">
+                Admission Reality
+              </span>
+            </h2>
+
+            <p className="mt-2 text-gray-700 text-xl">
+              <span className="font-semibold text-black">
+                To secure the right medical seat,
+              </span>{" "}
+              here’s what you’re actually dealing with:
+            </p>
           </div>
+
+          <AdmissionReality />
+        </div>
+      </section>
+      <section className="py-20 bg-white">
+        <div className="container px-3 md:px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-light leading-tight text-gray-800 mb-8">Say hello to 👋🏻 <span className="font-bold bg-gradient-to-r from-[#1ec8a5] font-bold to-[#0d8f9e] bg-clip-text text-transparent">Radical Education</span><br className="hidden md:block"/> Built for smarter medical admissions</h2>
+            <div className="text-2xl">Everything you need to know for medical counselling — in one place</div>
+          </div>
+          <CategoryCards/>
+        </div>
+      </section>
+      {/* <section className="lg:py-24 py-16 overflow-hidden">
+        <div className="container px-3 md:px-4">
           <div className="lg:px-16 xl:px-32">
             <div className="flex flex-col md:flex-row gap-6 sm:gap-8 md:gap-10 lg:gap-20 xl:gap-30 md:items-center mb-16 sm:mb-20 md:mb-24 lg:mb-30">
               <div className="md:w-3/5 w-full lg:pr-10 xl:pr-20 fadeLeft text-center md:text-left">
@@ -235,7 +288,7 @@ export default function Home() {
             <ServicesDropdown services={services} />
           </div>
         </div>
-      </section>
+      </section> 
       <section
         className="py-16 bg-cover bg-center bg-no-repeat bg-[#005A8B] overflow-hidden"
         style={{ backgroundImage: "url('/images/courseBg.webp')" }}
@@ -262,6 +315,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      */}
       <section className="pt-16 bg-white">
         <div className="container px-3 md:px-4">
           <div className="fadeUp text-center">
@@ -431,12 +485,12 @@ export default function Home() {
           <div className="relative">
             <div className="md:rounded-xl overflow-hidden">
               <Image
-                  src="/images/counselorImg.webp"
-                  alt="Counsellor"
-                  height={435}
-                  width={1239}
-                  className="w-full h-[435px] object-cover object-center"
-                />
+                src="/images/counselorImg.webp"
+                alt="Counsellor"
+                height={435}
+                width={1239}
+                className="w-full h-[435px] object-cover object-center"
+              />
             </div>
             <div className="absolute left-0 top-[80px] md:top-[105px] w-full">
               <div className="p-6 md:p-10 rounded-xl bg-[#005A8B] mx-auto lg:w-4/10 md:w-5/10 w-[90%] fadePopup">

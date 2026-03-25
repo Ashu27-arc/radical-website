@@ -1132,6 +1132,33 @@
         display: none !important;
     }
 }
+.icon-svg {
+  transition: transform 0.4s ease;
+}
+
+.circle-path {
+  transform-origin: center;
+  transition: transform 0.6s ease;
+}
+
+/* Arrow movement instead of hidden animation */
+.arrow-path {
+  transition: transform 0.35s ease;
+  transform-origin: center;
+}
+
+/* Hover effects */
+.group:hover .arrow-path {
+  transform: translateX(4px);
+}
+
+.group:hover .circle-path {
+  transform: rotate(180deg);
+}
+
+.group:hover .icon-svg {
+  transform: scale(1.12);
+}
 .snake-beam-container {
     position: absolute;
     inset: 0;
@@ -1788,17 +1815,8 @@ textarea.placeholderCOlorWhite:-ms-input-placeholder {
         animation: none !important;
     }
 
-    [class*="hover:scale-"]:hover,
-    [class*="hover:rotate-"]:hover,
-    [class*="hover:-rotate-"]:hover {
-        transform: none !important;
-    }
 
-    .transition-all:not(.firstLVLmnu *):not(.secondLVLmnu *):not(.thirdLVLmnu *),
-    .transition-transform:not(.firstLVLmnu *):not(.secondLVLmnu *):not(.thirdLVLmnu *),
-    .transition-shadow:not(.firstLVLmnu *):not(.secondLVLmnu *):not(.thirdLVLmnu *) {
-        transition: none !important;
-    }
+   
 
     .group:hover [class*="group-hover:block"] {
         display: block !important;
