@@ -157,9 +157,13 @@ export default function Home() {
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 lg:gap-10 gap-6 w-full max-w-6xl lg:px-10 mt-10">
                   <div>
-                    <div className="group relative rounded-[28px] p-6 text-white overflow-hidden shadow-lg transition-all duration-300 
-        bg-[linear-gradient(#F7C873_0%,#F39C12_50%,#D68910_100%)]
-        hover:scale-105 hover:shadow-2xl">
+                    <a
+                      href="https://www.neetbhaiya.in/rank-predictor"
+                      className="group relative block cursor-pointer rounded-[28px] p-6 text-white overflow-hidden shadow-lg transition-all duration-300 
+                        bg-[linear-gradient(#F7C873_0%,#F39C12_50%,#D68910_100%)]
+                        hover:scale-105 hover:shadow-2xl"
+                      aria-label="Rank Predictor"
+                    >
                       <div className="flex justify-center mb-4 relative">
                         <img src={'/images/rp.webp'} width={80} height={106} alt="" />
                       </div>
@@ -171,42 +175,54 @@ export default function Home() {
                           <path d="M4.95788 5.98717C-2.03613 13.5495 -1.57512 25.3484 5.98689 32.3421C13.5489 39.3358 25.3481 38.8751 32.3418 31.3131C39.3355 23.7511 38.8748 11.9519 31.3128 4.95817C23.7508 -2.03553 11.9516 -1.57483 4.95788 5.98717ZM26.2679 23.1113L22.6846 23.2512L22.4478 17.1845L13.6982 26.645L11.0652 24.2099L19.8147 14.7493L13.748 14.9862L13.6081 11.403L25.792 10.9273L26.2679 23.1113Z" fill="white" />
                         </svg>
                       </div>
-                    </div>
+                    </a>
                   </div>
                   <div className="md:col-span-2 flex flex-col gap-5">
-                    <button className="group flex items-center justify-between rounded-full px-6 py-3 text-white 
-          bg-[linear-gradient(90deg,#27AEDC_0%,#3FE198_100%)]
-          shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer">
+                    <Link
+                      href="/neet-ug-india-admission/"
+                      className="group flex items-center justify-between rounded-full px-6 py-3 text-white 
+                      bg-[linear-gradient(90deg,#27AEDC_0%,#3FE198_100%)]
+                      shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
+                      aria-label="NEET UG India Admissions"
+                    >
                       <span className="font-semibold text-sm md:text-lg">
                         NEET UG India Admissions
                       </span>
                       <div className="bg-white text-black w-8 h-8 flex items-center justify-center rounded-full 
-            transition-all duration-300 group-hover:translate-x-1">
+                         transition-all duration-300 group-hover:translate-x-1">
                         <i className="pi pi-arrow-up-right text-sm"></i>
                       </div>
-                    </button>
-                    <button className="group flex items-center justify-between rounded-full px-6 py-3 text-white 
-          bg-[linear-gradient(90deg,#F6C667_0%,#F04E23_100%)]
-          shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer">
+                    </Link>
+                    <Link
+                      href="/neet-pg-india-admission/"
+                      className="group flex items-center justify-between rounded-full px-6 py-3 text-white 
+                      bg-[linear-gradient(90deg,#F6C667_0%,#F04E23_100%)]
+                      shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
+                      aria-label="NEET PG India Admissions"
+                    >
                       <span className="font-semibold text-sm md:text-lg">
                         NEET PG India Admissions
                       </span>
                       <div className="bg-white text-black w-8 h-8 flex items-center justify-center rounded-full 
-            transition-all duration-300 group-hover:translate-x-1">
+                        transition-all duration-300 group-hover:translate-x-1">
                         <i className="pi pi-arrow-up-right text-sm"></i>
                       </div>
-                    </button>
-                    <button className="group flex items-center justify-between rounded-full px-6 py-3 text-white 
-          bg-[linear-gradient(90deg,#677CE7_0%,#754FA7_100%)]
-          shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer">
+                    </Link>
+                    <Link
+                      href="/study-abroad/"
+                      className="group flex items-center justify-between rounded-full px-6 py-3 text-white 
+                       bg-[linear-gradient(90deg,#677CE7_0%,#754FA7_100%)]
+                      shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
+                      aria-label="MBBS Abroad Admissions"
+                    >
                       <span className="font-semibold text-sm md:text-lg">
                         MBBS Abroad Admissions
                       </span>
                       <div className="bg-white text-black w-8 h-8 flex items-center justify-center rounded-full 
-            transition-all duration-300 group-hover:translate-x-1">
+                        transition-all duration-300 group-hover:translate-x-1">
                         <i className="pi pi-arrow-up-right text-sm"></i>
                       </div>
-                    </button>
+                    </Link>
                   </div>
                 </div>
                 <div className="move-x text-nowrap text-[#00CFB212] text-[180px] md:text-[200px] lg:text-[230px] font-bold absolute -top-[50px] left-[-20px] -z-1 leading-[0.8]">
@@ -255,10 +271,10 @@ export default function Home() {
       <section className="py-20 bg-white">
         <div className="container px-3 md:px-4">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-light leading-tight text-gray-800 mb-8">Say hello to 👋🏻 <span className="font-bold bg-gradient-to-r from-[#1ec8a5] font-bold to-[#0d8f9e] bg-clip-text text-transparent">Radical Education</span><br className="hidden md:block"/> Built for smarter medical admissions</h2>
+            <h2 className="text-4xl md:text-5xl font-light leading-tight text-gray-800 mb-8">Say hello to 👋🏻 <span className="font-bold bg-gradient-to-r from-[#1ec8a5] font-bold to-[#0d8f9e] bg-clip-text text-transparent">Radical Education</span><br className="hidden md:block" /> Built for smarter medical admissions</h2>
             <div className="text-2xl">Everything you need to know for medical counselling — in one place</div>
           </div>
-          <CategoryCards/>
+          <CategoryCards />
         </div>
       </section>
       {/* <section className="lg:py-24 py-16 overflow-hidden">

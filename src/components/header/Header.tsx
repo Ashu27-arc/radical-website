@@ -25,8 +25,13 @@ export default function Header() {
               </span>
             </div>
           </Link>| */}
-          <Link className='text-[#121212]' href="/neet-ug-india-admission/">PAY ONLINE</Link>|
-          <Link href="https://www.neetbhaiya.in/" className='text-[#121212] relative'>NEET BHAIYA
+          <Link className='text-[#121212] inline-flex items-center gap-2' href="/neet-ug-india-admission/">
+            <Image src="/icons/pay-online.png" width="18" height="18" alt="" />
+            <span>PAY ONLINE</span>
+          </Link>|
+          <Link href="https://www.neetbhaiya.in/" className='text-[#121212] relative inline-flex items-center gap-2'>
+            <Image src="/icons/neet-bhaiya.jpg" width="18" height="18" alt="" />
+            <span>NEET BHAIYA</span>
             <div className='absolute right-[-5px] top-[-5px]'>
               <span className="relative flex size-2 animate-blink">
                 <span className="relative inline-flex size-2 rounded-full bg-[#FF0000]"></span>
@@ -75,8 +80,13 @@ export default function Header() {
                     </span>
                   </div>
                 </Link>| */}
-                <Link className='text-[#121212]' href="/neet-ug-india-admission/">PAY ONLINE</Link>|
-                <Link href="https://www.neetbhaiya.in/" className='text-[#121212] relative'>NEET BHAIYA
+                <Link className='text-[#121212] inline-flex items-center gap-2' href="/neet-ug-india-admission/">
+                  <Image src="/icons/pay-online.png" width="18" height="18" alt="" />
+                  <span>PAY ONLINE</span>
+                </Link>|
+                <Link href="https://www.neetbhaiya.in/" className='text-[#121212] relative inline-flex items-center gap-2'>
+                  <Image src="/icons/neet-bhaiya.jpg" width="18" height="18" alt="" />
+                  <span>NEET BHAIYA</span>
                   <div className='absolute right-[-5px] top-[-5px]'>
                     <span className="relative flex size-2 animate-blink">
                       <span className="relative inline-flex size-2 rounded-full bg-[#FF0000]"></span>
