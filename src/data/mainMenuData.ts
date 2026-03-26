@@ -3,7 +3,7 @@ import { MenuItem } from 'primereact/menuitem';
 export const mainMenuData: MenuItem[] = [
   {
     label: 'Services',
-    //url: '/services/',
+    // url: '/services/',
     items: [
       { label: 'NEET UG India Admissions', url: '/neet-ug-india-admission/' },
       { label: 'MBBS Abroad Admissions', url: '/study-abroad/' },
