@@ -7,17 +7,17 @@ export default function AboutUsPage() {
     {
       id: 1,
       title: "Comprehensive Career Support",
-      desc: `Upon Completing The Course, We Continue To Provide Support To Ensure Students Move Towards A More Promising Future.`,
+      desc: `Upon Completing the Course, we continue To provide support to ensure students move towards a more promising future.`,
     },
     {
       id: 2,
       title: "Stay Informed",
-      desc: `Receive Prompt Alerts And Updates Regarding Admissions, Assignments, And Fee Deadlines, Along With Other Essential Information.`,
+      desc: `Receive prompt alerts and updates regarding admissions, assignments, and fee deadlines, along with other essential information.`,
     },
     {
       id: 3,
       title: "Impartial Advice",
-      desc: `We Are Dedicated To Assisting Students On Their Paths To Career Progression And Personal Development, Free From Any Prejudices.`,
+      desc: `We are dedicated to assisting students on their paths to career progression and personal development, free from any prejudices.`,
     },
   ];
 
@@ -34,10 +34,10 @@ export default function AboutUsPage() {
               <p className="text-sm mb-3 opacity-90 text-center">
                 About Us Radical Education
               </p>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 leading-tight text-center">
-                Empowering The <br />
-                <span className="text-[#00D9A3]">Next Generation</span> Of
-                Students Empowering
+              <h1 className="normal-case text-xl sm:text-2xl md:text-3xl font-bold mb-4 leading-tight text-center">
+                Empowering <span className="lowercase">the</span>{" "}
+                <span className="text-[#00D9A3]">Next Generation</span>{" "}
+                <span className="lowercase">of</span> Students
               </h1>
             </div>
 
@@ -54,26 +54,22 @@ export default function AboutUsPage() {
             <div className="mb-8">
               <div className="border-l-4 border-[#00CFB2] pl-4">
                 <p className="text-base leading-relaxed opacity-90 text-left">
-                  Presenting You A Platform That Presents Different Institutions
-                  That Offer Varied Courses
+                  Presenting a platform that offers varied courses across different
+                  institutions
                   <br />
-                  For The Students. Whether You Want To Pursue Your Education In
-                  India Or Abroad, Radical
+                  for students. Whether you want to pursue your education in India
+                  or abroad, Radical
                   <br />
-                  Education Is Well-Informed About Every Detail And Eases The
-                  Hustle Of The Admission
+                  Education is well-informed about every detail and simplifies the
+                  admission
                   <br />
-                  Process. And We Have The Necessary Linkages To Outstanding
-                  Educational Resources. We
+                  process. We have the necessary linkages to outstanding
+                  educational resources. We
                   <br />
-                  Take Pride In Providing All Of Our Students With Individual
-                  Attention And Professional
+                  take pride in providing all of our students with individual
+                  attention and professional
                   <br />
-                  Assistance As They Take Big Steps Towards Their Goals In The
-                  Future. Whether you want to
-                  <br />
-                  pursue your education in India or abroad, we are well-informed
-                  about every detail.
+                  assistance as they take big steps towards their future goals.
                 </p>
               </div>
             </div>
@@ -87,7 +83,7 @@ export default function AboutUsPage() {
               <div className="text-center rounded-lg p-3 sm:p-4">
                 <h3 className="text-3xl sm:text-4xl font-bold mb-1">15783+</h3>
                 <p className="text-xs sm:text-sm opacity-90">
-                  Student Counselled
+                  Students Counselled
                 </p>
               </div>
               <div className="text-center rounded-lg p-3 sm:p-4">
@@ -110,33 +106,29 @@ export default function AboutUsPage() {
               <p className="text-sm md:text-sm mb-3 md:mb-2 opacity-90">
                 About Us Radical Education
               </p>
-              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-3 leading-tight">
-                Empowering The{" "}
-                <span className="text-[#00D9A3]">Next Generation</span> Of
-                Students
+              <h1 className="normal-case text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-3 leading-tight">
+                Empowering <span className="lowercase">the</span>{" "}
+                <span className="text-[#00D9A3]">Next Generation</span>{" "}
+                <span className="lowercase">of</span> Students
               </h1>
               <div className="border-l-4 border-[#00CFB2] pl-4 md:pl-3 md:pl-4">
                 <p className="text-base md:text-xs md:text-sm leading-relaxed opacity-90">
-                  Presenting You A Platform That Presents Different Institutions
-                  That Offer Varied Courses
+                  Presenting a platform that offers varied courses across different
+                  institutions
                   <br />
-                  For The Students. Whether You Want To Pursue Your Education In
-                  India Or Abroad, Radical
+                  for students. Whether you want to pursue your education in India
+                  or abroad, Radical
                   <br />
-                  Education Is Well-Informed About Every Detail And Eases The
-                  Hustle Of The Admission
+                  Education is well-informed about every detail and simplifies the
+                  admission
                   <br />
-                  Process. And We Have The Necessary Linkages To Outstanding
-                  Educational Resources. We
+                  process. We have the necessary linkages to outstanding
+                  educational resources. We
                   <br />
-                  Take Pride In Providing All Of Our Students With Individual
-                  Attention And Professional
+                  take pride in providing all of our students with individual
+                  attention and professional
                   <br />
-                  Assistance As They Take Big Steps Towards Their Goals In The
-                  Future. Whether you want to
-                  <br />
-                  pursue your education in India or abroad, we are well-informed
-                  about every detail.
+                  assistance as they take big steps towards their future goals.
                 </p>
               </div>
             </div>
@@ -167,7 +159,7 @@ export default function AboutUsPage() {
                     15783+
                   </h3>
                   <p className="text-xs sm:text-sm md:text-xs opacity-90">
-                    Student Counselled
+                    Students Counselled
                   </p>
                 </div>
                 <div className="text-center rounded-lg p-3 sm:p-4">
@@ -175,7 +167,7 @@ export default function AboutUsPage() {
                     12+
                   </h3>
                   <p className="text-xs sm:text-sm md:text-xs opacity-90">
-                    Year of Experiences
+                    Years of Experience
                   </p>
                 </div>
                 <div className="text-center rounded-lg p-3 sm:p-4">
@@ -199,21 +191,21 @@ export default function AboutUsPage() {
           <div className="flex flex-col md:flex-row gap-6 md:gap-8 mb-8 md:mb-12">
             <div className="md:w-1/3 flex flex-col items-center md:items-start">
               <h2 className="text-3xl sm:text-4xl md:text-4xl font-bold text-gray-900 text-center md:text-left">
-                Why Choose Us ?
+                Why choose us?
               </h2>
               <div className="w-80 sm:w-88 h-1 mt-4 bg-[#00CFB2] md:hidden rounded"></div>
             </div>
             <div className="md:w-2/3">
               <div className="md:border-l-4 md:border-[#00CFB2] md:pl-6 mb-6 md:mb-8">
                 <p className="text-sm sm:text-base md:text-base text-gray-600 leading-relaxed">
-                  Choosing The Right College Is A Crucial Decision That Can
-                  Shape Your Future Career
+                  Choosing the right college is a crucial decision that can shape your
+                  future career
                   <br />
-                  Journey. At Radical Education, We Understand The Importance Of
-                  This Decision
+                  journey. At Radical Education, we understand the importance of this
+                  decision
                   <br />
-                  And Aim To Make The Process As Seamless And Effortless As
-                  Possible For You.
+                  and aim to make the process as seamless and effortless as possible
+                  for you.
                 </p>
               </div>
             </div>
@@ -267,7 +259,7 @@ export default function AboutUsPage() {
       <section className="py-12 md:py-16 bg-gray-50">
         <div className="container mx-auto px-4 md:px-8">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center mb-8 md:mb-12 text-[#00CFB240]">
-            FEATURED ACROSS
+            Featured across
           </h2>
 
           {/* Media Logos Animated Rows */}
@@ -363,13 +355,12 @@ export default function AboutUsPage() {
                   Mission
                 </h3>
                 <p className="text-gray-600 leading-relaxed text-sm">
-                  Radical Education Welcomes Students From All Over India
-                  Seeking Guidance On Management, Engineering, And Medical
-                  Streams Of Study In India And Across The World. We Understand
-                  How Complex The Research Process May Be For You, Irrespective
-                  Of Which Phase You Are In. We Aim To Ensure That All Students
-                  In India Possess The Knowledge To Make The Right Decision
-                  About Their Lives.
+                  Radical Education welcomes students from all over India seeking
+                  guidance on management, engineering, and medical streams of study
+                  in India and across the world. We understand how complex the
+                  research process may be for you, irrespective of the phase you
+                  are in. We aim to ensure that all students in India possess the
+                  knowledge to make the right decision about their lives.
                 </p>
               </div>
             </div>
@@ -395,15 +386,15 @@ export default function AboutUsPage() {
                   Vision
                 </h3>
                 <p className="text-gray-600 leading-relaxed text-sm">
-                  Imagine An India Where Every Single Child Succeeds. They
-                  Exhibit The Wisdom, Resources, And Facilities To Wholly
-                  Navigate Their Academic Endeavors And Across The World. We
-                  Envision The Benefits Of Advanced Technology, Which Helps Them
-                  Make Informed Choices About Their Lives. This Unlocks Their
-                  True Potential So That They Can Achieve Something Substantial
-                  For Themselves As Well As For The Nation. We Envision A
-                  Learning Culture With Adaptable, Empowered Youngsters Who
-                  Ensure That Their Aspirations Take Flight.
+                  Imagine an India where every child succeeds. They have
+                  the wisdom, resources, and facilities to fully navigate their
+                  academic endeavors and across the world. We envision the benefits
+                  of advanced technology, which helps them make informed choices
+                  about their lives. This unlocks their true potential so they
+                  can achieve something substantial for themselves as well as for
+                  the nation. We envision a learning culture with adaptable,
+                  empowered youngsters who ensure that their aspirations take
+                  flight.
                 </p>
               </div>
             </div>
@@ -442,37 +433,37 @@ export default function AboutUsPage() {
             {/* Content Below Image - Mobile */}
             <div>
               <p className="text-sm sm:text-base leading-relaxed mb-6 opacity-90">
-                Radical Education Is Your Go-To Option For Understanding The
-                Complexities Associated With Higher Education. On Our Website,
-                You Can Find In-Depth Information Regarding Top Universities
-                Around The World, Making The Process Easier For You.
+                Radical Education is your go-to option for understanding the
+                complexities associated with higher education. On our website, you
+                can find in-depth information regarding top universities around the
+                world, making the process easier for you.
               </p>
 
               <h3 className="text-lg sm:text-xl font-bold mb-4">
-                Our Expertise:
+                Our expertise:
               </h3>
               <ul className="space-y-3 text-sm sm:text-base">
                 <li className="flex items-start">
                   <span className="text-[#00D9A3] mr-2 text-lg">•</span>
                   <span>
-                    Smooth Admissions: Relieve The Stress Of Difficult
-                    Applications With Our Specialized Help.
+                    Smooth admissions: Relieve the stress of difficult applications
+                    with our specialized help.
                   </span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-[#00D9A3] mr-2 text-lg">•</span>
                   <span>
-                    Top-Notch Education Advisors: Take Advantage Of The Best
-                    Education Consultants In Delhi Who Specialize In
-                    Engineering, Management, And Medical Streams.
+                    Top-notch education advisors: Take advantage of the best
+                    education consultants in Delhi who specialize in engineering,
+                    management, and medical streams.
                   </span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-[#00D9A3] mr-2 text-lg">•</span>
                   <span>
-                    Understanding At Every Step: Gain Clear Explanations
-                    Regarding Details Of The Courses, The Process Of Enrolling,
-                    And Straightforward Tuition Fees.
+                    Understanding at every step: Gain clear explanations about
+                    course details, the enrollment process, and
+                    straightforward tuition fees.
                   </span>
                 </li>
               </ul>
@@ -496,37 +487,37 @@ export default function AboutUsPage() {
             {/* Right Side - Content */}
             <div>
               <p className="text-sm sm:text-base leading-relaxed mb-6 md:mb-8 opacity-90">
-                Radical Education Is Your Go-To Option For Understanding The
-                Complexities Associated With Higher Education. On Our Website,
-                You Can Find In-Depth Information Regarding Top Universities
-                Around The World, Making The Process Easier For You.
+                Radical Education is your go-to option for understanding the
+                complexities associated with higher education. On our website, you
+                can find in-depth information regarding top universities around the
+                world, making the process easier for you.
               </p>
 
               <h3 className="text-lg sm:text-xl font-bold mb-3 md:mb-4">
-                Our Expertise:
+                Our expertise:
               </h3>
               <ul className="space-y-3 text-sm sm:text-base">
                 <li className="flex items-start">
                   <span className="text-[#00D9A3] mr-2 text-lg">•</span>
                   <span>
-                    Smooth Admissions: Relieve The Stress Of Difficult
-                    Applications With Our Specialized Help.
+                    Smooth admissions: Relieve the stress of difficult applications
+                    with our specialized help.
                   </span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-[#00D9A3] mr-2 text-lg">•</span>
                   <span>
-                    Top-Notch Education Advisors: Take Advantage Of The Best
-                    Education Consultants In Delhi Who Specialize In
-                    Engineering, Management, And Medical Streams.
+                    Top-notch education advisors: Take advantage of the best
+                    education consultants in Delhi who specialize in engineering,
+                    management, and medical streams.
                   </span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-[#00D9A3] mr-2 text-lg">•</span>
                   <span>
-                    Understanding At Every Step: Gain Clear Explanations
-                    Regarding Details Of The Courses, The Process Of Enrolling,
-                    And Straightforward Tuition Fees.
+                    Understanding at every step: Gain clear explanations regarding
+                    details of the courses, the process of enrolling, and
+                    straightforward tuition fees.
                   </span>
                 </li>
               </ul>
