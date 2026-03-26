@@ -17,7 +17,10 @@ export default function Header() {
       <section className='bg-white px-3 text-center py-3 lg:hidden'>
         <div className='flex flex-wrap gap-2 justify-center text-xs'>
           <Link className='text-[#121212]' href="mailto:info@radicaleducation.in">info@radicaleducation.in</Link>|
-          <Link className='text-[#121212] font-bold' href="tel:+91 9797972465">97 97 97 24 65</Link>|
+          <Link className='text-[#121212] font-bold inline-flex items-center gap-2' href="tel:+91 9797972465">
+            <Image src="/icons/phone.jpg" width="18" height="18" alt="" />
+            <span>97 97 97 24 65</span>
+          </Link>|
           {/* <Link href="https://www.neetbhaiya.in/college-predictor" className='text-[#121212] relative'>NEET COLLEGE PREDICTOR
             <div className='absolute right-[-5px] top-[-5px]'>
               <span className="relative flex size-2 animate-blink">
@@ -72,7 +75,10 @@ export default function Header() {
               </Link>
               <div className='hidden lg:flex items-center gap-3 text-[14px] text-[#121212] topInfo'>
                 <Link className='text-[#121212]' href="mailto:info@radicaleducation.in">info@radicaleducation.in</Link>|
-                <Link className='text-[#121212] font-bold' href="tel:+91 9797972465">97 97 97 24 65</Link>|
+                <Link className='text-[#121212] font-bold inline-flex items-center gap-2' href="tel:+91 9797972465">
+                  <Image src="/icons/phone.jpg" width="18" height="18" alt="" />
+                  <span>97 97 97 24 65</span>
+                </Link>|
                 {/* <Link href="https://www.neetbhaiya.in/college-predictor" className='text-[#121212] relative'>NEET COLLEGE PREDICTOR
                   <div className='absolute right-[-5px] top-[-5px]'>
                     <span className="relative flex size-2 animate-blink">
