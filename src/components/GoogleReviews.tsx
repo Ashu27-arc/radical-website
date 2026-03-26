@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 import { Skeleton } from "primereact/skeleton";
 import { Button } from "primereact/button";
+import Link from "next/link";
 
 /* ------------- Types ------------- */
 interface Review {
@@ -136,65 +137,95 @@ export default function GoogleReviews() {
       </div>
 
       {/* REVIEW CARDS */}
-      <div className="lg:col-span-3 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {(loading ? Array(3).fill(null) : data?.reviews)?.map(
-          (review: Review | null, i) => (
-            <div key={i} className="border rounded-xl p-5 shadow-sm bg-white">
-              {loading ? (
-                <>
-                  <div className="flex items-center gap-3 mb-3">
-                    <Skeleton shape="circle" size="40px" />
-                    <div className="flex-1">
-                      <Skeleton width="70%" height="0.9rem" />
-                      <Skeleton width="40%" height="0.7rem" className="mt-1" />
+      <div className="lg:col-span-3">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {(loading ? Array(3).fill(null) : data?.reviews)?.map(
+            (review: Review | null, i) => (
+              <div key={i} className="border border-[#005A8B] rounded-xl p-5 shadow-sm bg-white">
+                {loading ? (
+                  <>
+                    <div className="flex items-center gap-3 mb-3">
+                      <Skeleton shape="circle" size="40px" />
+                      <div className="flex-1">
+                        <Skeleton width="70%" height="0.9rem" />
+                        <Skeleton width="40%" height="0.7rem" className="mt-1" />
+                      </div>
                     </div>
-                  </div>
-                  <Skeleton width="60%" height="0.8rem" className="mb-2" />
-                  <Skeleton height="3rem" />
-                </>
-              ) : (
-                <>
-                  <div className="flex items-center gap-3 mb-2">
-                    {/* Use <img> for external Google profile photos to avoid next/image domain restrictions */}
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img
-                      src={review!.profile_photo_url}
-                      alt={review!.author_name}
-                      width={40}
-                      height={40}
-                      className="rounded-full object-cover w-10 h-10"
-                      onError={(e) => {
-                        // Fallback avatar if Google photo 403s
-                        (e.currentTarget as HTMLImageElement).src =
-                          `https://ui-avatars.com/api/?name=${encodeURIComponent(review!.author_name)}&background=005A8B&color=fff&size=40`;
-                      }}
-                    />
-                    <div>
-                      <p className="text-sm font-medium">{review!.author_name}</p>
-                      <p className="text-xs text-gray-500">
-                        {new Date(review!.time * 1000).toLocaleDateString("en-IN", {
-                          year: "numeric",
-                          month: "short",
-                          day: "numeric",
-                        })}
-                      </p>
+                    <Skeleton width="60%" height="0.8rem" className="mb-2" />
+                    <Skeleton height="3rem" />
+                  </>
+                ) : (
+                  <>
+                    <div className="flex items-center gap-3 mb-2">
+                      {/* Use <img> for external Google profile photos to avoid next/image domain restrictions */}
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={review!.profile_photo_url}
+                        alt={review!.author_name}
+                        width={40}
+                        height={40}
+                        className="rounded-full object-cover w-10 h-10"
+                        onError={(e) => {
+                          // Fallback avatar if Google photo 403s
+                          (e.currentTarget as HTMLImageElement).src =
+                            `https://ui-avatars.com/api/?name=${encodeURIComponent(review!.author_name)}&background=005A8B&color=fff&size=40`;
+                        }}
+                      />
+                      <div>
+                        <p className="text-sm font-medium">{review!.author_name}</p>
+                        <p className="text-xs text-gray-500">
+                          {new Date(review!.time * 1000).toLocaleDateString("en-IN", {
+                            year: "numeric",
+                            month: "short",
+                            day: "numeric",
+                          })}
+                        </p>
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="text-orange-400 mb-2">
-                    {"★★★★★".slice(0, review!.rating)}
-                    {"☆☆☆☆☆".slice(0, 5 - review!.rating)}
-                  </div>
+                    <div className="text-orange-400 mb-2">
+                      {"★★★★★".slice(0, review!.rating)}
+                      {"☆☆☆☆☆".slice(0, 5 - review!.rating)}
+                    </div>
 
-                  <p className="text-sm text-gray-600 line-clamp-4">
-                    {review!.text}
-                  </p>
-                </>
-              )}
+                    <p className="text-sm text-gray-600 line-clamp-4">
+                      {review!.text}
+                    </p>
+                  </>
+                )}
+              </div>
+            )
+          )}
+        </div>
+        <div className="text-center mt-8">
+          <Link href="">
+            <div className="group font-semibold flex items-center justify-center gap-2 text-black text-lg tracking-wide transition-all duration-300 cursor-pointer">
+
+              <span className="transition-all duration-300 group-hover:tracking-wider">
+                View all testimonials
+              </span>
+              <i className="transition-transform duration-300 group-hover:translate-x-1">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 22 22"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="transition-all duration-300 group-hover:scale-110"
+                >
+                  <path
+                    d="M11 0C8.08262 0 5.28473 1.15893 3.22183 3.22183C1.15893 5.28473 0 8.08262 0 11C0 13.9174 1.15893 16.7153 3.22183 18.7782C5.28473 20.8411 8.08262 22 11 22C12.4445 22 13.8749 21.7155 15.2095 21.1627C16.5441 20.6099 17.7567 19.7996 18.7782 18.7782C19.7996 17.7567 20.6099 16.5441 21.1627 15.2095C21.7155 13.8749 22 12.4445 22 11C22 9.55546 21.7155 8.12506 21.1627 6.79048C20.6099 5.4559 19.7996 4.24327 18.7782 3.22183C17.7567 2.20038 16.5441 1.39013 15.2095 0.837325C13.8749 0.284523 12.4445 0 11 0ZM8.91579 16.7895L7.29474 15.1476L11.4307 11L7.29474 6.85242L8.92737 5.21053L14.7168 11L8.91579 16.7895Z"
+                    fill="#005A8B"
+                  />
+                </svg>
+              </i>
+
             </div>
-          )
-        )}
+          </Link>
+        </div>
+
       </div>
+
     </div>
   );
 }

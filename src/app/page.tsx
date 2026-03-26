@@ -21,6 +21,9 @@ import CounselorForm from "@/components/CounselorForm";
 import Earth3D from "@/components/Earth3D";
 import AdmissionReality from "@/components/home/AdmissionReality";
 import CategoryCards from "@/components/home/CategoryCards";
+import CourseSlider from "@/components/home/CourseSlider";
+import ContactOptions from "@/components/home/ContactOptions";
+import EverythingSlider from "@/components/home/EverythingSlider";
 
 export default function Home() {
   const [value, setValue] = useState<string>("");
@@ -332,16 +335,17 @@ export default function Home() {
         </div>
       </section>
       */}
-      <section className="pt-16 bg-white">
+
+
+
+
+      <section className="bg-white">
         <div className="container px-3 md:px-4">
           <div className="fadeUp text-center">
             <div className="md:w-5/10 w-full mx-auto">
-              <div className="text-black uppercase text-sm font-semibold tracking-widest mb-4 lg:mb-6">
-                Countries We Offer
-              </div>
-              <h2 className="text-black md:text-5xl text-4xl font-bold">
+              <h2 className="text-black md:text-5xl text-4xl font-light leading-[1.2]">
                 Discover Where Your{" "}
-                <span className="text-[#287FC4]">Medical Future</span> Begins
+                <span className="text-[#287FC4] font-bold">Medical Future</span> Begins
               </h2>
             </div>
           </div>
@@ -350,44 +354,43 @@ export default function Home() {
           <Earth3D />
         </div>
       </section>
-      <section className="md:-mt-70 -mt-45 md:py-30 py-10 bg-cover bg-center bg-no-repeat bg-[#005A8B] overflow-hidden relative z-2 whyChoUs">
-        <div className="container lg:px-30 px-3 md:px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 md:gap-6 gap-2 items-center">
-            <div className="fadeLeft lg:pr-10 text-center md:text-left rounded-xl overflow-hidden">
-              <Image
-                src="/images/sdfghfddsfdgh.webp"
-                className="rounded-xl overflow-hidden"
-                width="475"
-                height="360"
-                alt=""
-              />
-            </div>
-            <div className="fadeRight text-center md:text-left text-white">
-              <div className="text-white font-semibold text-sm uppercase">
-                Why Choose Us?
-              </div>
-              <h2 className="text-6xl font-bold my-6">
-                Secure. <span className="text-[#00CFB2]">Support. Success</span>
-              </h2>
-              <div>
-                Our commitment to providing students with extensive support and
-                requisite resources is the driving force here at Radical
-                Education. Rooted in creativity and quality, we offer a clear,
-                reliable path to achieving goals.
-              </div>
-            </div>
+
+      <section className="pb-16 bg-white">
+        <div className="container lg:px-4">
+          <h2 className="text-center text-2xl md:text-3xl font-light mb-8 px-4">
+            Courses we offer guidance for
+          </h2>
+          <div className="lg:px-20 pl-3">
+            <CourseSlider />
           </div>
         </div>
       </section>
+      <section className="pb-16 bg-white">
+        <div className="container lg:px-4 px-3">
+          <div className="text-center mb-10">
+            <h1 className="text-3xl md:text-4xl font-semibold text-gray-900">
+              Do you have a personal question?
+            </h1>
+            <p className="mt-2 text-gray-600 text-xl">
+              Sometimes clarity comes from a real conversation.
+            </p>
+            <p className="mt-4 text-gray-700 text-xl">
+              We’re here to listen, understand, and help you figure it out.
+            </p>
+          </div>
+          <div className="lg:px-50">
+            <ContactOptions />
+          </div>
+        </div>
+      </section>
+
       <section className="py-16 bg-white">
         <div className="container px-3 md:px-4">
           <div className="mb-10 fadeUp text-center">
-            <h2 className="text-black text-4xl font-bold mb-4">
-              OUR <span className="text-[#287FC4]">SUCCESSFUL STORIES</span>
+            <h3 className="text-black font-semibold lg:text-4xl text-2xl mb-2">Skip our pitch.</h3>
+            <h2 className="bg-gradient-to-r from-[#27AEDC] font-bold to-[#3FE198] bg-clip-text text-transparent lg:text-5xl text-4xl font-light">
+              Listen to real experiences
             </h2>
-            <div className="uppercase text-[#00CFB240] leading-12 text-[42px] md:text-5xl lg:text-7xl font-black">
-              HEAR FROM OUR STUDENTS
-            </div>
           </div>
           <div className="grid gap-6 md:grid-cols-3 grid-cols-1">
             {videos.map((video) => (
@@ -465,7 +468,61 @@ export default function Home() {
           <GoogleReviews />
         </div>
       </section>
-      <section
+      <section className="pb-20">
+        <div className="container md:px-4 px-3">
+          <div className="mb-10 fadeUp text-center">
+            <h3 className="text-black font-semibold lg:text-4xl text-2xl mb-2">Complete guidance. No guesswork.</h3>
+            <h2 className="bg-gradient-to-r from-[#27AEDC] font-bold to-[#3FE198] leading-[1.2] bg-clip-text text-transparent lg:text-5xl text-3xl font-light">
+              Not for everyone. Only for those who want it right.
+            </h2>
+          </div>
+          <div className="grid gap-6 grid-cols-1 md:grid-cols-9 mb-20">
+            <div className="md:col-span-5">
+              <Link href="#" className="block relative group overflow-hidden rounded-2xl h-[400px] md:col-span-2">
+                <Image
+                  src="/images/ug-card.webp"
+                  alt="ug"
+                  fill
+                  className="object-cover transition duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition"></div>
+              </Link>
+            </div>
+            <div className="md:col-span-4">
+              <div className="grid gap-6 grid-cols-2">
+                <div>
+
+                  <Link href="#" className="block relative group overflow-hidden rounded-2xl h-[400px] md:col-span-2">
+                    <Image
+                      src="/images/pg-card.webp"
+                      alt="pg"
+                      fill
+                      className="object-cover transition duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition"></div>
+                  </Link>
+                </div>
+                <div>
+
+                  <Link href="#" className="block relative group overflow-hidden rounded-2xl h-[400px] md:col-span-2">
+                    <Image
+                      src="/images/ab-card.webp"
+                      alt="Abroad"
+                      fill
+                      className="object-cover transition duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition"></div>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <EverythingSlider/>
+
+        </div>
+      </section>
+      {/* <section
         className="relative bg-cover bg-black bg-left md:bg-center z-2"
         style={{ backgroundImage: "url('/images/testibg.webp')" }}
       >
@@ -515,7 +572,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
+      </section> */}
     </>
   );
 }
