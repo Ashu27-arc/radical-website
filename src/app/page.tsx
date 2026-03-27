@@ -163,7 +163,7 @@ export default function Home() {
                     <a
                       href="https://www.neetbhaiya.in/rank-predictor"
                       className="group relative block cursor-pointer rounded-[28px] p-6 text-white overflow-hidden shadow-lg transition-all duration-300 
-                        bg-[linear-gradient(#F7C873_0%,#F39C12_50%,#D68910_100%)]
+                        bg-[linear-gradient(#0271AD_0%,#149CE5_50%,#149CE5_100%)]
                         hover:scale-105 hover:shadow-2xl"
                       aria-label="Rank Predictor"
                     >
