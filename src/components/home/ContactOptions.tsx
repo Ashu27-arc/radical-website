@@ -1,6 +1,17 @@
 "use client";
 
 export default function ContactOptions() {
+    const phoneNumber = "+919797972465";
+    const emailAddress = "info@radicaleducation.in";
+
+    const handleCallClick = () => {
+        window.location.href = `tel:${phoneNumber}`;
+    };
+
+    const handleEmailClick = () => {
+        window.location.href = `mailto:${emailAddress}`;
+    };
+
     return (
         <>
             
@@ -8,7 +19,10 @@ export default function ContactOptions() {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
 
-                <div className="group relative overflow-hidden rounded-2xl bg-[#A8C79A] p-6 lg:p-10 h-[200px] flex flex-col justify-between transition-all duration-500 ease-in-out hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)] cursor-pointer">
+                <div
+                    className="group relative overflow-hidden rounded-2xl bg-[#A8C79A] p-6 lg:p-10 h-[200px] flex flex-col justify-between transition-all duration-500 ease-in-out hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)] cursor-pointer"
+                    onClick={handleCallClick}
+                >
 
                     <div className="z-10">
                         <h3 className="text-xl font-semibold text-gray-900">
@@ -29,7 +43,10 @@ export default function ContactOptions() {
                     </i>
                 </div>
 
-                <div className="group relative overflow-hidden rounded-2xl bg-[#8FAFD6] lg:p-10 p-6 h-[200px] flex flex-col justify-between transition-all duration-500 ease-in-out hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)] cursor-pointer">
+                <div
+                    className="group relative overflow-hidden rounded-2xl bg-[#8FAFD6] lg:p-10 p-6 h-[200px] flex flex-col justify-between transition-all duration-500 ease-in-out hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)] cursor-pointer"
+                    onClick={handleEmailClick}
+                >
 
                     <div className="z-10 md:text-right">
                         <h3 className="text-xl font-semibold text-gray-900">

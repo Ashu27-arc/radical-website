@@ -5,6 +5,12 @@ import { EffectCoverflow, Autoplay } from "swiper/modules";
 import Image from "next/image";
 
 export default function EverythingSlider() {
+  const redirectUrl = "https://www.neetbhaiya.in/";
+
+  const handleRedirect = () => {
+    window.open(redirectUrl, "_blank", "noopener,noreferrer");
+  };
+
   const slides = [
     "/images/mock1.webp",
     "/images/mock2.webp",
@@ -19,7 +25,10 @@ export default function EverythingSlider() {
   ];
 
   return (
-      <div className="bg-[#dbeafe] rounded-4xl p-10 text-center relative">
+      <div
+        className="bg-[#dbeafe] rounded-4xl p-10 text-center relative cursor-pointer"
+        onClick={handleRedirect}
+      >
         <div className="flex justify-center mb-6">
           <div className="inline-flex">
             <img src={'/images/mat-logo.webp'} alt="" className="w-[160px] h-[auto]" height={160} width={58}/>
