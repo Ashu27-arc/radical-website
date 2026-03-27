@@ -132,7 +132,7 @@ export default function NeetUgIndiaAdmissionPage() {
                         <div className="flex justify-between gap-2 items-center">
                             <div>
                                 <div className="flex justify-between gap-2 items-center">
-                                    <div className="text-black fadeUp font-bold text-xl md:text-4xl">Get 35% OFF on the Ultimate Plan - Now at just</div>
+                                    <div className="text-black fadeUp font-bold text-xl md:text-4xl">Get 35% OFF on the Ultimate Plan-Now at just</div>
                                 </div>
                                 <div className="mt-5 fadeUp flex text-[#538AA1] gap-2 items-center">
                                     <div className="md:inline-flex hidden">
@@ -147,11 +147,11 @@ export default function NeetUgIndiaAdmissionPage() {
                                             </defs>
                                         </svg>
                                     </div>
-                                    <div>Note:- One Shot Payment (NO PARTIAL PAYMENT, NO NEGOTIATIONS)</div>
+                                    <div>Note:- One Shot Payment (No partial payment, no negotiations)</div>
                                 </div>
                             </div>
                             <div>
-                                <div className="fadeRight inline-flex px-4 md:px-8! py-3 text-white md:text-2xl text-lg rounded-lg bg-[#FF0000] font-semibold">₹ 84,499/-</div>
+                                <div className="fadeRight inline-flex px-4 md:px-8! py-3 text-white md:text-2xl text-lg rounded-lg bg-[#FF0000] font-semibold">₹ 84,499</div>
                             </div>
                         </div>
                     </div>

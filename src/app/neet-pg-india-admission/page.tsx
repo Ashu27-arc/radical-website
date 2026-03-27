@@ -91,7 +91,7 @@ const branches = [
         color: "bg-[#FFEFF2]",
     },
     {
-        title: "MS Obstetrics And Gynaecology",
+        title: "MS Obstetrics and Gynaecology",
         desc: "I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps HRs Generate Job Descriptions And Screen Resumes.",
         icon: "/images/Gynaecology.webp",
         color: "bg-[#E0F3FF]",
@@ -121,7 +121,7 @@ const branches = [
         color: "bg-[#E4FFDE]",
     },
     {
-        title: "Community Health",
+        title: "Community Medicine",
         desc: "I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps HRs Generate Job Descriptions And Screen Resumes.",
         icon: "/images/CommunityHealth.webp",
         color: "bg-[#FFEFF2]",
@@ -348,24 +348,24 @@ export default function NeetPgIndiaAdmissionPage() {
                 <div className="container px-3 md:px-4">
                     <div className="p-8 rounded-xl bg-[url('/images/addmi.webp')] bg-cover bg-center bg-no-repeat mb-6">
                         <div className="flex flex-wrap gap-2 fadeUp items-end justify-center">
-                            <div className="text-white lg:text-4xl text-2xl font-bold">Admission Service Charge :-</div><br className="md:hidden block" />
+                            <div className="text-white lg:text-4xl text-2xl font-bold">Admission Service Charge:</div><br className="md:hidden block" />
                             <div className="font-light text-[#CACACA] relative -top-0.5 line-through">₹ 1,29,999 </div>
-                            <div className="font-bold lg:text-4xl text-2xl py-1 px-2 bg-white text-[#FF0000] font-semibold">₹ 84,499/-</div>
+                            <div className="font-bold lg:text-4xl text-2xl py-1 px-2 bg-white text-[#FF0000] font-semibold">₹ 84,499</div>
                         </div>
                         <div className="text-center mt-8 fadeUp">
                             <Button size="small" label="BUY NOW" className='text-white! bg-[#005787]! border-[#005787]! hover:bg-[#004469]! hover:shadow-2xl hover:scale-105 transition-all hover:animate-none' rounded />
                         </div>
                     </div>
                     <div className="lg:mb-15 mb-10 fadeUp flex text-[#2CBF0F] border rounded-xl border-dashed border-[#2CBF0F] gap-2 lg:justify-center mx-auto w-full lg:w-7/10 p-4 lg:px-8 lg:py-4">
-                        <div className="text-[#FF0000]">Note:-</div>
+                        <div className="text-[#FF0000]">Note:</div>
                         <div className="space-y-3">
-                            <div>1. This service charge includes the Visa charges but does not cover the Ticket charges.</div>
-                            <div>2. Get the offer price 99,999 before NEET Result</div>
+                            <div>1. This service charge includes visa charges but does not cover ticket charges.</div>
+                            <div>2. Get the offer price of ₹99,999 before the NEET result</div>
                         </div>
                     </div>
                     <div className='mb-10 fadeUp text-center'>
-                        <h2 className='text-black text-4xl font-bold mb-4'>OUR <span className='text-[#287FC4]'>SUCESSFUL STORIES</span></h2>
-                        <div className='uppercase text-[#00CFB240] leading-12 text-[42px] md:text-5xl lg:text-7xl font-black'>HEAR FORM OUR STUDENT</div>
+                        <h2 className='text-black text-4xl font-bold mb-4'>OUR <span className='text-[#287FC4]'>SUCCESSFUL STORIES</span></h2>
+                        <div className='uppercase text-[#00CFB240] leading-12 text-[42px] md:text-5xl lg:text-7xl font-black'>HEAR FROM OUR STUDENTS</div>
                     </div>
                     <div className="grid gap-6 md:grid-cols-3 grid-cols-1">
                         {videos.map((video) => (

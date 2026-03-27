@@ -95,8 +95,8 @@ export default function StudyAbroadPage() {
                     {/* Right side - Description */}
                     <div className="lg:w-1/2">
                         <p className="text-gray-600 text-sm sm:text-base">
-                            Discover a World Where you can Experience a Life, that You have
-                            never Experienced, and Become what you have never Imagined.
+                            Discover a world where you can experience a life, that You have
+                            never experienced, and become what you have never imagined.
                         </p>
                     </div>
                 </div>
@@ -173,7 +173,7 @@ export default function StudyAbroadPage() {
                                 className={`group prcCardStyle1 fadeUp overflow-hidden relative z-1 rounded-2xl border-2 border-[#42ACCF] hover:border-[#007EC8] bg-[#D3F4FF] hover:bg-[#B8EAFB] p-6 lg:px-6 lg:py-8 shadow-md hover:shadow-2xl hover:scale-[1.03] transition-all duration-300 cursor-pointer`}
                             >
                                 <div className="text-lg font-semibold text-[#0B2E3C] group-hover:text-[#005787] uppercase transition-colors duration-300">Standard</div>
-                                <div className="text-xs text-[#0B2E3C] group-hover:text-[#005787] mb-6 transition-colors duration-300">I designed a web UI for an AI-powered HR Co-Pil I </div>
+                                {/* <div className="text-xs text-[#0B2E3C] group-hover:text-[#005787] mb-6 transition-colors duration-300">I designed a web UI for an AI-powered HR Co-Pil I </div> */}
                                 <div className="font-bold lg:text-5xl text-4xl mb-8 group-hover:text-[#005787] transition-colors duration-300">₹ 9,999</div>
                                 <div className="text-xs text-[#0B2E3C] group-hover:text-[#005787] mb-5 transition-colors duration-300">Features</div>
                                 <ul className="space-y-4 text-sm text-gray-700 mb-8">
@@ -200,7 +200,7 @@ export default function StudyAbroadPage() {
                     <div className="flex flex-wrap gap-2 fadeUp items-end justify-center">
                         <div className="text-white lg:text-4xl text-2xl font-bold">Admission Service Charge :-</div><br className="md:hidden block" />
                         <div className="font-light text-[#CACACA] relative -top-0.5 line-through">₹ 1,29,999 </div>
-                        <div className="font-bold lg:text-4xl text-2xl py-1 px-2 bg-white text-[#FF0000] font-semibold">₹ 99,999/-</div>
+                        <div className="font-bold lg:text-4xl text-2xl py-1 px-2 bg-white text-[#FF0000] font-semibold">₹ 99,999</div>
                     </div>
                     <div className="text-center mt-8 fadeUp">
                         <Button size="small" label="BUY NOW" className='text-white! bg-[#005787]! border-[#005787]! hover:bg-[#004469]! hover:shadow-2xl hover:scale-105 transition-all hover:animate-none' rounded />
@@ -210,13 +210,13 @@ export default function StudyAbroadPage() {
                     <div className="mt-3 sm:mt-4 md:mt-6 bg-white border-2 border-dashed border-gray-300 rounded-lg sm:rounded-xl p-2 sm:p-3 md:p-4 lg:p-6">
                         <div className="space-y-1 sm:space-y-2">
                             <div className="flex items-start gap-1 sm:gap-2">
-                                <span className="text-red-500 font-bold flex-shrink-0 text-xs sm:text-sm md:text-base">Note:-</span>
+                                <span className="text-red-500 font-bold flex-shrink-0 text-xs sm:text-sm md:text-base">Note:</span>
                                 <div className="space-y-1 text-xs sm:text-sm md:text-base">
                                     <p className="text-green-600">
-                                        1. This Service Charge Includes The Visa Charges But Does Not Cover The Ticket Charges.
+                                        1. This service charge includes visa charges but does not cover ticket charges.
                                     </p>
                                     <p className="text-green-600">
-                                        2. Get The Offer Price 99,999 Before NEET Result
+                                        2. Get the offer price of ₹99,999 before the NEET result
                                     </p>
                                 </div>
                             </div>
@@ -229,8 +229,8 @@ export default function StudyAbroadPage() {
             <div className="py-6 sm:py-8 md:py-12 lg:py-16 bg-white">
                 <div className="container mx-auto px-4 text-center">
                     <div className='mb-10 fadeUp text-center'>
-                        <h2 className='text-black text-4xl font-bold mb-4'>OUR <span className='text-[#287FC4]'>SUCESSFUL STORIES</span></h2>
-                        <div className='uppercase text-[#00CFB240] leading-12 text-[42px] md:text-5xl lg:text-7xl font-black'>HEAR FORM OUR STUDENT</div>
+                        <h2 className='text-black text-4xl font-bold mb-4'>OUR <span className='text-[#287FC4]'>SUCCESSFUL STORIES</span></h2>
+                        <div className='uppercase text-[#00CFB240] leading-12 text-[42px] md:text-5xl lg:text-7xl font-black'>HEAR FROM OUR STUDENT</div>
                     </div>
 
                     <div className="grid gap-6 md:grid-cols-3 grid-cols-1">
