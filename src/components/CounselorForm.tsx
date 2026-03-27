@@ -166,7 +166,7 @@ export default function CounselorForm() {
                     label="Submit"
                     onClick={handleSubmit}
                     loading={loading}
-                    className="w-full h-14 rounded-xl text-lg font-bold border-none bg-gradient-to-r from-[#4FB7A4] to-[#0D94E7] shadow-lg hover:opacity-90 transition-opacity"
+                    className="w-full h-14 !rounded-xl text-lg font-bold !border-none !bg-gradient-to-r !from-[#4FB7A4] !to-[#0D94E7] shadow-lg hover:opacity-90 transition-opacity"
                 />
             </div>
         </>

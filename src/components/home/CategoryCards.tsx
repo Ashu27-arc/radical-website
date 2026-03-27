@@ -1,3 +1,7 @@
+"use client";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import "swiper/css";
 import Image from "next/image";
 
 const cards = [
@@ -37,42 +41,58 @@ const data = [
 export default function CategoryCards() {
   return (
     <>
+      <div className="lg:px-20 mb-10">
+        <Swiper
+          modules={[Autoplay]}
+          spaceBetween={20}
+          loop={true}
+          autoplay={{
+            delay: 2500,
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+          breakpoints={{
+            0: {
+              slidesPerView: 1,
+            },
+            640: {
+              slidesPerView: 2,
+            },
+            1024: {
+              slidesPerView: 4,
+            },
+          }}
+        >
+          {cards.map((item, index) => (
+            <SwiperSlide key={index}>
+              <div
+                className="group w-full h-[300px] rounded-3xl overflow-hidden relative cursor-pointer
+              transition-all duration-300 hover:shadow-xl"
+              >
+                {/* Image */}
+                <div className="relative w-full h-full">
+                  <Image
+                    src={item.img}
+                    alt={item.title}
+                    fill
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                </div>
 
-      <div className="flex gap-4 md:gap-6 overflow-x-auto md:overflow-visible scrollbar-hide lg:px-20 mb-10">
+                {/* Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
 
-        {cards.map((item, index) => (
-          <div
-            key={index}
-            className="group w-[242px] h-[249.93px] rounded-3xl overflow-hidden relative cursor-pointer
-              transition-all duration-300 hover:shadow-xl flex-shrink-0"
-          >
-
-            {/* Image */}
-            <div className="relative w-full h-full">
-              <Image
-                src={item.img}
-                alt={item.title}
-                fill
-                className="object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-            </div>
-
-            {/* Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
-
-            {/* Text */}
-            <div className="absolute bottom-0 left-0 right-0 text-center px-2 py-3 bg-white/70">
-              <h3 className="text-black text-lg font-semibold leading-tight">
-                {item.title}
-              </h3>
-              <p className="text-black">
-                {item.subtitle}
-              </p>
-            </div>
-
-          </div>
-        ))}
-
+                {/* Text */}
+                <div className="absolute bottom-0 left-0 right-0 text-center px-2 py-3 bg-white/70">
+                  <h3 className="text-black text-lg font-semibold leading-tight">
+                    {item.title}
+                  </h3>
+                  <p className="text-black">{item.subtitle}</p>
+                </div>
+              </div>
+            </SwiperSlide>
+          ))}
+        </Swiper>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:px-20">
 
