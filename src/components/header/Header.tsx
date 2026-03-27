@@ -91,7 +91,7 @@ export default function Header() {
                   <span>PAY ONLINE</span>
                 </Link>|
                 <Link href="https://www.neetbhaiya.in/" className='text-[#121212] relative inline-flex items-center gap-2'>
-                  <Image src="/icons/neet-bhaiya.jpg" width="18" height="18" alt="" />
+                  <Image src="/icons/neet-bhaiya.jpg" width="20" height="20" alt="" />
                   <span>NEET BHAIYA</span>
                   <div className='absolute right-[-5px] top-[-5px]'>
                     <span className="relative flex size-2 animate-blink">
