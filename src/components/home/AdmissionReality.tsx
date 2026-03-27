@@ -35,52 +35,45 @@ const data = [
 
 export default function AdmissionReality() {
   return (
-
-
-        <div className="mt-10 space-y-12">
-          {data.map((item, index) => {
-            const isReverse = index % 2 !== 0;
-
-            return (
-              <div
-                key={index}
-                className={`group flex flex-col md:flex-row items-center gap-6 md:gap-10 
+    <div className="mt-10 space-y-12">
+      {data.map((item, index) => {
+        const isReverse = index % 2 !== 0;
+        return (
+          <div
+            key={index}
+            className={`group flex flex-col md:flex-row items-center gap-6 md:gap-10 
                 p-4 md:p-6 rounded-4xl transition-all duration-300 ease-in-out
-                hover:shadow-xl bg-white hover:bg-white
-                ${
-                  isReverse ? "md:flex-row-reverse" : ""
-                }`}
-              >
-                {/* Image */}
-                <div className="w-full md:w-1/3">
-                  <div className="rounded-4xl overflow-hidden shadow-md">
-                    <Image
-                      src={item.img}
-                      alt={item.title}
-                      width={400}
-                      height={250}
-                      className="w-full h-auto object-cover"
-                    />
-                  </div>
-                </div>
-
-                {/* Text */}
-                <div
-                  className={`w-full md:w-2/3 text-center 
-                  ${isReverse ? "md:text-right" : "md:text-left"}`}
-                >
-                  <h3 className="font-semibold text-gray-900 text-2xl">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-600 text-xl mt-2 leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
+                ${isReverse ? "md:flex-row-reverse" : ""
+              }`}
+          >
+            {/* Image */}
+            <div className="w-full md:w-1/3">
+              <div className="rounded-[20px] overflow-hidden">
+                <Image
+                  src={item.img}
+                  alt={item.title}
+                  width={400}
+                  height={250}
+                  className="w-full h-auto object-cover rounded-[20px]"
+                />
               </div>
-            );
-          })}
-        </div>
+            </div>
 
-
+            {/* Text */}
+            <div
+              className={`w-full md:w-2/3 text-center 
+                  ${isReverse ? "md:text-right" : "md:text-left"}`}
+            >
+              <h3 className="font-semibold text-gray-900 text-lg">
+                {item.title}
+              </h3>
+              <p className="text-gray-600 text-lg mt-2 leading-relaxed">
+                {item.desc}
+              </p>
+            </div>
+          </div>
+        );
+      })}
+    </div>
   );
 }

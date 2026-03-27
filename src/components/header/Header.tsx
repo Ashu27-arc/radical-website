@@ -16,11 +16,13 @@ export default function Header() {
     <>
       <section className='bg-white px-3 text-center py-3 lg:hidden'>
         <div className='flex flex-wrap gap-2 justify-center text-xs'>
-          <Link className='text-[#121212]' href="mailto:info@radicaleducation.in">info@radicaleducation.in</Link>|
+          <Link className='text-[#121212]' href="mailto:info@radicaleducation.in">info@radicaleducation.in</Link>
+          <span className='inline-flex items-center h-12 text-xl leading-none'>|</span>
           <Link className='text-[#121212] font-bold inline-flex items-center gap-2' href="tel:+91 9797972465">
             <Image src="/icons/phone.jpg" width="18" height="18" alt="" />
             <span>97 97 97 24 65</span>
-          </Link>|
+          </Link>
+          <span className='inline-flex items-center h-12 text-xl leading-none'>|</span>
           {/* <Link href="https://www.neetbhaiya.in/college-predictor" className='text-[#121212] relative'>NEET COLLEGE PREDICTOR
             <div className='absolute right-[-5px] top-[-5px]'>
               <span className="relative flex size-2 animate-blink">
@@ -30,16 +32,17 @@ export default function Header() {
           </Link>| */}
           <Link className='text-[#121212] relative inline-flex items-center gap-2' href="/neet-ug-india-admission/">
             <Image src="/icons/pay-online.png" width="18" height="18" alt="" />
-            <span>PAY ONLINE</span>
+            <span>Pay Online</span>
             <div className='absolute right-[-5px] top-[-5px]'>
               <span className="relative flex size-2 animate-blink">
                 <span className="relative inline-flex size-2 rounded-full bg-[#FF0000]"></span>
               </span>
             </div>
-          </Link>|
+          </Link>
+          <span className='inline-flex items-center h-12 text-xl leading-none'>|</span>
           <Link href="https://www.neetbhaiya.in/" className='text-[#121212] relative inline-flex items-center gap-2'>
             <Image src="/icons/neet-bhaiya.jpg" width="20" height="20" alt="" />
-            <span>NEET BHAIYA</span>
+            <span>NEET Bhaiya</span>
             <div className='absolute right-[-5px] top-[-5px]'>
               <span className="relative flex size-2 animate-blink">
                 <span className="relative inline-flex size-2 rounded-full bg-[#FF0000]"></span>
@@ -73,17 +76,19 @@ export default function Header() {
       </section>
       <header className="w-full sticky top-0 left-0 z-[100]">
         <section className='hdrTop bg-white py-3 lg:bg-[#ffffff] w-full  top-0 left-0 z-[100]'>
-          <div className='container px-3 flex items-center justify-between'>
+          <div className='container mx-auto px-4 md:px-8 lg:px-12 flex items-center justify-between'>
             <div className='flex items-center gap-6'>
               <Link href="/" className="headerLogo">
                 <Image src="/logo.webp" alt="Logo" width="145" />
               </Link>
               <div className='hidden lg:flex items-center gap-3 text-[14px] text-[#121212] topInfo'>
-                <Link className='text-[#121212]' href="mailto:info@radicaleducation.in">info@radicaleducation.in</Link>|
+                <Link className='text-[#121212]' href="mailto:info@radicaleducation.in">info@radicaleducation.in</Link>
+                <span className='inline-flex items-center h-12 text-xl leading-none'>|</span>
                 <Link className='text-[#121212] font-bold inline-flex items-center gap-2' href="tel:+91 9797972465">
                   <Image src="/icons/phone.jpg" width="18" height="18" alt="" />
                   <span>97 97 97 24 65</span>
-                </Link>|
+                </Link>
+                <span className='inline-flex items-center h-12 text-xl leading-none'>|</span>
                 {/* <Link href="https://www.neetbhaiya.in/college-predictor" className='text-[#121212] relative'>NEET COLLEGE PREDICTOR
                   <div className='absolute right-[-5px] top-[-5px]'>
                     <span className="relative flex size-2 animate-blink">
@@ -93,16 +98,17 @@ export default function Header() {
                 </Link>| */}
                 <Link className='text-[#121212] relative inline-flex items-center gap-2' href="/neet-ug-india-admission/">
                   <Image src="/icons/pay-online.png" width="18" height="18" alt="" />
-                  <span>PAY ONLINE</span>
+                  <span>Pay Online</span>
                   <div className='absolute right-[-5px] top-[-5px]'>
                     <span className="relative flex size-2 animate-blink">
                       <span className="relative inline-flex size-2 rounded-full bg-[#FF0000]"></span>
                     </span>
                   </div>
-                </Link>|
+                </Link>
+                <span className='inline-flex items-center h-12 text-xl leading-none'>|</span>
                 <Link href="https://www.neetbhaiya.in/" className='text-[#121212] relative inline-flex items-center gap-2'>
                   <Image src="/icons/neet-bhaiya.jpg" width="20" height="20" alt="" />
-                  <span>NEET BHAIYA</span>
+                  <span>NEET Bhaiya</span>
                   <div className='absolute right-[-5px] top-[-5px]'>
                     <span className="relative flex size-2 animate-blink">
                       <span className="relative inline-flex size-2 rounded-full bg-[#FF0000]"></span>
@@ -143,8 +149,8 @@ export default function Header() {
                 </Link>
               </div>
               <div className='lg:hidden'>
-                <Link href="/neet-update" className='gradient-border2'>
-                  <span className='gradient-border-inner text-xs relative pr-8! inline-flex'>
+                <Link href="/neet-update" className='gradient-border2 h-10 flex items-center'>
+                  <span className='gradient-border-inner h-full flex items-center text-xs relative pr-8!'>
                     <span className='text-nowrap'>NEET UPDATE</span>
                     <svg className='absolute right-[-15px] -top-[5px] animate-bounce' width="50" height="50" viewBox="0 0 75 74" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <g clip-path="url(#clip0_3382_1252)">
@@ -185,15 +191,15 @@ export default function Header() {
           </div>
         </section>
         <section className='hdrBtm hidden lg:block bg-[rgba(0,0,0,0.3)] backdrop-blur-[10px] absolute w-full left-0'>
-          <div className="container px-3 py-2 flex items-center justify-between relative">
+          <div className="container mx-auto px-4 md:px-8 lg:px-12 py-2 flex items-center justify-between relative">
             <div className='deskMnu'><MainMenu mainMenuData={mainMenuData} /></div>
             <div className='flex gap-5 items-center'>
               <div className="flex gap-3">
                 <Link href="https://www.youtube.com/@radicaleducationofficial" target="_blank">
-                  <Button size="small" icon="pi pi-youtube" label="YOUTUBE" className='text-white! bg-[#CB1E17]! border-[#CB1E17]!' rounded />
+                  <Button size="small" icon="pi pi-youtube" label="YOUTUBE" className='text-white! bg-[#CB1E17]! border-[#CB1E17]! h-10! px-4!' rounded />
                 </Link>
-                <Link href="/neet-update" className='gradient-border2'>
-                  <span className='gradient-border-inner relative pr-10! inline-flex'>
+                <Link href="/neet-update" className='gradient-border2 h-10 flex items-center'>
+                  <span className='gradient-border-inner h-full flex items-center relative pr-10!'>
                     <span className='text-center'>NEET UPDATE</span>
                     <svg className='absolute right-[-15px] -top-[5px] animate-bounce' width="50" height="50" viewBox="0 0 75 74" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <g clip-path="url(#clip0_3382_1252)">

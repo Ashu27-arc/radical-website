@@ -17,7 +17,7 @@ import CourseCard from "@/components/home/CourseCard";
 import { courses } from "@/data/courses";
 import GoogleReviews from "@/components/GoogleReviews";
 import TestimonialSlider from "@/components/TestimonialSlider";
-import CounselorForm from "@/components/CounselorForm";
+import CounselorSection from "@/components/CounselorSection";
 import Earth3D from "@/components/Earth3D";
 import AdmissionReality from "@/components/home/AdmissionReality";
 import CategoryCards from "@/components/home/CategoryCards";
@@ -162,7 +162,7 @@ export default function Home() {
                   <div>
                     <a
                       href="https://www.neetbhaiya.in/rank-predictor"
-                      className="group relative block cursor-pointer rounded-[28px] p-6 text-white overflow-hidden shadow-lg transition-all duration-300 
+                      className="group relative block cursor-pointer rounded-[20px] p-6 text-white overflow-hidden shadow-lg transition-all duration-300 
                         bg-[linear-gradient(#0271AD_0%,#149CE5_50%,#149CE5_100%)]
                         hover:scale-105 hover:shadow-2xl"
                       aria-label="Rank Predictor"
@@ -183,45 +183,45 @@ export default function Home() {
                   <div className="md:col-span-2 flex flex-col gap-5">
                     <Link
                       href="/neet-ug-india-admission/"
-                      className="group flex items-center justify-between rounded-full px-6 py-3 text-white 
+                      className="group flex items-center justify-between rounded-[20px] px-6 py-3 text-white 
                       bg-[linear-gradient(90deg,#27AEDC_0%,#3FE198_100%)]
                       shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
                       aria-label="NEET UG India Admissions"
                     >
-                      <span className="font-semibold text-sm md:text-lg">
+                      <span className="font-semibold text-[18px]">
                         NEET UG India Admissions
                       </span>
-                      <div className="bg-white text-black w-8 h-8 flex items-center justify-center rounded-full 
+                      <div className="bg-white text-black w-[20.5px] h-[20.51px] flex items-center justify-center rounded-full 
                          transition-all duration-300 group-hover:translate-x-1">
                         <i className="pi pi-arrow-up-right text-sm"></i>
                       </div>
                     </Link>
                     <Link
                       href="/neet-pg-india-admission/"
-                      className="group flex items-center justify-between rounded-full px-6 py-3 text-white 
+                      className="group flex items-center justify-between rounded-[20px] px-6 py-3 text-white 
                       bg-[linear-gradient(90deg,#F6C667_0%,#F04E23_100%)]
                       shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
                       aria-label="NEET PG India Admissions"
                     >
-                      <span className="font-semibold text-sm md:text-lg">
+                      <span className="font-semibold text-[18px]">
                         NEET PG India Admissions
                       </span>
-                      <div className="bg-white text-black w-8 h-8 flex items-center justify-center rounded-full 
+                      <div className="bg-white text-black w-[20.5px] h-[20.51px] flex items-center justify-center rounded-full 
                         transition-all duration-300 group-hover:translate-x-1">
                         <i className="pi pi-arrow-up-right text-sm"></i>
                       </div>
                     </Link>
                     <Link
                       href="/study-abroad/"
-                      className="group flex items-center justify-between rounded-full px-6 py-3 text-white 
+                      className="group flex items-center justify-between rounded-[20px] px-6 py-3 text-white 
                        bg-[linear-gradient(90deg,#677CE7_0%,#754FA7_100%)]
                       shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
                       aria-label="MBBS Abroad Admissions"
                     >
-                      <span className="font-semibold text-sm md:text-lg">
+                      <span className="font-semibold text-[18px]">
                         MBBS Abroad Admissions
                       </span>
-                      <div className="bg-white text-black w-8 h-8 flex items-center justify-center rounded-full 
+                      <div className="bg-white text-black w-[20.5px] h-[20.51px] flex items-center justify-center rounded-full 
                         transition-all duration-300 group-hover:translate-x-1">
                         <i className="pi pi-arrow-up-right text-sm"></i>
                       </div>
@@ -245,12 +245,12 @@ export default function Home() {
           </div>
         </div>
       </section>
-      <section className="py-8 overflow-hidden bg-[#353535]">
+      <section className="py-0 bg-white overflow-hidden">
         <div className="container px-3 md:px-4">
           <StatsCounter />
         </div>
       </section>
-      <section className="py-24 bg-[#f7f6ff]">
+      <section className="py-24 bg-white">
         <div className="container px-3 md:px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-5xl font-semibold text-gray-800">
@@ -259,7 +259,6 @@ export default function Home() {
                 Admission Reality
               </span>
             </h2>
-
             <p className="mt-2 text-gray-700 text-xl">
               <span className="font-semibold text-black">
                 To secure the right medical seat,
@@ -472,8 +471,8 @@ export default function Home() {
         <div className="container md:px-4 px-3">
           <div className="mb-10 fadeUp text-center">
             <h3 className="text-black font-semibold lg:text-4xl text-2xl mb-2">Complete guidance. No guesswork.</h3>
-            <h2 className="bg-gradient-to-r from-[#27AEDC] font-bold to-[#3FE198] leading-[1.2] bg-clip-text text-transparent lg:text-5xl text-3xl font-light">
-              Not for everyone. Only for those who want it right.
+            <h2 className="bg-gradient-to-r from-[#27AEDC] font-normal to-[#3FE198] leading-[1.2] bg-clip-text text-transparent lg:text-5xl text-3xl font-light">
+              Only for those who want it right.
             </h2>
           </div>
           <div className="grid gap-6 grid-cols-1 md:grid-cols-9 mb-20">
@@ -517,11 +516,13 @@ export default function Home() {
               </div>
             </div>
           </div>
-
-          <EverythingSlider/>
-
+          <div className="my-20">
+            <CounselorSection />
+          </div>
+          <EverythingSlider />
         </div>
       </section>
+
       {/* <section
         className="relative bg-cover bg-black bg-left md:bg-center z-2"
         style={{ backgroundImage: "url('/images/testibg.webp')" }}

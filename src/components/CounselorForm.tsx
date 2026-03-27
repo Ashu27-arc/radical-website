@@ -6,7 +6,6 @@ import { InputText } from 'primereact/inputtext';
 import { Dropdown } from 'primereact/dropdown';
 
 export default function CounselorForm() {
-    const [visible, setVisible] = useState(false);
     const toast = useRef<Toast>(null);
 
     const [form, setForm] = useState({
@@ -15,6 +14,8 @@ export default function CounselorForm() {
         course: '',
         state: '',
     });
+
+    const [loading, setLoading] = useState(false);
 
     const courseOptions = [
         { label: 'MBBS INDIA', value: 'MBBS INDIA' },
@@ -58,14 +59,9 @@ export default function CounselorForm() {
         { label: 'Uttar Pradesh', value: 'Uttar Pradesh' },
         { label: 'Uttarakhand', value: 'Uttarakhand' },
         { label: 'West Bengal', value: 'West Bengal' },
-        { label: 'Andaman and Nicobar Islands', value: 'Andaman and Nicobar Islands' },
-        { label: 'Chandigarh', value: 'Chandigarh' },
-        { label: 'Dadra and Nagar Haveli and Daman and Diu', value: 'Dadra and Nagar Haveli and Daman and Diu' },
         { label: 'Delhi', value: 'Delhi' },
-        { label: 'Jammu and Kashmir', value: 'Jammu and Kashmir' },
-        { label: 'Ladakh', value: 'Ladakh' },
-        { label: 'Lakshadweep', value: 'Lakshadweep' },
-        { label: 'Puducherry', value: 'Puducherry' },
+        { label: 'Chandigarh', value: 'Chandigarh' },
+        { label: 'Other', value: 'Other' },
     ];
 
     const showError = (msg: string) => {
@@ -77,36 +73,21 @@ export default function CounselorForm() {
         });
     };
 
-    const [loading, setLoading] = useState(false);
-
     const handleSubmit = async () => {
         if (!form.name.trim()) return showError('Name is required');
         if (!form.mobile.trim()) return showError('Mobile number is required');
-
-        if (!/^\d{10}$/.test(form.mobile)) {
-            return showError('Mobile number must be exactly 10 digits');
-        }
-
-        if (!form.course) {
-            return showError('Please select a course');
-        }
-
-        if (!form.state) {
-            return showError('Please select a state');
-        }
+        if (!/^\d{10}$/.test(form.mobile)) return showError('Mobile number must be exactly 10 digits');
+        if (!form.course) return showError('Please select a course');
+        if (!form.state) return showError('Please select a state');
 
         setLoading(true);
         try {
             const response = await fetch('/api/counselor-enquiry/', {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
+                headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(form),
             });
-
             const result = await response.json();
-
             if (result.success) {
                 toast.current?.show({
                     severity: 'success',
@@ -114,21 +95,12 @@ export default function CounselorForm() {
                     detail: result.message || 'We will contact you shortly',
                     life: 3000,
                 });
-
-                setForm({
-                    name: '',
-                    mobile: '',
-                    course: '',
-                    state: '',
-                });
-
-                setVisible(false);
+                setForm({ name: '', mobile: '', course: '', state: '' });
             } else {
                 showError(result.message || 'Failed to submit enquiry');
             }
         } catch (error) {
             showError('Network error. Please try again later.');
-            console.error('Submission error:', error);
         } finally {
             setLoading(false);
         }
@@ -137,119 +109,66 @@ export default function CounselorForm() {
     return (
         <>
             <Toast ref={toast} />
-            <div className="space-y-3 sm:space-y-5">
-                {/* Name */}
-                <div className="p-inputgroup flex">
-                    <span className="p-inputgroup-addon bg-white! border-r-0">
-                        <i className="pi pi-user"></i>
-                    </span>
-                    <span className="p-float-label flex-1">
-                        <InputText
-                            id="name"
-                            value={form.name}
-                            onChange={(e) =>
-                                setForm({ ...form, name: e.target.value })
-                            }
-                            className="w-full border-l-0! pl-0!"
-                        />
-                        <label htmlFor="name" className="text-sm">
-                            Full Name*
-                        </label>
-                    </span>
-                </div>
-
-
-                {/* Mobile */}
-                <div className="p-inputgroup flex">
-                    <span className="p-inputgroup-addon bg-white! border-r-0">
-                        <i className="pi pi-phone"></i>
-                    </span>
-                    <span className="p-float-label flex-1">
-                        <InputText
-                            id="mobile"
-                            value={form.mobile}
-                            keyfilter="int"
-                            maxLength={10}
-                            onChange={(e) =>
-                                setForm({
-                                    ...form,
-                                    mobile: e.target.value.replace(/\D/g, ''),
-                                })
-                            }
-                            className="w-full border-l-0!"
-                            style={{ paddingLeft: 0 }}
-                        />
-                        <label htmlFor="mobile" className="text-sm">
-                            Mobile Number*
-                        </label>
-                    </span>
-                </div>
-
-                {/* Course */}
-                <div className="p-inputgroup flex">
-                    <span className="p-inputgroup-addon bg-white! border-r-0">
-                        <i className="pi pi-book"></i>
-                    </span>
-                    <span className="p-float-label w-full flex-1">
-                        <Dropdown
-                            id="course"
-                            value={form.course}
-                            options={courseOptions}
-                            onChange={(e) =>
-                                setForm({ ...form, course: e.value })
-                            }
-                            className="w-full border-l-0!"
-                        />
-                        <label htmlFor="course" className="text-sm">
-                            Select Course*
-                        </label>
-                    </span>
-                </div>
-
-                {/* State */}
-                <div className="p-inputgroup flex">
-                    <span className="p-inputgroup-addon bg-white! border-r-0">
-                        <i className="pi pi-map"></i>
-                    </span>
-                    <span className="p-float-label w-full flex-1">
-                        <Dropdown
-                            id="state"
-                            value={form.state}
-                            options={stateOptions}
-                            onChange={(e) =>
-                                setForm({ ...form, state: e.value })
-                            }
-                            className="w-full border-l-0!"
-                        />
-                        <label htmlFor="state" className="text-sm">
-                            Select State*
-                        </label>
-                    </span>
-                </div>
-                <div className="flex items-start gap-2">
-                    <input
-                        type="checkbox"
-                        id="consent"
-                        className="mt-1"
+            <div className="space-y-6">
+                <div className="p-inputtext-sm">
+                    <InputText
+                        value={form.name}
+                        onChange={(e) => setForm({ ...form, name: e.target.value })}
+                        placeholder="Full Name"
+                        className="w-full h-14 rounded-lg bg-[#F9FAFB] border-gray-100 px-4"
                     />
-                    <label htmlFor="consent" className="text-sm text-white">
-                        I consent to receiving Calls, WhatsApp, Email and Google RCS to assist with this enquiry.
+                </div>
+
+                <div className="p-inputtext-sm">
+                    <InputText
+                        value={form.mobile}
+                        maxLength={10}
+                        keyfilter="int"
+                        onChange={(e) => setForm({ ...form, mobile: e.target.value.replace(/\D/g, '') })}
+                        placeholder="Phone Number"
+                        className="w-full h-14 rounded-lg bg-[#F9FAFB] border-gray-100 px-4"
+                    />
+                </div>
+
+                <div className="p-inputtext-sm">
+                    <Dropdown
+                        value={form.course}
+                        options={courseOptions}
+                        onChange={(e) => setForm({ ...form, course: e.value })}
+                        placeholder="Select Course"
+                        className="w-full h-14 rounded-lg bg-[#F9FAFB] border-gray-100 flex items-center"
+                    />
+                </div>
+
+                <div className="p-inputtext-sm">
+                    <Dropdown
+                        value={form.state}
+                        options={stateOptions}
+                        onChange={(e) => setForm({ ...form, state: e.value })}
+                        placeholder="Select State"
+                        className="w-full h-14 rounded-lg bg-[#F9FAFB] border-gray-100 flex items-center"
+                    />
+                </div>
+
+                <div className="flex items-start gap-3 py-2">
+                    <input 
+                        type="checkbox" 
+                        id="consent" 
+                        className="mt-1 w-5 h-5 accent-[#00B4B4] rounded border-gray-300" 
+                        required
+                    />
+                    <label htmlFor="consent" className="text-xs text-gray-500 leading-tight">
+                        I Consent To Receiving Calls, WhatsApp, Email And Google RCS From Edwise To Assist With This Enquiry.
                     </label>
                 </div>
 
-
-                <div>
-                    <Button
-                        label="SUBMIT"
-                        icon="pi pi-arrow-right"
-                        iconPos="right"
-                        className="w-full bg-gradient-to-l! from-[#0077BF]! to-[#00CFB2]! border-0!"
-                        onClick={handleSubmit}
-                        loading={loading}
-                    />
-                </div>
+                <Button
+                    label="Submit"
+                    onClick={handleSubmit}
+                    loading={loading}
+                    className="w-full h-14 rounded-xl text-lg font-bold border-none bg-gradient-to-r from-[#4FB7A4] to-[#0D94E7] shadow-lg hover:opacity-90 transition-opacity"
+                />
             </div>
         </>
     );
 }
-

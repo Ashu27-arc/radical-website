@@ -61,13 +61,13 @@ const CourseSlider: FC = () => {
           {courses.map((course) => (
             <SwiperSlide key={course.id}>
               {course.href ? (
-                <Link href={course.href} className="group relative block rounded-2xl overflow-hidden cursor-pointer">
+                <Link href={course.href} className="group relative block w-[171px] h-[193.05px] rounded-2xl overflow-hidden cursor-pointer mx-auto">
 
                 {/* Image */}
                 <img
                   src={course.image}
                   alt={course.title}
-                  className="w-full h-60 object-cover transition duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover transition duration-500 group-hover:scale-110"
                 />
 
                 {/* Dark overlay (hover fade) */}
@@ -107,13 +107,13 @@ const CourseSlider: FC = () => {
                 " />
                 </Link>
               ) : (
-                <div className="group relative rounded-2xl overflow-hidden cursor-pointer">
+                <div className="group relative w-[171px] h-[193.05px] rounded-2xl overflow-hidden cursor-pointer mx-auto">
 
                   {/* Image */}
                   <img
                     src={course.image}
                     alt={course.title}
-                    className="w-full h-60 object-cover transition duration-500 group-hover:scale-110"
+                    className="w-full h-full object-cover transition duration-500 group-hover:scale-110"
                   />
 
                   {/* Dark overlay (hover fade) */}

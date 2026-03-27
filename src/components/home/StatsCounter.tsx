@@ -7,10 +7,10 @@ export default function StatsCounter() {
   const [start, setStart] = useState(false);
 
   const stats = [
-    { value: 15783, suffix: '+', label: 'STUDENTS COUNSELLED' },
-    { value: 75, suffix: '+', label: 'EXPERT COUNSELLORS' },
-    { value: 250, suffix: '+', label: 'COLLEGES / UNIVERSITIES\nASSOCIATION' },
-    { value: 100, suffix: '%', label: 'SUCCESS RATE' },
+    { value: 15783, suffix: '+', label: 'Students\nCounselled' },
+    { value: 75, suffix: '+', label: 'Expert\nCounsellors' },
+    { value: 250, suffix: '+', label: 'College/University\nAssociations' },
+    { value: 100, suffix: '%', label: 'Success\nRate' },
   ];
 
   const [counts, setCounts] = useState(stats.map(() => 0));
@@ -58,32 +58,44 @@ export default function StatsCounter() {
   }, [start]);
 
   return (
-      <div
-        ref={ref}
-        className="text-white relative z-2"
-      >
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
+    <div
+      ref={ref}
+      className="w-full max-w-[1240px] mx-auto relative z-2"
+    >
+      <div className="bg-[#262626] rounded-[30px] px-8 py-10 md:pl-10 md:pr-16 md:py-12 border border-white/5 shadow-2xl">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-center">
           {stats.map((item, i) => (
-            <div key={i} className="flex items-center gap-2 relative fadeUp bg-transparent rounded-xl px-6">
-              {/* NUMBER */}
-              <div className="text-2xl md:text-3xl font-bold text-white">
-                {counts[i].toLocaleString()}
-                {item.suffix}
-              </div>
+            <div key={i} className="flex items-center justify-center gap-4 h-full relative py-6 md:py-0 fadeUp">
+              <div className="flex items-center gap-4 lg:gap-6 lg:mr-8">
+                {/* NUMBER */}
+                <div className="text-4xl lg:text-[42px] font-bold text-white tracking-tighter leading-none whitespace-nowrap min-w-[100px] lg:min-w-[140px] text-right">
+                  {counts[i].toLocaleString()}
+                  {item.suffix}
+                </div>
 
-              {/* LABEL */}
-              <div className="text-xs md:text-sm text-white whitespace-pre-line uppercase">
-                {item.label}
+                {/* LABEL */}
+                <div className="text-[14px] lg:text-[16px] leading-tight text-white/80 font-medium max-w-[130px] whitespace-pre-line text-left">
+                  {item.label}
+                </div>
               </div>
 
               {/* DIVIDER */}
               {i !== stats.length - 1 && (
-                <span className="hidden md:block absolute right-0 top-1/2 -translate-y-1/2 h-16 w-[2px] bg-[#00CFB2]" />
+                <>
+                  {/* Desktop Divider */}
+                  <div className="hidden lg:block absolute right-[-10px] top-1/2 -translate-y-1/2 h-16 w-[2px] bg-gradient-to-b from-[#1EC8A5] to-[#0D8F9E]" />
+
+                  {/* Tablet Divider (for sm:grid-cols-2) */}
+                  {i % 2 === 0 && (
+                    <div className="hidden sm:block lg:hidden absolute right-0 top-1/2 -translate-y-1/2 h-16 w-[2px] bg-gradient-to-b from-[#1EC8A5] to-[#0D8F9E]" />
+                  )}
+                </>
               )}
             </div>
           ))}
         </div>
       </div>
+    </div>
   );
 }
 
