@@ -112,7 +112,7 @@ export default function CounselorForm() {
             {/* Background Decorative Image */}
             <div className="absolute -top-16.5 -right-0.5 w-10 h-10 md:w-20 md:h-20 z-0 pointer-events-none">
                 <img
-                    src="/images/Star-6.webp"
+                    src="/images/star-6.webp"
                     alt="Counselor Decor"
                     className="w-full h-full object-contain transform rotate-12"
                 />
