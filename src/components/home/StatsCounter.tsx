@@ -68,7 +68,7 @@ export default function StatsCounter() {
             <div key={i} className="flex items-center justify-center gap-4 h-full relative py-6 md:py-0 fadeUp">
               <div className="flex items-center gap-4 lg:gap-6 lg:mr-8">
                 {/* NUMBER */}
-                <div className="text-4xl lg:text-[42px] font-bold text-white tracking-tighter leading-none whitespace-nowrap min-w-[100px] lg:min-w-[140px] text-right">
+                <div className="text-4xl lg:text-[28px] font-bold text-white tracking-tighter leading-none whitespace-nowrap min-w-[100px] lg:min-w-[115px] text-right">
                   {counts[i].toLocaleString()}
                   {item.suffix}
                 </div>
@@ -83,7 +83,7 @@ export default function StatsCounter() {
               {i !== stats.length - 1 && (
                 <>
                   {/* Desktop Divider */}
-                  <div className="hidden lg:block absolute right-[-10px] top-1/2 -translate-y-1/2 h-16 w-[2px] bg-gradient-to-b from-[#1EC8A5] to-[#0D8F9E]" />
+                  <div className="hidden lg:block absolute right-[-11px] top-1/2 -translate-y-1/2 h-16 w-[2px] bg-gradient-to-b from-[#1EC8A5] to-[#0D8F9E]" />
 
                   {/* Tablet Divider (for sm:grid-cols-2) */}
                   {i % 2 === 0 && (

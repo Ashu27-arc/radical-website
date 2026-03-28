@@ -12,16 +12,16 @@ export default function EverythingSlider() {
   };
 
   const slides = [
-    "/images/mock1.webp",
-    "/images/mock2.webp",
-    "/images/mock3.webp",
-    "/images/mock4.webp",
-    "/images/mock5.webp",
-    "/images/mock1.webp",
-    "/images/mock2.webp",
-    "/images/mock3.webp",
-    "/images/mock4.webp",
-    "/images/mock5.webp",
+    "/images/everythings-banners/mock-1.webp",
+    "/images/everythings-banners/mock-2.webp",
+    "/images/everythings-banners/mock-3.webp",
+    "/images/everythings-banners/mock-4.webp",
+    "/images/everythings-banners/mock-5.webp",
+    "/images/everythings-banners/mock-1.webp",
+    "/images/everythings-banners/mock-2.webp",
+    "/images/everythings-banners/mock-3.webp",
+    "/images/everythings-banners/mock-4.webp",
+    "/images/everythings-banners/mock-5.webp",
   ];
 
   return (
