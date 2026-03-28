@@ -92,6 +92,14 @@ export default function TestimonialsPage() {
             { name: 'Ved Umesh Unnarkar', college: 'BVDUMCH, Sangli', image: '/2025/std64.jpg' },
             { name: 'Vivek Krishnan', college: 'NMCH, Sasaram', image: '/2025/std65.jpg' },
             { name: 'Vyomkesh Verma', college: 'FHMC, Agra', image: '/2025/std66.jpg' },
+            { name: 'Mayank Kumar', college: 'TSMU, Russia', image: '/2025/std67.jpg' },
+            { name: 'Tanjina Nasrin Choudhury', college: 'OSHIMU, Kyrgyzstan', image: '/2025/std68.jpg' },
+            { name: 'Dikshita', college: 'St. PSUVM, Russia', image: '/2025/std69.jpg' },
+            { name: 'Riddhi Singh', college: 'KSMU, Russia', image: '/2025/std70.jpg' },
+            { name: 'Aseem', college: 'AKNMU, Kazakhstan', image: '/2025/std71.jpg' },
+            { name: 'Tanishka Rana', college: 'TSMU, Russia', image: '/2025/std72.jpg' },
+            // { name: 'Daksh Moom', college: 'OSHIMU, Kyrgyzstan', image: '/2025/std73.jpg' },
+
         ],
         2024: [
             { name: 'Mishthi Tiwari', college: 'QIAR, Roorkee', image: '' },
