@@ -98,10 +98,10 @@ export default function Home() {
 
   return (
     <>
-      <section className="pt-[80px] md:pt-[150px] pb-20 md:pb-30 relative z-2 overflow-hidden">
+      <section className="pt-[80px] md:pt-[150px] pb-20 md:pb-30 relative z-2 overflow-hidden bg-white">
         <div className="absolute inset-0 bg-[rgba(0,0,0,0.3)] -z-[1]"></div>
         <video
-          className="w-full absolute inset-0 -z-[2] h-full object-cover object-center"
+          className="w-full absolute -inset-1 -z-[2] h-[calc(100%+8px)] object-cover object-center scale-110 bg-white"
           autoPlay
           muted
           loop
@@ -152,13 +152,13 @@ export default function Home() {
           <div className="flex flex-col md:flex-row gap-8">
             <div className="md:w-13/20 w-full fadeLeft text-center md:text-left">
               <div className="lg:pr-30 md:pr-10 lg:pl-6 pl-3 relative z-2">
-                <h2 className="text-4xl md:text-5xl font-light leading-tight text-gray-800 text-center">
+                <h2 className="text-4xl md:text-[46px] font-light leading-tight text-gray-800 text-center mb-8">
                   A complete guide for your <br />
-                  <span className="bg-gradient-to-r from-[#1ec8a5] font-bold to-[#0d8f9e] bg-clip-text text-transparent">
+                  <span className="text-[46px] bg-gradient-to-r from-[#1ec8a5] font-bold to-[#0d8f9e] bg-clip-text text-transparent">
                     Medical Counselling needs
                   </span>
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:gap-10 gap-6 w-full max-w-6xl lg:px-10 mt-10">
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:gap-10 gap-6 w-full max-w-6xl lg:px-10 mt-4">
                   <div>
                     <a
                       href="https://www.neetbhaiya.in/rank-predictor"
@@ -338,20 +338,8 @@ export default function Home() {
 
 
 
-      <section className="bg-white">
-        <div className="container px-3 md:px-4">
-          <div className="fadeUp text-center">
-            <div className="md:w-5/10 w-full mx-auto">
-              <h2 className="text-black md:text-5xl text-4xl font-light leading-[1.2]">
-                Discover Where Your{" "}
-                <span className="text-[#287FC4] font-bold">Medical Future</span> Begins
-              </h2>
-            </div>
-          </div>
-        </div>
-        <div className="overflow-hidden">
-          <Earth3D />
-        </div>
+      <section className="bg-white overflow-hidden">
+        <Earth3D />
       </section>
 
       <section className="pb-16 bg-white">

@@ -10,10 +10,10 @@ export default function CounselorSection() {
                     {/* Left Content */}
                     <div className="">
                         <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                            Connect With <span className="bg-gradient-to-r from-[#005A8B] to-[#00CFB2] bg-clip-text text-transparent">Our Counselor</span>
+                            Connect With <span className="bg-gradient-to-r from-[#005A8B] to-[#00CFB2] bg-clip-text text-transparent">Our Counsellor</span>
                         </h2>
                         <p className="text-lg text-black lg:mb-24 mb-10 max-w-xl">
-                            Connect with our expert counselors to get personalized advice and clarity for your next step.
+                            Connect with our expert counsellors to get personalized advice and clarity for your next step.
                         </p>
 
                         <div className="space-y-8">
