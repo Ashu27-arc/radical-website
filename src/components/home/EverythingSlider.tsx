@@ -26,7 +26,7 @@ export default function EverythingSlider() {
 
   return (
     <div
-      className="bg-[#dbeafe] rounded-4xl p-10 text-center relative cursor-pointer"
+      className="bg-[#dbeafe] rounded-4xl p-6 md:p-10 text-center relative cursor-pointer"
       onClick={handleRedirect}
     >
       <div className="flex justify-center mb-6">
@@ -37,7 +37,7 @@ export default function EverythingSlider() {
       <h2 className="text-3xl lg:text-4xl font-normal mb-8">
         From <span className="text-[#3569C0]">Rank</span> to{" "}
         <span className="text-[#3569C0]">Seat</span> → All Data in <span className="text-[#3569C0]">one app</span>
-        <p className="text-[20px] font-poppins">Smart packages that keep it simple and affordable.</p>
+        <p className="text-[16px] md:text-[20px] font-poppins mt-2 md:mt-0">Smart packages that keep it simple and affordable.</p>
       </h2>
       <Swiper
         modules={[EffectCoverflow, Autoplay]}
@@ -71,7 +71,7 @@ export default function EverythingSlider() {
           </SwiperSlide>
         ))}
       </Swiper>
-      <div className="flex justify-between items-center mt-10 flex-wrap gap-4 text-sm text-gray-600">
+      <div className="flex justify-center md:justify-between items-center mt-7 md:mt-10 flex-wrap gap-y-6 md:gap-y-4 gap-4 text-sm text-gray-600">
         <div className="flex items-center gap-2">
           <span>Powered by:</span>
           <Image

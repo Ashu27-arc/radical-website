@@ -99,7 +99,7 @@ export default function CategoryCards() {
         {data.map((item, index) => (
           <div
             key={index}
-            className="group relative w-[519.04px] h-[122.13px] rounded-3xl overflow-hidden cursor-pointer mx-auto md:mx-0"
+            className="group relative w-full max-w-[519px] h-[122px] rounded-3xl overflow-hidden cursor-pointer mx-auto md:mx-0"
           >
 
             {/* Background Image */}

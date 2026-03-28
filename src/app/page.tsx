@@ -112,14 +112,14 @@ export default function Home() {
           Your browser does not support the video tag.
         </video>
         <div className="container px-3 md:px-4 lg:px-40 text-center text-white">
-          <h1 className="text-white font-bold text-4xl md:text-[50px] leading-10 md:leading-15 md:mb-5 mb-3 fadeUp">
+          <h1 className="text-white font-bold text-3xl sm:text-4xl md:text-[50px] leading-tight md:leading-[60px] md:mb-5 mb-3 fadeUp">
             Secure your Medical seat easily <br className="block" />
             <span className="font-light">with expert assistance</span>
           </h1>
-          <div className="text-lg lg:px-16 px-3 md:mb-8 mb-6 font-semibold fadeUp">
+          <div className="text-base sm:text-lg lg:px-16 px-3 md:mb-8 mb-6 font-semibold fadeUp">
             Get complete guidance, accurate information and expert counselling <br className="hidden lg:block" />suited to you and your dreams.
           </div>
-          <div className="p-inputgroup bannersrch mx-auto lg:max-w-[580px] fadeUp">
+          <div className="p-inputgroup bannersrch mx-auto w-full max-w-[580px] fadeUp">
             <span className="p-inputgroup-addon pr-0! border-r-0! bg-white! shadow-none! border-[#fff]!">
               <i className="pi pi-search"></i>
             </span>
@@ -151,14 +151,14 @@ export default function Home() {
         <div className="container px-3 md:px-4">
           <div className="flex flex-col md:flex-row gap-8">
             <div className="md:w-13/20 w-full fadeLeft text-center md:text-left">
-              <div className="lg:pr-30 md:pr-10 lg:pl-6 pl-3 relative z-2">
-                <h2 className="text-4xl md:text-[46px] font-light leading-tight text-gray-800 text-center mb-8">
+              <div className="lg:pr-30 md:pr-10 lg:pl-6 pl-0 sm:pl-3 relative z-2">
+                <h2 className="text-3xl md:text-[46px] font-light leading-tight text-gray-800 text-center mb-6 md:mb-8">
                   A complete guide for your <br />
-                  <span className="text-[46px] bg-gradient-to-r from-[#1ec8a5] font-bold to-[#0d8f9e] bg-clip-text text-transparent">
+                  <span className="text-3xl md:text-[46px] bg-gradient-to-r from-[#1ec8a5] font-bold to-[#0d8f9e] bg-clip-text text-transparent">
                     Medical Counselling needs
                   </span>
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:gap-10 gap-6 w-full max-w-6xl lg:px-10 mt-4">
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:gap-10 gap-4 sm:gap-6 w-full max-w-6xl lg:px-10 mt-4">
                   <div>
                     <a
                       href="https://www.neetbhaiya.in/rank-predictor"
@@ -228,7 +228,7 @@ export default function Home() {
                     </Link>
                   </div>
                 </div>
-                <div className="move-x text-nowrap text-[#00CFB212] text-[180px] md:text-[200px] lg:text-[230px] font-bold absolute -top-[50px] left-[-20px] -z-1 leading-[0.8]">
+                <div className="move-x text-nowrap text-[#00CFB212] text-[100px] sm:text-[140px] md:text-[200px] lg:text-[230px] font-bold absolute -top-[30px] md:-top-[50px] left-[-10px] sm:left-[-20px] -z-1 leading-[0.8]">
                   Radical
                 </div>
               </div>
@@ -252,14 +252,14 @@ export default function Home() {
       </section>
       <section className="py-24 bg-white">
         <div className="container px-3 md:px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-semibold text-gray-800">
+          <div className="text-center mb-10 md:mb-16 px-2">
+            <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold text-gray-800">
               Welcome to the{" "}
-              <span className="text-red-500 font-bold">
+              <span className="text-red-500 font-bold block sm:inline">
                 Admission Reality
               </span>
             </h2>
-            <p className="mt-2 text-gray-700 text-xl">
+            <p className="mt-2 text-gray-700 text-lg sm:text-xl">
               <span className="font-semibold text-black">
                 To secure the right medical seat,
               </span>{" "}
@@ -272,9 +272,9 @@ export default function Home() {
       </section>
       <section className="py-20 bg-white">
         <div className="container px-3 md:px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-light leading-tight text-gray-800 mb-8">Say hello to 👋🏻 <span className="font-bold bg-gradient-to-r from-[#1ec8a5] font-bold to-[#0d8f9e] bg-clip-text text-transparent">Radical Education</span><br className="hidden md:block" /> Built for smarter medical admissions</h2>
-            <div className="text-2xl">Everything you need to know for medical counselling — in one place</div>
+          <div className="text-center mb-10 md:mb-16 px-2">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light leading-tight text-gray-800 mb-4 md:mb-8">Say hello to 👋🏻 <span className="font-bold bg-gradient-to-r from-[#1ec8a5] to-[#0d8f9e] bg-clip-text text-transparent block sm:inline">Radical Education</span><br className="hidden md:block" /> Built for smarter medical admissions</h2>
+            <div className="text-lg sm:text-xl md:text-2xl">Everything you need to know for medical counselling — in one place</div>
           </div>
           <CategoryCards />
         </div>
@@ -354,14 +354,14 @@ export default function Home() {
       </section>
       <section className="pb-16 bg-white">
         <div className="container lg:px-4 px-3">
-          <div className="text-center mb-10">
-            <h1 className="text-3xl md:text-4xl font-semibold text-gray-900">
+          <div className="text-center mb-8 md:mb-10 px-2">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-900">
               Do you have a personal question?
             </h1>
-            <p className="mt-2 text-gray-600 text-xl">
+            <p className="mt-2 text-gray-600 text-lg sm:text-xl">
               Sometimes clarity comes from a real conversation.
             </p>
-            <p className="mt-4 text-gray-700 text-xl">
+            <p className="mt-2 md:mt-4 text-gray-700 text-lg sm:text-xl">
               We’re here to listen, understand, and help you figure it out.
             </p>
           </div>
@@ -373,19 +373,19 @@ export default function Home() {
 
       <section className="py-16 bg-white">
         <div className="container px-3 md:px-4">
-          <div className="mb-10 fadeUp text-center">
-            <h3 className="text-black font-semibold lg:text-4xl text-2xl mb-2">Skip our pitch.</h3>
-            <h2 className="bg-gradient-to-r from-[#27AEDC] font-bold to-[#3FE198] bg-clip-text text-transparent lg:text-5xl text-4xl font-light">
+          <div className="mb-8 md:mb-10 fadeUp text-center px-2">
+            <h3 className="text-black font-semibold lg:text-4xl text-xl sm:text-2xl mb-2">Skip our pitch.</h3>
+            <h2 className="bg-gradient-to-r from-[#27AEDC] font-bold to-[#3FE198] bg-clip-text text-transparent lg:text-5xl text-2xl sm:text-3xl font-light">
               Listen to real experiences
             </h2>
           </div>
-          <div className="grid gap-6 md:grid-cols-3 grid-cols-1">
+          <div className="grid gap-6 md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
             {videos.map((video) => (
               <button
                 key={video.id}
                 type="button"
                 onClick={() => setVideoPopup(video)}
-                className="fadeUp relative min-w-[340px] h-[240px] rounded-xl overflow-hidden shadow-lg w-full text-left focus:outline-none focus:ring-2 focus:ring-[#287FC4] focus:ring-offset-2 group cursor-pointer block"
+                className="fadeUp relative w-full h-[200px] sm:h-[240px] rounded-xl overflow-hidden shadow-lg text-left focus:outline-none focus:ring-2 focus:ring-[#287FC4] focus:ring-offset-2 group cursor-pointer block"
               >
                 {/* Only image - no play icon; click opens popup where YouTube play button shows */}
                 <img
@@ -457,48 +457,49 @@ export default function Home() {
       </section>
       <section className="pb-20">
         <div className="container md:px-4 px-3">
-          <div className="mb-10 fadeUp text-center">
-            <h3 className="text-black font-semibold lg:text-4xl text-2xl mb-2">Complete guidance. No guesswork.</h3>
-            <h2 className="bg-gradient-to-r from-[#27AEDC] font-normal to-[#3FE198] leading-[1.2] bg-clip-text text-transparent lg:text-5xl text-3xl font-light">
+          <div className="mb-8 md:mb-10 fadeUp text-center px-2">
+            <h3 className="text-black font-semibold lg:text-4xl text-xl sm:text-2xl mb-2">Complete guidance. No guesswork.</h3>
+            <h2 className="bg-gradient-to-r from-[#27AEDC] font-normal to-[#3FE198] leading-[1.2] bg-clip-text text-transparent lg:text-5xl text-2xl sm:text-3xl font-light">
               Only for those who want it right.
             </h2>
           </div>
-          <div className="grid gap-6 grid-cols-1 md:grid-cols-9 mb-20">
-            <div className="md:col-span-5">
-              <Link href="#" className="block relative group overflow-hidden rounded-2xl h-[400px] md:col-span-2">
+          <div className="grid gap-4 sm:gap-5 md:gap-6 grid-cols-1 lg:grid-cols-9 mb-10 md:mb-20">
+            <div className="lg:col-span-5">
+              <Link href="#" className="block relative group overflow-hidden rounded-2xl h-[220px] sm:h-[280px] md:h-[340px] lg:h-[380px] xl:h-[420px] w-full shadow-sm hover:shadow-xl transition-shadow duration-300">
                 <Image
                   src="/images/ug-card.webp"
-                  alt="ug"
+                  alt="UG Admission"
                   fill
-                  className="object-cover transition duration-500 group-hover:scale-105"
+                  sizes="(max-width: 1024px) 100vw, 55vw"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition"></div>
+                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors duration-500"></div>
               </Link>
             </div>
-            <div className="md:col-span-4">
-              <div className="grid gap-6 grid-cols-2">
-                <div>
-
-                  <Link href="#" className="block relative group overflow-hidden rounded-2xl h-[400px] md:col-span-2">
+            <div className="lg:col-span-4">
+              <div className="grid gap-4 sm:gap-5 md:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 h-full">
+                <div className="h-full w-full">
+                  <Link href="#" className="block relative group overflow-hidden rounded-2xl h-[220px] sm:h-[280px] md:h-[340px] lg:h-[380px] xl:h-[420px] w-full shadow-sm hover:shadow-xl transition-shadow duration-300">
                     <Image
                       src="/images/pg-card.webp"
-                      alt="pg"
+                      alt="PG Admission"
                       fill
-                      className="object-cover transition duration-500 group-hover:scale-105"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition"></div>
+                    <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors duration-500"></div>
                   </Link>
                 </div>
-                <div>
-
-                  <Link href="#" className="block relative group overflow-hidden rounded-2xl h-[400px] md:col-span-2">
+                <div className="h-full w-full">
+                  <Link href="#" className="block relative group overflow-hidden rounded-2xl h-[220px] sm:h-[280px] md:h-[340px] lg:h-[380px] xl:h-[420px] w-full shadow-sm hover:shadow-xl transition-shadow duration-300">
                     <Image
                       src="/images/ab-card.webp"
-                      alt="Abroad"
+                      alt="Abroad Admission"
                       fill
-                      className="object-cover transition duration-500 group-hover:scale-105"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition"></div>
+                    <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors duration-500"></div>
                   </Link>
                 </div>
               </div>

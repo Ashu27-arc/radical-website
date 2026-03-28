@@ -14,102 +14,88 @@ export default function Header() {
   const [visible, setVisible] = useState(false);
   return (
     <>
-      <section className='bg-white px-3 text-center py-3 lg:hidden'>
-        <div className='flex flex-wrap gap-2 justify-center text-xs'>
-          <Link className='text-[#121212]' href="mailto:info@radicaleducation.in">info@radicaleducation.in</Link>
+      <section className='bg-white px-3 text-center py-2 sm:py-3 lg:hidden border-b border-gray-100'>
+        <div className='flex flex-wrap gap-x-3 gap-y-1.5 sm:gap-y-2 justify-center items-center text-[11px] sm:text-xs'>
+          <Link className='text-[#121212] hover:text-[#CB1E17] transition-colors py-1' href="mailto:info@radicaleducation.in">info@radicaleducation.in</Link>
           <span className='inline-flex items-center h-12 text-xl leading-none'>|</span>
-          <Link className='text-[#121212] font-bold inline-flex items-center gap-2' href="tel:+91 9797972465">
-            <Image src="/icons/phone.jpg" width="18" height="18" alt="" />
+          <Link className='text-[#121212] font-bold inline-flex items-center gap-1 hover:text-[#CB1E17] transition-colors py-1' href="tel:+91 9797972465">
+            <Image src="/icons/phone.jpg" width="14" height="14" alt="" className="sm:w-[16px] sm:h-[16px] object-contain" />
             <span>97 97 97 24 65</span>
           </Link>
           <span className='inline-flex items-center h-12 text-xl leading-none'>|</span>
-          {/* <Link href="https://www.neetbhaiya.in/college-predictor" className='text-[#121212] relative'>NEET COLLEGE PREDICTOR
-            <div className='absolute right-[-5px] top-[-5px]'>
-              <span className="relative flex size-2 animate-blink">
-                <span className="relative inline-flex size-2 rounded-full bg-[#FF0000]"></span>
-              </span>
-            </div>
-          </Link>| */}
-          <Link className='text-[#121212] relative inline-flex items-center gap-2' href="/neet-ug-india-admission/">
-            <Image src="/icons/pay-online.png" width="18" height="18" alt="" />
+          <Link className='text-[#121212] relative inline-flex items-center gap-1 hover:text-[#CB1E17] transition-colors py-1' href="/neet-ug-india-admission/">
+            <Image src="/icons/pay-online.png" width="14" height="14" alt="" className="sm:w-[16px] sm:h-[16px] object-contain" />
             <span>Pay Online</span>
-            <div className='absolute right-[-5px] top-[-5px]'>
+            <div className='absolute -right-1.5 -top-0.5'>
               <span className="relative flex size-2 animate-blink">
                 <span className="relative inline-flex size-2 rounded-full bg-[#FF0000]"></span>
               </span>
             </div>
           </Link>
           <span className='inline-flex items-center h-12 text-xl leading-none'>|</span>
-          <Link href="https://www.neetbhaiya.in/" className='text-[#121212] relative inline-flex items-center gap-2'>
-            <Image src="/icons/neet-bhaiya.jpg" width="20" height="20" alt="" />
+          <Link href="https://www.neetbhaiya.in/" className='text-[#121212] relative inline-flex items-center gap-1 hover:text-[#CB1E17] transition-colors py-1'>
+            <Image src="/icons/neet-bhaiya.jpg" width="16" height="16" alt="" className="sm:w-[18px] sm:h-[18px] object-contain" />
             <span>NEET Bhaiya</span>
-            <div className='absolute right-[-5px] top-[-5px]'>
+            <div className='absolute -right-1.5 -top-0.5'>
               <span className="relative flex size-2 animate-blink">
                 <span className="relative inline-flex size-2 rounded-full bg-[#FF0000]"></span>
               </span>
             </div>
           </Link>
-          <div className='flex items-center justify-center gap-4 w-full'>
-            <Link href="https://twitter.com/Radical_Edu_" target='_blank'>
-              <Image src='/images/twitter.svg' width='16' height='16' alt="" />
+          <div className='flex items-center justify-center gap-3 sm:gap-4 w-full mt-1.5 sm:mt-0'>
+            <Link href="https://twitter.com/Radical_Edu_" target='_blank' className='hover:opacity-80 transition-opacity'>
+              <Image src='/images/twitter.svg' width='14' height='14' alt="" className="sm:w-[16px] sm:h-[16px] object-contain" />
             </Link>
-            <Link href="https://www.facebook.com/profile.php?id=61556350017734" target='_blank'>
-              <Image src='/images/facebook.svg' width='18' height='18' alt="" />
+            <Link href="https://www.facebook.com/profile.php?id=61556350017734" target='_blank' className='hover:opacity-80 transition-opacity'>
+              <Image src='/images/facebook.svg' width='16' height='16' alt="" className="sm:w-[18px] sm:h-[18px] object-contain" />
             </Link>
-            <Link href="https://www.instagram.com/radicaleducationofficial/" target='_blank'>
-              <Image src='/images/instagram.svg' width='16' height='16' alt="" />
+            <Link href="https://www.instagram.com/radicaleducationofficial/" target='_blank' className='hover:opacity-80 transition-opacity'>
+              <Image src='/images/instagram.svg' width='14' height='14' alt="" className="sm:w-[16px] sm:h-[16px] object-contain" />
             </Link>
-            <Link href="https://www.linkedin.com/company/radical-education-official/about/?viewAsMember=true" target='_blank'>
-              <Image src='/images/linkedin.svg' width='16' height='16' alt="" />
+            <Link href="https://www.linkedin.com/company/radical-education-official/about/?viewAsMember=true" target='_blank' className='hover:opacity-80 transition-opacity'>
+              <Image src='/images/linkedin.svg' width='14' height='14' alt="" className="sm:w-[16px] sm:h-[16px] object-contain" />
             </Link>
-            <Link href="https://whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P" target='_blank'>
-              <Image src='/images/whatsapp.svg' width='20' height='20' alt="" />
+            <Link href="https://whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P" target='_blank' className='hover:opacity-80 transition-opacity'>
+              <Image src='/images/whatsapp.svg' width='18' height='18' alt="" className="sm:w-[20px] sm:h-[20px] object-contain" />
             </Link>
-            <Link href="https://t.me/radicaleducation" target='_blank'>
-              <Image src='/images/teligram.svg' width='18' height='18' alt="" />
+            <Link href="https://t.me/radicaleducation" target='_blank' className='hover:opacity-80 transition-opacity'>
+              <Image src='/images/teligram.svg' width='16' height='16' alt="" className="sm:w-[18px] sm:h-[18px] object-contain" />
             </Link>
-            <Link href="https://www.youtube.com/@radicaleducationofficial" target='_blank'>
-              <Image src='/images/youtube.svg' width='20' height='20' alt="" />
+            <Link href="https://www.youtube.com/@radicaleducationofficial" target='_blank' className='hover:opacity-80 transition-opacity'>
+              <Image src='/images/youtube.svg' width='18' height='18' alt="" className="sm:w-[20px] sm:h-[20px] object-contain" />
             </Link>
           </div>
         </div>
       </section>
       <header className="w-full sticky top-0 left-0 z-[100]">
-        <section className='hdrTop bg-white py-3 lg:bg-[#ffffff] w-full  top-0 left-0 z-[100]'>
-          <div className='container mx-auto px-4 md:px-8 lg:px-12 flex items-center justify-between'>
-            <div className='flex items-center gap-6'>
-              <Link href="/" className="headerLogo">
-                <Image src="/logo.webp" alt="Logo" width="145" />
+        <section className='hdrTop bg-white py-2 sm:py-3 lg:bg-[#ffffff] w-full top-0 left-0 z-[100]'>
+          <div className='container mx-auto px-2 sm:px-4 md:px-8 lg:px-12 flex items-center justify-between'>
+            <div className='flex items-center gap-1.5 sm:gap-4 md:gap-6 shrink-0'>
+              <Link href="/" className="headerLogo shrink-0">
+                <img src="/logo.webp" alt="Logo" className="w-[85px] min-w-[85px] sm:w-[130px] md:w-[145px] h-auto object-contain" />
               </Link>
-              <div className='hidden lg:flex items-center gap-3 text-[14px] text-[#121212] topInfo'>
-                <Link className='text-[#121212]' href="mailto:info@radicaleducation.in">info@radicaleducation.in</Link>
+              <div className='hidden lg:flex items-center gap-2 xl:gap-3 text-[12px] xl:text-[14px] text-[#121212] topInfo'>
+                <Link className='hover:text-[#CB1E17] transition-colors' href="mailto:info@radicaleducation.in">info@radicaleducation.in</Link>
                 <span className='inline-flex items-center h-12 text-xl leading-none'>|</span>
-                <Link className='text-[#121212] font-bold inline-flex items-center gap-2' href="tel:+91 9797972465">
-                  <Image src="/icons/phone.jpg" width="18" height="18" alt="" />
+                <Link className='font-bold inline-flex items-center gap-1.5 hover:text-[#CB1E17] transition-colors' href="tel:+91 9797972465">
+                  <Image src="/icons/phone.jpg" width="16" height="16" alt="" className="xl:w-[18px] xl:h-[18px] object-contain" />
                   <span>97 97 97 24 65</span>
                 </Link>
                 <span className='inline-flex items-center h-12 text-xl leading-none'>|</span>
-                {/* <Link href="https://www.neetbhaiya.in/college-predictor" className='text-[#121212] relative'>NEET COLLEGE PREDICTOR
-                  <div className='absolute right-[-5px] top-[-5px]'>
-                    <span className="relative flex size-2 animate-blink">
-                      <span className="relative inline-flex size-2 rounded-full bg-[#FF0000]"></span>
-                    </span>
-                  </div>
-                </Link>| */}
-                <Link className='text-[#121212] relative inline-flex items-center gap-2' href="/neet-ug-india-admission/">
-                  <Image src="/icons/pay-online.png" width="18" height="18" alt="" />
+                <Link className='relative inline-flex items-center gap-1.5 hover:text-[#CB1E17] transition-colors' href="/neet-ug-india-admission/">
+                  <Image src="/icons/pay-online.png" width="16" height="16" alt="" className="xl:w-[18px] xl:h-[18px] object-contain" />
                   <span>Pay Online</span>
-                  <div className='absolute right-[-5px] top-[-5px]'>
+                  <div className='absolute -right-1.5 -top-1.5'>
                     <span className="relative flex size-2 animate-blink">
                       <span className="relative inline-flex size-2 rounded-full bg-[#FF0000]"></span>
                     </span>
                   </div>
                 </Link>
                 <span className='inline-flex items-center h-12 text-xl leading-none'>|</span>
-                <Link href="https://www.neetbhaiya.in/" className='text-[#121212] relative inline-flex items-center gap-2'>
-                  <Image src="/icons/neet-bhaiya.jpg" width="20" height="20" alt="" />
+                <Link href="https://www.neetbhaiya.in/" className='relative inline-flex items-center gap-1.5 hover:text-[#CB1E17] transition-colors'>
+                  <Image src="/icons/neet-bhaiya.jpg" width="18" height="18" alt="" className="xl:w-[20px] xl:h-[20px] object-contain" />
                   <span>NEET Bhaiya</span>
-                  <div className='absolute right-[-5px] top-[-5px]'>
+                  <div className='absolute -right-1.5 -top-1.5'>
                     <span className="relative flex size-2 animate-blink">
                       <span className="relative inline-flex size-2 rounded-full bg-[#FF0000]"></span>
                     </span>
@@ -117,42 +103,42 @@ export default function Header() {
                 </Link>
               </div>
             </div>
-            <div className='flex items-center lg:gap-6 gap-3'>
+            <div className='flex items-center lg:gap-6 gap-1.5 sm:gap-3 shrink-0'>
               <div className='hidden lg:flex items-center gap-4'>
-                <Link href="https://twitter.com/Radical_Edu_" target='_blank'>
+                <Link href="https://twitter.com/Radical_Edu_" target='_blank' className='hover:opacity-80 transition-opacity'>
                   <Image src='/images/twitter.svg' width='16' height='16' alt="" />
                 </Link>
-                <Link href="https://www.facebook.com/profile.php?id=61556350017734" target='_blank'>
+                <Link href="https://www.facebook.com/profile.php?id=61556350017734" target='_blank' className='hover:opacity-80 transition-opacity'>
                   <Image src='/images/facebook.svg' width='18' height='18' alt="" />
                 </Link>
-                <Link href="https://www.instagram.com/radicaleducationofficial/" target='_blank'>
+                <Link href="https://www.instagram.com/radicaleducationofficial/" target='_blank' className='hover:opacity-80 transition-opacity'>
                   <Image src='/images/instagram.svg' width='16' height='16' alt="" />
                 </Link>
-                <Link href="https://www.linkedin.com/company/radical-education-official/about/?viewAsMember=true" target='_blank'>
+                <Link href="https://www.linkedin.com/company/radical-education-official/about/?viewAsMember=true" target='_blank' className='hover:opacity-80 transition-opacity'>
                   <Image src='/images/linkedin.svg' width='16' height='16' alt="" />
                 </Link>
-                <Link href="https://whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P" target='_blank'>
+                <Link href="https://whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P" target='_blank' className='hover:opacity-80 transition-opacity'>
                   <Image src='/images/whatsapp.svg' width='20' height='20' alt="" />
                 </Link>
-                <Link href="https://t.me/radicaleducation" target='_blank'>
+                <Link href="https://t.me/radicaleducation" target='_blank' className='hover:opacity-80 transition-opacity'>
                   <Image src='/images/teligram.svg' width='18' height='18' alt="" />
                 </Link>
-                <Link href="https://www.youtube.com/@radicaleducationofficial" target='_blank'>
+                <Link href="https://www.youtube.com/@radicaleducationofficial" target='_blank' className='hover:opacity-80 transition-opacity'>
                   <Image src='/images/youtube.svg' width='20' height='20' alt="" />
                 </Link>
               </div>
-              <div className='lg:hidden'>
+              <div className='lg:hidden flex items-center shrink-0'>
                 <Link href="https://www.youtube.com/@radicaleducationofficial" target="_blank">
-                  <Button size="small" className='text-white! bg-[#CB1E17]! border-[#CB1E17]! p-0! h-10 w-10 flex justify-center items-center' rounded>
-                    <i className='pi pi-youtube text-xl!'></i>
+                  <Button size="small" className='text-white! bg-[#CB1E17]! border-[#CB1E17]! p-0! h-7 w-7 sm:h-9 sm:w-9 flex justify-center items-center hover:bg-red-700! transition-colors' rounded>
+                    <i className='pi pi-youtube text-[13px] sm:text-[18px]!'></i>
                   </Button>
                 </Link>
               </div>
-              <div className='lg:hidden'>
-                <Link href="/neet-update" className='gradient-border2 h-10 flex items-center'>
-                  <span className='gradient-border-inner h-full flex items-center text-xs relative pr-8!'>
+              <div className='lg:hidden flex items-center shrink-0'>
+                <Link href="/neet-update" className='gradient-border2 h-7 sm:h-9 flex items-center'>
+                  <span className='gradient-border-inner h-full flex items-center text-[9px] sm:text-[11px] font-medium relative pr-5 sm:pr-8! pl-1.5 sm:pl-3'>
                     <span className='text-nowrap'>NEET UPDATE</span>
-                    <svg className='absolute right-[-15px] -top-[5px] animate-bounce' width="50" height="50" viewBox="0 0 75 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <svg className='absolute right-[-10px] sm:right-[-15px] -top-[3px] sm:-top-[5px] animate-bounce w-[35px] h-[35px] sm:w-[50px] sm:h-[50px]' viewBox="0 0 75 74" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <g clip-path="url(#clip0_3382_1252)">
                         <path d="M16.7281 0.37793C16.4718 0.416794 16.328 0.444862 16.1514 0.64422C16.1733 1.37724 18.2397 7.59871 18.6586 8.45372C18.9031 8.43177 19.012 8.46416 19.1918 8.28927C19.2066 7.87652 17.0036 0.852574 16.7278 0.37829L16.7281 0.37793Z" fill="white" />
                         <path d="M4.45865 7.38312C4.3348 7.45033 4.25519 7.49715 4.1616 7.60652C4.06586 7.71877 4.0988 7.7444 4.10678 7.88226C4.50821 8.4628 9.782 12.0992 10.7264 12.7205C10.7394 12.71 10.7529 12.7008 10.7652 12.6893C10.9334 12.5327 11.0018 12.4795 11.0241 12.2503C10.9463 12.0361 10.8228 11.9308 10.6529 11.7888C9.68098 10.978 8.55767 10.2825 7.52615 9.54342C6.5264 8.8273 5.52821 7.9803 4.45889 7.38267L4.45865 7.38312Z" fill="white" />
@@ -184,8 +170,8 @@ export default function Header() {
                   </span>
                 </Link>
               </div>
-              <div className='lg:hidden'>
-                <button className='btnico cursor-pointer relative' onClick={() => setVisible(true)}><i className='pi pi-bars text-2xl! text-black'></i></button>
+              <div className='lg:hidden flex items-center shrink-0'>
+                <button className='btnico cursor-pointer relative p-1 sm:p-2 hover:opacity-75 transition-opacity' onClick={() => setVisible(true)}><i className='pi pi-bars text-[18px] sm:text-2xl! text-[#121212]'></i></button>
               </div>
             </div>
           </div>
