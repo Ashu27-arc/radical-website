@@ -124,7 +124,7 @@ export default function CounselorForm() {
                         value={form.name}
                         onChange={(e) => setForm({ ...form, name: e.target.value })}
                         placeholder="Full Name"
-                        className="w-full h-14 rounded-lg bg-[#F9FAFB] border-gray-100 px-4"
+                        className="w-full h-14 rounded-lg bg-[#F9FAFB] border-gray-100 px-4 text-gray-500"
                     />
                 </div>
 
@@ -135,7 +135,7 @@ export default function CounselorForm() {
                         keyfilter="int"
                         onChange={(e) => setForm({ ...form, mobile: e.target.value.replace(/\D/g, '') })}
                         placeholder="Phone Number"
-                        className="w-full h-14 rounded-lg bg-[#F9FAFB] border-gray-100 px-4"
+                        className="w-full h-14 rounded-lg bg-[#F9FAFB] border-gray-100 px-4 text-gray-500"
                     />
                 </div>
 
@@ -145,7 +145,7 @@ export default function CounselorForm() {
                         options={courseOptions}
                         onChange={(e) => setForm({ ...form, course: e.value })}
                         placeholder="Select Course"
-                        className="w-full h-14 rounded-lg bg-[#F9FAFB] border-gray-100 flex items-center"
+                        className="w-full h-14 rounded-lg bg-[#F9FAFB] border-gray-100 flex items-center text-gray-500"
                     />
                 </div>
 
@@ -155,7 +155,7 @@ export default function CounselorForm() {
                         options={stateOptions}
                         onChange={(e) => setForm({ ...form, state: e.value })}
                         placeholder="Select State"
-                        className="w-full h-14 rounded-lg bg-[#F9FAFB] border-gray-100 flex items-center"
+                        className="w-full h-14 rounded-lg bg-[#F9FAFB] border-gray-100 flex items-center text-gray-500"
                     />
                 </div>
 
