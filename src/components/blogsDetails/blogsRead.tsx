@@ -362,7 +362,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                                     {/* Blog Content - responsive text & line height */}
                                     <div
                                         className="blog-content max-w-none text-gray-800 mb-4 text-sm sm:text-[15px] md:text-[17px] leading-7 sm:leading-8 wrap-break-word [&_p]:text-justify [&_p]:mb-6 [&_h1]:mt-8 [&_h1]:mb-4 [&_h2]:mt-8 [&_h2]:mb-4 [&_h3]:mt-6 [&_h3]:mb-3 [&_img]:max-w-full [&_img]:h-auto [&_img]:rounded-xl [&_img]:shadow-sm [&_img]:my-8 [&_img]:mx-auto [&_a:not(:has(img))]:text-[#005A8B] [&_a:not(:has(img))]:underline [&_a:not(:has(img))]:font-semibold"
-                                        style={{ wordBreak: 'break-word', overflowWrap: 'anywhere', fontFamily: 'Metropolis, sans-serif' }}
+                                        style={{ wordBreak: 'break-word', overflowWrap: 'anywhere', fontFamily: 'Poppins, sans-serif' }}
                                         dangerouslySetInnerHTML={{ __html: sanitizeBlogContent(blog.content || blog.excerpt || '') }}
                                     />
 

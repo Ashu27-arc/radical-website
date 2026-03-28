@@ -107,9 +107,18 @@ export default function CounselorForm() {
     };
 
     return (
-        <>
+        <div className="relative overflow-hidden md:overflow-visible">
             <Toast ref={toast} />
-            <div className="space-y-6">
+            {/* Background Decorative Image */}
+            <div className="absolute -top-16.5 -right-0.5 w-10 h-10 md:w-20 md:h-20 z-0 pointer-events-none">
+                <img
+                    src="/images/Star-6.webp"
+                    alt="Counselor Decor"
+                    className="w-full h-full object-contain transform rotate-12"
+                />
+            </div>
+
+            <div className="space-y-6 relative z-10">
                 <div className="p-inputtext-sm">
                     <InputText
                         value={form.name}
@@ -151,10 +160,10 @@ export default function CounselorForm() {
                 </div>
 
                 <div className="flex items-start gap-3 py-2">
-                    <input 
-                        type="checkbox" 
-                        id="consent" 
-                        className="mt-1 w-5 h-5 accent-[#00B4B4] rounded border-gray-300" 
+                    <input
+                        type="checkbox"
+                        id="consent"
+                        className="mt-1 w-5 h-5 accent-[#00B4B4] rounded border-gray-300"
                         required
                     />
                     <label htmlFor="consent" className="text-xs text-gray-500 leading-tight">
@@ -166,9 +175,9 @@ export default function CounselorForm() {
                     label="Submit"
                     onClick={handleSubmit}
                     loading={loading}
-                    className="w-full h-14 !rounded-xl text-lg font-bold !border-none !bg-gradient-to-r !from-[#4FB7A4] !to-[#0D94E7] shadow-lg hover:opacity-90 transition-opacity"
+                    className="w-full h-14 !rounded-[14px] text-lg font-bold !border-none !bg-gradient-to-r !from-[#63CDB4] !to-[#099CF6] shadow-lg hover:opacity-90 transition-opacity"
                 />
             </div>
-        </>
+        </div>
     );
 }

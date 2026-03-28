@@ -1,5 +1,5 @@
 import Image from "next/image";
-import CounselorForm from "@/components/CounselorForm";
+import CounselorSection from "@/components/CounselorSection";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 export default function OurTeam() {
@@ -68,7 +68,7 @@ export default function OurTeam() {
             {/* Hero Section */}
             <section className="relative h-[300px] md:h-[600px] flex items-center justify-center overflow-hidden">
                 <Image
-                    src="/images/OurTeamHero.webp"
+                    src="/images/team-banner.webp"
                     alt="Team Hero"
                     fill
                     className="object-cover w-full h-full"
@@ -77,12 +77,12 @@ export default function OurTeam() {
                 <div className="absolute inset-0 bg-black/50" />
                 <div className="relative z-10 text-center text-white">
                     <h1 className="lg:text-5xl md:text-4xl text-3xl font-bold mb-3">
-                        THE FACES CHANGING
+                        The faces changing your
                         <br />
-                        FUTURE CAREER
+                        future career
                     </h1>
                     <p className="text-base">
-                        Our team of “professional medical counsellor you can trust” works to <br className="md:block hidden" /> secure academic journey.
+                        Our team of “Professional Medical Counsellor you can trust” works to <br className="md:block hidden" /> secure academic journey.
                     </p>
                 </div>
             </section>
@@ -175,7 +175,7 @@ export default function OurTeam() {
                                     </div>
                                     <a
                                         href="https://www.neetbhaiya.in/dedicated-counsellor"
-                                        className="mt-auto w-full py-3 px-3 rounded-full bg-[#DFF1FF] text-[#005A8B] font-semibold text-center text-xs hover:bg-[#DFF1FF] transition-colors"
+                                        className="mt-auto w-full py-3 px-3 rounded-[100px] bg-[#005A8B] text-[#FFFFFF] font-semibold text-center text-xs hover:bg-[#DFF1FF] transition-colors"
                                     >
                                         Book A Call
                                     </a>
@@ -188,13 +188,7 @@ export default function OurTeam() {
 
             <section id="connect-counselor" className="pb-16">
                 <div className="container mx-auto px-3 md:px-4">
-                    <Image
-                        src="/images/banner-neet-bhaiya.webp"
-                        alt="team Banner"
-                        width={400}
-                        height={300}
-                        className="h-auto w-full"
-                    />
+                     <CounselorSection />
                 </div>
             </section>
         </div>
