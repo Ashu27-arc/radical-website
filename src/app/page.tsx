@@ -233,13 +233,13 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="md:w-7/20 w-full fadePopup px-10 md:px-0">
+            <div className="w-full sm:w-4/5 md:w-7/20 lg:w-[30%] mx-auto md:mx-0 fadePopup px-8 sm:px-12 md:px-0 mt-6 sm:mt-8 md:mt-0 flex justify-center items-center">
               <Image
                 src="/images/new-abt.webp"
                 width={516}
                 height={540}
-                alt=""
-                className="w-full"
+                alt="Radical Education"
+                className="w-full h-auto max-w-[280px] sm:max-w-[380px] md:max-w-full object-contain hover:scale-105 transition-transform duration-500"
               />
             </div>
           </div>
