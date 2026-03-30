@@ -66,7 +66,7 @@ export default function CategoryCards() {
           {cards.map((item, index) => (
             <SwiperSlide key={index}>
               <div
-                className="group w-[241.56px] h-[249.64px] rounded-[30px] overflow-hidden relative cursor-pointer mx-auto
+                className="group lg:w-[241.56px] w-full h-[249.64px] rounded-[30px] overflow-hidden relative cursor-pointer mx-auto
               transition-all duration-300 hover:shadow-xl"
               >
                 {/* Image */}

@@ -61,7 +61,7 @@ const CourseSlider: FC = () => {
       {courses.map((course) => (
         <SwiperSlide key={course.id}>
           {course.href ? (
-            <Link href={course.href} className="group relative block w-[170.51px] h-[193.05px] rounded-[12px] overflow-hidden cursor-pointer mx-auto">
+            <Link href={course.href} className="group relative block lg:w-[170.51px] w-full h-[193.05px] rounded-[12px] overflow-hidden cursor-pointer mx-auto">
 
               {/* Image */}
               <img

@@ -106,7 +106,7 @@ export default function GoogleReviews() {
           </>
         ) : (
           <>
-            <div className="flex items-center gap-3">
+            <div className="flex justify-center md:justify-start items-center gap-3">
               <div>
                 <div className="h-[60px] w-[65px]">
                   <Image
@@ -241,7 +241,7 @@ export default function GoogleReviews() {
           {/* Navigation Button - Right */}
           <button
             onClick={() => scroll("right")}
-            className="absolute right-5 top-1/2 -translate-y-1/2 z-20 shadow-xl rounded-full w-[22px] h-[22px] flex items-center justify-center border border-gray-100 hover:text-white text-[#FFFFFF] transition-all duration-300 cursor-pointer"
+            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 shadow-xl rounded-full w-[22px] h-[22px] flex items-center justify-center border border-gray-100 hover:text-white text-[#FFFFFF] transition-all duration-300 cursor-pointer"
             aria-label="Next reviews"
             type="button"
           >

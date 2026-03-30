@@ -177,7 +177,7 @@ export default function Home() {
                       </div>
                     </a>
                   </div>
-                  <div className="md:col-span-2 flex flex-col gap-5">
+                  <div className="md:col-span-2 flex flex-col gap-5 md:items-start items-center">
                     <Link
                       href="/neet-ug-india-admission/"
                       className="group flex items-center w-[326px] h-[52px] justify-start gap-4 rounded-[20px] px-6 text-white 
@@ -513,9 +513,9 @@ export default function Home() {
               </Link>
             </div>
             <div className="lg:col-span-4">
-              <div className="grid gap-4 sm:gap-5 md:gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 h-full">
+              <div className="grid gap-4 sm:gap-5 md:gap-6 grid-cols-2 sm:grid-cols-2 lg:grid-cols-2 h-full">
                 <div className="h-full w-full">
-                  <Link href="#" className="block relative group overflow-hidden rounded-2xl h-[220px] sm:h-[280px] md:h-[340px] lg:h-[380px] xl:h-[420px] w-full shadow-sm hover:shadow-xl transition-shadow duration-300">
+                  <Link href="#" className="block relative group overflow-hidden rounded-2xl h-[280px] sm:h-[280px] md:h-[340px] lg:h-[380px] xl:h-[420px] w-full shadow-sm hover:shadow-xl transition-shadow duration-300">
                     <Image
                       src="/svg/pg-card.svg"
                       alt="PG Admission"
@@ -527,13 +527,13 @@ export default function Home() {
                   </Link>
                 </div>
                 <div className="h-full w-full">
-                  <Link href="#" className="block relative group overflow-hidden rounded-2xl h-[220px] sm:h-[280px] md:h-[340px] lg:h-[380px] xl:h-[420px] w-full shadow-sm hover:shadow-xl transition-shadow duration-300">
+                  <Link href="#" className="block relative group overflow-hidden rounded-2xl h-[280px] sm:h-[280px] md:h-[340px] lg:h-[380px] xl:h-[420px] w-full shadow-sm hover:shadow-xl transition-shadow duration-300">
                     <Image
                       src="/svg/abroad-card.svg"
                       alt="Abroad Admission"
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
+                      className="object-cover transition-transform duration-700 scale-105 group-hover:scale-115"
                     />
                     <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors duration-500"></div>
                   </Link>

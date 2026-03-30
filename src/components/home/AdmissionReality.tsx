@@ -35,7 +35,7 @@ const data = [
 
 export default function AdmissionReality() {
   return (
-    <div className="mt-0">
+    <div className="space-y-10">
       {data.map((item, index) => {
         const isReverse = index % 2 !== 0;
         return (
