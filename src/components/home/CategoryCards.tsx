@@ -66,11 +66,11 @@ export default function CategoryCards() {
           {cards.map((item, index) => (
             <SwiperSlide key={index}>
               <div
-                className="group w-full h-[300px] rounded-3xl overflow-hidden relative cursor-pointer
+                className="group w-[241.56px] h-[249.64px] rounded-[30px] overflow-hidden relative cursor-pointer mx-auto
               transition-all duration-300 hover:shadow-xl"
               >
                 {/* Image */}
-                <div className="relative w-full h-full">
+                <div className="relative w-full h-full brightness-110">
                   <Image
                     src={item.img}
                     alt={item.title}
@@ -80,14 +80,14 @@ export default function CategoryCards() {
                 </div>
 
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t to-transparent"></div>
 
                 {/* Text */}
                 <div className="absolute bottom-0 left-0 right-0 text-center px-2 py-3 bg-white/70">
-                  <h3 className="text-black text-lg font-semibold leading-tight">
+                  <h3 className="text-black text-[21px] font-medium leading-tight">
                     {item.title}
                   </h3>
-                  <p className="text-black">{item.subtitle}</p>
+                  <p className="text-black text-[21px] font-light">{item.subtitle}</p>
                 </div>
               </div>
             </SwiperSlide>
@@ -99,7 +99,7 @@ export default function CategoryCards() {
         {data.map((item, index) => (
           <div
             key={index}
-            className="group relative w-full max-w-[519px] h-[122px] rounded-3xl overflow-hidden cursor-pointer mx-auto md:mx-0"
+            className="group relative w-full max-w-[519.04px] md:w-[519.04px] h-[122.13px] rounded-[30px] overflow-hidden cursor-pointer mx-auto md:mx-0 brightness-110"
           >
 
             {/* Background Image */}
@@ -117,12 +117,11 @@ export default function CategoryCards() {
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="
                   px-6 md:px-8 py-2 md:py-3
-                  rounded-[15px]
+                  rounded-[25px]
                   bg-white/70
-                  backdrop-blur-md
-                  text-gray-800
+                  text-[#000000]
                   font-medium
-                  text-sm md:text-base
+                  text-[16px] sm:text-[21px]
                   shadow-md
                 ">
                 {item.title}

@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { getBlogs, getBlogLinks, type Blog, type BlogLink } from '@/lib/api';
 import { useWebSocket } from '@/hooks/useWebSocket';
 import CounselorForm from '@/components/CounselorForm';
+import CounselorSection from '@/components/CounselorSection';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 
 const categoryColors: Record<string, string> = {
@@ -554,44 +555,44 @@ const BlogsPage = () => {
                   </div>
                 ))
                 : gridBlogs.map((blog, index) => (
-                <Link
-                  key={blog.id}
-                  href={blog.isExternal ? blog.slug : `/${blog.slug}`}
-                  target={blog.isExternal ? "_blank" : "_self"}
-                  className="group block h-full animate-fadeIn"
-                  style={{ animationDelay: `${0.1 * (index % 3)}s` }}
-                >
-                  <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full border border-gray-50">
-                    <div className="relative h-48 sm:h-56 w-full overflow-hidden">
-                      <Image
-                        src={blog.featuredImage || '/images/blogs/card.webp'}
-                        alt={blog.title}
-                        fill
-                        className="object-cover transition-transform duration-500 group-hover:scale-110"
-                      />
-                    </div>
-                    <div className="p-6 flex-1 flex flex-col">
-                      <div className="flex flex-wrap gap-2 mb-3">
-                        {(blog.category || blog.categories)?.split(',').map((c: string) => c.trim()).filter(Boolean).map((cat: string, idx: number) => (
-                          <span key={idx} className={`inline-block ${getCategoryTextColor(cat)} font-semibold text-[10px] md:text-xs px-2 py-0.5 rounded-full bg-opacity-10`}>
-                            {cat}
-                          </span>
-                        ))}
+                  <Link
+                    key={blog.id}
+                    href={blog.isExternal ? blog.slug : `/${blog.slug}`}
+                    target={blog.isExternal ? "_blank" : "_self"}
+                    className="group block h-full animate-fadeIn"
+                    style={{ animationDelay: `${0.1 * (index % 3)}s` }}
+                  >
+                    <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full border border-gray-50">
+                      <div className="relative h-48 sm:h-56 w-full overflow-hidden">
+                        <Image
+                          src={blog.featuredImage || '/images/blogs/card.webp'}
+                          alt={blog.title}
+                          fill
+                          className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
                       </div>
-                      <h3 className="text-base md:text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors line-clamp-2 leading-snug">
-                        {blog.title}
-                      </h3>
-                      <p className="text-gray-600 text-sm md:text-base line-clamp-2 mb-4 text-justify mt-auto">
-                        {blog.excerpt || blog.title}
-                      </p>
-                      <div className="flex items-center text-gray-400 text-xs font-medium pt-3 border-t border-gray-50">
-                        <span>{blog.author || 'Radical Education'}</span>
-                        <span className="mx-2">•</span>
-                        <span>{formatDate(blog.date || blog.createdAt)}</span>
+                      <div className="p-6 flex-1 flex flex-col">
+                        <div className="flex flex-wrap gap-2 mb-3">
+                          {(blog.category || blog.categories)?.split(',').map((c: string) => c.trim()).filter(Boolean).map((cat: string, idx: number) => (
+                            <span key={idx} className={`inline-block ${getCategoryTextColor(cat)} font-semibold text-[10px] md:text-xs px-2 py-0.5 rounded-full bg-opacity-10`}>
+                              {cat}
+                            </span>
+                          ))}
+                        </div>
+                        <h3 className="text-base md:text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors line-clamp-2 leading-snug">
+                          {blog.title}
+                        </h3>
+                        <p className="text-gray-600 text-sm md:text-base line-clamp-2 mb-4 text-justify mt-auto">
+                          {blog.excerpt || blog.title}
+                        </p>
+                        <div className="flex items-center text-gray-400 text-xs font-medium pt-3 border-t border-gray-50">
+                          <span>{blog.author || 'Radical Education'}</span>
+                          <span className="mx-2">•</span>
+                          <span>{formatDate(blog.date || blog.createdAt)}</span>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </Link>
+                  </Link>
                 ))}
             </div>
 
@@ -620,8 +621,7 @@ const BlogsPage = () => {
             </h2>
 
             {/* Combined container for image and form */}
-            <div className="relative rounded-2xl overflow-hidden mx-4 md:mx-0">
-              {/* Background Image */}
+            {/* <div className="relative rounded-2xl overflow-hidden mx-4 md:mx-0">
               <div className="relative h-72 sm:h-80 md:h-[420px] lg:h-[480px]">
                 <Image
                   src="/images/blogs/contact.webp"
@@ -630,16 +630,13 @@ const BlogsPage = () => {
                   priority
                   className="object-cover"
                 />
-                {/* Overlay */}
                 <div className="absolute inset-0 bg-opacity-30"></div>
               </div>
-            </div>
+            </div> */}
 
             {/* Form Container - Outside background */}
-            <div className="flex justify-center -mt-40 md:-mt-48 lg:-mt-56 relative z-10 px-4">
-              <div className="bg-[#005A8B] bg-opacity-90 rounded-2xl p-6 md:p-8 w-full max-w-md mx-auto shadow-2xl">
-                <CounselorForm />
-              </div>
+            <div className="my-20">
+              <CounselorSection />
             </div>
           </div>
         </div>

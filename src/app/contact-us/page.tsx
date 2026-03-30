@@ -1,6 +1,7 @@
 'use client';
 
 import CounselorForm from "@/components/CounselorForm";
+import CounselorSection from "@/components/CounselorSection";
 import Link from "next/link";
 //import { Image } from "primereact/image";
 import Image from "next/image";
@@ -71,31 +72,9 @@ export default function ContactPage() {
                     </div>
                 </section>
 
-                <section className='md:pb-24 pb-6 bg-[#F4F7F8]'>
-                    <div className='container px-3 md:px-4'>
-                        <div className="counselorForm">
-                            <div className='mb-10 fadeUp text-center'>
-                                <h2 className='text-black text-4xl font-bold'>Connect with <span className='text-[#287FC4]'>Our Counsellor</span></h2>
-                            </div>
-                            <div className='relative'>
-                                <div className='rounded-xl overflow-hidden'>
-                                    <Image
-  src="/images/counselorImg.webp"
-  alt="Counsellor"
-  height={435}
-  width={1239}
-  className="w-full h-auto object-cover object-center"
-/>
-                                </div>
-                                <div className='absolute left-0 top-[105px] w-full'>
-                                    <div className='p-6 md:p-10 rounded-xl bg-[#005A8B] mx-auto lg:w-4/10 md:w-5/10 w-[90%] fadePopup'>
-                                        <CounselorForm />
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                <div className="my-20">
+                    <CounselorSection />
+                </div>
                 <section className="pt-2 bg-white">
                     <div className="w-full">
                         {/* <h2 className="text-3xl font-bold text-center mb-8 text-[#0A1A2F]">Find Us On Map</h2> */}

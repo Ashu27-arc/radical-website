@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
 import { Skeleton } from "primereact/skeleton";
 import { Button } from "primereact/button";
@@ -56,6 +56,16 @@ export default function GoogleReviews() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState<PlaceData | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: "left" | "right") => {
+    if (scrollRef.current) {
+      const { scrollLeft, clientWidth } = scrollRef.current;
+      const scrollAmount = clientWidth; // Scroll one full container width
+      const target = direction === "left" ? scrollLeft - scrollAmount : scrollLeft + scrollAmount;
+      scrollRef.current.scrollTo({ left: target, behavior: "smooth" });
+    }
+  };
 
   useEffect(() => {
     let cancelled = false;
@@ -138,69 +148,125 @@ export default function GoogleReviews() {
 
       {/* REVIEW CARDS */}
       <div className="lg:col-span-3">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {(loading ? Array(3).fill(null) : data?.reviews)?.map(
-            (review: Review | null, i) => (
-              <div key={i} className="border border-[#005A8B] rounded-xl p-5 shadow-sm bg-white">
-                {loading ? (
-                  <>
-                    <div className="flex items-center gap-3 mb-3">
-                      <Skeleton shape="circle" size="40px" />
-                      <div className="flex-1">
-                        <Skeleton width="70%" height="0.9rem" />
-                        <Skeleton width="40%" height="0.7rem" className="mt-1" />
-                      </div>
-                    </div>
-                    <Skeleton width="60%" height="0.8rem" className="mb-2" />
-                    <Skeleton height="3rem" />
-                  </>
-                ) : (
-                  <>
-                    <div className="flex items-center gap-3 mb-2">
-                      {/* Use <img> for external Google profile photos to avoid next/image domain restrictions */}
-                      {/* eslint-disable-next-line @next/next/no-img-element */}
-                      <img
-                        src={review!.profile_photo_url}
-                        alt={review!.author_name}
-                        width={40}
-                        height={40}
-                        className="rounded-full object-cover w-10 h-10"
-                        onError={(e) => {
-                          // Fallback avatar if Google photo 403s
-                          (e.currentTarget as HTMLImageElement).src =
-                            `https://ui-avatars.com/api/?name=${encodeURIComponent(review!.author_name)}&background=005A8B&color=fff&size=40`;
-                        }}
-                      />
-                      <div>
-                        <p className="text-sm font-medium">{review!.author_name}</p>
-                        <p className="text-xs text-gray-500">
-                          {new Date(review!.time * 1000).toLocaleDateString("en-IN", {
-                            year: "numeric",
-                            month: "short",
-                            day: "numeric",
-                          })}
-                        </p>
-                      </div>
-                    </div>
+        <div className="relative">
+          {/* Navigation Button - Left */}
+          <button
+            onClick={() => scroll("left")}
+            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 shadow-xl rounded-full w-[22px] h-[22px] flex items-center justify-center border border-gray-100 hover:text-white text-[#FFFFFF] transition-all duration-300 cursor-pointer"
+            aria-label="Previous reviews"
+            type="button"
+          >
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 22 22"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-[22px] h-[22px] rotate-180"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <circle cx="11" cy="11" r="11" fill="#005A8B" />
+              <path
+                d="M8.91579 16.7895L7.29474 15.1476L11.4307 11L7.29474 6.85242L8.92737 5.21053L14.7168 11L8.91579 16.7895Z"
+                fill="#FFFFFF"
+              />
+            </svg>
+          </button>
 
-                    <div className="text-orange-400 mb-2">
-                      {"★★★★★".slice(0, review!.rating)}
-                      {"☆☆☆☆☆".slice(0, 5 - review!.rating)}
-                    </div>
+          <div
+            ref={scrollRef}
+            className="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory pb-4 px-7"
+          >
+            {(loading ? Array(3).fill(null) : data?.reviews)?.map(
+              (review: Review | null, i) => (
+                <div
+                  key={i}
+                  className="flex-shrink-0 w-[220px] h-[249px] snap-start border border-[#005A8B] rounded-xl p-5 shadow-sm bg-white"
+                >
+                  {loading ? (
+                    <>
+                      <div className="flex items-center gap-3 mb-3">
+                        <Skeleton shape="circle" size="40px" />
+                        <div className="flex-1">
+                          <Skeleton width="70%" height="0.9rem" />
+                          <Skeleton width="40%" height="0.7rem" className="mt-1" />
+                        </div>
+                      </div>
+                      <Skeleton width="60%" height="0.8rem" className="mb-2" />
+                      <Skeleton height="3rem" />
+                    </>
+                  ) : (
+                    <>
+                      <div className="flex items-center gap-3 mb-2">
+                        {/* eslint-disable-next-line @next/next/no-img-element */}
+                        <img
+                          src={review!.profile_photo_url}
+                          alt={review!.author_name}
+                          width={40}
+                          height={40}
+                          className="rounded-full object-cover w-10 h-10"
+                          onError={(e) => {
+                            (e.currentTarget as HTMLImageElement).src =
+                              `https://ui-avatars.com/api/?name=${encodeURIComponent(review!.author_name)}&background=005A8B&color=fff&size=40`;
+                          }}
+                        />
+                        <div>
+                          <p className="text-sm font-medium">{review!.author_name}</p>
+                          <p className="text-xs text-gray-500">
+                            {new Date(review!.time * 1000).toLocaleDateString("en-IN", {
+                              year: "numeric",
+                              month: "short",
+                              day: "numeric",
+                            })}
+                          </p>
+                        </div>
+                      </div>
 
-                    <p className="text-sm text-gray-600 line-clamp-4">
-                      {review!.text}
-                    </p>
-                  </>
-                )}
-              </div>
-            )
-          )}
+                      <div className="text-orange-400 mb-2">
+                        {"★★★★★".slice(0, review!.rating)}
+                        {"☆☆☆☆☆".slice(0, 5 - review!.rating)}
+                      </div>
+
+                      <p className="text-sm text-gray-600 line-clamp-4">
+                        {review!.text}
+                      </p>
+                    </>
+                  )}
+                </div>
+              )
+            )}
+          </div>
+
+          {/* Navigation Button - Right */}
+          <button
+            onClick={() => scroll("right")}
+            className="absolute right-5 top-1/2 -translate-y-1/2 z-20 shadow-xl rounded-full w-[22px] h-[22px] flex items-center justify-center border border-gray-100 hover:text-white text-[#FFFFFF] transition-all duration-300 cursor-pointer"
+            aria-label="Next reviews"
+            type="button"
+          >
+            <svg
+              width="22"
+              height="22"
+              viewBox="0 0 22 22"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              className="w-[22px] h-[22px]"
+              aria-hidden="true"
+              focusable="false"
+            >
+              <circle cx="11" cy="11" r="11" fill="#005A8B" />
+              <path
+                d="M8.91579 16.7895L7.29474 15.1476L11.4307 11L7.29474 6.85242L8.92737 5.21053L14.7168 11L8.91579 16.7895Z"
+                fill="#FFFFFF"
+              />
+            </svg>
+          </button>
         </div>
-        <div className="text-center mt-8">
-          <Link href="">
-            <div className="group font-semibold flex items-center justify-center gap-2 text-black text-lg tracking-wide transition-all duration-300 cursor-pointer">
 
+        <div className="text-center mt-8">
+          <Link href="/reviews">
+            <div className="group font-semibold flex items-center justify-center gap-2 text-black text-lg tracking-wide transition-all duration-300 cursor-pointer">
               <span className="transition-all duration-300 group-hover:tracking-wider">
                 View all testimonials
               </span>
@@ -219,11 +285,9 @@ export default function GoogleReviews() {
                   />
                 </svg>
               </i>
-
             </div>
           </Link>
         </div>
-
       </div>
 
     </div>

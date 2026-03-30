@@ -22,7 +22,7 @@ export default function Header() {
             <Image src="/icons/phone.jpg" width="14" height="14" alt="" className="sm:w-[16px] sm:h-[16px] object-contain" />
             <span>97 97 97 24 65</span>
           </Link>
-          <span className='inline-flex items-center h-12 text-xl leading-none'>|</span>
+          <div className='hidden md:block w-[4px] h-[64px] bg-[#27AEDC] opacity-20 mx-4'></div>
           <Link className='text-[#121212] relative inline-flex items-center gap-1 hover:text-[#CB1E17] transition-colors py-1' href="/neet-ug-india-admission/">
             <Image src="/icons/pay-online.png" width="14" height="14" alt="" className="sm:w-[16px] sm:h-[16px] object-contain" />
             <span>Pay Online</span>

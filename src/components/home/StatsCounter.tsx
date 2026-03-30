@@ -74,22 +74,26 @@ export default function StatsCounter() {
                 </div>
 
                 {/* LABEL */}
-                <div className="text-[14px] lg:text-[16px] leading-tight text-white/80 font-medium max-w-[130px] whitespace-pre-line text-left">
+                <div className="text-white text-[14px] lg:text-[16px] leading-tight font-light max-w-[130px] whitespace-pre-line text-left">
                   {item.label}
                 </div>
               </div>
 
               {/* DIVIDER */}
               {i !== stats.length - 1 && (
-                <>
-                  {/* Desktop Divider */}
-                  <div className="hidden lg:block absolute right-[-11px] top-1/2 -translate-y-1/2 h-16 w-[2px] bg-gradient-to-b from-[#1EC8A5] to-[#0D8F9E]" />
-
-                  {/* Tablet Divider (for sm:grid-cols-2) */}
-                  {i % 2 === 0 && (
-                    <div className="hidden sm:block lg:hidden absolute right-0 top-1/2 -translate-y-1/2 h-16 w-[2px] bg-gradient-to-b from-[#1EC8A5] to-[#0D8F9E]" />
-                  )}
-                </>
+                <div className="hidden lg:block absolute right-[-11px] top-1/2 -translate-y-1/2 h-[64px] w-[4px] z-10">
+                  <span className={`block w-full h-full ${i === 0 ? 'bg-gradient-to-b from-[#27AEDC] to-[#3FE198]' :
+                    i === 1 ? 'bg-gradient-to-b from-[#3FE198] to-[#27AEDC]' :
+                      'bg-gradient-to-b from-[#27AEDC] to-[#3FE198]'
+                    }`} />
+                </div>
+              )}
+              {i % 2 === 0 && i !== stats.length - 1 && (
+                <div className="hidden sm:block lg:hidden absolute right-2 top-1/2 -translate-y-1/2 h-[64px] w-[4px] z-10">
+                  <span className={`block w-full h-full ${i === 0 ? 'bg-gradient-to-b from-[#27AEDC] to-[#3FE198]' :
+                    'bg-gradient-to-b from-[#3FE198] to-[#27AEDC]'
+                    }`} />
+                </div>
               )}
             </div>
           ))}

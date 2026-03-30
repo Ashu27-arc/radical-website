@@ -35,20 +35,20 @@ const data = [
 
 export default function AdmissionReality() {
   return (
-    <div className="mt-10 space-y-12">
+    <div className="mt-0">
       {data.map((item, index) => {
         const isReverse = index % 2 !== 0;
         return (
           <div
             key={index}
-            className={`group flex flex-col md:flex-row items-center gap-6 md:gap-10 
-                p-4 md:p-6 rounded-4xl transition-all duration-300 ease-in-out
+            className={`group flex flex-col md:flex-row items-center gap-6 md:gap-8 
+                px-4 md:px-6 py-0 rounded-4xl transition-all duration-300 ease-in-out
                 ${isReverse ? "md:flex-row-reverse" : ""
               }`}
           >
             {/* Image */}
             <div className="w-full md:w-1/3">
-              <div className="rounded-[20px] overflow-hidden">
+              <div className="rounded-[20px] overflow-hidden brightness-110">
                 <Image
                   src={item.img}
                   alt={item.title}

@@ -7,7 +7,7 @@ const neetupadmissionplans = [
     {
         id: 1,
         title: "STANDARD",
-        subtitle: "I designed a web UI for an AI-powered HR Co-Pil I ",
+        subtitle: "Unlock exclusive, end-to-end counselling support with our premium plans. ",
         price: "₹ 9,999",
         color: "bg-[#B6FFA7]",
         border: "border-[#2CBF0F]",
@@ -27,7 +27,7 @@ const neetupadmissionplans = [
     {
         id: 2,
         title: "STANDARD",
-        subtitle: "I designed a web UI for an AI-powered HR Co-Pil I ",
+        subtitle: "Unlock exclusive, end-to-end counselling support with our premium plans. ",
         price: "₹ 9,999",
         color: "bg-[#AEC2FF]",
         border: "border-[#607DD6]",
@@ -47,7 +47,7 @@ const neetupadmissionplans = [
     {
         id: 3,
         title: "STANDARD",
-        subtitle: "I designed a web UI for an AI-powered HR Co-Pil I ",
+        subtitle: "Unlock exclusive, end-to-end counselling support with our premium plans. ",
         price: "₹ 9,999",
         color: "bg-[#D3F4FF]",
         border: "border-[#42ACCF]",
@@ -92,7 +92,7 @@ export default function NeetUgIndiaAdmissionPage() {
                 <div className="container px-3 md:px-4 fadeUp">
                     <div className="w-full lg:w-4/10 md:8/10 md:text-left text-center">
                         <h1 className="uppercase lg:text-5xl text-4xl font-bold text-white lg:mb-6 mb-4">NEET UG <br className="hidden lg:block" />ADMISSION</h1>
-                        <p className="text-white text-lg m-0 p-0">I designed a web UI for an AI-powered HR Co-Pilot that helps HRs generate job descriptions and screen resumes</p>
+                        <p className="text-white text-lg m-0 p-0">Radical Education is your personalised gateway to a successful medical career begins here—get expert guidance, clear processes, and authentic information to secure your MBBS seat with confidence.</p>
                     </div>
                 </div>
             </section>
@@ -156,15 +156,15 @@ export default function NeetUgIndiaAdmissionPage() {
                         </div>
                     </div>
                     <section id="connect-counselor" className="mb-16">
-                        <a 
-                            href="https://www.neetbhaiya.in/" 
-                            target="_blank" 
+                        <a
+                            href="https://www.neetbhaiya.in/"
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="block w-full"
                         >
-                            <img 
-                                src="/images/banner-neet-bhaiya.webp" 
-                                alt="Book Your Free Counselling Session" 
+                            <img
+                                src="/images/banner-neet-bhaiya.webp"
+                                alt="Book Your Free Counselling Session"
                                 className="w-full rounded-2xl md:rounded-3xl object-cover"
                             />
                         </a>

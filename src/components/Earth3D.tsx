@@ -23,7 +23,7 @@ export default function Earth3D() {
     let animationId: number;
     let angle = 0;
     const animate = () => {
-      angle -= 0.02;
+      angle -= 0.15;
       if (orbitRef.current) {
         orbitRef.current.style.transform = `rotate(${angle}deg)`;
         // Counter-rotate each flag to keep them upright
@@ -39,7 +39,7 @@ export default function Earth3D() {
   }, []);
 
   return (
-    <div className="w-full py-16 md:py-24 bg-[#f5f7fa] overflow-hidden">
+    <div className="w-full py-16 md:py-24 overflow-hidden">
       <div className="container px-4 md:px-8 lg:px-16 mx-auto">
         <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-0">
           {/* Left side - Text content */}

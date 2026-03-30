@@ -159,71 +159,107 @@ export default function Home() {
                   </span>
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 lg:gap-10 gap-4 sm:gap-6 w-full max-w-6xl lg:px-10 mt-4">
-                  <div>
+                  <div className="w-full max-w-[189px] mx-auto h-auto md:mx-0 md:h-[210.93px] md:w-[189px]">
                     <a
                       href="https://www.neetbhaiya.in/rank-predictor"
-                      className="group relative block cursor-pointer rounded-[20px] p-6 text-white overflow-hidden shadow-lg transition-all duration-300 
-                        bg-[linear-gradient(#0271AD_0%,#149CE5_50%,#149CE5_100%)]
-                        hover:scale-105 hover:shadow-2xl"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group relative block cursor-pointer no-underline rounded-[20px] overflow-hidden shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl h-full outline-none focus:outline-none focus-visible:outline-none"
                       aria-label="Rank Predictor"
                     >
-                      <div className="flex justify-center mb-4 relative">
-                        <img src={'/images/rp.webp'} width={80} height={106} alt="" />
-                      </div>
-                      <div className="flex items-center gap-2 justify-between">
-                        <div className="text-xl font-bold leading-tight">
-                          Rank <br /> Predictor
-                        </div>
-                        <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-                          <path d="M4.95788 5.98717C-2.03613 13.5495 -1.57512 25.3484 5.98689 32.3421C13.5489 39.3358 25.3481 38.8751 32.3418 31.3131C39.3355 23.7511 38.8748 11.9519 31.3128 4.95817C23.7508 -2.03553 11.9516 -1.57483 4.95788 5.98717ZM26.2679 23.1113L22.6846 23.2512L22.4478 17.1845L13.6982 26.645L11.0652 24.2099L19.8147 14.7493L13.748 14.9862L13.6081 11.403L25.792 10.9273L26.2679 23.1113Z" fill="white" />
-                        </svg>
+                      <div className="relative mx-auto w-full aspect-[189/210.93] md:w-[189px] md:h-[210.93px]">
+                        <Image
+                          src="/images/rp.svg"
+                          alt="Rank Predictor"
+                          fill
+                          className="object-cover transition-transform duration-500 group-hover:scale-110"
+                        />
                       </div>
                     </a>
                   </div>
                   <div className="md:col-span-2 flex flex-col gap-5">
                     <Link
                       href="/neet-ug-india-admission/"
-                      className="group flex items-center justify-between rounded-[20px] px-6 py-3 text-white 
+                      className="group flex items-center w-[326px] h-[52px] justify-start gap-4 rounded-[20px] px-6 text-white 
                       bg-[linear-gradient(90deg,#27AEDC_0%,#3FE198_100%)]
                       shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
                       aria-label="NEET UG India Admissions"
                     >
-                      <span className="font-semibold text-[18px]">
-                        NEET UG India Admissions
+                      <span className="font-bold text-[18px]">
+                        NEET UG India <span className="font-light">Admissions</span>
                       </span>
-                      <div className="bg-white text-black w-[20.5px] h-[20.51px] flex items-center justify-center rounded-full 
+                      <div className="bg-white text-[#27AEDC] w-[30px] h-[30px] flex items-center justify-center rounded-full 
                          transition-all duration-300 group-hover:translate-x-1">
-                        <i className="pi pi-arrow-up-right text-sm"></i>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20.51"
+                          height="20.51"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <line x1="7" y1="17" x2="17" y2="7" />
+                          <polyline points="7 7 17 7 17 17" />
+                        </svg>
                       </div>
                     </Link>
                     <Link
                       href="/neet-pg-india-admission/"
-                      className="group flex items-center justify-between rounded-[20px] px-6 py-3 text-white 
+                      className="group flex items-center w-[326px] h-[52px] justify-start gap-4 rounded-[20px] px-6 text-white 
                       bg-[linear-gradient(90deg,#F6C667_0%,#F04E23_100%)]
                       shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
                       aria-label="NEET PG India Admissions"
                     >
-                      <span className="font-semibold text-[18px]">
-                        NEET PG India Admissions
+                      <span className="font-bold text-[18px]">
+                        NEET PG India <span className="font-light">Admissions</span>
                       </span>
-                      <div className="bg-white text-black w-[20.5px] h-[20.51px] flex items-center justify-center rounded-full 
+                      <div className="bg-white text-[#F04E23] w-[30px] h-[30px] flex items-center justify-center rounded-full 
                         transition-all duration-300 group-hover:translate-x-1">
-                        <i className="pi pi-arrow-up-right text-sm"></i>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20.51"
+                          height="20.51"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <line x1="7" y1="17" x2="17" y2="7" />
+                          <polyline points="7 7 17 7 17 17" />
+                        </svg>
                       </div>
                     </Link>
                     <Link
                       href="/study-abroad/"
-                      className="group flex items-center justify-between rounded-[20px] px-6 py-3 text-white 
+                      className="group flex items-center w-[326px] h-[52px] justify-start gap-4 rounded-[20px] px-6 text-white 
                        bg-[linear-gradient(90deg,#677CE7_0%,#754FA7_100%)]
                       shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
                       aria-label="MBBS Abroad Admissions"
                     >
-                      <span className="font-semibold text-[18px]">
-                        MBBS Abroad Admissions
+                      <span className="font-bold text-[18px]">
+                        MBBS Abroad <span className="font-light">Admissions</span>
                       </span>
-                      <div className="bg-white text-black w-[20.5px] h-[20.51px] flex items-center justify-center rounded-full 
+                      <div className="bg-white text-[#754FA7] w-[30px] h-[30px] flex items-center justify-center rounded-full 
                         transition-all duration-300 group-hover:translate-x-1">
-                        <i className="pi pi-arrow-up-right text-sm"></i>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20.51"
+                          height="20.51"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <line x1="7" y1="17" x2="17" y2="7" />
+                          <polyline points="7 7 17 7 17 17" />
+                        </svg>
                       </div>
                     </Link>
                   </div>
@@ -270,7 +306,7 @@ export default function Home() {
           <AdmissionReality />
         </div>
       </section>
-      <section className="py-20 bg-white">
+      <section className="py-5 bg-white">
         <div className="container px-3 md:px-4">
           <div className="text-center mb-10 md:mb-16 px-2">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-light leading-tight text-gray-800 mb-4 md:mb-8">Say hello to 👋🏻 <span className="font-bold bg-gradient-to-r from-[#1ec8a5] to-[#0d8f9e] bg-clip-text text-transparent block sm:inline">Radical Education</span><br className="hidden md:block" /> Built for smarter medical admissions</h2>
@@ -467,7 +503,7 @@ export default function Home() {
             <div className="lg:col-span-5">
               <Link href="#" className="block relative group overflow-hidden rounded-2xl h-[220px] sm:h-[280px] md:h-[340px] lg:h-[380px] xl:h-[420px] w-full shadow-sm hover:shadow-xl transition-shadow duration-300">
                 <Image
-                  src="/images/ug-card.webp"
+                  src="/svg/ug-card.svg"
                   alt="UG Admission"
                   fill
                   sizes="(max-width: 1024px) 100vw, 55vw"
@@ -481,7 +517,7 @@ export default function Home() {
                 <div className="h-full w-full">
                   <Link href="#" className="block relative group overflow-hidden rounded-2xl h-[220px] sm:h-[280px] md:h-[340px] lg:h-[380px] xl:h-[420px] w-full shadow-sm hover:shadow-xl transition-shadow duration-300">
                     <Image
-                      src="/images/pg-card.webp"
+                      src="/svg/pg-card.svg"
                       alt="PG Admission"
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
@@ -493,7 +529,7 @@ export default function Home() {
                 <div className="h-full w-full">
                   <Link href="#" className="block relative group overflow-hidden rounded-2xl h-[220px] sm:h-[280px] md:h-[340px] lg:h-[380px] xl:h-[420px] w-full shadow-sm hover:shadow-xl transition-shadow duration-300">
                     <Image
-                      src="/images/ab-card.webp"
+                      src="/svg/abroad-card.svg"
                       alt="Abroad Admission"
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"

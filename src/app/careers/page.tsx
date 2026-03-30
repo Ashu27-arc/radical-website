@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 interface JobDetails {
@@ -77,67 +77,71 @@ export default function CareersPage() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitMessage, setSubmitMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
+
+  // Drag-to-scroll state
+  const sliderRef = useRef<HTMLDivElement>(null);
+  const [isMouseDown, setIsMouseDown] = useState(false);
+  const [startX, setStartX] = useState(0);
+  const [scrollLeft, setScrollLeft] = useState(0);
 
   const workEnvironmentData = [
     {
       image: "/images/careers/work-06.webp",
-      title: "supportive & helping culture",
+      title: "Collaborative Culture",
       dotColor: "bg-[#005A8B]",
       titleColor: "text-[#10B65C]"
     },
     {
       image: "/images/careers/work-07.webp",
-      title: "learning-driven & environment",
+      title: "Professional Growth",
       dotColor: "bg-[#005A8B]",
       titleColor: "text-[#005A8B]"
     },
     {
       image: "/images/careers/work-03.webp",
-      title: "ethical & responsible work practices",
+      title: "Flexible & Dynamic",
       dotColor: "bg-[#005A8B]",
       titleColor: "text-[#00CFB2]"
     },
     {
       image: "/images/careers/work-04.webp",
-      title: "growth-oriented & inclusive space",
+      title: "Impactful Work",
       dotColor: "bg-[#005A8B]",
       titleColor: "text-[#F48126]"
     },
     {
       image: "/images/careers/work-05.webp",
-      title: "supportive & helping culture",
+      title: "Recognition & Appreciation",
       dotColor: "bg-[#005A8B]",
       titleColor: "text-[#9B59B6]"
     }
   ];
 
-  // Check if mobile and setup auto-slide
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth < 768); // md breakpoint
-    };
-
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
-  // Auto-slide effect - only for mobile
-  useEffect(() => {
-    if (isMobile) {
-      const interval = setInterval(() => {
-        setCurrentSlide((prev) => (prev + 1) % workEnvironmentData.length);
-      }, 3000); // Change slide every 3 seconds
-
-      return () => clearInterval(interval);
+  // Mouse drag-to-scroll handlers
+  const onMouseDown = (e: React.MouseEvent) => {
+    setIsMouseDown(true);
+    if (sliderRef.current) {
+      setStartX(e.pageX - sliderRef.current.offsetLeft);
+      setScrollLeft(sliderRef.current.scrollLeft);
     }
-  }, [isMobile, workEnvironmentData.length]);
+  };
 
-  const goToSlide = (index: number) => {
-    setCurrentSlide(index);
+  const onMouseLeave = () => {
+    setIsMouseDown(false);
+  };
+
+  const onMouseUp = () => {
+    setIsMouseDown(false);
+  };
+
+  const onMouseMove = (e: React.MouseEvent) => {
+    if (!isMouseDown) return;
+    e.preventDefault();
+    if (sliderRef.current) {
+      const x = e.pageX - sliderRef.current.offsetLeft;
+      const walk = (x - startX) * 1.5; // Scroll speed
+      sliderRef.current.scrollLeft = scrollLeft - walk;
+    }
   };
 
   const openModal = (job: JobDetails) => {
@@ -227,11 +231,11 @@ export default function CareersPage() {
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-6 pt-8 md:pt-15">
             <h1 className="text-3xl md:text-5xl font-bold text-black mb-4">
-              JOIN US
+              INSPIRE. EMPOWER. SUCCEED
             </h1>
             <p className="text-black max-w-3xl mx-auto text-sm md:text-base px-4">
-              I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps HRs<br className="hidden md:block" />
-              Generate Job Descriptions And Screen Resumes
+              Join Radical Education and make a real impact on <br className="hidden md:block" />
+              students’ medical journeys.
             </p>
           </div>
           <div className="flex justify-center mt-8 -mb-16 md:-mb-35">
@@ -263,14 +267,11 @@ export default function CareersPage() {
           </h2>
           <div className="max-w-5xl mx-auto text-gray-600 space-y-4 md:space-y-6 leading-relaxed text-sm md:text-base">
             <p>
-              Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite Your Friends And Unlock
-              Exclusive Benefits—Earn More With Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits—Earn More
-              With Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral.
+              At Radical Education, we're changing the way learning happens, bravely, openly, and with a goal in mind. When you join us, you're not just joining us; you're becoming part of a team that challenges the old ways and builds better ones. We're for new ideas more than rules, for teamwork more than being bossed around, and for getting the job done more than tradition.
+              Your ideas matter here. You won't just go along with things, you'll help make them happen.
             </p>
             <p>
-              Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite Your Friends And Unlock
-              Exclusive Benefits—Earn More With Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits—Earn More
-              With Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral.
+              We're for building learning spaces where people are inspired to ask questions, where they'll talk openly about the important stuff, and where they'll have the tools they need to ask questions, grow, and make changes in the real world. If making a difference is what gets you out of bed in the morning, and you're ready to rethink education from the ground up, then here's where you belong
             </p>
           </div>
         </div>
@@ -289,63 +290,16 @@ export default function CareersPage() {
           {/* Horizontal shadow line */}
           <div className="absolute left-0 right-0 top-[280px] md:top-[328px] h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent shadow-sm"></div>
 
-          {/* Mobile: Slide Animation with Original Layout */}
-          <div className="md:hidden relative overflow-hidden">
-            <div
-              className="flex transition-transform duration-500 ease-in-out gap-4 min-w-max pl-4"
-              style={{ transform: `translateX(-${currentSlide * 240}px)` }}
-            >
-              {workEnvironmentData.map((item, index) => (
-                <div key={index} className="flex flex-col items-center">
-                  <div className="overflow-visible w-56 flex-shrink-0 relative h-[280px] flex flex-col">
-                    <div className={`relative rounded-t-lg overflow-hidden ${index === 1 || index === 3 ? 'h-32 mt-6' : 'h-44'}`}>
-                      <Image
-                        src={item.image}
-                        alt={item.title}
-                        fill
-                        className="object-cover object-center"
-                      />
-                    </div>
-                    <div className="flex-1"></div>
-                    {/* Dot positioned at bottom center on shadow line - fully visible */}
-                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 flex justify-center z-10">
-                      <div className={`w-4 h-4 rounded-full ${item.dotColor} shadow-xl ring-2 ring-white`}></div>
-                    </div>
-                  </div>
-                  {/* Title below the card and dot */}
-                  <div className="pt-5 pb-4 text-center">
-                    <h3 className={`text-xs font-medium ${item.titleColor} lowercase`}>
-                      {item.title.includes(' & ') ? (
-                        <>
-                          {item.title.split(' & ')[0]} {item.title === "learning-driven & environment" ? "" : "&"}
-                          <br />
-                          {item.title.split(' & ')[1]}
-                        </>
-                      ) : (
-                        item.title
-                      )}
-                    </h3>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Navigation Dots - Mobile Only */}
-            <div className="flex justify-center mt-6 space-x-2">
-              {workEnvironmentData.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => goToSlide(index)}
-                  className={`w-2 h-2 rounded-full transition-colors duration-300 ${currentSlide === index ? 'bg-[#287FC4]' : 'bg-gray-300'
-                    }`}
-                />
-              ))}
-            </div>
-          </div>
-
-          {/* Desktop: Horizontal Scrolling */}
-          <div className="hidden md:block overflow-x-auto pb-4 scrollbar-hide">
-            <div className="flex gap-4 md:gap-6 min-w-max pl-4 lg:pl-[calc((100vw-1280px)/2+1rem)]">
+          {/* Mouse/Touch Drag Slider Animation for all views */}
+          <div 
+            ref={sliderRef}
+            className={`relative overflow-x-auto w-full pb-8 scrollbar-hide select-none cursor-${isMouseDown ? 'grabbing' : 'grab'}`}
+            onMouseDown={onMouseDown}
+            onMouseLeave={onMouseLeave}
+            onMouseUp={onMouseUp}
+            onMouseMove={onMouseMove}
+          >
+            <div className="flex gap-4 md:gap-6 min-w-max pl-4 lg:pl-[calc((100vw-1280px)/2+1rem)] pr-4 lg:pr-[calc((100vw-1280px)/2+1rem)]">
               {workEnvironmentData.map((item, index) => (
                 <div key={index} className="flex flex-col items-center">
                   <div className="overflow-visible w-56 md:w-72 flex-shrink-0 relative h-[280px] md:h-[328px] flex flex-col">
@@ -354,7 +308,8 @@ export default function CareersPage() {
                         src={item.image}
                         alt={item.title}
                         fill
-                        className="object-cover object-center"
+                        className="object-cover object-center select-none pointer-events-none"
+                        draggable={false}
                       />
                     </div>
                     <div className="flex-1"></div>
@@ -364,7 +319,7 @@ export default function CareersPage() {
                     </div>
                   </div>
                   {/* Title below the card and dot */}
-                  <div className="pt-5 md:pt-6 pb-4 text-center">
+                  <div className="pt-5 md:pt-6 pb-4 text-center select-none pointer-events-none">
                     <h3 className={`text-xs md:text-sm font-medium ${item.titleColor} lowercase`}>
                       {item.title.includes(' & ') ? (
                         <>
@@ -398,71 +353,71 @@ export default function CareersPage() {
       <section className="">
         <div className="container mx-auto">
           <div className="py-8 md:py-12 bg-[#DFF1FF] px-4 md:px-12 rounded-xl">
-          <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 md:mb-8">
-            Latest <span className="text-[#287FC4]">Openings</span>
-          </h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 md:mb-8">
+              Latest <span className="text-[#287FC4]">Openings</span>
+            </h2>
 
-          {jobsData.length === 0 ? (
-            // No Openings Message
-            <div className="py-6 md:py-8">
-              <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8">
-                <div className="flex-shrink-0">
-                  <Image
-                    src="/images/careers/cuate-1.webp"
-                    alt="No Opening Yet"
-                    width={300}
-                    height={225}
-                    className="w-full max-w-[200px] md:max-w-[300px]"
-                  />
-                </div>
-                <div className="flex-1 text-center md:text-left">
-                  <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-3">
-                    No Opening Yet
-                  </h3>
-                  <p className="text-gray-600 text-sm md:text-base leading-relaxed line-clamp-3">
-                    I Designed A Web UI For An AI-Powered HR Co-<br />
-                    Pilot That Helps HRs Generate Job Descriptions<br />
-                    And Screen Resumes
-                  </p>
+            {jobsData.length === 0 ? (
+              // No Openings Message
+              <div className="py-6 md:py-8">
+                <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8">
+                  <div className="flex-shrink-0">
+                    <Image
+                      src="/images/careers/cuate-1.webp"
+                      alt="No Opening Yet"
+                      width={300}
+                      height={225}
+                      className="w-full max-w-[200px] md:max-w-[300px]"
+                    />
+                  </div>
+                  <div className="flex-1 text-center md:text-left">
+                    <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-3">
+                      No Opening Yet
+                    </h3>
+                    <p className="text-gray-600 text-sm md:text-base leading-relaxed line-clamp-3">
+                      I Designed A Web UI For An AI-Powered HR Co-<br />
+                      Pilot That Helps HRs Generate Job Descriptions<br />
+                      And Screen Resumes
+                    </p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ) : (
-            // Job Cards Grid
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              {jobsData.map((job, index) => (
-                <div key={index} className="bg-white rounded-xl p-5 md:p-6 shadow-lg">
-                  <div className="flex justify-left mb-4">
-                    <div className="w-14 h-14 md:w-16 rounded-lg md:h-16 bg-blue-100 flex items-center justify-center overflow-hidden">
-                      <Image
-                        src="/images/careers/job-icon.webp"
-                        alt="Job Icon"
-                        width={56}
-                        height={55}
-                        className="object-contain"
-                      />
+            ) : (
+              // Job Cards Grid
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {jobsData.map((job, index) => (
+                  <div key={index} className="bg-white rounded-xl p-5 md:p-6 shadow-lg">
+                    <div className="flex justify-left mb-4">
+                      <div className="w-14 h-14 md:w-16 rounded-lg md:h-16 bg-blue-100 flex items-center justify-center overflow-hidden">
+                        <Image
+                          src="/images/careers/job-icon.webp"
+                          alt="Job Icon"
+                          width={56}
+                          height={55}
+                          className="object-contain"
+                        />
+                      </div>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">{job.title}</h3>
+                    <p className="text-red-500 text-xs md:text-sm font-medium mb-4 pb-4 border-b border-[#00000040]">experience:- {job.experience}</p>
+                    <p className="text-gray-600 text-xs md:text-sm leading-relaxed mb-4">
+                      {job.description}
+                    </p>
+                    <div>
+                      <button
+                        onClick={() => openModal(job)}
+                        className="cursor-pointer text-green-500 text-sm font-semibold hover:text-green-600 inline-flex items-center gap-2"
+                      >
+                        APPLY NOW
+                        <svg className="w-4 h-4 -mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        </svg>
+                      </button>
                     </div>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">{job.title}</h3>
-                  <p className="text-red-500 text-xs md:text-sm font-medium mb-4 pb-4 border-b border-[#00000040]">experience:- {job.experience}</p>
-                  <p className="text-gray-600 text-xs md:text-sm leading-relaxed mb-4">
-                    {job.description}
-                  </p>
-                  <div>
-                    <button
-                      onClick={() => openModal(job)}
-                      className="cursor-pointer text-green-500 text-sm font-semibold hover:text-green-600 inline-flex items-center gap-2"
-                    >
-                      APPLY NOW
-                      <svg className="w-4 h-4 -mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-              ))}
-            </div>
-          )}
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </section>
@@ -475,7 +430,7 @@ export default function CareersPage() {
           </h2>
           <div className="max-w-6xl mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-2 bg-[url('/images/careers/resume-image.webp')] bg-cover bg-center bg-no-repeat rounded-2xl overflow-hidden shadow-xl">
-              
+
               <div className="md:order-2 relative px-6 md:px-12 py-10 md:py-20 flex items-center overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-[#005A8B]/50 to-[#63CDB4]/50"></div>
                 <div className="absolute inset-0 backdrop-blur-[10px]"></div>

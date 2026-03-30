@@ -20,139 +20,139 @@ const branches = [
     },
     {
         title: "Orthopedics",
-        desc: "I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps HRs Generate Job Descriptions And Screen Resumes.",
+        desc: "Studies and treats disorders related to bones, joints, and the musculoskeletal system. Includes trauma, fractures, and joint surgeries.",
         icon: "/images/Orthopedics.webp",
         color: "bg-[#E4FFDE]",
     },
     {
         title: "Psychiatry",
-        desc: "I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps HRs Generate Job Descriptions And Screen Resumes.",
+        desc: "Studies and treats mental health-related issues and emotional stability. Includes therapy, counselling, and medication.",
         icon: "/images/Psychiatry.webp",
         color: "bg-[#FFEDB3]",
     },
     {
         title: "Dermatology",
-        desc: "I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps HRs Generate Job Descriptions And Screen Resumes.",
+        desc: "Studies and treats skin, hair, and nail-related disorders. It includes medical and cosmetic treatments.",
         icon: "/images/Dermatology.webp",
         color: "bg-[#F4E7FF]",
     },
     {
         title: "Pediatrics",
-        desc: "I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps HRs Generate Job Descriptions And Screen Resumes.",
+        desc: "Studies and treats health-related issues in infants, children, and teens. It includes growth, development, and childhood-related diseases.",
         icon: "/images/Pediatrics.webp",
         color: "bg-[#F4E7FF]",
     },
     {
         title: "Radiology",
-        desc: "I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps HRs Generate Job Descriptions And Screen Resumes.",
+        desc: "Uses X-rays, CT scans, and MRI for diagnosis. Acts as a backbone in modern medical sciences for investigations.",
         icon: "/images/Radiology.webp",
         color: "bg-[#E0F3FF]",
     },
     {
         title: "Anatomy",
-        desc: "I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps HRs Generate Job Descriptions And Screen Resumes.",
+        desc: "Studies the structure of the human body. Acts as the foundation for all other medical sciences.",
         icon: "/images/Anatomy.webp",
         color: "bg-[#DCFFD6]",
     },
     {
         title: "Medical Jurisprudence",
-        desc: "I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps HRs Generate Job Descriptions And Screen Resumes.",
+        desc: "Studies and treats the legal aspects of medical practice.Includes ethics, laws, and responsibilities.",
         icon: "/images/MedicalJurisprudence.webp",
         color: "bg-[#E5FBFF]",
     },
     {
         title: "Microbiology",
-        desc: "I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps HRs Generate Job Descriptions And Screen Resumes.",
+        desc: "Studies microorganisms like bacteria, viruses, and fungi. Acts as the backbone for all other medical sciences.",
         icon: "/images/Microbiology.webp",
         color: "bg-[#FFEDB3]",
     },
     {
         title: "General Surgery",
-        desc: "I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps HRs Generate Job Descriptions And Screen Resumes.",
+        desc: "It involves the surgical management of all kinds of health conditions. It includes abdominal, traumatic, and emergency surgeries.",
         icon: "/images/GeneralSurgery.webp",
         color: "bg-[#F4E7FF]",
     },
     {
         title: "Anesthesiology",
-        desc: "I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps HRs Generate Job Descriptions And Screen Resumes.",
+        desc: "It is concerned with anesthesia and patient care. It ensures that surgical procedures are performed without any pain.",
         icon: "/images/Anesthesiology.webp",
         color: "bg-[#FFEFF2]",
     },
     {
-        title: "ENT",
-        desc: "I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps HRs Generate Job Descriptions And Screen Resumes.",
+        title: "ENT (Otorhinolaryngology) ",
+        desc: "It is concerned with the diagnosis and treatment of ear, nose, and throat disorders. It includes medical and surgical aspects.",
         icon: "/images/ENT.webp",
         color: "bg-[#E0F3FF]",
     },
     {
         title: "Pathology",
-        desc: "I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps HRs Generate Job Descriptions And Screen Resumes.",
+        desc: "It is concerned with the study of diseases through the examination of bodily fluids and tissues.It is very important for the proper diagnosis and treatment of health and disease.",
         icon: "/images/Pathology.webp",
         color: "bg-[#FFEFF2]",
     },
     {
-        title: "MS Obstetrics and Gynaecology",
-        desc: "I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps HRs Generate Job Descriptions And Screen Resumes.",
+        title: "Obstetrics and Gynecology (OB GYN) ",
+        desc: "Concerned with female reproductive health, pregnancy, and childbirth. It also deals with the diagnosis and treatment of gynecological disorders.",
         icon: "/images/Gynaecology.webp",
         color: "bg-[#E0F3FF]",
     },
     {
         title: "Pharmacology",
-        desc: "I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps HRs Generate Job Descriptions And Screen Resumes.",
+        desc: "Studies drugs, their mechanisms, effects, and therapeutic us.Studies drugs, their mechanisms, effects, and therapeutic us",
         icon: "/images/Pharmacology.webp",
         color: "bg-[#F4E7FF]",
     },
     {
-        title: "Radiation Therapy",
-        desc: "I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps HRs Generate Job Descriptions And Screen Resumes.",
+        title: "Radiotherapy",
+        desc: "The use of radiation to treat cancer and other diseases. This field is concerned with the precise use of radiation therapy.",
         icon: "/images/RadiationTherapy.webp",
         color: "bg-[#DCFFD6]",
     },
     {
-        title: "OBGYN",
-        desc: "I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps HRs Generate Job Descriptions And Screen Resumes.",
+        title: "MS OB GYN",
+        desc: "Postgraduate specialization in obstetrics and gynecology. This field provides training to medical graduates in the surgical and medical management of female health.",
         icon: "/images/OBGYN.webp",
         color: "bg-[#FFEDB3]",
     },
     {
         title: "Biochemistry",
-        desc: "I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps HRs Generate Job Descriptions And Screen Resumes.",
+        desc: "Studies chemical processes in living organisms.This field provides a foundation for the molecular basis of disease.",
         icon: "/images/Biochemistry.webp",
         color: "bg-[#E4FFDE]",
     },
     {
         title: "Community Medicine",
-        desc: "I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps HRs Generate Job Descriptions And Screen Resumes.",
+        desc: "Concerned with public health, disease prevention, and health promotion.This field deals with healthcare at a community or public leve",
         icon: "/images/CommunityHealth.webp",
         color: "bg-[#FFEFF2]",
     },
     {
         title: "Pulmonology",
-        desc: "I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps HRs Generate Job Descriptions And Screen Resumes.",
+        desc: "Specialization in diseases affecting the respiratory system. This field includes various conditions such as asthma, COPD, and lung infections.",
         icon: "/images/Pulmonology.webp",
         color: "bg-[#F4E7FF]",
     },
     {
         title: "Ophthalmology",
-        desc: "I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps HRs Generate Job Descriptions And Screen Resumes.",
+        desc: "Deals with eye disorders and their treatment. This field includes vision correction, eye surgery, and eye disease management.",
         icon: "/images/Ophthalmology.webp",
         color: "bg-[#F4E7FF]",
     },
     {
         title: "Nuclear Medicine",
-        desc: "I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps HRs Generate Job Descriptions And Screen Resumes.",
+        desc: "Uses radioactive substances for diagnosis and treatment.Commonly used in images and cancer treatments.",
         icon: "/images/NuclearMedicine.webp",
         color: "bg-[#E0F3FF]",
     },
     {
         title: "Cardiology",
-        desc: "I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps HRs Generate Job Descriptions And Screen Resumes.",
+        desc: "Studies and treats disorders related to the heart and cardiovascular systems. Includes diagnosis, treatment, and prevention of heart-related diseases.",
         icon: "/images/Cardiology.webp",
         color: "bg-[#DCFFD6]",
     },
     {
         title: "Oncology",
-        desc: "I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps HRs Generate Job Descriptions And Screen Resumes.",
+        desc: "Studies, prevents, and treats adult diseases. Acts as the backbone for all other medical sciences.",
         icon: "/images/Oncology.webp",
         color: "bg-[#E5FBFF]",
     },
@@ -161,12 +161,12 @@ const branches = [
 const features = [
     "Alerts, Notifications, Updates",
     "Detailed Information on Admission Procedure",
-    "Alerts, Notifications, Updates",
-    "Guidance over Documentation",
-    "Bonds and Rural Services Rules Guidance over call",
-    "Alerts, Notifications, Updates",
-    "Guidance over Documentation",
-    "Bonds and Rural Services Rules Guidance over call",
+    // "Alerts, Notifications, Updates",
+    "Guidance on Documentation",
+    "Guidance on Bonds and Rural Service Rules over call",
+    // "Alerts, Notifications, Updates",
+    // "Guidance on Documentation",
+    // "Guidance on Bonds and Rural Service Rules over call",
 ];
 
 const videos = [
@@ -197,7 +197,7 @@ export default function NeetPgIndiaAdmissionPage() {
                 <div className="container px-3 md:px-4 fadeUp">
                     <div className="w-full lg:w-4/10 md:8/10 md:text-left text-center">
                         <h1 className="uppercase lg:text-5xl text-4xl font-bold text-white lg:mb-6 mb-4">NEET PG <br className="hidden lg:block" />ADMISSION</h1>
-                        <p className="text-white text-lg m-0 p-0">I designed a web UI for an AI-powered HR Co-Pilot that helps HRs generate job descriptions and screen resumes</p>
+                        <p className="text-white text-lg m-0 p-0">Advance your medical career with expert guidance for postgraduate admissions—navigate counselling, secure top specializations, and take the next step with confidence.</p>
                     </div>
                 </div>
             </section>
@@ -285,7 +285,7 @@ export default function NeetPgIndiaAdmissionPage() {
                                 className={`group prcCardStyle1 fadeUp overflow-hidden relative z-1 rounded-2xl border-2 border-[#42ACCF] hover:border-[#007EC8] bg-[#D3F4FF] hover:bg-[#B8EAFB] p-6 lg:px-6 lg:py-8 shadow-md hover:shadow-2xl hover:scale-[1.03] transition-all duration-300 cursor-pointer`}
                             >
                                 <div className="text-lg font-semibold text-[#0B2E3C] group-hover:text-[#005787] uppercase transition-colors duration-300">Standard</div>
-                                <div className="text-xs text-[#0B2E3C] group-hover:text-[#005787] mb-6 transition-colors duration-300">I designed a web UI for an AI-powered HR Co-Pil I </div>
+                                <div className="text-xs text-[#0B2E3C] group-hover:text-[#005787] mb-6 transition-colors duration-300">Unlock exclusive, end-to-end counselling support with our premium plans. </div>
                                 <div className="font-bold lg:text-5xl text-4xl mb-8 group-hover:text-[#005787] transition-colors duration-300">₹ 9,999</div>
                                 <div className="text-xs text-[#0B2E3C] group-hover:text-[#005787] mb-5 transition-colors duration-300">Features</div>
                                 <ul className="space-y-4 text-sm text-gray-700 mb-8">

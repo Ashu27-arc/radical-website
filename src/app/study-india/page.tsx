@@ -88,8 +88,8 @@ export default function StudyIndiaPage() {
                 <div className="absolute inset-0 bg-black/50 -z-2"></div>
                 <div className="max-w-6xl mx-auto px-6">
                     <div className="lg:px-50 text-center text-white mb-10 lg:mb-20">
-                        <h1 className="text-white font-semibold mb-2 md:text-5xl text-3xl">STUDY MEDICAL INDIA</h1>
-                        <div>I designed a web UI for an AI-powered HR Co-Pilot that helps HRs generate job descriptions and screen resumes</div>
+                        <h1 className="text-white font-semibold mb-2 md:text-5xl text-3xl">Start Your Medical Journey in India</h1>
+                        <div>Affordable, trusted, and student-focused pathways to top medical colleges across India.  We guide you every step of the way—from choosing the right university to starting your journey as a doctor.</div>
                     </div>
                     <div className="flex flex-wrap justify-center lg:gap-4 gap-2">
 
@@ -123,15 +123,15 @@ duration-300"
             <section className="py-10 lg:py-15">
                 <div className="container px-3 md:px-4">
                     <section id="connect-counselor" className="mb-16">
-                        <a 
-                            href="https://www.neetbhaiya.in/" 
-                            target="_blank" 
+                        <a
+                            href="https://www.neetbhaiya.in/"
+                            target="_blank"
                             rel="noopener noreferrer"
                             className="block w-full"
                         >
-                            <img 
-                                src="/images/banner-neet-bhaiya.webp" 
-                                alt="Book Your Free Counselling Session" 
+                            <img
+                                src="/images/banner-neet-bhaiya.webp"
+                                alt="Book Your Free Counselling Session"
                                 className="w-full rounded-2xl md:rounded-3xl object-cover"
                             />
                         </a>
