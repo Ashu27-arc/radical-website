@@ -1,4 +1,5 @@
 'use client';
+import Image from 'next/image';
 import CounselorForm from './CounselorForm';
 
 export default function CounselorSection() {
@@ -9,18 +10,19 @@ export default function CounselorSection() {
 
                     {/* Left Content */}
                     <div className="">
-                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                            Connect With <span className="bg-gradient-to-r from-[#005A8B] to-[#00CFB2] bg-clip-text text-transparent">Our Counsellor</span>
+                        <h2 className="text-4xl md:text-[36px] font-semibold text-gray-900 mb-6">
+                            Request a free callback <br /> from
+                            <span className="bg-gradient-to-r from-[#005A8B] to-[#00CFB2] bg-clip-text text-transparent"> Our Counsellor</span>
                         </h2>
-                        <p className="text-lg text-black lg:mb-24 mb-10 max-w-xl">
-                            Connect with our expert counsellors to get personalized advice and clarity for your next step.
+                        <p className="text-[18px] font-light text-black lg:mb-24 mb-10 max-w-xl">
+                            We will call you back to give you personalised advice and clarity for your next steps
                         </p>
 
                         <div className="space-y-8">
                             {/* Visit Us */}
                             <div className="flex items-start gap-5">
                                 <div className="flex-shrink-0 w-16 h-16 bg-white rounded-[34px] flex items-center justify-center shadow-md">
-                                    <i className="pi pi-map-marker text-[#00B4B4] !text-xl"></i>
+                                    <Image src="/icons/location.png" alt="Location Icon" width={28} height={28} className="object-contain" />
                                 </div>
                                 <div>
                                     <h4 className="text-[18px] font-bold font-poppins text-[#0A1A2F]">Visit Us</h4>
@@ -34,7 +36,7 @@ export default function CounselorSection() {
                             <div className="flex flex-col sm:flex-row gap-8 sm:gap-16">
                                 <div className="flex items-start gap-5">
                                     <div className="flex-shrink-0 w-16 h-16 bg-white rounded-[34px] flex items-center justify-center shadow-md">
-                                        <i className="pi pi-phone text-[#00B4B4] !text-xl"></i>
+                                        <Image src="/icons/phone.png" alt="Phone Icon" width={28} height={28} className="object-contain" />
                                     </div>
                                     <div>
                                         <h4 className="text-[18px] font-bold font-poppins text-[#0A1A2F]">Call Us</h4>
@@ -44,7 +46,7 @@ export default function CounselorSection() {
 
                                 <div className="flex items-start gap-5">
                                     <div className="flex-shrink-0 w-16 h-16 bg-white rounded-[34px] flex items-center justify-center shadow-md">
-                                        <i className="pi pi-envelope text-[#00B4B4] !text-xl"></i>
+                                        <Image src="/icons/mail.png" alt="Mail Icon" width={28} height={28} className="object-contain" />
                                     </div>
                                     <div>
                                         <h4 className="text-[18px] font-bold font-poppins text-[#0A1A2F]">Write to Us</h4>

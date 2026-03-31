@@ -20,19 +20,19 @@ export default function ContactOptions() {
 
 
                 <div
-                    className="group relative overflow-hidden rounded-2xl bg-[#A8C79A] p-6 lg:p-10 w-full max-w-[420px] h-[280px] md:h-[320px] mx-auto flex flex-col justify-between transition-all duration-500 ease-in-out md:hover:-translate-y-2 md:hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)] cursor-pointer"
+                    className="group relative overflow-hidden rounded-[20px] bg-[#A8C79A] p-6 lg:p-10 w-full max-w-[420px] h-[280px] md:h-[320px] mx-auto flex flex-col justify-between transition-all duration-500 ease-in-out md:hover:-translate-y-2 md:hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)] cursor-pointer"
                     onClick={handleCallClick}
                 >
 
                     <div className="z-10">
-                        <h3 className="text-xl md:text-2xl font-semibold text-gray-900">
+                        <h3 className="text-xl lg:text-2xl font-medium lg:font-semibold text-gray-900">
                             Talk to an expert
                         </h3>
-                        <p className="text-base md:text-lg text-gray-800 mt-2 leading-relaxed max-w-[75%] md:max-w-none">
+                        <p className="text-lg font-normal text-gray-800 mt-2 leading-relaxed max-w-[75%] md:max-w-none">
                             No AI. No Bots.<br />
                             Real Human Assistance
                         </p>
-                        <button className="mt-4 md:mt-6 bg-[#8BB379] text-white px-6 py-2 md:px-8 md:py-3 rounded-[10px] font-bold text-sm md:text-base tracking-wide transition-all duration-300">
+                        <button className="mt-4 md:mt-6 bg-[#8BB379] text-white px-6 py-2 md:px-8 md:py-3 rounded-[10px] font-medium lg:font-bold text-sm md:text-base lg:text-lg tracking-wide transition-all duration-300">
                             Free Call
                         </button>
                     </div>
@@ -47,19 +47,19 @@ export default function ContactOptions() {
                 </div>
 
                 <div
-                    className="group relative overflow-hidden rounded-2xl bg-[#8FAFD6] lg:p-10 p-6 w-full max-w-[420px] h-[280px] md:h-[320px] mx-auto flex flex-col justify-between transition-all duration-500 ease-in-out md:hover:-translate-y-2 md:hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)] cursor-pointer"
+                    className="group relative overflow-hidden rounded-[20px] bg-[#8FAFD6] lg:p-10 p-6 w-full max-w-[420px] h-[280px] md:h-[320px] mx-auto flex flex-col justify-between transition-all duration-500 ease-in-out md:hover:-translate-y-2 md:hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)] cursor-pointer"
                     onClick={handleEmailClick}
                 >
 
                     <div className="z-10 text-right">
-                        <h3 className="text-xl md:text-2xl font-semibold text-gray-900">
+                        <h3 className="text-xl lg:text-2xl font-medium lg:font-semibold text-gray-900">
                             Email us
                         </h3>
-                        <p className="text-base md:text-lg text-gray-800 mt-2 leading-relaxed ml-auto max-w-[80%] md:max-w-none">
+                        <p className="text-lg font-normal text-gray-800 mt-2 leading-relaxed ml-auto max-w-[80%] md:max-w-none">
                             Prefer writing it out?<br />
                             Email us. We’ve got you.
                         </p>
-                        <button className="mt-4 md:mt-6 bg-[#74A8EE] text-white px-6 py-2 md:px-8 md:py-3 rounded-[10px] font-bold text-sm md:text-base tracking-wide transition-all duration-300">
+                        <button className="mt-4 md:mt-6 bg-[#74A8EE] text-white px-6 py-2 md:px-8 md:py-3 rounded-[10px] font-medium lg:font-bold text-sm md:text-base lg:text-lg tracking-wide transition-all duration-300">
                             Instant Help
                         </button>
                     </div>
