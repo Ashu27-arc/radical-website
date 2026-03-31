@@ -4,32 +4,32 @@ const data = [
   {
     title: "Too Many Decisions, Too Little Time",
     desc: "You're expected to analyse, compare, and decide quickly — often within days and at a very short notice.",
-    img: "/images/decision.webp",
+    img: "/svg/ar-1.svg",
   },
   {
     title: "Deadlines Are Unforgiving",
     desc: "Miss 1 step— registration, choice filling, reporting and you're out of the process and there's no going back.",
-    img: "/images/deadline.webp",
+    img: "/svg/ar-2.svg",
   },
   {
     title: "Information Is Fragmented",
     desc: "Data is spread across multiple websites, PDFs, and notices. There's no single place where everything comes together clearly.",
-    img: "/images/info.webp",
+    img: "/svg/ar-3.svg",
   },
   {
     title: "Rank Vs College Gap",
     desc: "Your NEET rank doesn’t directly map to a college. The same rank can lead to completely different outcomes depending on state, category, and round.",
-    img: "/images/rank.webp",
+    img: "/svg/ar-4.svg",
   },
   {
     title: "Seat Availability Is Not Fixed",
     desc: "Colleges, seats, and categories keep shifting across rounds. What’s available today may disappear — or open up — tomorrow.",
-    img: "/images/seat.webp",
+    img: "/svg/ar-5.svg",
   },
   {
     title: "College Quality is Hard to Judge",
     desc: "On paper, most colleges look similar but factors like exposure, patient flow, and infrastructure vary widely.",
-    img: "/images/quality.webp",
+    img: "/svg/ar-6.svg",
   },
 ];
 
