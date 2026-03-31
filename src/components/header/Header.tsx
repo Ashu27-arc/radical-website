@@ -17,7 +17,7 @@ export default function Header() {
       <section className='bg-white px-3 text-center py-2 sm:py-3 lg:hidden border-b border-gray-100'>
         <div className='flex flex-wrap gap-x-3 gap-y-1.5 sm:gap-y-2 justify-center items-center text-[11px] sm:text-xs'>
           <Link className='text-[#121212] hover:text-[#CB1E17] transition-colors py-1' href="mailto:info@radicaleducation.in">info@radicaleducation.in</Link>
-          <span className='inline-flex items-center h-12 text-xl leading-none'>|</span>
+          <span className='inline-flex items-center h-6 text-xl leading-none'>|</span>
           <Link className='text-[#121212] font-bold inline-flex items-center gap-1 hover:text-[#CB1E17] transition-colors py-1' href="tel:+91 9797972465">
             <Image src="/icons/phone.jpg" width="14" height="14" alt="" className="sm:w-[16px] sm:h-[16px] object-contain" />
             <span>97 97 97 24 65</span>
@@ -32,7 +32,7 @@ export default function Header() {
               </span>
             </div>
           </Link>
-          <span className='inline-flex items-center h-12 text-xl leading-none'>|</span>
+          <span className='inline-flex items-center h-6 text-xl leading-none'>|</span>
           <Link href="https://www.neetbhaiya.in/" className='text-[#121212] relative inline-flex items-center gap-1 hover:text-[#CB1E17] transition-colors py-1'>
             <Image src="/icons/neet-bhaiya.jpg" width="16" height="16" alt="" className="sm:w-[18px] sm:h-[18px] object-contain" />
             <span>NEET Bhaiya</span>
@@ -68,11 +68,11 @@ export default function Header() {
         </div>
       </section>
       <header className="w-full sticky top-0 left-0 z-[100]">
-        <section className='hdrTop bg-white py-2 sm:py-3 lg:bg-[#ffffff] w-full top-0 left-0 z-[100]'>
+        <section className='hdrTop bg-white py-3 sm:py-3 lg:bg-[#ffffff] w-full top-0 left-0 z-[100]'>
           <div className='container mx-auto px-2 sm:px-4 md:px-8 lg:px-12 flex items-center justify-between'>
             <div className='flex items-center gap-1.5 sm:gap-4 md:gap-6 shrink-0'>
               <Link href="/" className="headerLogo shrink-0">
-                <img src="/logo.webp" alt="Logo" className="w-[85px] min-w-[85px] sm:w-[130px] md:w-[145px] h-auto object-contain" />
+                <img src="/logo.webp" alt="Logo" className="w-[100px] min-w-[100px] sm:w-[140px] md:w-[150px] h-auto object-contain" />
               </Link>
               <div className='hidden lg:flex items-center gap-2 xl:gap-3 text-[12px] xl:text-[14px] text-[#121212] topInfo'>
                 <Link className='hover:text-[#CB1E17] transition-colors' href="mailto:info@radicaleducation.in">info@radicaleducation.in</Link>
@@ -135,7 +135,7 @@ export default function Header() {
                 </Link>
               </div>
               <div className='lg:hidden flex items-center shrink-0'>
-                <Link href="/neet-update" className='gradient-border2 h-7 sm:h-9 flex items-center'>
+                <Link href="/neet-update" className='gradient-border2 h-8 sm:h-9 flex items-center'>
                   <span className='gradient-border-inner h-full flex items-center text-[9px] sm:text-[11px] font-medium relative pr-5 sm:pr-8! pl-1.5 sm:pl-3'>
                     <span className='text-nowrap'>NEET UPDATE</span>
                     <svg className='absolute right-[-10px] sm:right-[-15px] -top-[3px] sm:-top-[5px] animate-bounce w-[35px] h-[35px] sm:w-[50px] sm:h-[50px]' viewBox="0 0 75 74" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -171,7 +171,7 @@ export default function Header() {
                 </Link>
               </div>
               <div className='lg:hidden flex items-center shrink-0'>
-                <button className='btnico cursor-pointer relative p-1 sm:p-2 hover:opacity-75 transition-opacity' onClick={() => setVisible(true)}><i className='pi pi-bars text-[18px] sm:text-2xl! text-[#121212]'></i></button>
+                <button className='ml-3 btnico cursor-pointer relative p-1 sm:p-2 hover:opacity-75 transition-opacity' onClick={() => setVisible(true)}><i className='pi pi-bars text-[18px] sm:text-2xl! text-[#121212]'></i></button>
               </div>
             </div>
           </div>
@@ -182,9 +182,9 @@ export default function Header() {
             <div className='flex gap-5 items-center'>
               <div className="flex gap-3">
                 <Link href="https://www.youtube.com/@radicaleducationofficial" target="_blank">
-                  <Button size="small" icon="pi pi-youtube" label="YOUTUBE" className='text-white! bg-[#CB1E17]! border-[#CB1E17]! h-10! px-4!' rounded />
+                  <Button size="small" icon="pi pi-youtube" label="YOUTUBE" className='text-white! bg-[#CB1E17]! border-[#CB1E17]! h-11! px-4!' rounded />
                 </Link>
-                <Link href="/neet-update" className='gradient-border2 h-10 flex items-center'>
+                <Link href="/neet-update" className='gradient-border2 h-11 flex items-center'>
                   <span className='gradient-border-inner h-full flex items-center relative pr-10!'>
                     <span className='text-center'>NEET UPDATE</span>
                     <svg className='absolute right-[-15px] -top-[5px] animate-bounce' width="50" height="50" viewBox="0 0 75 74" fill="none" xmlns="http://www.w3.org/2000/svg">
