@@ -85,14 +85,14 @@ export default function EverythingSlider() {
         <div className="flex items-center gap-3">
           <span>Download now:</span>
           <Image
-            src="/images/g-pay-logo.webp"
+            src="/svg/play-store.svg"
             alt="Google Play"
             width={120}
             height={40}
             className="w-[120px] h-[auto]"
           />
           <Image
-            src="/images/apple-pay-logo.webp"
+            src="/svg/app-store.svg"
             alt="App Store"
             width={120}
             height={40}
