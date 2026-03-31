@@ -338,7 +338,7 @@ export default function CareersPage() {
           </div>
         </div>
 
-        <style jsx>{`
+        <style jsx global>{`
           .scrollbar-hide::-webkit-scrollbar {
             display: none;
           }

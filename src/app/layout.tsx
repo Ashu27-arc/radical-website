@@ -30,20 +30,21 @@ export const metadata: Metadata = {
   },
 };
 
+import { Poppins } from 'next/font/google';
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['300','400','500','600','700','800'],
+  display: 'swap',
+});
+
 export default function RootLayout({ children, }: { children: React.ReactNode; }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className={poppins.className} suppressHydrationWarning>
       <head>
         <meta name="robots" content="noindex, nofollow" />
         <meta name="googlebot" content="noindex, nofollow" />
-        <link
-          rel="preload"
-          href="/fonts/primeicons.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
+        
       </head>
       <body className="flex flex-col min-h-screen" suppressHydrationWarning>
         <ClientWrapper>
