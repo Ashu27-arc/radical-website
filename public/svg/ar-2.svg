@@ -1,7 +1,4 @@
 <svg width="254" height="160" viewBox="0 0 254 160" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<<<<<<< HEAD
-<rect width="253.54" height="160" rx="20" fill="url(#pattern0_3592_1468)"/>
-=======
 <rect width="254" height="160" fill="#676767"/>
 <rect width="14161" height="13440" transform="translate(-1493.31 -2473)" fill="#A0A0A0"/>
 <g clip-path="url(#clip0_622_2)">
@@ -10,7 +7,6 @@
 <rect width="253.54" height="160" rx="20" fill="url(#pattern0_622_2)"/>
 </g>
 </g>
->>>>>>> 8c7b89efecebf648fc025396de51504e57cd24d3
 <defs>
 <filter id="filter0_d_622_2" x="-2" y="-2" width="257.54" height="164" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
 <feFlood flood-opacity="0" result="BackgroundImageFix"/>
