@@ -110,6 +110,14 @@ export default function TestimonialsPage() {
             { name: 'Zoha Azeem', college: 'JSPSGHMC, Telangana', image: '' },
             { name: 'Prena', college: 'SGTU, Gurugram', image: '' },
             { name: 'Sheetal Kumari', college: 'ANSSHMC, Kerala', image: '' },
+            { name: 'Aaptakaam Singh', college: 'SGGSTU, Gurgaon', image: '/2024/std01.jpg' },
+            { name: 'Abhay Raj Singh', college: 'IU, Lucknow', image: '/2024/std02.jpg' },
+            { name: 'Annie Attri', college: 'PMCH, Udaipur', image: '/2024/std03.jpg' },
+            { name: 'Ansh Sharma', college: 'VSIMS, Amroha', image: '/2024/std04.jpg' },
+            { name: 'Anshul', college: 'RMC, Hapur', image: '/2024/std05.jpg' },
+            { name: 'Arjun Kaushal', college: 'RRMSH, Bengaluru', image: '/2024/std06.jpg' },
+            { name: 'Dhruvika Aggarwal', college: 'RMC, Hapur', image: '/2024/std07.jpg' },
+            { name: 'Gaurav Choudhary', college: 'SGRRU, Dehradun', image: '/2024/std08.jpg' },
         ],
     };
 
