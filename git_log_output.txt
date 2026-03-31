@@ -1,0 +1,89 @@
+commit 6848e0d5b593b63c6652a75bcc43c297cafa6379
+Author: Ashutosh Rathor <111623370+Ashu27-arc@users.noreply.github.com>
+Date:   Tue Mar 31 14:04:09 2026 +0530
+
+    ok
+
+diff --git a/src/components/home/AdmissionReality.tsx b/src/components/home/AdmissionReality.tsx
+index 7f121c5..c431227 100644
+--- a/src/components/home/AdmissionReality.tsx
++++ b/src/components/home/AdmissionReality.tsx
+@@ -9,7 +9,7 @@ const data = [
+   {
+     title: "Deadlines Are Unforgiving",
+     desc: "Miss 1 step— registration, choice filling, reporting and you're out of the process and there's no going back.",
+-    img: "/svg/ar-2.svg",
++    img: "/images/deadline.webp",
+   },
+   {
+     title: "Information Is Fragmented",
+
+commit ee89e66de97fa1d718feaf0b1e7cd56afe707b14
+Author: Ashu27-arc <ashrathor0290@gmail.com>
+Date:   Tue Mar 31 12:15:08 2026 +0530
+
+    ok
+
+diff --git a/src/components/home/AdmissionReality.tsx b/src/components/home/AdmissionReality.tsx
+index 7fbc88b..7f121c5 100644
+--- a/src/components/home/AdmissionReality.tsx
++++ b/src/components/home/AdmissionReality.tsx
+@@ -4,32 +4,32 @@ const data = [
+   {
+     title: "Too Many Decisions, Too Little Time",
+     desc: "You're expected to analyse, compare, and decide quickly — often within days and at a very short notice.",
+-    img: "/images/decision.webp",
++    img: "/svg/ar-1.svg",
+   },
+   {
+     title: "Deadlines Are Unforgiving",
+     desc: "Miss 1 step— registration, choice filling, reporting and you're out of the process and there's no going back.",
+-    img: "/images/deadline.webp",
++    img: "/svg/ar-2.svg",
+   },
+   {
+     title: "Information Is Fragmented",
+     desc: "Data is spread across multiple websites, PDFs, and notices. There's no single place where everything comes together clearly.",
+-    img: "/images/info.webp",
++    img: "/svg/ar-3.svg",
+   },
+   {
+     title: "Rank Vs College Gap",
+     desc: "Your NEET rank doesn’t directly map to a college. The same rank can lead to completely different outcomes depending on state, category, and round.",
+-    img: "/images/rank.webp",
++    img: "/svg/ar-4.svg",
+   },
+   {
+     title: "Seat Availability Is Not Fixed",
+     desc: "Colleges, seats, and categories keep shifting across rounds. What’s available today may disappear — or open up — tomorrow.",
+-    img: "/images/seat.webp",
++    img: "/svg/ar-5.svg",
+   },
+   {
+     title: "College Quality is Hard to Judge",
+     desc: "On paper, most colleges look similar but factors like exposure, patient flow, and infrastructure vary widely.",
+-    img: "/images/quality.webp",
++    img: "/svg/ar-6.svg",
+   },
+ ];
+ 
+
+commit 642053a61135892f6bd8f7e5fe06dded68cf0665
+Author: swa-swa <swarup.binarama@gmail.com>
+Date:   Tue Mar 31 00:14:19 2026 +0530
+
+    home page responsive fixing
+
+diff --git a/src/components/home/AdmissionReality.tsx b/src/components/home/AdmissionReality.tsx
+index b30e626..7fbc88b 100644
+--- a/src/components/home/AdmissionReality.tsx
++++ b/src/components/home/AdmissionReality.tsx
+@@ -35,7 +35,7 @@ const data = [
+ 
+ export default function AdmissionReality() {
+   return (
+-    <div className="mt-0">
++    <div className="space-y-10">
+       {data.map((item, index) => {
+         const isReverse = index % 2 !== 0;
+         return (
