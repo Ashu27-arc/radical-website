@@ -8,33 +8,33 @@ const cards = [
   {
     title: "Top MBBS colleges",
     subtitle: "India",
-    img: "/images/cat-india.webp",
+    img: "/svg/everything-1.svg",
   },
   {
     title: "Top MBBS colleges",
     subtitle: "Abroad",
-    img: "/images/cat-abroad.webp",
+    img: "/svg/everything-2.svg",
   },
   {
     title: "NEET Counselling",
     subtitle: "Updates",
-    img: "/images/cat-neet.webp",
+    img: "/svg/everything-3.svg",
   },
   {
     title: "Blogs &",
     subtitle: "News",
-    img: "/images/cat-news.webp",
+    img: "/svg/everything-4.svg",
   },
 ];
 
 const data = [
   {
     title: "Personal Counsellor",
-    img: "/images/p-counsellor.webp",
+    img: "/svg/everything-5.svg",
   },
   {
     title: "Videos and Webinars",
-    img: "/images/v-webinar.webp",
+    img: "/svg/everything-6.svg",
   },
 ];
 
