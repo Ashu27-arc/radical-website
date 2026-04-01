@@ -5,7 +5,6 @@ import CounselorForm from "@/components/CounselorForm";
 import CounselorSection from "@/components/CounselorSection";
 import { Swiper, SwiperSlide } from 'swiper/react';
 
-import 'primeicons/primeicons.css';
 import { galleryData } from "@/data/galleryData";
 import { useEffect, useState } from "react";
 import GalleryModal from "@/components/gallery/GalleryModal";

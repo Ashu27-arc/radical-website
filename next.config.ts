@@ -12,13 +12,15 @@ const nextConfig: NextConfig = {
   },
 
   images: {
-    unoptimized: true,
+    unoptimized: false, 
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 60 * 60 * 24 * 30,
   },
 
   compress: true,
 
   experimental: {
-    optimizeCss: false,
+    optimizeCss: true,
     optimizePackageImports: [
       "primereact",
       "swiper",
@@ -30,6 +32,23 @@ const nextConfig: NextConfig = {
     primereact: {
       transform: "primereact/{{member}}",
     },
+  },
+
+  webpack(config) {
+    config.optimization.splitChunks = {
+      ...config.optimization.splitChunks,
+      cacheGroups: {
+        ...config.optimization.splitChunks?.cacheGroups,
+        styles: {
+          name: "styles",
+          test: /\.css$/,
+          chunks: "all",
+          enforce: true,
+        },
+      },
+    };
+
+    return config;
   },
 };
 
