@@ -19,6 +19,8 @@ const nextConfig: NextConfig = {
 
   compress: true,
 
+  turbopack: {},
+
   experimental: {
     optimizeCss: true,
     optimizePackageImports: [

@@ -55,7 +55,7 @@ export default function GalleryPage() {
                     <div className="absolute inset-0 bg-black/50 -z-1" />
                     <div className="mx-auto px-4 w-full lg:w-4/10 md:8/10 text-center fadeUp">
                         <h1 className="uppercase lg:text-5xl text-4xl font-bold text-white lg:mb-6 mb-4">OUR GALLERY</h1>
-                        <p className="text-white text-lg m-0 p-0">I designed a web UI for an AI-powered HR Co-Pilot that helps HRs generate job descriptions and screen resumes</p>
+                        <p className="text-white text-lg m-0 p-0">Take a look at moments from our seminars, airport send-offs, and counselling sessions where future doctors receive expert guidance and step confidently toward their dreams.</p>
                     </div>
                 </section>
                 <section className='bg-[#F4F7F8]'>
@@ -69,7 +69,7 @@ export default function GalleryPage() {
                         duration-700 ease-out fadeLeft">
                                 <div className="pr-20 md:pr-30 lg:pr-40">
                                     <h3 className="font-bold text-white text-4xl mb-2">Seminar Highlights</h3>
-                                    <p className="p-0 m-0 text-white">I designed a web UI for an AI-powered HR Co-Pilot that helps </p>
+                                    <p className="p-0 m-0 text-white">Moments from our informative seminars where experts guide aspiring medical students</p>
                                 </div>
                             </div>
                             <div className="lg:px-8 px-6 lg:py-12 py-8 rounded-lg shadow-lg text-white bg-[url('/images/air.webp')]
@@ -80,7 +80,7 @@ export default function GalleryPage() {
                         duration-700 ease-out fadeRight">
                                 <div className="pr-20 md:pr-30 lg:pr-40">
                                     <h3 className="font-bold text-white text-4xl mb-2">Airport Visit Gallery</h3>
-                                    <p className="p-0 m-0 text-white">I designed a web UI for an AI-powered HR Co-Pilot that helps </p>
+                                    <p className="p-0 m-0 text-white">Glimpses of our student airport send-offs as they begin their exciting journey toward medical education abroad.</p>
                                 </div>
                             </div>
                         </div>
@@ -131,7 +131,7 @@ export default function GalleryPage() {
                                     <div className='text-[#0B2E3C] uppercase text-sm font-semibold tracking-widest mb-4 lg:mb-6'>Airport Visits Gallery</div>
                                     <div className='text-[#4A4A4A] mb-4 lg:mb-6 leading-7 relative'>
                                         <span className="absolute left-[-20px] top-0 bottom-0 w-[2px] bg-[#00CFB2]" />
-                                        <div>Invite your friends and unlock exclusive benefits—earn more with every successful referral. Invite your friends and unlock exclusive benefits—earn more with every successful referral.</div>
+                                        <div>Take a closer look at the heartfelt airport send-offs of our students. Our team proudly supports and sends off future doctors as they take the next step toward their global education.</div>
                                     </div>
                                 </div>
                             </div>
