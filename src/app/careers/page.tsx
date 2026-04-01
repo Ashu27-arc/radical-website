@@ -338,7 +338,7 @@ export default function CareersPage() {
           </div>
         </div>
 
-        <style jsx global>{`
+        <style dangerouslySetInnerHTML={{ __html: `
           .scrollbar-hide::-webkit-scrollbar {
             display: none;
           }
@@ -346,7 +346,7 @@ export default function CareersPage() {
             -ms-overflow-style: none;
             scrollbar-width: none;
           }
-        `}</style>
+        ` }} />
       </section>
 
       {/* Latest Openings Section */}

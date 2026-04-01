@@ -262,8 +262,7 @@ export default function AboutUsPage() {
             Featured across
           </h2>
 
-          {/* Media Logos Animated Rows */}
-          <style jsx global dangerouslySetInnerHTML={{
+          <style dangerouslySetInnerHTML={{
             __html: `
             @keyframes marqueeLeft {
               0% { transform: translateX(0); }
