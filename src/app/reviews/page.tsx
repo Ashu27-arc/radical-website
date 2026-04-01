@@ -118,6 +118,14 @@ export default function TestimonialsPage() {
             { name: 'Arjun Kaushal', college: 'RRMSH, Bengaluru', image: '/2024/std06.jpg' },
             { name: 'Dhruvika Aggarwal', college: 'RMC, Hapur', image: '/2024/std07.jpg' },
             { name: 'Gaurav Choudhary', college: 'SGRRU, Dehradun', image: '/2024/std08.jpg' },
+            { name: 'Mishty Gautam', college: 'PMCH, Udaipur', image: '/2024/std09.jpg' },
+            { name: 'Om Chaturvedi', college: 'SMCH, Kota', image: '/2024/std10.jpg' },
+            { name: 'Rakshita Bhati', college: 'ASU, Russia', image: '/2024/std11.jpg' },
+            { name: 'Ronit Roy', college: 'RMCH, Hapur', image: '/2024/std12.jpg' },
+            { name: 'Sana Mundi', college: 'SGRRU, Dehradun', image: '/2024/std13.jpg' },
+            { name: 'Shreya Parmar', college: 'JNUIMSRC, Jaipur', image: '/2024/std14.jpg' },
+            { name: 'Tushar Arora', college: 'PMCH, Udaipur', image: '/2024/std15.jpg' },
+            { name: 'Vipin Kumar', college: 'PMCH, Udaipur', image: '/2024/std16.jpg' },
         ],
     };
 
