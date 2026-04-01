@@ -66,14 +66,14 @@ const Russia = () => {
                 <h3 className="text-sm md:text-base lg:text-xl font-bold text-gray-800 mb-2 md:mb-3 lg:mb-6 leading-tight">
                   Are you interested in<br />
                   studying medicine<br />
-                  in Russia?
+                  in Uzbekistan?
                 </h3>
 
                 <div className="mt-2 md:mt-3 lg:mt-6">
                   <Link href="https://www.neetbhaiya.in/dedicated-counsellor" target='_blank'>
-                  <button className="cursor-pointer bg-gradient-to-r from-[#28C4B4] to-[#287FC4] hover:from-[#28C4B4] hover:to-[#287FC4] text-white font-semibold py-2 md:py-2.5 lg:py-4 px-4 md:px-5 lg:px-8 rounded-full transition-all duration-300 text-[10px] md:text-xs lg:text-base">
-                    BOOK CONSULTATION
-                  </button>
+                    <button className="cursor-pointer bg-gradient-to-r from-[#28C4B4] to-[#287FC4] hover:from-[#28C4B4] hover:to-[#287FC4] text-white font-semibold py-2 md:py-2.5 lg:py-4 px-4 md:px-5 lg:px-8 rounded-full transition-all duration-300 text-[10px] md:text-xs lg:text-base">
+                      BOOK CONSULTATION
+                    </button>
                   </Link>
                 </div>
               </div>
@@ -97,52 +97,52 @@ const Russia = () => {
       <div className="bg-gradient-to-b from-blue-50 to-white py-8 md:py-12 lg:py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-lg sm:text-2xl md:text-3xl lg:text-4xl font-bold text-center mb-6 md:mb-10 lg:mb-12 px-2">
-            Universities Where You Can Study <span className="text-blue-500">Medicine In Uzbekishtan</span>
+            Universities where you can study <span className="text-blue-500">medicine in Uzbekistan</span>
           </h2>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8 max-w-5xl mx-auto">
             <div className="flex flex-col items-center">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 rounded-full border-2 md:border-4 border-cyan-300 bg-white flex items-center justify-center mb-2 md:mb-4">
+              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
                 <Image
                   src="/images/study-abroad/logos/u.webp"
                   alt="Bukhara State Medical University"
-                  width={70}
-                  height={70}
-                  className="object-contain w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-20 lg:h-20"
+                  width={190}
+                  height={190}
+                  className="object-contain"
                 />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-[9px] sm:text-[10px] md:text-xs lg:text-sm px-1">
-                Bhukhara State Medical University Uzbekishtan
+                Bhukhara State Medical University, Uzbekishtan
               </h3>
             </div>
 
             <div className="flex flex-col items-center">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 rounded-full border-2 md:border-4 border-cyan-300 bg-white flex items-center justify-center mb-2 md:mb-4">
+              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
                 <Image
                   src="/images/study-abroad/logos/u-1.webp"
                   alt="Samarkand State Medical University"
-                  width={70}
-                  height={70}
-                  className="object-contain w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-20 lg:h-20"
+                  width={190}
+                  height={190}
+                  className="object-contain"
                 />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-[9px] sm:text-[10px] md:text-xs lg:text-sm px-1">
-                Samarkand State Medical University Uzbekishtan
+                Samarkand State Medical University, Uzbekishtan
               </h3>
             </div>
 
             <div className="flex flex-col items-center">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 lg:w-32 lg:h-32 rounded-full border-2 md:border-4 border-cyan-300 bg-white flex items-center justify-center mb-2 md:mb-4">
+              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
                 <Image
                   src="/images/study-abroad/logos/u-2.webp"
                   alt="Tashkent Pediatric Medical Institute"
-                  width={70}
-                  height={70}
-                  className="object-contain w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-20 lg:h-20"
+                  width={190}
+                  height={190}
+                  className="object-contain"
                 />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-[9px] sm:text-[10px] md:text-xs lg:text-sm px-1">
-                Tashkent Pediatric Medical Institute Uzbekishtan
+                Tashkent Pediatric Medical Institute, Uzbekishtan
               </h3>
             </div>
           </div>
@@ -153,12 +153,12 @@ const Russia = () => {
       <div className="bg-white py-8 md:py-12 lg:py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-4 md:mb-6 lg:mb-8">
-            Why choose Russia as your destination to study MBBS?
+            Why choose Uzbekistan as your destination to study MBBS?
           </h2>
 
           <div className="text-gray-600 leading-relaxed space-y-4 text-sm md:text-base">
             <p>
-              Invite Your Friends And Unlock Exclusive Benefits – Earn More With Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits
+              Invite your friends and unlock exclusive benefits—earn more with every successful referral. Invite Your Friends And Unlock Exclusive Benefits
               Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits – Earn More With Every Successful Referral. Invite Your
               Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits – Earn More With
               Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive

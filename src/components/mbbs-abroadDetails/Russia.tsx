@@ -65,9 +65,9 @@ const Russia = () => {
                 in Russia?
               </h3>
               <Link href="https://www.neetbhaiya.in/dedicated-counsellor" target='_blank'>
-              <button className="cursor-pointer bg-gradient-to-r from-[#28C4B4] to-[#287FC4] text-white font-semibold py-2 px-4 lg:py-3 lg:px-6 rounded-full transition-all duration-300 text-xs lg:text-sm whitespace-nowrap">
-                BOOK CONSULTATION
-              </button>
+                <button className="cursor-pointer bg-gradient-to-r from-[#28C4B4] to-[#287FC4] text-white font-semibold py-2 px-4 lg:py-3 lg:px-6 rounded-full transition-all duration-300 text-xs lg:text-sm whitespace-nowrap">
+                  BOOK CONSULTATION
+                </button>
               </Link>
             </div>
 
@@ -88,32 +88,23 @@ const Russia = () => {
       <div className="bg-gradient-to-b from-blue-50 to-white py-8 md:py-12 lg:py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-center mb-6 md:mb-10 lg:mb-12 px-2 md:px-4">
-            Universities Where You Can Study <span className="text-blue-500">Medicine In Russia</span>
+            Universities where you can study <span className="text-blue-500">medicine in Russia</span>
           </h2>
 
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 max-w-6xl mx-auto">
             {/* All Universities */}
             <div className="flex flex-col items-center">
-              <div className="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full border-2 md:border-4 border-cyan-300 bg-white flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/r.webp" alt="First Moscow State Medical University" width={50} height={50} className="md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain" />
+              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
+                <Image src="/images/study-abroad/logos/r.webp" alt="First Moscow State Medical University" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
-                First Moscow State Medical University
+                Altai State Medical University
               </h3>
             </div>
 
             <div className="flex flex-col items-center">
-              <div className="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full border-2 md:border-4 border-cyan-300 bg-white flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/r-1.webp" alt="Kazan Federal University" width={50} height={50} className="md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
-                Kazan Federal University
-              </h3>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full border-2 md:border-4 border-cyan-300 bg-white flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/r-2.webp" alt="Bashkir State Medical University" width={50} height={50} className="md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain" />
+              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
+                <Image src="/images/study-abroad/logos/r-1.webp" alt="Kazan Federal University" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
                 Bashkir State Medical University
@@ -121,17 +112,98 @@ const Russia = () => {
             </div>
 
             <div className="flex flex-col items-center">
-              <div className="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full border-2 md:border-4 border-cyan-300 bg-white flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/r-3.webp" alt="Crimea Federal University" width={50} height={50} className="md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain" />
+              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
+                <Image src="/images/study-abroad/logos/r-2.webp" alt="Bashkir State Medical University" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
-                Crimea Federal University
+                Chuvas State Medical University
               </h3>
             </div>
 
             <div className="flex flex-col items-center">
-              <div className="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full border-2 md:border-4 border-cyan-300 bg-white flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/r-4.webp" alt="Kursk State Medical University" width={50} height={50} className="md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain" />
+              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
+                <Image src="/images/study-abroad/logos/r-3.webp" alt="Crimea Federal University" width={190} height={190} className="object-contain" />
+              </div>
+              <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
+                Kazan Federal University
+              </h3>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
+                <Image src="/images/study-abroad/logos/r-4.webp" alt="Kursk State Medical University" width={190} height={190} className="object-contain" />
+              </div>
+              <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
+                First State Moscow Medical University
+              </h3>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
+                <Image src="/images/study-abroad/logos/r-5.webp" alt="Volgograd State Medical University" width={190} height={190} className="object-contain" />
+              </div>
+              <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
+                Imannuel Kant Baltic Federal University
+              </h3>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
+                <Image src="/images/study-abroad/logos/r-6.webp" alt="Tver State Medical University" width={190} height={190} className="object-contain" />
+              </div>
+              <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
+                Kabardino-Balkarian State University
+              </h3>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
+                <Image src="/images/study-abroad/logos/r-7.webp" alt="Orenburg State Medical University" width={190} height={190} className="object-contain" />
+              </div>
+              <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
+                Far Eastern Federal University
+              </h3>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
+                <Image src="/images/study-abroad/logos/r-8.webp" alt="Kursk State Medical University" width={190} height={190} className="object-contain" />
+              </div>
+              <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
+                Kazan State Medical University
+              </h3>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
+                <Image src="/images/study-abroad/logos/r-9.webp" alt="Volgograd State Medical University" width={190} height={190} className="object-contain" />
+              </div>
+              <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
+                Kirov State Medical University
+              </h3>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
+                <Image src="/images/study-abroad/logos/r-10.webp" alt="Tver State Medical University" width={190} height={190} className="object-contain" />
+              </div>
+              <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
+                Northern State Medical University
+              </h3>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
+                <Image src="/images/study-abroad/logos/r-11.webp" alt="Orenburg State Medical University" width={190} height={190} className="object-contain" />
+              </div>
+              <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
+                Krasnoyarsk State Medical University
+              </h3>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
+                <Image src="/images/study-abroad/logos/r-12.webp" alt="Kursk State Medical University" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
                 Kursk State Medical University
@@ -139,8 +211,80 @@ const Russia = () => {
             </div>
 
             <div className="flex flex-col items-center">
-              <div className="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full border-2 md:border-4 border-cyan-300 bg-white flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/r-5.webp" alt="Volgograd State Medical University" width={50} height={50} className="md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain" />
+              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
+                <Image src="/images/study-abroad/logos/r-13.webp" alt="Volgograd State Medical University" width={190} height={190} className="object-contain" />
+              </div>
+              <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
+                Kemerovo State Medical University
+              </h3>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
+                <Image src="/images/study-abroad/logos/r-14.webp" alt="Tver State Medical University" width={190} height={190} className="object-contain" />
+              </div>
+              <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
+                Omsk State Medical University
+              </h3>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
+                <Image src="/images/study-abroad/logos/r-15.webp" alt="Orenburg State Medical University" width={190} height={190} className="object-contain" />
+              </div>
+              <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
+                Oren burg State Medical University
+              </h3>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
+                <Image src="/images/study-abroad/logos/r-16.webp" alt="Kursk State Medical University" width={190} height={190} className="object-contain" />
+              </div>
+              <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
+                Ulyanovsk State Medical University
+              </h3>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
+                <Image src="/images/study-abroad/logos/r-17.webp" alt="Volgograd State Medical University" width={190} height={190} className="object-contain" />
+              </div>
+              <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
+                Orel State Medical University
+              </h3>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
+                <Image src="/images/study-abroad/logos/r-18.webp" alt="Tver State Medical University" width={190} height={190} className="object-contain" />
+              </div>
+              <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
+                Kaliningrad State Medical University
+              </h3>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
+                <Image src="/images/study-abroad/logos/r-19.webp" alt="Orenburg State Medical University" width={190} height={190} className="object-contain" />
+              </div>
+              <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
+                Samara State Medical University
+              </h3>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
+                <Image src="/images/study-abroad/logos/r-20.webp" alt="Kursk State Medical University" width={190} height={190} className="object-contain" />
+              </div>
+              <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
+                South Urai State Medical University
+              </h3>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
+                <Image src="/images/study-abroad/logos/r-21.webp" alt="Volgograd State Medical University" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
                 Volgograd State Medical University
@@ -148,8 +292,26 @@ const Russia = () => {
             </div>
 
             <div className="flex flex-col items-center">
-              <div className="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full border-2 md:border-4 border-cyan-300 bg-white flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/r-6.webp" alt="Tver State Medical University" width={50} height={50} className="md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain" />
+              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
+                <Image src="/images/study-abroad/logos/r-22.webp" alt="Tver State Medical University" width={190} height={190} className="object-contain" />
+              </div>
+              <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
+                Ural State Medical University
+              </h3>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
+                <Image src="/images/study-abroad/logos/r-23.webp" alt="Orenburg State Medical University" width={190} height={190} className="object-contain" />
+              </div>
+              <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
+                Yaroslavl State Medical University
+              </h3>
+            </div>
+
+            <div className="flex flex-col items-center">
+              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
+                <Image src="/images/study-abroad/logos/r-1.webp" alt="Moscow State Medical University" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
                 Tver State Medical University
@@ -157,173 +319,11 @@ const Russia = () => {
             </div>
 
             <div className="flex flex-col items-center">
-              <div className="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full border-2 md:border-4 border-cyan-300 bg-white flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/r-7.webp" alt="Orenburg State Medical University" width={50} height={50} className="md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain" />
+              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
+                <Image src="/images/study-abroad/logos/r-25.webp" alt="Smolensk State Medical University" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
-                Orenburg State Medical University
-              </h3>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full border-2 md:border-4 border-cyan-300 bg-white flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/r-8.webp" alt="Kursk State Medical University" width={50} height={50} className="md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
-                Kursk State Medical University
-              </h3>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full border-2 md:border-4 border-cyan-300 bg-white flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/r-9.webp" alt="Volgograd State Medical University" width={50} height={50} className="md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
-                Volgograd State Medical University
-              </h3>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full border-2 md:border-4 border-cyan-300 bg-white flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/r-10.webp" alt="Tver State Medical University" width={50} height={50} className="md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
-                Tver State Medical University
-              </h3>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full border-2 md:border-4 border-cyan-300 bg-white flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/r-11.webp" alt="Orenburg State Medical University" width={50} height={50} className="md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
-                Orenburg State Medical University
-              </h3>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full border-2 md:border-4 border-cyan-300 bg-white flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/r-12.webp" alt="Kursk State Medical University" width={50} height={50} className="md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
-                Kursk State Medical University
-              </h3>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full border-2 md:border-4 border-cyan-300 bg-white flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/r-13.webp" alt="Volgograd State Medical University" width={50} height={50} className="md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
-                Volgograd State Medical University
-              </h3>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full border-2 md:border-4 border-cyan-300 bg-white flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/r-14.webp" alt="Tver State Medical University" width={50} height={50} className="md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
-                Tver State Medical University
-              </h3>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full border-2 md:border-4 border-cyan-300 bg-white flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/r-15.webp" alt="Orenburg State Medical University" width={50} height={50} className="md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
-                Orenburg State Medical University
-              </h3>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full border-2 md:border-4 border-cyan-300 bg-white flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/r-16.webp" alt="Kursk State Medical University" width={50} height={50} className="md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
-                Kursk State Medical University
-              </h3>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full border-2 md:border-4 border-cyan-300 bg-white flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/r-17.webp" alt="Volgograd State Medical University" width={50} height={50} className="md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
-                Volgograd State Medical University
-              </h3>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full border-2 md:border-4 border-cyan-300 bg-white flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/r-18.webp" alt="Tver State Medical University" width={50} height={50} className="md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
-                Tver State Medical University
-              </h3>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full border-2 md:border-4 border-cyan-300 bg-white flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/r-19.webp" alt="Orenburg State Medical University" width={50} height={50} className="md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
-                Orenburg State Medical University
-              </h3>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full border-2 md:border-4 border-cyan-300 bg-white flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/r-20.webp" alt="Kursk State Medical University" width={50} height={50} className="md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
-                Kursk State Medical University
-              </h3>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full border-2 md:border-4 border-cyan-300 bg-white flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/r-21.webp" alt="Volgograd State Medical University" width={50} height={50} className="md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
-                Volgograd State Medical University
-              </h3>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full border-2 md:border-4 border-cyan-300 bg-white flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/r-22.webp" alt="Tver State Medical University" width={50} height={50} className="md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
-                Tver State Medical University
-              </h3>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full border-2 md:border-4 border-cyan-300 bg-white flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/r-23.webp" alt="Orenburg State Medical University" width={50} height={50} className="md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
-                Orenburg State Medical University
-              </h3>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full border-2 md:border-4 border-cyan-300 bg-white flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/r-1.webp" alt="Moscow State Medical University" width={50} height={50} className="md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
-                Moscow State Medical University
-              </h3>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className="w-20 h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 rounded-full border-2 md:border-4 border-cyan-300 bg-white flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/r-25.webp" alt="Smolensk State Medical University" width={50} height={50} className="md:w-16 md:h-16 lg:w-20 lg:h-20 object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
-                Smolensk State Medical University
+                Syktyvkar State Medical University
               </h3>
             </div>
           </div>

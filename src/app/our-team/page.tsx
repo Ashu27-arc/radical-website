@@ -12,7 +12,7 @@ export default function OurTeam() {
             available: true,
         },
         {
-            name: "Shivanshu shakya",
+            name: "Shivanshu Shakya",
             role: "NEET UG/PG COUNSELLOR",
             image: "/images/022.webp",
             experience: "Experience: 3+ Years",
@@ -27,7 +27,7 @@ export default function OurTeam() {
         },
         {
             name: "Raj Kishore",
-            role: "NEET UG/PG COUNSELLOR",
+            role: "NEET UG/PG COUNSELLOR    ",
             image: "/images/044.webp",
             experience: "Experience: 3+ Years",
             available: true,
@@ -77,12 +77,12 @@ export default function OurTeam() {
                 <div className="absolute inset-0 bg-black/50" />
                 <div className="relative z-10 text-center text-white">
                     <h1 className="lg:text-5xl md:text-4xl text-3xl font-bold mb-3">
-                        The faces changing your
+                        The Faces Changing
                         <br />
-                        future career
+                        Future Careers
                     </h1>
                     <p className="text-base">
-                        Our team of “Professional Medical Counsellor you can trust” works to <br className="md:block hidden" /> secure academic journey.
+                        Our team of “professional medical counsellors you can trust” works to <br className="md:block hidden" /> secure your academic journey.
                     </p>
                 </div>
             </section>
@@ -177,7 +177,7 @@ export default function OurTeam() {
                                         href="https://www.neetbhaiya.in/dedicated-counsellor"
                                         className="mt-auto w-full py-3 px-3 rounded-[100px] bg-[#005A8B] text-[#FFFFFF] font-semibold text-center text-xs transition-colors"
                                     >
-                                        Book A Call
+                                        Book a Call
                                     </a>
                                 </div>
                             </div>
@@ -188,7 +188,7 @@ export default function OurTeam() {
 
             <section id="connect-counselor" className="pb-16">
                 <div className="container mx-auto px-3 md:px-4">
-                     <CounselorSection />
+                    <CounselorSection />
                 </div>
             </section>
         </div>

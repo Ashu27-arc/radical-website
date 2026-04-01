@@ -10,27 +10,32 @@ export default function Footer() {
 
   const tabContent: Record<'study-abroad' | 'mbbs' | 'bds' | 'ayush' | 'md' | 'ms', { label: string; url: string }[]> = {
     'study-abroad': [
-      { label: 'Nepal', url: '/mbbs-abroad-admission/nepal/' },
-      { label: 'Russia', url: '/mbbs-abroad-admission/russia/' },
-      { label: 'Georgia', url: '/mbbs-abroad-admission/georgia/' },
-      { label: 'Singapore', url: '/mbbs-abroad-admission/singapore/' },
       { label: 'Bangladesh', url: '/mbbs-abroad-admission/bangladesh/' },
-      { label: 'Uzbekistan', url: '/mbbs-abroad-admission/uzbekistan/' },
+      { label: 'Georgia', url: '/mbbs-abroad-admission/georgia/' },
       { label: 'Kazakhstan', url: '/mbbs-abroad-admission/kazakhstan/' },
       { label: 'Kyrgyzstan', url: '/mbbs-abroad-admission/kyrgyzstan/' },
+      { label: 'Nepal', url: '/mbbs-abroad-admission/nepal/' },
+      { label: 'Russia', url: '/mbbs-abroad-admission/russia/' },
+      { label: 'Singapore', url: '/mbbs-abroad-admission/singapore/' },
+      { label: 'Uzbekistan', url: '/mbbs-abroad-admission/uzbekistan/' },
     ],
     'mbbs': [
       { label: 'Andhra Pradesh', url: '/mbbs-andhra-pradesh' },
       { label: 'Arunachal Pradesh', url: '/mbbs-arunachal-pradesh' },
       { label: 'Assam', url: '/mbbs-assam' },
       { label: 'Bihar', url: '/mbbs-bihar' },
+      { label: 'Chandigarh', url: '/mbbs-chandigarh' },
       { label: 'Chhattisgarh', url: '/mbbs-chhattisgarh' },
+      { label: 'Delhi', url: '/mbbs-delhi' },
+      { label: 'Goa', url: '/mbbs-goa' },
       { label: 'Gujarat', url: '/mbbs-gujarat' },
       { label: 'Haryana', url: '/mbbs-haryana' },
       { label: 'Himachal Pradesh', url: '/mbbs-himachal-pradesh' },
+      { label: 'Jammu & Kashmir', url: '/mbbs-jammu-kashmir' },
       { label: 'Jharkhand', url: '/mbbs-jharkhand' },
       { label: 'Karnataka', url: '/mbbs-karnataka' },
       { label: 'Kerala', url: '/mbbs-kerala' },
+      { label: 'Ladakh', url: '/mbbs-ladakh' },
       { label: 'Madhya Pradesh', url: '/mbbs-madhya-pradesh' },
       { label: 'Maharashtra', url: '/mbbs-maharashtra' },
       { label: 'Manipur', url: '/mbbs-manipur' },
@@ -38,6 +43,7 @@ export default function Footer() {
       { label: 'Mizoram', url: '/mbbs-mizoram' },
       { label: 'Nagaland', url: '/mbbs-nagaland' },
       { label: 'Odisha', url: '/mbbs-odisha' },
+      { label: 'Puducherry', url: '/mbbs-puducherry' },
       { label: 'Punjab', url: '/mbbs-punjab' },
       { label: 'Rajasthan', url: '/mbbs-rajasthan' },
       { label: 'Sikkim', url: '/mbbs-sikkim' },
@@ -47,24 +53,24 @@ export default function Footer() {
       { label: 'Uttar Pradesh', url: '/mbbs-uttar-pradesh' },
       { label: 'Uttarakhand', url: '/mbbs-uttarakhand' },
       { label: 'West Bengal', url: '/mbbs-west-bengal' },
-      { label: 'Delhi', url: '/mbbs-delhi' },
-      { label: 'Jammu & Kashmir', url: '/mbbs-jammu-kashmir' },
-      { label: 'Ladakh', url: '/mbbs-ladakh' },
-      { label: 'Puducherry', url: '/mbbs-puducherry' },
-      { label: 'Chandigarh', url: '/mbbs-chandigarh' },
     ],
     'bds': [
       { label: 'Andhra Pradesh', url: '/bds-andhra-pradesh' },
       { label: 'Arunachal Pradesh', url: '/bds-arunachal-pradesh' },
       { label: 'Assam', url: '/bds-assam' },
       { label: 'Bihar', url: '/bds-bihar' },
+      { label: 'Chandigarh', url: '/bds-chandigarh' },
       { label: 'Chhattisgarh', url: '/bds-chhattisgarh' },
+      { label: 'Delhi', url: '/bds-delhi' },
+      { label: 'Goa', url: '/bds-goa' },
       { label: 'Gujarat', url: '/bds-gujarat' },
       { label: 'Haryana', url: '/bds-haryana' },
       { label: 'Himachal Pradesh', url: '/bds-himachal-pradesh' },
+      { label: 'Jammu & Kashmir', url: '/bds-jammu-kashmir' },
       { label: 'Jharkhand', url: '/bds-jharkhand' },
       { label: 'Karnataka', url: '/bds-karnataka' },
       { label: 'Kerala', url: '/bds-kerala' },
+      { label: 'Ladakh', url: '/bds-ladakh' },
       { label: 'Madhya Pradesh', url: '/bds-madhya-pradesh' },
       { label: 'Maharashtra', url: '/bds-maharashtra' },
       { label: 'Manipur', url: '/bds-manipur' },
@@ -72,6 +78,7 @@ export default function Footer() {
       { label: 'Mizoram', url: '/bds-mizoram' },
       { label: 'Nagaland', url: '/bds-nagaland' },
       { label: 'Odisha', url: '/bds-odisha' },
+      { label: 'Puducherry', url: '/bds-puducherry' },
       { label: 'Punjab', url: '/bds-punjab' },
       { label: 'Rajasthan', url: '/bds-rajasthan' },
       { label: 'Sikkim', url: '/bds-sikkim' },
@@ -81,25 +88,24 @@ export default function Footer() {
       { label: 'Uttar Pradesh', url: '/bds-uttar-pradesh' },
       { label: 'Uttarakhand', url: '/bds-uttarakhand' },
       { label: 'West Bengal', url: '/bds-west-bengal' },
-      { label: 'Delhi', url: '/bds-delhi' },
-      { label: 'Jammu & Kashmir', url: '/bds-jammu-kashmir' },
-      { label: 'Ladakh', url: '/bds-ladakh' },
-      { label: 'Puducherry', url: '/bds-puducherry' },
-      { label: 'Chandigarh', url: '/bds-chandigarh' },
     ],
     'ayush': [
       { label: 'Andhra Pradesh', url: '/ayush-andhra-pradesh' },
       { label: 'Arunachal Pradesh', url: '/ayush-arunachal-pradesh' },
       { label: 'Assam', url: '/ayush-assam' },
       { label: 'Bihar', url: '/ayush-bihar' },
+      { label: 'Chandigarh', url: '/ayush-chandigarh' },
       { label: 'Chhattisgarh', url: '/ayush-chhattisgarh' },
+      { label: 'Delhi', url: '/ayush-delhi' },
       { label: 'Goa', url: '/ayush-goa' },
       { label: 'Gujarat', url: '/ayush-gujarat' },
       { label: 'Haryana', url: '/ayush-haryana' },
       { label: 'Himachal Pradesh', url: '/ayush-himachal-pradesh' },
+      { label: 'Jammu & Kashmir', url: '/ayush-jammu-kashmir' },
       { label: 'Jharkhand', url: '/ayush-jharkhand' },
       { label: 'Karnataka', url: '/ayush-karnataka' },
       { label: 'Kerala', url: '/ayush-kerala' },
+      { label: 'Ladakh', url: '/ayush-ladakh' },
       { label: 'Madhya Pradesh', url: '/ayush-madhya-pradesh' },
       { label: 'Maharashtra', url: '/ayush-maharashtra' },
       { label: 'Manipur', url: '/ayush-manipur' },
@@ -107,6 +113,7 @@ export default function Footer() {
       { label: 'Mizoram', url: '/ayush-mizoram' },
       { label: 'Nagaland', url: '/ayush-nagaland' },
       { label: 'Odisha', url: '/ayush-odisha' },
+      { label: 'Puducherry', url: '/ayush-puducherry' },
       { label: 'Punjab', url: '/ayush-punjab' },
       { label: 'Rajasthan', url: '/ayush-rajasthan' },
       { label: 'Sikkim', url: '/ayush-sikkim' },
@@ -116,24 +123,24 @@ export default function Footer() {
       { label: 'Uttar Pradesh', url: '/ayush-uttar-pradesh' },
       { label: 'Uttarakhand', url: '/ayush-uttarakhand' },
       { label: 'West Bengal', url: '/ayush-west-bengal' },
-      { label: 'Delhi', url: '/ayush-delhi' },
-      { label: 'Jammu & Kashmir', url: '/ayush-jammu-kashmir' },
-      { label: 'Ladakh', url: '/ayush-ladakh' },
-      { label: 'Puducherry', url: '/ayush-puducherry' },
-      { label: 'Chandigarh', url: '/ayush-chandigarh' },
     ],
     'md': [
       { label: 'Andhra Pradesh', url: '/md-andhra-pradesh' },
       { label: 'Arunachal Pradesh', url: '/md-arunachal-pradesh' },
       { label: 'Assam', url: '/md-assam' },
       { label: 'Bihar', url: '/md-bihar' },
+      { label: 'Chandigarh', url: '/md-chandigarh' },
       { label: 'Chhattisgarh', url: '/md-chhattisgarh' },
+      { label: 'Delhi', url: '/md-delhi' },
+      { label: 'Goa', url: '/md-goa' },
       { label: 'Gujarat', url: '/md-gujarat' },
       { label: 'Haryana', url: '/md-haryana' },
       { label: 'Himachal Pradesh', url: '/md-himachal-pradesh' },
+      { label: 'Jammu & Kashmir', url: '/md-jammu-kashmir' },
       { label: 'Jharkhand', url: '/md-jharkhand' },
       { label: 'Karnataka', url: '/md-karnataka' },
       { label: 'Kerala', url: '/md-kerala' },
+      { label: 'Ladakh', url: '/md-ladakh' },
       { label: 'Madhya Pradesh', url: '/md-madhya-pradesh' },
       { label: 'Maharashtra', url: '/md-maharashtra' },
       { label: 'Manipur', url: '/md-manipur' },
@@ -141,6 +148,7 @@ export default function Footer() {
       { label: 'Mizoram', url: '/md-mizoram' },
       { label: 'Nagaland', url: '/md-nagaland' },
       { label: 'Odisha', url: '/md-odisha' },
+      { label: 'Puducherry', url: '/md-puducherry' },
       { label: 'Punjab', url: '/md-punjab' },
       { label: 'Rajasthan', url: '/md-rajasthan' },
       { label: 'Sikkim', url: '/md-sikkim' },
@@ -150,24 +158,24 @@ export default function Footer() {
       { label: 'Uttar Pradesh', url: '/md-uttar-pradesh' },
       { label: 'Uttarakhand', url: '/md-uttarakhand' },
       { label: 'West Bengal', url: '/md-west-bengal' },
-      { label: 'Delhi', url: '/md-delhi' },
-      { label: 'Jammu & Kashmir', url: '/md-jammu-kashmir' },
-      { label: 'Ladakh', url: '/md-ladakh' },
-      { label: 'Puducherry', url: '/md-puducherry' },
-      { label: 'Chandigarh', url: '/md-chandigarh' },
     ],
     'ms': [
       { label: 'Andhra Pradesh', url: '/ms-andhra-pradesh' },
       { label: 'Arunachal Pradesh', url: '/ms-arunachal-pradesh' },
       { label: 'Assam', url: '/ms-assam' },
       { label: 'Bihar', url: '/ms-bihar' },
+      { label: 'Chandigarh', url: '/ms-chandigarh' },
       { label: 'Chhattisgarh', url: '/ms-chhattisgarh' },
+      { label: 'Delhi', url: '/ms-delhi' },
+      { label: 'Goa', url: '/ms-goa' },
       { label: 'Gujarat', url: '/ms-gujarat' },
       { label: 'Haryana', url: '/ms-haryana' },
       { label: 'Himachal Pradesh', url: '/ms-himachal-pradesh' },
+      { label: 'Jammu & Kashmir', url: '/ms-jammu-kashmir' },
       { label: 'Jharkhand', url: '/ms-jharkhand' },
       { label: 'Karnataka', url: '/ms-karnataka' },
       { label: 'Kerala', url: '/ms-kerala' },
+      { label: 'Ladakh', url: '/ms-ladakh' },
       { label: 'Madhya Pradesh', url: '/ms-madhya-pradesh' },
       { label: 'Maharashtra', url: '/ms-maharashtra' },
       { label: 'Manipur', url: '/ms-manipur' },
@@ -175,6 +183,7 @@ export default function Footer() {
       { label: 'Mizoram', url: '/ms-mizoram' },
       { label: 'Nagaland', url: '/ms-nagaland' },
       { label: 'Odisha', url: '/ms-odisha' },
+      { label: 'Puducherry', url: '/ms-puducherry' },
       { label: 'Punjab', url: '/ms-punjab' },
       { label: 'Rajasthan', url: '/ms-rajasthan' },
       { label: 'Sikkim', url: '/ms-sikkim' },
@@ -184,11 +193,6 @@ export default function Footer() {
       { label: 'Uttar Pradesh', url: '/ms-uttar-pradesh' },
       { label: 'Uttarakhand', url: '/ms-uttarakhand' },
       { label: 'West Bengal', url: '/ms-west-bengal' },
-      { label: 'Delhi', url: '/ms-delhi' },
-      { label: 'Jammu & Kashmir', url: '/ms-jammu-kashmir' },
-      { label: 'Ladakh', url: '/ms-ladakh' },
-      { label: 'Puducherry', url: '/ms-puducherry' },
-      { label: 'Chandigarh', url: '/ms-chandigarh' },
     ],
   };
 
@@ -205,7 +209,7 @@ export default function Footer() {
                 </Link>
               </div>
               <div className="text-xs sm:text-sm my-4 sm:my-6 pb-6 sm:pb-8 border-b border-[#0B2E3C]">
-                We offer personalised sessions specially for your NEET rank, academic profile, budget, and career goals. This approach helps you understand your best options and make informed decisions for your medical future.
+                We offer personalised sessions tailored to your NEET rank, academic profile, budget, and career goals. This approach helps you understand your best options and make informed decisions for your medical future.
               </div>
               <div className='flex items-center justify-between gap-3 sm:gap-4 mb-6 sm:mb-8'>
                 <div className=''>
@@ -215,7 +219,7 @@ export default function Footer() {
                   <Image src='/images/iso.webp' alt='ISO' width='50' height='50' className='w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16' />
                 </div>
                 <div className='text-[10px] xs:text-xs sm:text-xs text-[#0B2E3C] leading-tight sm:leading-3 text-center sm:text-left'>
-                  Radical Education<br />is an <span className='text-xs sm:text-sm font-semibold'>ISO 9001:2015</span><br />certified company
+                  Radical Education<br />is an <span className='text-xs sm:text-sm font-semibold'>ISO 9001:2015</span><br />-certified company
                 </div>
               </div>
               <div className='flex items-center gap-4'>
@@ -281,7 +285,7 @@ export default function Footer() {
               <ul className="space-y-4 text-xs sm:text-sm">
                 <li className="flex items-center gap-2">
                   <i className="pi pi-phone text-xs sm:text-sm" />
-                  <span className='truncate'>97 97 97 24 65</span>
+                  <span className='truncate'>97 97 97 2465</span>
                 </li>
                 <li className="flex items-center gap-2">
                   <i className="pi pi-envelope text-xs sm:text-sm" />
@@ -290,7 +294,7 @@ export default function Footer() {
                 <li className="flex items-start gap-2">
                   <i className="pi pi-map-marker md:mt-0.5 -mt-0.5 text-xs sm:text-sm" />
                   <span className='text-center sm:text-left'>
-                    C-56/30, 3rd Floor, Sector-62<br className='hidden md:block' />
+                    C-56/30, 3rd Floor, Sector 62<br className='hidden md:block' />
                     Noida, Uttar Pradesh
                   </span>
                 </li>

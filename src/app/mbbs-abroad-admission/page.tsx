@@ -56,7 +56,7 @@ export default function MBBSAbroadAdmission() {
                 { name: "Naman", avatar: "/images/testi9.webp" },
             ],
             description:
-                "MBBS in Kazakhstan offers low tuition fees, globally recognized degrees, English-medium education, modern medical universities, and strong clinical exposure, making it an affordable and reliable option for Indian students.",
+                "MBBS in Nepal offers affordable fees, recognized degrees, English-medium education, and strong clinical exposure, making it an affordable and reliable option for Indian students.",
         },
         {
             id: 4,
@@ -211,7 +211,7 @@ export default function MBBSAbroadAdmission() {
                                 COUNTRIES
                             </p>
                             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#0B2E3C]">
-                                Country <span className="text-[#287FC4]">We Serve</span>
+                                Countries <span className="text-[#287FC4]">We Serve</span>
                             </h2>
                         </div>
                         <p className="text-gray-600 text-sm sm:text-base md:text-lg max-w-2xl leading-relaxed md:mt-8">
@@ -600,7 +600,7 @@ export default function MBBSAbroadAdmission() {
                             <p className="text-gray-600 text-xs sm:text-sm md:text-base px-2 sm:px-4 max-w-3xl mx-auto leading-relaxed">
                                 This Section Outlines The Complete Cost Structure For MBBS Abroad. Everything
                                 <br className="hidden md:block" />
-                                Related To Expenses Are Explained Clearly For Easy Understanding.
+                                related to expenses is explained clearly for easy understanding.
                             </p>
                         </div>
 
@@ -611,7 +611,7 @@ export default function MBBSAbroadAdmission() {
                                 <div className="grid grid-cols-4 bg-[#F5B800] text-[#0B2E3C] font-bold text-sm sm:text-base md:text-lg">
                                     <div className="p-3 sm:p-4 md:p-5 text-center border-r border-[#E5A800]">Country</div>
                                     <div className="p-3 sm:p-4 md:p-5 text-center border-r border-[#E5A800]">Academic</div>
-                                    <div className="p-3 sm:p-4 md:p-5 text-center border-r border-[#E5A800]">Hostel & Mesh</div>
+                                    <div className="p-3 sm:p-4 md:p-5 text-center border-r border-[#E5A800]">Hostel & Mess</div>
                                     <div className="p-3 sm:p-4 md:p-5 text-center">Total</div>
                                 </div>
 
@@ -634,9 +634,9 @@ export default function MBBSAbroadAdmission() {
                                     {
                                         country: "UZBEKISTAN",
                                         flag: "/images/uzbekistan.webp",
-                                        academic: { primary: "6,16,250 INR", secondary: "7250 USD" },
+                                        academic: { primary: "6,16,250 INR", secondary: "7,250 USD" },
                                         hostel: { primary: "51,000 INR", secondary: "600 USD" },
-                                        total: { primary: "6,16,250 INR", secondary: "7250 USD" }
+                                        total: { primary: "6,16,250 INR", secondary: "7,250 USD" }
                                     },
                                     {
                                         country: "NEPAL",
@@ -656,11 +656,11 @@ export default function MBBSAbroadAdmission() {
                                         country: "SINGAPORE",
                                         flag: "/images/singapore.webp",
                                         academic: { primary: "76450 USD" },
-                                        hostel: { primary: "265 TO 605 USD" },
+                                        hostel: { primary: "265 to 605 USD" },
                                         total: { primary: "77055 USD" }
                                     },
                                     {
-                                        country: "KRYGYSTAN",
+                                        country: "KYRGYZSTAN",
                                         flag: "/images/kyrgyzstan.webp",
                                         academic: { primary: "2200 USD" },
                                         hostel: { primary: "600 USD" },
@@ -725,10 +725,10 @@ export default function MBBSAbroadAdmission() {
                                 <span className="text-[#FF0000] font-bold flex-shrink-0 text-sm sm:text-base md:text-lg">Note:-</span>
                                 <div className="space-y-1 text-[#2CBF0F] font-semibold text-xs sm:text-sm md:text-base">
                                     <p className="text-green-600">
-                                        1. This Service Charge Includes The Visa Charges But Does Not Cover The Ticket Charges.
+                                        1. This service charge includes visa charges but does not cover ticket charges.
                                     </p>
                                     <p className="text-green-600">
-                                        2. Get The Offer Price 99,999 Before NEET Result
+                                        2. Get the offer price of ₹99,999 before the NEET result.
                                     </p>
                                 </div>
                             </div>

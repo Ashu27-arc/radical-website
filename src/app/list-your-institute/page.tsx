@@ -146,34 +146,30 @@ export default function InstituteListPage() {
               List Your Institute With Us
             </h1>
             <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-3 sm:mb-4 md:mb-6 leading-relaxed">
-              Nowadays, Students Search Online For Information Before Selecting
-              Their Study Location. If Your Institute Does Not Appear Online,
-              You Could Be Losing Admission Opportunities.
+              Nowadays, students search online for information before selecting
+              their study location. If your institute does not appear online,
+              you could be losing admission opportunities.
             </p>
             <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-2 sm:mb-3 md:mb-4 leading-relaxed">
-              Add Your Institute To Radical Education And Reach The Students
-              That Are Looking For Courses Like Yours. We Handle Everything, Its
-              Simple And Effective.
+              Add your institute to Radical Education and reach students
+              who are looking for courses like yours. We handle everything; it's simple and effective.
             </p>
             <p className="text-xs sm:text-sm md:text-base text-gray-700 font-semibold mb-2 sm:mb-3 md:mb-4">We Do This By:</p>
             <ul className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm md:text-base text-gray-600">
               <li className="flex items-start">
                 <span className="mr-2 flex-shrink-0">•</span>
-                <span>Get Students Interested In It More</span>
+                <span>Get more students interested in it</span>
               </li>
               <li className="flex items-start">
                 <span className="mr-2 flex-shrink-0">•</span>
                 <span>
-                  Enhance Your Online Presence Without Having To Spend More On
-                  Marketing
+                  Enhance your online presence without spending more on marketing
                 </span>
               </li>
               <li className="flex items-start">
                 <span className="mr-2 flex-shrink-0">•</span>
                 <span>
-                  Use Reviews, Pictures And Confirmed Details To Establish Trust
-                  - Save Time By Allowing Us To Develop And Manage A Profile On
-                  Your Behalf.
+                  Use reviews, pictures, and confirmed details to establish trust—save time by allowing us to develop and manage a profile on your behalf.
                 </span>
               </li>
             </ul>
@@ -269,7 +265,7 @@ export default function InstituteListPage() {
 
               {/* Phone no */}
               <div>
-                <label className="block text-white mb-1.5 sm:mb-2 text-sm sm:text-base">Phone no</label>
+                <label className="block text-white mb-1.5 sm:mb-2 text-sm sm:text-base">Phone No</label>
                 <input
                   type="tel"
                   name="phoneNo"
@@ -354,7 +350,7 @@ export default function InstituteListPage() {
                     required
                   />
                   <span className="pointer-events-none absolute left-[15px] top-[12px] text-white/50 transition-all duration-200 peer-focus:opacity-0 peer-[&:not(:placeholder-shown)]:opacity-0">
-                    House No./Building No.
+                    House No./Block No.
                   </span>
                 </div>
                 <div className="relative placeholderCOlorWhite">

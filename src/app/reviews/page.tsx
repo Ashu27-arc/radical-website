@@ -20,7 +20,7 @@ export default function TestimonialsPage() {
     const videos = [
         { id: 1, title: 'Student Success Story 1', youtubeId: 'jfq8RbTIrtI' },
         { id: 2, title: 'Student Success Story 2', youtubeId: 'hwYjHX5pk9w' },
-        { id: 3, title: 'Main Testimonial Video', youtubeId: 'CxDL_T4CWs8' },
+        { id: 3, title: 'Sangam Yadav, MGAMC, Lucknow', youtubeId: 'CxDL_T4CWs8' },
     ];
 
     // Student data organized by year
@@ -29,7 +29,7 @@ export default function TestimonialsPage() {
             { name: 'Etshamul Haque', college: 'NCRIMS, Meerut', image: '/2025/std1.jpg' },
             { name: 'Anant Deep Singhal', college: 'MFMC, Muzaffarnagar', image: '/2025/std2.jpg' },
             { name: 'Yashvi Agarwal', college: 'MRMCW, Hyderabad', image: '/2025/std3.jpg' },
-            { name: 'Kumar Amlendu', college: 'GMC, Ariyalur Tamil Nadu', image: '/2025/std4.jpg' },
+            { name: 'Kumar Amlendu', college: 'GMC, Ariyalur, Tamil Nadu', image: '/2025/std4.jpg' },
             { name: 'Shreya Jain', college: 'TMMCRC, Moradabad', image: '/2025/std5.jpg' },
             { name: 'Piyush Bisht', college: 'GMC, Haldwani', image: '/2025/std6.jpg' },
             { name: 'Kshiraj Luthra', college: 'GMC, Alwar', image: '/2025/std7.jpg' },
@@ -239,7 +239,7 @@ export default function TestimonialsPage() {
                 <div className="relative z-10 max-w-6xl mx-auto px-3 sm:px-4 h-full flex flex-col justify-center items-center text-center text-white pt-2 sm:pt-3 md:pt-4">
 
                     <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold leading-tight uppercase px-2 max-w-3xl">
-                        What Students Says About <br className="hidden sm:block" />
+                        What Students Say About <br className="hidden sm:block" />
                         <span className="text-white">Radical Education</span>
                     </h1>
 
@@ -287,7 +287,10 @@ export default function TestimonialsPage() {
                 <div className="max-w-6xl mx-auto px-3 sm:px-4 md:px-6 text-center">
                     <p className="text-xs font-bold uppercase text-[#000000] tracking-wide">Our Student's</p>
                     <h3 className="text-lg sm:text-xl md:text-2xl font-bold uppercase text-[#000000] mt-2">
-                        Our <span className="text-[#0c5d87]">Successful <br className="md:hidden" /> Student's</span>
+                        Our{" "}
+                        <span className="text-[#0c5d87]">
+                            Successful <br className="md:hidden" /> Students
+                        </span>
                     </h3>
 
                     <div
