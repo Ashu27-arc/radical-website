@@ -8,52 +8,52 @@ import Link from "next/link";
 const studyIndiaLists = [
     {
         id: 1,
-        title: 'Mbbs in India',
+        title: 'MBBS in India',
         link: "#"
     },
     {
         id: 2,
-        title: "Bams in India",
+        title: "BAMS in India",
         link: "#"
     },
     {
         id: 3,
-        title: 'Bhms in India',
+        title: 'BHMS in India',
         link: "#"
     },
     {
         id: 4,
-        title: 'Bums in India',
+        title: 'BUMS in India',
         link: "#"
     },
     {
         id: 5,
-        title: 'Bnys in India',
+        title: 'BNYS in India',
         link: "#"
     },
     {
         id: 6,
-        title: 'Bds in India',
+        title: 'BDS in India',
         link: "#"
     },
     {
         id: 7,
-        title: "Bsms in India",
+        title: "BAMS in India",
         link: "#"
     },
     {
         id: 8,
-        title: 'Md in India',
+        title: 'MD in India',
         link: "#"
     },
     {
         id: 9,
-        title: 'Ms in India',
+        title: 'MS in India',
         link: "#"
     },
     {
         id: 10,
-        title: 'Dnb in India',
+        title: 'DNB in India',
         link: "#"
     },
 ];
@@ -137,8 +137,8 @@ duration-300"
                         </a>
                     </section>
                     <div className='mb-10 fadeUp text-center'>
-                        <h2 className='text-black text-4xl font-bold mb-4'>OUR <span className='text-[#287FC4]'>SUCESSFUL STORIES</span></h2>
-                        <div className='uppercase text-[#00CFB240] leading-12 text-[42px] md:text-5xl lg:text-7xl font-black'>HEAR FORM OUR STUDENT</div>
+                        <h2 className='text-black text-4xl font-bold mb-4'>OUR <span className='text-[#287FC4]'>SUCCESSFUL STORIES</span></h2>
+                        <div className='uppercase text-[#00CFB240] leading-12 text-[42px] md:text-5xl lg:text-7xl font-black'>HEAR FROM OUR STUDENTS</div>
                     </div>
                     <div className="grid gap-6 md:grid-cols-3 grid-cols-1">
                         {videos.map((video) => (

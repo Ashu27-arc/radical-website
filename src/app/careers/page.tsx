@@ -15,54 +15,54 @@ interface JobDetails {
 }
 
 const jobsData: JobDetails[] = [
-  {
-    title: "PROJECT MANAGER",
-    experience: "2-4 years",
-    location: "On-Site",
-    employmentType: "Full-Time",
-    description: "Ancient Indian Medicine System Focusing On Natural Healing Through Herbs, Lifestyle, And Holistic Treatments For Complete Wellness.",
-    overview: "we are looking for a proactive and detail-oriented project manager with 2–4 years of experience to lead cross-functional teams, manage project timelines, and ensure successful delivery of projects. the ideal candidate should be skilled in planning, execution, stakeholder communication, and risk management.",
-    responsibilities: [
-      "plan, execute, and deliver projects within defined scope, timeline, and budget",
-      "coordinate with internal teams (design, development, marketing, qa, etc.)",
-      "define project goals, milestones, and deliverables",
-      "track project progress using tools like jira, trello, asana, or clickup",
-      "identify risks and implement mitigation strategies",
-      "conduct regular status meetings and provide progress reports"
-    ]
-  },
-  {
-    title: "SENIOR DEVELOPER",
-    experience: "3-5 years",
-    location: "On-Site",
-    employmentType: "Full-Time",
-    description: "Join our development team to build scalable applications using modern technologies and best practices.",
-    overview: "we are seeking an experienced senior developer with 3–5 years of hands-on experience in full-stack development. the ideal candidate should have strong problem-solving skills and expertise in modern web technologies.",
-    responsibilities: [
-      "develop and maintain web applications using React, Node.js, and TypeScript",
-      "write clean, maintainable, and well-documented code",
-      "collaborate with designers and product managers",
-      "mentor junior developers and conduct code reviews",
-      "optimize application performance and scalability",
-      "participate in architectural decisions and technical planning"
-    ]
-  },
-  {
-    title: "UI/UX DESIGNER",
-    experience: "2-3 years",
-    location: "On-Site",
-    employmentType: "Full-Time",
-    description: "Create beautiful and intuitive user experiences that delight our customers and drive business growth.",
-    overview: "we are looking for a creative UI/UX designer with 2–3 years of experience to design user-centered digital experiences. the ideal candidate should have a strong portfolio and expertise in design tools.",
-    responsibilities: [
-      "design user interfaces for web and mobile applications",
-      "create wireframes, prototypes, and high-fidelity mockups",
-      "conduct user research and usability testing",
-      "collaborate with developers to ensure design implementation",
-      "maintain design systems and component libraries",
-      "stay updated with latest design trends and best practices"
-    ]
-  }
+  // {
+  //   title: "PROJECT MANAGER",
+  //   experience: "2-4 years",
+  //   location: "On-Site",
+  //   employmentType: "Full-Time",
+  //   description: "Ancient Indian Medicine System Focusing On Natural Healing Through Herbs, Lifestyle, And Holistic Treatments For Complete Wellness.",
+  //   overview: "we are looking for a proactive and detail-oriented project manager with 2–4 years of experience to lead cross-functional teams, manage project timelines, and ensure successful delivery of projects. the ideal candidate should be skilled in planning, execution, stakeholder communication, and risk management.",
+  //   responsibilities: [
+  //     "plan, execute, and deliver projects within defined scope, timeline, and budget",
+  //     "coordinate with internal teams (design, development, marketing, qa, etc.)",
+  //     "define project goals, milestones, and deliverables",
+  //     "track project progress using tools like jira, trello, asana, or clickup",
+  //     "identify risks and implement mitigation strategies",
+  //     "conduct regular status meetings and provide progress reports"
+  //   ]
+  // },
+  // {
+  //   title: "SENIOR DEVELOPER",
+  //   experience: "3-5 years",
+  //   location: "On-Site",
+  //   employmentType: "Full-Time",
+  //   description: "Join our development team to build scalable applications using modern technologies and best practices.",
+  //   overview: "we are seeking an experienced senior developer with 3–5 years of hands-on experience in full-stack development. the ideal candidate should have strong problem-solving skills and expertise in modern web technologies.",
+  //   responsibilities: [
+  //     "develop and maintain web applications using React, Node.js, and TypeScript",
+  //     "write clean, maintainable, and well-documented code",
+  //     "collaborate with designers and product managers",
+  //     "mentor junior developers and conduct code reviews",
+  //     "optimize application performance and scalability",
+  //     "participate in architectural decisions and technical planning"
+  //   ]
+  // },
+  // {
+  //   title: "UI/UX DESIGNER",
+  //   experience: "2-3 years",
+  //   location: "On-Site",
+  //   employmentType: "Full-Time",
+  //   description: "Create beautiful and intuitive user experiences that delight our customers and drive business growth.",
+  //   overview: "we are looking for a creative UI/UX designer with 2–3 years of experience to design user-centered digital experiences. the ideal candidate should have a strong portfolio and expertise in design tools.",
+  //   responsibilities: [
+  //     "design user interfaces for web and mobile applications",
+  //     "create wireframes, prototypes, and high-fidelity mockups",
+  //     "conduct user research and usability testing",
+  //     "collaborate with developers to ensure design implementation",
+  //     "maintain design systems and component libraries",
+  //     "stay updated with latest design trends and best practices"
+  //   ]
+  // }
 ];
 
 export default function CareersPage() {
@@ -291,7 +291,7 @@ export default function CareersPage() {
           <div className="absolute left-0 right-0 top-[280px] md:top-[328px] h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent shadow-sm"></div>
 
           {/* Mouse/Touch Drag Slider Animation for all views */}
-          <div 
+          <div
             ref={sliderRef}
             className={`relative overflow-x-auto w-full pb-8 scrollbar-hide select-none cursor-${isMouseDown ? 'grabbing' : 'grab'}`}
             onMouseDown={onMouseDown}
@@ -320,7 +320,7 @@ export default function CareersPage() {
                   </div>
                   {/* Title below the card and dot */}
                   <div className="pt-5 md:pt-6 pb-4 text-center select-none pointer-events-none">
-                    <h3 className={`text-xs md:text-sm font-medium ${item.titleColor} lowercase`}>
+                    <h3 className={`text-xs md:text-sm font-medium ${item.titleColor}`}>
                       {item.title.includes(' & ') ? (
                         <>
                           {item.title.split(' & ')[0]} {item.title === "learning-driven & environment" ? "" : "&"}
@@ -360,7 +360,7 @@ export default function CareersPage() {
             {jobsData.length === 0 ? (
               // No Openings Message
               <div className="py-6 md:py-8">
-                <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8">
+                <div className="flex flex-row items-center justify-center gap-6 md:gap-10">
                   <div className="flex-shrink-0">
                     <Image
                       src="/images/careers/cuate-1.webp"
@@ -370,14 +370,13 @@ export default function CareersPage() {
                       className="w-full max-w-[200px] md:max-w-[300px]"
                     />
                   </div>
-                  <div className="flex-1 text-center md:text-left">
+                  <div className="text-left">
                     <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-3">
                       No Opening Yet
                     </h3>
-                    <p className="text-gray-600 text-sm md:text-base leading-relaxed line-clamp-3">
-                      I Designed A Web UI For An AI-Powered HR Co-<br />
-                      Pilot That Helps HRs Generate Job Descriptions<br />
-                      And Screen Resumes
+                    <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+                      We currently have no open positions.<br />
+                      Check back soon for new opportunities!
                     </p>
                   </div>
                 </div>

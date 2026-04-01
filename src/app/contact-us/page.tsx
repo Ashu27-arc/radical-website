@@ -19,7 +19,7 @@ export default function ContactPage() {
                     <div className="absolute inset-0 bg-black/50 -z-1" />
                     <div className="mx-auto px-4 w-full lg:w-4/10 md:8/10 text-center fadeUp">
                         <h1 className="uppercase lg:text-5xl text-4xl font-bold text-white lg:mb-6 mb-4">CONTACT US</h1>
-                        <p className="text-white text-lg m-0 p-0">Our team of experts is just a call or a message away. If you are having any trouble in your medical studies, come join us.</p>
+                        <p className="text-white text-lg m-0 p-0">Our team of experts is just a call or a message away. If you are having any trouble with your medical studies, come join us.</p>
                     </div>
                 </section>
                 <section className='pb-15'>
@@ -28,7 +28,7 @@ export default function ContactPage() {
                             <div className="fadeUp bg-white p-8 rounded-xl shadow-[0px_6px_14px_0px_rgba(41,128,196,0.10),0px_25px_25px_0px_rgba(41,128,196,0.09),0px_57px_34px_0px_rgba(41,128,196,0.05),0px_101px_40px_0px_rgba(41,128,196,0.02),0px_157px_44px_0px_rgba(41,128,196,0)]">
                                 <div className="-ml-2"><Image src="/images/visitUs.webp" className="" alt="" width="110" height="110" /></div>
                                 <h4 className="my-3 text-xl font-semibold text-[#0A1A2F] -mt-2">Visit Us</h4>
-                                <div className="text-sm text-[#555555] mb-6">Meet our counselling experts in person for valuable discussions, profile evaluation and resolving of any query in a comfortable, student-friendly environment.</div>
+                                <div className="text-sm text-[#555555] mb-6">Meet our counselling experts in person for valuable discussions, profile evaluation, and resolution of any query in a comfortable, student-friendly environment.</div>
                                 <Link href="https://maps.app.goo.gl/NbWqaZNNHtJqE5Br9" target="_blank">
                                     <div className="flex items-center gap-2 justify-between text-[#089241] font-semibold">
                                         <div className="">C-56/30, C Block, Sector 62, Noida, Uttar Pradesh 201309</div>
@@ -39,7 +39,7 @@ export default function ContactPage() {
                             <div className="fadeUp bg-white p-8 rounded-xl shadow-[0px_6px_14px_0px_rgba(41,128,196,0.10),0px_25px_25px_0px_rgba(41,128,196,0.09),0px_57px_34px_0px_rgba(41,128,196,0.05),0px_101px_40px_0px_rgba(41,128,196,0.02),0px_157px_44px_0px_rgba(41,128,196,0)]">
                                 <div className="-ml-2"><Image src="/images/callUs.webp" className="" alt="" width="110" height="110" /></div>
                                 <h4 className="my-3 text-xl font-semibold text-[#0A1A2F] -mt-2">Call Us</h4>
-                                <div className="text-sm text-[#555555] mb-6">Speak to us directly with experienced Counsellors at your disposal to resolve doubts, understanding counselling procedures and receiving total guidance for NEET and medical admissions.</div>
+                                <div className="text-sm text-[#555555] mb-6">Speak to us directly with experienced counsellors at your disposal to resolve doubts, understand counselling procedures, and receive complete guidance for NEET and medical admissions.</div>
                                 <Link href="tel:9797972465">
                                     <div className="flex items-center gap-2 justify-between text-[#089241] font-semibold">
                                         <div className="">+91 97 97 97 2465</div>
@@ -50,7 +50,7 @@ export default function ContactPage() {
                             <div className="fadeUp bg-white p-8 rounded-xl shadow-[0px_6px_14px_0px_rgba(41,128,196,0.10),0px_25px_25px_0px_rgba(41,128,196,0.09),0px_57px_34px_0px_rgba(41,128,196,0.05),0px_101px_40px_0px_rgba(41,128,196,0.02),0px_157px_44px_0px_rgba(41,128,196,0)]">
                                 <div className="-ml-2"><Image src="/images/writeToUs.webp" className="" alt="" width="110" height="110" /></div>
                                 <h4 className="my-3 text-xl font-semibold text-[#0A1A2F] -mt-2">Write To Us</h4>
-                                <div className="text-sm text-[#555555] mb-6">Email us your doubts, documents or concerns and receive clear, well-researched responses from our counselling team, ensuring you're confident and educated before making important decisions.</div>
+                                <div className="text-sm text-[#555555] mb-6">Email us your doubts, documents, or concerns and receive clear, well-researched responses from our counselling team, ensuring you're confident and informed before making important decisions.</div>
                                 <Link href="mailto:info@radicaleducation.in">
                                     <div className="flex items-center gap-2 justify-between text-[#089241] font-semibold">
                                         <div className="">info@radicaleducation.in</div>
