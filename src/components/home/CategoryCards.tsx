@@ -94,12 +94,12 @@ export default function CategoryCards() {
           ))}
         </Swiper>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:px-20">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:gap-11 gap-6 lg:px-23">
 
         {data.map((item, index) => (
           <div
             key={index}
-            className="group relative w-full max-w-[519.04px] md:w-[519.04px] h-[122.13px] rounded-[30px] overflow-hidden cursor-pointer mx-auto md:mx-0 brightness-110"
+            className="group relative w-full h-[130px] rounded-[30px] overflow-hidden cursor-pointer mx-auto md:mx-0 brightness-110"
           >
 
             {/* Background Image */}
