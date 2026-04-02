@@ -15,54 +15,54 @@ interface JobDetails {
 }
 
 const jobsData: JobDetails[] = [
-  {
-    title: "PROJECT MANAGER",
-    experience: "2-4 years",
-    location: "On-Site",
-    employmentType: "Full-Time",
-    description: "Ancient Indian Medicine System Focusing On Natural Healing Through Herbs, Lifestyle, And Holistic Treatments For Complete Wellness.",
-    overview: "we are looking for a proactive and detail-oriented project manager with 2–4 years of experience to lead cross-functional teams, manage project timelines, and ensure successful delivery of projects. the ideal candidate should be skilled in planning, execution, stakeholder communication, and risk management.",
-    responsibilities: [
-      "plan, execute, and deliver projects within defined scope, timeline, and budget",
-      "coordinate with internal teams (design, development, marketing, qa, etc.)",
-      "define project goals, milestones, and deliverables",
-      "track project progress using tools like jira, trello, asana, or clickup",
-      "identify risks and implement mitigation strategies",
-      "conduct regular status meetings and provide progress reports"
-    ]
-  },
-  {
-    title: "SENIOR DEVELOPER",
-    experience: "3-5 years",
-    location: "On-Site",
-    employmentType: "Full-Time",
-    description: "Join our development team to build scalable applications using modern technologies and best practices.",
-    overview: "we are seeking an experienced senior developer with 3–5 years of hands-on experience in full-stack development. the ideal candidate should have strong problem-solving skills and expertise in modern web technologies.",
-    responsibilities: [
-      "develop and maintain web applications using React, Node.js, and TypeScript",
-      "write clean, maintainable, and well-documented code",
-      "collaborate with designers and product managers",
-      "mentor junior developers and conduct code reviews",
-      "optimize application performance and scalability",
-      "participate in architectural decisions and technical planning"
-    ]
-  },
-  {
-    title: "UI/UX DESIGNER",
-    experience: "2-3 years",
-    location: "On-Site",
-    employmentType: "Full-Time",
-    description: "Create beautiful and intuitive user experiences that delight our customers and drive business growth.",
-    overview: "we are looking for a creative UI/UX designer with 2–3 years of experience to design user-centered digital experiences. the ideal candidate should have a strong portfolio and expertise in design tools.",
-    responsibilities: [
-      "design user interfaces for web and mobile applications",
-      "create wireframes, prototypes, and high-fidelity mockups",
-      "conduct user research and usability testing",
-      "collaborate with developers to ensure design implementation",
-      "maintain design systems and component libraries",
-      "stay updated with latest design trends and best practices"
-    ]
-  }
+  // {
+  //   title: "PROJECT MANAGER",
+  //   experience: "2-4 years",
+  //   location: "On-Site",
+  //   employmentType: "Full-Time",
+  //   description: "Ancient Indian Medicine System Focusing On Natural Healing Through Herbs, Lifestyle, And Holistic Treatments For Complete Wellness.",
+  //   overview: "we are looking for a proactive and detail-oriented project manager with 2–4 years of experience to lead cross-functional teams, manage project timelines, and ensure successful delivery of projects. the ideal candidate should be skilled in planning, execution, stakeholder communication, and risk management.",
+  //   responsibilities: [
+  //     "plan, execute, and deliver projects within defined scope, timeline, and budget",
+  //     "coordinate with internal teams (design, development, marketing, qa, etc.)",
+  //     "define project goals, milestones, and deliverables",
+  //     "track project progress using tools like jira, trello, asana, or clickup",
+  //     "identify risks and implement mitigation strategies",
+  //     "conduct regular status meetings and provide progress reports"
+  //   ]
+  // },
+  // {
+  //   title: "SENIOR DEVELOPER",
+  //   experience: "3-5 years",
+  //   location: "On-Site",
+  //   employmentType: "Full-Time",
+  //   description: "Join our development team to build scalable applications using modern technologies and best practices.",
+  //   overview: "we are seeking an experienced senior developer with 3–5 years of hands-on experience in full-stack development. the ideal candidate should have strong problem-solving skills and expertise in modern web technologies.",
+  //   responsibilities: [
+  //     "develop and maintain web applications using React, Node.js, and TypeScript",
+  //     "write clean, maintainable, and well-documented code",
+  //     "collaborate with designers and product managers",
+  //     "mentor junior developers and conduct code reviews",
+  //     "optimize application performance and scalability",
+  //     "participate in architectural decisions and technical planning"
+  //   ]
+  // },
+  // {
+  //   title: "UI/UX DESIGNER",
+  //   experience: "2-3 years",
+  //   location: "On-Site",
+  //   employmentType: "Full-Time",
+  //   description: "Create beautiful and intuitive user experiences that delight our customers and drive business growth.",
+  //   overview: "we are looking for a creative UI/UX designer with 2–3 years of experience to design user-centered digital experiences. the ideal candidate should have a strong portfolio and expertise in design tools.",
+  //   responsibilities: [
+  //     "design user interfaces for web and mobile applications",
+  //     "create wireframes, prototypes, and high-fidelity mockups",
+  //     "conduct user research and usability testing",
+  //     "collaborate with developers to ensure design implementation",
+  //     "maintain design systems and component libraries",
+  //     "stay updated with latest design trends and best practices"
+  //   ]
+  // }
 ];
 
 export default function CareersPage() {
