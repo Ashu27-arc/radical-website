@@ -50,7 +50,7 @@ export default function CounselorSection() {
                                     </div>
                                     <div>
                                         <h4 className="text-[18px] font-bold font-poppins text-[#0A1A2F]">Write to Us</h4>
-                                        <a href="mailto:Info@Radicaleducation.in" className="text-[#089241] mt-1 text-[14px] font-poppins hover:underline">Info@Radicaleducation.in</a>
+                                        <a href="mailto:Info@Radicaleducation.in" className="text-[#089241] mt-1 text-[14px] font-poppins hover:underline">info@radicaleducation.in</a>
                                     </div>
                                 </div>
                             </div>

@@ -7,6 +7,7 @@ import { Dropdown } from 'primereact/dropdown';
 
 export default function CounselorForm() {
     const toast = useRef<Toast>(null);
+    const [focused, setFocused] = useState(false);
 
     const [form, setForm] = useState({
         name: '',
@@ -122,55 +123,92 @@ export default function CounselorForm() {
             </div>
 
             <div className="space-y-6 relative z-10">
-                <div className="p-inputtext-sm">
+                <div className="relative w-full">
                     <InputText
                         value={form.name}
+                        placeholder=" "
                         onChange={(e) => setForm({ ...form, name: e.target.value })}
-                        placeholder="Full Name"
-                        className="w-full h-14 rounded-lg bg-[#F9FAFB] border-gray-100 px-4 !text-gray-500"
+                        className="peer w-full h-14 rounded-lg bg-[#F9FAFB] border border-gray-200 px-4 text-gray-700 focus:outline-none"
                     />
+
+                    <span
+                        className="absolute left-4 top-4 text-sm text-[#78787899] pointer-events-none 
+                        transition-opacity duration-200 
+                        peer-focus:opacity-0 peer-not-placeholder-shown:opacity-0"
+                    >
+                        Full Name
+                    </span>
                 </div>
 
-                <div className="p-inputtext-sm">
+                <div className="relative w-full p-inputtext-sm">
                     <InputText
                         value={form.mobile}
                         maxLength={10}
                         keyfilter="int"
-                        onChange={(e) => setForm({ ...form, mobile: e.target.value.replace(/\D/g, '') })}
-                        placeholder="Phone Number"
-                        className="w-full h-14 rounded-lg bg-[#F9FAFB] border-gray-100 px-4 !text-gray-500"
+                        placeholder=" "
+                        onChange={(e) =>
+                        setForm({
+                            ...form,
+                            mobile: e.target.value.replace(/\D/g, ""),
+                        })
+                        }
+                        className="peer w-full h-14 rounded-lg bg-[#F9FAFB] border border-gray-100 px-4 text-gray-700 focus:outline-none"
                     />
+
+                    <span
+                        className="absolute left-4 top-4 text-sm text-[#78787899] pointer-events-none 
+                        transition-opacity duration-200 
+                        peer-focus:opacity-0 peer-not-placeholder-shown:opacity-0"
+                    >
+                        Phone Number
+                    </span>
                 </div>
 
-                <div className="p-inputtext-sm">
+                <div className="relative w-full p-inputtext-sm group">
                     <Dropdown
                         value={form.course}
                         options={courseOptions}
                         onChange={(e) => setForm({ ...form, course: e.value })}
-                        placeholder="Select Course"
-                        className="w-full h-14 rounded-lg bg-[#F9FAFB] border-gray-100 flex items-center text-gray-500"
+                        className="w-full h-14 rounded-lg bg-[#F9FAFB] border border-gray-100 flex items-center text-gray-700"
                     />
+                    {!form.course && (
+                        <span
+                        className="absolute left-4 top-4 text-sm text-[#78787899] pointer-events-none 
+                        transition-opacity duration-200 
+                        "
+                        >
+                        Select Course
+                        </span>
+                    )}
                 </div>
 
-                <div className="p-inputtext-sm">
+                <div className="relative w-full p-inputtext-sm group">
                     <Dropdown
                         value={form.state}
                         options={stateOptions}
                         onChange={(e) => setForm({ ...form, state: e.value })}
-                        placeholder="Select State"
-                        className="w-full h-14 rounded-lg bg-[#F9FAFB] border-gray-100 flex items-center text-gray-500"
+                        className="w-full h-14 rounded-lg bg-[#F9FAFB] border border-gray-100 flex items-center text-gray-700"
                     />
+                    {!form.state && (
+                        <span
+                        className="absolute left-4 top-4 text-sm text-[#78787899] pointer-events-none 
+                        transition-opacity duration-200 
+                        "
+                        >
+                        Select State
+                        </span>
+                    )}
                 </div>
 
-                <div className="flex items-start gap-3 py-2">
+                <div className="flex items-start gap-3">
                     <input
                         type="checkbox"
                         id="consent"
-                        className="mt-1 w-5 h-5 accent-[#00B4B4] rounded border-gray-300"
+                        className="mt-1 min-w-5 h-5 accent-[#00B4B4] rounded border-gray-300 cursor-pointer"
                         required
                     />
-                    <label htmlFor="consent" className="text-xs text-gray-500 leading-tight">
-                        I Consent To Receiving Calls, WhatsApp, Email And Google RCS From Edwise To Assist With This Enquiry.
+                    <label htmlFor="consent" className="text-xs text-gray-500 !leading-[1.6] block cursor-pointer">
+                        I consent to receive calls, WhatsApp messages, emails, and Google RCS messages from Radical Education regarding my enquiry.
                     </label>
                 </div>
 

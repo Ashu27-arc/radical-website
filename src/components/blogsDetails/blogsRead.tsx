@@ -486,26 +486,45 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                                     </Link>
                                 </div>
 
-                                {/* Comment Form - responsive */}
+
                                 <div className="space-y-4 sm:space-y-5 mb-8 sm:mb-12 md:mb-16">
-                                    <textarea
-                                        placeholder="write your comment here..."
-                                        className="w-full p-3 sm:p-4 border border-gray-300 rounded-lg resize-none h-20 sm:h-24 md:h-32 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base min-h-[80px]"
-                                    />
+
+                                    {/* Textarea */}
+                                    <div className="relative w-full">
+                                        <textarea
+                                            placeholder=" "
+                                            className="peer w-full p-3 sm:p-4 border border-gray-300 rounded-lg resize-none h-20 sm:h-24 md:h-32 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base min-h-[80px]"
+                                        />
+                                        <span className="absolute left-3 sm:left-4 top-3 text-sm md:text-base text-[#78787899] pointer-events-none transition-opacity duration-200 peer-focus:opacity-0 peer-not-placeholder-shown:opacity-0">
+                                            Write your comment here...
+                                        </span>
+                                    </div>
+
                                     <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                                        <input
-                                            type="text"
-                                            placeholder="name"
-                                            className="flex-1 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base min-h-[44px]"
-                                        />
-                                        <input
-                                            type="email"
-                                            placeholder="email address"
-                                            className="flex-1 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base min-h-[44px]"
-                                        />
+                                        <div className="relative flex-1 w-full">
+                                            <input
+                                                type="text"
+                                                placeholder=" "
+                                                className="peer flex-1 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base min-h-[44px]"
+                                            />
+                                            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm md:text-base text-[#78787899] pointer-events-none transition-opacity duration-200 peer-focus:opacity-0 peer-not-placeholder-shown:opacity-0">
+                                                Name
+                                            </span>
+                                        </div>
+                                        <div className="relative flex-1 w-full">
+                                            <input
+                                                type="email"
+                                                placeholder=" "
+                                                className="peer flex-1 w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm md:text-base min-h-[44px]"
+                                            />
+                                            <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm md:text-base text-[#78787899] pointer-events-none transition-opacity duration-200 peer-focus:opacity-0 peer-not-placeholder-shown:opacity-0">
+                                                Email Address
+                                            </span>
+                                        </div>
                                         <button className="w-full sm:w-auto bg-gradient-to-r from-[#63CDB4] to-[#0077BF] hover:from-[#0077BF] hover:to-[#63CDB4] text-white px-4 md:px-6 py-3 rounded-lg font-medium transition-all duration-200 text-sm md:text-base min-h-[44px]">
                                             Post ➤
                                         </button>
+
                                     </div>
                                 </div>
                             </div>

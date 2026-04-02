@@ -196,36 +196,43 @@ export default function NeetDetails() {
                             Get In Touch
                         </h3>
                         <div className="space-y-4">
-                            <div>
+                            <div className="relative">
                                 <InputText
-                                    placeholder="name"
-                                    className="w-full p-3 bg-gray-50 border-none rounded-lg text-sm focus:ring-1 focus:ring-blue-200"
+                                    placeholder=" "
+                                    className="peer w-full p-3 bg-gray-50 border-none rounded-lg text-sm focus:ring-1 focus:ring-blue-200"
                                 />
+                                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-[#78787899] pointer-events-none transition-opacity duration-200 peer-focus:opacity-0 peer-not-placeholder-shown:opacity-0">
+                                    Name
+                                </span>
                             </div>
-                            <div>
+                            <div className="relative">
                                 <InputText
-                                    placeholder="mobile no"
-                                    className="w-full p-3 bg-gray-50 border-none rounded-lg text-sm focus:ring-1 focus:ring-blue-200"
+                                    placeholder=" "
+                                    className="peer w-full p-3 bg-gray-50 border-none rounded-lg text-sm focus:ring-1 focus:ring-blue-200"
                                 />
+                                <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-[#78787899] pointer-events-none transition-opacity duration-200 peer-focus:opacity-0 peer-not-placeholder-shown:opacity-0">
+                                    Mobile No.
+                                </span>
                             </div>
-                            <div>
+                            <div className="relative group">
                                 <Dropdown
                                     value={selectedCourse}
                                     onChange={(e) => setSelectedCourse(e.value)}
                                     options={courseOptions}
                                     optionLabel="label"
-                                    placeholder="select course"
+                                    placeholder=""
                                     className="w-full bg-gray-50 border-none rounded-lg text-sm flex items-center"
-                                    pt={{
-                                        root: { className: "p-0" },
-                                        input: { className: "p-3 text-sm bg-transparent" },
-                                        trigger: { className: "w-12" },
-                                    }}
                                 />
+                                {!selectedCourse && (
+                                    <span className="absolute left-3 top-1/2 -translate-y-1/2 text-sm text-[#78787899] pointer-events-none transition-opacity duration-200">
+                                        Select Course
+                                    </span>
+                                )}
                             </div>
                             <button className="w-full bg-gradient-to-r from-[#63CDB4] to-[#0077BF] hover:opacity-90 text-white font-medium py-3 rounded-lg transition-all duration-300 shadow-md mt-2 transform hover:-translate-y-0.5">
                                 Submit
                             </button>
+
                         </div>
                     </div>
 

@@ -453,36 +453,67 @@ export default function CareersPage() {
                       {submitMessage.text}
                     </div>
                   )}
-                  <input
-                    type="text"
-                    name="firstName"
-                    value={formData.firstName}
-                    onChange={handleInputChange}
-                    placeholder="First Name"
-                    required
-                    className="w-full px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base rounded-lg bg-white border border-gray-300 focus:ring-2 focus:ring-blue-400 focus:outline-none"
-                  />
-                  <input
-                    type="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    placeholder="Email Address"
-                    required
-                    className="w-full px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base rounded-lg bg-white border border-gray-300 focus:ring-2 focus:ring-blue-400 focus:outline-none"
-                  />
-                  <select
-                    name="opening"
-                    value={formData.opening}
-                    onChange={handleInputChange}
-                    required
-                    className="h-[49px] w-full px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base rounded-lg bg-white border border-gray-300 focus:ring-2 focus:ring-blue-400 focus:outline-none text-gray-500"
-                  >
-                    <option value="">Select Opening</option>
-                    {jobsData.map((job, index) => (
-                      <option key={index} value={job.title}>{job.title}</option>
-                    ))}
-                  </select>
+                  <div className="relative w-full">
+                    <input
+                      type="text"
+                      name="firstName"
+                      value={formData.firstName}
+                      onChange={handleInputChange}
+                      placeholder=" "
+                      required
+                      className="peer w-full px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base rounded-lg bg-white border border-gray-300 focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                    />
+                    <span
+                      className="absolute left-3 md:left-4 top-2.5 md:top-3 text-sm md:text-base text-[#78787899] pointer-events-none 
+                      transition-opacity duration-200 
+                      peer-focus:opacity-0 peer-not-placeholder-shown:opacity-0"
+                    >
+                      First Name
+                    </span>
+                  </div>
+                  <div className="relative w-full">
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      placeholder=" "
+                      required
+                      className="peer w-full px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base rounded-lg bg-white border border-gray-300 focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                    />
+                    <span
+                      className="absolute left-3 md:left-4 top-2.5 md:top-3 text-sm md:text-base text-[#78787899] pointer-events-none 
+                      transition-opacity duration-200 
+                      peer-focus:opacity-0 peer-not-placeholder-shown:opacity-0"
+                    >
+                      Email Address
+                    </span>
+                  </div>
+                  <div className="relative w-full group">
+                    <select
+                      name="opening"
+                      value={formData.opening}
+                      onChange={handleInputChange}
+                      required
+                      className="h-[49px] w-full px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base rounded-lg bg-white border border-gray-300 focus:ring-2 focus:ring-blue-400 focus:outline-none text-gray-700"
+                    >
+                      <option value=""></option>
+                      {jobsData.map((job, index) => (
+                        <option key={index} value={job.title}>
+                          {job.title}
+                        </option>
+                      ))}
+                    </select>
+                    {!formData.opening && (
+                      <span
+                        className="absolute left-3 md:left-4 top-2.5 md:top-3 text-sm md:text-base text-[#78787899] pointer-events-none 
+                        transition-opacity duration-200 
+                        "
+                      >
+                        Select Opening
+                      </span>
+                    )}
+                  </div>
                   <div className="relative">
                     <input
                       type="file"

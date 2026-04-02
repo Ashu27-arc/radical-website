@@ -414,47 +414,66 @@ export default function MBBSDeemedCollegesPage() {
                         )}
 
                         <form onSubmit={handleSubmit} className="space-y-2 sm:space-y-3">
-                            <input
-                                type="text"
-                                name="name"
-                                placeholder="Name"
-                                value={formData.name}
-                                onChange={handleInputChange}
-                                className="bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm text-gray-900 min-h-[50px] touch-manipulation placeholder-gray-700"
-                                required
-                                disabled={isSubmitting}
-                            />
-                            <input
-                                type="email"
-                                name="email"
-                                placeholder="Email Address"
-                                value={formData.email}
-                                onChange={handleInputChange}
-                                className="bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm text-gray-900 min-h-[50px] touch-manipulation placeholder-gray-700"
-                                required
-                                disabled={isSubmitting}
-                            />
-                            <input
-                                type="tel"
-                                name="mobile"
-                                placeholder="Mobile Number"
-                                value={formData.mobile}
-                                onChange={handleInputChange}
-                                className="bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm text-gray-900 min-h-[50px] touch-manipulation placeholder-gray-700"
-                                required
-                                disabled={isSubmitting}
-                            />
-                            <input
-                                type="text"
-                                name="course"
-                                placeholder="Select Course"
-                                value={formData.course}
-                                onChange={handleInputChange}
-                                className="bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm text-gray-900 min-h-[50px] touch-manipulation placeholder-gray-700"
-                                required
-                                disabled={isSubmitting}
-                            />
-
+                            <div className="relative w-full">
+                                <input
+                                    type="text"
+                                    name="name"
+                                    placeholder=" "
+                                    value={formData.name}
+                                    onChange={handleInputChange}
+                                    className="peer bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm text-gray-900 min-h-[50px] touch-manipulation"
+                                    required
+                                    disabled={isSubmitting}
+                                />
+                                <span className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-xs sm:text-sm text-[#78787899] pointer-events-none transition-opacity duration-200 peer-focus:opacity-0 peer-not-placeholder-shown:opacity-0">
+                                    Name
+                                </span>
+                            </div>
+                            <div className="relative w-full">
+                                <input
+                                    type="email"
+                                    name="email"
+                                    placeholder=" "
+                                    value={formData.email}
+                                    onChange={handleInputChange}
+                                    className="peer bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm text-gray-900 min-h-[50px] touch-manipulation"
+                                    required
+                                    disabled={isSubmitting}
+                                />
+                                <span className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-xs sm:text-sm text-[#78787899] pointer-events-none transition-opacity duration-200 peer-focus:opacity-0 peer-not-placeholder-shown:opacity-0">
+                                    Email Address
+                                </span>
+                            </div>
+                            <div className="relative w-full">
+                                <input
+                                    type="tel"
+                                    name="mobile"
+                                    placeholder=" "
+                                    value={formData.mobile}
+                                    onChange={handleInputChange}
+                                    className="peer bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm text-gray-900 min-h-[50px] touch-manipulation"
+                                    required
+                                    disabled={isSubmitting}
+                                />
+                                <span className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-xs sm:text-sm text-[#78787899] pointer-events-none transition-opacity duration-200 peer-focus:opacity-0 peer-not-placeholder-shown:opacity-0">
+                                    Mobile Number
+                                </span>
+                            </div>
+                            <div className="relative w-full">
+                                <input
+                                    type="text"
+                                    name="course"
+                                    placeholder=" "
+                                    value={formData.course}
+                                    onChange={handleInputChange}
+                                    className="peer bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm text-gray-900 min-h-[50px] touch-manipulation"
+                                    required
+                                    disabled={isSubmitting}
+                                />
+                                <span className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-xs sm:text-sm text-[#78787899] pointer-events-none transition-opacity duration-200 peer-focus:opacity-0 peer-not-placeholder-shown:opacity-0">
+                                    Select Course
+                                </span>
+                            </div>
                             <button
                                 type="submit"
                                 disabled={isSubmitting}
@@ -462,6 +481,7 @@ export default function MBBSDeemedCollegesPage() {
                             >
                                 {isSubmitting ? 'Submitting...' : 'Submit'}
                             </button>
+
                         </form>
                     </div>
 

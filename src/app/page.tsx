@@ -125,13 +125,14 @@ export default function Home() {
           <div className="text-base sm:text-lg lg:px-16 px-3 md:mb-8 mb-6 font-semibold fadeUp">
             Get complete guidance, accurate information, and expert counselling <br className="hidden lg:block" /> suited to you and your goals.
           </div>
-          <div className="p-inputgroup bannersrch mx-auto w-full max-w-[580px] fadeUp">
+          <div className="p-inputgroup bannersrch mx-auto w-full max-w-[580px] fadeUp relative">
             <span className="p-inputgroup-addon pr-0! border-r-0! bg-white! shadow-none! border-[#fff]!">
-              <i className="pi pi-search"></i>
+              <i className="pi pi-search !text-[#78787899]"></i>
             </span>
             <AutoComplete
-              placeholder="Search for your college"
+              placeholder=""
               className="pl-0! border-l-0! shadow-none! border-[#fff]!"
+              inputClassName="peer"
               value={value}
               suggestions={items}
               completeMethod={search}
@@ -143,6 +144,12 @@ export default function Home() {
                 }
               }}
             />
+            <span className="absolute left-12 top-4 text-sm text-[#78787899] pointer-events-none 
+                        transition-opacity duration-200 
+                        peer-focus:opacity-0 peer-not-placeholder-shown:opacity-0"
+                    >
+                        Search for your college
+                    </span>
             <Button
               label="Search"
               className="bannersrchBtn bg-[#005A8B]! border-[#005A8B]! shadow-none!"
@@ -549,7 +556,7 @@ export default function Home() {
                 <div className="h-full w-full">
                   <Link href="#" className="block relative group overflow-hidden rounded-2xl h-[280px] sm:h-[280px] md:h-[340px] lg:h-[380px] w-full shadow-sm hover:shadow-xl transition-shadow duration-300">
                     <Image
-                      src="/svg/pg-card.svg"
+                      src="/svg/neet-pg.svg"
                       alt="PG Admission"
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
@@ -561,7 +568,7 @@ export default function Home() {
                 <div className="h-full w-full">
                   <Link href="#" className="block relative group overflow-hidden rounded-2xl h-[280px] sm:h-[280px] md:h-[340px] lg:h-[380px] w-full shadow-sm hover:shadow-xl transition-shadow duration-300">
                     <Image
-                      src="/svg/abroad-card.svg"
+                      src="/svg/abroad-c.svg"
                       alt="Abroad Admission"
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
