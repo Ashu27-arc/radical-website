@@ -25,6 +25,12 @@ import CourseSlider from "@/components/home/CourseSlider";
 import ContactOptions from "@/components/home/ContactOptions";
 import EverythingSlider from "@/components/home/EverythingSlider";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+
+import "swiper/css";
+import "swiper/css/autoplay";
+
 export default function Home() {
   const [value, setValue] = useState<string>("");
   const [items, setItems] = useState<string[]>([]);
@@ -408,32 +414,58 @@ export default function Home() {
       </section>
 
       <section className="py-16 bg-white">
-        <div className="container px-3 md:px-4">
+        <div className="container px-4 md:px-8 lg:px-16 mx-auto">
           <div className="mb-8 md:mb-10 fadeUp text-center px-2">
             <h3 className="text-black font-semibold lg:text-4xl text-xl sm:text-2xl mb-2">Skip our pitch.</h3>
             <h2 className="bg-gradient-to-r from-[#27AEDC] font-bold to-[#3FE198] bg-clip-text text-transparent lg:text-5xl text-2xl sm:text-3xl font-light">
               Listen to real experiences
             </h2>
           </div>
-          <div className="grid gap-6 md:grid-cols-3 sm:grid-cols-2 grid-cols-1">
-            {videos.map((video) => (
-              <button
-                key={video.id}
-                type="button"
-                onClick={() => setVideoPopup(video)}
-                className="fadeUp relative w-full h-[200px] sm:h-[240px] rounded-xl overflow-hidden shadow-lg text-left focus:outline-none focus:ring-2 focus:ring-[#287FC4] focus:ring-offset-2 group cursor-pointer block"
-              >
-                {/* Only image - no play icon; click opens popup where YouTube play button shows */}
-                <img
-                  src={`https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`}
-                  alt={video.title}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                />
-                <span className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-3 py-2 text-white text-sm font-medium">
-                  {video.title}
-                </span>
-              </button>
-            ))}
+          <div className="fadeUp">
+            <Swiper
+              modules={[Autoplay]}
+              spaceBetween={24}
+              loop={true}
+              autoplay={{
+                delay: 2500,
+                disableOnInteraction: false,
+              }}
+              breakpoints={{
+                0: {
+                  slidesPerView: 1,
+                },
+                640: {
+                  slidesPerView: 1,
+                },
+                768: {
+                  slidesPerView: 2,
+                },
+                1024: {
+                  slidesPerView: 3,
+                },
+              }}
+              className="w-full"
+            >
+              {videos.map((video) => (
+                <SwiperSlide key={video.id}>
+                  <button
+                    type="button"
+                    onClick={() => setVideoPopup(video)}
+                    className="relative w-full h-[260px] rounded-xl overflow-hidden shadow-lg text-left focus:outline-none focus:ring-2 focus:ring-[#287FC4] focus:ring-offset-2 group cursor-pointer block"
+                  >
+                    <img
+                      src={`https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`}
+                      alt={video.title}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+
+                    <span className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-3 py-2 text-white text-sm font-medium">
+                      {video.title}
+                    </span>
+                  </button>
+                </SwiperSlide>
+              ))}
+            </Swiper>
           </div>
 
           {/* Video popup modal - design with blue header & light background */}
@@ -487,12 +519,12 @@ export default function Home() {
         </div>
       </section>
       <section className="pb-16 bg-white">
-        <div className="container px-3 md:px-4">
-          <GoogleReviews />
+        <div className="container px-4 md:px-8 lg:px-16 mx-auto">
+          <div className="fadeUp"><GoogleReviews /></div>
         </div>
       </section>
       <section className="pb-20">
-        <div className="container md:px-4 px-3">
+        <div className="container px-4 md:px-8 lg:px-10 mx-auto">
           <div className="mb-8 md:mb-10 fadeUp text-center px-2">
             <h3 className="text-black font-semibold lg:text-4xl text-xl sm:text-2xl mb-2">Complete guidance. No guesswork.</h3>
             <h2 className="bg-gradient-to-r from-[#27AEDC] font-normal to-[#3FE198] leading-[1.2] bg-clip-text text-transparent lg:text-5xl text-2xl sm:text-3xl font-light">
@@ -501,7 +533,7 @@ export default function Home() {
           </div>
           <div className="grid gap-4 sm:gap-5 md:gap-6 grid-cols-1 lg:grid-cols-9 mb-10 md:mb-20">
             <div className="lg:col-span-5">
-              <Link href="#" className="block relative group overflow-hidden rounded-2xl h-[220px] sm:h-[280px] md:h-[340px] lg:h-[380px] xl:h-[420px] w-full shadow-sm hover:shadow-xl transition-shadow duration-300">
+              <Link href="#" className="block relative group overflow-hidden rounded-2xl h-[220px] sm:h-[280px] md:h-[340px] lg:h-[380px] w-full shadow-sm hover:shadow-xl transition-shadow duration-300">
                 <Image
                   src="/svg/ug-card.svg"
                   alt="UG Admission"
@@ -515,7 +547,7 @@ export default function Home() {
             <div className="lg:col-span-4">
               <div className="grid gap-4 sm:gap-5 md:gap-6 grid-cols-2 sm:grid-cols-2 lg:grid-cols-2 h-full">
                 <div className="h-full w-full">
-                  <Link href="#" className="block relative group overflow-hidden rounded-2xl h-[280px] sm:h-[280px] md:h-[340px] lg:h-[380px] xl:h-[420px] w-full shadow-sm hover:shadow-xl transition-shadow duration-300">
+                  <Link href="#" className="block relative group overflow-hidden rounded-2xl h-[280px] sm:h-[280px] md:h-[340px] lg:h-[380px] w-full shadow-sm hover:shadow-xl transition-shadow duration-300">
                     <Image
                       src="/svg/pg-card.svg"
                       alt="PG Admission"
@@ -527,13 +559,13 @@ export default function Home() {
                   </Link>
                 </div>
                 <div className="h-full w-full">
-                  <Link href="#" className="block relative group overflow-hidden rounded-2xl h-[280px] sm:h-[280px] md:h-[340px] lg:h-[380px] xl:h-[420px] w-full shadow-sm hover:shadow-xl transition-shadow duration-300">
+                  <Link href="#" className="block relative group overflow-hidden rounded-2xl h-[280px] sm:h-[280px] md:h-[340px] lg:h-[380px] w-full shadow-sm hover:shadow-xl transition-shadow duration-300">
                     <Image
                       src="/svg/abroad-card.svg"
                       alt="Abroad Admission"
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                      className="object-cover transition-transform duration-700 scale-105 group-hover:scale-115"
+                      className="object-cover transition-transform duration-700 scale-102 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors duration-500"></div>
                   </Link>

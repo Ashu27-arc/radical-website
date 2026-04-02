@@ -20,7 +20,7 @@ export default function ContactOptions() {
 
 
                 <div
-                    className="group relative overflow-hidden rounded-[20px] bg-[#A8C79A] p-6 lg:p-10 w-full max-w-[420px] h-[280px] md:h-[320px] mx-auto flex flex-col justify-between transition-all duration-500 ease-in-out md:hover:-translate-y-2 md:hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)] cursor-pointer"
+                    className="group relative overflow-hidden rounded-[20px] bg-[#bcdbae] p-6 lg:p-10 w-full max-w-[420px] h-[280px] md:h-[320px] mx-auto flex flex-col justify-between transition-all duration-500 ease-in-out md:hover:-translate-y-2 md:hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)] cursor-pointer"
                     onClick={handleCallClick}
                 >
 
@@ -32,12 +32,12 @@ export default function ContactOptions() {
                             No AI. No Bots.<br />
                             Real Human Assistance
                         </p>
-                        <button className="mt-4 md:mt-6 bg-[#8BB379] text-white px-6 py-2 md:px-8 md:py-3 rounded-[10px] font-medium lg:font-bold text-sm md:text-base lg:text-lg tracking-wide transition-all duration-300">
+                        <button className="cursor-pointer mt-4 md:mt-6 bg-[#8cb37a] text-white px-4 py-1 md:px-8 md:py-3 rounded-[10px] font-semibold text-sm tracking-wide transition-all duration-300">
                             Free Call
                         </button>
                     </div>
 
-                    <div className="absolute bottom-2 right-2 w-48 h-48 md:w-56 md:h-56 bg-[#8FB583] rounded-full translate-x-12 md:translate-x-16 translate-y-12 md:translate-y-16 transition-all duration-500 ease-in-out md:group-hover:scale-125 md:group-hover:rotate-6"></div>
+                    <div className="absolute bottom-2 right-2 w-48 h-48 md:w-56 md:h-56 bg-[#8cb37a] rounded-full translate-x-12 md:translate-x-16 translate-y-12 md:translate-y-16 transition-all duration-500 ease-in-out md:group-hover:scale-125 md:group-hover:rotate-6"></div>
 
                     <i className="absolute bottom-6 right-6 z-10 transition-all duration-500 md:group-hover:scale-110 md:group-hover:-rotate-6">
                         <svg className="w-[60px] h-[60px] md:w-[80px] md:h-[80px]" viewBox="0 0 109 109" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -47,7 +47,7 @@ export default function ContactOptions() {
                 </div>
 
                 <div
-                    className="group relative overflow-hidden rounded-[20px] bg-[#8FAFD6] lg:p-10 p-6 w-full max-w-[420px] h-[280px] md:h-[320px] mx-auto flex flex-col justify-between transition-all duration-500 ease-in-out md:hover:-translate-y-2 md:hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)] cursor-pointer"
+                    className="group relative overflow-hidden rounded-[20px] bg-[#a6cbfc] lg:p-10 p-6 w-full max-w-[420px] h-[280px] md:h-[320px] mx-auto flex flex-col justify-between transition-all duration-500 ease-in-out md:hover:-translate-y-2 md:hover:shadow-[0_20px_50px_rgba(0,0,0,0.15)] cursor-pointer"
                     onClick={handleEmailClick}
                 >
 
@@ -59,12 +59,12 @@ export default function ContactOptions() {
                             Prefer writing it out?<br />
                             Email us. We’ve got you.
                         </p>
-                        <button className="mt-4 md:mt-6 bg-[#74A8EE] text-white px-6 py-2 md:px-8 md:py-3 rounded-[10px] font-medium lg:font-bold text-sm md:text-base lg:text-lg tracking-wide transition-all duration-300">
+                        <button className="cursor-pointer mt-4 md:mt-6 bg-[#74a8ee] text-white px-4 py-1 md:px-8 md:py-3 rounded-[10px] font-semibold text-sm tracking-wide transition-all duration-300">
                             Instant Help
                         </button>
                     </div>
 
-                    <div className="absolute bottom-2 left-2 w-48 h-48 md:w-56 md:h-56 bg-[#6F98C8] rounded-full -translate-x-16 translate-y-16 transition-all duration-500 ease-in-out md:group-hover:scale-125 md:group-hover:rotate-6"></div>
+                    <div className="absolute bottom-2 left-2 w-48 h-48 md:w-56 md:h-56 bg-[#75a9ee] rounded-full -translate-x-16 translate-y-16 transition-all duration-500 ease-in-out md:group-hover:scale-125 md:group-hover:rotate-6"></div>
 
                     <i className="absolute bottom-6 left-6 z-10 transition-all duration-500 md:group-hover:scale-110 md:group-hover:-rotate-6">
                         <svg className="w-[70px] h-[70px] md:w-[90px] md:h-[90px]" viewBox="0 0 131 120" fill="none" xmlns="http://www.w3.org/2000/svg">

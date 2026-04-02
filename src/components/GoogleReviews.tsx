@@ -6,6 +6,11 @@ import { Skeleton } from "primereact/skeleton";
 import { Button } from "primereact/button";
 import Link from "next/link";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/navigation";
+
 /* ------------- Types ------------- */
 interface Review {
   author_name: string;
@@ -24,7 +29,7 @@ interface PlaceData {
 
 /* ------------- Fallback (shown only if API fails) ------------- */
 const FALLBACK_DATA: PlaceData = {
-  name: "Radical Education | RDLEDU Pvt Ltd",
+  name: "Radical Education RDLEDU Pvt Ltd",
   rating: 4.9,
   user_ratings_total: 127,
   reviews: [
@@ -49,6 +54,13 @@ const FALLBACK_DATA: PlaceData = {
       text: "Too good, and the staff was very friendly 😊 The vibe was also great ❤️ Go for it, guys! ✨",
       time: 1711948800,
     },
+    {
+      author_name: "Ajay Kumar",
+      profile_photo_url: "/images/Ajay-Kumar.webp",
+      rating: 5,
+      text: "I'm Saloni, an MBBS student. Radical Education counsellors are very experienced and amazing. They helped me to get best govt MBBS college till the last round. They behaved like family members. I am thankful to all Radical Education team members. Thank you so much. I advise all of you to take help for the counselling.",
+      time: 1712035200,
+    },
   ],
 };
 
@@ -56,16 +68,7 @@ export default function GoogleReviews() {
   const [loading, setLoading] = useState(true);
   const [data, setData] = useState<PlaceData | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const scrollRef = useRef<HTMLDivElement>(null);
 
-  const scroll = (direction: "left" | "right") => {
-    if (scrollRef.current) {
-      const { scrollLeft, clientWidth } = scrollRef.current;
-      const scrollAmount = clientWidth; // Scroll one full container width
-      const target = direction === "left" ? scrollLeft - scrollAmount : scrollLeft + scrollAmount;
-      scrollRef.current.scrollTo({ left: target, behavior: "smooth" });
-    }
-  };
 
   useEffect(() => {
     let cancelled = false;
@@ -82,7 +85,7 @@ export default function GoogleReviews() {
         console.warn("[GoogleReviews] API failed, using fallback:", err.message);
         if (!cancelled) {
           setError(err.message);
-          setData(FALLBACK_DATA); // graceful fallback
+          setData(FALLBACK_DATA); 
         }
       } finally {
         if (!cancelled) setLoading(false);
@@ -94,10 +97,9 @@ export default function GoogleReviews() {
   }, []);
 
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+    <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-10">
 
-      {/* LEFT PANEL */}
-      <div>
+      <div className="text-center">
         {loading ? (
           <>
             <Skeleton height="1.8rem" width="90%" />
@@ -106,7 +108,7 @@ export default function GoogleReviews() {
           </>
         ) : (
           <>
-            <div className="flex justify-center md:justify-start items-center gap-3">
+            <div className="flex flex-col text-center justify-center md:justify-start items-center gap-3">
               <div>
                 <div className="h-[60px] w-[65px]">
                   <Image
@@ -119,12 +121,13 @@ export default function GoogleReviews() {
                 </div>
               </div>
               <h2 className="text-2xl font-semibold text-[#005A8B] m-0">
-                {data?.name}
+                {/* {data?.name} */}
+                Radical Education<br/>RDLEDU Pvt Ltd
               </h2>
             </div>
 
-            <div className="flex items-center gap-2 mt-2 mb-4">
-              <div className="text-orange-400">
+            <div className="flex flex-col items-center gap-2 mt-2 mb-4">
+              <div className="text-orange-400 text-4xl">
                 {"★★★★★".slice(0, Math.round(data!.rating))}
               </div>
               <span className="text-sm text-gray-600">
@@ -146,122 +149,87 @@ export default function GoogleReviews() {
         )}
       </div>
 
-      {/* REVIEW CARDS */}
       <div className="lg:col-span-3">
-        <div className="relative">
-          {/* Navigation Button - Left */}
-          <button
-            onClick={() => scroll("left")}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-20 shadow-xl rounded-full w-[22px] h-[22px] flex items-center justify-center border border-gray-100 hover:text-white text-[#FFFFFF] transition-all duration-300 cursor-pointer"
-            aria-label="Previous reviews"
-            type="button"
-          >
-            <svg
-              width="22"
-              height="22"
-              viewBox="0 0 22 22"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-[22px] h-[22px] rotate-180"
-              aria-hidden="true"
-              focusable="false"
-            >
+        <div className="relative px-10">
+          <div className="swiper-button-prev-custom absolute -left-2 top-1/2 -translate-y-1/2 z-20 cursor-pointer">
+            <svg width="22" height="22" viewBox="0 0 22 22" className="rotate-180">
               <circle cx="11" cy="11" r="11" fill="#005A8B" />
-              <path
-                d="M8.91579 16.7895L7.29474 15.1476L11.4307 11L7.29474 6.85242L8.92737 5.21053L14.7168 11L8.91579 16.7895Z"
-                fill="#FFFFFF"
-              />
+              <path d="M8.91579 16.7895L7.29474 15.1476L11.4307 11L7.29474 6.85242L8.92737 5.21053L14.7168 11L8.91579 16.7895Z" fill="#FFFFFF"/>
             </svg>
-          </button>
-
-          <div
-            ref={scrollRef}
-            className="flex gap-6 overflow-x-auto no-scrollbar scroll-smooth snap-x snap-mandatory pb-4 px-7"
+          </div>
+          <div className="swiper-button-next-custom absolute -right-2 top-1/2 -translate-y-1/2 z-20 cursor-pointer">
+            <svg width="22" height="22" viewBox="0 0 22 22">
+              <circle cx="11" cy="11" r="11" fill="#005A8B" />
+              <path d="M8.91579 16.7895L7.29474 15.1476L11.4307 11L7.29474 6.85242L8.92737 5.21053L14.7168 11L8.91579 16.7895Z" fill="#FFFFFF"/>
+            </svg>
+          </div>
+          <Swiper
+            modules={[Navigation, Autoplay]}
+            navigation={{
+              nextEl: ".swiper-button-next-custom",
+              prevEl: ".swiper-button-prev-custom",
+            }}
+            spaceBetween={24}
+            loop={true}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }} 
+            breakpoints={{
+              0: { slidesPerView: 1 },
+              768: { slidesPerView: 2 },
+              1024: { slidesPerView: 3 },
+            }}
+            className="px-7"
           >
             {(loading ? Array(3).fill(null) : data?.reviews)?.map(
               (review: Review | null, i) => (
-                <div
-                  key={i}
-                  className="flex-shrink-0 w-[220px] h-[249px] snap-start border border-[#005A8B] rounded-xl p-5 shadow-sm bg-white"
-                >
-                  {loading ? (
-                    <>
-                      <div className="flex items-center gap-3 mb-3">
-                        <Skeleton shape="circle" size="40px" />
-                        <div className="flex-1">
-                          <Skeleton width="70%" height="0.9rem" />
-                          <Skeleton width="40%" height="0.7rem" className="mt-1" />
-                        </div>
-                      </div>
-                      <Skeleton width="60%" height="0.8rem" className="mb-2" />
-                      <Skeleton height="3rem" />
-                    </>
-                  ) : (
-                    <>
-                      <div className="flex items-center gap-3 mb-2">
-                        {/* eslint-disable-next-line @next/next/no-img-element */}
-                        <img
-                          src={review!.profile_photo_url}
-                          alt={review!.author_name}
-                          width={40}
-                          height={40}
-                          className="rounded-full object-cover w-10 h-10"
-                          onError={(e) => {
-                            (e.currentTarget as HTMLImageElement).src =
-                              `https://ui-avatars.com/api/?name=${encodeURIComponent(review!.author_name)}&background=005A8B&color=fff&size=40`;
-                          }}
-                        />
-                        <div>
-                          <p className="text-sm font-medium">{review!.author_name}</p>
-                          <p className="text-xs text-gray-500">
-                            {new Date(review!.time * 1000).toLocaleDateString("en-IN", {
-                              year: "numeric",
-                              month: "short",
-                              day: "numeric",
-                            })}
-                          </p>
-                        </div>
-                      </div>
+                <SwiperSlide key={i}>
+                  <div className="flex-shrink-0 h-[280px] snap-start border border-[#005A8B] rounded-xl px-6 py-8 shadow-sm bg-white transition-all duration-300 hover:border-b-4">
 
-                      <div className="text-orange-400 mb-2">
-                        {"★★★★★".slice(0, review!.rating)}
-                        {"☆☆☆☆☆".slice(0, 5 - review!.rating)}
-                      </div>
+                    {loading ? (
+                      <>
+                        <div className="flex items-center gap-3 mb-3">
+                          <Skeleton shape="circle" size="40px" />
+                          <div className="flex-1">
+                            <Skeleton width="70%" height="0.9rem" />
+                            <Skeleton width="40%" height="0.7rem" className="mt-1" />
+                          </div>
+                        </div>
+                        <Skeleton width="60%" height="0.8rem" className="mb-2" />
+                        <Skeleton height="3rem" />
+                      </>
+                    ) : (
+                      <>
+                        <div className="flex items-center gap-3 mb-2">
+                          <img
+                            src={review!.profile_photo_url}
+                            alt={review!.author_name}
+                            className="rounded-full object-cover w-10 h-10"
+                          />
+                          <div>
+                            <p className="text-sm font-medium">{review!.author_name}</p>
+                            <p className="text-xs text-gray-500">
+                              {new Date(review!.time * 1000).toLocaleDateString("en-IN")}
+                            </p>
+                          </div>
+                        </div>
 
-                      <p className="text-sm text-gray-600 line-clamp-4">
-                        {review!.text}
-                      </p>
-                    </>
-                  )}
-                </div>
+                        <div className="text-orange-400 mb-6">
+                          {"★★★★★".slice(0, review!.rating)}
+                          {"☆☆☆☆☆".slice(0, 5 - review!.rating)}
+                        </div>
+
+                        <p className="text-sm text-gray-600 line-clamp-4">
+                          {review!.text}
+                        </p>
+                      </>
+                    )}
+                  </div>
+                </SwiperSlide>
               )
             )}
-          </div>
-
-          {/* Navigation Button - Right */}
-          <button
-            onClick={() => scroll("right")}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-20 shadow-xl rounded-full w-[22px] h-[22px] flex items-center justify-center border border-gray-100 hover:text-white text-[#FFFFFF] transition-all duration-300 cursor-pointer"
-            aria-label="Next reviews"
-            type="button"
-          >
-            <svg
-              width="22"
-              height="22"
-              viewBox="0 0 22 22"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              className="w-[22px] h-[22px]"
-              aria-hidden="true"
-              focusable="false"
-            >
-              <circle cx="11" cy="11" r="11" fill="#005A8B" />
-              <path
-                d="M8.91579 16.7895L7.29474 15.1476L11.4307 11L7.29474 6.85242L8.92737 5.21053L14.7168 11L8.91579 16.7895Z"
-                fill="#FFFFFF"
-              />
-            </svg>
-          </button>
+          </Swiper>
         </div>
 
         <div className="text-center mt-8">
@@ -293,3 +261,7 @@ export default function GoogleReviews() {
     </div>
   );
 }
+
+
+
+
