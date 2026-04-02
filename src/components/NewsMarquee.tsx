@@ -17,7 +17,7 @@ const newsData: NewsItem[] = [
     url: 'https://radicaleducation.in/nri-category-conversion-for-neet-pg-counselling/',
   },
   {
-    title: 'Uttarakhand NEET PG revised schedule released',
+    title: 'Uttarakhand NEET PG Revised Schedule Released',
     date: '18/11/2025',
     url: 'https://radicaleducation.in/uttarakhand-neet-pg-revised-schedule/',
   },

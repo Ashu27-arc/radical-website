@@ -113,18 +113,18 @@ export default function Home() {
         </video>
         <div className="container px-3 md:px-4 lg:px-40 text-center text-white">
           <h1 className="text-white font-bold text-3xl sm:text-4xl md:text-[50px] leading-tight md:leading-[60px] md:mb-5 mb-3 fadeUp">
-            Secure your Medical seat easily <br className="block" />
+            Secure your medical seat easily <br className="block" />
             <span className="font-light">with expert assistance</span>
           </h1>
           <div className="text-base sm:text-lg lg:px-16 px-3 md:mb-8 mb-6 font-semibold fadeUp">
-            Get complete guidance, accurate information and expert counselling <br className="hidden lg:block" />suited to you and your dreams.
+            Get complete guidance, accurate information, and expert counselling <br className="hidden lg:block" /> suited to you and your goals.
           </div>
           <div className="p-inputgroup bannersrch mx-auto w-full max-w-[580px] fadeUp">
             <span className="p-inputgroup-addon pr-0! border-r-0! bg-white! shadow-none! border-[#fff]!">
               <i className="pi pi-search"></i>
             </span>
             <AutoComplete
-              placeholder="Search your college"
+              placeholder="Search for your college"
               className="pl-0! border-l-0! shadow-none! border-[#fff]!"
               value={value}
               suggestions={items}
