@@ -16,6 +16,7 @@ export default function CounselorForm() {
     });
 
     const [loading, setLoading] = useState(false);
+    const [apiMessage, setApiMessage] = useState('');
 
     const courseOptions = [
         { label: 'MBBS INDIA', value: 'MBBS INDIA' },
@@ -96,6 +97,7 @@ export default function CounselorForm() {
                     life: 3000,
                 });
                 setForm({ name: '', mobile: '', course: '', state: '' });
+                setApiMessage(result.message);
             } else {
                 showError(result.message || 'Failed to submit enquiry');
             }
@@ -177,6 +179,12 @@ export default function CounselorForm() {
                     loading={loading}
                     className="w-full h-14 !rounded-[14px] text-lg font-bold !border-none !bg-gradient-to-r !from-[#63CDB4] !to-[#099CF6] shadow-lg hover:opacity-90 transition-opacity"
                 />
+
+                {apiMessage && (
+                    <div className="text-center text-white font-semibold mt-4 py-2 px-4 rounded bg-white/10 backdrop-blur-sm animate-fade-in">
+                        {apiMessage}
+                    </div>
+                )}
             </div>
         </div>
     );
