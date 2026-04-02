@@ -5,6 +5,9 @@ export interface IResumeSubmission {
   email: string;
   opening: string;
   resumePath?: string;
+  resumeData?: Buffer;
+  resumeMimeType?: string;
+  resumeFileName?: string;
   submittedAt: Date;
 }
 
@@ -27,6 +30,15 @@ const ResumeSubmissionSchema = new Schema<IResumeSubmission>({
   resumePath: {
     type: String,
     default: ''
+  },
+  resumeData: {
+    type: Buffer
+  },
+  resumeMimeType: {
+    type: String
+  },
+  resumeFileName: {
+    type: String
   },
   submittedAt: {
     type: Date,

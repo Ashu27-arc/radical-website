@@ -28,27 +28,40 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const uploadsDir = path.join(process.cwd(), 'public', 'uploads', 'institutes');
-    if (!existsSync(uploadsDir)) {
-      await mkdir(uploadsDir, { recursive: true });
-    }
-
-    let imagePath = '';
-    if (image && image.size > 0) {
-      const timestamp = Date.now();
-      const fileName = `${timestamp}-${image.name.replace(/\s+/g, '-')}`;
-      const filePath = path.join(uploadsDir, fileName);
-      const bytes = await image.arrayBuffer();
-      await writeFile(filePath, Buffer.from(bytes));
-      imagePath = `/uploads/institutes/${fileName}`;
-    }
-
     const conn = await connectDB();
     if (!conn) {
       return NextResponse.json(
         { success: false, message: 'Database temporarily unavailable. Please try again.' },
         { status: 503 }
       );
+    }
+
+    let imagePath = '';
+    let imageData: Buffer | undefined;
+    let imageMimeType: string | undefined;
+    let imageFileName: string | undefined;
+
+    if (image && image.size > 0) {
+      const bytes = await image.arrayBuffer();
+      imageData = Buffer.from(bytes);
+      imageMimeType = image.type;
+      imageFileName = image.name;
+
+      // Optional: Try to save to file system (works for VPS setup)
+      try {
+        const uploadsDir = path.join(process.cwd(), 'public', 'uploads', 'institutes');
+        if (!existsSync(uploadsDir)) {
+          await mkdir(uploadsDir, { recursive: true });
+        }
+        const timestamp = Date.now();
+        const safeFileName = `${timestamp}-${image.name.replace(/\s+/g, '-')}`;
+        const filePath = path.join(uploadsDir, safeFileName);
+        await writeFile(filePath, imageData);
+        imagePath = `/uploads/institutes/${safeFileName}`;
+      } catch (fsError) {
+        console.warn('⚠️ File system not writable, skipping image save but continuing with DB storage');
+        // imagePath stay empty, but data is in DB
+      }
     }
 
     const doc = await InstituteSubmission.create({
@@ -64,6 +77,9 @@ export async function POST(request: NextRequest) {
       phoneNo: phoneNo.trim(),
       instituteDescription: instituteDescription.trim(),
       imagePath: imagePath || undefined,
+      imageData,
+      imageMimeType,
+      imageFileName,
       submittedAt: new Date()
     });
 

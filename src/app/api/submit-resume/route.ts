@@ -21,21 +21,6 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const uploadsDir = path.join(process.cwd(), 'public', 'uploads', 'resumes');
-    if (!existsSync(uploadsDir)) {
-      await mkdir(uploadsDir, { recursive: true });
-    }
-
-    let resumePath = '';
-    if (resume && resume.size > 0) {
-      const timestamp = Date.now();
-      const fileName = `${timestamp}-${resume.name.replace(/\s+/g, '-')}`;
-      const filePath = path.join(uploadsDir, fileName);
-      const bytes = await resume.arrayBuffer();
-      await writeFile(filePath, Buffer.from(bytes));
-      resumePath = `/uploads/resumes/${fileName}`;
-    }
-
     const conn = await connectDB();
     if (!conn) {
       return NextResponse.json(
@@ -44,11 +29,42 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    let resumePath = '';
+    let resumeData: Buffer | undefined;
+    let resumeMimeType: string | undefined;
+    let resumeFileName: string | undefined;
+
+    if (resume && resume.size > 0) {
+      const bytes = await resume.arrayBuffer();
+      resumeData = Buffer.from(bytes);
+      resumeMimeType = resume.type;
+      resumeFileName = resume.name;
+
+      // Optional: Try to save to file system if possible (works for VPS setup)
+      try {
+        const uploadsDir = path.join(process.cwd(), 'public', 'uploads', 'resumes');
+        if (!existsSync(uploadsDir)) {
+          await mkdir(uploadsDir, { recursive: true });
+        }
+        const timestamp = Date.now();
+        const safeFileName = `${timestamp}-${resume.name.replace(/\s+/g, '-')}`;
+        const filePath = path.join(uploadsDir, safeFileName);
+        await writeFile(filePath, resumeData);
+        resumePath = `/uploads/resumes/${safeFileName}`;
+      } catch (fsError) {
+        console.warn('⚠️ File system not writable, skipping file save but continuing with DB storage');
+        // resumePath will remain empty, but data is in DB
+      }
+    }
+
     const doc = await ResumeSubmission.create({
       firstName: firstName.trim(),
       email: email.trim().toLowerCase(),
       opening: opening.trim(),
       resumePath: resumePath || undefined,
+      resumeData,
+      resumeMimeType,
+      resumeFileName,
       submittedAt: new Date()
     });
 

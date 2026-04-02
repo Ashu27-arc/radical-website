@@ -13,6 +13,9 @@ export interface IInstituteSubmission {
   phoneNo: string;
   instituteDescription: string;
   imagePath?: string;
+  imageData?: Buffer;
+  imageMimeType?: string;
+  imageFileName?: string;
   submittedAt: Date;
 }
 
@@ -68,6 +71,15 @@ const InstituteSubmissionSchema = new Schema<IInstituteSubmission>({
   imagePath: {
     type: String,
     default: ''
+  },
+  imageData: {
+    type: Buffer
+  },
+  imageMimeType: {
+    type: String
+  },
+  imageFileName: {
+    type: String
   },
   submittedAt: {
     type: Date,
