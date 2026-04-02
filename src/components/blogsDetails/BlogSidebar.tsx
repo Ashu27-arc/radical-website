@@ -1,10 +1,36 @@
 "use client";
 
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import { getBlogLinks, type BlogLink } from '@/lib/api';
+
 interface BlogSidebarProps {
     className?: string;
 }
 
 const BlogSidebar = ({ className = "" }: BlogSidebarProps) => {
+    const [links, setLinks] = useState<BlogLink[]>([]);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        getBlogLinks().then((data) => {
+            // Sort by date (newest first) and take top 8
+            const sorted = [...data].sort((a, b) => {
+                const dateA = new Date(a.createdAt || 0);
+                const dateB = new Date(b.createdAt || 0);
+                return dateB.getTime() - dateA.getTime();
+            }).slice(0, 8);
+            setLinks(sorted);
+            setLoading(false);
+        }).catch(() => setLoading(false));
+    }, []);
+
+    const formatDate = (d?: string) => {
+        if (!d) return 'Recent';
+        const date = new Date(d);
+        return isNaN(date.getTime()) ? 'Recent' : date.toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' });
+    };
+
     return (
         <div className={`w-full px-4 sm:px-6 lg:px-0 lg:col-span-1 animate-fadeIn mb-12 sm:mb-16 lg:mb-20 lg:sticky lg:top-[100px] lg:w-full lg:max-w-none lg:self-start lg:h-[calc(100vh-8rem)] lg:overflow-y-auto scrollbar-hide ${className}`} style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
             {/* Get In Touch Form */}
@@ -40,46 +66,41 @@ const BlogSidebar = ({ className = "" }: BlogSidebarProps) => {
                 </div>
             </div>
 
-            {/* Related Section - Scrollable */}
+            {/* Important Links Section - Dynamic */}
             <div className="bg-[#E1F2FF] p-4 sm:p-5 md:p-6 rounded-lg mt-4 sm:mt-6">
-                <h3 className="text-base sm:text-lg md:text-xl font-bold text-[#287FC4] mb-4 sm:mb-5 md:mb-6">Related</h3>
-                <div className="space-y-4 sm:space-y-5 md:space-y-6">
-                    {/* Related Post 1 */}
-                    <div className="mb-4 pb-4 border-[#ABABAB] border-b transition-colors duration-300 cursor-pointer group">
-                        <h4 className="font-semibold text-gray-800 mb-1.5 sm:mb-2 leading-tight text-sm md:text-base group-hover:text-[#287FC4] transition-colors break-words">
-                            NEET Exam in India: Your Gateway to a Bright Medical
-                        </h4>
-                        <div className="text-gray-500 text-xs md:text-sm">
-                            <span>Garima Pareek</span>
-                            <span className="mx-1.5 sm:mx-2">•</span>
-                            <span>15 Jan 2025</span>
-                        </div>
-                    </div>
+                <h3 className="text-base sm:text-lg md:text-xl font-bold text-[#287FC4] mb-4 sm:mb-5 md:mb-6">Important Links</h3>
 
-                    {/* Related Post 2 */}
-                    <div className="mb-4 pb-4 border-[#ABABAB] border-b transition-colors duration-300 cursor-pointer group">
-                        <h4 className="font-semibold text-[#000000] mb-1.5 sm:mb-2 leading-tight text-sm md:text-base group-hover:text-[#287FC4] transition-colors break-words">
-                            NEET Exam in India: Your Gateway to a Bright Medical
-                        </h4>
-                        <div className="text-gray-500 text-xs md:text-sm">
-                            <span>Garima Pareek</span>
-                            <span className="mx-1.5 sm:mx-2">•</span>
-                            <span>15 Jan 2025</span>
-                        </div>
+                {loading ? (
+                    <div className="space-y-4 animate-pulse">
+                        {[1, 2, 3, 4].map(i => (
+                            <div key={i} className="pb-4 border-b border-gray-200">
+                                <div className="h-4 bg-gray-200 rounded w-full mb-2" />
+                                <div className="h-3 bg-gray-200 rounded w-1/2" />
+                            </div>
+                        ))}
                     </div>
-
-                    {/* Related Post 3 */}
-                    <div className="mb-4 pb-4 border-[#ABABAB] border-b transition-colors duration-300 cursor-pointer group">
-                        <h4 className="font-semibold text-[#000000] mb-1.5 sm:mb-2 leading-tight text-sm md:text-base group-hover:text-[#287FC4] transition-colors break-words">
-                            NEET Exam in India: Your Gateway to a Bright Medical
-                        </h4>
-                        <div className="text-gray-500 text-xs md:text-sm">
-                            <span>Garima Pareek</span>
-                            <span className="mx-1.5 sm:mx-2">•</span>
-                            <span>15 Jan 2025</span>
-                        </div>
+                ) : links.length > 0 ? (
+                    <div className="space-y-4 sm:space-y-5 md:space-y-6">
+                        {links.map((link) => (
+                            <Link
+                                key={link._id || link.id}
+                                href={link.link || '#'}
+                                target={link.link?.startsWith('http') ? "_blank" : "_self"}
+                                className="block mb-4 pb-4 border-[#ABABAB] border-b transition-colors duration-300 group"
+                            >
+                                <h4 className="font-semibold text-gray-800 mb-1.5 sm:mb-2 leading-tight text-sm md:text-base group-hover:text-[#287FC4] transition-colors break-words">
+                                    {link.name}
+                                </h4>
+                                <div className="text-gray-500 text-xs md:text-sm flex items-center justify-between">
+                                    <span className="capitalize">{link.categories || 'Update'}</span>
+                                    <span>{formatDate(link.createdAt)}</span>
+                                </div>
+                            </Link>
+                        ))}
                     </div>
-                </div>
+                ) : (
+                    <p className="text-gray-500 text-sm italic">No recent links available</p>
+                )}
 
                 {/* Advertisement Banners */}
                 <div className="mt-4 sm:mt-5 md:mt-6 space-y-3 sm:space-y-4">
