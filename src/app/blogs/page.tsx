@@ -3,7 +3,7 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getBlogs, getBlogLinks, type Blog, type BlogLink } from '@/lib/api';
+import { getBlogs, getBlogLinks, getWpBlogs, type Blog, type BlogLink } from '@/lib/api';
 import { useWebSocket } from '@/hooks/useWebSocket';
 import CounselorForm from '@/components/CounselorForm';
 import CounselorSection from '@/components/CounselorSection';
@@ -30,6 +30,7 @@ const defaultCategoryColor = 'bg-[#E3F2FD] text-[#005A8B]';
 const stableCategoryOrder = ['All', 'Education', 'Exams', 'Government', 'Careers', 'MBBS in India', 'MBBS Abroad', 'Study Abroad', 'NEET UG', 'NEET PG', 'Notification'];
 const BLOGS_CACHE_KEY = 'radical_blogs_cache_v1';
 const BLOG_LINKS_CACHE_KEY = 'radical_blog_links_cache_v1';
+const WP_BLOGS_CACHE_KEY = 'radical_wp_blogs_cache_v1';
 
 const toCategoryList = (value: unknown): string[] => {
   if (Array.isArray(value)) {
@@ -90,21 +91,25 @@ const BlogsPage = () => {
       setLoading(true);
     }
 
-    Promise.allSettled([getBlogs(), getBlogLinks()])
-      .then(([blogsResult, linksResult]) => {
+    Promise.allSettled([getBlogs(), getBlogLinks(), getWpBlogs()])
+      .then(([blogsResult, linksResult, wpResult]) => {
         if (!isMounted) return;
 
         const blogsData = blogsResult.status === 'fulfilled' ? (blogsResult.value || []) : [];
         const linksData = linksResult.status === 'fulfilled' ? (linksResult.value || []) : [];
+        const wpData = wpResult.status === 'fulfilled' ? (wpResult.value || []) : [];
+
+        // Combine all blog data
+        const combinedBlogs = [...blogsData, ...wpData];
 
         // Use fresh data when available, otherwise keep cached data.
-        setBlogs(blogsData.length ? blogsData : cachedBlogs);
+        setBlogs(combinedBlogs.length ? combinedBlogs : cachedBlogs);
         setBlogLinks(linksData.length ? linksData : cachedLinks);
         setLoading(false);
 
         if (typeof window !== 'undefined') {
           try {
-            if (blogsData.length) sessionStorage.setItem(BLOGS_CACHE_KEY, JSON.stringify(blogsData));
+            if (combinedBlogs.length) sessionStorage.setItem(BLOGS_CACHE_KEY, JSON.stringify(combinedBlogs));
             if (linksData.length) sessionStorage.setItem(BLOG_LINKS_CACHE_KEY, JSON.stringify(linksData));
           } catch {
             // Ignore storage errors.
@@ -202,7 +207,7 @@ const BlogsPage = () => {
       category: l.categories || 'Study Abroad',
       status: 'Published',
       date: l.createdAt || new Date().toISOString(),
-      featuredImage: l.banner,
+      featuredImage: l.banner || l.imageUrl || l.image || l.featuredImage || l.coverImage,
       slug: l.link || '',
       isExternal: l.link && (l.link.startsWith('http') || l.link.startsWith('//'))
     } as any));
