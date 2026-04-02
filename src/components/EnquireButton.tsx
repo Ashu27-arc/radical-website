@@ -222,7 +222,7 @@ export default function EnquireButton() {
                         Request a <span className="text-[#00CFB2]">Callback</span>
                       </div>
                       <div className="text-sm md:text-base text-black opacity-80">
-                        Stay Ahead for NEET 2025! Get Expert Guidance & Latest Update.
+                        Stay Ahead for NEET 2026! Get Expert Guidance & Latest Update.
                       </div>
                     </div>
 

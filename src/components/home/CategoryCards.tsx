@@ -6,12 +6,12 @@ import Image from "next/image";
 
 const cards = [
   {
-    title: "Top MBBS colleges",
+    title: "Top MBBS Colleges",
     subtitle: "India",
     img: "/svg/everything-1.svg",
   },
   {
-    title: "Top MBBS colleges",
+    title: "Top MBBS Colleges",
     subtitle: "Abroad",
     img: "/svg/everything-2.svg",
   },

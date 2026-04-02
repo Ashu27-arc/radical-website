@@ -81,17 +81,17 @@ export default function Home() {
   const videos = [
     {
       id: 1,
-      title: "Successful Admission",
+      title: "Utkarshika Gupta, CSAMC, Etah",
       youtubeId: "jfq8RbTIrtI",
     },
     {
       id: 2,
-      title: "Ishika's Govt. MBBS Seat Journey",
+      title: "Ayush Kushwaha, GSAMC, Hapur",
       youtubeId: "hwYjHX5pk9w",
     },
     {
       id: 3,
-      title: "Successful Admission",
+      title: "Sangam Yadav, MGAMC, Lucknow",
       youtubeId: "CxDL_T4CWs8",
     },
   ];
@@ -161,7 +161,7 @@ export default function Home() {
                 <h2 className="text-3xl md:text-[46px] font-light leading-tight text-gray-800 text-center mb-6 md:mb-8">
                   A complete guide for your <br />
                   <span className="text-3xl md:text-[46px] bg-gradient-to-r from-[#1ec8a5] font-bold to-[#0d8f9e] bg-clip-text text-transparent">
-                    Medical Counselling needs
+                    medical counselling needs
                   </span>
                 </h2>
                 <div className="grid grid-cols-1 md:grid-cols-3 lg:gap-10 gap-4 sm:gap-6 w-full max-w-6xl lg:px-10 mt-4">
