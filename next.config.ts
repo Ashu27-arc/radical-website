@@ -12,7 +12,7 @@ const nextConfig: NextConfig = {
   },
 
   images: {
-    unoptimized: false, 
+    unoptimized: false,
     formats: ['image/avif', 'image/webp'],
     minimumCacheTTL: 60 * 60 * 24 * 30,
   },
@@ -34,6 +34,15 @@ const nextConfig: NextConfig = {
     primereact: {
       transform: "primereact/{{member}}",
     },
+  },
+
+  async rewrites() {
+    return [
+      {
+        source: '/blog/:path*',
+        destination: 'https://blog.radicaleducation.in/blog/:path*',
+      },
+    ]
   },
 
   webpack(config) {
