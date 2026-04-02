@@ -2,14 +2,9 @@
   "redirects": [
     {
       "source": "/(.*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "rdledu.in"
-        }
-      ],
       "destination": "https://radicaleducation.in/$1",
       "permanent": true
     }
   ]
-}
+}
+
