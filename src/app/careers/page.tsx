@@ -156,6 +156,14 @@ export default function CareersPage() {
   const scrollToResumeSection = () => {
     const resumeSection = document.getElementById('submit-resume-section');
     if (resumeSection) {
+      // Set the selected job in the form automatically
+      if (selectedJob) {
+        setFormData(prev => ({
+          ...prev,
+          opening: selectedJob.title
+        }));
+      }
+
       resumeSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
       closeModal();
     }
@@ -188,7 +196,7 @@ export default function CareersPage() {
         formDataToSend.append('resume', resumeFile);
       }
 
-      const response = await fetch('/api/submit-resume/', {
+      const response = await fetch('/api/submit-resume', {
         method: 'POST',
         body: formDataToSend
       });
@@ -202,6 +210,11 @@ export default function CareersPage() {
         // Reset file input
         const fileInput = document.getElementById('resume-upload') as HTMLInputElement;
         if (fileInput) fileInput.value = '';
+
+        // Auto-dismiss success popup after 3 seconds
+        setTimeout(() => {
+          setShowSuccessPopup(false);
+        }, 3000);
       } else {
         setSubmitMessage({ type: 'error', text: data.message });
       }

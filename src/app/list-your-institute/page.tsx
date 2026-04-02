@@ -77,7 +77,7 @@ export default function InstituteListPage() {
         formDataToSend.append("image", formData.image);
       }
 
-      const response = await fetch("/api/submit-institute/", {
+      const response = await fetch("/api/submit-institute", {
         method: "POST",
         body: formDataToSend,
       });
@@ -128,17 +128,33 @@ export default function InstituteListPage() {
   return (
     <div className="min-h-screen bg-gray-100">
       <FloatingWhatsApp />
-      {/* Success Message Banner */}
-      {submitMessage && submitMessage.type === "success" && (
-        <div className="bg-gradient-to-r from-green-500 to-green-600 text-white py-6 px-4 shadow-lg">
-          <div className="container mx-auto text-center">
-            <h2 className="text-2xl md:text-3xl font-bold mb-2">
-              🎉 Thank You!
-            </h2>
-            <p className="text-lg">{submitMessage.text}</p>
-          </div>
-        </div>
-      )}
+      <style dangerouslySetInnerHTML={{
+        __html: `
+        .form-placeholder-white::placeholder {
+          color: rgba(255, 255, 255, 0.7) !important;
+          opacity: 1 !important;
+        }
+        .form-placeholder-white::-webkit-input-placeholder {
+          color: rgba(255, 255, 255, 0.7) !important;
+        }
+        .form-placeholder-white:-ms-input-placeholder {
+          color: rgba(255, 255, 255, 0.7) !important;
+        }
+        
+        /* Fix for autofill background */
+        .form-input:-webkit-autofill,
+        .form-input:-webkit-autofill:hover,
+        .form-input:-webkit-autofill:focus,
+        .form-input:-webkit-autofill:active,
+        .form-textarea:-webkit-autofill,
+        .form-textarea:-webkit-autofill:hover,
+        .form-textarea:-webkit-autofill:focus,
+        .form-textarea:-webkit-autofill:active {
+          -webkit-box-shadow: 0 0 0 1000px #0B5F8C inset !important;
+          -webkit-text-fill-color: white !important;
+          transition: background-color 5000s ease-in-out 0s;
+        }
+      ` }} />
 
       {/* Header Section */}
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-10 md:py-16 lg:py-20">
@@ -215,6 +231,14 @@ export default function InstituteListPage() {
           </div>
 
           <form onSubmit={handleSubmit} className="relative z-10 max-w-4xl mx-auto">
+            {/* Success Message */}
+            {submitMessage && submitMessage.type === "success" && (
+              <div className="mb-4 sm:mb-6 p-4 sm:p-6 rounded-xl bg-green-500/20 border border-green-500/50 text-white text-center">
+                <h3 className="text-xl sm:text-2xl font-bold mb-2">🎉 Thank You!</h3>
+                <p className="text-sm sm:text-base">{submitMessage.text}</p>
+              </div>
+            )}
+
             {/* Error Message */}
             {submitMessage && submitMessage.type === "error" && (
               <div className="mb-4 sm:mb-6 p-3 sm:p-4 rounded-lg bg-red-500/20 border border-red-500/50 text-white text-sm sm:text-base">
@@ -231,7 +255,7 @@ export default function InstituteListPage() {
                   name="instituteName"
                   value={formData.instituteName}
                   onChange={handleInputChange}
-                  className="form-input w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50"
+                  className="form-input form-placeholder-white w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50"
                   style={{ color: 'white' }}
                   required
                 />
@@ -245,7 +269,7 @@ export default function InstituteListPage() {
                   name="emailAddress"
                   value={formData.emailAddress}
                   onChange={handleInputChange}
-                  className="form-input w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50"
+                  className="form-input form-placeholder-white w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50"
                   style={{ color: 'white' }}
                   required
                 />
@@ -259,7 +283,7 @@ export default function InstituteListPage() {
                   name="instituteType"
                   value={formData.instituteType}
                   onChange={handleInputChange}
-                  className="form-input w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50"
+                  className="form-input form-placeholder-white w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50"
                   style={{ color: 'white' }}
                   required
                 />
@@ -273,7 +297,7 @@ export default function InstituteListPage() {
                   name="phoneNo"
                   value={formData.phoneNo}
                   onChange={handleInputChange}
-                  className="form-input w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50"
+                  className="form-input form-placeholder-white w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50"
                   style={{ color: 'white' }}
                   required
                 />
@@ -289,7 +313,7 @@ export default function InstituteListPage() {
                   name="instituteStrength"
                   value={formData.instituteStrength}
                   onChange={handleInputChange}
-                  className="form-input w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50"
+                  className="form-input form-placeholder-white w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50"
                   style={{ color: 'white' }}
                   required
                 />
@@ -307,7 +331,7 @@ export default function InstituteListPage() {
                     onChange={handleInputChange}
                     placeholder=" "
                     rows={5}
-                    className="peer form-textarea w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white focus:outline-none focus:ring-2 focus:ring-white/50 resize-none"
+                    className="peer form-textarea form-placeholder-white w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white focus:outline-none focus:ring-2 focus:ring-white/50 resize-none"
                     style={{ color: 'white' }}
                     required
                   ></textarea>
@@ -348,7 +372,8 @@ export default function InstituteListPage() {
                     value={formData.address.houseNo}
                     onChange={handleInputChange}
                     placeholder=""
-                    className="peer form-input w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50 mb-2 sm:mb-3"
+                    className="peer form-input form-placeholder-white w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50 mb-2 sm:mb-3"
+                    style={{ color: 'white' }}
                     required
                   />
                   <span className="pointer-events-none absolute left-[15px] top-[12px] text-white/50 transition-all duration-200 peer-focus:opacity-0 peer-[&:not(:placeholder-shown)]:opacity-0">
@@ -362,7 +387,8 @@ export default function InstituteListPage() {
                     value={formData.address.streetLocality}
                     onChange={handleInputChange}
                     placeholder=""
-                    className="peer form-input w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50 mb-2 sm:mb-3"
+                    className="peer form-input form-placeholder-white w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50 mb-2 sm:mb-3"
+                    style={{ color: 'white' }}
                     required
                   />
                   <span className="pointer-events-none absolute left-[15px] top-[12px] text-white/50 transition-all duration-200 peer-focus:opacity-0 peer-[&:not(:placeholder-shown)]:opacity-0">
@@ -376,7 +402,7 @@ export default function InstituteListPage() {
                     value={formData.address.landmark}
                     onChange={handleInputChange}
                     placeholder=""
-                    className="peer form-input w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50 mb-2 sm:mb-3"
+                    className="peer form-input form-placeholder-white w-full px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base rounded-lg bg-white/20 border border-white/30 text-white placeholder-white focus:outline-none focus:ring-2 focus:ring-white/50 mb-2 sm:mb-3"
                     style={{ color: 'white' }}
                     required
                   />

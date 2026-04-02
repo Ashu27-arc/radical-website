@@ -285,11 +285,11 @@ export default function Footer() {
               <ul className="space-y-4 text-xs sm:text-sm">
                 <li className="flex items-center gap-2">
                   <i className="pi pi-phone text-xs sm:text-sm" />
-                  <span className='truncate'>97 97 97 2465</span>
+                  <Link href="tel:+919797972465" className='truncate hover:text-[#005A8B]'>97 97 97 2465</Link>
                 </li>
                 <li className="flex items-center gap-2">
                   <i className="pi pi-envelope text-xs sm:text-sm" />
-                  <span className='truncate'>info@radicaleducation.in</span>
+                  <Link href="mailto:info@radicaleducation.in" className='truncate hover:text-[#005A8B]'>info@radicaleducation.in</Link>
                 </li>
                 <li className="flex items-start gap-2">
                   <i className="pi pi-map-marker md:mt-0.5 -mt-0.5 text-xs sm:text-sm" />
