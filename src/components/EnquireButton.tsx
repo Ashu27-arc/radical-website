@@ -150,6 +150,7 @@ export default function EnquireButton() {
 
         setVisible(false);
         setShowSuccess(true);
+        setTimeout(() => setShowSuccess(false), 3000);
       } else {
         showError(result.message || 'Submission failed');
       }

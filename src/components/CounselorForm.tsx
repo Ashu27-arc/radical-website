@@ -98,6 +98,7 @@ export default function CounselorForm() {
                 });
                 setForm({ name: '', mobile: '', course: '', state: '' });
                 setApiMessage(result.message);
+                setTimeout(() => setApiMessage(''), 3000); 
             } else {
                 showError(result.message || 'Failed to submit enquiry');
             }
@@ -181,7 +182,7 @@ export default function CounselorForm() {
                 />
 
                 {apiMessage && (
-                    <div className="text-center text-white font-semibold mt-4 py-2 px-4 rounded bg-white/10 backdrop-blur-sm animate-fade-in">
+                    <div className="text-center text-green-600 font-semibold mt-4 py-2 px-4 rounded bg-white/10 backdrop-blur-sm animate-fade-in">
                         {apiMessage}
                     </div>
                 )}

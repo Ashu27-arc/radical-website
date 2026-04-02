@@ -52,6 +52,7 @@ export default function MBBSDeemedCollegesPage() {
                     mobile: '',
                     course: ''
                 });
+                setTimeout(() => setSubmitMessage(null), 3000);
             } else {
                 setSubmitMessage({ type: 'error', text: data.message });
             }

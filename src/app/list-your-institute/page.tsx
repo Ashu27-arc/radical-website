@@ -105,6 +105,8 @@ export default function InstituteListPage() {
           image: null,
         });
 
+        setTimeout(() => setSubmitMessage(null), 3000);
+
         // Scroll to top to show success message
         window.scrollTo({ top: 0, behavior: "smooth" });
       } else {

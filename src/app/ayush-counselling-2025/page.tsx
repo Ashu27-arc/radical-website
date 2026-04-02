@@ -47,6 +47,7 @@ export default function AyushCounselling2025() {
           phone: '',
           stream: ''
         });
+        setTimeout(() => setSubmitMessage(null), 3000);
       } else {
         setSubmitMessage({ type: 'error', text: data.message });
       }
