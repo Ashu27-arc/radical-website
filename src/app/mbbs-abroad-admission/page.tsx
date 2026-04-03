@@ -169,8 +169,7 @@ export default function MBBSAbroadAdmission() {
                             STUDY <span className="text-[#4FC3F7]">ABROAD</span>
                         </h1>
                         <p className="text-white/90 text-sm sm:text-base md:text-lg lg:text-xl mb-5 sm:mb-6 md:mb-7 px-1 sm:px-2 md:px-3 leading-relaxed">
-                            I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps Info
-                            Generate Job Descriptions And Screen Resumes
+                            Your gateway to world-class education and global medical careers. From application to admission—we guide your medical journey
                         </p>
 
                         {/* World Map */}
@@ -211,13 +210,13 @@ export default function MBBSAbroadAdmission() {
                                 COUNTRIES
                             </p>
                             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#0B2E3C]">
-                                Countries <span className="text-[#287FC4]">We Serve</span>
+                                Serving Aspirants across <span className="text-[#287FC4]">different Countries</span>
                             </h2>
                         </div>
                         <p className="text-gray-600 text-sm sm:text-base md:text-lg max-w-2xl leading-relaxed md:mt-8">
-                            I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps
+                            Discover countries that offer quality education and global career opportunities. We guide you in choosing the right
                             <br className="hidden md:block" />
-                            Info Generate Job Descriptions And Screen Resumes
+                            destination as per your budget and career plans.
                         </p>
                     </div>
 
@@ -578,11 +577,11 @@ export default function MBBSAbroadAdmission() {
 
                         <div className="space-y-3 sm:space-y-4 md:space-y-6 text-sm sm:text-base md:text-lg">
                             <p className="text-white/90 leading-relaxed">
-                                I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps HRs Generate Job Descriptions And Screen Resumes With AI Suggestions, I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps HRs Generate Job Descriptions And Screen Resumes With AI Suggestions, I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps
+                                Students choose to pursue an MBBS degree abroad because it is cost-effective, offers quality education, and is a unique learning experience. Several international institutions offer modern facilities, experienced faculty, and lower costs than India’s top institutes. Admissions are also easy, and there are no entrance exams or donation requirements.
                             </p>
 
                             <p className="text-white/90 leading-relaxed">
-                                I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps HRs Generate Job Descriptions And Screen Resumes With AI Suggestions, I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps HRs Generate Job Descriptions And Screen Resumes With AI Suggestions, I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps
+                                The experience gained while studying abroad is also varied, and students get to work with patients of different cultural and healthcare backgrounds, which is a huge advantage for students, as it helps them become confident and adaptable individuals. With new and better opportunities and career prospects, pursuing an MBBS degree abroad is a safe and preferred choice for future medical professionals.
                             </p>
                         </div>
                     </div>
@@ -722,7 +721,7 @@ export default function MBBSAbroadAdmission() {
                     <div className="mt-4 sm:mt-6 bg-white border-1 border-dashed border-[#2CBF0F] rounded-xl p-3 sm:p-4 md:p-6">
                         <div className="space-y-2">
                             <div className="flex items-start gap-2">
-                                <span className="text-[#FF0000] font-bold flex-shrink-0 text-sm sm:text-base md:text-lg">Note:-</span>
+                                <span className="text-[#FF0000] font-bold flex-shrink-0 text-sm sm:text-base md:text-lg">Note:</span>
                                 <div className="space-y-1 text-[#2CBF0F] font-semibold text-xs sm:text-sm md:text-base">
                                     <p className="text-green-600">
                                         1. This service charge includes visa charges but does not cover ticket charges.

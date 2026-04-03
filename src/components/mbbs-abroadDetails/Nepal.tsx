@@ -40,17 +40,11 @@ const Russia = () => {
 
               <div className="space-y-4 md:space-y-6 text-gray-600 leading-relaxed text-sm md:text-base">
                 <p>
-                  Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite Your Friends
-                  And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive
-                  Benefits—Earn More With Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits Invite Your
-                  Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every
-                  Successful Referral. Invite Your Friends And Unlock Exclusive Benefits
+                  MBBS in Nepal offers numerous opportunities for medical students across the world. Indian students prefer to choose MBBS courses in Nepal because of the easy admission procedure and feasibility. The cordial relationship between Nepal and India makes the decision more suitable. The educational system is highly developed and offers a highly supportive environment for both national and international students. The top medical institutes in Nepal offer a concise course curriculum that covers all aspects of the MBBS courses.
                 </p>
 
                 <p>
-                  Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite Your Friends
-                  And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive
-                  Benefits—Earn More With Every Successful Referral. Invite Your Friends And Unlock
+                  If you want to pursue a career in the medical field from a recognised university, then Nepal would be the best option. These institutes are recognised by top organisations such as NMC and WHO. Nepal, being a developing nation, offers students exposure to various medical branches and horizons.
                 </p>
               </div>
             </div>
@@ -195,18 +189,18 @@ const Russia = () => {
 
           <div className="text-gray-600 leading-relaxed space-y-3 md:space-y-4 text-sm md:text-base">
             <p>
-              Invite your friends and unlock exclusive benefits—earn more with every successful referral. Invite Your Friends And Unlock Exclusive Benefits
-              Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits – Earn More With Every Successful Referral. Invite Your
-              Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits – Earn More With
-              Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive
+              Nepal is one of the most desirable countries for Indian students to study medicine there due to many reasons. Some of the reasons are listed below:
             </p>
-
-            <p>
-              Invite Your Friends And Unlock Exclusive Benefits – Earn More With Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits
-              Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits – Earn More With Every Successful Referral. Invite Your
-              Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits – Earn More With
-              Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive
-            </p>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>The fields in which you can study include General Medicine, Dentistry, Surgery, Paediatrics, and so on. For Indian students, it is easy to travel to Nepal because it is a neighboring country.</li>
+              <li>Nepal has a no-visa policy for Indian students, which makes it easy for them.</li>
+              <li>The admission procedure for medical universities in Nepal is not too complicated.</li>
+              <li>The religions and cultures of the people in Nepal are similar to those in India.</li>
+              <li>The government has its own security policies for international students.</li>
+              <li>Indian students will not face much difficulty in communicating with the people because they will be able to talk in Hindi.</li>
+              <li>The National Medical Commission has provided 1000 seats in Nepal for Indian students.</li>
+              <li>The medical students in Nepal are not required to give entrance exams like TOEFL and IELTS for admission into medical universities.</li>
+            </ul>
           </div>
         </div>
       </div>

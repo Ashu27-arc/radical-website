@@ -147,7 +147,7 @@ export default function NeetUgIndiaAdmissionPage() {
                                             </defs>
                                         </svg>
                                     </div>
-                                    <div>Note:- One Shot Payment (No partial payment, no negotiations)</div>
+                                    <div>Note:- One-shot payment (No partial payment, no negotiations)</div>
                                 </div>
                             </div>
                             <div>

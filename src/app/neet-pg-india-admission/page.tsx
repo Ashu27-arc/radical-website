@@ -14,7 +14,7 @@ import 'swiper/css'
 const branches = [
     {
         title: "Internal Medicine",
-        desc: "I Designed A Web UI For An AI-Powered HR Co-Pilot That Helps HRs Generate Job Descriptions And Screen Resumes.",
+        desc: "Studies, prevents, and treats adult diseases. Acts as the backbone for all other medical sciences",
         icon: "/images/InternalMedicine.webp",
         color: "bg-[#FFEFF2]",
     },
@@ -98,7 +98,7 @@ const branches = [
     },
     {
         title: "Pharmacology",
-        desc: "Studies drugs, their mechanisms, effects, and therapeutic us.Studies drugs, their mechanisms, effects, and therapeutic us",
+        desc: "Studies drugs, their mechanisms, effects, and therapeutic use. This field is important for the safe and proper use of drugs.",
         icon: "/images/Pharmacology.webp",
         color: "bg-[#F4E7FF]",
     },
@@ -122,7 +122,7 @@ const branches = [
     },
     {
         title: "Community Medicine",
-        desc: "Concerned with public health, disease prevention, and health promotion.This field deals with healthcare at a community or public leve",
+        desc: "Concerned with public health, disease prevention, and health promotion. This field deals with healthcare at a community or public leve",
         icon: "/images/CommunityHealth.webp",
         color: "bg-[#FFEFF2]",
     },
@@ -152,7 +152,7 @@ const branches = [
     },
     {
         title: "Oncology",
-        desc: "Studies, prevents, and treats adult diseases. Acts as the backbone for all other medical sciences.",
+        desc: "Studies and treats cancer. Includes chemotherapy, radiation, and other cancer treatments.",
         icon: "/images/Oncology.webp",
         color: "bg-[#E5FBFF]",
     },

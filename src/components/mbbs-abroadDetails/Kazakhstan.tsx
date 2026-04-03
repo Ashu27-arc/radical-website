@@ -2,7 +2,7 @@ import Image from 'next/image';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import Link from 'next/link';
 
-const Russia = () => {
+const Kazakhstan = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <FloatingWhatsApp />
@@ -34,22 +34,16 @@ const Russia = () => {
 
             <div className="relative z-10">
               <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6 md:mb-8">
-                Medical Studies in Kazakhstan?
+                Medical Studies in Kazakhstan
               </h2>
 
               <div className="space-y-4 md:space-y-6 text-gray-600 leading-relaxed text-sm md:text-base">
                 <p>
-                  Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite Your Friends
-                  And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive
-                  Benefits—Earn More With Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits Invite Your
-                  Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every
-                  Successful Referral. Invite Your Friends And Unlock Exclusive Benefits
+                  Kazakhstan has become one of the top choices for Indian students who want to pursue their MBBS abroad. Medical universities in Kazakhstan are known to offer high-quality education at an affordable cost, featuring modern infrastructure, advanced laboratories, and experienced faculty members. The educational standards easily match global benchmarks, making it highly competitive for aspiring medical students.
                 </p>
 
                 <p>
-                  Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite Your Friends
-                  And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive
-                  Benefits—Earn More With Every Successful Referral. Invite Your Friends And Unlock
+                  The admission process for medical universities in Kazakhstan is straightforward, without the need for large donations or hidden fees. The institutions are well-recognized by major global medical councils including NMC, WHO, and FAIMER, which ensures that graduates are eligible to practice medicine internationally after passing the necessary licensing exams.
                 </p>
               </div>
             </div>
@@ -194,18 +188,18 @@ const Russia = () => {
 
           <div className="text-gray-600 leading-relaxed space-y-4 text-sm md:text-base">
             <p>
-              Invite Your Friends And Unlock Exclusive Benefits – Earn More With Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits
-              Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits – Earn More With Every Successful Referral. Invite Your
-              Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits – Earn More With
-              Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive
+              If you are planning to pursue MBBS abroad, here are some advantages of studying medicine in Kazakhstan:
             </p>
-
-            <p>
-              Invite Your Friends And Unlock Exclusive Benefits – Earn More With Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits
-              Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits – Earn More With Every Successful Referral. Invite Your
-              Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits – Earn More With
-              Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive
-            </p>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>Getting into a university in Kazakhstan is simple and not too complicated.</li>
+              <li>No hefty fees and donations are required at Kazakhstan universities.</li>
+              <li>Medical universities in Kazakhstan are recognised by the WHO, NMC, IMED, USMLE, and other such prestigious organisations.</li>
+              <li>No entrance exams are required to get into MBBS courses at Kazakhstani universities.</li>
+              <li>As the quality of medical education is good, students are more likely to perform well in international exams.</li>
+              <li>Pursuing MBBS in Kazakhstan provides students with the opportunity to gain experience and exposure at a global level.</li>
+              <li>The cost of living is extremely low in Kazakhstan, and hostel fees are also minimal.</li>
+              <li>Students can choose the credit system of medical universities in Kazakhstan.</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -213,4 +207,4 @@ const Russia = () => {
   );
 };
 
-export default Russia;
+export default Kazakhstan;

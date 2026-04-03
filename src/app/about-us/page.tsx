@@ -3,6 +3,59 @@
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 export default function AboutUsPage() {
+  const heroData = {
+    tagline: "About Us Radical Education",
+    headingLeft: "Empowering",
+    headingHighlight: "Next Generation",
+    headingRight: "Students",
+    paragraph: (
+      <>
+        Presenting a platform that offers varied courses across different
+        institutions
+        <br />
+        for students. Whether you want to pursue your education in India
+        or abroad, Radical
+        <br />
+        Education is well-informed about every detail and simplifies the
+        admission
+        <br />
+        process. We have the necessary linkages to outstanding
+        educational resources. We
+        <br />
+        take pride in providing all of our students with individual
+        attention and professional
+        <br />
+        assistance as they take big steps towards their future goals.
+      </>
+    ),
+    stats: [
+      { value: "100%", label: "Rate of Success" },
+      { value: "15783+", label: "Students Counselled" },
+      { value: "12+", label: "Years of Experience" },
+      { value: "55+", label: "Team Strength" },
+    ]
+  };
+
+  const whoWeAreData = {
+    title: "Who We Are",
+    paragraph: "Radical Education is your go-to option for understanding the complexities associated with higher education. On our website, you can find in-depth information regarding top universities around the world, making the process easier for you.",
+    expertiseTitle: "Our expertise:",
+    expertiseList: [
+      {
+        title: "Smooth admissions:",
+        desc: "Relieve the stress of difficult applications with our specialized help."
+      },
+      {
+        title: "Top-notch education advisors:",
+        desc: "Take advantage of the best education consultants in Delhi who specialize in engineering, management, and medical streams."
+      },
+      {
+        title: "Understanding at every step:",
+        desc: "Gain clear explanations regarding details of the courses, the process of enrolling, and straightforward tuition fees."
+      }
+    ]
+  };
+
   const steps = [
     {
       id: 1,
@@ -17,31 +70,30 @@ export default function AboutUsPage() {
     {
       id: 3,
       title: "Impartial Advice",
-      desc: `We are dedicated to assisting students on their paths to career progression and personal development, free from any prejudices.`,
+      desc: `We are dedicated to assisting students on their paths to career progression and personal development, free from any prejudice.`,
     },
   ];
 
   return (
     <div className="min-h-screen bg-white">
       <FloatingWhatsApp />
+
       {/* Hero Section */}
       <section className="relative min-h-[500px] md:h-[90vh] md:min-h-[400px] md:max-h-[600px] bg-gradient-to-br from-[#0B5A8E] to-[#1B7AB8] text-white overflow-hidden flex items-center py-8 md:py-0">
         <div className="container mx-auto px-4 md:px-8 w-full">
-          {/* Mobile Layout - Heading above image, paragraph below */}
+          {/* Mobile Layout */}
           <div className="block md:hidden">
-            {/* Heading Only - Mobile */}
             <div className="mb-8">
               <p className="text-sm mb-3 opacity-90 text-center">
-                About Us Radical Education
+                {heroData.tagline}
               </p>
               <h1 className="normal-case text-xl sm:text-2xl md:text-3xl font-bold mb-4 leading-tight text-center">
-                Empowering <span className="lowercase">the</span>{" "}
-                <span className="text-[#00D9A3]">Next Generation</span>{" "}
-                <span className="lowercase">of</span> Students
+                {heroData.headingLeft} <span className="lowercase">the</span>{" "}
+                <span className="text-[#00D9A3]">{heroData.headingHighlight}</span>{" "}
+                <span className="lowercase">of</span> {heroData.headingRight}
               </h1>
             </div>
 
-            {/* Image - Mobile */}
             <div className="mb-6 relative z-10">
               <img
                 src="/images/about/hero.webp"
@@ -50,92 +102,43 @@ export default function AboutUsPage() {
               />
             </div>
 
-            {/* Paragraph Below Image - Mobile */}
             <div className="mb-8">
               <div className="border-l-4 border-[#00CFB2] pl-4">
                 <p className="text-base leading-relaxed opacity-90 text-left">
-                  Presenting a platform that offers varied courses across different
-                  institutions
-                  <br />
-                  for students. Whether you want to pursue your education in India
-                  or abroad, Radical
-                  <br />
-                  Education is well-informed about every detail and simplifies the
-                  admission
-                  <br />
-                  process. We have the necessary linkages to outstanding
-                  educational resources. We
-                  <br />
-                  take pride in providing all of our students with individual
-                  attention and professional
-                  <br />
-                  assistance as they take big steps towards their future goals.
+                  {heroData.paragraph}
                 </p>
               </div>
             </div>
 
-            {/* Stats Grid - Mobile */}
             <div className="grid grid-cols-2 gap-3 sm:gap-4 relative z-10">
-              <div className="text-center rounded-lg p-3 sm:p-4">
-                <h3 className="text-3xl sm:text-4xl font-bold mb-1">100%</h3>
-                <p className="text-xs sm:text-sm opacity-90">Rate of Success</p>
-              </div>
-              <div className="text-center rounded-lg p-3 sm:p-4">
-                <h3 className="text-3xl sm:text-4xl font-bold mb-1">15783+</h3>
-                <p className="text-xs sm:text-sm opacity-90">
-                  Students Counselled
-                </p>
-              </div>
-              <div className="text-center rounded-lg p-3 sm:p-4">
-                <h3 className="text-3xl sm:text-4xl font-bold mb-1">12+</h3>
-                <p className="text-xs sm:text-sm opacity-90">
-                  Year of Experiences
-                </p>
-              </div>
-              <div className="text-center rounded-lg p-3 sm:p-4">
-                <h3 className="text-3xl sm:text-4xl font-bold mb-1">55+</h3>
-                <p className="text-xs sm:text-sm opacity-90">Team Strength</p>
-              </div>
+              {heroData.stats.map((stat, idx) => (
+                <div key={`stat-mobile-${idx}`} className="text-center rounded-lg p-3 sm:p-4">
+                  <h3 className="text-3xl sm:text-4xl font-bold mb-1">{stat.value}</h3>
+                  <p className="text-xs sm:text-sm opacity-90">{stat.label}</p>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Desktop Layout - Original grid */}
+          {/* Desktop Layout */}
           <div className="hidden md:grid md:grid-cols-2 gap-8 md:gap-6 items-center">
-            {/* Left Content */}
             <div>
               <p className="text-sm md:text-sm mb-3 md:mb-2 opacity-90">
-                About Us Radical Education
+                {heroData.tagline}
               </p>
               <h1 className="normal-case text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-3 leading-tight">
-                Empowering <span className="lowercase">the</span>{" "}
-                <span className="text-[#00D9A3]">Next Generation</span>{" "}
-                <span className="lowercase">of</span> Students
+                {heroData.headingLeft} <span className="lowercase">the</span>{" "}
+                <span className="text-[#00D9A3]">{heroData.headingHighlight}</span>{" "}
+                <span className="lowercase">of</span> {heroData.headingRight}
               </h1>
               <div className="border-l-4 border-[#00CFB2] pl-4 md:pl-3 md:pl-4">
                 <p className="text-base md:text-xs md:text-sm leading-relaxed opacity-90">
-                  Presenting a platform that offers varied courses across different
-                  institutions
-                  <br />
-                  for students. Whether you want to pursue your education in India
-                  or abroad, Radical
-                  <br />
-                  Education is well-informed about every detail and simplifies the
-                  admission
-                  <br />
-                  process. We have the necessary linkages to outstanding
-                  educational resources. We
-                  <br />
-                  take pride in providing all of our students with individual
-                  attention and professional
-                  <br />
-                  assistance as they take big steps towards their future goals.
+                  {heroData.paragraph}
                 </p>
               </div>
             </div>
 
-            {/* Right Stats */}
             <div className="relative">
-              {/* Image Above Stats */}
               <div className="mb-6 relative z-10">
                 <img
                   src="/images/about/hero.webp"
@@ -144,40 +147,17 @@ export default function AboutUsPage() {
                 />
               </div>
 
-              {/* Stats Grid */}
               <div className="grid grid-cols-2 gap-3 sm:gap-4 relative z-10">
-                <div className="text-center rounded-lg p-3 sm:p-4">
-                  <h3 className="text-3xl sm:text-4xl md:text-2xl md:text-3xl font-bold mb-1">
-                    100%
-                  </h3>
-                  <p className="text-xs sm:text-sm md:text-xs opacity-90">
-                    Rate of Success
-                  </p>
-                </div>
-                <div className="text-center rounded-lg p-3 sm:p-4">
-                  <h3 className="text-3xl sm:text-4xl md:text-2xl md:text-3xl font-bold mb-1">
-                    15783+
-                  </h3>
-                  <p className="text-xs sm:text-sm md:text-xs opacity-90">
-                    Students Counselled
-                  </p>
-                </div>
-                <div className="text-center rounded-lg p-3 sm:p-4">
-                  <h3 className="text-3xl sm:text-4xl md:text-2xl md:text-3xl font-bold mb-1">
-                    12+
-                  </h3>
-                  <p className="text-xs sm:text-sm md:text-xs opacity-90">
-                    Years of Experience
-                  </p>
-                </div>
-                <div className="text-center rounded-lg p-3 sm:p-4">
-                  <h3 className="text-3xl sm:text-4xl md:text-2xl md:text-3xl font-bold mb-1">
-                    55+
-                  </h3>
-                  <p className="text-xs sm:text-sm md:text-xs opacity-90">
-                    Team Strength
-                  </p>
-                </div>
+                {heroData.stats.map((stat, idx) => (
+                  <div key={`stat-desktop-${idx}`} className="text-center rounded-lg p-3 sm:p-4">
+                    <h3 className="text-3xl sm:text-4xl md:text-2xl md:text-3xl font-bold mb-1">
+                      {stat.value}
+                    </h3>
+                    <p className="text-xs sm:text-sm md:text-xs opacity-90">
+                      {stat.label}
+                    </p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -387,13 +367,9 @@ export default function AboutUsPage() {
                 <p className="text-gray-600 leading-relaxed text-sm">
                   Imagine an India where every child succeeds. They have
                   the wisdom, resources, and facilities to fully navigate their
-                  academic endeavors and across the world. We envision the benefits
-                  of advanced technology, which helps them make informed choices
-                  about their lives. This unlocks their true potential so they
+                  academic endeavors and across the world. We envision the benefits of advanced technology, which help them make informed choices about their lives. This unlocks their true potential so they
                   can achieve something substantial for themselves as well as for
-                  the nation. We envision a learning culture with adaptable,
-                  empowered youngsters who ensure that their aspirations take
-                  flight.
+                  the nation. We envision a learning culture with adaptable, empowered youngsters who ensure their aspirations take flight.
                 </p>
               </div>
             </div>
@@ -415,12 +391,10 @@ export default function AboutUsPage() {
         <div className="container mx-auto px-4 md:px-8">
           {/* Mobile Layout */}
           <div className="block md:hidden">
-            {/* Title */}
             <h2 className="text-3xl sm:text-4xl font-bold mb-6 text-center">
-              Who We Are
+              {whoWeAreData.title}
             </h2>
 
-            {/* Image - Mobile: positioned at top with left/right sides visible */}
             <div className="relative mb-8 -mx-4 px-4">
               <img
                 src="/images/about/wave.webp"
@@ -429,52 +403,32 @@ export default function AboutUsPage() {
               />
             </div>
 
-            {/* Content Below Image - Mobile */}
             <div>
               <p className="text-sm sm:text-base leading-relaxed mb-6 opacity-90">
-                Radical Education is your go-to option for understanding the
-                complexities associated with higher education. On our website, you
-                can find in-depth information regarding top universities around the
-                world, making the process easier for you.
+                {whoWeAreData.paragraph}
               </p>
 
               <h3 className="text-lg sm:text-xl font-bold mb-4">
-                Our expertise:
+                {whoWeAreData.expertiseTitle}
               </h3>
               <ul className="space-y-3 text-sm sm:text-base">
-                <li className="flex items-start">
-                  <span className="text-[#00D9A3] mr-2 text-lg">•</span>
-                  <span>
-                    Smooth admissions: Relieve the stress of difficult applications
-                    with our specialized help.
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#00D9A3] mr-2 text-lg">•</span>
-                  <span>
-                    Top-notch education advisors: Take advantage of the best
-                    education consultants in Delhi who specialize in engineering,
-                    management, and medical streams.
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#00D9A3] mr-2 text-lg">•</span>
-                  <span>
-                    Understanding at every step: Gain clear explanations about
-                    course details, the enrollment process, and
-                    straightforward tuition fees.
-                  </span>
-                </li>
+                {whoWeAreData.expertiseList.map((item, idx) => (
+                  <li key={`expertise-mobile-${idx}`} className="flex items-start">
+                    <span className="text-[#00D9A3] mr-2 text-lg">•</span>
+                    <span>
+                      {item.title} {item.desc}
+                    </span>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>
 
-          {/* Desktop Layout - Original grid */}
+          {/* Desktop Layout */}
           <div className="hidden md:grid md:grid-cols-2 gap-8 md:gap-12 items-center">
-            {/* Left Side - Title with Image */}
             <div className="relative">
               <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 md:mb-6 text-center">
-                Who We Are
+                {whoWeAreData.title}
               </h2>
               <img
                 src="/images/about/wave.webp"
@@ -483,42 +437,23 @@ export default function AboutUsPage() {
               />
             </div>
 
-            {/* Right Side - Content */}
             <div>
               <p className="text-sm sm:text-base leading-relaxed mb-6 md:mb-8 opacity-90">
-                Radical Education is your go-to option for understanding the
-                complexities associated with higher education. On our website, you
-                can find in-depth information regarding top universities around the
-                world, making the process easier for you.
+                {whoWeAreData.paragraph}
               </p>
 
               <h3 className="text-lg sm:text-xl font-bold mb-3 md:mb-4">
-                Our expertise:
+                {whoWeAreData.expertiseTitle}
               </h3>
               <ul className="space-y-3 text-sm sm:text-base">
-                <li className="flex items-start">
-                  <span className="text-[#00D9A3] mr-2 text-lg">•</span>
-                  <span>
-                    Smooth admissions: Relieve the stress of difficult applications
-                    with our specialized help.
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#00D9A3] mr-2 text-lg">•</span>
-                  <span>
-                    Top-notch education advisors: Take advantage of the best
-                    education consultants in Delhi who specialize in engineering,
-                    management, and medical streams.
-                  </span>
-                </li>
-                <li className="flex items-start">
-                  <span className="text-[#00D9A3] mr-2 text-lg">•</span>
-                  <span>
-                    Understanding at every step: Gain clear explanations regarding
-                    details of the courses, the process of enrolling, and
-                    straightforward tuition fees.
-                  </span>
-                </li>
+                {whoWeAreData.expertiseList.map((item, idx) => (
+                  <li key={`expertise-desktop-${idx}`} className="flex items-start">
+                    <span className="text-[#00D9A3] mr-2 text-lg">•</span>
+                    <span>
+                      {item.title} {item.desc}
+                    </span>
+                  </li>
+                ))}
               </ul>
             </div>
           </div>

@@ -38,17 +38,11 @@ const Russia = () => {
 
               <div className="space-y-4 md:space-y-6 text-gray-600 leading-relaxed text-sm md:text-base">
                 <p>
-                  Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite Your Friends
-                  And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive
-                  Benefits—Earn More With Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits Invite Your
-                  Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every
-                  Successful Referral. Invite Your Friends And Unlock Exclusive Benefits
+                  With modern facilities, experienced teachers, and an academic curriculum according to international norms, federal medical universities in Russia are known for their strong history of quality education in the past. Russian universities are known worldwide for offering affordable and quality medical education, which has a huge impact on Indian students, not only in the sense of achieving high results but also going far beyond.
                 </p>
 
                 <p>
-                  Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite Your Friends
-                  And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive
-                  Benefits—Earn More With Every Successful Referral. Invite Your Friends And Unlock
+                  There are several reasons why most Indian students prefer to study MBBS in Russia, which include a safe environment, affordable costs, world-class universities, and a strong healthcare system, among others. Some of the top medical colleges in Russia to study MBBS include Pavlov University, Sechenov University, Lomonosov Moscow State University, Kazan State Medical University, etc., which are approved by NMC, WHO, WFME, ECFMG, FAIMER, etc.
                 </p>
               </div>
             </div>
@@ -134,7 +128,7 @@ const Russia = () => {
                 <Image src="/images/study-abroad/logos/r-4.webp" alt="Kursk State Medical University" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
-                First State Moscow Medical University
+                First Moscow State Medical University
               </h3>
             </div>
 
@@ -339,18 +333,19 @@ const Russia = () => {
 
           <div className="text-gray-600 leading-relaxed space-y-3 md:space-y-4 text-sm md:text-base">
             <p>
-              Invite Your Friends And Unlock Exclusive Benefits – Earn More With Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits
-              Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits – Earn More With Every Successful Referral. Invite Your
-              Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits – Earn More With
-              Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive
+              Here are some of the major factors that encourage more than 20,000 Indian students to opt for MBBS in Russia:
             </p>
-
-            <p>
-              Invite Your Friends And Unlock Exclusive Benefits – Earn More With Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits
-              Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits – Earn More With Every Successful Referral. Invite Your
-              Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits – Earn More With
-              Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive
-            </p>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>
+                <strong>Advanced Education System:</strong> The education system in Russia, particularly in MBBS, is one of the most advanced and developed education systems in the world.
+              </li>
+              <li>
+                <strong>English is the Medium of Teaching:</strong> All universities in Russia offer education in English, making it easier for Indian students to cope with the education system from the very first day.
+              </li>
+              <li>
+                <strong>Easy Admission:</strong> It is extremely easy for Indian students to get admission into one of the top universities in Russia for MBBS. Students can apply after completing their 12th standard with Physics, Chemistry, and Biology as major subjects, along with a minimum passing percentage of more than 50%.
+              </li>
+            </ul>
           </div>
         </div>
       </div>
