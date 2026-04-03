@@ -3,6 +3,7 @@
 import { Dropdown } from "primereact/dropdown";
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { getBlogLinks, type BlogLink } from '@/lib/api';
 
 interface BlogSidebarProps {
@@ -15,17 +16,25 @@ const BlogSidebar = ({ className = "" }: BlogSidebarProps) => {
 
     const [selectedCourse, setSelectedCourse] = useState(null);
     const [links, setLinks] = useState<BlogLink[]>([]);
+    const [wpBlogs, setWpBlogs] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        getBlogLinks().then((data) => {
-            // Sort by date (newest first) and take top 8
-            const sorted = [...data].sort((a, b) => {
+        setLoading(true);
+        Promise.all([
+            getBlogLinks(),
+            import('@/lib/api').then(api => api.getWpBlogs())
+        ]).then(([linksData, wpData]) => {
+            // Sort links by date (newest first) and take top 5
+            const sortedLinks = [...linksData].sort((a, b) => {
                 const dateA = new Date(a.createdAt || 0);
                 const dateB = new Date(b.createdAt || 0);
                 return dateB.getTime() - dateA.getTime();
-            }).slice(0, 8);
-            setLinks(sorted);
+            }).slice(0, 5);
+            setLinks(sortedLinks);
+
+            // Take top 5 WordPress blogs
+            setWpBlogs(wpData.slice(0, 5));
             setLoading(false);
         }).catch(() => setLoading(false));
     }, []);
@@ -100,58 +109,110 @@ const BlogSidebar = ({ className = "" }: BlogSidebarProps) => {
                 </div>
             </div>
 
-            {/* Important Links Section - Dynamic */}
-            <div className="bg-[#E1F2FF] p-4 sm:p-5 md:p-6 rounded-lg mt-4 sm:mt-6">
-                <h3 className="text-base sm:text-lg md:text-xl font-bold text-[#287FC4] mb-4 sm:mb-5 md:mb-6">Important Links</h3>
+            {/* Quick Updates Section - Dynamic */}
+            <div className="bg-[#E1F2FF] p-4 sm:p-5 md:p-6 rounded-xl mt-4 sm:mt-6 shadow-sm border border-blue-50">
+                <h3 className="text-base sm:text-lg md:text-xl font-bold text-[#287FC4] mb-4 sm:mb-5">Quick Updates</h3>
 
                 {loading ? (
                     <div className="space-y-4 animate-pulse">
-                        {[1, 2, 3, 4].map(i => (
-                            <div key={i} className="pb-4 border-b border-gray-200">
-                                <div className="h-4 bg-gray-200 rounded w-full mb-2" />
-                                <div className="h-3 bg-gray-200 rounded w-1/2" />
+                        {[1, 2, 3].map(i => (
+                            <div key={i} className="flex gap-3 pb-4 border-b border-blue-100 last:border-0 last:pb-0">
+                                <div className="flex-1 space-y-2">
+                                    <div className="h-4 bg-blue-100 rounded w-full" />
+                                    <div className="h-3 bg-blue-100 rounded w-1/2" />
+                                </div>
                             </div>
                         ))}
                     </div>
                 ) : links.length > 0 ? (
-                    <div className="space-y-4 sm:space-y-5 md:space-y-6">
+                    <div className="space-y-4">
                         {links.map((link) => (
                             <Link
                                 key={link._id || link.id}
                                 href={link.link || '#'}
                                 target={link.link?.startsWith('http') ? "_blank" : "_self"}
-                                className="block mb-4 pb-4 border-[#ABABAB] border-b transition-colors duration-300 group"
+                                className="block group pb-4 border-b border-blue-100 last:border-0 last:pb-0 transition-all duration-300"
                             >
-                                <h4 className="font-semibold text-gray-800 mb-1.5 sm:mb-2 leading-tight text-sm md:text-base group-hover:text-[#287FC4] transition-colors break-words">
+                                <h4 className="font-semibold text-gray-800 mb-1 leading-tight text-sm md:text-base group-hover:text-[#287FC4] transition-colors break-words line-clamp-2">
                                     {link.name}
                                 </h4>
-                                <div className="text-gray-500 text-xs md:text-sm flex items-center justify-between">
-                                    <span className="capitalize">{link.categories || 'Update'}</span>
+                                <div className="text-gray-500 text-[10px] md:text-xs flex items-center justify-between">
+                                    <span className="bg-white/50 px-2 py-0.5 rounded-full text-blue-600 font-medium">#{link.categories || 'Update'}</span>
                                     <span>{formatDate(link.createdAt)}</span>
                                 </div>
                             </Link>
                         ))}
                     </div>
                 ) : (
-                    <p className="text-gray-500 text-sm italic">No recent links available</p>
+                    <p className="text-gray-500 text-sm italic">No recent updates available</p>
                 )}
+            </div>
 
-                {/* Advertisement Banners */}
-                <div className="mt-4 sm:mt-5 md:mt-6 space-y-3 sm:space-y-4">
-                    <div className="bg-gradient-to-r from-teal-400 to-blue-500 rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-xl flex flex-col">
-                        <img
-                            src="/images/blogs/ad-1.webp"
-                            alt="Study MBBS in Kyrgyzstan"
-                            className="w-full h-auto opacity-90 hover:opacity-100 transition-opacity block m-0 p-0"
-                        />
+            {/* Recent Blogs Section - WordPress */}
+            <div className="bg-white p-4 sm:p-5 md:p-6 rounded-xl mt-4 sm:mt-6 shadow-md border border-gray-100">
+                <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-800 mb-4 sm:mb-5">Recent Blogs</h3>
+
+                {loading ? (
+                    <div className="space-y-5 animate-pulse">
+                        {[1, 2, 3].map(i => (
+                            <div key={i} className="flex gap-3 pb-4">
+                                <div className="w-16 h-16 bg-gray-100 rounded-lg shrink-0" />
+                                <div className="flex-1 space-y-2">
+                                    <div className="h-4 bg-gray-100 rounded w-full" />
+                                    <div className="h-3 bg-gray-100 rounded w-1/2" />
+                                </div>
+                            </div>
+                        ))}
                     </div>
-                    <div className="bg-gradient-to-r from-blue-500 to-blue-600 rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-xl flex flex-col">
-                        <img
-                            src="/images/blogs/ad.webp"
-                            alt="NEET PG Admission"
-                            className="w-full h-auto opacity-90 hover:opacity-100 transition-opacity block m-0 p-0"
-                        />
+                ) : wpBlogs.length > 0 ? (
+                    <div className="space-y-5">
+                        {wpBlogs.map((blog) => (
+                            <Link
+                                key={blog.id}
+                                href={`/${blog.slug}`}
+                                className="flex gap-3 group transition-all duration-300"
+                            >
+                                <div className="w-16 h-16 sm:w-20 sm:h-20 shrink-0 rounded-lg overflow-hidden relative shadow-sm border border-gray-50">
+                                    <Image
+                                        src={blog.featuredImage || '/images/blogs/card.webp'}
+                                        alt={blog.title}
+                                        fill
+                                        className="object-cover transition-transform duration-500 group-hover:scale-110"
+                                    />
+                                </div>
+                                <div className="flex-1 min-w-0">
+                                    <h4 className="font-bold text-gray-800 mb-1 leading-tight text-xs sm:text-sm md:text-base group-hover:text-[#005A8B] transition-colors line-clamp-2">
+                                        {blog.title}
+                                    </h4>
+                                    <div className="text-gray-500 text-[10px] sm:text-xs">
+                                        {formatDate(blog.date)}
+                                    </div>
+                                </div>
+                            </Link>
+                        ))}
                     </div>
+                ) : (
+                    <p className="text-gray-500 text-sm italic">No recent blogs found</p>
+                )}
+            </div>
+
+            {/* Sidebar Banners */}
+            <div className="mt-6 space-y-4">
+                <div className="group relative overflow-hidden rounded-xl shadow-lg border-2 border-transparent hover:border-teal-400 transition-all duration-300">
+                    <img
+                        src="/images/blogs/ad-1.webp"
+                        alt="Study MBBS in Kyrgyzstan"
+                        className="w-full h-auto transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                </div>
+                <div className="group relative overflow-hidden rounded-xl shadow-lg border-2 border-transparent hover:border-blue-500 transition-all duration-300">
+                    <img
+                        src="/images/blogs/ad.webp"
+                        alt="NEET PG Admission"
+                        className="w-full h-auto transition-transform duration-700 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
             </div>
         </div>

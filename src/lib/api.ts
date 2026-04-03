@@ -160,7 +160,14 @@ export async function getWpBlogs(): Promise<Blog[]> {
       // Extract featured image
       let featuredImage = '';
       if (post._embedded && post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0]) {
-        featuredImage = post._embedded['wp:featuredmedia'][0].source_url;
+        const media = post._embedded['wp:featuredmedia'][0];
+        featuredImage = media.media_details?.sizes?.large?.source_url || 
+                        media.media_details?.sizes?.full?.source_url || 
+                        media.source_url || '';
+      } else if (post.featured_image_url) {
+        featuredImage = post.featured_image_url;
+      } else if (post.jetpack_featured_media_url) {
+        featuredImage = post.jetpack_featured_media_url;
       }
 
       // Extract author name
@@ -234,7 +241,14 @@ export async function getBlogBySlug(slug: string): Promise<Blog | null> {
       // Extract featured image
       let featuredImage = '';
       if (post._embedded && post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0]) {
-        featuredImage = post._embedded['wp:featuredmedia'][0].source_url;
+        const media = post._embedded['wp:featuredmedia'][0];
+        featuredImage = media.media_details?.sizes?.large?.source_url || 
+                        media.media_details?.sizes?.full?.source_url || 
+                        media.source_url || '';
+      } else if (post.featured_image_url) {
+        featuredImage = post.featured_image_url;
+      } else if (post.jetpack_featured_media_url) {
+        featuredImage = post.jetpack_featured_media_url;
       }
 
       // Extract author name
