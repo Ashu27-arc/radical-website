@@ -6,7 +6,7 @@ const data = [
   },
   {
     title: "Deadlines Are Unforgiving",
-    desc: "Miss 1 step—registration, choice filling, reporting, and you're out of the process, and there's no going back..",
+    desc: "Miss 1 step—registration, choice filling, reporting, and you're out of the process, and there's no going back.",
     img: "/img/ar/ar-2.webp",
   },
   {
