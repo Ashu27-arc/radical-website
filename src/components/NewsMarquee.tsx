@@ -96,7 +96,7 @@ export default function NewsMarquee() {
 
         <Button
           size="small"
-          className="shadow-none group relative overflow-hidden !bg-[#63CDB4] border !border-[#005A8B] py-1.5 md:py-2.5 md:pr-3 pr-1.5 pl-2 md:pl-3 gap-2 flex items-center"
+          className="shadow-none group relative overflow-hidden !border-0 !bg-[linear-gradient(90deg,_#27AEDC_0%,_#3FE198_100%)] py-1.5 md:py-2.5 md:pr-2 pr-1.5 pl-2 md:pl-3 gap-2 flex items-center"
           rounded
         >
           <span className="md:text-sm text-xs">View More</span>
