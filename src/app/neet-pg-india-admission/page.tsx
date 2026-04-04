@@ -8,7 +8,6 @@ import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 
-import 'swiper/css'
 
 
 const branches = [
@@ -159,14 +158,13 @@ const branches = [
 ];
 
 const features = [
-    "Alerts, Notifications, Updates",
-    "Detailed Information on Admission Procedure",
-    // "Alerts, Notifications, Updates",
-    "Guidance on Documentation",
-    "Guidance on Bonds and Rural Service Rules over call",
-    // "Alerts, Notifications, Updates",
-    // "Guidance on Documentation",
-    // "Guidance on Bonds and Rural Service Rules over call",
+    "Personalized Profile Evaluation",
+    "Seat Matrix, Fee & Cutoff Insights",
+    "Document Verification Help",
+    "Mop-up & Stray Round Support",
+    "1-on-1 Counsellor Access",
+    "Real-Time Alerts & Deadline Tracking",
+    "NRI/Management Quota Guidance",
 ];
 
 const videos = [
@@ -202,7 +200,7 @@ export default function NeetPgIndiaAdmissionPage() {
                 </div>
             </section>
             <section className="py-10 lg:py-15 overflow-hidden">
-                <div className="container px-3 md:px-4">
+                <div className="container px-3 md:px-4 max-w-[1240px]!">
                     <h6 className="text-black font-semibold mb-6 fadeUp">Courses</h6>
                     <h2 className='text-black text-4xl font-bold mb-6 lg:mb-10 fadeUp mb-8'>PG Branches</h2>
 
@@ -260,86 +258,53 @@ export default function NeetPgIndiaAdmissionPage() {
                                         {item.title}
                                     </h3>
 
-                                    <div className="border-t border-black/25 my-4"></div>
+                                    {/* <div className="border-t border-black/25 my-4"></div>
 
                                     <p className="text-xs text-gray-600 leading-relaxed">
                                         {item.desc}
-                                    </p>
+                                    </p> */}
                                 </div>
                             </SwiperSlide>
                         ))}
                     </Swiper>
                 </div>
             </section>
-            <section className="py-10 lg:py-15 overflow-hidden bg-[url('/images/anExpert.webp')] bg-cover bg-center bg-no-repeat">
-                <div className="container px-3 md:px-4 lg:px-20">
+            <section className="py-10 lg:py-15 overflow-hidden bg-[]">
+                <div className="container px-3 md:px-4 lg:px-20 max-w-[1090px]!">
                     <div className="grid grid-cols-1 md:grid-cols-2 md:gap-4 lg:gap-30">
                         <div className="relative">
-                            <Image src="/images/csdcsdcs.webp" width="572" height="764" className="move-x w-full max-w-[455px] h-auto" alt="" />
+                            <Image src="/images/caremore2.webp" width="572" height="764" className="w-full h-auto" alt="" />
                         </div>
                         <div>
                             <div
-                                style={{
-                                    backgroundImage: "url('/images/borderShape3.webp')",
-                                }}
-                                className={`group prcCardStyle1 fadeUp overflow-hidden relative z-1 rounded-2xl border-2 border-[#42ACCF] hover:border-[#007EC8] bg-[#D3F4FF] hover:bg-[#B8EAFB] p-6 lg:px-6 lg:py-8 shadow-md hover:shadow-2xl hover:scale-[1.03] transition-all duration-300 cursor-pointer`}
+                                className="group fadeUp relative z-10 rounded-2xl pt-16 pb-8 px-6 shadow-xl transition-all duration-500 bg-white hover:shadow-2xl hover:bg-[linear-gradient(163.56deg,_#02CCB2_6.49%,_#0080C8_98.8%)] transition-all duration-300 hover:text-white"
                             >
-                                <div className="text-lg font-semibold text-[#0B2E3C] group-hover:text-[#005787] uppercase transition-colors duration-300">Standard</div>
-                                <div className="text-xs text-[#0B2E3C] group-hover:text-[#005787] mb-6 transition-colors duration-300">Unlock exclusive, end-to-end counselling support with our premium plans. </div>
-                                <div className="font-bold lg:text-5xl text-4xl mb-8 group-hover:text-[#005787] transition-colors duration-300">₹ 9,999</div>
-                                <div className="text-xs text-[#0B2E3C] group-hover:text-[#005787] mb-5 transition-colors duration-300">Features</div>
-                                <ul className="space-y-4 text-sm text-gray-700 mb-8">
+                                <div className="absolute left-1/2 -translate-x-1/2 -top-[35px] border-[8px] border-[#F4F7F8] rounded-full">
+                                    <img
+                                        src="/images/st5.svg"
+                                        alt=""
+                                        className="w-16 h-16 object-contain"
+                                    />
+                                </div>
+                                <div className="text-center mb-3 text-lg font-semibold text-[#0B2E3C] group-hover:text-white! transition-colors duration-300 uppercase">Standard</div>
+                                <div className="text-center text-xs text-[#0B2E3C] group-hover:text-white! transition-colors duration-300 mb-6">I designed a web UI for an AI-powered HR Co-Pil I </div>
+                                <div className="text-center font-light lg:text-5xl text-4xl group-hover:text-white! transition-colors duration-300 mb-8">₹ 84,999</div>
+                                <div className="flex flex-col gap-3 mb-10">
+                                    <Button className="text-[#005787]! border-[#DFF1FF]! bg-[#128FFF1C]! group-hover:bg-[#FFFFFF47]! group-hover:text-white! group-hover:border-[#FFFFFF47]! w-full flex gap-2 items-center transition-all duration-300" rounded>
+                                        Buy now <i className="pi pi-arrow-right"></i>
+                                    </Button>
+                                </div>
+                                <div className="text-base text-black font-semibold group-hover:text-white! transition-colors duration-300 mb-5">What's included?</div>
+                                <ul className="space-y-5 text-sm text-gray-700 mb-8">
                                     {features.map((item, index) => (
                                         <li key={index} className="flex gap-2">
-                                            <span className="text-yellow-500 group-hover:text-[#007EC8] transition-colors duration-300">✦</span>
-                                            <span className="group-hover:text-[#0B2E3C] transition-colors duration-300">{item}</span>
+                                            <span className="text-yellow-500 transition-colors duration-300">✦</span>
+                                            <span className="group-hover:text-white transition-colors duration-300">{item}</span>
                                         </li>
                                     ))}
                                 </ul>
-                                <div className="flex flex-col gap-3">
-                                    <Button className="text-[#005787]! border-[#DFF1FF]! bg-[#DFF1FF]! group-hover:bg-[#005787]! group-hover:text-white! group-hover:border-[#005787]! w-full flex gap-2 items-center transition-all duration-300" rounded>
-                                        Pay now <i className="pi pi-arrow-right"></i>
-                                    </Button>
-                                </div>
-                            </div>
-                            {/* <div className="relative z-2 lg:p-8 p-6 rounded-2xl lg:rounded-4xl shadow-[0px_1px_2px_0px_#0000001A,0px_3px_3px_0px_#00000017,0px_7px_4px_0px_#0000000D,0px_12px_5px_0px_#00000003,0px_19px_5px_0px_#00000000] bg-white">
-                                <svg className="absolute left-0 right-0 top-0 -z-10 w-full h-auto" viewBox="0 0 561 353" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M47.9725 267.501C35.1584 257.971 19.0739 243.37 9.16839 234.107C3.25522 228.578 0 220.828 0 212.732V30C0 13.4315 13.4315 0 30 0H530.344C546.982 0 560.441 13.5394 560.343 30.1767L559.267 212.914C559.22 220.903 555.996 228.545 550.233 234.077C540.091 243.814 523.653 259.311 513.404 267.501C368.59 383.228 196.719 378.128 47.9725 267.501Z" fill="url(#paint0_linear_350_142)" />
-                                    <defs>
-                                        <linearGradient id="paint0_linear_350_142" x1="0" y1="133.751" x2="560.521" y2="133.751" gradientUnits="userSpaceOnUse">
-                                            <stop stopColor="#287FC4" />
-                                            <stop offset="1" stopColor="#01CDB1" />
-                                        </linearGradient>
-                                    </defs>
-                                </svg>
-                                <div className="rounded-2xl lg:rounded-4xl relative">
-                                    <div className="flex justify-center absolute -top-20 inset-x-0">
-                                        <div className="relative z-3 border-10 border-white shadow-lg text-white inline-flex flex-col gap-1 py-2 px-10 rounded-full bg-[linear-gradient(270deg,#287FC4_0%,#00CFB2_100%)]">
-                                            <div className="font-semibold">Standard</div>
-                                            <div className="flex gap-3 items-end">
-                                                <div className="font-bold text-5xl">₹ 9,999</div>
-                                                <div className="text-lg font-light">per month</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className="lg:px-8 px-6 pt-20 pb-6 lg:pb-8 bg-white rounded-2xl lg:rounded-4xl shadow-lg">
-                                        <h4 className="text-lg uppercase text-black mb-5 font-semibold">Features</h4>
-                                        <ul className="space-y-4">
-                                            {features.map((item, index) => (
-                                                <li key={index} className="flex items-start gap-2 text-sm text-gray-700">
-                                                    <span className="mt-0.5">
-                                                        <svg width="11" height="11" viewBox="0 0 11 11" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                            <path d="M5.27963 0C2.37583 0 0 2.37583 0 5.27963C0 8.18343 2.37583 10.5593 5.27963 10.5593C8.18343 10.5593 10.5593 8.18343 10.5593 5.27963C10.5593 2.37583 8.18343 0 5.27963 0ZM4.22371 7.91945L1.58389 5.27963L2.32832 4.53521L4.22371 6.42531L8.23095 2.41807L8.97538 3.16778L4.22371 7.91945Z" fill="#2CBF0F" />
-                                                        </svg>
-                                                    </span>
 
-                                                    <span>{item}</span>
-                                                </li>
-                                            ))}
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div> */}
+                            </div>
                         </div>
                     </div>
                 </div>

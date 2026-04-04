@@ -7,60 +7,54 @@ const neetupadmissionplans = [
     {
         id: 1,
         title: "STANDARD",
-        subtitle: "Unlock exclusive, end-to-end counselling support with our premium plans. ",
+        subtitle: "Complete end-to-end premium support",
         price: "₹ 9,999",
         color: "bg-[#B6FFA7]",
         border: "border-[#2CBF0F]",
         bgImage: "/images/borderShape1.webp",
+        icon:"/images/st1.svg",
         features: [
-            "MBBS / BDS",
-            "Alerts, Notifications, Updates",
-            "Rank Based Analysis",
-            "Guidance over Documentation",
-            "Counselling Registrations Support over call and NEET",
-            "Colleges Choice List Pdf by Our Expert",
-            "Updated Fee and Seat Matrix Round wise",
-            "Central Pool Quota Seats Information",
+            "All Standard + Strategy features",
+            "Full admission guidance till final seat",
+            "Direct expert (call/WhatsApp) support",
+            "Low budget & NRI quota assistance",
+            "Unlimited counselling & documentation help",
             "NON REFUNDABLE",
         ],
     },
     {
         id: 2,
         title: "STRATEGY",
-        subtitle: "Unlock exclusive, end-to-end counselling support with our premium plans. ",
+        subtitle: "Smart planning with added support",
         price: "₹ 27,999",
         color: "bg-[#AEC2FF]",
         border: "border-[#607DD6]",
         bgImage: "/images/borderShape2.webp",
+        icon:"/images/st2.svg",
         features: [
-            "MBBS / BDS/ AYUSH",
-            "Alerts, Notifications, Updates",
-            "Rank Based Analysis",
-            "Guidance over Documentation",
-            "Counselling Registrations Support over call and NEET",
-            "Colleges Choice List Pdf by Our Expert",
-            "Updated Fee and Seat Matrix Round wise",
-            "Central Pool Quota Seats Information",
+            "All Standard features included",
+            "College & budget planning (India + Abroad)",
+            "Offer letters from abroad universities",
+            "Vacant seat alerts",
+            "Expert counselling (limited states)",
             "NON REFUNDABLE",
         ],
     },
     {
         id: 3,
         title: "ULTIMATE",
-        subtitle: "Unlock exclusive, end-to-end counselling support with our premium plans. ",
+        subtitle: "Complete end-to-end premium support",
         price: "₹ 129,999",
         color: "bg-[#D3F4FF]",
         border: "border-[#42ACCF]",
         bgImage: "/images/borderShape3.webp",
+        icon:"/images/st3.svg",
         features: [
-            "MBBS / BDS / AYUSH",
-            "Alerts, Notifications, Updates",
-            "Rank Based Analysis",
-            "Guidance over Documentation",
-            "Counselling Registrations Support over call and NEET",
-            "Colleges Choice List Pdf by Our Expert",
-            "Updated Fee and Seat Matrix Round wise",
-            "Central Pool Quota Seats Information",
+            "All Standard + Strategy features",
+            "Full admission guidance till final seat",
+            "Direct expert (call/WhatsApp) support",
+            "Low budget & NRI quota assistance",
+            "Unlimited counselling & documentation help",
             "NON REFUNDABLE",
         ],
     },
@@ -96,35 +90,40 @@ export default function NeetUgIndiaAdmissionPage() {
                     </div>
                 </div>
             </section>
-            <section className="py-10 lg:py-15 overflow-hidden">
-                <div className="container px-3 md:px-4">
+            <section className="py-10 lg:py-15 overflow-hidden bg-[#F4F7F8]">
+                <div className="container px-3 md:px-4 max-w-[1240px]">
                     <h2 className='text-black text-4xl font-bold mb-6 lg:mb-10 text-center fadeUp'>Pricing & <span className='text-[#287FC4]'>Packages</span></h2>
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-10 mb-10 lg:mb-15">
                         {neetupadmissionplans.map((plan) => (
                             <div
                                 key={plan.id}
-                                style={{
-                                    backgroundImage: `url(${plan.bgImage})`,
-                                }}
-                                className={`prcCardStyle1 group fadeUp overflow-hidden relative z-1 rounded-2xl border-2 ${plan.border} hover:border-[#007EC8] ${plan.color} hover:bg-[#B8EAFB] p-6 lg:px-6 lg:py-8 shadow-md hover:shadow-2xl hover:scale-[1.03] transition-all duration-300 cursor-pointer`}
+                                className="group fadeUp relative z-10 rounded-2xl pt-16 pb-8 px-6 shadow-xl transition-all duration-500 bg-white hover:shadow-2xl hover:bg-[linear-gradient(163.56deg,_#02CCB2_6.49%,_#0080C8_98.8%)] transition-all duration-300 hover:text-white"
                             >
-                                <div className="text-lg font-semibold text-[#0B2E3C] group-hover:text-[#005787] transition-colors duration-300 uppercase">{plan.title}</div>
-                                <div className="text-xs text-[#0B2E3C] group-hover:text-[#005787] transition-colors duration-300 mb-6">{plan.subtitle}</div>
-                                <div className="font-bold lg:text-5xl text-4xl group-hover:text-[#005787] transition-colors duration-300 mb-8">{plan.price}</div>
-                                <div className="text-xs text-[#0B2E3C] group-hover:text-[#005787] transition-colors duration-300 mb-5">What's included?</div>
-                                <ul className="space-y-4 text-sm text-gray-700 mb-8">
-                                    {plan.features.map((item, index) => (
-                                        <li key={index} className="flex gap-2">
-                                            <span className="text-yellow-500 group-hover:text-[#007EC8] transition-colors duration-300">✦</span>
-                                            <span className="group-hover:text-[#0B2E3C] transition-colors duration-300">{item}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                                <div className="flex flex-col gap-3">
-                                    <Button className="text-[#005787]! border-[#DFF1FF]! bg-[#DFF1FF]! group-hover:bg-[#005787]! group-hover:text-white! group-hover:border-[#005787]! w-full flex gap-2 items-center transition-all duration-300" rounded>
+                                <div className="absolute left-1/2 -translate-x-1/2 -top-[35px] border-[8px] border-[#F4F7F8] rounded-full">
+                                    <img
+                                        src={plan.icon}
+                                        alt={plan.title}
+                                        className="w-16 h-16 object-contain"
+                                    />
+                                </div>
+                                <div className="text-center mb-3 text-lg font-semibold text-[#0B2E3C] group-hover:text-white! transition-colors duration-300 uppercase">{plan.title}</div>
+                                <div className="text-center text-xs text-[#0B2E3C] group-hover:text-white! transition-colors duration-300 mb-6">{plan.subtitle}</div>
+                                <div className="text-center font-light lg:text-5xl text-4xl group-hover:text-white! transition-colors duration-300 mb-8">{plan.price}</div>
+                                <div className="flex flex-col gap-3 mb-10">
+                                    <Button className="text-[#005787]! border-[#DFF1FF]! bg-[#128FFF1C]! group-hover:bg-[#FFFFFF47]! group-hover:text-white! group-hover:border-[#FFFFFF47]! w-full flex gap-2 items-center transition-all duration-300" rounded>
                                         Pay now <i className="pi pi-arrow-right"></i>
                                     </Button>
                                 </div>
+                                <div className="text-base text-black font-semibold group-hover:text-white! transition-colors duration-300 mb-5">What's included?</div>
+                                <ul className="space-y-4 text-sm text-gray-700 mb-8">
+                                    {plan.features.map((item, index) => (
+                                        <li key={index} className="flex gap-2">
+                                            <span className="text-yellow-500 transition-colors duration-300">✦</span>
+                                            <span className="group-hover:text-white! transition-colors duration-300">{item}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+
                             </div>
                         ))}
                     </div>

@@ -8,7 +8,6 @@ import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Pagination, Autoplay } from 'swiper/modules';
 
-import 'swiper/css/pagination';
 import { Button } from "primereact/button";
 
 export default function StudyAbroadPage() {
@@ -27,13 +26,13 @@ export default function StudyAbroadPage() {
     ];
 
     const features = [
-        "Agents Verification Available",
-        "Agents Qualification Verification Available",
-        "Agents Qualification Available",
-        "Agents Qualification Available",
-        "Agents Qualification Services Available with call",
-        "Agents Qualification Services",
-        "Agents Qualification Services Available with call"
+        "University Selection",
+        "Offer Letter",
+        "Admission Assistance",
+        "Documentation Assistance",
+        "Health Insurance",
+        "Pre- Departure Guidance",
+        "Education Loan"
     ];
 
     const testimonials = [
@@ -160,35 +159,40 @@ export default function StudyAbroadPage() {
 
 
             <section className="py-10 lg:py-15 overflow-hidden bg-[#F4F7F8]">
-                <div className="container px-3 md:px-4 lg:px-20">
+                <div className="container px-3 md:px-4 lg:px-20 max-w-[1090px]!">
                     <div className="grid grid-cols-1 md:grid-cols-2 md:gap-4 lg:gap-30">
                         <div className="relative">
-                            <Image src="/images/csdcsdcs.webp" width="572" height="764" className="move-x w-full max-w-[430px] h-auto" alt="" />
+                            <Image src="/images/caremore.webp" width="572" height="764" className="w-full h-auto" alt="" />
                         </div>
                         <div>
                             <div
-                                style={{
-                                    backgroundImage: "url('/images/borderShape3.webp')",
-                                }}
-                                className={`group prcCardStyle1 fadeUp overflow-hidden relative z-1 rounded-2xl border-2 border-[#42ACCF] hover:border-[#007EC8] bg-[#D3F4FF] hover:bg-[#B8EAFB] p-6 lg:px-6 lg:py-8 shadow-md hover:shadow-2xl hover:scale-[1.03] transition-all duration-300 cursor-pointer`}
+                                className="group fadeUp relative z-10 rounded-2xl pt-16 pb-8 px-6 shadow-xl transition-all duration-500 bg-white hover:shadow-2xl hover:bg-[linear-gradient(163.56deg,_#02CCB2_6.49%,_#0080C8_98.8%)] transition-all duration-300 hover:text-white"
                             >
-                                <div className="text-lg font-semibold text-[#0B2E3C] group-hover:text-[#005787] uppercase transition-colors duration-300">Standard</div>
-                                {/* <div className="text-xs text-[#0B2E3C] group-hover:text-[#005787] mb-6 transition-colors duration-300">I designed a web UI for an AI-powered HR Co-Pil I </div> */}
-                                <div className="font-bold lg:text-5xl text-4xl mb-8 group-hover:text-[#005787] transition-colors duration-300">₹ 9,999</div>
-                                <div className="text-xs text-[#0B2E3C] group-hover:text-[#005787] mb-5 transition-colors duration-300">Features</div>
-                                <ul className="space-y-4 text-sm text-gray-700 mb-8">
+                                <div className="absolute left-1/2 -translate-x-1/2 -top-[35px] border-[8px] border-[#F4F7F8] rounded-full">
+                                    <img
+                                        src="/images/st4.svg"
+                                        alt=""
+                                        className="w-16 h-16 object-contain"
+                                    />
+                                </div>
+                                <div className="text-center mb-3 text-lg font-semibold text-[#0B2E3C] group-hover:text-white! transition-colors duration-300 uppercase">Standard</div>
+                                <div className="text-center text-xs text-[#0B2E3C] group-hover:text-white! transition-colors duration-300 mb-6">I designed a web UI for an AI-powered HR Co-Pil I </div>
+                                <div className="text-center font-light lg:text-5xl text-4xl group-hover:text-white! transition-colors duration-300 mb-8">₹ 99,999</div>
+                                <div className="flex flex-col gap-3 mb-10">
+                                    <Button className="text-[#005787]! border-[#DFF1FF]! bg-[#128FFF1C]! group-hover:bg-[#FFFFFF47]! group-hover:text-white! group-hover:border-[#FFFFFF47]! w-full flex gap-2 items-center transition-all duration-300" rounded>
+                                        Buy now <i className="pi pi-arrow-right"></i>
+                                    </Button>
+                                </div>
+                                <div className="text-base text-black font-semibold group-hover:text-white! transition-colors duration-300 mb-5">What's included?</div>
+                                <ul className="space-y-5 text-sm text-gray-700 mb-8">
                                     {features.map((item, index) => (
                                         <li key={index} className="flex gap-2">
-                                            <span className="text-yellow-500 group-hover:text-[#007EC8] transition-colors duration-300">✦</span>
-                                            <span className="group-hover:text-[#0B2E3C] transition-colors duration-300">{item}</span>
+                                            <span className="text-yellow-500 transition-colors duration-300">✦</span>
+                                            <span className="group-hover:text-white transition-colors duration-300">{item}</span>
                                         </li>
                                     ))}
                                 </ul>
-                                <div className="flex flex-col gap-3">
-                                    <Button className="text-[#005787]! border-[#DFF1FF]! bg-[#DFF1FF]! group-hover:bg-[#005787]! group-hover:text-white! group-hover:border-[#005787]! w-full flex gap-2 items-center transition-all duration-300" rounded>
-                                        Pay now <i className="pi pi-arrow-right"></i>
-                                    </Button>
-                                </div>
+
                             </div>
                         </div>
                     </div>
