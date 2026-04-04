@@ -50,7 +50,7 @@ const BlogSidebar = ({ className = "" }: BlogSidebarProps) => {
             {/* Get In Touch Form */}
             <div className="mb-8">
                 <div className="bg-[#E1F2FF] p-4 sm:p-5 md:p-6 rounded-lg transition-transform hover:scale-[1.01] duration-300 shadow-sm">
-                    <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-800 mb-3 sm:mb-4 text-center">Get In Touch</h3>
+                    <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-800 mb-3 sm:mb-4 text-center">Request a free callback from Our Counsellor </h3>
                     <div className="space-y-4">
                         <div className="relative w-full">
                             <input
@@ -92,9 +92,9 @@ const BlogSidebar = ({ className = "" }: BlogSidebarProps) => {
                                     { label: "NEET PG", value: "NEET PG" },
                                 ]}
                                 optionLabel="label"
-                                placeholder="" 
+                                placeholder=""
                                 className="w-full bg-white border border-gray-300 rounded-lg text-sm md:text-base"
-                                
+
                             />
                             {!selectedCourse && (
                                 <span className="absolute left-2.5 sm:left-3 top-1/2 -translate-y-1/2 text-sm text-[#78787899] pointer-events-none transition-opacity duration-200 ">

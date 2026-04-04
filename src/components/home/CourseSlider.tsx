@@ -37,6 +37,7 @@ const CourseSlider: FC = () => {
         id: 4,
         title: 'MD/MS/DNB',
         image: '/images/c-md.webp',
+        href: '/neet-pg-india-admission',
       },
       {
         id: 5,

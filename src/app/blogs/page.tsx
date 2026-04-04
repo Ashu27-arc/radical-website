@@ -32,16 +32,17 @@ const BLOGS_CACHE_KEY = 'radical_blogs_cache_v1';
 const BLOG_LINKS_CACHE_KEY = 'radical_blog_links_cache_v1';
 const WP_BLOGS_CACHE_KEY = 'radical_wp_blogs_cache_v1';
 
+const excludedCategoryNames = ['blog', 'blogs', 'other', 'others', 'uncategorized', 'uncategorised'];
+
 const toCategoryList = (value: unknown): string[] => {
+  let list: string[] = [];
   if (Array.isArray(value)) {
-    return value.map((item) => String(item).trim()).filter(Boolean);
+    list = value.map((item) => String(item).trim()).filter(Boolean);
+  } else if (typeof value === 'string') {
+    list = value.split(',').map((item) => item.trim()).filter(Boolean);
   }
 
-  if (typeof value === 'string') {
-    return value.split(',').map((item) => item.trim()).filter(Boolean);
-  }
-
-  return [];
+  return list.filter(cat => !excludedCategoryNames.includes(cat.toLowerCase()));
 };
 
 const normalizeCategoryForMatch = (value: string) =>
@@ -370,7 +371,7 @@ const BlogsPage = () => {
               <div className="relative w-full lg:max-w-[450px] md:max-w-[320px] max-w-full">
                 <input
                   type="text"
-                  placeholder="search your dream college"
+                  placeholder="Search your dream college"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
                   className="w-full px-3 sm:px-4 h-9 sm:h-10 rounded-full bg-white shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700 placeholder-gray-400 text-sm sm:text-base"
@@ -479,12 +480,12 @@ const BlogsPage = () => {
                       src={featured.featuredImage || '/images/blogs/card.webp'}
                       alt={featured.title}
                       fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="object-contain bg-gray-50 transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
                   <div className="mt-3">
                     <div className="flex flex-wrap gap-2 mb-2">
-                      {(featured.category || featured.categories)?.split(',').map((c: string) => c.trim()).filter(Boolean).map((cat: string, idx: number) => (
+                      {toCategoryList(featured.category || featured.categories).map((cat: string, idx: number) => (
                         <span key={idx} className={`inline-block ${getCategoryColor(cat)} text-[15px] font-bold px-2 py-0.5 rounded-full`}>
                           {cat}
                         </span>
@@ -516,7 +517,7 @@ const BlogsPage = () => {
                   className="group py-4 first:pt-0 last:pb-0 block flex-1"
                 >
                   <div className="flex flex-wrap gap-1 mb-1">
-                    {(blog.category || blog.categories)?.split(',').map((c: string) => c.trim()).filter(Boolean).map((cat: string, catIdx: number) => (
+                    {toCategoryList(blog.category || blog.categories).map((cat: string, catIdx: number) => (
                       <span key={catIdx} className={`inline-block ${getCategoryTextColor(cat)} font-semibold text-[15px] px-1.5 py-0.5 rounded-full`}>
                         {cat}
                       </span>
@@ -573,12 +574,12 @@ const BlogsPage = () => {
                           src={blog.featuredImage || '/images/blogs/card.webp'}
                           alt={blog.title}
                           fill
-                          className="object-cover transition-transform duration-500 group-hover:scale-110"
+                          className="object-contain bg-gray-50 transition-transform duration-500 group-hover:scale-110"
                         />
                       </div>
                       <div className="p-6 flex-1 flex flex-col">
                         <div className="flex flex-wrap gap-2 mb-3">
-                          {(blog.category || blog.categories)?.split(',').map((c: string) => c.trim()).filter(Boolean).map((cat: string, idx: number) => (
+                          {toCategoryList(blog.category || blog.categories).map((cat: string, idx: number) => (
                             <span key={idx} className={`inline-block ${getCategoryTextColor(cat)} font-semibold text-[10px] md:text-xs px-2 py-0.5 rounded-full bg-opacity-10`}>
                               {cat}
                             </span>

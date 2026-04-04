@@ -147,9 +147,9 @@ export default function Home() {
             <span className="absolute left-12 top-4 text-sm text-[#78787899] pointer-events-none 
                         transition-opacity duration-200 
                         peer-focus:opacity-0 peer-not-placeholder-shown:opacity-0"
-                    >
-                        Search for your college
-                    </span>
+            >
+              Search for your college
+            </span>
             <Button
               label="Search"
               className="bannersrchBtn bg-[#005A8B]! border-[#005A8B]! shadow-none!"
@@ -540,7 +540,7 @@ export default function Home() {
           </div>
           <div className="grid gap-4 sm:gap-5 md:gap-6 grid-cols-1 lg:grid-cols-9 mb-10 md:mb-20">
             <div className="lg:col-span-5">
-              <Link href="#" className="block relative group overflow-hidden rounded-2xl h-[220px] sm:h-[280px] md:h-[340px] lg:h-[380px] w-full shadow-sm hover:shadow-xl transition-shadow duration-300">
+              <Link href="/neet-ug-india-admission" className="block relative group overflow-hidden rounded-2xl h-[220px] sm:h-[280px] md:h-[340px] lg:h-[380px] w-full shadow-sm hover:shadow-xl transition-shadow duration-300">
                 <Image
                   src="/svg/ug-card.svg"
                   alt="UG Admission"
@@ -554,7 +554,7 @@ export default function Home() {
             <div className="lg:col-span-4">
               <div className="grid gap-4 sm:gap-5 md:gap-6 grid-cols-2 sm:grid-cols-2 lg:grid-cols-2 h-full">
                 <div className="h-full w-full">
-                  <Link href="#" className="block relative group overflow-hidden rounded-2xl h-[280px] sm:h-[280px] md:h-[340px] lg:h-[380px] w-full shadow-sm hover:shadow-xl transition-shadow duration-300">
+                  <Link href="/neet-pg-india-admission" className="block relative group overflow-hidden rounded-2xl h-[280px] sm:h-[280px] md:h-[340px] lg:h-[380px] w-full shadow-sm hover:shadow-xl transition-shadow duration-300">
                     <Image
                       src="/svg/neet-pg.svg"
                       alt="PG Admission"
@@ -566,7 +566,7 @@ export default function Home() {
                   </Link>
                 </div>
                 <div className="h-full w-full">
-                  <Link href="#" className="block relative group overflow-hidden rounded-2xl h-[280px] sm:h-[280px] md:h-[340px] lg:h-[380px] w-full shadow-sm hover:shadow-xl transition-shadow duration-300">
+                  <Link href="/study-abroad" className="block relative group overflow-hidden rounded-2xl h-[280px] sm:h-[280px] md:h-[340px] lg:h-[380px] w-full shadow-sm hover:shadow-xl transition-shadow duration-300">
                     <Image
                       src="/svg/abroad-c.svg"
                       alt="Abroad Admission"

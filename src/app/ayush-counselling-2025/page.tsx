@@ -80,7 +80,7 @@ export default function AyushCounselling2025() {
             <div className="w-full lg:w-1/2 mb-10 lg:mb-0 animate-slide-in-left text-center lg:text-left">
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 sm:mb-6 leading-tight text-balance">
                 Secure Your Admission in Top
-                <span className="text-[#00CFB2]"> AYUSH</span> Colleges of INDIA
+                <span className="text-[#00CFB2]"> AYUSH</span> Colleges of India
               </h1>
 
               <div className="text-lg sm:text-xl md:text-2xl font-semibold mb-4 sm:mb-6 text-[#00CFB2] tracking-wide">
@@ -88,9 +88,7 @@ export default function AyushCounselling2025() {
               </div>
 
               <p className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                Radical Education Guides Aspiring Doctors In Pursuing MBBS-
-                Equivalent Courses In Ayurveda, Homeopathy, Unani, Siddha, And Yoga
-                & Naturopathy with Transparent Counselling And Admission Support.
+                Radical Education guides aspiring doctors in pursuing MBBS-equivalent courses in Ayurveda, Homeopathy, Unani, Siddha, and Yoga & Naturopathy with transparent counselling and admission support.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-8 md:space-x-12">
@@ -99,14 +97,14 @@ export default function AyushCounselling2025() {
                     <circle cx="8" cy="8" r="8" fill="white" />
                     <path d="M11.0126 5.14177L12.1438 6.27303L7.19999 11.2376L4.23438 8.27197L5.36561 7.14071L7.19999 8.97509L11.0126 5.14177Z" fill="#287FC4" />
                   </svg>
-                  <span className="text-sm sm:text-base font-semibold">12+ Years Experience</span>
+                  <span className="text-sm sm:text-base font-semibold">12+ Years of Experience</span>
                 </div>
                 <div className="flex items-center">
                   <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2">
                     <circle cx="8" cy="8" r="8" fill="white" />
                     <path d="M11.0126 5.14177L12.1438 6.27303L7.19999 11.2376L4.23438 8.27197L5.36561 7.14071L7.19999 8.97509L11.0126 5.14177Z" fill="#287FC4" />
                   </svg>
-                  <span className="text-sm sm:text-base font-semibold">15000+ Admissions</span>
+                  <span className="text-sm sm:text-base font-semibold">15,000+ Admissions</span>
                 </div>
               </div>
             </div>
@@ -218,7 +216,7 @@ export default function AyushCounselling2025() {
               Explore AYUSH Courses
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4 leading-relaxed">
-              We Provide Expert Counselling For All Traditional & Alternative Medicine Programs Under AYUSH.
+              We provide expert counselling for all traditional and alternative medicine programs under AYUSH.
             </p>
           </div>
 
@@ -237,10 +235,10 @@ export default function AyushCounselling2025() {
                 </div>
                 <h3 className="text-2xl sm:text-3xl font-extrabold text-[#4CAF50] mb-4 sm:mb-6">BAMS</h3>
                 <h4 className="text-base sm:text-lg font-bold text-gray-800 mb-3 sm:mb-4">
-                  Bachelor Of Ayurvedic Medicine & Surgery
+                  Bachelor of Ayurvedic Medicine & Surgery
                 </h4>
                 <p className="text-gray-600 text-sm leading-relaxed mb-6 sm:mb-8 flex-grow">
-                  Ancient Indian Medicine System Focusing On Natural Healing Through Herbs, Lifestyle, And Holistic Treatments For Complete Wellness.
+                  Ancient Indian medicine system focusing on natural healing through herbs, lifestyle, and holistic treatments for complete wellness.
                 </p>
                 <div className='absolute -bottom-5 bg-[#DBEFDC] rounded-full h-10 w-[200px] left-[50%] -translate-x-[50%] opacity-50'></div>
               </div>
@@ -262,7 +260,7 @@ export default function AyushCounselling2025() {
                   Bachelor Of Homeopathic Medicine & Surgery
                 </h4>
                 <p className="text-gray-600 text-sm leading-relaxed mb-6 sm:mb-8 flex-grow">
-                  Gentle Healing Approach Using Highly Diluted Substances To Stimulate The Body's Natural Healing Processes And Restore Balance.
+                  Gentle healing approach using highly diluted substances to stimulate the body's natural healing processes and restore balance.
                 </p>
                 <div className='absolute -bottom-5 bg-[#EFCCEA] rounded-full h-10 w-[200px] left-[50%] -translate-x-[50%] opacity-50'></div>
               </div>
@@ -284,7 +282,7 @@ export default function AyushCounselling2025() {
                   Bachelor Of Unani Medicine & Surgery
                 </h4>
                 <p className="text-gray-600 text-sm leading-relaxed mb-6 sm:mb-8 flex-grow">
-                  Traditional Greco-Arabic Medicine Emphasizing Natural Remedies, Diet Regulation, And Maintaining Body's Natural Equilibrium.
+                  Traditional Greco-Arabic medicine emphasizing natural remedies, diet regulation, and maintaining the body's natural equilibrium.
                 </p>
                 <div className='absolute -bottom-5 bg-[#CDE9EE] rounded-full h-10 w-[200px] left-[50%] -translate-x-[50%] opacity-50'></div>
               </div>
@@ -306,7 +304,7 @@ export default function AyushCounselling2025() {
                   Bachelor Of Siddha Medicine & Surgery
                 </h4>
                 <p className="text-gray-600 text-sm leading-relaxed mb-6 sm:mb-8 flex-grow">
-                  Ancient Tamil System Of Medicine Using Natural Substances, Minerals, And Metals For Comprehensive Healing And Longevity.
+                  Ancient Tamil system of medicine using natural substances, minerals, and metals for comprehensive healing and longevity.
                 </p>
                 <div className='absolute -bottom-5 bg-[#D5D9DE] rounded-full h-10 w-[200px] left-[50%] -translate-x-[50%] opacity-50'></div>
               </div>
@@ -330,7 +328,7 @@ export default function AyushCounselling2025() {
                 </h4>
 
                 <p className="text-gray-600 text-sm leading-relaxed mb-6 sm:mb-8 flex-grow">
-                  Holistic Approach Combining Yoga Practices, Natural Therapies, And Lifestyle Modifications For Optimal Health And Wellness.
+                  Holistic approach combining yoga practices, natural therapies, and lifestyle modifications for optimal health and wellness.
                 </p>
                 <div className='absolute -bottom-5 bg-[#FCDFDF] rounded-full h-10 w-[200px] left-[50%] -translate-x-[50%] opacity-50'></div>
               </div>
@@ -344,10 +342,10 @@ export default function AyushCounselling2025() {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16 md:mb-20">
             <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-4 text-balance">
-              Why Choose Radical Education For AYUSH?
+              Why Choose Radical Education for AYUSH?
             </h2>
             <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-4xl mx-auto px-4 leading-relaxed">
-              Your Trusted Partner For AYUSH Medical Admissions With Proven Expertise And Transparent Guidance
+              Your trusted partner for AYUSH medical admissions with proven expertise and transparent guidance
             </p>
           </div>
 
@@ -374,8 +372,7 @@ export default function AyushCounselling2025() {
                 Expert AYUSH Counselling
               </h3>
               <p className="text-gray-600 text-sm leading-relaxed relative z-10 transform transition-all duration-300 group-hover:text-gray-700">
-                Specialized Guidance In All AYUSH Disciplines - BAMS, BHMS, BUMS, BSMS,
-                BNYS With Experienced Counsellors
+                Specialized guidance in all AYUSH disciplines - BAMS, BHMS, BUMS, BSMS, BNYS with experienced counsellors
               </p>
 
               {/* Animated Border */}
@@ -405,7 +402,7 @@ export default function AyushCounselling2025() {
                 Top College Tie-Ups
               </h3>
               <p className="text-gray-600 text-sm leading-relaxed relative z-10 transform transition-all duration-300 group-hover:text-gray-700">
-                Direct Partnerships With NCISM/CCIM/ AYUSH-Approved Colleges Across India For Guaranteed Admissions
+                Direct partnerships with NCISM/CCIM/AYUSH-approved colleges across India for guaranteed admissions
               </p>
 
               {/* Animated Border */}
@@ -435,7 +432,7 @@ export default function AyushCounselling2025() {
                 Transparent Process
               </h3>
               <p className="text-gray-600 text-sm leading-relaxed relative z-10 transform transition-all duration-300 group-hover:text-gray-700">
-                100% Transparent Admission Process With Complete Documentation Support And Scholarship Guidance
+                100% transparent admission process with complete documentation support and scholarship guidance
               </p>
 
               {/* Animated Border */}
@@ -463,7 +460,7 @@ export default function AyushCounselling2025() {
                 <div className="py-16 sm:py-24 md:py-32 px-6 md:px-8">
                   <h3 className="text-lg md:text-xl font-bold text-black mb-3 md:mb-4 text-center">Register With Us</h3>
                   <p className="text-black text-xs md:text-sm leading-relaxed text-center font-medium">
-                    Fill The Form And Get Registered With Radical Education
+                    Fill the form and get registered with Radical Education
                   </p>
                 </div>
               </div>
@@ -471,7 +468,7 @@ export default function AyushCounselling2025() {
                 <div className="py-16 sm:py-24 md:py-32 px-6 md:px-8">
                   <h3 className="text-lg md:text-xl font-bold text-black mb-3 md:mb-4 text-center">Expert Counselling</h3>
                   <p className="text-black text-xs md:text-sm leading-relaxed text-center font-medium">
-                    Get Personalized AYUSH Stream And College Guidance
+                    Get personalized AYUSH stream and college guidance
                   </p>
                 </div>
               </div>
@@ -479,7 +476,7 @@ export default function AyushCounselling2025() {
                 <div className="py-16 sm:py-24 md:py-32 px-6 md:px-8">
                   <h3 className="text-lg md:text-xl font-bold text-black mb-3 md:mb-4 text-center">Select College</h3>
                   <p className="text-black text-xs md:text-sm leading-relaxed text-center font-medium">
-                    Choose Your Preferred AYUSH College And Stream
+                    Choose your preferred AYUSH college and stream
                   </p>
                 </div>
               </div>
@@ -487,7 +484,7 @@ export default function AyushCounselling2025() {
                 <div className="py-16 sm:py-24 md:py-32 px-6 md:px-8">
                   <h3 className="text-lg md:text-xl font-bold text-black mb-3 md:mb-4 text-center">Confirm Admission</h3>
                   <p className="text-black text-xs md:text-sm leading-relaxed text-center font-medium">
-                    Complete Documentation And Start Your AYUSH Journey
+                    Complete documentation and start your AYUSH journey
                   </p>
                 </div>
               </div>
@@ -659,7 +656,7 @@ export default function AyushCounselling2025() {
                 <div>
                   <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-1">Affordable Fee Structure</h3>
                   <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                    Govt. colleges approx. ₹60K-1.5L/year, Private colleges from ₹2.5L/year depending on state.
+                    Govt. colleges approx. ₹60K–1.5L/year, private colleges from ₹2.5L/year depending on state.
                   </p>
                 </div>
               </div>
@@ -680,10 +677,10 @@ export default function AyushCounselling2025() {
                     />
                   </div>
                   <h3 className="text-2xl sm:text-3xl font-extrabold mb-4">
-                    Start Your <br />AYUSH Journey?
+                    Start Your <br />AYUSH Journey
                   </h3>
                   <p className="text-white/90 mb-8 text-sm sm:text-base leading-relaxed">
-                    Join thousands of successful doctors who secured admissions through our expert guidance.
+                    Join thousands of successful doctors who have secured admissions through our expert guidance.
                   </p>
                   <button
                     onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}

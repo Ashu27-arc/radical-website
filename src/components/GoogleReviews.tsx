@@ -54,13 +54,28 @@ const FALLBACK_DATA: PlaceData = {
       text: "Too good, and the staff was very friendly 😊 The vibe was also great ❤️ Go for it, guys! ✨",
       time: 1711948800,
     },
+    // {
+    //   author_name: "Ajay Kumar",
+    //   profile_photo_url: "/images/Ajay-Kumar.webp",
+    //   rating: 5,
+    //   text: "I'm Saloni, an MBBS student. Radical Education counsellors are very experienced and amazing. They helped me to get best govt MBBS college till the last round. They behaved like family members. I am thankful to all Radical Education team members. Thank you so much. I advise all of you to take help for the counselling.",
+    //   time: 1712035200,
+    // },
     {
-      author_name: "Ajay Kumar",
-      profile_photo_url: "/images/Ajay-Kumar.webp",
+      author_name: "Sahil Gautam",
+      profile_photo_url: "/images/reviews/Sahil-Gautam.webp",
       rating: 5,
-      text: "I'm Saloni, an MBBS student. Radical Education counsellors are very experienced and amazing. They helped me to get best govt MBBS college till the last round. They behaved like family members. I am thankful to all Radical Education team members. Thank you so much. I advise all of you to take help for the counselling.",
+      text: "I had a very positive experience with this counselling consultancy. The team was extremely supportive, cooperative, and always available to clarify my doubts. Their guidance was clear, honest, and professional, which made the entire process smooth and stress-free. I truly appreciate their dedication and would confidently recommend them to others",
       time: 1712035200,
     },
+    {
+      author_name: "Iqra Ansari",
+      profile_photo_url: "/images/reviews/Iqra-Ansari.webp",
+      rating: 5,
+      text: "My experience with Radical Education has been amazing! I took their help for MBBS counselling, and the entire process was smooth and transparent. Amar Sir explained every step clearly and guided me throughout the process. Shivanshu sir was also very supportive — he kept me updated and helped me with all the documentation.",
+      time: 1712035200,
+    },
+
   ],
 };
 
@@ -85,7 +100,7 @@ export default function GoogleReviews() {
         console.warn("[GoogleReviews] API failed, using fallback:", err.message);
         if (!cancelled) {
           setError(err.message);
-          setData(FALLBACK_DATA); 
+          setData(FALLBACK_DATA);
         }
       } finally {
         if (!cancelled) setLoading(false);
@@ -122,7 +137,7 @@ export default function GoogleReviews() {
               </div>
               <h2 className="text-2xl font-semibold text-[#005A8B] m-0">
                 {/* {data?.name} */}
-                Radical Education<br/>RDLEDU Pvt Ltd
+                Radical Education<br />RDLEDU Pvt Ltd
               </h2>
             </div>
 
@@ -154,13 +169,13 @@ export default function GoogleReviews() {
           <div className="swiper-button-prev-custom absolute -left-2 top-1/2 -translate-y-1/2 z-20 cursor-pointer">
             <svg width="22" height="22" viewBox="0 0 22 22" className="rotate-180">
               <circle cx="11" cy="11" r="11" fill="#005A8B" />
-              <path d="M8.91579 16.7895L7.29474 15.1476L11.4307 11L7.29474 6.85242L8.92737 5.21053L14.7168 11L8.91579 16.7895Z" fill="#FFFFFF"/>
+              <path d="M8.91579 16.7895L7.29474 15.1476L11.4307 11L7.29474 6.85242L8.92737 5.21053L14.7168 11L8.91579 16.7895Z" fill="#FFFFFF" />
             </svg>
           </div>
           <div className="swiper-button-next-custom absolute -right-2 top-1/2 -translate-y-1/2 z-20 cursor-pointer">
             <svg width="22" height="22" viewBox="0 0 22 22">
               <circle cx="11" cy="11" r="11" fill="#005A8B" />
-              <path d="M8.91579 16.7895L7.29474 15.1476L11.4307 11L7.29474 6.85242L8.92737 5.21053L14.7168 11L8.91579 16.7895Z" fill="#FFFFFF"/>
+              <path d="M8.91579 16.7895L7.29474 15.1476L11.4307 11L7.29474 6.85242L8.92737 5.21053L14.7168 11L8.91579 16.7895Z" fill="#FFFFFF" />
             </svg>
           </div>
           <Swiper
@@ -174,7 +189,7 @@ export default function GoogleReviews() {
             autoplay={{
               delay: 3000,
               disableOnInteraction: false,
-            }} 
+            }}
             breakpoints={{
               0: { slidesPerView: 1 },
               768: { slidesPerView: 2 },

@@ -35,7 +35,7 @@ export default function Header() {
           <span className='inline-flex items-center h-6 text-xl leading-none'>|</span>
           <Link href="https://www.neetbhaiya.in/" className='text-[#121212] relative inline-flex items-center gap-1 hover:text-[#CB1E17] transition-colors py-1'>
             <Image src="/icons/neet-bhaiya.jpg" width="16" height="16" alt="" className="sm:w-[18px] sm:h-[18px] object-contain" />
-            <span>NEET Bhaiya</span>
+            <span>NEET bhaiya</span>
             <div className='absolute -right-1.5 -top-1'>
               <span className="relative flex animate-blink">
                 <span className="relative inline-flex px-1 rounded-full bg-[#FF0000] text-white text-[8px] font-bold leading-none">New</span>
@@ -94,7 +94,7 @@ export default function Header() {
                 <span className='inline-flex items-center h-12 text-xl leading-none'>|</span>
                 <Link href="https://www.neetbhaiya.in/" className='relative inline-flex items-center gap-1.5 hover:text-[#CB1E17] transition-colors'>
                   <Image src="/icons/neet-bhaiya.jpg" width="18" height="18" alt="" className="xl:w-[20px] xl:h-[20px] object-contain" />
-                  <span>NEET Bhaiya</span>
+                  <span>NEET bhaiya</span>
                   <div className='absolute -right-1.5 -top-1.5'>
                     <span className="relative flex animate-blink">
                       <span className="relative inline-flex px-1 rounded-full bg-[#FF0000] text-white text-[8px] font-bold leading-none">New</span>
