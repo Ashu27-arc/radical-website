@@ -102,6 +102,10 @@ const BlogSidebar = ({ className = "" }: BlogSidebarProps) => {
                                 </span>
                             )}
                         </div>
+                        <div className="flex items-center gap-2">
+                            <input type="checkbox" id="consent" className="w-4 h-4" />
+                            <label htmlFor="consent" className="text-sm text-[#787878]">I Consent to receiving calls, Whatsapp messages and Google RCS from Edwise to Assist with this Enquiry.</label>
+                        </div>
                         <button className="w-full bg-gradient-to-r from-[#63CDB4] to-[#0077BF] hover:from-[#0077BF] hover:to-[#63CDB4] text-white py-2.5 sm:py-3 rounded-lg font-medium transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg text-sm md:text-base">
                             Submit
                         </button>

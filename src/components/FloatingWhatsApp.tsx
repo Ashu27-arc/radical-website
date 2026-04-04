@@ -10,20 +10,16 @@ const WHATSAPP_ITEMS = [
     id: 1,
     title: 'Join NEET 2026 Updates Channel',
     icon: '/images/wp-ico1.svg',
-    experts: [
-      { name: 'Hitashi Aggarwal', experience: '7+ Years', phone: '919111111111' },
-      { name: 'Pooja Kumari', experience: '4+ Years', phone: '919111111112' },
-      { name: 'Raj Kishor', experience: '3+ Years', phone: '919111111113' }
-    ]
+    link: 'https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P'
   },
   {
     id: 2,
     title: 'NEET UG Counselling',
     icon: '/images/wp-ico3.svg',
     experts: [
-      { name: 'Dr. Kunal Jain', experience: '8+ Years', phone: '919222222221' },
-      { name: 'Pooja Singh', experience: '7+ Years', phone: '919222222222' },
-      { name: 'Aakash Mehta', experience: '5+ Years', phone: '919222222223' }
+      { name: 'Shivanshu Shakya', experience: '3+ Years', link: 'https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P' },
+      { name: 'Sudakshina Singh', experience: '4+ Years', link: 'https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P' },
+      { name: 'Manish Jha', experience: '5+ Years', link: 'https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P' }
     ]
   },
   {
@@ -31,9 +27,9 @@ const WHATSAPP_ITEMS = [
     title: 'NEET PG Counselling',
     icon: '/images/wp-ico3.svg',
     experts: [
-      { name: 'Dr. Rakesh Kumar', experience: '10+ Years', phone: '919333333331' },
-      { name: 'Simran Kaur', experience: '6+ Years', phone: '919333333332' },
-      { name: 'Nitin Joshi', experience: '5+ Years', phone: '919333333333' }
+      { name: 'Rangnath Jha', experience: '6+ Years', link: 'https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P' },
+      { name: 'Shashwat Pandey', experience: '4+ Years', link: 'https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P' },
+      { name: 'Hitashi Aggarwal', experience: '7+ Years', link: 'https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P' }
     ]
   },
   {
@@ -41,9 +37,9 @@ const WHATSAPP_ITEMS = [
     title: 'Study Abroad Counselling',
     icon: '/images/wp-ico4.svg',
     experts: [
-      { name: 'Rahul Malhotra', experience: '9+ Years', phone: '919444444441' },
-      { name: 'Anjali Arora', experience: '7+ Years', phone: '919444444442' },
-      { name: 'Suresh Patel', experience: '6+ Years', phone: '919444444443' }
+      { name: 'Hitashi Aggarwal', experience: '7+ Years', link: 'https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P' },
+      { name: 'Shivanshu Shakya', experience: '3+ Years', link: 'https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P' },
+      { name: 'Pooja Kumari', experience: '4+ Years', link: 'https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P' }
     ]
   },
   {
@@ -51,9 +47,9 @@ const WHATSAPP_ITEMS = [
     title: 'Support (24/7)',
     icon: '/images/wp-ico5.svg',
     experts: [
-      { name: 'Support Team 1', experience: '24/7 Available', phone: '919555555551' },
-      { name: 'Support Team 2', experience: '24/7 Available', phone: '919555555552' },
-      { name: 'Support Team 3', experience: '24/7 Available', phone: '919555555553' }
+      { name: 'Raj Kishor', experience: '24/7 Available', link: 'https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P' },
+      { name: 'Sudakshina Singh', experience: '24/7 Available', link: 'https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P' },
+      { name: 'Manish Jha', experience: '24/7 Available', link: 'https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P' }
     ]
   }
 ];
@@ -86,8 +82,12 @@ export default function FloatingWhatsApp() {
     ? 'opacity-100 translate-x-0'
     : 'opacity-0 -translate-x-4';
 
-  const openWhatsApp = (phone: string) => {
-    window.open(`https://wa.me/${phone}`, '_blank');
+  const openWhatsApp = (expert: any) => {
+    if (expert.link) {
+      window.open(expert.link, '_blank');
+    } else if (expert.phone) {
+      window.open(`https://wa.me/${expert.phone}`, '_blank');
+    }
   };
 
   return (
@@ -115,11 +115,16 @@ export default function FloatingWhatsApp() {
           </div> */}
           {view === 'menu' && (
             <div className="rounded-[10px_10px_10px_0] shadow-xl overflow-hidden bg-white w-[260px] md:w-[300px]">
-              <div className="bg-[linear-gradient(90deg,rgba(0,117,148,1)_0%,rgba(99,205,180,1)_100%)] text-white p-4">
-                <h3 className="font-semibold md:text-base text-xs">
-                  Welcome To RADICAL EDUCATION
-                </h3>
-                <p className="md:text-sm text-xs">Chat Support</p>
+              <div className="bg-[linear-gradient(90deg,rgba(0,117,148,1)_0%,rgba(99,205,180,1)_100%)] text-white p-4 flex justify-between items-start">
+                <div>
+                  <h3 className="font-semibold md:text-base text-xs">
+                    Welcome To RADICAL EDUCATION
+                  </h3>
+                  <p className="md:text-sm text-xs">Chat Support</p>
+                </div>
+                <button onClick={() => startTransition('none')} className="text-white hover:text-gray-200">
+                  <i className="pi pi-times"></i>
+                </button>
               </div>
 
               <div className="p-3 space-y-2">
@@ -127,8 +132,12 @@ export default function FloatingWhatsApp() {
                   <div
                     key={item.id}
                     onClick={() => {
-                      setSelectedItem(item);
-                      startTransition('detail');
+                      if (item.link) {
+                        window.open(item.link, '_blank');
+                      } else {
+                        setSelectedItem(item);
+                        startTransition('detail');
+                      }
                     }}
                     className="flex gap-2 items-center justify-between p-2 rounded-lg cursor-pointer hover:bg-green-50"
                   >
@@ -146,18 +155,23 @@ export default function FloatingWhatsApp() {
           )}
           {view === 'detail' && selectedItem && (
             <div className="rounded-[10px_10px_10px_0] shadow-xl overflow-hidden bg-white w-[280px] md:w-[300px]">
-              <div className="bg-gradient-to-r from-teal-600 to-green-500 text-white p-4 flex items-center gap-3">
-                <div>
-                  <button className='btnico' onClick={() => startTransition('menu')}>
-                    <i className='pi pi-arrow-left text-lg! text-white'></i>
-                  </button>
+              <div className="bg-gradient-to-r from-teal-600 to-green-500 text-white p-4 flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div>
+                    <button className='btnico' onClick={() => startTransition('menu')}>
+                      <i className='pi pi-arrow-left text-lg! text-white'></i>
+                    </button>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold md:text-base text-xs">
+                      Welcome To RADICAL EDUCATION
+                    </h3>
+                    <p className="md:text-sm text-xs">Chat Support</p>
+                  </div>
                 </div>
-                <div>
-                  <h3 className="font-semibold md:text-base text-xs">
-                    Welcome To RADICAL EDUCATION
-                  </h3>
-                  <p className="md:text-sm text-xs">Chat Support</p>
-                </div>
+                <button onClick={() => startTransition('none')} className="text-white hover:text-gray-200">
+                  <i className="pi pi-times"></i>
+                </button>
               </div>
 
               <div className="p-4">
@@ -167,7 +181,7 @@ export default function FloatingWhatsApp() {
                     <div
                       key={idx}
                       className="flex items-center justify-between cursor-pointer"
-                      onClick={() => openWhatsApp(expert.phone)}
+                      onClick={() => openWhatsApp(expert)}
                     >
                       <div className='flex items-center gap-3'>
                         <div>

@@ -136,7 +136,7 @@ export default function CounselorForm() {
                         transition-opacity duration-200 
                         peer-focus:opacity-0 peer-not-placeholder-shown:opacity-0"
                     >
-                        Full Name
+                        Full Name <span className="text-red-500">*</span>
                     </span>
                 </div>
 
@@ -160,7 +160,7 @@ export default function CounselorForm() {
                         transition-opacity duration-200 
                         peer-focus:opacity-0 peer-not-placeholder-shown:opacity-0"
                     >
-                        Phone Number
+                        Phone Number <span className="text-red-500">*</span>
                     </span>
                 </div>
 
