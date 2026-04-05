@@ -480,7 +480,13 @@ const BlogsPage = () => {
                       src={featured.featuredImage || '/images/blogs/card.webp'}
                       alt={featured.title}
                       fill
-                      className="object-contain bg-gray-50 transition-transform duration-500 group-hover:scale-105"
+                      unoptimized
+                      onError={(e) => {
+                        const target = e.target as HTMLImageElement;
+                        target.src = '/images/blogs/card.webp';
+                        target.srcset = '';
+                      }}
+                      className="object-cover bg-gray-50 transition-transform duration-500 group-hover:scale-105"
                     />
                   </div>
                   <div className="mt-3">
@@ -574,7 +580,13 @@ const BlogsPage = () => {
                           src={blog.featuredImage || '/images/blogs/card.webp'}
                           alt={blog.title}
                           fill
-                          className="object-contain bg-gray-50 transition-transform duration-500 group-hover:scale-110"
+                          unoptimized
+                          onError={(e) => {
+                            const target = e.target as HTMLImageElement;
+                            target.src = '/images/blogs/card.webp';
+                            target.srcset = '';
+                          }}
+                          className="object-cover bg-gray-50 transition-transform duration-500 group-hover:scale-110"
                         />
                       </div>
                       <div className="p-6 flex-1 flex flex-col">

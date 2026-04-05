@@ -11,7 +11,7 @@ const getCrmApiUrl = () => {
 // Create axios instance with default configuration
 const apiClient = axios.create({
   baseURL: getCrmApiUrl(),
-  timeout: 30000, // Reasonable timeout
+  timeout: 120000, // 120s timeout to accommodate sleeping backend instances
   headers: {
     'Content-Type': 'application/json',
   },
@@ -111,7 +111,12 @@ export async function getBlogs(): Promise<Blog[]> {
     const response = await apiClient.get('/api/blogs', {
       params: { _t: Date.now() }
     });
-    return Array.isArray(response.data) ? response.data : [];
+    const blogs = Array.isArray(response.data) ? response.data : [];
+    
+    return blogs.map((blog: any) => ({
+      ...blog,
+      featuredImage: blog.featuredImage || blog.image || blog.imageUrl || blog.banner || blog.coverImage || ''
+    }));
   } catch (error) {
     return [];
   }
@@ -215,7 +220,11 @@ export async function getBlogBySlug(slug: string): Promise<Blog | null> {
         'Pragma': 'no-cache'
       }
     });
-    if (response.data) return response.data;
+    if (response.data) {
+      const blog = response.data;
+      blog.featuredImage = blog.featuredImage || blog.image || blog.imageUrl || blog.banner || blog.coverImage || '';
+      return blog;
+    }
   } catch (error) {
     // Fall through to WP attempt
   }

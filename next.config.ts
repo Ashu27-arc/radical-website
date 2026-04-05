@@ -26,6 +26,10 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'backup.radicaleducation.in',
+      },
+      {
+        protocol: 'https',
         hostname: 'backend-radical.onrender.com',
       },
     ],
