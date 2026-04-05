@@ -144,7 +144,7 @@ export async function getBlogLinks(): Promise<BlogLink[]> {
 
 export async function getWpBlogs(): Promise<Blog[]> {
   try {
-    const response = await axios.get('https://cms.radicaleducation.in/wp-json/wp/v2/posts?_embed&per_page=100');
+    const response = await axios.get('https://backup.radicaleducation.in/?rest_route=/wp/v2/posts&_embed&per_page=100');
     const posts = response.data;
 
     return posts.map((post: any) => {
@@ -224,7 +224,7 @@ export async function getBlogBySlug(slug: string): Promise<Blog | null> {
     // Try WordPress API
     // Remove 'blogs/' prefix if it exists in the slug (some routes might pass it)
     const wpSlug = slug.startsWith('blogs/') ? slug.replace('blogs/', '') : slug;
-    const response = await axios.get(`https://cms.radicaleducation.in/wp-json/wp/v2/posts?_embed&slug=${encodeURIComponent(wpSlug)}`);
+    const response = await axios.get(`https://backup.radicaleducation.in/?rest_route=/wp/v2/posts&_embed&slug=${encodeURIComponent(wpSlug)}`);
 
     if (Array.isArray(response.data) && response.data.length > 0) {
       const post = response.data[0];
