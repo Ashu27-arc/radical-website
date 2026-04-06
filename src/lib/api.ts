@@ -149,63 +149,103 @@ export async function getBlogLinks(): Promise<BlogLink[]> {
 
 export async function getWpBlogs(): Promise<Blog[]> {
   try {
-    const response = await axios.get('https://backup.radicaleducation.in/?rest_route=/wp/v2/posts&_embed&per_page=100');
+    const response = await axios.get('https://backup.radicaleducation.in/wp-json/wp/v2/posts?_embed&per_page=50', {
+      headers: {
+        'Accept': 'application/json',
+      },
+      timeout: 30000 // 30s timeout
+    });
+    
+    if (!response.data || !Array.isArray(response.data)) {
+      return [];
+    }
+
     const posts = response.data;
 
     return posts.map((post: any) => {
       // Extract category name
       let category = 'Latest Update';
-      if (post._embedded && post._embedded['wp:term'] && post._embedded['wp:term'][0]) {
-        const categories = post._embedded['wp:term'][0];
-        if (categories.length > 0) {
-          category = categories.map((c: any) => c.name).join(', ');
+      try {
+        if (post._embedded && post._embedded['wp:term'] && post._embedded['wp:term'][0]) {
+          const categories = post._embedded['wp:term'][0];
+          if (categories.length > 0) {
+            category = categories.map((c: any) => c.name).join(', ');
+          }
         }
+      } catch (err) {
+        console.error('Error parsing WP categories:', err);
       }
 
       // Extract featured image
       let featuredImage = '';
-      if (post._embedded && post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0]) {
-        const media = post._embedded['wp:featuredmedia'][0];
-        featuredImage = media.media_details?.sizes?.large?.source_url || 
-                        media.media_details?.sizes?.full?.source_url || 
-                        media.source_url || '';
-      } else if (post.featured_image_url) {
-        featuredImage = post.featured_image_url;
-      } else if (post.jetpack_featured_media_url) {
-        featuredImage = post.jetpack_featured_media_url;
+      try {
+        if (post._embedded && post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0]) {
+          const media = post._embedded['wp:featuredmedia'][0];
+          featuredImage = media.media_details?.sizes?.large?.source_url || 
+                          media.media_details?.sizes?.full?.source_url || 
+                          media.source_url || '';
+        } 
+        
+        // Fallbacks if not found in embedded media
+        if (!featuredImage) {
+          if (post.featured_image_url) {
+            featuredImage = post.featured_image_url;
+          } else if (post.jetpack_featured_media_url) {
+            featuredImage = post.jetpack_featured_media_url;
+          } else if (post.yoast_head_json?.og_image && post.yoast_head_json.og_image[0]?.url) {
+            featuredImage = post.yoast_head_json.og_image[0].url;
+          } else if (post.better_featured_image?.source_url) {
+            featuredImage = post.better_featured_image.source_url;
+          }
+        }
+      } catch (err) {
+        console.error('Error parsing WP featured image:', err);
       }
 
       // Extract author name
       let author = 'Radical Education';
-      if (post._embedded && post._embedded.author && post._embedded.author[0]) {
-        author = post._embedded.author[0].name;
+      try {
+        if (post._embedded && post._embedded.author && post._embedded.author[0]) {
+          author = post._embedded.author[0].name;
+        }
+      } catch (err) {
+        console.error('Error parsing WP author:', err);
       }
 
       // Strip HTML from excerpt
       const stripHtml = (html: string) => {
+        if (!html) return '';
         if (typeof window === 'undefined') {
           return html.replace(/<[^>]*>?/gm, '');
         }
-        const doc = new DOMParser().parseFromString(html, 'text/html');
-        return doc.body.textContent || "";
+        try {
+          const doc = new DOMParser().parseFromString(html, 'text/html');
+          return doc.body.textContent || "";
+        } catch (err) {
+          return html.replace(/<[^>]*>?/gm, '');
+        }
       };
 
       return {
-        id: post.id.toString(),
-        title: post.title.rendered,
-        excerpt: stripHtml(post.excerpt.rendered),
-        content: post.content.rendered,
+        id: post.id?.toString() || Math.random().toString(),
+        title: post.title?.rendered || 'Untitled',
+        excerpt: stripHtml(post.excerpt?.rendered || ''),
+        content: post.content?.rendered || '',
         author: author,
         category: category,
         status: 'Published',
-        date: post.date,
+        date: post.date || new Date().toISOString(),
         featuredImage: featuredImage,
         slug: `blogs/${post.slug}`,
         createdAt: post.date,
       };
     });
   } catch (error) {
-    console.error('Error fetching WP blogs:', error);
+    if (axios.isAxiosError(error)) {
+      console.error('WP API Axios Error:', error.message, error.response?.status);
+    } else {
+      console.error('Error fetching WP blogs:', error);
+    }
     return [];
   }
 }
@@ -233,46 +273,69 @@ export async function getBlogBySlug(slug: string): Promise<Blog | null> {
     // Try WordPress API
     // Remove 'blogs/' prefix if it exists in the slug (some routes might pass it)
     const wpSlug = slug.startsWith('blogs/') ? slug.replace('blogs/', '') : slug;
-    const response = await axios.get(`https://backup.radicaleducation.in/?rest_route=/wp/v2/posts&_embed&slug=${encodeURIComponent(wpSlug)}`);
+    const response = await axios.get(`https://backup.radicaleducation.in/wp-json/wp/v2/posts?_embed&slug=${encodeURIComponent(wpSlug)}`, {
+      headers: { 'Accept': 'application/json' },
+      timeout: 20000
+    });
 
     if (Array.isArray(response.data) && response.data.length > 0) {
       const post = response.data[0];
 
       // Extract category name
       let category = 'Latest Update';
-      if (post._embedded && post._embedded['wp:term'] && post._embedded['wp:term'][0]) {
-        const categories = post._embedded['wp:term'][0];
-        if (categories.length > 0) {
-          category = categories.map((c: any) => c.name).join(', ');
+      try {
+        if (post._embedded && post._embedded['wp:term'] && post._embedded['wp:term'][0]) {
+          const categories = post._embedded['wp:term'][0];
+          if (categories.length > 0) {
+            category = categories.map((c: any) => c.name).join(', ');
+          }
         }
-      }
+      } catch (err) {}
 
       // Extract featured image
       let featuredImage = '';
-      if (post._embedded && post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0]) {
-        const media = post._embedded['wp:featuredmedia'][0];
-        featuredImage = media.media_details?.sizes?.large?.source_url || 
-                        media.media_details?.sizes?.full?.source_url || 
-                        media.source_url || '';
-      } else if (post.featured_image_url) {
-        featuredImage = post.featured_image_url;
-      } else if (post.jetpack_featured_media_url) {
-        featuredImage = post.jetpack_featured_media_url;
-      }
+      try {
+        if (post._embedded && post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0]) {
+          const media = post._embedded['wp:featuredmedia'][0];
+          featuredImage = media.media_details?.sizes?.large?.source_url || 
+                          media.media_details?.sizes?.full?.source_url || 
+                          media.source_url || '';
+        }
+
+        // Fallbacks if not found in embedded media
+        if (!featuredImage) {
+          if (post.featured_image_url) {
+            featuredImage = post.featured_image_url;
+          } else if (post.jetpack_featured_media_url) {
+            featuredImage = post.jetpack_featured_media_url;
+          } else if (post.yoast_head_json?.og_image && post.yoast_head_json.og_image[0]?.url) {
+            featuredImage = post.yoast_head_json.og_image[0].url;
+          } else if (post.better_featured_image?.source_url) {
+            featuredImage = post.better_featured_image.source_url;
+          }
+        }
+      } catch (err) {}
 
       // Extract author name
       let author = 'Radical Education';
-      if (post._embedded && post._embedded.author && post._embedded.author[0]) {
-        author = post._embedded.author[0].name;
-      }
+      try {
+        if (post._embedded && post._embedded.author && post._embedded.author[0]) {
+          author = post._embedded.author[0].name;
+        }
+      } catch (err) {}
 
       // Extract excerpt
       const stripHtml = (html: string) => {
+        if (!html) return '';
         if (typeof window === 'undefined') {
           return html.replace(/<[^>]*>?/gm, '');
         }
-        const doc = new DOMParser().parseFromString(html, 'text/html');
-        return doc.body.textContent || "";
+        try {
+          const doc = new DOMParser().parseFromString(html, 'text/html');
+          return doc.body.textContent || "";
+        } catch (err) {
+          return html.replace(/<[^>]*>?/gm, '');
+        }
       };
 
       return {

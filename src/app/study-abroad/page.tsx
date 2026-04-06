@@ -53,18 +53,18 @@ export default function StudyAbroadPage() {
     const videos = [
         {
             id: 1,
-            title: 'Successful Admission',
-            youtubeId: 'jfq8RbTIrtI',
+            title: 'Mahim Kumar',
+            youtubeId: 'Vr6ZZQ3jVH8',
         },
         {
             id: 2,
-            title: "Ishika's Govt. MBBS Seat Journey",
-            youtubeId: 'hwYjHX5pk9w',
+            title: "Tanishka",
+            youtubeId: 'Fccp8dm3ewA',
         },
         {
             id: 3,
-            title: 'Successful Admission',
-            youtubeId: 'CxDL_T4CWs8',
+            title: 'Daksh',
+            youtubeId: 'Eip7W83K8YQ',
         },
     ];
 
@@ -101,8 +101,8 @@ export default function StudyAbroadPage() {
                 </div>
             </div>
 
-            <section className="py-8 bg-white mb-10 lg:mb-20">
-                <div className="study-abroadCuntrySlider">
+            <section className="py-10 bg-white mb-10 lg:mb-20">
+                <div className="study-abroadCuntrySlider overflow-hidden">
                     <Swiper
                         modules={[Autoplay]}
                         spaceBetween={30}
@@ -126,17 +126,17 @@ export default function StudyAbroadPage() {
                                 slidesPerView: 7,
                             },
                         }}
-                        className="!ease-linear"
+                        className="!ease-linear !overflow-visible"
                     >
                         {countries.map((country, index) => (
-                            <SwiperSlide key={index}>
+                            <SwiperSlide key={index} className="!overflow-visible">
                                 <div className="text-center flex flex-col items-center">
                                     <Link
                                         href={`/mbbs-abroad-admission/`}
                                         className="block group"
                                     >
-                                        <div className="transition-all hover:scale-110 duration-300">
-                                            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden shadow-lg mx-auto">
+                                        <div className="transition-all hover:scale-110 duration-300 relative hover:z-[100] p-4">
+                                            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden shadow-lg mx-auto bg-white">
                                                 <Image
                                                     src={country.flag}
                                                     alt={`${country.name} flag`}
@@ -147,7 +147,7 @@ export default function StudyAbroadPage() {
                                             </div>
                                         </div>
                                     </Link>
-                                    <h3 className="font-semibold text-gray-800 mt-2 md:mt-3 text-xs md:text-sm">
+                                    <h3 className="font-semibold text-gray-800 mt-0 md:mt-1 text-xs md:text-sm">
                                         {country.name}
                                     </h3>
                                 </div>

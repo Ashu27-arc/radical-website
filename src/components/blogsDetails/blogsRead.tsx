@@ -343,6 +343,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                                                 src={blog.featuredImage}
                                                 alt={blog.title}
                                                 fill
+                                                unoptimized
                                                 className="object-cover rounded-lg"
                                             />
                                         ) : (
