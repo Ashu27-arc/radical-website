@@ -3,17 +3,28 @@ import Image from 'next/image';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import Link from 'next/link';
 
-const Russia = () => {
+const Nepal = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <FloatingWhatsApp />
       {/* Hero Section */}
-      <div className="relative text-white py-15 md:py-50 px-10 md:px-6 overflow-hidden" style={{
+      <div className="relative text-white py-15 md:py-32 lg:py-50 px-4 md:px-6 overflow-hidden flex items-center" style={{
         backgroundImage: 'url(/images/study-abroad/nepalHero.webp)',
-        backgroundSize: 'cover',
+        backgroundSize: '110% 100%',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
       }}>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#007AB9] via-[#007AB9]/80 to-transparent z-10"></div>
+        <div className="container mx-auto relative z-20">
+          <div className="max-w-3xl">
+            <h1 className="text-3xl md:text-5xl lg:text-[48px] font-bold mb-4 leading-tight uppercase tracking-wider">
+              MBBS IN NEPAL
+            </h1>
+            <p className="text-sm md:text-lg lg:text-[16px] text-white/90 font-medium max-w-2xl leading-relaxed">
+              Pursue your dream of becoming a doctor in Nepal’s reputed medical colleges with excellent academic support.
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Main Content Section */}
@@ -208,4 +219,4 @@ const Russia = () => {
   );
 };
 
-export default Russia;
+export default Nepal;

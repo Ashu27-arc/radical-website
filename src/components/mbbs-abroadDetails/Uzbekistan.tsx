@@ -3,20 +3,28 @@ import Image from 'next/image';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import Link from 'next/link';
 
-const Russia = () => {
+const Uzbekistan = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <FloatingWhatsApp />
       {/* Hero Section */}
-      <div
-        className="relative text-white py-15 md:py-32 lg:py-50 px-4 md:px-6 overflow-hidden"
-        style={{
-          backgroundImage: 'url(/images/study-abroad/uzbekistanHero.webp)',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-        }}
-      >
+      <div className="relative text-white py-15 md:py-32 lg:py-50 px-4 md:px-6 overflow-hidden flex items-center" style={{
+        backgroundImage: 'url(/images/study-abroad/uzbekistanHero.webp)',
+        backgroundSize: '110% 100%',
+        backgroundPosition: 'center',
+        backgroundRepeat: 'no-repeat'
+      }}>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#007AB9] via-[#007AB9]/80 to-transparent z-10"></div>
+        <div className="container mx-auto relative z-20">
+          <div className="max-w-3xl">
+            <h1 className="text-3xl md:text-5xl lg:text-[48px] font-bold mb-4 leading-tight uppercase tracking-wider">
+              MBBS IN UZBEKISTAN
+            </h1>
+            <p className="text-sm md:text-lg lg:text-[16px] text-white/90 font-medium max-w-2xl leading-relaxed">
+              Explore top medical universities in Uzbekistan offering advanced facilities, English-medium courses, and strong academic foundations.
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Main Content Section */}
@@ -42,17 +50,11 @@ const Russia = () => {
 
               <div className="space-y-4 md:space-y-6 text-gray-600 leading-relaxed text-sm md:text-base">
                 <p>
-                  Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite Your Friends
-                  And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive
-                  Benefits—Earn More With Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits Invite Your
-                  Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every
-                  Successful Referral. Invite Your Friends And Unlock Exclusive Benefits
+                  Medical Studies in Uzbekistan have become one of the best options for Indian students who wish to pursue their dream of becoming medical professionals. The top medical universities in Uzbekistan offer the MBBS course in the English language with a duration of 6 years. The cost is not very high either. The quality of education is the same as in developed countries like the USA, UK, and Canada. After pursuing the MBBS course in Uzbekistan, the students can appear in the medical licensing test and obtain the license to practice as medical professionals anywhere in the world.
                 </p>
 
                 <p>
-                  Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite Your Friends
-                  And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive
-                  Benefits—Earn More With Every Successful Referral. Invite Your Friends And Unlock
+                  In the first 5 years, the students study the theory part of the course along with practicals. The students can also work in the hospital associated with the university. This will help them become better medical professionals and face the real-life challenges in the medical field. The sixth year is the internship year in which the students will be placed in the hospital under the supervision of experienced medical professionals.
                 </p>
               </div>
             </div>
@@ -158,18 +160,22 @@ const Russia = () => {
 
           <div className="text-gray-600 leading-relaxed space-y-4 text-sm md:text-base">
             <p>
-              Invite your friends and unlock exclusive benefits—earn more with every successful referral. Invite Your Friends And Unlock Exclusive Benefits
-              Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits – Earn More With Every Successful Referral. Invite Your
-              Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits – Earn More With
-              Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive
+              Pursuing MBBS in Uzbekistan will be a life-changing decision for Indian students. It offers various opportunities in front of them, such as in the final year, internships at their associated hospital, practical life lessons, and so on. Let's take a look at some of the reasons to choose Uzbekistan as your destination to study MBBS:
             </p>
-
-            <p>
-              Invite Your Friends And Unlock Exclusive Benefits – Earn More With Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits
-              Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits – Earn More With Every Successful Referral. Invite Your
-              Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits – Earn More With
-              Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive
-            </p>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>Affordable tuition fees and cost of living</li>
+              <li>Degrees are accepted all over the world</li>
+              <li>Courses conducted in the English language for international students</li>
+              <li>Well-equipped facilities and labs</li>
+              <li>Teachers with experience and qualifications</li>
+              <li>Easy and simple admission process</li>
+              <li>No donations and capitation fees to be paid</li>
+              <li>Good clinical experience with hands-on training</li>
+              <li>Safe and friendly environment for students to study and stay</li>
+              <li>An increasing number of Indian students are opting for this option</li>
+              <li>Good student-teacher ratio for effective learning</li>
+              <li>Opportunities to pursue careers and studies around the world</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -177,4 +183,4 @@ const Russia = () => {
   );
 };
 
-export default Russia;
+export default Uzbekistan;

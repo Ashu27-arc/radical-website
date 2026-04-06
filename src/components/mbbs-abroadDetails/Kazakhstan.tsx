@@ -7,12 +7,23 @@ const Kazakhstan = () => {
     <div className="min-h-screen bg-gray-50">
       <FloatingWhatsApp />
       {/* Hero Section */}
-      <div className="relative text-white py-15 md:py-32 lg:py-50 px-4 md:px-6 overflow-hidden" style={{
+      <div className="relative text-white py-15 md:py-32 lg:py-50 px-4 md:px-6 overflow-hidden flex items-center" style={{
         backgroundImage: 'url(/images/study-abroad/kazakshstanHero.webp)',
-        backgroundSize: 'cover',
+        backgroundSize: '110% 100%',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
       }}>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#007AB9] via-[#007AB9]/80 to-transparent z-10"></div>
+        <div className="container mx-auto relative z-20">
+          <div className="max-w-3xl">
+            <h1 className="text-3xl md:text-5xl lg:text-[48px] font-bold mb-4 leading-tight uppercase tracking-wider">
+              MBBS IN KAZAKHSTAN
+            </h1>
+            <p className="text-sm md:text-lg lg:text-[16px] text-white/90 font-medium max-w-2xl leading-relaxed">
+              Start your global medical career at Kazakhstan’s leading universities, which combine cost-effective programs with practical clinical skills
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Main Content Section */}
@@ -39,11 +50,11 @@ const Kazakhstan = () => {
 
               <div className="space-y-4 md:space-y-6 text-gray-600 leading-relaxed text-sm md:text-base">
                 <p>
-                  Kazakhstan has become one of the top choices for Indian students who want to pursue their MBBS abroad. Medical universities in Kazakhstan are known to offer high-quality education at an affordable cost, featuring modern infrastructure, advanced laboratories, and experienced faculty members. The educational standards easily match global benchmarks, making it highly competitive for aspiring medical students.
+                  All the universities in Kazakhstan are world-famous for the high standard of education they provide. For students who want to study MBBS in Kazakhstan, the environment is safe and comfortable, so they will feel relaxed and secure in the country. The people are very kind, so students will not find it difficult to adjust to the environment.
                 </p>
 
                 <p>
-                  The admission process for medical universities in Kazakhstan is straightforward, without the need for large donations or hidden fees. The institutions are well-recognized by major global medical councils including NMC, WHO, and FAIMER, which ensures that graduates are eligible to practice medicine internationally after passing the necessary licensing exams.
+                  The MBBS course in Kazakhstan is designed to meet global requirements for medical education and to impart both theoretical and practical knowledge. Moreover, the universities, such as Al-Farabi Kazakh National University and Astana Medical University, are recognised globally, and the graduates are eligible to practice their skills in almost all countries of the world, as the medical boards of all countries recognise their degrees
                 </p>
               </div>
             </div>

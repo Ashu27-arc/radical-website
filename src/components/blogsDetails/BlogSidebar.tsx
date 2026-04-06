@@ -113,55 +113,7 @@ const BlogSidebar = ({ className = "" }: BlogSidebarProps) => {
                 </div>
             </div>
 
-            {/* Quick Updates Section - Dynamic */}
-            <div className="bg-[#E1F2FF] p-4 sm:p-5 md:p-6 rounded-xl mt-4 sm:mt-6 shadow-sm border border-blue-50">
-                <h3 className="text-base sm:text-lg md:text-xl font-bold text-[#287FC4] mb-4 sm:mb-5">Quick Updates</h3>
 
-                {loading ? (
-                    <div className="space-y-4 animate-pulse">
-                        {[1, 2, 3].map(i => (
-                            <div key={i} className="flex gap-3 pb-4 border-b border-blue-100 last:border-0 last:pb-0">
-                                <div className="w-16 h-16 bg-blue-100 rounded-lg shrink-0" />
-                                <div className="flex-1 space-y-2">
-                                    <div className="h-4 bg-blue-100 rounded w-full" />
-                                    <div className="h-3 bg-blue-100 rounded w-1/2" />
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                ) : links.length > 0 ? (
-                    <div className="space-y-4">
-                        {links.map((link) => (
-                            <Link
-                                key={link._id || link.id}
-                                href={link.link || '#'}
-                                target={link.link?.startsWith('http') ? "_blank" : "_self"}
-                                className="flex gap-3 group pb-4 border-b border-blue-100 last:border-0 last:pb-0 transition-all duration-300"
-                            >
-                                <div className="w-16 h-16 shrink-0 rounded-lg overflow-hidden relative shadow-sm border border-blue-50">
-                                    <Image
-                                        src={link.banner || link.imageUrl || link.image || link.featuredImage || link.coverImage || '/images/blogs/card.webp'}
-                                        alt={link.name || "Quick Update"}
-                                        fill
-                                        className="object-cover transition-transform duration-500 group-hover:scale-110"
-                                    />
-                                </div>
-                                <div className="flex-1 min-w-0 flex flex-col">
-                                    <h4 className="font-semibold text-gray-800 mb-1 leading-tight text-sm md:text-base group-hover:text-[#287FC4] transition-colors break-words line-clamp-2">
-                                        {link.name}
-                                    </h4>
-                                    <div className="text-gray-500 text-[10px] md:text-xs flex items-center justify-between mt-auto">
-                                        <span className="bg-white/50 px-2 py-0.5 rounded-full text-blue-600 font-medium">#{link.categories || 'Update'}</span>
-                                        <span>{formatDate(link.createdAt)}</span>
-                                    </div>
-                                </div>
-                            </Link>
-                        ))}
-                    </div>
-                ) : (
-                    <p className="text-gray-500 text-sm italic">No recent updates available</p>
-                )}
-            </div>
 
             {/* Recent Blogs Section - WordPress */}
             <div className="bg-white p-4 sm:p-5 md:p-6 rounded-xl mt-4 sm:mt-6 shadow-md border border-gray-100">

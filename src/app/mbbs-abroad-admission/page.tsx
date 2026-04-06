@@ -207,10 +207,10 @@ export default function MBBSAbroadAdmission() {
                     <div className="mb-6 sm:mb-8 md:mb-12 flex flex-col md:flex-row items-start justify-between gap-4">
                         <div>
                             <p className="text-gray-600 font-semibold text-xs sm:text-sm md:text-base uppercase tracking-wider mb-2">
-                                COUNTRIES
+
                             </p>
                             <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-[#0B2E3C]">
-                                Serving Aspirants across <span className="text-[#287FC4]">different Countries</span>
+                                Serving Aspirants across <span className="text-[#287FC4]">Different Countries</span>
                             </h2>
                         </div>
                         <p className="text-gray-600 text-sm sm:text-base md:text-lg max-w-2xl leading-relaxed md:mt-8">

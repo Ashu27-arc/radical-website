@@ -7,12 +7,23 @@ const Russia = () => {
     <div className="min-h-screen bg-gray-50">
       <FloatingWhatsApp />
       {/* Hero Section */}
-      <div className="relative text-white py-15 md:py-32 lg:py-50 px-4 md:px-6 overflow-hidden" style={{
-        backgroundImage: 'url(/images/study-abroad/heroSection.webp)',
-        backgroundSize: 'cover',
+      <div className="relative text-white py-15 md:py-32 lg:py-50 px-4 md:px-6 overflow-hidden flex items-center" style={{
+        backgroundImage: 'url(/images/study-abroad/russiaHero.webp)',
+        backgroundSize: '110% 100%',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
       }}>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#007AB9] via-[#007AB9]/80 to-transparent z-10"></div>
+        <div className="container mx-auto relative z-20">
+          <div className="max-w-3xl">
+            <h1 className="text-3xl md:text-5xl lg:text-[48px] font-bold mb-4 leading-tight uppercase tracking-wider">
+              MBBS IN RUSSIA
+            </h1>
+            <p className="text-sm md:text-lg lg:text-[16px] text-white/90 font-medium max-w-2xl leading-relaxed">
+              Begin your medical journey in Russia with trusted guidance, modern facilities, and opportunities that open doors to global careers.
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Main Content Section */}

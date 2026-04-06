@@ -3,17 +3,28 @@ import Image from 'next/image';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import Link from 'next/link';
 
-const Russia = () => {
+const Singapore = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <FloatingWhatsApp />
       {/* Hero Section */}
-      <div className="relative text-white py-15 md:py-50 px-10 md:px-6 overflow-hidden" style={{
+      <div className="relative text-white py-15 md:py-32 lg:py-50 px-4 md:px-6 overflow-hidden flex items-center" style={{
         backgroundImage: 'url(/images/study-abroad/singaporeHero.webp)',
-        backgroundSize: 'cover',
+        backgroundSize: '110% 100%',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
       }}>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#007AB9] via-[#007AB9]/80 to-transparent z-10"></div>
+        <div className="container mx-auto relative z-20">
+          <div className="max-w-3xl">
+            <h1 className="text-3xl md:text-5xl lg:text-[48px] font-bold mb-4 leading-tight uppercase tracking-wider">
+              MBBS IN SINGAPORE
+            </h1>
+            <p className="text-sm md:text-lg lg:text-[16px] text-white/90 font-medium max-w-2xl leading-relaxed">
+              Study medicine in Singapore with a perfect blend of high-quality education, innovation, and global exposure
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Main Content Section */}
@@ -40,17 +51,11 @@ const Russia = () => {
 
               <div className="space-y-4 md:space-y-6 text-gray-600 leading-relaxed text-sm md:text-base">
                 <p>
-                  Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite Your Friends
-                  And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive
-                  Benefits—Earn More With Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits Invite Your
-                  Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every
-                  Successful Referral. Invite Your Friends And Unlock Exclusive Benefits
+                  Singapore is well known for providing top medical facilities worldwide. Singapore can be a great option for studying MBBS abroad. It has the world's most active economy and focuses on various areas, such as education and business. The top medical universities in Singapore are providing top-class medical education to their students and equipping them for practice on a global scale. The healthcare facilities are highly appreciated by many countries across the world.
                 </p>
 
                 <p>
-                  Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite Your Friends
-                  And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive
-                  Benefits—Earn More With Every Successful Referral. Invite Your Friends And Unlock
+                  Medical colleges are contributing greatly to strengthening the healthcare sector in Singapore. Studying MBBS in Singapore will equip you with a globally recognized degree and a solid foundation for a successful medical career. The curriculum is taught in English, which makes it easier for International students to understand the culture.
                 </p>
               </div>
             </div>
@@ -186,7 +191,7 @@ const Russia = () => {
         </div>
       </div>
 
-      {/* Why Choose Russia Section */}
+      {/* Why Choose Singapore Section */}
       <div className="bg-white py-12 md:py-16">
         <div className="container mx-auto px-4 md:px-6">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6 md:mb-8">
@@ -195,18 +200,19 @@ const Russia = () => {
 
           <div className="text-gray-600 leading-relaxed space-y-4 text-sm md:text-base">
             <p>
-              Invite your friends and unlock exclusive benefits—earn more with every successful referral.. Invite Your Friends And Unlock Exclusive Benefits
-              Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits – Earn More With Every Successful Referral. Invite Your
-              Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits – Earn More With
-              Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive
+              Some of the reasons include the cost of studying MBBS in Singapore and the availability of jobs. One of the major advantages of studying MBBS in Singapore is that the mode of communication is English. This eliminates the communication barrier for Indian students.
             </p>
-
-            <p>
-              Invite Your Friends And Unlock Exclusive Benefits – Earn More With Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits
-              Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits – Earn More With Every Successful Referral. Invite Your
-              Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits – Earn More With
-              Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive
-            </p>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>Standard education system</li>
+              <li>English medium education with no communication problems</li>
+              <li>Expert teachers</li>
+              <li>Good infrastructure</li>
+              <li>The country's revenue comes from tourism, so people are friendly towards foreigners</li>
+              <li>Safe place for international students</li>
+              <li>The top medical colleges in Singapore are approved by the NMC</li>
+              <li>Indian cuisine is available in the university hostels</li>
+              <li>High success rate in FMGE</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -214,4 +220,4 @@ const Russia = () => {
   );
 };
 
-export default Russia;
+export default Singapore;

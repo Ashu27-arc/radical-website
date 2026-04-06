@@ -568,7 +568,7 @@ export default function Home() {
                 <div className="h-full w-full">
                   <Link href="/study-abroad" className="block relative group overflow-hidden rounded-2xl h-[280px] sm:h-[280px] md:h-[340px] lg:h-[380px] w-full shadow-sm hover:shadow-xl transition-shadow duration-300">
                     <Image
-                      src="/svg/abroad-c.svg"
+                      src="/svg/abroad-card-2.svg"
                       alt="Abroad Admission"
                       fill
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"

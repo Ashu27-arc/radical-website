@@ -20,7 +20,6 @@ const formatDate = (d: string) => {
 };
 
 const categoryColors: Record<string, string> = {
-    'Educational': 'bg-[#BFE6DB] text-[#00A88E]',
     'Education': 'bg-[#BFE6DB] text-[#00A88E]',
     'Exams': 'bg-[#FFE0B2] text-[#C77700]',
     'Government': 'bg-[#D5DCE5] text-[#2C3E50]',
@@ -29,10 +28,7 @@ const categoryColors: Record<string, string> = {
     'MBBS Abroad': 'bg-[#BFE6DB] text-[#00A88E]',
     'Study Abroad': 'bg-[#BFE6DB] text-[#00A88E]',
     'NEET UG': 'bg-[#FFEBEE] text-[#D32F2F]',
-    'Neet UG': 'bg-[#FFEBEE] text-[#D32F2F]',
-    'Neet-UG': 'bg-[#FFEBEE] text-[#D32F2F]',
     'NEET PG': 'bg-[#FFF9C4] text-[#F9A825]',
-    'Neet PG': 'bg-[#FFF9C4] text-[#F9A825]',
     'Notification': 'bg-[#E1F5FE] text-[#0288D1]',
 };
 
@@ -255,7 +251,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
         return () => removeHandler();
     }, [addMessageHandler, blog?.id]);
 
-    const categories = ['All', 'Education', 'Exams', 'Government', 'Careers'];
+
 
     const handleSearch = () => {
         if (searchTerm.trim()) {

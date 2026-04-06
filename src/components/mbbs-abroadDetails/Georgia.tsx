@@ -3,17 +3,28 @@ import Image from 'next/image';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import Link from 'next/link';
 
-const Russia = () => {
+const Georgia = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <FloatingWhatsApp />
       {/* Hero Section */}
-      <div className="relative text-white py-15 md:py-50 px-10 md:px-6 overflow-hidden" style={{
+      <div className="relative text-white py-15 md:py-32 lg:py-50 px-4 md:px-6 overflow-hidden flex items-center" style={{
         backgroundImage: 'url(/images/study-abroad/georgiaHero.webp)',
-        backgroundSize: 'cover',
+        backgroundSize: '110% 100%',
         backgroundPosition: 'center',
         backgroundRepeat: 'no-repeat'
       }}>
+        <div className="absolute inset-0 bg-gradient-to-r from-[#007AB9] via-[#007AB9]/80 to-transparent z-10"></div>
+        <div className="container mx-auto relative z-20">
+          <div className="max-w-3xl">
+            <h1 className="text-3xl md:text-5xl lg:text-[48px] font-bold mb-4 leading-tight uppercase tracking-wider">
+              MBBS IN GEORGIA
+            </h1>
+            <p className="text-sm md:text-lg lg:text-[16px] text-white/90 font-medium max-w-2xl leading-relaxed">
+              Pursue your dream of becoming a doctor in Georgia’s reputed medical colleges with excellent academic support.Begin your medical journey in Georgia with modern facilities, hands-on clinical training, and expert guidance throughout the admission process.
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Main Content Section */}
@@ -40,17 +51,11 @@ const Russia = () => {
 
               <div className="space-y-6 text-gray-600 leading-relaxed">
                 <p>
-                  Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite Your Friends
-                  And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive
-                  Benefits—Earn More With Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits Invite Your
-                  Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every
-                  Successful Referral. Invite Your Friends And Unlock Exclusive Benefits
+                  Medical Studies in Georgia are an attractive career option for many aspiring students from India. The country offers advanced medical facilities and experienced faculty, making it one of the most sought-after destinations for medical students. Georgia, an Eastern European country, is known for its world-class standards in medical education. Out of the top 5 universities offering MBBS in Georgia, 3 universities are located in Tbilisi, 1 in Batumi, 1 in Kutaisi, and several other private universities are recognized by NMC, WHO, WFME, ECFMG, and FAIMER
                 </p>
 
                 <p>
-                  Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite Your Friends
-                  And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive
-                  Benefits—Earn More With Every Successful Referral. Invite Your Friends And Unlock
+                  The medium of teaching is English, making it easy for international students to grasp the subjects. The country offers an excellent employability rate for students pursuing MBBS in Georgia. The course provides lucrative career opportunities for students in the field of medicine. The universities offer several advantages to students, providing them with the best career opportunities post-graduation.
                 </p>
               </div>
             </div>
@@ -186,7 +191,7 @@ const Russia = () => {
         </div>
       </div>
 
-      {/* Why Choose Russia Section */}
+      {/* Why Choose Georgia Section */}
       <div className="bg-white py-10 lg:py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl lg:text-3xl font-bold text-gray-800 mb-8">
@@ -195,18 +200,20 @@ const Russia = () => {
 
           <div className="text-gray-600 leading-relaxed space-y-4">
             <p>
-              Invite your friends and unlock exclusive benefits—earn more with every successful referral.. Invite Your Friends And Unlock Exclusive Benefits
-              Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits – Earn More With Every Successful Referral. Invite Your
-              Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits – Earn More With
-              Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive
+              If you are looking to study MBBS in Georgia and are still doubtful about it, then let's take a look at some of the reasons that you can consider Georgia a perfect destination to fulfil your medical career:
             </p>
-
-            <p>
-              Invite Your Friends And Unlock Exclusive Benefits – Earn More With Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits
-              Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits – Earn More With Every Successful Referral. Invite Your
-              Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits – Earn More With
-              Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive
-            </p>
+            <ul className="list-disc pl-5 space-y-2">
+              <li>Low cost for studying and living</li>
+              <li>Recognised Degrees that are respected all over the world</li>
+              <li>Courses taught in English</li>
+              <li>State-of-the-art facilities and modern laboratories</li>
+              <li>Teachers with skill and experience</li>
+              <li>Clear and easy ways to become a part of the university</li>
+              <li>No extra charges like donations and capitation fees</li>
+              <li>Plenty of practical experience and real-life learning situations</li>
+              <li>A safe and welcoming place to be a student</li>
+              <li>Opportunities to work and study overseas</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -214,4 +221,4 @@ const Russia = () => {
   );
 };
 
-export default Russia;
+export default Georgia;
