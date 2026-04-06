@@ -186,6 +186,8 @@ const videos = [
 ];
 
 export default function NeetPgIndiaAdmissionPage() {
+    const [videoPopup, setVideoPopup] = useState<{ id: number; title: string; youtubeId: string } | null>(null);
+
 
     return (
         <>
@@ -254,9 +256,14 @@ export default function NeetPgIndiaAdmissionPage() {
                                         />
                                     </div>
 
-                                    <h3 className="font-semibold text-gray-900 text-sm">
-                                        {item.title}
-                                    </h3>
+                                    <div className="flex justify-between items-center">
+                                        <h3 className="font-semibold text-gray-900 text-sm">
+                                            {item.title}
+                                        </h3>
+                                        <div className="text-[#FF0000] text-xl">
+                                            <i className="pi pi-youtube"></i>
+                                        </div>
+                                    </div>
 
                                     {/* <div className="border-t border-black/25 my-4"></div>
 
@@ -336,22 +343,79 @@ export default function NeetPgIndiaAdmissionPage() {
                         {videos.map((video) => (
                             <div
                                 key={video.id}
-                                className="fadeUp relative min-w-[340px] h-[240px] rounded-xl overflow-hidden shadow-lg"
+                                className="fadeUp relative min-w-[340px] h-[240px] rounded-xl overflow-hidden shadow-lg cursor-pointer group"
+                                onClick={() => setVideoPopup(video)}
                             >
-                                {/* YouTube Video */}
-                                <iframe
-                                    className="absolute inset-0 w-full h-[240px]"
-                                    src={`https://www.youtube.com/embed/${video.youtubeId}`}
-                                    title={video.title}
-                                    frameBorder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowFullScreen
+                                <img
+                                    src={`https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`}
+                                    alt={video.title}
+                                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                                 />
+                                <div className="absolute inset-0 flex items-center justify-center">
+                                    <div className="w-16 h-16 transition-transform duration-300 group-hover:scale-110">
+                                        <img
+                                            src="/images/reviews/you-tube.webp"
+                                            className="w-full h-full object-contain"
+                                            alt="Play button"
+                                        />
+                                    </div>
+                                </div>
+                                <span className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-3 py-2 text-white text-sm font-medium">
+                                    {video.title}
+                                </span>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
+
+            {videoPopup && (
+                <div
+                    className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60"
+                    onClick={() => setVideoPopup(null)}
+                    role="dialog"
+                    aria-modal="true"
+                    aria-label="Video player"
+                >
+                    <div
+                        className="relative w-full max-w-4xl rounded-2xl overflow-hidden bg-white shadow-2xl"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <div className="p-3 bg-[#F4F7F8]">
+                            <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-black">
+                                <button
+                                    type="button"
+                                    onClick={() => setVideoPopup(null)}
+                                    className="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center transition-colors"
+                                    aria-label="Close"
+                                >
+                                    <svg
+                                        className="w-5 h-5"
+                                        fill="none"
+                                        stroke="currentColor"
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path
+                                            strokeLinecap="round"
+                                            strokeLinejoin="round"
+                                            strokeWidth={2}
+                                            d="M6 18L18 6M6 6l12 12"
+                                        />
+                                    </svg>
+                                </button>
+                                <iframe
+                                    className="absolute inset-0 w-full h-full"
+                                    src={`https://www.youtube.com/embed/${videoPopup.youtubeId}?autoplay=1`}
+                                    title={videoPopup.title}
+                                    frameBorder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                    allowFullScreen
+                                />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </>
     )
 }
