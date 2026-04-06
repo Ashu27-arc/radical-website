@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --webpack",
-    "build": "next build",
+    "build": "next build --webpack",
     "start": "next start",
     "lint": "eslint .",
     "clean": "rimraf .next dist",
@@ -13,6 +13,8 @@
   "dependencies": {
     "@fullhuman/postcss-purgecss": "^8.0.0",
     "axios": "^1.13.5",
+    "cashfree-pg-sdk-javascript": "^2.0.8",
+    "cashfree-pg-sdk-nodejs": "^2.0.2",
     "mongodb": "^7.0.0",
     "mongoose": "^9.1.4",
     "next": "^16.0.10",
@@ -35,6 +37,7 @@
     "autoprefixer": "^10.4.22",
     "babel-plugin-react-compiler": "1.0.0",
     "baseline-browser-mapping": "^2.9.19",
+    "critters": "^0.0.23",
     "eslint": "^9",
     "eslint-config-next": "16.0.10",
     "postcss": "^8.5.6",

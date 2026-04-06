@@ -13,7 +13,7 @@ const neetupadmissionplans = [
         color: "bg-[#B6FFA7]",
         border: "border-[#2CBF0F]",
         bgImage: "/images/borderShape1.webp",
-        icon:"/images/st1.svg",
+        icon: "/images/st1.svg",
         features: [
             "All Standard + Strategy features",
             "Full admission guidance till final seat",
@@ -31,7 +31,7 @@ const neetupadmissionplans = [
         color: "bg-[#AEC2FF]",
         border: "border-[#607DD6]",
         bgImage: "/images/borderShape2.webp",
-        icon:"/images/st2.svg",
+        icon: "/images/st2.svg",
         features: [
             "All Standard features included",
             "College & budget planning (India + Abroad)",
@@ -49,7 +49,7 @@ const neetupadmissionplans = [
         color: "bg-[#D3F4FF]",
         border: "border-[#42ACCF]",
         bgImage: "/images/borderShape3.webp",
-        icon:"/images/st3.svg",
+        icon: "/images/st3.svg",
         features: [
             "All Standard + Strategy features",
             "Full admission guidance till final seat",
@@ -64,17 +64,17 @@ const neetupadmissionplans = [
 const videos = [
     {
         id: 1,
-        title: 'Successful Admission',
+        title: 'Utkarshika Gupta, CSAMC, Etah',
         youtubeId: 'jfq8RbTIrtI',
     },
     {
         id: 2,
-        title: "Ishika's Govt. MBBS Seat Journey",
+        title: "Ayush Kushwaha, GSAMC, Hapur",
         youtubeId: 'hwYjHX5pk9w',
     },
     {
         id: 3,
-        title: 'Successful Admission',
+        title: 'Sangam Yadav, MGAMC, Lucknow',
         youtubeId: 'CxDL_T4CWs8',
     },
 ];

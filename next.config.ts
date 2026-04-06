@@ -2,6 +2,7 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   reactCompiler: true,
+  turbopack: {},
   trailingSlash: false,
   productionBrowserSourceMaps: false,
 
@@ -43,12 +44,8 @@ const nextConfig: NextConfig = {
     ],
   },
 
-  modularizeImports: {
-    primereact: {
-      transform: "primereact/{{member}}",
-      skipDefaultConversion: true,
-    },
-  },
+  // Removed redundant modularizeImports as it's replaced by optimizePackageImports
+
 
   async redirects() {
     return [

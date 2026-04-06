@@ -170,17 +170,17 @@ const features = [
 const videos = [
     {
         id: 1,
-        title: 'Successful Admission',
+        title: 'Utkarshika Gupta, CSAMC, Etah',
         youtubeId: 'jfq8RbTIrtI',
     },
     {
         id: 2,
-        title: "Ishika's Govt. MBBS Seat Journey",
+        title: "Ayush Kushwaha, GSAMC, Hapur",
         youtubeId: 'hwYjHX5pk9w',
     },
     {
         id: 3,
-        title: 'Successful Admission',
+        title: 'Sangam Yadav, MGAMC, Lucknow',
         youtubeId: 'CxDL_T4CWs8',
     },
 ];
