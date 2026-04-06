@@ -57,7 +57,7 @@ const branches = [
         title: "Medical Jurisprudence",
         desc: "Studies and treats the legal aspects of medical practice.Includes ethics, laws, and responsibilities.",
         icon: "/images/MedicalJurisprudence.webp",
-        color: "bg-[#E5FBFF]",
+        color: "bg-[#ffffff]",
     },
     {
         title: "Microbiology",
@@ -201,22 +201,10 @@ export default function NeetPgIndiaAdmissionPage() {
                     </div>
                 </div>
             </section>
-            <section className="py-10 lg:py-15 overflow-hidden">
+            <section className="py-10 lg:py-15 overflow-hidden bg-[#F4F7F8]">
                 <div className="container px-3 md:px-4 max-w-[1240px]!">
                     <h6 className="text-black font-semibold mb-6 fadeUp">Courses</h6>
                     <h2 className='text-black text-4xl font-bold mb-6 lg:mb-10 fadeUp mb-8'>PG Branches</h2>
-
-                    {/* 
-                    {visibleCount < branches.length && (
-                        <div className="text-center mt-8">
-                            <button
-                                onClick={loadMore}
-                                className="px-6 py-2 rounded-full bg-[#005A8B] text-white text-sm hover:bg-[#005A8B] transition"
-                            >
-                                View More
-                            </button>
-                        </div>
-                    )} */}
                 </div>
                 <div className="fadeUp">
                     <Swiper
@@ -264,21 +252,15 @@ export default function NeetPgIndiaAdmissionPage() {
                                             <i className="pi pi-youtube"></i>
                                         </div>
                                     </div>
-
-                                    {/* <div className="border-t border-black/25 my-4"></div>
-
-                                    <p className="text-xs text-gray-600 leading-relaxed">
-                                        {item.desc}
-                                    </p> */}
                                 </div>
                             </SwiperSlide>
                         ))}
                     </Swiper>
                 </div>
             </section>
-            <section className="py-10 lg:py-15 overflow-hidden bg-[]">
-                <div className="container px-3 md:px-4 lg:px-20 max-w-[1090px]!">
-                    <div className="grid grid-cols-1 md:grid-cols-2 md:gap-4 lg:gap-30">
+            <section className="py-10 lg:py-15 overflow-hidden bg-[#F4F7F8]">
+                <div className="container px-3 md:px-4 lg:px-20 max-w-[1010px]!">
+                    <div className="grid grid-cols-1 md:grid-cols-2 md:gap-4 lg:gap-10 mb-16">
                         <div className="relative">
                             <Image src="/images/caremore2.webp" width="572" height="764" className="w-full h-auto" alt="" />
                         </div>
@@ -314,27 +296,33 @@ export default function NeetPgIndiaAdmissionPage() {
                             </div>
                         </div>
                     </div>
+                    <div className="grid md:grid-cols-2 grid-cols-1 gap-10 mb-10 items-center">
+                        <div className="flex flex-wrap gap-2 fadeUp items-end md:justify-start justify-center">
+                            <div className="text-[#0B2E3C] text-2xl font-bold">Admission Service Charge :-</div>
+                        </div>
+                        <div className="flex flex-wrap lg:gap-6 gap-3 items-center justify-center md:justify-end fadeUp">
+                            <div className="lg:text-2xl py-3 px-8 rounded-lg text-white font-semibold bg-[#0095C2]">₹ 99,999</div>
+                        </div>
+                    </div>
+                    <div className="bg-white rounded-lg sm:rounded-xl p-6 lg:p-8">
+                        <div className="space-y-1 sm:space-y-2">
+                            <div className="flex items-start gap-2">
+                                <span className="text-black flex-shrink-0 text-xs sm:text-sm md:text-base">Note:</span>
+                                <div className="space-y-1 text-xs sm:text-sm md:text-base">
+                                    <p className="text-[#2CBF0F]">
+                                        1. This service charge includes the Visa charges but does not cover the Ticket charges.
+                                    </p>
+                                    <p className="text-[#2CBF0F]">
+                                        2. Get the offer price 99,999 before NEET Result
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
-            <section className="pb-10 lg:pb-15">
+            <section className="pb-10 lg:pb-15 bg-[#F4F7F8]">
                 <div className="container px-3 md:px-4">
-                    <div className="p-8 rounded-xl bg-[url('/images/addmi.webp')] bg-cover bg-center bg-no-repeat mb-6">
-                        <div className="flex flex-wrap gap-2 fadeUp items-end justify-center">
-                            <div className="text-white lg:text-4xl text-2xl font-bold">Admission Service Charge:</div><br className="md:hidden block" />
-                            <div className="font-light text-[#CACACA] relative -top-0.5 line-through">₹ 1,29,999 </div>
-                            <div className="font-bold lg:text-4xl text-2xl py-1 px-2 bg-white text-[#FF0000] font-semibold">₹ 84,499</div>
-                        </div>
-                        <div className="text-center mt-8 fadeUp">
-                            <Button size="small" label="BUY NOW" className='text-white! bg-[#005787]! border-[#005787]! hover:bg-[#004469]! hover:shadow-2xl hover:scale-105 transition-all hover:animate-none' rounded />
-                        </div>
-                    </div>
-                    <div className="lg:mb-15 mb-10 fadeUp flex text-[#2CBF0F] border rounded-xl border-dashed border-[#2CBF0F] gap-2 lg:justify-center mx-auto w-full lg:w-7/10 p-4 lg:px-8 lg:py-4">
-                        <div className="text-[#FF0000]">Note:</div>
-                        <div className="space-y-3">
-                            <div>1. This service charge includes visa charges but does not cover ticket charges.</div>
-                            <div>2. Get the offer price of ₹99,999 before the NEET result</div>
-                        </div>
-                    </div>
                     <div className='mb-10 fadeUp text-center'>
                         <h2 className='text-black text-4xl font-bold mb-4'>OUR <span className='text-[#287FC4]'>SUCCESSFUL STORIES</span></h2>
                         <div className='uppercase text-[#00CFB240] leading-12 text-[42px] md:text-5xl lg:text-7xl font-black'>HEAR FROM OUR STUDENTS</div>

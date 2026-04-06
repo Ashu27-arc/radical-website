@@ -3,6 +3,7 @@
 import { Button } from "primereact/button";
 import { useState } from "react";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import Link from "next/link";
 
 const neetupadmissionplans = [
     {
@@ -95,8 +96,8 @@ export default function NeetUgIndiaAdmissionPage() {
             </section>
             <section className="py-10 lg:py-15 overflow-hidden bg-[#F4F7F8]">
                 <div className="container px-3 md:px-4 max-w-[1240px]">
-                    <h2 className='text-black text-4xl font-bold mb-6 lg:mb-10 text-center fadeUp'>Pricing & <span className='text-[#287FC4]'>Packages</span></h2>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-10 mb-10 lg:mb-15">
+                    <h2 className='text-black text-4xl font-bold mb-10 lg:mb-16 text-center fadeUp'>Pricing & <span className='text-[#287FC4]'>Packages</span></h2>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-14 lg:gap-10 mb-10 lg:mb-12">
                         {neetupadmissionplans.map((plan) => (
                             <div
                                 key={plan.id}
@@ -130,47 +131,29 @@ export default function NeetUgIndiaAdmissionPage() {
                             </div>
                         ))}
                     </div>
-                    <div className="p-8 lg:p-12 rounded-xl bg-[url('/images/planBg.webp')] bg-cover bg-center bg-no-repeat mb-16">
-                        <div className="flex justify-between gap-2 items-center">
-                            <div>
-                                <div className="flex justify-between gap-2 items-center">
-                                    <div className="text-black fadeUp font-bold text-xl md:text-4xl">Get 35% OFF on the Ultimate Plan-Now at just</div>
-                                </div>
-                                <div className="mt-5 fadeUp flex text-[#538AA1] gap-2 items-center">
-                                    <div className="md:inline-flex hidden">
-                                        <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M0.26202 5.827L4.05311 6.88145C4.09837 6.89451 4.13957 6.91882 4.17287 6.95213C4.20618 6.98543 4.23049 7.02663 4.24355 7.07188L5.29801 10.863C5.31442 10.9205 5.34912 10.971 5.39685 11.007C5.44457 11.043 5.50272 11.0625 5.5625 11.0625C5.62228 11.0625 5.68043 11.043 5.72816 11.007C5.77588 10.971 5.81058 10.9205 5.827 10.863L6.88145 7.07188C6.89451 7.02663 6.91882 6.98543 6.95213 6.95213C6.98543 6.91882 7.02663 6.89451 7.07188 6.88145L10.863 5.827C10.9205 5.81058 10.971 5.77588 11.007 5.72816C11.043 5.68043 11.0625 5.62228 11.0625 5.5625C11.0625 5.50272 11.043 5.44457 11.007 5.39685C10.971 5.34912 10.9205 5.31442 10.863 5.29801L7.07188 4.24355C7.02663 4.23049 6.98543 4.20618 6.95213 4.17287C6.91882 4.13957 6.89451 4.09837 6.88145 4.05311L5.827 0.26202C5.81058 0.20454 5.77588 0.153974 5.72816 0.117974C5.68043 0.0819737 5.62228 0.0625 5.5625 0.0625C5.50272 0.0625 5.44457 0.0819737 5.39685 0.117974C5.34912 0.153974 5.31442 0.20454 5.29801 0.26202L4.24355 4.05311C4.23049 4.09837 4.20618 4.13957 4.17287 4.17287C4.13957 4.20618 4.09837 4.23049 4.05311 4.24355L0.26202 5.29801C0.20454 5.31442 0.153974 5.34912 0.117974 5.39685C0.0819737 5.44457 0.0625 5.50272 0.0625 5.5625C0.0625 5.62228 0.0819737 5.68043 0.117974 5.72816C0.153974 5.77588 0.20454 5.81058 0.26202 5.827Z" fill="url(#paint0_linear_3023_1298)" stroke="#FCD34D" strokeWidth="0.125" strokeLinecap="round" strokeLinejoin="round" />
-                                            <defs>
-                                                <linearGradient id="paint0_linear_3023_1298" x1="3.16089" y1="1.40464" x2="7.96411" y2="9.72036" gradientUnits="userSpaceOnUse">
-                                                    <stop stopColor="#FCD966" />
-                                                    <stop offset="0.0001" stopColor="#FCD966" />
-                                                    <stop offset="1" stopColor="#FCCD34" />
-                                                </linearGradient>
-                                            </defs>
-                                        </svg>
-                                    </div>
-                                    <div>Note:- One-shot payment (No partial payment, no negotiations)</div>
+                    <div className="mb-20">
+                        <div className="flex md:flex-row flex-col justify-between gap-6 items-center">
+                            <div className="text-center md:text-left">
+                                <div className="text-black fadeUp font-bold text-xl md:text-4xl text-center md:text-left">Get 35% OFF on Ultimate Plan – Now at just</div>
+                                <div className="mt-3 fadeUp flex text-[#538AA1] gap-2 items-center">
+                                    Note:- One Shot Payment (NO PARTIAL PAYMENT, NO NEGOTIATIONS)
                                 </div>
                             </div>
-                            <div>
-                                <div className="fadeRight inline-flex px-4 md:px-8! py-3 text-white md:text-2xl text-lg rounded-lg bg-[#FF0000] font-semibold">₹ 84,499</div>
+                            <div className="fadeRight">
+                                <Link href="https://www.neetbhaiya.in/" target="_blank" className="text-nowrap inline-flex px-4 md:px-8! py-3 text-white md:text-2xl text-lg rounded-lg bg-[#0095C2] font-semibold">₹ 84,499</Link>
                             </div>
                         </div>
                     </div>
-                    <section id="connect-counselor" className="mb-16">
-                        <a
-                            href="https://www.neetbhaiya.in/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="block w-full"
-                        >
-                            <img
-                                src="/images/banner-neet-bhaiya.webp"
-                                alt="Book Your Free Counselling Session"
-                                className="w-full rounded-2xl md:rounded-3xl object-cover"
-                            />
-                        </a>
-                    </section>
+                    <div id="connect-counselor" className="mb-16 grid grid-cols-1 md:grid-cols-2 md:gap-4 lg:gap-20 gap-10 bg-[#FFE5EB] lg:rounded-3xl rounded-2xl lg:pl-20 md:pl-10 pt-10 md:pr-0 px-10">
+                        <div className="text-center md:text-left self-center lg:-translate-6">
+                            <h2 className="mb-3 font-bold text-black lg:text-4xl text-3xl">Book your 20 MIN free counselling session today </h2>
+                            <div className="text-[#404040] font-medium text-base mb-8">Google Meet | Zoom | Microsoft teams | Whatsapp Available</div>
+                            <Link href="https://www.neetbhaiya.in/" target="_blank" className="cursor-pointer text-white rounded-full bg-[#FF3D68] px-6 py-3 uppercase font-medium">BOOK NOW</Link>
+                        </div>
+                        <div>
+                            <img src="/images/counsellingRi.webp" width={510} height={312} alt=""/>
+                        </div>
+                    </div>
                     <div className='mb-10 fadeUp text-center'>
                         <h2 className='text-black text-4xl font-bold mb-4'>OUR <span className='text-[#287FC4]'>SUCCESSFUL STORIES</span></h2>
                         <div className='uppercase text-[#00CFB240] leading-12 text-[42px] md:text-5xl lg:text-7xl font-black'>HEAR FROM OUR STUDENTS</div>

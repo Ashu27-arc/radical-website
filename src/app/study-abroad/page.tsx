@@ -163,8 +163,8 @@ export default function StudyAbroadPage() {
 
 
             <section className="py-10 lg:py-15 overflow-hidden bg-[#F4F7F8]">
-                <div className="container px-3 md:px-4 lg:px-20 max-w-[1090px]!">
-                    <div className="grid grid-cols-1 md:grid-cols-2 md:gap-4 lg:gap-30">
+                <div className="container px-3 md:px-4 lg:px-20 max-w-[1010px]!">
+                    <div className="grid grid-cols-1 md:grid-cols-2 md:gap-4 lg:gap-10 mb-16">
                         <div className="relative">
                             <Image src="/images/caremore.webp" width="572" height="764" className="w-full h-auto" alt="" />
                         </div>
@@ -200,41 +200,36 @@ export default function StudyAbroadPage() {
                             </div>
                         </div>
                     </div>
-                </div>
-            </section>
-
-            <div className="container px-3 md:px-4 pb-20">
-                <div className="p-8 rounded-xl bg-[url('/images/addmi.webp')] bg-cover bg-center bg-no-repeat mb-6">
-                    <div className="flex flex-wrap gap-2 fadeUp items-end justify-center">
-                        <div className="text-white lg:text-4xl text-2xl font-bold">Admission Service Charge :-</div><br className="md:hidden block" />
-                        <div className="font-light text-[#CACACA] relative -top-0.5 line-through">₹ 1,29,999 </div>
-                        <div className="font-bold lg:text-4xl text-2xl py-1 px-2 bg-white text-[#FF0000] font-semibold">₹ 99,999</div>
+                    <div className="grid md:grid-cols-2 grid-cols-1 gap-10 mb-10 items-center">
+                        <div className="flex flex-wrap gap-2 fadeUp items-end md:justify-start justify-center">
+                            <div className="text-[#0B2E3C] text-2xl font-bold">Admission Service Charge :-</div>
+                        </div>
+                        <div className="flex flex-wrap lg:gap-6 gap-3 items-center justify-center md:justify-end fadeUp">
+                            <div className="font-light text-[#BDBCBC] line-through text-xl">₹ 1,29,999 </div>
+                            <div className="lg:text-2xl py-3 px-8 rounded-lg text-white font-semibold bg-[#0095C2]">₹ 99,999</div>
+                        </div>
                     </div>
-                    <div className="text-center mt-8 fadeUp">
-                        <Button size="small" label="BUY NOW" className='text-white! bg-[#005787]! border-[#005787]! hover:bg-[#004469]! hover:shadow-2xl hover:scale-105 transition-all hover:animate-none' rounded />
-                    </div>
-                </div>
-                <div className="max-w-5xl mx-auto px-4">
-                    <div className="mt-3 sm:mt-4 md:mt-6 bg-white border-2 border-dashed border-gray-300 rounded-lg sm:rounded-xl p-2 sm:p-3 md:p-4 lg:p-6">
+                    <div className="bg-white rounded-lg sm:rounded-xl p-6 lg:p-8">
                         <div className="space-y-1 sm:space-y-2">
-                            <div className="flex items-start gap-1 sm:gap-2">
-                                <span className="text-red-500 font-bold flex-shrink-0 text-xs sm:text-sm md:text-base">Note:</span>
+                            <div className="flex items-start gap-2">
+                                <span className="text-black flex-shrink-0 text-xs sm:text-sm md:text-base">Note:</span>
                                 <div className="space-y-1 text-xs sm:text-sm md:text-base">
-                                    <p className="text-green-600">
-                                        1. This service charge includes visa charges but does not cover ticket charges.
+                                    <p className="text-[#2CBF0F]">
+                                        1. This service charge includes the Visa charges but does not cover the Ticket charges.
                                     </p>
-                                    <p className="text-green-600">
-                                        2. Get the offer price of ₹99,999 before the NEET result
+                                    <p className="text-[#2CBF0F]">
+                                        2. Get the offer price 99,999 before NEET Result
                                     </p>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
+
 
             {/* Success Stories Section */}
-            <div className="py-6 sm:py-8 md:py-12 lg:py-16 bg-white">
+            <div className="py-6 sm:py-8 md:py-12 lg:py-16">
                 <div className="container mx-auto px-4 text-center">
                     <div className='mb-10 fadeUp text-center'>
                         <h2 className='text-black text-4xl font-bold mb-4'>OUR <span className='text-[#287FC4]'>SUCCESSFUL STORIES</span></h2>
