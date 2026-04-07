@@ -28,8 +28,7 @@ import EverythingSlider from "@/components/home/EverythingSlider";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 
-import "swiper/css";
-import "swiper/css/autoplay";
+
 
 export default function Home() {
   const [value, setValue] = useState<string>("");
@@ -474,8 +473,6 @@ export default function Home() {
               ))}
             </Swiper>
           </div>
-
-          {/* Video popup modal - design with blue header & light background */}
           {videoPopup && (
             <div
               className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 z-100"

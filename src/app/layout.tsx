@@ -2,7 +2,7 @@ import './globals.css';
 import 'primereact/resources/primereact.min.css';
 import 'primereact/resources/themes/lara-light-blue/theme.css';
 import 'primeicons/primeicons.css';
-import "swiper/css";
+
 import './custom.scss';
 import Providers from './providers';
 import Header from '@/components/header/Header';
@@ -11,6 +11,12 @@ import ScrollEffectProvider from '@/components/ScrollEffectProvider';
 import ClientWrapper from '@/components/ClientWrapper';
 import { Metadata } from 'next';
 import EnquireButton from '@/components/EnquireButton';
+
+
+
+
+
+
 
 export const metadata: Metadata = {
   title: 'Radical Education',

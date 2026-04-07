@@ -1,422 +1,419 @@
 "use client";
 
-import { useState, useRef } from 'react';
-import GoogleReviews from '@/components/GoogleReviews';
-import TestimonialSlider from '@/components/TestimonialSlider';
+import { useState } from 'react';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
-import NewsMarquee from '@/components/NewsMarquee';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Navigation } from "swiper/modules";
+import Image from 'next/image';
+
+
+
+
+
+const testimonials = [
+    {
+        id: 1,
+        name: "Farzan Danish",
+        date: "2024-08-03",
+        image: "/images/reviews/Iqra-Ansari.webp",
+        review:
+            "Krystal Covington is a business growth strategist with 15 years of experience in marketing and public relations. Krystal received versity ",
+    },
+    {
+        id: 2,
+        name: "Farzan Danish",
+        date: "2024-08-03",
+        image: "/images/reviews/Sahil-Gautam.webp",
+        review:
+            "Krystal Covington is a business growth strategist with 15 years of experience in marketing and public relations. Krystal received versity ",
+    },
+    {
+        id: 3,
+        name: "Farzan Danish",
+        date: "2024-08-03",
+        image: "/images/reviews/Iqra-Ansari.webp",
+        review:
+            "Krystal Covington is a business growth strategist with 15 years of experience in marketing and public relations. Krystal received versity ",
+    },
+    {
+        id: 4,
+        name: "Farzan Danish",
+        date: "2024-08-03",
+        image: "/images/reviews/Sahil-Gautam.webp",
+        review:
+            "Krystal Covington is a business growth strategist with 15 years of experience in marketing and public relations. Krystal received versity ",
+    },
+    {
+        id: 5,
+        name: "Farzan Danish",
+        date: "2024-08-03",
+        image: "/images/reviews/Iqra-Ansari.webp",
+        review:
+            "Krystal Covington is a business growth strategist with 15 years of experience in marketing and public relations. Krystal received versity ",
+    },
+    {
+        id: 6,
+        name: "Farzan Danish",
+        date: "2024-08-03",
+        image: "/images/reviews/Sahil-Gautam.webp",
+        review:
+            "Krystal Covington is a business growth strategist with 15 years of experience in marketing and public relations. Krystal received versity ",
+    },
+];
+
+
+
+const reviewtestimonials = [
+    {
+        id: 1,
+        name: "Mayank kumar",
+        location: "Delhi → Russia",
+        text: "My name is Mayank Kumar. I have completed my class 12 from Balodir Public School in Delhi. I’m really excited to explore my MBBS dreams at 12th State Medical University.",
+        tag: "MBBS",
+        status: "Secured a seat at",
+        avatar: "/images/reviews/user1.webp",
+        logo: "/images/reviews/university1.webp",
+    },
+    {
+        id: 2,
+        name: "Daksh Moom",
+        location: "Assam → Kyrgyzstan",
+        text: "My name is Daksha Moom. I'm in the Office International Medical University, Kyrgyzstan. And who did you get in which education? I got in the radical education.",
+        tag: "MBBS",
+        status: "Secured a seat at",
+        avatar: "/images/reviews/user2.webp",
+        logo: "/images/reviews/university2.webp",
+    },
+    {
+        id: 3,
+        name: "Aseem",
+        location: "Delhi → Kazakhstan",
+        text: "Krystal Covington is a business growth strategist with 15 years of experience in marketing and public relations. Krystal received varsity",
+        tag: "MBBS",
+        status: "Secured a seat at",
+        avatar: "/images/reviews/user3.webp",
+        logo: "/images/reviews/university3.webp",
+    },
+    {
+        id: 4,
+        name: "Tanishka",
+        location: "Uttar Pradesh → Russia",
+        text: "I'm Tanishka, I'm from Ghaziabad I'm going to Tver State Medical University through Radical Education. Actually I got a pamphlet my initial day when I am preparing for NEET.",
+        tag: "MBBS",
+        status: "Secured a seat at",
+        avatar: "/images/reviews/user4.webp",
+        logo: "/images/reviews/university1.webp",
+    },
+    {
+        id: 5,
+        name: "ETSHAMUL HAQUE",
+        location: "India",
+        text: "I secured an MBBS seat in medical College with the help of radical education. The process was very professional.",
+        tag: "MBBS",
+        status: "Secured a seat at",
+        avatar: "/images/reviews/user5.webp",
+        logo: "/images/reviews/university4.webp",
+    },
+    {
+        id: 6,
+        name: "Aryan Vijay",
+        location: "India",
+        text: "I recently took counselling services from Radical Education for my BDS admission. My counsellor, Sudhanshu.",
+        tag: "BDS",
+        status: "Secured a seat at",
+        avatar: "/images/reviews/user6.webp",
+        logo: "/images/reviews/university5.webp",
+    },
+    {
+        id: 7,
+        name: "YASHVI AGARWAL",
+        location: "India",
+        text: "I’m so grateful to Radical Education and especially Hitesh Agrawal ma'am for helping me throughout my MBBS admission process.",
+        tag: "MBBS",
+        status: "Secured a seat at",
+        avatar: "/images/reviews/user7.webp",
+        logo: "/images/reviews/university6.webp",
+    },
+    {
+        id: 8,
+        name: "Iqra Ansari",
+        location: "India",
+        text: "My experience with Radical Education has been amazing! I took their help for MBBS counselling, and the entire process was smooth and transparent.",
+        tag: "MBBS",
+        status: "Secured a seat at",
+        avatar: "/images/reviews/user8.webp",
+        logo: "/images/reviews/university7.webp",
+    },
+    {
+        id: 9,
+        name: "Swarnjit Bhadra",
+        location: "India",
+        text: "Glad to secure a seat in BAMS in the first round. Great counselling company, very engaging mentors. Highly recommend them.",
+        tag: "BAMS",
+        status: "Secured a seat at",
+        avatar: "/images/reviews/user9.webp",
+        logo: "/images/reviews/university8.webp",
+    },
+    {
+        id: 10,
+        name: "SHREYA JAIN",
+        location: "India",
+        text: "Ms.Hitashi Agarwal Mam counsellor at radical education made NEET counselling hassle free and resolved each and every query regarding whole process.",
+        tag: "MBBS",
+        status: "Secured a seat at",
+        avatar: "/images/reviews/user10.webp",
+        logo: "/images/reviews/university9.webp",
+    },
+    {
+        id: 11,
+        name: "KSHIRAJ LUTHRA",
+        location: "India",
+        text: "I choose radical education for my mbbs counselling and it was very helpful they guided me very well throughout the process in securing",
+        tag: "MBBS",
+        status: "Secured a seat at",
+        avatar: "/images/reviews/user11.webp",
+        logo: "/images/reviews/university10.webp",
+    },
+    {
+        id: 12,
+        name: "Sangam Yadav",
+        location: "India",
+        text: "Attending the Radical Education BAMS counselling was an excellent experience. Specially dr kk sir was always available to answer my queries regarding BAMS colleges",
+        tag: "BAMS",
+        status: "Secured a seat at",
+        avatar: "/images/reviews/user12.webp",
+        logo: "/images/reviews/university11.webp",
+    },
+    {
+        id: 13,
+        name: "TANYA SAXENA",
+        location: "India",
+        text: "I choose Radical Education for my MBBS counselling. The process was smooth and professional.",
+        tag: "MBBS",
+        status: "Secured a seat at",
+        avatar: "/images/reviews/user13.webp",
+        logo: "/images/reviews/university12.webp",
+    },
+];
+
 
 export default function TestimonialsPage() {
-    const [leftImageIndex, setLeftImageIndex] = useState(0);
-    const [rightImageIndex, setRightImageIndex] = useState(1);
-    const [selectedYear, setSelectedYear] = useState(2025);
     const [videoPopup, setVideoPopup] = useState<{ id: number; title: string; youtubeId: string } | null>(null);
-    const scrollContainerRef = useRef<HTMLDivElement>(null);
-    const [isDragging, setIsDragging] = useState(false);
-    const [startX, setStartX] = useState(0);
-    const [scrollLeft, setScrollLeft] = useState(0);
-
-    // Video data for testimonials
     const videos = [
         { id: 1, title: 'Student Success Story 1', youtubeId: 'jfq8RbTIrtI' },
         { id: 2, title: 'Student Success Story 2', youtubeId: 'hwYjHX5pk9w' },
         { id: 3, title: 'Sangam Yadav, MGAMC, Lucknow', youtubeId: 'CxDL_T4CWs8' },
     ];
-
-    // Student data organized by year
-    const studentsByYear = {
-        2025: [
-            { name: 'Etshamul Haque', college: 'NCRIMS, Meerut', image: '/2025/std1.jpg' },
-            { name: 'Anant Deep Singhal', college: 'MFMC, Muzaffarnagar', image: '/2025/std2.jpg' },
-            { name: 'Yashvi Agarwal', college: 'MRMCW, Hyderabad', image: '/2025/std3.jpg' },
-            { name: 'Kumar Amlendu', college: 'GMC, Ariyalur, Tamil Nadu', image: '/2025/std4.jpg' },
-            { name: 'Shreya Jain', college: 'TMMCRC, Moradabad', image: '/2025/std5.jpg' },
-            { name: 'Piyush Bisht', college: 'GMC, Haldwani', image: '/2025/std6.jpg' },
-            { name: 'Kshiraj Luthra', college: 'GMC, Alwar', image: '/2025/std7.jpg' },
-            { name: 'Sangam Yadav', college: 'MGAMCRC, Lucknow', image: '/2025/std8.jpg' },
-            { name: 'Aamra Khan', college: 'IAMS, Lucknow', image: '/2025/std9.jpg' },
-            { name: 'Aayush Adwani', college: 'JSSMCHM, Mysuru', image: '/2025/std10.jpg' },
-            { name: 'Abhishek Sharma', college: 'NIIMS, Noida', image: '/2025/std11.jpg' },
-            { name: 'Aditi Arya', college: 'JHMCRI, West Bengal', image: '/2025/std12.jpg' },
-            { name: 'Aditya Maan', college: 'GMC, Sirohi', image: '/2025/std13.jpg' },
-            { name: 'Aditya Verrma', college: 'MMCDSR, Mullana', image: '/2025/std14.jpg' },
-            { name: 'Alok Ranjan', college: 'VRIMS, Champaran', image: '/2025/std15.jpg' },
-            { name: 'Angel', college: 'SDCH, Meerut', image: '/2025/std16.jpg' },
-            { name: 'Anhad Kaur', college: 'SGRDIMSR, Amritsar', image: '/2025/std17.jpg' },
-            { name: 'Altamash Raza Khan', college: 'URMCAS, Dehradun', image: '/2025/std18.jpg' },
-            { name: 'Ankur Maan', college: 'BPSGMCW, Sonepat', image: '/2025/std19.jpg' },
-            { name: 'Ananya Pathak Ojha', college: 'GBCMV, Dehradun', image: '/2025/std20.jpg' },
-            { name: 'Anshu Bhoyar', college: 'GSMCH, Hapur', image: '/2025/std21.jpg' },
-            { name: 'Avnesha Singh', college: 'BBDCDS, Lucknow', image: '/2025/std22.jpg' },
-            { name: 'Aradhya Srivastava', college: 'RSMRI, Bareilly', image: '/2025/std23.jpg' },
-            { name: 'Arush Loombha', college: 'KDMCHRC, Mathura', image: '/2025/std24.jpg' },
-            { name: 'Aryan Vijay', college: 'UIMS, Prayagraj', image: '/2025/std25.jpg' },
-            { name: 'Ayush Kushwaha', college: 'GSAMCH, Hapur', image: '/2025/std26.jpg' },
-            { name: 'Ayushi Choudhary', college: 'VRIMS, Champaran', image: '/2025/std27.jpg' },
-            { name: 'Dipti Arya', college: 'JSMCRI, West Bengal', image: '/2025/std28.jpg' },
-            { name: 'Gurmanjot Singh', college: 'RKMCH, Bareilly', image: '/2025/std29.jpg' },
-            { name: 'Harshita Sharma', college: 'SAMCHC, Mathura', image: '/2025/std30.jpg' },
-            { name: 'Ifa Imran', college: 'KDDCH, Mathura', image: '/2025/std31.jpg' },
-            { name: 'Iqra Ansari', college: 'SMCH, Ghaziabad', image: '/2025/std32.jpg' },
-            { name: 'Ishika', college: 'GIMS, Greater Noida', image: '/2025/std33.jpg' },
-            { name: 'Jadhav Kartik Ganesh', college: 'SDAMCRC, Mathura', image: '/2025/std34.jpg' },
-            { name: 'Kaartikeya Pandey', college: 'GBCH, Dehradun', image: '/2025/std35.jpg' },
-            { name: 'Mohd. Ashir Khan', college: 'SMCH, Ghaziabad', image: '/2025/std36.jpg' },
-            { name: 'Mohd. Athar', college: 'FHMC, Agra', image: '/2025/std37.jpg' },
-            { name: 'Mrinmay Kalita', college: 'MSMDAMH, Uttarakhand', image: '/2025/std38.jpg' },
-            { name: 'Nidhi Singh', college: 'SLNIMS, Poducherry', image: '/2025/std39.jpg' },
-            { name: 'Omprakash Prajapati', college: 'SASS, Madhya Pradesh', image: '/2025/std40.jpg' },
-            { name: 'Piyush Soni', college: 'UCMCAR, Dehradun', image: '/2025/std41.jpg' },
-            { name: 'Prabhat Soni', college: 'GMC, Jhunjhunu', image: '/2025/std42.jpg' },
-            { name: 'Prabhleen Kaur', college: 'GMC, Amritsar', image: '/2025/std43.jpg' },
-            { name: 'Pranjali Singh', college: 'SRMSIMS, Bareilly', image: '/2025/std44.jpg' },
-            { name: 'Prince', college: 'KCGMC, Karnal', image: '/2025/std45.jpg' },
-            { name: 'Priya Yadav', college: 'MGAMCRC, Lucknow', image: '/2025/std46.jpg' },
-            { name: 'Rishav Gupta', college: 'KDC, Meerut', image: '/2025/std47.jpg' },
-            { name: 'Riya Ghosh', college: 'KMMCH, Mathura', image: '/2025/std48.jpg' },
-            { name: 'Riya Sagar', college: 'KGMUG, Lucknow', image: '/2025/std49.jpg' },
-            { name: 'Rudra Pratap Singh', college: 'HIMS, Sitapur', image: '/2025/std50.jpg' },
-            { name: 'Saloni', college: 'PNRSGMC, Bhiwani', image: '/2025/std51.jpg' },
-            { name: 'Samya Jagga', college: 'SBMC, Meerut', image: '/2025/std52.jpg' },
-            { name: 'Sanjana Chaurasiya', college: 'GEINMS, Dehradun', image: '/2025/std53.jpg' },
-            { name: 'Sarika Das', college: 'BBDSDS, Lucknow', image: '/2025/std54.jpg' },
-            { name: 'Shagun Tyagi', college: 'NIMS, Jaipur', image: '/2025/std55.jpg' },
-            { name: 'Sheza Imran', college: 'KMLVELGVI, Jaipur', image: '/2025/std56.jpg' },
-            { name: 'Shorya Aggrwal', college: 'SLNIMS, Poducherry', image: '/2025/std57.jpg' },
-            { name: 'Shreya Jain', college: 'TTMMCRC, Moradabad', image: '/2025/std58.jpg' },
-            { name: 'Swarnajit Bhadra', college: 'KACRC, Uttarakhand', image: '/2025/std59.jpg' },
-            { name: 'Tanish Bhatia', college: 'GMCH, Washim', image: '/2025/std60.jpg' },
-            { name: 'Tanya Saxena', college: 'HIMS, Sitapur', image: '/2025/std61.jpg' },
-            { name: 'Trish Yadav', college: 'HAMC, Dehradun', image: '/2025/std62.jpg' },
-            { name: 'Utkarshika', college: 'CSAMCH, Etah', image: '/2025/std63.jpg' },
-            { name: 'Ved Umesh Unnarkar', college: 'BVDUMCH, Sangli', image: '/2025/std64.jpg' },
-            { name: 'Vivek Krishnan', college: 'NMCH, Sasaram', image: '/2025/std65.jpg' },
-            { name: 'Vyomkesh Verma', college: 'FHMC, Agra', image: '/2025/std66.jpg' },
-            { name: 'Mayank Kumar', college: 'TSMU, Russia', image: '/2025/std67.jpg' },
-            { name: 'Tanjina Nasrin Choudhury', college: 'OSHIMU, Kyrgyzstan', image: '/2025/std68.jpg' },
-            { name: 'Dikshita', college: 'St. PSUVM, Russia', image: '/2025/std69.jpg' },
-            { name: 'Riddhi Singh', college: 'KSMU, Russia', image: '/2025/std70.jpg' },
-            { name: 'Aseem', college: 'AKNMU, Kazakhstan', image: '/2025/std71.jpg' },
-            { name: 'Tanishka Rana', college: 'TSMU, Russia', image: '/2025/std72.jpg' },
-            // { name: 'Daksh Moom', college: 'OSHIMU, Kyrgyzstan', image: '/2025/std73.jpg' },
-
-        ],
-        2024: [
-            { name: 'Mishthi Tiwari', college: 'QIAR, Roorkee', image: '' },
-            { name: 'Ashta Bhatnagar', college: 'DY Patil, Navi Mumbai', image: '' },
-            { name: 'Aishwarya Singh', college: 'UACHR, Uttarakhand', image: '' },
-            { name: 'Harsh Kumar', college: 'SAMCR, Haryana', image: '' },
-            { name: 'Praveen', college: 'KAC, Nainital', image: '' },
-            { name: 'Zoha Azeem', college: 'JSPSGHMC, Telangana', image: '' },
-            { name: 'Prena', college: 'SGTU, Gurugram', image: '' },
-            { name: 'Sheetal Kumari', college: 'ANSSHMC, Kerala', image: '' },
-            { name: 'Aaptakaam Singh', college: 'SGGSTU, Gurgaon', image: '/2024/std01.jpg' },
-            { name: 'Abhay Raj Singh', college: 'IU, Lucknow', image: '/2024/std02.jpg' },
-            { name: 'Annie Attri', college: 'PMCH, Udaipur', image: '/2024/std03.jpg' },
-            { name: 'Ansh Sharma', college: 'VSIMS, Amroha', image: '/2024/std04.jpg' },
-            { name: 'Anshul', college: 'RMC, Hapur', image: '/2024/std05.jpg' },
-            { name: 'Arjun Kaushal', college: 'RRMSH, Bengaluru', image: '/2024/std06.jpg' },
-            { name: 'Dhruvika Aggarwal', college: 'RMC, Hapur', image: '/2024/std07.jpg' },
-            { name: 'Gaurav Choudhary', college: 'SGRRU, Dehradun', image: '/2024/std08.jpg' },
-            { name: 'Mishty Gautam', college: 'PMCH, Udaipur', image: '/2024/std09.jpg' },
-            { name: 'Om Chaturvedi', college: 'SMCH, Kota', image: '/2024/std10.jpg' },
-            { name: 'Rakshita Bhati', college: 'ASU, Russia', image: '/2024/std11.jpg' },
-            { name: 'Ronit Roy', college: 'RMCH, Hapur', image: '/2024/std12.jpg' },
-            { name: 'Sana Mundi', college: 'SGRRU, Dehradun', image: '/2024/std13.jpg' },
-            { name: 'Shreya Parmar', college: 'JNUIMSRC, Jaipur', image: '/2024/std14.jpg' },
-            { name: 'Tushar Arora', college: 'PMCH, Udaipur', image: '/2024/std15.jpg' },
-            { name: 'Vipin Kumar', college: 'PMCH, Udaipur', image: '/2024/std16.jpg' },
-        ],
-    };
-
-    const years = Object.keys(studentsByYear).map(Number).sort((a, b) => b - a);
-
-    const handleLeftVideoClick = () => {
-        setVideoPopup(videos[0]);
-    };
-
-    const handleRightVideoClick = () => {
-        setVideoPopup(videos[1]);
-    };
-
-    const handleCenterVideoClick = () => {
-        setVideoPopup(videos[2]);
-    };
-
-    const handleMouseDown = (e: React.MouseEvent) => {
-        if (!scrollContainerRef.current) return;
-        setIsDragging(true);
-        setStartX(e.pageX - scrollContainerRef.current.offsetLeft);
-        setScrollLeft(scrollContainerRef.current.scrollLeft);
-    };
-
-    const handleMouseLeave = () => {
-        setIsDragging(false);
-    };
-
-    const handleMouseUp = () => {
-        setIsDragging(false);
-    };
-
-    const handleMouseMove = (e: React.MouseEvent) => {
-        if (!isDragging || !scrollContainerRef.current) return;
-        e.preventDefault();
-        const x = e.pageX - scrollContainerRef.current.offsetLeft;
-        const walk = (x - startX) * 2; // Scroll-fast
-        scrollContainerRef.current.scrollLeft = scrollLeft - walk;
-    };
-
     return (
         <div className="w-full bg-white">
             <FloatingWhatsApp />
 
-            {/* =================== TOP TESTIMONIAL SECTION =================== */}
-            <section className="relative w-full h-[350px] sm:h-[450px] md:h-[600px] overflow-hidden bg-[#0a5b87]">
-
-                {/* Background images */}
-                <div className="absolute inset-0">
-                    <img
-                        src="/images/reviews/review-bg.webp"
-                        className="w-full h-full object-cover"
-                        alt="Background"
-                    />
-                </div>
-
-                {/* Decorative background elements */}
-                <div className="absolute inset-0 overflow-hidden">
-                    <div className="absolute top-1/4 left-1/4 w-48 h-48 bg-blue-500/10 rounded-full blur-3xl"></div>
-                    <div className="absolute bottom-1/3 right-1/4 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl"></div>
-                </div>
-
-                {/* Blue overlay */}
-                <div className="absolute inset-0 bg-[#0a5b87]/40"></div>
-
-                {/* Left Video Thumbnail */}
-                <button
-                    type="button"
-                    onClick={handleLeftVideoClick}
-                    className="absolute -left-18 sm:left-1 xl:-left-30 top-[66%] -translate-y-1/2 w-[120px] sm:w-[180px] md:w-[220px] lg:w-[280px] xl:w-[400px] h-[100px] sm:h-[100px] md:h-[130px] lg:h-[160px] xl:h-[220px] rounded-lg opacity-40 z-20 cursor-pointer transition-all duration-500 ease-in-out hover:opacity-60 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 group"
-                >
-                    <img
-                        src={`https://img.youtube.com/vi/${videos[0].youtubeId}/hqdefault.jpg`}
-                        alt={videos[0].title}
-                        className="w-full h-full object-cover rounded-lg"
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 transition-transform duration-300 group-hover:scale-110">
-                            <img
-                                src="/images/reviews/you-tube.webp"
-                                className="w-full h-full object-contain"
-                                alt="Play button"
-                            />
-                        </div>
+            <section className="py-16 bg-gradient-to-b from-[#CDE7FF] to-[#F4F7F8]">
+                <div className="max-w-7xl pt-14 mx-auto px-4">
+                    <div className='text-center'>
+                        <h2 className="text-5xl font-bold fadeUp">
+                            <span className="bg-gradient-to-r from-[#128FFF] to-[#63CDB4] bg-clip-text text-transparent">Radical Education</span>
+                        </h2>
+                        <p className="mt-2 text-black text-3xl fadeUp">
+                            is trusted by parents and students like you
+                        </p>
+                        <p className="text-lg text-black mt-6 fadeUp">
+                            Here are a few real experiences from those who navigated NEET counselling with clarity.
+                        </p>
                     </div>
-                </button>
-
-                {/* Right Video Thumbnail */}
-                <button
-                    type="button"
-                    onClick={handleRightVideoClick}
-                    className="absolute -right-18 sm:right-2 xl:-right-30 top-[66%] -translate-y-1/2 w-[120px] sm:w-[180px] md:w-[220px] lg:w-[280px] xl:w-[400px] h-[100px] sm:h-[100px] md:h-[130px] lg:h-[160px] xl:h-[220px] rounded-lg opacity-40 z-20 cursor-pointer transition-all duration-500 ease-in-out hover:opacity-60 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 group"
-                >
-                    <img
-                        src={`https://img.youtube.com/vi/${videos[1].youtubeId}/hqdefault.jpg`}
-                        alt={videos[1].title}
-                        className="w-full h-full object-cover rounded-lg"
-                    />
-                    <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 transition-transform duration-300 group-hover:scale-110">
-                            <img
-                                src="/images/reviews/you-tube.webp"
-                                className="w-full h-full object-contain"
-                                alt="Play button"
-                            />
-                        </div>
-                    </div>
-                </button>
-
-                {/* Content */}
-                <div className="relative z-10 max-w-6xl mx-auto px-3 sm:px-4 h-full flex flex-col justify-center items-center text-center text-white pt-2 sm:pt-3 md:pt-4">
-
-                    <h1 className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold leading-tight uppercase px-2 max-w-3xl">
-                        What Students Say About <br className="hidden sm:block" />
-                        <span className="text-white">Radical Education</span>
-                    </h1>
-
-                    <p className="mt-3 sm:mt-4 md:mt-5 max-w-2xl text-xs sm:text-sm md:text-base text-[#d2ebff] px-2 leading-relaxed">
-                        Helping Thousands of Medical Students Achieve Their Dreams <br className="hidden md:block" />
-                        With Expert Guidance and Personalised Counselling
-                    </p>
-
-                    {/* Video Card */}
-                    <div className="mt-4 sm:mt-6 md:mt-10 relative flex items-center justify-center w-full px-2 sm:px-4">
-                        {/* Main Video Card */}
-                        <button
-                            type="button"
-                            className="relative rounded-lg sm:rounded-xl overflow-hidden shadow-2xl w-full max-w-[80%] sm:max-w-[85%] md:max-w-[400px] lg:max-w-[480px] h-[150px] sm:h-[170px] md:h-[210px] lg:h-[260px] z-10 cursor-pointer focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 group"
-                            onClick={handleCenterVideoClick}
+                    <div className="mx-auto max-w-[1100px]">
+                        <Swiper
+                            modules={[Navigation, Autoplay]}
+                            loop={true}
+                            centeredSlides={true}
+                            slidesPerView={1}
+                            navigation
+                            spaceBetween={30}
+                            autoplay={{
+                                delay: 3000,
+                                disableOnInteraction: false,
+                                pauseOnMouseEnter: true,
+                            }}
+                            breakpoints={{
+                                768: {
+                                    slidesPerView: 3,
+                                },
+                            }}
+                            className="!p-20 rvwSlider"
                         >
-                            <img
-                                src={`https://img.youtube.com/vi/${videos[2].youtubeId}/hqdefault.jpg`}
-                                className="w-full h-full object-cover object-center"
-                                alt={videos[2].title}
-                            />
+                            {testimonials.map((item) => (
+                                <SwiperSlide key={item.id}>
+                                    {({ isActive, isPrev, isNext }) => {
+                                        let cardClass = "";
 
-                            {/* Play Button */}
-                            <div className="absolute inset-0 flex items-center justify-center">
-                                <div className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-24 lg:h-24 transition-transform duration-300 group-hover:scale-110">
-                                    <img
-                                        src="/images/reviews/you-tube.webp"
-                                        className="w-full h-full object-contain"
-                                        alt="Play button"
-                                    />
-                                </div>
-                            </div>
+                                        if (isActive) {
+                                            cardClass = "border-2 border-white rotate-0 z-20 bg-gradient-to-b from-[#D0FFAD] to-[#F4F7F8]";
+                                        } else if (isPrev) {
+                                            cardClass = "border-2 border-white -rotate-6 z-10 translate-y-6 bg-gradient-to-b from-[#CDE7FF] to-[#F4F7F8]";
+                                        } else if (isNext) {
+                                            cardClass = "border-2 border-white rotate-6 z-10 translate-y-6 bg-gradient-to-b from-[#CDE7FF] to-[#F4F7F8]";
+                                        } else {
+                                            cardClass = "border-2 border-white opacity-0 translate-y-10 bg-gradient-to-b from-[#CDE7FF] to-[#F4F7F8]";
+                                        }
 
-                            {/* Video Title Overlay */}
-                            <span className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-3 py-2 text-white text-sm font-medium">
-                                {videos[2].title}
-                            </span>
-                        </button>
+                                        return (
+                                            <div
+                                                className={`transition-all duration-500 bg-white rounded-2xl px-6 py-10 shadow-xl transform
+hover:shadow-2xl hover:scale-[1.03] ${cardClass}`}
+                                            >
+                                                <div className="flex items-center gap-3 mb-5">
+                                                    <img
+                                                        src={item.image}
+                                                        alt=""
+                                                        className="w-12 h-12 rounded-full object-cover"
+                                                    />
+                                                    <div className="text-left">
+                                                        <h4 className="text-sm font-semibold">{item.name}</h4>
+                                                        <p className="text-xs text-gray-400">{item.date}</p>
+                                                    </div>
+                                                </div>
+                                                <div className="text-yellow-400 text-sm mb-3 text-left">★★★★★</div>
+                                                <p className="text-sm text-gray-600 leading-relaxed text-left">
+                                                    {item.review}
+                                                </p>
+                                            </div>
+                                        );
+                                    }}
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                    </div>
+                    <div className="mt-8 flex items-center justify-center gap-2 text-gray-600 fadeUp">
+                        <div className="flex -space-x-2">
+                            <img src="/images/reviews/Iqra-Ansari.webp" className="w-10 h-10 rounded-full border" />
+                            <img src="/images/reviews/Sahil-Gautam.webp" className="w-10 h-10 rounded-full border" />
+                            <img src="/images/reviews/Iqra-Ansari.webp" className="w-10 h-10 rounded-full border" />
+                        </div>
+                        <span className="text-[#005787]">
+                            <span className='font-bold'>85+</span> Success Stories
+                        </span>
+                        <span>That Define Success</span>
                     </div>
                 </div>
             </section>
-            <NewsMarquee />
-            {/* =================== OUR SUCCESSFUL STUDENTS =================== */}
-            <section className="bg-[#DFF1FF] py-6 sm:py-8 md:py-12 lg:py-16 -mt-1 sm:mt-8 md:mt-12 lg:mt-16">
-                <div className="max-w-6xl mx-auto px-3 sm:px-4 md:px-6 text-center">
-                    <p className="text-xs font-bold uppercase text-[#000000] tracking-wide">Our Student's</p>
-                    <h3 className="text-lg sm:text-xl md:text-2xl font-bold uppercase text-[#000000] mt-2">
-                        Our{" "}
-                        <span className="text-[#0c5d87]">
-                            Successful <br className="md:hidden" /> Students
-                        </span>
-                    </h3>
+            <section className="pb-20 bg-[#F4F7F8]">
+                <div className="max-w-7xl mx-auto px-4">
+                    <div className="fadeUp">
+                        <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                            {videos.map((video) => (
+                                <button
+                                    key={video.id}
+                                    type="button"
+                                    onClick={() => setVideoPopup(video)}
+                                    className="relative w-full h-[260px] rounded-xl overflow-hidden shadow-lg text-left focus:outline-none focus:ring-2 focus:ring-[#287FC4] focus:ring-offset-2 group cursor-pointer block"
+                                >
+                                    <img
+                                        src={`https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`}
+                                        alt={video.title}
+                                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                                    />
 
-                    <div
-                        ref={scrollContainerRef}
-                        onMouseDown={handleMouseDown}
-                        onMouseLeave={handleMouseLeave}
-                        onMouseUp={handleMouseUp}
-                        onMouseMove={handleMouseMove}
-                        className={`flex justify-start md:justify-center overflow-x-auto whitespace-nowrap scrollbar-hide py-2 gap-2 sm:gap-3 md:gap-4 mt-4 sm:mt-6 md:mt-8 px-2 ${isDragging ? 'cursor-grabbing' : 'cursor-grab'} select-none`}
-                    >
-                        {years.map((year) => (
-                            <button
-                                key={year}
-                                onClick={() => setSelectedYear(year)}
-                                className={`shrink-0 px-4 sm:px-6 md:px-8 py-2 sm:py-2.5 md:py-3 rounded-lg font-semibold text-xs sm:text-sm md:text-base transition-all duration-300 ${selectedYear === year
-                                    ? 'bg-[#0c5d87] text-white shadow-lg scale-105'
-                                    : 'bg-white text-[#0c5d87] hover:bg-[#0c5d87]/10'
-                                    }`}
-                            >
-                                {year}
-                            </button>
-                        ))}
+                                    <span className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-3 py-2 text-white text-sm font-medium">
+                                        {video.title}
+                                    </span>
+                                </button>
+                            ))}
+                        </div>
                     </div>
+                    {videoPopup && (
+                        <div
+                            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 z-100"
+                            onClick={() => setVideoPopup(null)}
+                            role="dialog"
+                            aria-modal="true"
+                            aria-label="Video player"
+                        >
+                            <div
+                                className="relative w-full max-w-4xl rounded-2xl overflow-hidden bg-white shadow-2xl"
+                                onClick={(e) => e.stopPropagation()}
+                            >
+                                <div className="p-3 bg-[#F4F7F8]">
+                                    <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-black">
+                                        <button
+                                            type="button"
+                                            onClick={() => setVideoPopup(null)}
+                                            className="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center transition-colors"
+                                            aria-label="Close"
+                                        >
+                                            <svg
+                                                className="w-5 h-5"
+                                                fill="none"
+                                                stroke="currentColor"
+                                                viewBox="0 0 24 24"
+                                            >
+                                                <path
+                                                    strokeLinecap="round"
+                                                    strokeLinejoin="round"
+                                                    strokeWidth={2}
+                                                    d="M6 18L18 6M6 6l12 12"
+                                                />
+                                            </svg>
+                                        </button>
 
-                    {/* Student Grid */}
-                    <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 lg:gap-8 mt-6 sm:mt-8 md:mt-10 lg:mt-12">
-                        {studentsByYear[selectedYear as keyof typeof studentsByYear]?.map((student: { name: string; college: string; image: string }, i: number) => (
-                            <div key={i} className="flex flex-col items-center group">
-                                <div className="relative mb-2">
-
-                                    <div className="w-20 h-20 sm:w-24 sm:h-32 md:w-28 md:h-36 lg:w-32 lg:h-40 bg-[#005A8B] rounded-xl shadow-sm overflow-hidden transition-transform duration-300 group-hover:scale-105">
-                                        <img
-                                            src={student.image || `/images/testi${(i % 20) + 1}.webp`}
-                                            className="w-full h-full object-cover"
-                                            alt={student.name}
+                                        <iframe
+                                            className="absolute inset-0 w-full h-full"
+                                            src={`https://www.youtube.com/embed/${videoPopup.youtubeId}`}
+                                            title={videoPopup.title}
+                                            frameBorder="0"
+                                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                            allowFullScreen
                                         />
                                     </div>
                                 </div>
-                                <p className="mt-2 sm:mt-3 font-semibold text-xs sm:text-sm text-[#000000] leading-tight">
-                                    {student.name}
+                            </div>
+                        </div>
+                    )}
+                    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mt-16 fadeUp">
+                        {reviewtestimonials.map((item) => (
+                            <div
+                                key={item.id}
+                                className="bg-white rounded-xl p-5 shadow-sm hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-2"
+                            >
+                                <div className="flex items-center gap-3 mb-3">
+                                    <Image
+                                        src={item.avatar}
+                                        alt={item.name}
+                                        width={40}
+                                        height={40}
+                                        className="rounded-full object-cover"
+                                    />
+                                    <div>
+                                        <h3 className="text-sm font-semibold text-gray-800">
+                                            {item.name}
+                                        </h3>
+                                        <p className="text-xs text-gray-500">{item.location}</p>
+                                    </div>
+                                </div>
+                                <p className="text-sm text-gray-600 leading-relaxed mb-4 min-h-[91px]">
+                                    {item.text}
                                 </p>
-                                <p className="text-[10px] sm:text-xs text-[#287FC4] px-1 text-center leading-tight">
-                                    {student.college}
-                                </p>
+                                <div className="flex items-center justify-between">
+                                    <span className="text-xs px-3 py-1 rounded-full bg-blue-100 text-blue-600 font-medium">
+                                        {item.tag}
+                                    </span>
+
+                                    <div className="flex items-center gap-2">
+                                        <span className="text-xs text-gray-500">
+                                            {item.status}
+                                        </span>
+                                        <Image
+                                            src={item.logo}
+                                            alt="logo"
+                                            width={28}
+                                            height={28}
+                                        />
+                                    </div>
+                                </div>
                             </div>
                         ))}
                     </div>
                 </div>
             </section>
-
-            {/* =================== GOOGLE REVIEW =================== */}
-            <section className='pb-6 sm:pb-8 md:pb-12 lg:pb-16 bg-white mt-4 sm:mt-6 md:mt-8 lg:mt-10'>
-                <div className='container px-3 sm:px-4 md:px-4'>
-                    <GoogleReviews />
-                </div>
-            </section>
-            <section
-                className="relative bg-cover bg-black bg-left md:bg-center z-2"
-                style={{ backgroundImage: "url('/images/testibg.webp')" }}
-            >
-                <div className="absolute left-0 right-0 top-0 bottom-0 bg-black/70 -z-1 rounded-lg" />
-                <div className="container px-3 md:px-4">
-                    <div className="relative z-2 w-full rounded-lg py-10 px-4 md:px-10 md:py-20">
-                        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center text-white">
-                            <div>
-                                <p className="uppercase font-semibold text-sm tracking-widest text-gray-300 mb-10">
-                                    Testimonial
-                                </p>
-                                <h2 className="text-4xl font-bold leading-tight">
-                                    Feedback <br /> From Students
-                                </h2>
-                            </div>
-                            <TestimonialSlider />
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Video popup modal - same design as home page */}
-            {videoPopup && (
-                <div
-                    className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60"
-                    onClick={() => setVideoPopup(null)}
-                    role="dialog"
-                    aria-modal="true"
-                    aria-label="Video player"
-                >
-                    <div
-                        className="relative w-full max-w-4xl rounded-2xl overflow-hidden bg-white shadow-2xl"
-                        onClick={(e) => e.stopPropagation()}
-                    >
-                        <div className="p-3 bg-[#F4F7F8]">
-                            <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-black">
-                                <button
-                                    type="button"
-                                    onClick={() => setVideoPopup(null)}
-                                    className="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center transition-colors"
-                                    aria-label="Close"
-                                >
-                                    <svg
-                                        className="w-5 h-5"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={2}
-                                            d="M6 18L18 6M6 6l12 12"
-                                        />
-                                    </svg>
-                                </button>
-                                <iframe
-                                    className="absolute inset-0 w-full h-full"
-                                    src={`https://www.youtube.com/embed/${videoPopup.youtubeId}`}
-                                    title={videoPopup.title}
-                                    frameBorder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowFullScreen
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            )}
         </div>
     );
 }
