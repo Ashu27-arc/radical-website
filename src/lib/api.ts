@@ -164,7 +164,7 @@ const mapWpPostToBlog = (post: any): Blog => {
 export async function getWpBlogs(): Promise<Blog[]> {
   try {
     const isClient = typeof window !== 'undefined';
-    const params = 'per_page=50&_fields=id,slug,title,excerpt,date,_links,_embedded';
+    const params = 'per_page=100&_fields=id,slug,title,content,excerpt,date,categories,_links,_embedded';
     
     // On client, use our local proxy. On server, call WP directly.
     const url = isClient 

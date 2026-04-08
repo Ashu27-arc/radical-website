@@ -154,7 +154,7 @@ export default function TestimonialsPage() {
         { id: 4, title: 'Anhad Kaur, SGRDIMSR, Amristar', youtubeId: '7t81QLx4TeM' },
         { id: 5, title: 'Prabhat Soni, GMC, Jhunjhunu', youtubeId: 'XYZPevx_UE0' },
         { id: 6, title: 'Aditya Maan, GMC, Sirohi', youtubeId: 'QdpT-kOvM2g' },
-        { id: 7, title: 'Annant, MMC, Muzaffarnagar', youtubeId: '6lhfvUFUoQM' },
+        // { id: 7, title: 'Annant, MMC, Muzaffarnagar', youtubeId: '6lhfvUFUoQM' },
     ];
     return (
         <div className="w-full bg-white">
