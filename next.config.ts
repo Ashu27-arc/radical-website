@@ -20,7 +20,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "cms.radicaleducation.in",
+        hostname: "backup.radicaleducation.in",
       },
       {
         protocol: "https",
@@ -51,11 +51,12 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/blog/:path*",
-        destination: "https://blog.radicaleducation.in/blog/:path*",
+        destination: "https://backup.radicaleducation.in/blog/:path*",
         permanent: true,
       },
     ];
   },
+
 
   webpack(config) {
     if (config.optimization?.splitChunks) {

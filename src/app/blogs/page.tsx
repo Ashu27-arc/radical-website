@@ -129,21 +129,7 @@ const BlogsPage = () => {
             setBlogs((prev) => prev.filter((b) => b.id !== data.blogId));
           }
           break;
-        case 'BULK_BANNER_UPDATE':
-          const { newBannerUrl } = data;
-          if (newBannerUrl) {
-            setBlogs((prev) => prev.map((blog) => {
-              if (!blog.content) return blog;
-              const bannerRegex = /<div class="crm-embed"[^>]*>[\s\S]*?<iframe[^>]*src=["']https?:\/\/xform-blogs\.vercel\.app\/[^"']*["'][\s\S]*?<\/iframe>[\s\S]*?<\/div>|<iframe[^>]*src=["']https?:\/\/xform-blogs\.vercel\.app\/[^"']*["'][\s\S]*?<\/iframe>|<div class="crm-embed"[^>]*>[\s\S]*?<iframe[^>]*src=["']https?:\/\/xform-blogs\.vercel\.app\/(banner|whatsapp)[^"']*["'][\s\S]*?<\/iframe>[\s\S]*?<\/div>|<div class="crm-embed"[^>]*>[\s\S]*?<img[^>]*src=["'][^"']*\/uploads\/blogs\/blog-banner-[^"']*["'][\s\S]*?<\/div>|<img[^>]*src=["'][^"']*\/uploads\/blogs\/blog-banner-[^"']*["'][^>]*>|<div class="crm-embed"[^>]*>[\s\S]*?<img[^>]*alt=["'](Banner|Widget|Blog Banner|WhatsApp Banner|WhatsApp Widget)["'][^>]*>[\s\S]*?<\/div>|<img[^>]*alt=["'](Banner|Widget|Blog Banner|WhatsApp Banner|WhatsApp Widget)["'][^>]*>/gi;
-              if (bannerRegex.test(blog.content)) {
-                const newBannerHtml = `<div class="crm-embed" contenteditable="false" style="width:100%;max-width:900px;margin:0 auto;margin-bottom:20px;"><img src="${newBannerUrl}" alt="Banner" style="display:block;width:100%;height:auto;border-radius:12px;overflow:hidden;" /></div>`;
-                bannerRegex.lastIndex = 0;
-                return { ...blog, content: blog.content.replace(bannerRegex, newBannerHtml) };
-              }
-              return blog;
-            }));
-          }
-          break;
+        // BULK_BANNER_UPDATE removed — banners now served directly via WordPress API
       }
     });
     return () => removeHandler();

@@ -45,8 +45,9 @@ const getCategoryTextColor = (cat: string) => {
 const sanitizeBlogContent = (html: string) => {
     if (!html) return '';
 
-    // Remove inline background-color and background styles
+    // Strip any remaining WP shortcode tags (banners/widgets now come via WordPress API content directly)
     let result = html
+        .replace(/\[[^\]]+\]/g, '')
         .replace(/background-color\s*:\s*[^;"]*;?/gi, '')
         .replace(/background\s*:\s*[^;"]*;?/gi, '');
 
@@ -54,58 +55,22 @@ const sanitizeBlogContent = (html: string) => {
     result = result.replace(/(<img[^>]*?)\s+height=["'][^"']*["']/gi, '$1');
     result = result.replace(/(<img[^>]*?)\s+style=["'][^"']*height:[^;"]*;?["']/gi, '$1');
 
-    // 2. Add allow="popups" AND class="crm-embed" to iframes and force minimum height for xform-blogs embeds
+    // 2. Ensure all iframes from WP content have a sensible min-height and allow="popups"
     result = result.replace(
         /<iframe(?=\s)([^>]*?)(\s*\/?>)/gi,
-        (match: string, attrs: string, close: string) => {
+        (_match: string, attrs: string, close: string) => {
             let newAttrs = attrs;
 
-            if (/xform-blogs\.vercel\.app/i.test(newAttrs)) {
-                // Banner / WhatsApp widget iframes → keep fixed 150px + clip overflow (unchanged)
-                const isBanner = /banner|whatsapp/i.test(newAttrs);
-
-                if (isBanner) {
-                    const targetHeight = '150px';
-                    if (/style=["'][^"']*["']/i.test(newAttrs)) {
-                        newAttrs = newAttrs.replace(/style=["']([^"']*)["']/i, (_: string, s: string) => {
-                            let res = s.replace(/height\s*:[^;"!]*(!important)?;?/gi, '');
-                            res = res.replace(/min-height\s*:[^;"!]*(!important)?;?/gi, '');
-                            return `style="${res};height:${targetHeight} !important;min-height:${targetHeight};overflow:hidden;"`;
-                        });
-                    } else {
-                        newAttrs += ` style="height:${targetHeight} !important;min-height:${targetHeight};overflow:hidden;"`;
-                    }
-                } else {
-                    // Embedded forms → only add min-height, do NOT force fixed height or clip overflow
-                    if (/style=["'][^"']*["']/i.test(newAttrs)) {
-                        newAttrs = newAttrs.replace(/style=["']([^"']*)["']/i, (_: string, s: string) => {
-                            const res = s.replace(/min-height\s*:[^;"!]*(!important)?;?/gi, '');
-                            return `style="${res};min-height:500px;"`;
-                        });
-                    } else {
-                        newAttrs += ` style="min-height:500px;"`;
-                    }
-                }
-            } else {
-                // Non-xform-blogs iframes (Google Forms, Typeform etc.) → add min-height so they don't get clipped
+            // Add min-height if not already set
+            if (!/min-height/i.test(newAttrs)) {
                 if (/style=["'][^"']*["']/i.test(newAttrs)) {
-                    newAttrs = newAttrs.replace(/style=["']([^"']*)["']/i, (_: string, s: string) => {
-                        const res = s.replace(/min-height\s*:[^;"!]*(!important)?;?/gi, '');
-                        return `style="${res};min-height:350px;"`;
-                    });
+                    newAttrs = newAttrs.replace(/style=["']([^"']*)["']/i, (_: string, s: string) => `style="${s};min-height:350px;"`);
                 } else {
-                    newAttrs += ` style="min-height:350px;"`;
+                    newAttrs += ' style="min-height:350px;"';
                 }
             }
 
-            if (!/allow\s*=/i.test(newAttrs)) {
-                newAttrs += ' allow="popups"';
-            }
-            if (!/class\s*=/i.test(newAttrs)) {
-                newAttrs += ' class="crm-embed"';
-            } else if (!/crm-embed/.test(newAttrs)) {
-                newAttrs = newAttrs.replace(/class=["']([^"']*)["']/i, (_: string, c: string) => `class="${c} crm-embed"`);
-            }
+            if (!/allow\s*=/i.test(newAttrs)) newAttrs += ' allow="popups"';
             return `<iframe${newAttrs}${close}`;
         }
     );
@@ -135,11 +100,9 @@ const sanitizeBlogContent = (html: string) => {
         result = result.replace(/<(p|div|span|h[1-6]|figure|strong|b|em|i|a)[^>]*>\s*(?:&nbsp;|\u00A0|\s)*\s*<\/\1>/gi, '');
     } while (result !== prev);
 
-    // 6. Force inject margin-bottom: 2rem onto all images to prevent CRM inline styles from overriding. 
+    // 6. Force inject margin onto all images for consistent spacing
     result = result.replace(/<img([^>]*)>/gi, (match: string, attrs: string) => {
-        // Check if it's a banner (we want zero margin for banners)
-        const isBanner = /Banner|Widget/i.test(attrs);
-        const margin = isBanner ? '0' : '2rem';
+        const margin = '2rem';
 
         // Strip out existing margin and padding
         let cleanAttrs = attrs.replace(/margin[^:]*:[^;"]*;?/gi, '').replace(/padding[^:]*:[^;"]*;?/gi, '');

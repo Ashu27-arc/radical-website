@@ -4,7 +4,6 @@ import { Dropdown } from "primereact/dropdown";
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { getBlogLinks, type BlogLink } from '@/lib/api';
 
 interface BlogSidebarProps {
     className?: string;
@@ -15,24 +14,13 @@ interface BlogSidebarProps {
 const BlogSidebar = ({ className = "" }: BlogSidebarProps) => {
 
     const [selectedCourse, setSelectedCourse] = useState(null);
-    const [links, setLinks] = useState<BlogLink[]>([]);
     const [wpBlogs, setWpBlogs] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         setLoading(true);
-        Promise.all([
-            getBlogLinks(),
-            import('@/lib/api').then(api => api.getWpBlogs())
-        ]).then(([linksData, wpData]) => {
-            // Sort links by date (newest first) and take top 5
-            const sortedLinks = [...linksData].sort((a, b) => {
-                const dateA = new Date(a.createdAt || 0);
-                const dateB = new Date(b.createdAt || 0);
-                return dateB.getTime() - dateA.getTime();
-            }).slice(0, 5);
-            setLinks(sortedLinks);
-
+        import('@/lib/api').then(api => api.getWpBlogs())
+        .then((wpData) => {
             // Take top 5 WordPress blogs
             setWpBlogs(wpData.slice(0, 5));
             setLoading(false);

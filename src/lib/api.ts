@@ -40,7 +40,10 @@ apiClient.interceptors.response.use(
   (error) => {
     // Avoid noisy logs during production builds when upstream APIs may be unreachable.
     if (process.env.NODE_ENV !== 'production') {
-      console.error('API Error:', error.response?.data || error.message);
+      // Don't log 404s globally, as some endpoints explicitly handle them as fallbacks
+      if (error.response?.status !== 404) {
+        console.error('API Error:', error.response?.data || error.message);
+      }
     }
     return Promise.reject(error);
   }
@@ -72,22 +75,6 @@ export interface Blog {
   createdAt?: string;
 }
 
-export interface BlogLink {
-  id: string;
-  _id: string;
-  idNumber: number;
-  link: string;
-  categories: string;
-  name: string;
-  banner?: string;
-  imageUrl?: string;
-  featuredImage?: string;
-  image?: string;
-  coverImage?: string;
-  status: string;
-  createdAt?: string;
-}
-
 export interface NeetUpdate {
   id: string;
   title: string;
@@ -107,254 +94,174 @@ export interface NeetUpdate {
 }
 
 export async function getBlogs(): Promise<Blog[]> {
-  try {
-    const response = await apiClient.get('/api/blogs', {
-      params: { _t: Date.now() }
-    });
-    const blogs = Array.isArray(response.data) ? response.data : [];
-    
-    return blogs.map((blog: any) => ({
-      ...blog,
-      featuredImage: blog.featuredImage || blog.image || blog.imageUrl || blog.banner || blog.coverImage || ''
-    }));
-  } catch (error) {
-    return [];
-  }
+  // We now solely use WordPress API for blogs
+  return [];
 }
 
-export async function getBlogLinks(): Promise<BlogLink[]> {
+
+// ─── Helpers ────────────────────────────────────────────────────────────────
+
+/** Strip all HTML tags and shortcodes, returning plain text. */
+const stripHtml = (html: string): string => {
+  if (!html) return '';
+  // Remove WordPress shortcodes first
+  const stripped = html.replace(/\[[^\]]+\]/g, '');
+  if (typeof window === 'undefined') {
+    return stripped.replace(/<[^>]*>?/gm, '');
+  }
   try {
-    const token = typeof window !== 'undefined'
-      ? (localStorage.getItem('token') || sessionStorage.getItem('token'))
-      : null;
+    const doc = new DOMParser().parseFromString(stripped, 'text/html');
+    return doc.body.textContent || '';
+  } catch {
+    return stripped.replace(/<[^>]*>?/gm, '');
+  }
+};
 
-    const headers: Record<string, string> = {};
+/**
+ * Fallback banner: extract the src of the first <img> found in the post's
+ * rendered HTML content. Returns an empty string if none is found.
+ */
+const extractFirstImageFromContent = (html: string): string => {
+  if (!html) return '';
+  const match = html.match(/<img[^>]+src=["']([^"']+)["']/i);
+  return match ? match[1] : '';
+};
 
-    // Authorization only when token exists; prevents "Bearer null" requests on live public users
-    if (token) {
-      headers.Authorization = `Bearer ${token}`;
+/** Featured-image extraction from the _embedded['wp:featuredmedia'] object. */
+const extractFeaturedImage = (post: any, contentHtml: string): string => {
+  try {
+    const media = post._embedded?.['wp:featuredmedia']?.[0];
+    if (media) {
+      const url =
+        media.media_details?.sizes?.large?.source_url ||
+        media.media_details?.sizes?.full?.source_url ||
+        media.source_url;
+      if (url) return url;
     }
+    // Secondary fallbacks from non-standard WP fields
+    if (post.featured_image_url) return post.featured_image_url;
+    if (post.jetpack_featured_media_url) return post.jetpack_featured_media_url;
+    if (post.yoast_head_json?.og_image?.[0]?.url)
+      return post.yoast_head_json.og_image[0].url;
+    if (post.better_featured_image?.source_url)
+      return post.better_featured_image.source_url;
+  } catch { /* */ }
 
-    const response = await apiClient.get('/api/blogs-links', {
-      params: { _t: Date.now() },
-      headers
-    });
+  // Requirement §5 – last resort: first <img> in post content
+  return extractFirstImageFromContent(contentHtml);
+};
 
-    return Array.isArray(response.data) ? response.data : [];
-  } catch (error) {
-    console.error(" getBlogLinks API Error:", error);
-    return [];
-  }
-}
+/** Category string from _embedded['wp:term']. */
+const extractCategory = (post: any): string => {
+  try {
+    const terms = post._embedded?.['wp:term']?.[0];
+    if (Array.isArray(terms) && terms.length > 0) {
+      return terms.map((c: any) => c.name).join(', ');
+    }
+  } catch { /* */ }
+  return 'Latest Update';
+};
 
+/** Author name from _embedded.author. */
+const extractAuthor = (post: any): string => {
+  try {
+    const name = post._embedded?.author?.[0]?.name;
+    if (name) return name;
+  } catch { /* */ }
+  return 'Radical Education';
+};
+
+/**
+ * Map a raw WordPress REST API post object to the local Blog interface.
+ * Requirement §3 – explicit field mapping.
+ */
+const mapWpPostToBlog = (post: any): Blog => {
+  const contentHtml: string = post.content?.rendered || '';
+  return {
+    id: post.id?.toString() ?? Math.random().toString(),           // §3 id
+    title: post.title?.rendered || 'Untitled',                     // §3 title
+    excerpt: stripHtml(post.excerpt?.rendered || ''),              // §3 excerpt (stripped)
+    content: contentHtml,                                          // §3 content (raw HTML)
+    author: extractAuthor(post),
+    category: extractCategory(post),
+    status: 'Published',
+    date: post.date || new Date().toISOString(),                   // §3 date
+    featuredImage: extractFeaturedImage(post, contentHtml),       // §4 + §5
+    slug: `blogs/${post.slug}`,                                    // §3 slug
+    createdAt: post.date,
+  };
+};
+
+// ─── getWpBlogs ──────────────────────────────────────────────────────────────
+
+/**
+ * Fetch the latest blog posts from WordPress.
+ *
+ * Uses the native fetch API (§8 – no axios) via the local /api/wp/posts proxy
+ * route so there are no CORS issues when called from the browser.
+ *
+ * next: { revalidate: 60 } (§9) is honoured server-side by Next.js data cache;
+ * the proxy route also sets Cache-Control headers for CDN-layer caching.
+ */
 export async function getWpBlogs(): Promise<Blog[]> {
   try {
-    const response = await axios.get('https://backup.radicaleducation.in/wp-json/wp/v2/posts?_embed&per_page=50', {
-      headers: {
-        'Accept': 'application/json',
-      },
-      timeout: 30000 // 30s timeout
+    const base = getWebsiteBase();
+    // §1 – endpoint; §9 – ISR revalidation via next.revalidate
+    const url = `${base}/api/wp/posts?per_page=10&_embed=1`;
+
+    const res = await fetch(url, {
+      headers: { Accept: 'application/json' },
+      // next.revalidate is used by the Next.js data cache (server-side only)
+      next: { revalidate: 60 },
     });
-    
-    if (!response.data || !Array.isArray(response.data)) {
+
+    if (!res.ok) {
+      console.error(`[getWpBlogs] HTTP ${res.status}`);
       return [];
     }
 
-    const posts = response.data;
+    const data = await res.json();
+    if (!Array.isArray(data)) return [];
 
-    return posts.map((post: any) => {
-      // Extract category name
-      let category = 'Latest Update';
-      try {
-        if (post._embedded && post._embedded['wp:term'] && post._embedded['wp:term'][0]) {
-          const categories = post._embedded['wp:term'][0];
-          if (categories.length > 0) {
-            category = categories.map((c: any) => c.name).join(', ');
-          }
-        }
-      } catch (err) {
-        console.error('Error parsing WP categories:', err);
-      }
-
-      // Extract featured image
-      let featuredImage = '';
-      try {
-        if (post._embedded && post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0]) {
-          const media = post._embedded['wp:featuredmedia'][0];
-          featuredImage = media.media_details?.sizes?.large?.source_url || 
-                          media.media_details?.sizes?.full?.source_url || 
-                          media.source_url || '';
-        } 
-        
-        // Fallbacks if not found in embedded media
-        if (!featuredImage) {
-          if (post.featured_image_url) {
-            featuredImage = post.featured_image_url;
-          } else if (post.jetpack_featured_media_url) {
-            featuredImage = post.jetpack_featured_media_url;
-          } else if (post.yoast_head_json?.og_image && post.yoast_head_json.og_image[0]?.url) {
-            featuredImage = post.yoast_head_json.og_image[0].url;
-          } else if (post.better_featured_image?.source_url) {
-            featuredImage = post.better_featured_image.source_url;
-          }
-        }
-      } catch (err) {
-        console.error('Error parsing WP featured image:', err);
-      }
-
-      // Extract author name
-      let author = 'Radical Education';
-      try {
-        if (post._embedded && post._embedded.author && post._embedded.author[0]) {
-          author = post._embedded.author[0].name;
-        }
-      } catch (err) {
-        console.error('Error parsing WP author:', err);
-      }
-
-      // Strip HTML from excerpt
-      const stripHtml = (html: string) => {
-        if (!html) return '';
-        if (typeof window === 'undefined') {
-          return html.replace(/<[^>]*>?/gm, '');
-        }
-        try {
-          const doc = new DOMParser().parseFromString(html, 'text/html');
-          return doc.body.textContent || "";
-        } catch (err) {
-          return html.replace(/<[^>]*>?/gm, '');
-        }
-      };
-
-      return {
-        id: post.id?.toString() || Math.random().toString(),
-        title: post.title?.rendered || 'Untitled',
-        excerpt: stripHtml(post.excerpt?.rendered || ''),
-        content: post.content?.rendered || '',
-        author: author,
-        category: category,
-        status: 'Published',
-        date: post.date || new Date().toISOString(),
-        featuredImage: featuredImage,
-        slug: `blogs/${post.slug}`,
-        createdAt: post.date,
-      };
-    });
+    return data.map(mapWpPostToBlog); // §3
   } catch (error) {
-    if (axios.isAxiosError(error)) {
-      console.error('WP API Axios Error:', error.message, error.response?.status);
-    } else {
-      console.error('Error fetching WP blogs:', error);
-    }
+    // §10 – safe error handling: never throw, always return empty array
+    console.error('[getWpBlogs] Fetch error:', error instanceof Error ? error.message : error);
     return [];
   }
 }
 
+/**
+ * Fetch a single post by its slug from WordPress.
+ * Uses native fetch (§8) with 60-second ISR revalidation (§9).
+ */
 export async function getBlogBySlug(slug: string): Promise<Blog | null> {
   try {
-    // Try CRM API first
-    const response = await apiClient.get(`/api/blogs/slug/${encodeURIComponent(slug)}`, {
-      params: { _t: Date.now() },
-      headers: {
-        'Cache-Control': 'no-cache, no-store, must-revalidate',
-        'Pragma': 'no-cache'
-      }
-    });
-    if (response.data) {
-      const blog = response.data;
-      blog.featuredImage = blog.featuredImage || blog.image || blog.imageUrl || blog.banner || blog.coverImage || '';
-      return blog;
-    }
-  } catch (error) {
-    // Fall through to WP attempt
-  }
+    // Normalise slug – strip 'blogs/' prefix if the route included it
+    const wpSlug = slug.startsWith('blogs/') ? slug.slice('blogs/'.length) : slug;
 
-  try {
-    // Try WordPress API
-    // Remove 'blogs/' prefix if it exists in the slug (some routes might pass it)
-    const wpSlug = slug.startsWith('blogs/') ? slug.replace('blogs/', '') : slug;
-    const response = await axios.get(`https://backup.radicaleducation.in/wp-json/wp/v2/posts?_embed&slug=${encodeURIComponent(wpSlug)}`, {
-      headers: { 'Accept': 'application/json' },
-      timeout: 20000
+    const base = getWebsiteBase();
+    const url = `${base}/api/wp/posts?slug=${encodeURIComponent(wpSlug)}&_embed=1`;
+
+    const res = await fetch(url, {
+      headers: { Accept: 'application/json' },
+      next: { revalidate: 60 },
     });
 
-    if (Array.isArray(response.data) && response.data.length > 0) {
-      const post = response.data[0];
-
-      // Extract category name
-      let category = 'Latest Update';
-      try {
-        if (post._embedded && post._embedded['wp:term'] && post._embedded['wp:term'][0]) {
-          const categories = post._embedded['wp:term'][0];
-          if (categories.length > 0) {
-            category = categories.map((c: any) => c.name).join(', ');
-          }
-        }
-      } catch (err) {}
-
-      // Extract featured image
-      let featuredImage = '';
-      try {
-        if (post._embedded && post._embedded['wp:featuredmedia'] && post._embedded['wp:featuredmedia'][0]) {
-          const media = post._embedded['wp:featuredmedia'][0];
-          featuredImage = media.media_details?.sizes?.large?.source_url || 
-                          media.media_details?.sizes?.full?.source_url || 
-                          media.source_url || '';
-        }
-
-        // Fallbacks if not found in embedded media
-        if (!featuredImage) {
-          if (post.featured_image_url) {
-            featuredImage = post.featured_image_url;
-          } else if (post.jetpack_featured_media_url) {
-            featuredImage = post.jetpack_featured_media_url;
-          } else if (post.yoast_head_json?.og_image && post.yoast_head_json.og_image[0]?.url) {
-            featuredImage = post.yoast_head_json.og_image[0].url;
-          } else if (post.better_featured_image?.source_url) {
-            featuredImage = post.better_featured_image.source_url;
-          }
-        }
-      } catch (err) {}
-
-      // Extract author name
-      let author = 'Radical Education';
-      try {
-        if (post._embedded && post._embedded.author && post._embedded.author[0]) {
-          author = post._embedded.author[0].name;
-        }
-      } catch (err) {}
-
-      // Extract excerpt
-      const stripHtml = (html: string) => {
-        if (!html) return '';
-        if (typeof window === 'undefined') {
-          return html.replace(/<[^>]*>?/gm, '');
-        }
-        try {
-          const doc = new DOMParser().parseFromString(html, 'text/html');
-          return doc.body.textContent || "";
-        } catch (err) {
-          return html.replace(/<[^>]*>?/gm, '');
-        }
-      };
-
-      return {
-        id: post.id.toString(),
-        title: post.title.rendered,
-        excerpt: stripHtml(post.excerpt.rendered),
-        content: post.content.rendered,
-        author: author,
-        category: category,
-        status: 'Published',
-        date: post.date,
-        featuredImage: featuredImage,
-        slug: `blogs/${post.slug}`,
-        createdAt: post.date,
-      };
+    if (!res.ok) {
+      console.error(`[getBlogBySlug] HTTP ${res.status} for slug="${wpSlug}"`);
+      return null;
     }
+
+    const data = await res.json();
+    if (Array.isArray(data) && data.length > 0) {
+      return mapWpPostToBlog(data[0]);
+    }
+
     return null;
   } catch (error) {
-    console.error('Error fetching WP blog by slug:', error);
+    // §10 – safe error handling
+    console.error('[getBlogBySlug] Fetch error:', error instanceof Error ? error.message : error);
     return null;
   }
 }
