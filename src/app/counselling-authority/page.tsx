@@ -5,7 +5,7 @@ import { Image } from "primereact/image";
 import { useState } from "react";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
-export const universities = [
+const universities = [
     { id: 1, title: "Andaman & Nicobar Islands", image: "/images/Frame11321317787.webp", url: "/andaman-nicobar" },
     { id: 2, title: "Andhra Pradesh", image: "/images/Frame1321317787-7.webp", url: "/andhra-pradesh" },
     { id: 3, title: "Arunachal Pradesh", image: "/images/Frame1321317787-6.webp", url: "/arunachal-pradesh" },
