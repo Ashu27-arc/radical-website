@@ -10,58 +10,6 @@ import Image from 'next/image';
 
 
 
-const testimonials = [
-    {
-        id: 1,
-        name: "Farzan Danish",
-        date: "2024-08-03",
-        image: "/images/reviews/Iqra-Ansari.webp",
-        review:
-            "Krystal Covington is a business growth strategist with 15 years of experience in marketing and public relations. Krystal received versity ",
-    },
-    {
-        id: 2,
-        name: "Farzan Danish",
-        date: "2024-08-03",
-        image: "/images/reviews/Sahil-Gautam.webp",
-        review:
-            "Krystal Covington is a business growth strategist with 15 years of experience in marketing and public relations. Krystal received versity ",
-    },
-    {
-        id: 3,
-        name: "Farzan Danish",
-        date: "2024-08-03",
-        image: "/images/reviews/Iqra-Ansari.webp",
-        review:
-            "Krystal Covington is a business growth strategist with 15 years of experience in marketing and public relations. Krystal received versity ",
-    },
-    {
-        id: 4,
-        name: "Farzan Danish",
-        date: "2024-08-03",
-        image: "/images/reviews/Sahil-Gautam.webp",
-        review:
-            "Krystal Covington is a business growth strategist with 15 years of experience in marketing and public relations. Krystal received versity ",
-    },
-    {
-        id: 5,
-        name: "Farzan Danish",
-        date: "2024-08-03",
-        image: "/images/reviews/Iqra-Ansari.webp",
-        review:
-            "Krystal Covington is a business growth strategist with 15 years of experience in marketing and public relations. Krystal received versity ",
-    },
-    {
-        id: 6,
-        name: "Farzan Danish",
-        date: "2024-08-03",
-        image: "/images/reviews/Sahil-Gautam.webp",
-        review:
-            "Krystal Covington is a business growth strategist with 15 years of experience in marketing and public relations. Krystal received versity ",
-    },
-];
-
-
 
 const reviewtestimonials = [
     {
@@ -200,9 +148,13 @@ const reviewtestimonials = [
 export default function TestimonialsPage() {
     const [videoPopup, setVideoPopup] = useState<{ id: number; title: string; youtubeId: string } | null>(null);
     const videos = [
-        { id: 1, title: 'Student Success Story 1', youtubeId: 'jfq8RbTIrtI' },
-        { id: 2, title: 'Student Success Story 2', youtubeId: 'hwYjHX5pk9w' },
+        { id: 1, title: 'Utkarshika Gupta, CSAMC, Etah', youtubeId: 'jfq8RbTIrtI' },
+        { id: 2, title: 'Ayush Kushwaha, GSAMC, Hapur', youtubeId: 'hwYjHX5pk9w' },
         { id: 3, title: 'Sangam Yadav, MGAMC, Lucknow', youtubeId: 'CxDL_T4CWs8' },
+        { id: 4, title: 'Anhad Kaur, SGRDIMSR, Amristar', youtubeId: '7t81QLx4TeM' },
+        { id: 5, title: 'Prabhat Soni, GMC, Jhunjhunu', youtubeId: 'XYZPevx_UE0' },
+        { id: 6, title: 'Aditya Maan, GMC, Sirohi', youtubeId: 'QdpT-kOvM2g' },
+        { id: 7, title: 'Annant, MMC, Muzaffarnagar', youtubeId: '6lhfvUFUoQM' },
     ];
     return (
         <div className="w-full bg-white">
@@ -241,7 +193,7 @@ export default function TestimonialsPage() {
                             }}
                             className="!p-20 rvwSlider"
                         >
-                            {testimonials.map((item) => (
+                            {reviewtestimonials.map((item) => (
                                 <SwiperSlide key={item.id}>
                                     {({ isActive, isPrev, isNext }) => {
                                         let cardClass = "";
@@ -263,18 +215,18 @@ hover:shadow-2xl hover:scale-[1.03] ${cardClass}`}
                                             >
                                                 <div className="flex items-center gap-3 mb-5">
                                                     <img
-                                                        src={item.image}
-                                                        alt=""
+                                                        src={item.avatar}
+                                                        alt={item.name}
                                                         className="w-12 h-12 rounded-full object-cover"
                                                     />
                                                     <div className="text-left">
                                                         <h4 className="text-sm font-semibold">{item.name}</h4>
-                                                        <p className="text-xs text-gray-400">{item.date}</p>
+                                                        <p className="text-xs text-gray-400">{item.location}</p>
                                                     </div>
                                                 </div>
                                                 <div className="text-yellow-400 text-sm mb-3 text-left">★★★★★</div>
                                                 <p className="text-sm text-gray-600 leading-relaxed text-left">
-                                                    {item.review}
+                                                    {item.text}
                                                 </p>
                                             </div>
                                         );
@@ -312,6 +264,14 @@ hover:shadow-2xl hover:scale-[1.03] ${cardClass}`}
                                         alt={video.title}
                                         className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                                     />
+                                    {/* Play icon overlay */}
+                                    <span className="absolute inset-0 flex items-center justify-center">
+                                        <span className="w-14 h-14 rounded-full bg-black/60 flex items-center justify-center group-hover:bg-red-600 transition-colors duration-300">
+                                            <svg className="w-6 h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                                <path d="M8 5v14l11-7z" />
+                                            </svg>
+                                        </span>
+                                    </span>
 
                                     <span className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-3 py-2 text-white text-sm font-medium">
                                         {video.title}
@@ -322,7 +282,7 @@ hover:shadow-2xl hover:scale-[1.03] ${cardClass}`}
                     </div>
                     {videoPopup && (
                         <div
-                            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 z-100"
+                            className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60"
                             onClick={() => setVideoPopup(null)}
                             role="dialog"
                             aria-modal="true"
@@ -404,8 +364,8 @@ hover:shadow-2xl hover:scale-[1.03] ${cardClass}`}
                                         <Image
                                             src={item.logo}
                                             alt="logo"
-                                            width={28}
-                                            height={28}
+                                            width={37}
+                                            height={48}
                                         />
                                     </div>
                                 </div>
