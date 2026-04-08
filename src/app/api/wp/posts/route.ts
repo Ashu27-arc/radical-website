@@ -26,6 +26,8 @@ export async function GET(request: NextRequest) {
     wpUrl.searchParams.set('slug', slug);
   } else {
     wpUrl.searchParams.set('per_page', perPage);
+    const fields = searchParams.get('_fields');
+    if (fields) wpUrl.searchParams.set('_fields', fields);
   }
 
   try {

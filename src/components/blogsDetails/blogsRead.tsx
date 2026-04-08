@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import BlogSidebar from './BlogSidebar';
-import { getBlogBySlug, type Blog } from '@/lib/api';
+import { getBlogBySlug, type Blog, replaceWpForms } from '@/lib/api';
 import { useWebSocket } from '@/hooks/useWebSocket';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import { usePathname } from 'next/navigation';
@@ -45,9 +45,12 @@ const getCategoryTextColor = (cat: string) => {
 const sanitizeBlogContent = (html: string) => {
     if (!html) return '';
 
-    // Strip any remaining WP shortcode tags (banners/widgets now come via WordPress API content directly)
-    let result = html
-        .replace(/\[[^\]]+\]/g, '')
+    // First, replace WPForms shortcodes with embeds
+    let result = replaceWpForms(html);
+
+    // Strip other WordPress shortcode tags
+    result = result
+        .replace(/\[(?!wpforms)[^\]]+\]/g, '') 
         .replace(/background-color\s*:\s*[^;"]*;?/gi, '')
         .replace(/background\s*:\s*[^;"]*;?/gi, '');
 

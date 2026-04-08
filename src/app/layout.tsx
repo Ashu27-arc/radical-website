@@ -53,17 +53,15 @@ export default function RootLayout({ children, }: { children: React.ReactNode; }
         
       </head>
       <body className="flex flex-col min-h-screen" suppressHydrationWarning>
-        <ClientWrapper>
-          <Providers>
-            <ScrollEffectProvider />
-            <EnquireButton />
-            <Header />
-            <main className="flex-grow">
-              {children}
-            </main>
-            <Footer />
-          </Providers>
-        </ClientWrapper>
+        <Providers>
+          <ScrollEffectProvider />
+          <EnquireButton />
+          <Header />
+          <main className="flex-grow">
+            {children}
+          </main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

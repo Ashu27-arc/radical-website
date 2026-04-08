@@ -94,164 +94,123 @@ export interface NeetUpdate {
 }
 
 export async function getBlogs(): Promise<Blog[]> {
-  // We now solely use WordPress API for blogs
-  return [];
+  return getWpBlogs();
 }
 
 
 // ─── Helpers ────────────────────────────────────────────────────────────────
 
-/** Strip all HTML tags and shortcodes, returning plain text. */
+/**
+ * Replace WPForms shortcodes with responsive iframe embeds.
+ * Requirement §5
+ */
+export function replaceWpForms(content: string): string {
+  if (!content) return '';
+  // Support [wpforms id="123"] and variations like [wpforms id=123]
+  return content.replace(/\[wpforms\s+id=["']?(\d+)["']?\]/g, (match, id) => {
+    return `<div class="wpforms-container" style="width: 100%; margin: 2rem 0; clear: both;">
+      <iframe 
+        src="https://backup.radicaleducation.in/wpforms/view/${id}" 
+        style="width: 100%; min-height: 500px; border: none; overflow: hidden;" 
+        loading="lazy"
+        allow="payment; clipboard-write"
+        title="WPForm ${id}"
+      ></iframe>
+    </div>`;
+  });
+}
+
+/** Strip all HTML tags and return plain text. */
 const stripHtml = (html: string): string => {
   if (!html) return '';
-  // Remove WordPress shortcodes first
-  const stripped = html.replace(/\[[^\]]+\]/g, '');
-  if (typeof window === 'undefined') {
-    return stripped.replace(/<[^>]*>?/gm, '');
-  }
+  // Remove all HTML tags
+  const stripped = html.replace(/<[^>]*>?/gm, '');
+  // Remove any remaining shortcodes for the excerpt
+  return stripped.replace(/\[[^\]]+\]/g, '').trim();
+};
+
+/** Featured-image extraction specifically from the _embedded object. Requirement §4 */
+const extractFeaturedImage = (post: any): string => {
   try {
-    const doc = new DOMParser().parseFromString(stripped, 'text/html');
-    return doc.body.textContent || '';
+    return post._embedded?.['wp:featuredmedia']?.[0]?.source_url || '';
   } catch {
-    return stripped.replace(/<[^>]*>?/gm, '');
+    return '';
   }
-};
-
-/**
- * Fallback banner: extract the src of the first <img> found in the post's
- * rendered HTML content. Returns an empty string if none is found.
- */
-const extractFirstImageFromContent = (html: string): string => {
-  if (!html) return '';
-  const match = html.match(/<img[^>]+src=["']([^"']+)["']/i);
-  return match ? match[1] : '';
-};
-
-/** Featured-image extraction from the _embedded['wp:featuredmedia'] object. */
-const extractFeaturedImage = (post: any, contentHtml: string): string => {
-  try {
-    const media = post._embedded?.['wp:featuredmedia']?.[0];
-    if (media) {
-      const url =
-        media.media_details?.sizes?.large?.source_url ||
-        media.media_details?.sizes?.full?.source_url ||
-        media.source_url;
-      if (url) return url;
-    }
-    // Secondary fallbacks from non-standard WP fields
-    if (post.featured_image_url) return post.featured_image_url;
-    if (post.jetpack_featured_media_url) return post.jetpack_featured_media_url;
-    if (post.yoast_head_json?.og_image?.[0]?.url)
-      return post.yoast_head_json.og_image[0].url;
-    if (post.better_featured_image?.source_url)
-      return post.better_featured_image.source_url;
-  } catch { /* */ }
-
-  // Requirement §5 – last resort: first <img> in post content
-  return extractFirstImageFromContent(contentHtml);
-};
-
-/** Category string from _embedded['wp:term']. */
-const extractCategory = (post: any): string => {
-  try {
-    const terms = post._embedded?.['wp:term']?.[0];
-    if (Array.isArray(terms) && terms.length > 0) {
-      return terms.map((c: any) => c.name).join(', ');
-    }
-  } catch { /* */ }
-  return 'Latest Update';
-};
-
-/** Author name from _embedded.author. */
-const extractAuthor = (post: any): string => {
-  try {
-    const name = post._embedded?.author?.[0]?.name;
-    if (name) return name;
-  } catch { /* */ }
-  return 'Radical Education';
 };
 
 /**
  * Map a raw WordPress REST API post object to the local Blog interface.
- * Requirement §3 – explicit field mapping.
+ * Requirement §3
  */
 const mapWpPostToBlog = (post: any): Blog => {
-  const contentHtml: string = post.content?.rendered || '';
   return {
-    id: post.id?.toString() ?? Math.random().toString(),           // §3 id
-    title: post.title?.rendered || 'Untitled',                     // §3 title
-    excerpt: stripHtml(post.excerpt?.rendered || ''),              // §3 excerpt (stripped)
-    content: contentHtml,                                          // §3 content (raw HTML)
-    author: extractAuthor(post),
-    category: extractCategory(post),
-    status: 'Published',
-    date: post.date || new Date().toISOString(),                   // §3 date
-    featuredImage: extractFeaturedImage(post, contentHtml),       // §4 + §5
-    slug: `blogs/${post.slug}`,                                    // §3 slug
-    createdAt: post.date,
+    id: post.id?.toString(),                            // id -> post.id
+    title: post.title?.rendered || 'Untitled',          // title -> post.title.rendered
+    content: post.content?.rendered || '',             // content -> post.content.rendered
+    excerpt: stripHtml(post.excerpt?.rendered || ''),   // excerpt -> clean text
+    slug: post.slug,                                    // slug -> post.slug
+    date: post.date,                                    // date -> post.date
+    featuredImage: extractFeaturedImage(post),          // Requirement §4
+    author: post._embedded?.author?.[0]?.name || 'Radical Education',
+    category: post._embedded?.['wp:term']?.[0]?.map((c: any) => c.name).join(', ') || 'Latest Update',
+    status: 'Published'
   };
 };
 
-// ─── getWpBlogs ──────────────────────────────────────────────────────────────
-
 /**
  * Fetch the latest blog posts from WordPress.
- *
- * Uses the native fetch API (§8 – no axios) via the local /api/wp/posts proxy
- * route so there are no CORS issues when called from the browser.
- *
- * next: { revalidate: 60 } (§9) is honoured server-side by Next.js data cache;
- * the proxy route also sets Cache-Control headers for CDN-layer caching.
+ * Requirement §1, §8, §9, §10
  */
 export async function getWpBlogs(): Promise<Blog[]> {
   try {
-    const base = getWebsiteBase();
-    // §1 – endpoint; §9 – ISR revalidation via next.revalidate
-    const url = `${base}/api/wp/posts?per_page=10&_embed=1`;
+    const isClient = typeof window !== 'undefined';
+    const params = 'per_page=50&_fields=id,slug,title,excerpt,date,_links,_embedded';
+    
+    // On client, use our local proxy. On server, call WP directly.
+    const url = isClient 
+      ? `/api/wp/posts?${params}` 
+      : `https://backup.radicaleducation.in/wp-json/wp/v2/posts?_embed=1&${params}`;
 
     const res = await fetch(url, {
-      headers: { Accept: 'application/json' },
-      // next.revalidate is used by the Next.js data cache (server-side only)
+      method: 'GET',
+      headers: { 'Accept': 'application/json' },
       next: { revalidate: 60 },
     });
 
-    if (!res.ok) {
-      console.error(`[getWpBlogs] HTTP ${res.status}`);
-      return [];
-    }
+    if (!res.ok) return [];
 
     const data = await res.json();
     if (!Array.isArray(data)) return [];
 
-    return data.map(mapWpPostToBlog); // §3
+    return data.map(mapWpPostToBlog);
   } catch (error) {
-    // §10 – safe error handling: never throw, always return empty array
-    console.error('[getWpBlogs] Fetch error:', error instanceof Error ? error.message : error);
+    console.error('[getWpBlogs] error:', error);
     return [];
   }
 }
 
 /**
  * Fetch a single post by its slug from WordPress.
- * Uses native fetch (§8) with 60-second ISR revalidation (§9).
+ * Requirement §8, §9, §10
  */
 export async function getBlogBySlug(slug: string): Promise<Blog | null> {
   try {
     // Normalise slug – strip 'blogs/' prefix if the route included it
-    const wpSlug = slug.startsWith('blogs/') ? slug.slice('blogs/'.length) : slug;
-
-    const base = getWebsiteBase();
-    const url = `${base}/api/wp/posts?slug=${encodeURIComponent(wpSlug)}&_embed=1`;
+    const wpSlug = slug.includes('/') ? slug.split('/').pop() : slug;
+    const isClient = typeof window !== 'undefined';
+    
+    // On client, use local proxy. On server, call WP directly.
+    const url = isClient
+      ? `/api/wp/posts?slug=${encodeURIComponent(wpSlug || '')}`
+      : `https://backup.radicaleducation.in/wp-json/wp/v2/posts?slug=${encodeURIComponent(wpSlug || '')}&_embed=1`;
 
     const res = await fetch(url, {
-      headers: { Accept: 'application/json' },
+      method: 'GET',
+      headers: { 'Accept': 'application/json' },
       next: { revalidate: 60 },
     });
 
-    if (!res.ok) {
-      console.error(`[getBlogBySlug] HTTP ${res.status} for slug="${wpSlug}"`);
-      return null;
-    }
+    if (!res.ok) return null;
 
     const data = await res.json();
     if (Array.isArray(data) && data.length > 0) {
@@ -260,8 +219,7 @@ export async function getBlogBySlug(slug: string): Promise<Blog | null> {
 
     return null;
   } catch (error) {
-    // §10 – safe error handling
-    console.error('[getBlogBySlug] Fetch error:', error instanceof Error ? error.message : error);
+    console.error('[getBlogBySlug] error:', error);
     return null;
   }
 }

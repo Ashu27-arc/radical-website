@@ -76,20 +76,16 @@ const BlogsPage = () => {
       setLoading(true);
     }
 
-    Promise.allSettled([getBlogs(), getWpBlogs()])
-      .then(([blogsResult, wpResult]) => {
+    getWpBlogs()
+      .then((blogsData) => {
         if (!isMounted) return;
 
-        const blogsData = blogsResult.status === 'fulfilled' ? (blogsResult.value || []) : [];
-        const wpData = wpResult.status === 'fulfilled' ? (wpResult.value || []) : [];
-
-        const combinedBlogs = [...blogsData, ...wpData];
-        setBlogs(combinedBlogs.length ? combinedBlogs : cachedBlogs);
+        setBlogs(blogsData.length ? blogsData : cachedBlogs);
         setLoading(false);
 
-        if (typeof window !== 'undefined' && combinedBlogs.length) {
+        if (typeof window !== 'undefined' && blogsData.length) {
           try {
-            sessionStorage.setItem(BLOGS_CACHE_KEY, JSON.stringify(combinedBlogs));
+            sessionStorage.setItem(BLOGS_CACHE_KEY, JSON.stringify(blogsData));
           } catch { }
         }
       })
@@ -267,7 +263,7 @@ const BlogsPage = () => {
             <div className="flex flex-col lg:flex-row gap-2 sm:gap-2 items-stretch lg:items-center justify-start">
               <div className="relative w-full lg:max-w-[450px] md:max-w-[320px] max-w-full">
                 <input type="text" placeholder="Search your dream college" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full px-3 sm:px-4 h-9 sm:h-10 rounded-full bg-white shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700 placeholder-gray-400 text-sm sm:text-base" />
+                  className="w-full px-3 sm:px-4 h-9 sm:h-10 rounded-full bg-white shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700 placeholder-gray-400 text-sm sm:text-base opacity-80" />
                 <button className="absolute right-1 top-1/2 -translate-y-1/2 bg-[#005A8B] hover:bg-blue-700 text-white h-7 w-7 sm:h-8 sm:w-8 rounded-full transition-colors duration-200 flex items-center justify-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
