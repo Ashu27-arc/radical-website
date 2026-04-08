@@ -101,23 +101,31 @@ export async function getBlogs(): Promise<Blog[]> {
 // ─── Helpers ────────────────────────────────────────────────────────────────
 
 /**
- * Replace WPForms shortcodes with responsive iframe embeds.
+ * Replace WPForms shortcodes or pre-rendered WPForms HTML with responsive iframe embeds.
  * Requirement §5
  */
 export function replaceWpForms(content: string): string {
   if (!content) return '';
-  // Support [wpforms id="123"] and variations like [wpforms id=123]
-  return content.replace(/\[wpforms\s+id=["']?(\d+)["']?\]/g, (match, id) => {
-    return `<div class="wpforms-container" style="width: 100%; margin: 2rem 0; clear: both;">
+
+  // 1. Handle raw shortcodes like [wpforms id="123"]
+  let result = content.replace(/\[wpforms\s+id=["']?(\d+)["']?\]/g, (match, id) => {
+    return `<div class="wpforms-container-embed" style="width: 100%; margin: 2rem 0; clear: both;">
       <iframe 
         src="https://backup.radicaleducation.in/wpforms/view/${id}" 
         style="width: 100%; min-height: 500px; border: none; overflow: hidden;" 
         loading="lazy"
-        allow="payment; clipboard-write"
+        allow="payment; clipboard-write; geolocation"
         title="WPForm ${id}"
       ></iframe>
     </div>`;
   });
+
+  // 2. We intentionally do NOT replace already-rendered WPForms HTML containers 
+  // with an iframe anymore. Replacing them was causing the 'whole site' (header/footer) 
+  // to appear inside the blog post. Instead, we keep the native HTML and 
+  // handle the 'Please enable JavaScript' warning via CSS in the renderer.
+  
+  return result;
 }
 
 /** Strip all HTML tags and return plain text. */
@@ -194,27 +202,48 @@ export async function getWpBlogs(): Promise<Blog[]> {
  * Requirement §8, §9, §10
  */
 export async function getBlogBySlug(slug: string): Promise<Blog | null> {
+  if (!slug) return null;
   try {
-    // Normalise slug – strip 'blogs/' prefix if the route included it
     const wpSlug = slug.includes('/') ? slug.split('/').pop() : slug;
-    const isClient = typeof window !== 'undefined';
+    if (!wpSlug) return null;
     
-    // On client, use local proxy. On server, call WP directly.
-    const url = isClient
-      ? `/api/wp/posts?slug=${encodeURIComponent(wpSlug || '')}`
-      : `https://backup.radicaleducation.in/wp-json/wp/v2/posts?slug=${encodeURIComponent(wpSlug || '')}&_embed=1`;
+    const isClient = typeof window !== 'undefined';
+    const params = `slug=${encodeURIComponent(wpSlug)}&_embed=1`;
+    
+    // 1. Try fetching as a POST
+    const postUrl = isClient
+      ? `/api/wp/posts?${params}`
+      : `https://backup.radicaleducation.in/wp-json/wp/v2/posts?${params}`;
 
-    const res = await fetch(url, {
+    const postRes = await fetch(postUrl, {
       method: 'GET',
       headers: { 'Accept': 'application/json' },
       next: { revalidate: 60 },
     });
 
-    if (!res.ok) return null;
+    if (postRes.ok) {
+      const posts = await postRes.json();
+      if (Array.isArray(posts) && posts.length > 0) {
+        return mapWpPostToBlog(posts[0]);
+      }
+    }
 
-    const data = await res.json();
-    if (Array.isArray(data) && data.length > 0) {
-      return mapWpPostToBlog(data[0]);
+    // 2. Fallback: Try fetching as a PAGE
+    const pageUrl = isClient
+      ? `/api/wp/pages?${params}`
+      : `https://backup.radicaleducation.in/wp-json/wp/v2/pages?${params}`;
+
+    const pageRes = await fetch(pageUrl, {
+      method: 'GET',
+      headers: { 'Accept': 'application/json' },
+      next: { revalidate: 60 },
+    });
+
+    if (pageRes.ok) {
+      const pages = await pageRes.json();
+      if (Array.isArray(pages) && pages.length > 0) {
+        return mapWpPostToBlog(pages[0]);
+      }
     }
 
     return null;

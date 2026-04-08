@@ -8,6 +8,7 @@ import { getBlogBySlug, type Blog, replaceWpForms } from '@/lib/api';
 import { useWebSocket } from '@/hooks/useWebSocket';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import { usePathname } from 'next/navigation';
+import ShortcodeRenderer from '@/components/ShortcodeRenderer';
 
 interface BlogsReadProps {
     slug: string;
@@ -185,6 +186,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
     const categoryContainerRef = useRef<HTMLDivElement>(null);
     const [blog, setBlog] = useState<Blog | null>(null);
     const [loading, setLoading] = useState(true);
+    const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
     const { addMessageHandler } = useWebSocket();
 
     useEffect(() => {
@@ -322,10 +324,10 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                                         )}
                                     </div>
 
-                                    {/* Blog Content - responsive text & line height */}
-                                    <div
-                                        className="blog-content max-w-none text-gray-800 mb-4 text-sm sm:text-[15px] md:text-[17px] leading-7 sm:leading-8 wrap-break-word [&_p]:text-justify [&_p]:mb-6 [&_h1]:mt-8 [&_h1]:mb-4 [&_h2]:mt-8 [&_h2]:mb-4 [&_h3]:mt-6 [&_h3]:mb-3 [&_img]:max-w-full [&_img]:h-auto [&_img]:rounded-xl [&_img]:shadow-sm [&_img]:my-8 [&_img]:mx-auto [&_a:not(:has(img))]:text-[#005A8B] [&_a:not(:has(img))]:underline [&_a:not(:has(img))]:font-semibold break-words [overflow-wrap:anywhere]"
-                                        dangerouslySetInnerHTML={{ __html: sanitizeBlogContent(blog.content || blog.excerpt || '') }}
+                                    {/* Blog Content - Shadow DOM Isolated */}
+                                    <ShortcodeRenderer
+                                        html={sanitizeBlogContent(blog.content || blog.excerpt || '')}
+                                        className="blog-content-wrapper"
                                     />
 
                                     {/* PDF Download Section - High Impact & Premium */}
@@ -356,29 +358,49 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                                         </div>
                                     )}
 
-                                    {/* FAQs Section - responsive padding & typography */}
+                                    {/* FAQs Section - Premium State-Managed Accordion */}
                                     {blog.faqs && blog.faqs.length > 0 && (
-                                        <div className="mt-4 mb-4 sm:mb-6 border border-gray-200 rounded-lg sm:rounded-xl overflow-hidden bg-white shadow-sm">
-                                            <h2 className="text-base sm:text-xl md:text-2xl font-bold text-gray-800 px-3 py-3 sm:px-4 sm:py-4 md:px-6 md:py-4 bg-gray-50 border-b border-gray-200">
-                                                Frequently Asked Questions
-                                            </h2>
-                                            <div className="divide-y divide-gray-200 [&>*:first-child]:border-t-0">
-                                                {blog.faqs.map((faq, idx) => (
-                                                    <details
-                                                        key={idx}
-                                                        className="group [&_summary::-webkit-details-marker]:hidden [&_summary::marker]:hidden"
-                                                    >
-                                                        <summary className="flex items-start gap-2 sm:gap-3 px-3 py-2.5 sm:px-6 sm:py-2.5 cursor-pointer list-none hover:bg-gray-50 transition-colors">
-                                                            <span className="shrink-0 w-6 h-6 flex items-center justify-center rounded-full bg-gray-200 text-gray-700 font-bold text-sm group-open:hidden">+</span>
-                                                            <span className="shrink-0 w-6 h-6 hidden group-open:flex items-center justify-center rounded-full bg-indigo-100 text-indigo-700 font-bold text-base leading-none">−</span>
-                                                            <span className="font-medium text-gray-800 flex-1 text-sm sm:text-base min-w-0">{faq.question}</span>
-                                                        </summary>
-                                                        <div
-                                                            className="pl-11 sm:pl-13 pr-3 sm:pr-4 md:pr-6 pb-3 pt-0 text-gray-600 text-sm sm:text-[15px] leading-relaxed [&_a]:text-blue-600 [&_a]:underline hover:[&_a]:text-blue-800"
-                                                            dangerouslySetInnerHTML={{ __html: processFaqAnswer(faq.answer) }}
-                                                        />
-                                                    </details>
-                                                ))}
+                                        <div className="mt-10 mb-10 border border-gray-200 rounded-2xl overflow-hidden bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_4px_6px_-2px_rgba(0,0,0,0.05)]">
+                                            <div className="px-6 py-5 bg-gray-50/50 border-b border-gray-100 flex items-center justify-between">
+                                                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 flex items-center gap-3">
+                                                    <span className="w-1.5 h-8 bg-[#005A8B] rounded-full"></span>
+                                                    Frequently Asked Questions
+                                                </h2>
+                                            </div>
+                                            <div className="divide-y divide-gray-100">
+                                                {blog.faqs.map((faq, idx) => {
+                                                    const isOpen = openFaqIndex === idx;
+                                                    return (
+                                                        <div key={idx} className="bg-white">
+                                                            <button
+                                                                onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
+                                                                className="w-full flex items-center gap-4 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-gray-50/80 transition-all duration-300 focus:outline-none"
+                                                            >
+                                                                <div className={`shrink-0 w-8 h-8 flex items-center justify-center rounded-lg transition-all duration-300 ${isOpen ? 'bg-[#005A8B] text-white' : 'bg-indigo-50 text-[#005A8B]'}`}>
+                                                                    <svg 
+                                                                        className={`w-5 h-5 transform transition-transform duration-300 ${isOpen ? 'rotate-45 text-white' : 'rotate-0'}`} 
+                                                                        fill="none" 
+                                                                        viewBox="0 0 24 24" 
+                                                                        stroke="currentColor"
+                                                                    >
+                                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 4v16m8-8H4" />
+                                                                    </svg>
+                                                                </div>
+                                                                <span className={`font-semibold text-sm sm:text-base leading-relaxed transition-colors ${isOpen ? 'text-[#005A8B]' : 'text-gray-800'}`}>
+                                                                    {faq.question}
+                                                                </span>
+                                                            </button>
+                                                            <div 
+                                                                className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'}`}
+                                                            >
+                                                                <div
+                                                                    className="px-6 pb-5 sm:pl-[72px] sm:pr-6 pt-0 text-gray-600 text-sm sm:text-[15px] leading-relaxed"
+                                                                    dangerouslySetInnerHTML={{ __html: processFaqAnswer(faq.answer) }}
+                                                                />
+                                                            </div>
+                                                        </div>
+                                                    );
+                                                })}
                                             </div>
                                         </div>
                                     )}

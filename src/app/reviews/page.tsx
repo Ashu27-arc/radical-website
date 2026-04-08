@@ -242,7 +242,7 @@ hover:shadow-2xl hover:scale-[1.03] ${cardClass}`}
                             <img src="/images/reviews/Iqra-Ansari.webp" className="w-10 h-10 rounded-full border" />
                         </div>
                         <span className="text-[#005787]">
-                            <span className='font-bold'>85+</span> Success Stories
+                            <span className='font-bold'>200+</span> Success Stories
                         </span>
                         <span>That Define Success</span>
                     </div>

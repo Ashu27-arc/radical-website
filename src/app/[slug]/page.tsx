@@ -1,5 +1,7 @@
 import BlogsRead from '@/components/blogsDetails/blogsRead';
-import { getBlogs } from '@/lib/api';
+import { getBlogs, getBlogBySlug } from '@/lib/api';
+import { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
 type PageProps = {
   params: Promise<{
@@ -29,7 +31,39 @@ export async function generateStaticParams() {
   }
 }
 
-export const dynamic = "error";
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const blog = await getBlogBySlug(slug);
+
+  if (!blog) {
+    return {
+      title: 'Blog Not Found | Radical Education',
+      description: 'The requested blog post could not be found.'
+    };
+  }
+
+  return {
+    title: `${blog.title} | Radical Education`,
+    description: blog.metaDescription || blog.excerpt || `Read more about ${blog.title} on Radical Education.`,
+    keywords: blog.metaKeywords,
+    openGraph: {
+      title: blog.title,
+      description: blog.excerpt,
+      images: blog.featuredImage ? [blog.featuredImage] : [],
+      type: 'article',
+      publishedTime: blog.date,
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: blog.title,
+      description: blog.excerpt,
+      images: blog.featuredImage ? [blog.featuredImage] : [],
+    }
+  };
+}
+
+export const dynamicParams = true;
+export const revalidate = 60;
 
 export default async function BlogPage({ params }: PageProps) {
   const { slug } = await params;

@@ -30,21 +30,23 @@ const ShortcodeRenderer: React.FC<ShortcodeRendererProps> = ({ html, className =
     if (!hostRef.current) return;
 
     // 1. Initialize Shadow DOM for strict style isolation
-    // This is the ONLY way to "avoid affecting other components" when loading 
-    // WordPress theme CSS which often contains global resets (*, body, html).
     const shadowRoot = hostRef.current.shadowRoot || hostRef.current.attachShadow({ mode: 'open' });
-
-    // 2. Clear existing content (important for HMR/Hot Reloading)
     shadowRoot.innerHTML = '';
 
-    // 3. Create a wrapper for the HTML content
+    // 2. Create a wrapper for the HTML content
     const wrapper = document.createElement('div');
     wrapper.className = `wp-shortcode-container ${className}`;
-    // Using native innerHTML inside Shadow Root instead of dangerouslySetInnerHTML 
-    // because React does not manage the internal tree of a Shadow Root directly.
-    wrapper.innerHTML = html;
+    
+    // Fix absolute URLs for images and links if they are relative
+    let processedHtml = html;
+    if (processedHtml.includes('wpforms-container')) {
+       // Ensure form actions point to the WordPress backend
+       processedHtml = processedHtml.replace(/action="\/([^"]*)"/g, 'action="https://backup.radicaleducation.in/$1"');
+    }
+    
+    wrapper.innerHTML = processedHtml;
 
-    // 4. Load WordPress CSS dynamically into the Shadow Root
+    // 3. Load WordPress CSS dynamically into the Shadow Root
     WP_CSS_URLS.forEach((url) => {
       const link = document.createElement('link');
       link.rel = 'stylesheet';
@@ -52,51 +54,68 @@ const ShortcodeRenderer: React.FC<ShortcodeRendererProps> = ({ html, className =
       shadowRoot.appendChild(link);
     });
 
-    // 5. Add isolation-level resets
-    // This ensures the content doesn't completely lose app-level typography
-    // while still being protected from the theme's global resets.
+    // 4. Add isolation-level resets and typography
     const internalStyles = document.createElement('style');
     internalStyles.textContent = `
-      :host {
-        display: block;
-        width: 100%;
-        overflow: visible;
-        contain: content;
-      }
+      :host { display: block; width: 100%; overflow: visible; }
       .wp-shortcode-container {
-        all: initial; /* Reset inherited styles to keep isolation strict */
-        display: block;
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-        line-height: 1.6;
-        color: #333;
-        text-align: left;
+        all: initial; display: block;
+        font-family: 'Inter', -apple-system, system-ui, sans-serif;
+        line-height: 1.8; color: #1f2937; font-size: 17px;
       }
-      /* Ensure typical WP form elements looks decent */
-      .wp-shortcode-container input, 
-      .wp-shortcode-container select, 
-      .wp-shortcode-container textarea {
-        font-family: inherit;
+      @media (max-width: 768px) { .wp-shortcode-container { font-size: 15px; } }
+      
+      p { margin-bottom: 1.5rem; text-align: justify; }
+      h1, h2, h3 { font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; color: #111827; display: block; }
+      a { color: #005A8B; text-decoration: underline; font-weight: 600; }
+      img { max-width: 100%; h-auto; border-radius: 12px; margin: 2rem auto; display: block; }
+      
+      /* THE FIX: Hide the "Please enable JavaScript" message */
+      .wpforms-error-noscript, noscript, .wpforms-noscript {
+        display: none !important;
+        visibility: hidden !important;
+      }
+
+      /* Native WPForms Styling fallbacks */
+      .wpforms-container { margin: 2rem 0; width: 100% !important; }
+      .wpforms-form button[type=submit] {
+        background-color: #005A8B !important;
+        color: white !important;
+        padding: 12px 24px !important;
+        border-radius: 8px !important;
+        border: none !important;
+        font-weight: bold !important;
+        cursor: pointer !important;
       }
     `;
     shadowRoot.appendChild(internalStyles);
     shadowRoot.appendChild(wrapper);
 
-    // Fade in when ready
-    setIsReady(true);
+    // 5. Load Scripts globally (only if a form is present)
+    // WPForms scripts often fail inside Shadow DOM, so we load them globally 
+    // to handle the non-shadow parts of the form submission if possible.
+    if (processedHtml.includes('wpforms-container') && !document.getElementById('wpforms-scripts')) {
+       const scriptContainer = document.createElement('div');
+       scriptContainer.id = 'wpforms-scripts';
+       
+       const jquery = document.createElement('script');
+       jquery.src = 'https://code.jquery.com/jquery-3.7.1.min.js';
+       
+       const wpforms = document.createElement('script');
+       wpforms.src = 'https://backup.radicaleducation.in/wp-content/plugins/wpforms/assets/js/wpforms.js';
+       
+       scriptContainer.appendChild(jquery);
+       scriptContainer.appendChild(wpforms);
+       document.body.appendChild(scriptContainer);
+    }
 
-    // 6. Cleanup: 
-    // Styles inside Shadow DOM are automatically removed when the host (hostRef) unmounts.
-    return () => {
-      // Logic for explicit unmounting if needed
-    };
+    setIsReady(true);
   }, [html, className]);
 
   return (
     <div
       ref={hostRef}
-      id="wp-shortcode-renderer-root"
-      className={`shortcode-renderer-host ${isReady ? 'opacity-100 transition-opacity duration-700' : 'opacity-0'}`}
-      style={{ minHeight: '50px' }}
+      className={`shortcode-renderer-host ${isReady ? 'opacity-100' : 'opacity-0'} transition-opacity duration-700`}
     />
   );
 };
