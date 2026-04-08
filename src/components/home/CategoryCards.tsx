@@ -66,8 +66,7 @@ export default function CategoryCards() {
           {cards.map((item, index) => (
             <SwiperSlide key={index}>
               <div
-                className="group lg:w-[241.56px] w-full h-[249.64px] rounded-[30px] overflow-hidden relative cursor-pointer mx-auto
-              transition-all duration-300 hover:shadow-xl"
+                className="group lg:w-[241.56px] w-full h-[249.64px] rounded-[30px] overflow-hidden relative cursor-pointer mx-auto transition-all duration-300 hover:shadow-xl"
               >
                 {/* Image */}
                 <div className="relative w-full h-full brightness-110">
@@ -115,15 +114,7 @@ export default function CategoryCards() {
 
             {/* Center Pill */}
             <div className="absolute inset-0 flex items-center justify-center">
-              <div className="
-                  px-6 md:px-8 py-2 md:py-3
-                  rounded-[25px]
-                  bg-white/70
-                  text-[#000000]
-                  font-medium
-                  text-[16px] sm:text-[21px]
-                  shadow-md
-                ">
+              <div className="px-6 md:px-8 py-2 md:py-3 rounded-[25px] bg-white/70 text-[#000000] font-medium text-[16px] sm:text-[21px] shadow-md">
                 {item.title}
               </div>
             </div>

@@ -169,13 +169,7 @@ export default function EnquireButton() {
       {/* Floating Vertical Button */}
       <button
         onClick={() => setVisible(true)}
-        className="
-          fixed right-[-60px] md:right-[-70px] top-1/2 z-50
-          bg-[#FFCE1B] text-black tracking-widest
-          px-4 md:px-6 py-2.5 md:py-3 rounded-t-2xl shadow-xl
-          transition-all duration-300
-          flex items-center gap-2 text-[10px] md:text-xs cursor-pointer
-        "
+        className="fixed right-[-60px] md:right-[-70px] top-1/2 z-50 bg-[#FFCE1B] text-black tracking-widest px-4 md:px-6 py-2.5 md:py-3 rounded-t-2xl shadow-xl transition-all duration-300 flex items-center gap-2 text-[10px] md:text-xs cursor-pointer"
         style={{
           transform: 'translateY(-50%) rotate(-90deg)',
           transformOrigin: 'center',

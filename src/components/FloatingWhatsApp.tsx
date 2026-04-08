@@ -104,11 +104,7 @@ export default function FloatingWhatsApp() {
       </button>
       {view !== 'none' && (
         <div
-          className={`
-            fixed bottom-8 z-[102] left-20 z-40 flex items-end
-            transform transition-all duration-300 ease-out
-            ${animationClass}
-          `}
+          className={`fixed bottom-8 z-[102] left-20 z-40 flex items-end transform transition-all duration-300 ease-out ${animationClass}`}
         >
           {/* <div className='md:min-w-[90px] md:max-w-[90px] min-w-[60px] max-w-[60px]'>
             <Image src='/images/wpLady.webp' alt='' />

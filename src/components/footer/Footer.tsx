@@ -407,17 +407,12 @@ export default function Footer() {
               </button>
             </div>
           </div>
-          <div className="md:px-0 px-8  w-full flex flex-wrap justify-between md:justify-center md:items-center gap-x-1 sm:gap-x-2 md:gap-x-4 gap-y-1.5 sm:gap-y-2 text-white text-[10px] xs:text-xs sm:text-sm pt-3 sm:pt-4 md:pt-6">
+          <div className="md:px-0 px-8 w-full flex flex-wrap justify-between md:justify-center md:items-center gap-x-1 sm:gap-x-2 md:gap-x-4 gap-y-1.5 sm:gap-y-2 text-white text-[10px] xs:text-xs sm:text-sm pt-3 sm:pt-4 md:pt-6">
             {tabContent[activeTab].map((item, index) => (
               <Fragment key={item.url}>
                 <Link
                   href={item.url}
-                  className="w-[50%] md:w-auto relative flex items-center gap-0.5 sm:gap-1 shrink-0 max-w-[140px] sm:max-w-none
-                  after:absolute after:left-3 after:bottom-0 sm:after:left-5
-                  after:h-[1px] after:w-0
-                  after:bg-white
-                  after:transition-all after:duration-300
-                  hover:after:w-[80%] truncate">
+                  className="w-[50%] md:w-auto relative flex items-center gap-0.5 sm:gap-1 shrink-0 max-w-[140px] sm:max-w-none after:absolute after:left-3 after:bottom-0 sm:after:left-5 after:h-[1px] after:w-0 after:bg-white after:transition-all after:duration-300 hover:after:w-[80%] truncate">
                   <i className="pi pi-angle-right text-[8px] xs:text-[10px] sm:text-xs" />
                   <span className='truncate'>{item.label}</span>
                 </Link>

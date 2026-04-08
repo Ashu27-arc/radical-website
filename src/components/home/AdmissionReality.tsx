@@ -41,10 +41,7 @@ export default function AdmissionReality() {
         return (
           <div
             key={index}
-            className={`group flex flex-col md:flex-row items-center gap-6 md:gap-8 
-                px-4 md:px-6 py-0 rounded-4xl transition-all duration-300 ease-in-out
-                ${isReverse ? "md:flex-row-reverse" : ""
-              }`}
+            className={`group flex flex-col md:flex-row items-center gap-6 md:gap-8 px-4 md:px-6 py-0 rounded-4xl transition-all duration-300 ease-in-out ${isReverse ? "md:flex-row-reverse" : ""}`}
           >
             {/* Image */}
             <div className="flex-shrink-0">
@@ -61,8 +58,7 @@ export default function AdmissionReality() {
 
             {/* Text */}
             <div
-              className={`w-full md:w-2/3 text-center 
-                  ${isReverse ? "md:text-right" : "md:text-left"}`}
+              className={`w-full md:w-2/3 text-center ${isReverse ? "md:text-right" : "md:text-left"}`}
             >
               <h3 className="font-semibold text-gray-900 text-lg">
                 {item.title}

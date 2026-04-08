@@ -56,10 +56,7 @@ export default function Earth3D() {
             </p>
             <Link
               href="/study-abroad/"
-              className="inline-block px-8 py-3 rounded-[100px] text-white font-semibold text-base
-                bg-gradient-to-r from-[#27AEDC] to-[#3FE198]
-                hover:from-[#2195bd] hover:to-[#34b87a]
-                transition-all duration-300 hover:shadow-lg hover:scale-105"
+              className="inline-block px-8 py-3 rounded-[100px] text-white font-semibold text-base bg-gradient-to-r from-[#27AEDC] to-[#3FE198] hover:from-[#2195bd] hover:to-[#34b87a] transition-all duration-300 hover:shadow-lg hover:scale-105"
             >
               Explore Countries
             </Link>

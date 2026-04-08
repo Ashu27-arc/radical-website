@@ -75,37 +75,21 @@ const CourseSlider: FC = () => {
               <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition duration-500" />
 
               {/* Bottom Glass Blur Title */}
-              <div className="
-                  absolute bottom-0 left-0 w-full
-                  px-4 py-3 flex items-center justify-between
-                  bg-black/30 backdrop-blur-[10px]
-                  border-t border-white/10
-                ">
+              <div className="absolute bottom-0 left-0 w-full px-4 py-3 flex items-center justify-between bg-black/30 backdrop-blur-[10px] border-t border-white/10">
                 <span className="text-white text-[18px] font-medium tracking-wide">
                   {course.title}
                 </span>
 
                 {/* Arrow Button */}
-                <div className="
-                    w-[24.04px] h-[24.04px] rounded-full bg-white/90
-                    flex items-center justify-center
-                    transition duration-300
-                    group-hover:translate-x-1 group-hover:bg-white
-                  ">
-                  <span className="w-[24.04px] h-[24.04px] rounded-full bg-white/90
-                    flex items-center justify-center text-black text-[10px] transition group-hover:translate-x-0.5">
+                <div className="w-[24.04px] h-[24.04px] rounded-full bg-white/90 flex items-center justify-center transition duration-300 group-hover:translate-x-1 group-hover:bg-white">
+                  <span className="w-[24.04px] h-[24.04px] rounded-full bg-white/90 flex items-center justify-center text-black text-[10px] transition group-hover:translate-x-0.5">
                     <i className='pi pi-arrow-right'></i>
                   </span>
                 </div>
               </div>
 
               {/* Glow border effect */}
-              <div className="
-                  pointer-events-none absolute inset-0 rounded-[12px]
-                  ring-1 ring-transparent
-                  group-hover:ring-white/20
-                  transition duration-500
-                " />
+              <div className="pointer-events-none absolute inset-0 rounded-[12px] ring-1 ring-transparent group-hover:ring-white/20 transition duration-500" />
             </Link>
           ) : (
             <div className="group relative w-[170.51px] h-[193.05px] rounded-[12px] overflow-hidden cursor-pointer mx-auto">
@@ -121,37 +105,21 @@ const CourseSlider: FC = () => {
               <div className="absolute inset-0 bg-black/10 group-hover:bg-black/30 transition duration-500" />
 
               {/* Bottom Glass Blur Title */}
-              <div className="
-                    absolute bottom-0 left-0 w-full
-                    px-4 py-3 flex items-center justify-between
-                    bg-black/30 backdrop-blur-[10px]
-                    border-t border-white/10
-                  ">
+              <div className="absolute bottom-0 left-0 w-full px-4 py-3 flex items-center justify-between bg-black/30 backdrop-blur-[10px] border-t border-white/10">
                 <span className="text-white text-[18px] font-medium tracking-wide">
                   {course.title}
                 </span>
 
                 {/* Arrow Button */}
-                <div className="
-                      w-[24.04px] h-[24.04px] rounded-full bg-white/90
-                      flex items-center justify-center
-                      transition duration-300
-                      group-hover:translate-x-1 group-hover:bg-white
-                    ">
-                  <span className="w-[24.04px] h-[24.04px] rounded-full bg-white/90
-                      flex items-center justify-center text-black text-[10px] transition group-hover:translate-x-0.5">
+                <div className="w-[24.04px] h-[24.04px] rounded-full bg-white/90 flex items-center justify-center transition duration-300 group-hover:translate-x-1 group-hover:bg-white">
+                  <span className="w-[24.04px] h-[24.04px] rounded-full bg-white/90 flex items-center justify-center text-black text-[10px] transition group-hover:translate-x-0.5">
                     <i className='pi pi-arrow-right'></i>
                   </span>
                 </div>
               </div>
 
               {/* Glow border effect */}
-              <div className="
-                    pointer-events-none absolute inset-0 rounded-[12px]
-                    ring-1 ring-transparent
-                    group-hover:ring-white/20
-                    transition duration-500
-                  " />
+              <div className="pointer-events-none absolute inset-0 rounded-[12px] ring-1 ring-transparent group-hover:ring-white/20 transition duration-500" />
             </div>
           )}
         </SwiperSlide>

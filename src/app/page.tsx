@@ -143,9 +143,7 @@ export default function Home() {
                 }
               }}
             />
-            <span className="absolute left-12 top-4 text-sm text-[#78787899] pointer-events-none 
-                        transition-opacity duration-200 
-                        peer-focus:opacity-0 peer-not-placeholder-shown:opacity-0"
+            <span className="absolute left-12 top-4 text-sm text-[#78787899] pointer-events-none transition-opacity duration-200 peer-focus:opacity-0 peer-not-placeholder-shown:opacity-0"
             >
               Search for your college
             </span>
@@ -192,9 +190,7 @@ export default function Home() {
                   <div className="md:col-span-2 flex flex-col gap-5 md:items-start items-center">
                     <Link
                       href="/neet-ug-india-admission/"
-                      className="group flex items-center w-[326px] h-[52px] justify-start gap-4 rounded-[20px] px-6 text-white 
-                      bg-[linear-gradient(90deg,#27AEDC_0%,#3FE198_100%)]
-                      shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
+                      className="group flex items-center w-[326px] h-[52px] justify-start gap-4 rounded-[20px] px-6 text-white bg-[linear-gradient(90deg,#27AEDC_0%,#3FE198_100%)] shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
                       aria-label="NEET UG India Admissions"
                     >
                       <span className="font-bold text-[18px]">
@@ -220,9 +216,7 @@ export default function Home() {
                     </Link>
                     <Link
                       href="/neet-pg-india-admission/"
-                      className="group flex items-center w-[326px] h-[52px] justify-start gap-4 rounded-[20px] px-6 text-white 
-                      bg-[linear-gradient(90deg,#F6C667_0%,#F04E23_100%)]
-                      shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
+                      className="group flex items-center w-[326px] h-[52px] justify-start gap-4 rounded-[20px] px-6 text-white bg-[linear-gradient(90deg,#F6C667_0%,#F04E23_100%)] shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
                       aria-label="NEET PG India Admissions"
                     >
                       <span className="font-bold text-[18px]">
@@ -248,9 +242,7 @@ export default function Home() {
                     </Link>
                     <Link
                       href="/study-abroad/"
-                      className="group flex items-center w-[326px] h-[52px] justify-start gap-4 rounded-[20px] px-6 text-white 
-                       bg-[linear-gradient(90deg,#677CE7_0%,#754FA7_100%)]
-                      shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
+                      className="group flex items-center w-[326px] h-[52px] justify-start gap-4 rounded-[20px] px-6 text-white bg-[linear-gradient(90deg,#677CE7_0%,#754FA7_100%)] shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
                       aria-label="MBBS Abroad Admissions"
                     >
                       <span className="font-bold text-[18px]">
