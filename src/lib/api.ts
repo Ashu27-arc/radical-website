@@ -174,7 +174,8 @@ const mapWpPostToBlog = (post: any): Blog => {
     featuredImage: extractFeaturedImage(post),          // Requirement §4
     author: post._embedded?.author?.[0]?.name || 'Radical Education',
     category: post._embedded?.['wp:term']?.[0]?.map((c: any) => c.name).join(', ') || 'Latest Update',
-    status: 'Published'
+    status: 'Published',
+    faqs: Array.isArray(post.acf?.faqs) ? post.acf.faqs : Array.isArray(post.faqs) ? post.faqs : []
   };
 };
 
@@ -298,20 +299,55 @@ export async function getBlogBySlug(slug: string): Promise<Blog | null> {
       if (blog) return blog;
     }
 
-    // Final Attempt: Fuzzy Search Fallback
-    // If all direct slug matches fail, we try a search. This is extremely helpful for slugs that 
-    // might have changed slightly (e.g., "-2025" added or removed).
+    // Final Attempt: Fuzzy Search Fallback with Smart Matching
+    // If all direct slug matches fail, we try a search and pick the most relevant one by comparing slugs.
     if (!blog) {
-      const searchQuery = wpSlug
-        .replace(/-\d{4}$/, '')  // Remove trailing year like -2025
-        .replace(/-/g, ' ');    // Replace dashes with spaces for better search relevance
+      const cleanTarget = wpSlug.replace(/-\d{2,4}$/, ''); // Slug minus year
+      const searchQuery = cleanTarget.replace(/-/g, ' ');
       
-      // We limit to 1 result to get the most relevant match
-      blog = await tryFetch('posts', `search=${encodeURIComponent(searchQuery)}&per_page=1&_embed=1`);
+      const isClient = typeof window !== 'undefined';
+      const type = 'posts';
+      const queryParams = `search=${encodeURIComponent(searchQuery)}&per_page=5&_embed=1`;
       
-      // If still nothing, try the original slug as a search query
-      if (!blog) {
-        blog = await tryFetch('posts', `search=${encodeURIComponent(wpSlug.replace(/-/g, ' '))}&per_page=1&_embed=1`);
+      const url = isClient
+        ? `/api/wp/${type}?${queryParams}`
+        : `https://backup.radicaleducation.in/wp-json/wp/v2/${type}?${queryParams}`;
+
+      try {
+        const headers: Record<string, string> = {
+          'Accept': 'application/json',
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+        };
+
+        if (!isClient && process.env.WP_USER && process.env.WP_APP_PASSWORD) {
+          headers['Authorization'] = `Basic ${encodeBase64(`${process.env.WP_USER}:${process.env.WP_APP_PASSWORD}`)}`;
+        }
+
+        const res = await fetch(url, { headers, next: { revalidate: 60 } });
+        if (res.ok) {
+          const results = await res.json();
+          if (Array.isArray(results) && results.length > 0) {
+            // Priority 1: Find result where slug is a direct match to our clean target
+            let match = results.find(r => r.slug === cleanTarget || r.slug.includes(cleanTarget) || cleanTarget.includes(r.slug));
+            
+            // Priority 2: Take the first (most relevant) result if it's "close enough" 
+            // We define "close enough" as having at least 2 common words from the slug
+            if (!match) {
+              const targetWords = cleanTarget.split('-');
+              match = results.find(r => {
+                const resultWords = r.slug.split('-');
+                const common = targetWords.filter(w => resultWords.includes(w));
+                return common.length >= 2;
+              });
+            }
+
+            if (match) {
+              blog = mapWpPostToBlog(match);
+            }
+          }
+        }
+      } catch (e) {
+        console.error('[getBlogBySlug] Search Fallback Error:', e);
       }
     }
 

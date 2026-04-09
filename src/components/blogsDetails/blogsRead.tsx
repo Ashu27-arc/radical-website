@@ -186,7 +186,6 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
     const categoryContainerRef = useRef<HTMLDivElement>(null);
     const [blog, setBlog] = useState<Blog | null>(null);
     const [loading, setLoading] = useState(true);
-    const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
     const { addMessageHandler } = useWebSocket();
 
     useEffect(() => {
@@ -363,49 +362,28 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                                         </div>
                                     )}
 
-                                    {/* FAQs Section - Premium State-Managed Accordion */}
+                                    {/* FAQs Section - Premium Styled Cards */}
                                     {blog.faqs && blog.faqs.length > 0 && (
-                                        <div className="mt-10 mb-10 border border-gray-200 rounded-2xl overflow-hidden bg-white shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_4px_6px_-2px_rgba(0,0,0,0.05)]">
-                                            <div className="px-6 py-5 bg-gray-50/50 border-b border-gray-100 flex items-center justify-between">
-                                                <h2 className="text-xl sm:text-2xl font-bold text-gray-900 flex items-center gap-3">
-                                                    <span className="w-1.5 h-8 bg-[#005A8B] rounded-full"></span>
-                                                    Frequently Asked Questions
-                                                </h2>
-                                            </div>
-                                            <div className="divide-y divide-gray-100">
-                                                {blog.faqs.map((faq, idx) => {
-                                                    const isOpen = openFaqIndex === idx;
-                                                    return (
-                                                        <div key={idx} className="bg-white">
-                                                            <button
-                                                                onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
-                                                                className="w-full flex items-center gap-4 px-5 py-4 sm:px-6 sm:py-5 text-left hover:bg-gray-50/80 transition-all duration-300 focus:outline-none"
-                                                            >
-                                                                <div className={`shrink-0 w-8 h-8 flex items-center justify-center rounded-lg transition-all duration-300 ${isOpen ? 'bg-[#005A8B] text-white' : 'bg-indigo-50 text-[#005A8B]'}`}>
-                                                                    <svg 
-                                                                        className={`w-5 h-5 transform transition-transform duration-300 ${isOpen ? 'rotate-45 text-white' : 'rotate-0'}`} 
-                                                                        fill="none" 
-                                                                        viewBox="0 0 24 24" 
-                                                                        stroke="currentColor"
-                                                                    >
-                                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M12 4v16m8-8H4" />
-                                                                    </svg>
-                                                                </div>
-                                                                <span className={`font-semibold text-sm sm:text-base leading-relaxed transition-colors ${isOpen ? 'text-[#005A8B]' : 'text-gray-800'}`}>
-                                                                    {faq.question}
-                                                                </span>
-                                                            </button>
-                                                            <div 
-                                                                className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'max-h-[1000px] opacity-100' : 'max-h-0 opacity-0'}`}
-                                                            >
-                                                                <div
-                                                                    className="px-6 pb-5 sm:pl-[72px] sm:pr-6 pt-0 text-gray-600 text-sm sm:text-[15px] leading-relaxed"
-                                                                    dangerouslySetInnerHTML={{ __html: processFaqAnswer(faq.answer) }}
-                                                                />
-                                                            </div>
-                                                        </div>
-                                                    );
-                                                })}
+                                        <div className="mt-10 mb-10">
+                                            <h2 className="text-2xl sm:text-2xl font-extrabold text-[#001D2D] mb-8 tracking-tight">
+                                                FAQ&apos;S
+                                            </h2>
+                                            <div className="space-y-4 sm:space-y-5">
+                                                {blog.faqs.map((faq, idx) => (
+                                                    <div 
+                                                        key={idx} 
+                                                        className="bg-white p-6 sm:p-8 rounded-xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.08)] border border-gray-50 transition-all hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]"
+                                                    >
+                                                        <h3 className="font-bold text-[#001D2D] text-base sm:text-lg mb-4 flex items-start gap-2">
+                                                            <span>{idx + 1}.</span>
+                                                            <span className="leading-tight">{faq.question}</span>
+                                                        </h3>
+                                                        <div
+                                                            className="text-gray-500 text-sm sm:text-base leading-relaxed font-medium"
+                                                            dangerouslySetInnerHTML={{ __html: processFaqAnswer(faq.answer) }}
+                                                        />
+                                                    </div>
+                                                ))}
                                             </div>
                                         </div>
                                     )}

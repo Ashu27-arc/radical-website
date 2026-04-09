@@ -22,12 +22,12 @@ export const metadata: Metadata = {
   title: 'Radical Education',
   description: 'Radical Education Most Trusted and Transparent NEET Counsellor 15,783+ Students counselled 1732+ Admission Done 14+ Country Looking for admissions in MBBS INDIA ?',
   robots: {
-    index: false,
-    follow: false,
+    index: true,
+    follow: true,
     nocache: true,
     googleBot: {
-      index: false,
-      follow: false,
+      index: true,
+      follow: true,
       noimageindex: true,
       'max-video-preview': -1,
       'max-image-preview': 'large',
@@ -48,9 +48,6 @@ export default function RootLayout({ children, }: { children: React.ReactNode; }
   return (
     <html lang="en" className={poppins.className} suppressHydrationWarning>
       <head>
-        <meta name="robots" content="noindex, nofollow" />
-        <meta name="googlebot" content="noindex, nofollow" />
-        
       </head>
       <body className="flex flex-col min-h-screen" suppressHydrationWarning>
         <Providers>
