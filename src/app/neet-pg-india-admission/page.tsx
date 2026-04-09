@@ -248,9 +248,9 @@ export default function NeetPgIndiaAdmissionPage() {
                                         <h3 className="font-semibold text-gray-900 text-sm">
                                             {item.title}
                                         </h3>
-                                        <div className="text-[#FF0000] text-xl">
+                                        {/* <div className="text-[#FF0000] text-xl">
                                             <i className="pi pi-youtube"></i>
-                                        </div>
+                                        </div> */}
                                     </div>
                                 </div>
                             </SwiperSlide>
