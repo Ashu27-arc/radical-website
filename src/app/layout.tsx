@@ -12,12 +12,6 @@ import ClientWrapper from '@/components/ClientWrapper';
 import { Metadata } from 'next';
 import EnquireButton from '@/components/EnquireButton';
 
-
-
-
-
-
-
 export const metadata: Metadata = {
   title: 'Radical Education',
   description: 'Radical Education Most Trusted and Transparent NEET Counsellor 15,783+ Students counselled 1732+ Admission Done 14+ Country Looking for admissions in MBBS INDIA ?',
@@ -40,7 +34,7 @@ import { Poppins } from 'next/font/google';
 
 const poppins = Poppins({
   subsets: ['latin'],
-  weight: ['300','400','500','600','700','800'],
+  weight: ['300', '400', '500', '600', '700', '800'],
   display: 'swap',
 });
 
