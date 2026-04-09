@@ -48,27 +48,10 @@ export async function GET(request: NextRequest) {
     // strategy 1 failed, fall through
   }
 
-  // ── Strategy 2: Fetch WP frontend post and extract content ────────────────
-  if (slug) {
-    try {
-      const pageRes = await fetch(`${WP_BASE}/${slug}/`, {
-        headers: { Accept: 'text/html', 'User-Agent': 'Mozilla/5.0 (compatible; RadicalBot/1.0)' },
-        next: { revalidate: 300 },
-      });
-      if (pageRes.ok) {
-        const html = await pageRes.text();
-        // Extract inner content of the main content container
-        const contentMatch =
-          html.match(/<(?:div|article)[^>]*class="[^"]*(?:entry-content|post-content|wp-block-post-content)[^"]*"[^>]*>([\s\S]*?)<\/(?:div|article)>/i) ||
-          html.match(/<main[^>]*>([\s\S]*?)<\/main>/i);
-        if (contentMatch?.[1]) {
-          return buildHtmlResponse(contentMatch[1]);
-        }
-      }
-    } catch {
-      // strategy 2 failed, fall through
-    }
-  }
+  // ── Strategy 2: Fetch WP frontend post removed to prevent content repetition ────────────────
+  // Note: Strategy 2 was returning the entire blog content inside the iframe, 
+  // causing recursive rendering. We now only rely on the Gutenberg block renderer.
+
 
   // ── Final fallback: show raw shortcode as a notice ─────────────────────────
   return buildHtmlResponse(

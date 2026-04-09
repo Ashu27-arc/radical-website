@@ -127,19 +127,19 @@ export function replaceWpForms(content: string, postSlug?: string): string {
     return `<div class="wpforms-container-embed" style="width:100%;margin:2rem 0;clear:both;"><iframe src="https://backup.radicaleducation.in/wpforms/view/${id}" style="width:100%;min-height:500px;border:none;overflow:hidden;" loading="lazy" allow="payment;clipboard-write;geolocation" title="WPForms Form ${id}"></iframe></div>`;
   });
 
-  // 2. All other raw shortcodes → proxy iframe
+  // 2. Specific shortcodes (iframe, banner, crm-form) → proxy iframe
   const slugParam = postSlug ? `&slug=${encodeURIComponent(postSlug)}` : '';
-  result = result.replace(/\[([a-zA-Z_][\w-]*)([^\]]*)\]/g, (match, tag, attrs) => {
-    // Basic filter: don't treat [1], [2] etc purely as shortcodes if they don't look like tags
-    if (/^\d+/ .test(tag)) return match;
-    
-    // Double check common non-shortcode square brackets (like [MBBS])
-    const commonWords = ['MBBS', 'NEET', 'AIIMS', 'JIPMER', 'AFMC'];
-    if (commonWords.includes(tag.toUpperCase()) && !attrs.trim()) return match;
+  const shortcodeRegex = /\[(iframe|banner|banner-iframe|crm-form|form)([^\]]*)\]/gi;
+
+  
+  result = result.replace(shortcodeRegex, (match, tag, attrs) => {
+    // Avoid re-encoding if something looks like it's already an iframe or has suspicious tag
+    if (!tag || /^\d+/.test(tag)) return match;
 
     const encoded = encodeBase64(`[${tag}${attrs}]`);
     return `<div class="wp-shortcode-iframe-embed" style="width:100%;margin:1.5rem 0;clear:both;"><iframe src="/api/wp/shortcode-render?sc=${encoded}${slugParam}" style="width:100%;min-height:200px;border:none;overflow:hidden;" loading="lazy" title="WordPress ${tag} shortcode" scrolling="no" onload="try{this.style.height=this.contentDocument.body.scrollHeight+'px'}catch(e){}"></iframe></div>`;
   });
+
 
   return result;
 }
