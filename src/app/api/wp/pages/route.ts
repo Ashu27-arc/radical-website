@@ -17,8 +17,14 @@ export async function GET(request: NextRequest) {
   const slug = searchParams.get('slug');
 
   const wpUrl = new URL(WP_API_BASE);
+  
+  // Forward all query parameters
+  searchParams.forEach((value, key) => {
+    wpUrl.searchParams.set(key, value);
+  });
+
+  // Force _embed=1
   wpUrl.searchParams.set('_embed', '1');
-  if (slug) wpUrl.searchParams.set('slug', slug);
 
   try {
     async function fetchFromWp(url: string) {

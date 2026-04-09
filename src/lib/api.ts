@@ -290,7 +290,7 @@ export async function getBlogBySlug(slug: string): Promise<Blog | null> {
       if (blog) return blog;
     }
 
-    // Final attempt: fallback to fetching with the full path as slug (some WP setups use full paths)
+    // Attempt 5: Fallback to fetching with the full path as slug (some WP setups use full paths)
     if (cleanSlug !== wpSlug) {
       const fullPathParams = `slug=${encodeURIComponent(cleanSlug)}&_embed=1`;
       blog = await tryFetch('posts', fullPathParams);
@@ -298,7 +298,24 @@ export async function getBlogBySlug(slug: string): Promise<Blog | null> {
       if (blog) return blog;
     }
 
-    return null;
+    // Final Attempt: Fuzzy Search Fallback
+    // If all direct slug matches fail, we try a search. This is extremely helpful for slugs that 
+    // might have changed slightly (e.g., "-2025" added or removed).
+    if (!blog) {
+      const searchQuery = wpSlug
+        .replace(/-\d{4}$/, '')  // Remove trailing year like -2025
+        .replace(/-/g, ' ');    // Replace dashes with spaces for better search relevance
+      
+      // We limit to 1 result to get the most relevant match
+      blog = await tryFetch('posts', `search=${encodeURIComponent(searchQuery)}&per_page=1&_embed=1`);
+      
+      // If still nothing, try the original slug as a search query
+      if (!blog) {
+        blog = await tryFetch('posts', `search=${encodeURIComponent(wpSlug.replace(/-/g, ' '))}&per_page=1&_embed=1`);
+      }
+    }
+
+    return blog || null;
   } catch (error) {
     console.error('[getBlogBySlug] critical failure:', error);
     return null;

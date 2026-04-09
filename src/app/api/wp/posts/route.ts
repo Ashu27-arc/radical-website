@@ -21,14 +21,14 @@ export async function GET(request: NextRequest) {
 
   // Build the upstream WP URL
   const wpUrl = new URL(WP_API_BASE);
+  
+  // Forward all query parameters from the incoming request (per_page, slug, search, _fields, etc.)
+  searchParams.forEach((value, key) => {
+    wpUrl.searchParams.set(key, value);
+  });
+
+  // Always force _embed=1 for metadata extraction
   wpUrl.searchParams.set('_embed', '1');
-  if (slug) {
-    wpUrl.searchParams.set('slug', slug);
-  } else {
-    wpUrl.searchParams.set('per_page', perPage);
-    const fields = searchParams.get('_fields');
-    if (fields) wpUrl.searchParams.set('_fields', fields);
-  }
 
   try {
     async function fetchFromWp(url: string) {
