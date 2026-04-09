@@ -51,7 +51,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/blog/:path*",
-        destination: "https://backup.radicaleducation.in/blog/:path*",
+        destination: "/:path*",
         permanent: true,
       },
     ];

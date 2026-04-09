@@ -31,25 +31,50 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    // fetch() on the server has no CORS restriction.
-    // next: { revalidate: 60 } caches the upstream response in Next.js data cache.
-    const res = await fetch(wpUrl.toString(), {
-      headers: { Accept: 'application/json' },
-      next: { revalidate: 60 },
-    });
+    async function fetchFromWp(url: string) {
+      const headers: Record<string, string> = {
+        'Accept': 'application/json',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+      };
 
-    if (!res.ok) {
+      if (process.env.WP_USER && process.env.WP_APP_PASSWORD) {
+        const auth = Buffer.from(`${process.env.WP_USER}:${process.env.WP_APP_PASSWORD}`).toString('base64');
+        headers['Authorization'] = `Basic ${auth}`;
+      }
+
+      const res = await fetch(url, {
+        headers,
+        next: { revalidate: 60 },
+      });
+
+      if (!res.ok) {
+        const errorText = await res.text().catch(() => 'No body');
+        console.error(`[WP API ERROR] ${url} - Status: ${res.status}`, errorText);
+        return { data: null, status: res.status, error: errorText };
+      }
+      return { data: await res.json(), status: 200, error: null };
+    }
+
+    let result = await fetchFromWp(wpUrl.toString());
+
+    // If slug search returned nothing, try lowercase version (WP default)
+    if (slug && (!result.data || (Array.isArray(result.data) && result.data.length === 0)) && slug !== slug.toLowerCase()) {
+      wpUrl.searchParams.set('slug', slug.toLowerCase());
+      const lowerResult = await fetchFromWp(wpUrl.toString());
+      if (lowerResult.data && Array.isArray(lowerResult.data) && lowerResult.data.length > 0) {
+        result = lowerResult;
+      }
+    }
+
+    if (!result.data) {
       return NextResponse.json(
-        { error: `WP API returned ${res.status}` },
-        { status: res.status }
+        { error: 'WP API failure', details: result.error },
+        { status: result.status || 502 }
       );
     }
 
-    const data = await res.json();
-
-    return NextResponse.json(data, {
+    return NextResponse.json(result.data, {
       headers: {
-        // Allow browsers / CDNs to cache for 60 s too
         'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=120',
       },
     });

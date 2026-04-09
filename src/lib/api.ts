@@ -100,31 +100,44 @@ export async function getBlogs(): Promise<Blog[]> {
 
 // ─── Helpers ────────────────────────────────────────────────────────────────
 
+/** Universal base64 encoder: works in browser (btoa) and Node.js (Buffer). */
+function encodeBase64(str: string): string {
+  if (typeof window !== 'undefined') {
+    // browser – encode UTF-8 bytes then base64
+    return btoa(
+      encodeURIComponent(str).replace(/%([0-9A-F]{2})/gi, (_m, hex) =>
+        String.fromCharCode(parseInt(hex, 16))
+      )
+    );
+  }
+  return Buffer.from(str, 'utf8').toString('base64');
+}
+
 /**
- * Replace WPForms shortcodes or pre-rendered WPForms HTML with responsive iframe embeds.
- * Requirement §5
+ * Convert ALL remaining raw WordPress shortcodes into responsive iframe embeds.
+ *
+ * - [wpforms id="X"]  → direct WPForms view URL (proven endpoint)
+ * - [anything ...]    → /api/wp/shortcode-render?sc=[base64] proxy
  */
-export function replaceWpForms(content: string): string {
+export function replaceWpForms(content: string, postSlug?: string): string {
   if (!content) return '';
 
-  // 1. Handle raw shortcodes like [wpforms id="123"]
-  let result = content.replace(/\[wpforms\s+id=["']?(\d+)["']?\]/g, (match, id) => {
-    return `<div class="wpforms-container-embed" style="width: 100%; margin: 2rem 0; clear: both;">
-      <iframe 
-        src="https://backup.radicaleducation.in/wpforms/view/${id}" 
-        style="width: 100%; min-height: 500px; border: none; overflow: hidden;" 
-        loading="lazy"
-        allow="payment; clipboard-write; geolocation"
-        title="WPForm ${id}"
-      ></iframe>
-    </div>`;
+  // 1. [wpforms id="123"] or [wp_form id="123"] → proxy iframe for styling
+  const slugParam = postSlug ? `&slug=${encodeURIComponent(postSlug)}` : '';
+  
+  // Combine all shortcodes to be proxied
+  // We include wpforms, wp_form, and others here so they all get the same styling treatment.
+  const shortcodeRegex = /\[(wpforms|wp_form|iframe|banner|banner-iframe|crm-form|form)([^\]]*)\]/gi;
+
+  let result = content.replace(shortcodeRegex, (match, tag, attrs) => {
+    // Avoid re-encoding if something looks like it's already an iframe or has suspicious tag
+    if (!tag || /^\d+/.test(tag)) return match;
+
+    const encoded = encodeBase64(`[${tag}${attrs}]`);
+    return `<div class="wp-shortcode-iframe-embed" style="width:100%;margin:1.5rem 0;clear:both;"><iframe src="/api/wp/shortcode-render?sc=${encoded}${slugParam}" style="width:100%;min-height:200px;border:none;overflow:hidden;" loading="lazy" title="WordPress ${tag} shortcode" scrolling="no" onload="try{this.style.height=this.contentDocument.body.scrollHeight+'px'}catch(e){}"></iframe></div>`;
   });
 
-  // 2. We intentionally do NOT replace already-rendered WPForms HTML containers 
-  // with an iframe anymore. Replacing them was causing the 'whole site' (header/footer) 
-  // to appear inside the blog post. Instead, we keep the native HTML and 
-  // handle the 'Please enable JavaScript' warning via CSS in the renderer.
-  
+
   return result;
 }
 
@@ -172,16 +185,27 @@ const mapWpPostToBlog = (post: any): Blog => {
 export async function getWpBlogs(): Promise<Blog[]> {
   try {
     const isClient = typeof window !== 'undefined';
-    const params = 'per_page=100&_fields=id,slug,title,content,excerpt,date,categories,_links,_embedded';
+    // We remove 'content' from fields for the list view to reduce payload size.
+    // '_embedded' is NOT a field in _fields; it's triggered by the _embed query param.
+    const params = 'per_page=100&_fields=id,slug,title,excerpt,date,categories,_links';
     
     // On client, use our local proxy. On server, call WP directly.
     const url = isClient 
       ? `/api/wp/posts?${params}` 
       : `https://backup.radicaleducation.in/wp-json/wp/v2/posts?_embed=1&${params}`;
 
+    const headers: Record<string, string> = {
+      'Accept': 'application/json',
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+    };
+
+    if (!isClient && process.env.WP_USER && process.env.WP_APP_PASSWORD) {
+      headers['Authorization'] = `Basic ${encodeBase64(`${process.env.WP_USER}:${process.env.WP_APP_PASSWORD}`)}`;
+    }
+
     const res = await fetch(url, {
       method: 'GET',
-      headers: { 'Accept': 'application/json' },
+      headers,
       next: { revalidate: 60 },
     });
 
@@ -203,52 +227,80 @@ export async function getWpBlogs(): Promise<Blog[]> {
  */
 export async function getBlogBySlug(slug: string): Promise<Blog | null> {
   if (!slug) return null;
+  
+  // Clean slug: remove query params and trailing/leading slashes
+  const cleanSlug = slug.split('?')[0].replace(/^\/+|\/+$/g, '');
+  if (!cleanSlug) return null;
+
   try {
-    const wpSlug = slug.includes('/') ? slug.split('/').pop() : slug;
-    if (!wpSlug) return null;
+    // Extract the actual post name (last part of the path)
+    const wpSlug = cleanSlug.split('/').pop() || cleanSlug;
     
     const isClient = typeof window !== 'undefined';
     const params = `slug=${encodeURIComponent(wpSlug)}&_embed=1`;
+    const lowerParams = `slug=${encodeURIComponent(wpSlug.toLowerCase())}&_embed=1`;
     
-    // 1. Try fetching as a POST
-    const postUrl = isClient
-      ? `/api/wp/posts?${params}`
-      : `https://backup.radicaleducation.in/wp-json/wp/v2/posts?${params}`;
+    // Helper to fetch and check if it's a valid post
+    async function tryFetch(type: 'posts' | 'pages', queryParams: string) {
+      const url = isClient
+        ? `/api/wp/${type}?${queryParams}`
+        : `https://backup.radicaleducation.in/wp-json/wp/v2/${type}?${queryParams}`;
 
-    const postRes = await fetch(postUrl, {
-      method: 'GET',
-      headers: { 'Accept': 'application/json' },
-      next: { revalidate: 60 },
-    });
+      const headers: Record<string, string> = {
+        'Accept': 'application/json',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+      };
 
-    if (postRes.ok) {
-      const posts = await postRes.json();
-      if (Array.isArray(posts) && posts.length > 0) {
-        return mapWpPostToBlog(posts[0]);
+      if (!isClient && process.env.WP_USER && process.env.WP_APP_PASSWORD) {
+        headers['Authorization'] = `Basic ${encodeBase64(`${process.env.WP_USER}:${process.env.WP_APP_PASSWORD}`)}`;
       }
+
+      const res = await fetch(url, {
+        method: 'GET',
+        headers,
+        next: { revalidate: 60 },
+      });
+
+      if (res.ok) {
+        const data = await res.json();
+        if (Array.isArray(data) && data.length > 0) {
+          return mapWpPostToBlog(data[0]);
+        }
+      }
+      return null;
     }
 
-    // 2. Fallback: Try fetching as a PAGE
-    const pageUrl = isClient
-      ? `/api/wp/pages?${params}`
-      : `https://backup.radicaleducation.in/wp-json/wp/v2/pages?${params}`;
+    // Attempt 1: Posts with original slug
+    let blog = await tryFetch('posts', params);
+    if (blog) return blog;
 
-    const pageRes = await fetch(pageUrl, {
-      method: 'GET',
-      headers: { 'Accept': 'application/json' },
-      next: { revalidate: 60 },
-    });
+    // Attempt 2: Posts with lowercase slug (WordPress default behavior)
+    if (wpSlug !== wpSlug.toLowerCase()) {
+      blog = await tryFetch('posts', lowerParams);
+      if (blog) return blog;
+    }
 
-    if (pageRes.ok) {
-      const pages = await pageRes.json();
-      if (Array.isArray(pages) && pages.length > 0) {
-        return mapWpPostToBlog(pages[0]);
-      }
+    // Attempt 3: Pages with original slug
+    blog = await tryFetch('pages', params);
+    if (blog) return blog;
+
+    // Attempt 4: Pages with lowercase slug
+    if (wpSlug !== wpSlug.toLowerCase()) {
+      blog = await tryFetch('pages', lowerParams);
+      if (blog) return blog;
+    }
+
+    // Final attempt: fallback to fetching with the full path as slug (some WP setups use full paths)
+    if (cleanSlug !== wpSlug) {
+      const fullPathParams = `slug=${encodeURIComponent(cleanSlug)}&_embed=1`;
+      blog = await tryFetch('posts', fullPathParams);
+      if (!blog) blog = await tryFetch('pages', fullPathParams);
+      if (blog) return blog;
     }
 
     return null;
   } catch (error) {
-    console.error('[getBlogBySlug] error:', error);
+    console.error('[getBlogBySlug] critical failure:', error);
     return null;
   }
 }

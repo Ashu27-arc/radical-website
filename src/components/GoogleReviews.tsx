@@ -44,7 +44,7 @@ const FALLBACK_DATA: PlaceData = {
       author_name: "Ajay Kumar",
       profile_photo_url: "/images/Ajay-Kumar.webp",
       rating: 5,
-      text: "I'm Saloni, an MBBS student. Radical Education counsellors are very experienced and amazing. They helped me to get best govt MBBS college till the last round. They behaved like family members. I am thankful to all Radical Education team members. Thank you so much. I advise all of you to take help for the counselling.",
+      text: "I'm Ajay, an MBBS student. Radical Education counsellors are very experienced and amazing. They helped me to get best govt MBBS college till the last round. They behaved like family members. I am thankful to all Radical Education team members. Thank you so much. I advise all of you to take help for the counselling.",
       time: 1712035200,
     },
     {
