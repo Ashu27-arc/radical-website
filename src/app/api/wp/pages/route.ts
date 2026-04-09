@@ -22,8 +22,18 @@ export async function GET(request: NextRequest) {
 
   try {
     async function fetchFromWp(url: string) {
+      const headers: Record<string, string> = {
+        'Accept': 'application/json',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+      };
+
+      if (process.env.WP_USER && process.env.WP_APP_PASSWORD) {
+        const auth = Buffer.from(`${process.env.WP_USER}:${process.env.WP_APP_PASSWORD}`).toString('base64');
+        headers['Authorization'] = `Basic ${auth}`;
+      }
+
       const res = await fetch(url, {
-        headers: { Accept: 'application/json' },
+        headers,
         next: { revalidate: 60 },
       });
       if (!res.ok) return null;

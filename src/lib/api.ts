@@ -122,17 +122,14 @@ function encodeBase64(str: string): string {
 export function replaceWpForms(content: string, postSlug?: string): string {
   if (!content) return '';
 
-  // 1. [wpforms id="123"] → direct WPForms embed
-  let result = content.replace(/\[wpforms\s+id=["']?(\d+)["']?\]/gi, (_match, id) => {
-    return `<div class="wpforms-container-embed" style="width:100%;margin:2rem 0;clear:both;"><iframe src="https://backup.radicaleducation.in/wpforms/view/${id}" style="width:100%;min-height:500px;border:none;overflow:hidden;" loading="lazy" allow="payment;clipboard-write;geolocation" title="WPForms Form ${id}"></iframe></div>`;
-  });
-
-  // 2. Specific shortcodes (iframe, banner, crm-form) → proxy iframe
+  // 1. [wpforms id="123"] or [wp_form id="123"] → proxy iframe for styling
   const slugParam = postSlug ? `&slug=${encodeURIComponent(postSlug)}` : '';
-  const shortcodeRegex = /\[(iframe|banner|banner-iframe|crm-form|form)([^\]]*)\]/gi;
-
   
-  result = result.replace(shortcodeRegex, (match, tag, attrs) => {
+  // Combine all shortcodes to be proxied
+  // We include wpforms, wp_form, and others here so they all get the same styling treatment.
+  const shortcodeRegex = /\[(wpforms|wp_form|iframe|banner|banner-iframe|crm-form|form)([^\]]*)\]/gi;
+
+  let result = content.replace(shortcodeRegex, (match, tag, attrs) => {
     // Avoid re-encoding if something looks like it's already an iframe or has suspicious tag
     if (!tag || /^\d+/.test(tag)) return match;
 
@@ -188,19 +185,27 @@ const mapWpPostToBlog = (post: any): Blog => {
 export async function getWpBlogs(): Promise<Blog[]> {
   try {
     const isClient = typeof window !== 'undefined';
-    const params = 'per_page=100&_fields=id,slug,title,content,excerpt,date,categories,_links,_embedded';
+    // We remove 'content' from fields for the list view to reduce payload size.
+    // '_embedded' is NOT a field in _fields; it's triggered by the _embed query param.
+    const params = 'per_page=100&_fields=id,slug,title,excerpt,date,categories,_links';
     
     // On client, use our local proxy. On server, call WP directly.
     const url = isClient 
       ? `/api/wp/posts?${params}` 
       : `https://backup.radicaleducation.in/wp-json/wp/v2/posts?_embed=1&${params}`;
 
+    const headers: Record<string, string> = {
+      'Accept': 'application/json',
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+    };
+
+    if (!isClient && process.env.WP_USER && process.env.WP_APP_PASSWORD) {
+      headers['Authorization'] = `Basic ${encodeBase64(`${process.env.WP_USER}:${process.env.WP_APP_PASSWORD}`)}`;
+    }
+
     const res = await fetch(url, {
       method: 'GET',
-      headers: { 
-        'Accept': 'application/json',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-      },
+      headers,
       next: { revalidate: 60 },
     });
 
@@ -241,12 +246,18 @@ export async function getBlogBySlug(slug: string): Promise<Blog | null> {
         ? `/api/wp/${type}?${queryParams}`
         : `https://backup.radicaleducation.in/wp-json/wp/v2/${type}?${queryParams}`;
 
+      const headers: Record<string, string> = {
+        'Accept': 'application/json',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+      };
+
+      if (!isClient && process.env.WP_USER && process.env.WP_APP_PASSWORD) {
+        headers['Authorization'] = `Basic ${encodeBase64(`${process.env.WP_USER}:${process.env.WP_APP_PASSWORD}`)}`;
+      }
+
       const res = await fetch(url, {
         method: 'GET',
-        headers: { 
-          'Accept': 'application/json',
-          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-        },
+        headers,
         next: { revalidate: 60 },
       });
 

@@ -32,30 +32,48 @@ export async function GET(request: NextRequest) {
 
   try {
     async function fetchFromWp(url: string) {
+      const headers: Record<string, string> = {
+        'Accept': 'application/json',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+      };
+
+      if (process.env.WP_USER && process.env.WP_APP_PASSWORD) {
+        const auth = Buffer.from(`${process.env.WP_USER}:${process.env.WP_APP_PASSWORD}`).toString('base64');
+        headers['Authorization'] = `Basic ${auth}`;
+      }
+
       const res = await fetch(url, {
-        headers: { Accept: 'application/json' },
+        headers,
         next: { revalidate: 60 },
       });
-      if (!res.ok) return null;
-      return await res.json();
+
+      if (!res.ok) {
+        const errorText = await res.text().catch(() => 'No body');
+        console.error(`[WP API ERROR] ${url} - Status: ${res.status}`, errorText);
+        return { data: null, status: res.status, error: errorText };
+      }
+      return { data: await res.json(), status: 200, error: null };
     }
 
-    let data = await fetchFromWp(wpUrl.toString());
+    let result = await fetchFromWp(wpUrl.toString());
 
     // If slug search returned nothing, try lowercase version (WP default)
-    if (slug && (!data || (Array.isArray(data) && data.length === 0)) && slug !== slug.toLowerCase()) {
+    if (slug && (!result.data || (Array.isArray(result.data) && result.data.length === 0)) && slug !== slug.toLowerCase()) {
       wpUrl.searchParams.set('slug', slug.toLowerCase());
-      const lowerData = await fetchFromWp(wpUrl.toString());
-      if (lowerData && Array.isArray(lowerData) && lowerData.length > 0) {
-        data = lowerData;
+      const lowerResult = await fetchFromWp(wpUrl.toString());
+      if (lowerResult.data && Array.isArray(lowerResult.data) && lowerResult.data.length > 0) {
+        result = lowerResult;
       }
     }
 
-    if (!data) {
-      return NextResponse.json({ error: 'WP API failure' }, { status: 502 });
+    if (!result.data) {
+      return NextResponse.json(
+        { error: 'WP API failure', details: result.error },
+        { status: result.status || 502 }
+      );
     }
 
-    return NextResponse.json(data, {
+    return NextResponse.json(result.data, {
       headers: {
         'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=120',
       },
