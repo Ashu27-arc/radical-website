@@ -313,6 +313,11 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                                                 fill
                                                 unoptimized
                                                 className="object-cover rounded-lg"
+                                                onError={(e) => {
+                                                    const t = e.target as HTMLImageElement;
+                                                    t.src = "/images/blogs/card.webp";
+                                                    t.srcset = "";
+                                                }}
                                             />
                                         ) : (
                                             <Image

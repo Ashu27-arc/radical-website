@@ -31,25 +31,32 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    // fetch() on the server has no CORS restriction.
-    // next: { revalidate: 60 } caches the upstream response in Next.js data cache.
-    const res = await fetch(wpUrl.toString(), {
-      headers: { Accept: 'application/json' },
-      next: { revalidate: 60 },
-    });
-
-    if (!res.ok) {
-      return NextResponse.json(
-        { error: `WP API returned ${res.status}` },
-        { status: res.status }
-      );
+    async function fetchFromWp(url: string) {
+      const res = await fetch(url, {
+        headers: { Accept: 'application/json' },
+        next: { revalidate: 60 },
+      });
+      if (!res.ok) return null;
+      return await res.json();
     }
 
-    const data = await res.json();
+    let data = await fetchFromWp(wpUrl.toString());
+
+    // If slug search returned nothing, try lowercase version (WP default)
+    if (slug && (!data || (Array.isArray(data) && data.length === 0)) && slug !== slug.toLowerCase()) {
+      wpUrl.searchParams.set('slug', slug.toLowerCase());
+      const lowerData = await fetchFromWp(wpUrl.toString());
+      if (lowerData && Array.isArray(lowerData) && lowerData.length > 0) {
+        data = lowerData;
+      }
+    }
+
+    if (!data) {
+      return NextResponse.json({ error: 'WP API failure' }, { status: 502 });
+    }
 
     return NextResponse.json(data, {
       headers: {
-        // Allow browsers / CDNs to cache for 60 s too
         'Cache-Control': 'public, s-maxage=60, stale-while-revalidate=120',
       },
     });

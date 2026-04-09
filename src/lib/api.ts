@@ -129,7 +129,14 @@ export function replaceWpForms(content: string, postSlug?: string): string {
 
   // 2. All other raw shortcodes → proxy iframe
   const slugParam = postSlug ? `&slug=${encodeURIComponent(postSlug)}` : '';
-  result = result.replace(/\[([a-zA-Z_][\w-]*)([^\]]*)\]/g, (_match, tag, attrs) => {
+  result = result.replace(/\[([a-zA-Z_][\w-]*)([^\]]*)\]/g, (match, tag, attrs) => {
+    // Basic filter: don't treat [1], [2] etc purely as shortcodes if they don't look like tags
+    if (/^\d+/ .test(tag)) return match;
+    
+    // Double check common non-shortcode square brackets (like [MBBS])
+    const commonWords = ['MBBS', 'NEET', 'AIIMS', 'JIPMER', 'AFMC'];
+    if (commonWords.includes(tag.toUpperCase()) && !attrs.trim()) return match;
+
     const encoded = encodeBase64(`[${tag}${attrs}]`);
     return `<div class="wp-shortcode-iframe-embed" style="width:100%;margin:1.5rem 0;clear:both;"><iframe src="/api/wp/shortcode-render?sc=${encoded}${slugParam}" style="width:100%;min-height:200px;border:none;overflow:hidden;" loading="lazy" title="WordPress ${tag} shortcode" scrolling="no" onload="try{this.style.height=this.contentDocument.body.scrollHeight+'px'}catch(e){}"></iframe></div>`;
   });
@@ -215,58 +222,74 @@ export async function getWpBlogs(): Promise<Blog[]> {
  */
 export async function getBlogBySlug(slug: string): Promise<Blog | null> {
   if (!slug) return null;
+  
+  // Clean slug: remove query params and trailing/leading slashes
+  const cleanSlug = slug.split('?')[0].replace(/^\/+|\/+$/g, '');
+  if (!cleanSlug) return null;
+
   try {
-    const wpSlug = slug.includes('/') ? slug.split('/').pop() : slug;
-    if (!wpSlug) return null;
+    // Extract the actual post name (last part of the path)
+    const wpSlug = cleanSlug.split('/').pop() || cleanSlug;
     
     const isClient = typeof window !== 'undefined';
     const params = `slug=${encodeURIComponent(wpSlug)}&_embed=1`;
+    const lowerParams = `slug=${encodeURIComponent(wpSlug.toLowerCase())}&_embed=1`;
     
-    // 1. Try fetching as a POST
-    const postUrl = isClient
-      ? `/api/wp/posts?${params}`
-      : `https://backup.radicaleducation.in/wp-json/wp/v2/posts?${params}`;
+    // Helper to fetch and check if it's a valid post
+    async function tryFetch(type: 'posts' | 'pages', queryParams: string) {
+      const url = isClient
+        ? `/api/wp/${type}?${queryParams}`
+        : `https://backup.radicaleducation.in/wp-json/wp/v2/${type}?${queryParams}`;
 
-    const postRes = await fetch(postUrl, {
-      method: 'GET',
-      headers: { 
-        'Accept': 'application/json',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-      },
-      next: { revalidate: 60 },
-    });
+      const res = await fetch(url, {
+        method: 'GET',
+        headers: { 
+          'Accept': 'application/json',
+          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+        },
+        next: { revalidate: 60 },
+      });
 
-    if (postRes.ok) {
-      const posts = await postRes.json();
-      if (Array.isArray(posts) && posts.length > 0) {
-        return mapWpPostToBlog(posts[0]);
+      if (res.ok) {
+        const data = await res.json();
+        if (Array.isArray(data) && data.length > 0) {
+          return mapWpPostToBlog(data[0]);
+        }
       }
+      return null;
     }
 
-    // 2. Fallback: Try fetching as a PAGE
-    const pageUrl = isClient
-      ? `/api/wp/pages?${params}`
-      : `https://backup.radicaleducation.in/wp-json/wp/v2/pages?${params}`;
+    // Attempt 1: Posts with original slug
+    let blog = await tryFetch('posts', params);
+    if (blog) return blog;
 
-    const pageRes = await fetch(pageUrl, {
-      method: 'GET',
-      headers: { 
-        'Accept': 'application/json',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-      },
-      next: { revalidate: 60 },
-    });
+    // Attempt 2: Posts with lowercase slug (WordPress default behavior)
+    if (wpSlug !== wpSlug.toLowerCase()) {
+      blog = await tryFetch('posts', lowerParams);
+      if (blog) return blog;
+    }
 
-    if (pageRes.ok) {
-      const pages = await pageRes.json();
-      if (Array.isArray(pages) && pages.length > 0) {
-        return mapWpPostToBlog(pages[0]);
-      }
+    // Attempt 3: Pages with original slug
+    blog = await tryFetch('pages', params);
+    if (blog) return blog;
+
+    // Attempt 4: Pages with lowercase slug
+    if (wpSlug !== wpSlug.toLowerCase()) {
+      blog = await tryFetch('pages', lowerParams);
+      if (blog) return blog;
+    }
+
+    // Final attempt: fallback to fetching with the full path as slug (some WP setups use full paths)
+    if (cleanSlug !== wpSlug) {
+      const fullPathParams = `slug=${encodeURIComponent(cleanSlug)}&_embed=1`;
+      blog = await tryFetch('posts', fullPathParams);
+      if (!blog) blog = await tryFetch('pages', fullPathParams);
+      if (blog) return blog;
     }
 
     return null;
   } catch (error) {
-    console.error('[getBlogBySlug] error:', error);
+    console.error('[getBlogBySlug] critical failure:', error);
     return null;
   }
 }
