@@ -100,31 +100,40 @@ export async function getBlogs(): Promise<Blog[]> {
 
 // ─── Helpers ────────────────────────────────────────────────────────────────
 
+/** Universal base64 encoder: works in browser (btoa) and Node.js (Buffer). */
+function encodeBase64(str: string): string {
+  if (typeof window !== 'undefined') {
+    // browser – encode UTF-8 bytes then base64
+    return btoa(
+      encodeURIComponent(str).replace(/%([0-9A-F]{2})/gi, (_m, hex) =>
+        String.fromCharCode(parseInt(hex, 16))
+      )
+    );
+  }
+  return Buffer.from(str, 'utf8').toString('base64');
+}
+
 /**
- * Replace WPForms shortcodes or pre-rendered WPForms HTML with responsive iframe embeds.
- * Requirement §5
+ * Convert ALL remaining raw WordPress shortcodes into responsive iframe embeds.
+ *
+ * - [wpforms id="X"]  → direct WPForms view URL (proven endpoint)
+ * - [anything ...]    → /api/wp/shortcode-render?sc=[base64] proxy
  */
-export function replaceWpForms(content: string): string {
+export function replaceWpForms(content: string, postSlug?: string): string {
   if (!content) return '';
 
-  // 1. Handle raw shortcodes like [wpforms id="123"]
-  let result = content.replace(/\[wpforms\s+id=["']?(\d+)["']?\]/g, (match, id) => {
-    return `<div class="wpforms-container-embed" style="width: 100%; margin: 2rem 0; clear: both;">
-      <iframe 
-        src="https://backup.radicaleducation.in/wpforms/view/${id}" 
-        style="width: 100%; min-height: 500px; border: none; overflow: hidden;" 
-        loading="lazy"
-        allow="payment; clipboard-write; geolocation"
-        title="WPForm ${id}"
-      ></iframe>
-    </div>`;
+  // 1. [wpforms id="123"] → direct WPForms embed
+  let result = content.replace(/\[wpforms\s+id=["']?(\d+)["']?\]/gi, (_match, id) => {
+    return `<div class="wpforms-container-embed" style="width:100%;margin:2rem 0;clear:both;"><iframe src="https://backup.radicaleducation.in/wpforms/view/${id}" style="width:100%;min-height:500px;border:none;overflow:hidden;" loading="lazy" allow="payment;clipboard-write;geolocation" title="WPForms Form ${id}"></iframe></div>`;
   });
 
-  // 2. We intentionally do NOT replace already-rendered WPForms HTML containers 
-  // with an iframe anymore. Replacing them was causing the 'whole site' (header/footer) 
-  // to appear inside the blog post. Instead, we keep the native HTML and 
-  // handle the 'Please enable JavaScript' warning via CSS in the renderer.
-  
+  // 2. All other raw shortcodes → proxy iframe
+  const slugParam = postSlug ? `&slug=${encodeURIComponent(postSlug)}` : '';
+  result = result.replace(/\[([a-zA-Z_][\w-]*)([^\]]*)\]/g, (_match, tag, attrs) => {
+    const encoded = encodeBase64(`[${tag}${attrs}]`);
+    return `<div class="wp-shortcode-iframe-embed" style="width:100%;margin:1.5rem 0;clear:both;"><iframe src="/api/wp/shortcode-render?sc=${encoded}${slugParam}" style="width:100%;min-height:200px;border:none;overflow:hidden;" loading="lazy" title="WordPress ${tag} shortcode" scrolling="no" onload="try{this.style.height=this.contentDocument.body.scrollHeight+'px'}catch(e){}"></iframe></div>`;
+  });
+
   return result;
 }
 
@@ -181,7 +190,10 @@ export async function getWpBlogs(): Promise<Blog[]> {
 
     const res = await fetch(url, {
       method: 'GET',
-      headers: { 'Accept': 'application/json' },
+      headers: { 
+        'Accept': 'application/json',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+      },
       next: { revalidate: 60 },
     });
 
@@ -217,7 +229,10 @@ export async function getBlogBySlug(slug: string): Promise<Blog | null> {
 
     const postRes = await fetch(postUrl, {
       method: 'GET',
-      headers: { 'Accept': 'application/json' },
+      headers: { 
+        'Accept': 'application/json',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+      },
       next: { revalidate: 60 },
     });
 
@@ -235,7 +250,10 @@ export async function getBlogBySlug(slug: string): Promise<Blog | null> {
 
     const pageRes = await fetch(pageUrl, {
       method: 'GET',
-      headers: { 'Accept': 'application/json' },
+      headers: { 
+        'Accept': 'application/json',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+      },
       next: { revalidate: 60 },
     });
 

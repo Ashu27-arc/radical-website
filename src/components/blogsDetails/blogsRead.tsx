@@ -43,17 +43,17 @@ const getCategoryTextColor = (cat: string) => {
 };
 
 // Remove background colors from pasted HTML (copied from other sites/CRMs) and fix spacing
-const sanitizeBlogContent = (html: string) => {
+const sanitizeBlogContent = (html: string, slug?: string) => {
     if (!html) return '';
 
-    // First, replace WPForms shortcodes with embeds
-    let result = replaceWpForms(html);
+    // First, replace/convert all WordPress shortcodes to iframes
+    let result = replaceWpForms(html, slug);
 
-    // Strip other WordPress shortcode tags
+    // Strip inline background colors pasted from external editors/CRMs
     result = result
-        .replace(/\[(?!wpforms)[^\]]+\]/g, '') 
-        .replace(/background-color\s*:\s*[^;"]*;?/gi, '')
-        .replace(/background\s*:\s*[^;"]*;?/gi, '');
+        .replace(/background-color\s*:\s*[^;"']*;?/gi, '')
+        .replace(/background\s*:\s*[^;"']*;?/gi, '');
+
 
     // 1. Strip ALL height attributes from images so they don't leave empty vertical gaps 
     result = result.replace(/(<img[^>]*?)\s+height=["'][^"']*["']/gi, '$1');
@@ -326,7 +326,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
 
                                     {/* Blog Content - Shadow DOM Isolated */}
                                     <ShortcodeRenderer
-                                        html={sanitizeBlogContent(blog.content || blog.excerpt || '')}
+                                        html={sanitizeBlogContent(blog.content || blog.excerpt || '', blog.slug)}
                                         className="blog-content-wrapper"
                                     />
 
