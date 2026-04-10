@@ -186,7 +186,45 @@ const processFaqAnswer = (rawAnswer: string) => {
     return result.replace(/<a\s+/gi, '<a target="_blank" rel="noopener noreferrer" ');
 };
 
+
+
+
 const BlogsRead = ({ slug }: BlogsReadProps) => {
+
+
+useEffect(() => {
+    const initFAQ = () => {
+      const container = document.querySelector(".schema-faq");
+      if (!container) return;
+
+      const faqs = container.querySelectorAll(".schema-faq-section");
+
+      if (!faqs.length) return;
+
+      // Reset + first open
+      faqs.forEach(f => f.classList.remove("active"));
+      faqs[0].classList.add("active");
+
+      // 🔥 EVENT DELEGATION (BEST WAY)
+      container.addEventListener("click", (e: any) => {
+        const question = e.target.closest(".schema-faq-question");
+        if (!question) return;
+
+        const parent = question.closest(".schema-faq-section");
+
+        faqs.forEach(f => f.classList.remove("active"));
+
+        if (parent) parent.classList.add("active");
+      });
+    };
+
+    // ⏳ Delay to ensure HTML is rendered
+    const timer = setTimeout(initFAQ, 300);
+
+    return () => clearTimeout(timer);
+  }, [slug]); // re-run on page change
+
+    
     const [searchTerm, setSearchTerm] = useState('');
     const [activeCategory, setActiveCategory] = useState('All');
     const categoryContainerRef = useRef<HTMLDivElement>(null);
@@ -253,6 +291,12 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
     const pathname = usePathname()
     const siteUrl = "https://radicaleducation.in"
     const url = `${siteUrl}${pathname}`
+
+
+
+
+
+    
 
     return (
         <div className="w-full min-w-0 bg-gray-50 relative animate-fadeIn">

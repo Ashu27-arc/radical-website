@@ -7,9 +7,6 @@ interface ShortcodeRendererProps {
   className?: string;
 }
 
-const WP_CSS_URLS = [
-  "https://backup.radicaleducation.in/wp-content/themes/twentytwentyfive/style.css",
-];
 
 const INTERNAL_STYLES = `
 :host { 
@@ -31,12 +28,18 @@ const INTERNAL_STYLES = `
 }
 
 img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 16px;
-  margin: 1.5rem auto;
+  width: 100% !important;
+  height: auto !important;
   display: block;
 }
+img[sizes],
+img[sizes="auto"],
+img[sizes^="auto"] {
+  aspect-ratio: 16/9;
+  object-fit: cover;
+  contain: none !important;
+}
+
 
 table {
   width: 100%;
@@ -54,7 +57,21 @@ th, td { padding: 14px 18px; border-bottom: 1px solid var(--wp-border); border-r
 th:last-child, td:last-child { border-right: none; }
 tr:last-child td { border-bottom: none; }
 th { font-weight: 600; text-align: left; }
-
+.pageLink{
+display:none !important;
+}
+.blgdtlsfrmhdr {
+display: flex;
+align-items:center; 
+gap:4px;
+}
+.blgdtlsfrmhdr h4{
+margin:0;
+paddng:0;
+}
+.blog-content-wrapper h1 strong, .blog-content-wrapper h2 strong, .blog-content-wrapper h3 strong{
+font-weight:600;
+}
 /* WPForms Modern Styling */
 .wpforms-container {
   width: 100% !important;
@@ -63,7 +80,7 @@ th { font-weight: 600; text-align: left; }
   background: #ffffff;
   border: 1px solid var(--wp-border);
   border-radius: 20px;
-  max-width: 800px !important;
+  max-width: 100% !important;
   box-sizing: border-box !important;
 }
 
@@ -197,7 +214,49 @@ select.wpforms-error {
 input.wpforms-error:focus {
   border-color: #ef4444 !important;
 }
+.schema-faq {
+  margin-top: 30px;
+}
 
+.schema-faq-section {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 12px;
+}
+
+.schema-faq-question {
+  display: block;
+  font-size: 18px;
+  font-weight: 600;
+  cursor: pointer;
+  position: relative;
+  padding-right: 30px;
+}
+
+.schema-faq-question::after {
+  content: "+";
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 22px;
+  transition: 0.3s;
+}
+
+.schema-faq-answer {
+  display: none;
+  margin-top: 10px;
+  color: var(--wp-text-light);
+}
+
+.schema-faq-section.active .schema-faq-answer {
+  display: block;
+}
+
+.schema-faq-section.active .schema-faq-question::after {
+  content: "−";
+}
 /* Success Messages */
 .wpforms-confirmation-container-full {
   background: #f0fdf4 !important;
@@ -216,6 +275,10 @@ input.wpforms-error:focus {
   }
 }
 `;
+
+
+
+
 
 const ShortcodeRenderer: React.FC<ShortcodeRendererProps> = ({
   html,
@@ -243,13 +306,7 @@ const ShortcodeRenderer: React.FC<ShortcodeRendererProps> = ({
     wrapper.className = `wp-shortcode-container ${className}`;
     wrapper.innerHTML = processedHtml;
 
-    // load WP CSS
-    WP_CSS_URLS.forEach((url) => {
-      const link = document.createElement("link");
-      link.rel = "stylesheet";
-      link.href = url;
-      shadowRoot.appendChild(link);
-    });
+
 
     // internal styles
     const styleEl = document.createElement("style");
@@ -258,8 +315,56 @@ const ShortcodeRenderer: React.FC<ShortcodeRendererProps> = ({
 
     shadowRoot.appendChild(wrapper);
 
+
+
+
+
+
+
+    
+
     setIsReady(true);
+
+
+
+
+// ================= FAQ ACCORDION JS =================
+
+const faqs = shadowRoot.querySelectorAll(".schema-faq-section");
+const questions = shadowRoot.querySelectorAll(".schema-faq-question");
+
+if (faqs.length > 0) {
+  faqs.forEach((f) => f.classList.remove("active"));
+  faqs[0].classList.add("active");
+}
+
+const handleClick = (e: Event) => {
+  const target = e.currentTarget as HTMLElement;
+  const parent = target.closest(".schema-faq-section");
+
+  faqs.forEach((f) => f.classList.remove("active"));
+
+  if (parent) parent.classList.add("active");
+};
+
+questions.forEach((q) => {
+  q.addEventListener("click", handleClick);
+});
+
+// cleanup (VERY IMPORTANT)
+return () => {
+  questions.forEach((q) => {
+    q.removeEventListener("click", handleClick);
+  });
+};
+
+
   }, [html, className]);
+
+
+
+
+  
 
   return (
     <div
