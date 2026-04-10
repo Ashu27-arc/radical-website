@@ -131,7 +131,7 @@ export default function NeetUgIndiaAdmissionPage() {
                             </div>
                         ))}
                     </div>
-                    <div className="mb-20">
+                    {/* <div className="mb-20">
                         <div className="flex md:flex-row flex-col justify-between gap-6 items-center">
                             <div className="text-center md:text-left">
                                 <div className="text-black fadeUp font-bold text-xl md:text-4xl text-center md:text-left">Get 35% OFF on Ultimate Plan – Now at just</div>
@@ -143,7 +143,7 @@ export default function NeetUgIndiaAdmissionPage() {
                                 <Link href="https://www.neetbhaiya.in/" target="_blank" className="text-nowrap inline-flex px-4 md:px-8! py-3 text-white md:text-2xl text-lg rounded-lg bg-[#0095C2] font-semibold">₹ 84,499</Link>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                     <div id="connect-counselor" className="mb-16 grid grid-cols-1 md:grid-cols-2 md:gap-4 lg:gap-20 gap-10 bg-[#FFE5EB] lg:rounded-3xl rounded-2xl lg:pl-20 md:pl-10 pt-10 md:pr-0 px-10">
                         <div className="text-center md:text-left self-center lg:-translate-6">
                             <h2 className="mb-3 font-bold text-black lg:text-4xl text-3xl">Book your 20 MIN free counselling session today </h2>
