@@ -1,16 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from 'react';
-
-/**
- * ShortcodeRenderer Component
- *
- * Purpose: Renders WordPress HTML (shortcode output) inside an isolated Shadow DOM.
- * - Iframes inside the content are rendered OUTSIDE the shadow root (appended to a
- *   sibling div) so browser same-origin checks work correctly.
- * - Tables get full, responsive styling.
- * - Background colors from pasted HTML are stripped to match site design.
- */
+import React, { useEffect, useRef, useState } from "react";
 
 interface ShortcodeRendererProps {
   html: string;
@@ -18,230 +8,274 @@ interface ShortcodeRendererProps {
 }
 
 const WP_CSS_URLS = [
-  'https://backup.radicaleducation.in/wp-content/themes/twentytwentyfive/style.css',
+  "https://backup.radicaleducation.in/wp-content/themes/twentytwentyfive/style.css",
 ];
 
 const INTERNAL_STYLES = `
-  :host { display: block; width: 100%; overflow: visible; }
+:host { 
+  display: block; 
+  width: 100%;
+  --wp-primary: #005A8B;
+  --wp-primary-dark: #004a73;
+  --wp-text: #1f2937;
+  --wp-text-light: #6b7280;
+  --wp-border: #e5e7eb;
+  --wp-bg-input: #f9fafb;
+  --wp-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --wp-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --wp-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
 
-  .wp-shortcode-container {
-    all: initial;
-    display: block;
-    font-family: 'Inter', -apple-system, system-ui, sans-serif;
-    line-height: 1.8;
-    color: #1f2937;
-    font-size: 17px;
-  }
+.wp-shortcode-container {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.8;
+  color: var(--wp-text);
+  font-size: 17px;
+}
 
-  @media (max-width: 768px) { .wp-shortcode-container { font-size: 15px; } }
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 16px;
+  margin: 1.5rem auto;
+  display: block;
+  box-shadow: var(--wp-shadow-lg);
+}
 
-  /* ── Typography ── */
-  p  { margin-bottom: 1.5rem; text-align: justify; display: block; }
-  h1 { font-size: 2rem;   font-weight: 800; }
-  h2 { font-size: 1.6rem; font-weight: 700; }
-  h3 { font-size: 1.3rem; font-weight: 700; }
-  h4 { font-size: 1.1rem; font-weight: 700; }
-  h5 { font-size: 1rem;   font-weight: 700; }
-  h6 { font-size: 0.95rem; font-weight: 700; }
-  h1,h2,h3,h4,h5,h6 {
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    color: #111827;
-    display: block;
-    line-height: 1.3;
-  }
-  ul, ol { margin: 1rem 0 1.5rem 1.5rem; padding: 0; display: block; }
-  li { margin-bottom: 0.4rem; }
-  a  { color: #005A8B; text-decoration: underline; font-weight: 600; }
-  a:hover { color: #0077BF; }
-  strong, b { font-weight: 700; }
-  em, i { font-style: italic; }
-  blockquote {
-    border-left: 4px solid #005A8B;
-    margin: 1.5rem 0;
-    padding: 0.75rem 1.25rem;
-    background: #f0f9ff;
-    color: #374151;
-    border-radius: 0 8px 8px 0;
-  }
-  hr { border: none; border-top: 2px solid #e5e7eb; margin: 2rem 0; }
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 1.5rem 0;
+  font-size: 0.95em;
+  border: 1px solid var(--wp-border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--wp-shadow-md);
+}
 
-  /* ── Images ── */
-  img {
-    max-width: 100%;
-    height: auto;
-    border-radius: 12px;
-    margin: 2rem auto;
-    display: block;
-  }
+thead { background: var(--wp-primary); color: #fff; }
+th, td { padding: 14px 18px; border-bottom: 1px solid var(--wp-border); border-right: 1px solid var(--wp-border); }
+th:last-child, td:last-child { border-right: none; }
+tr:last-child td { border-bottom: none; }
+th { font-weight: 600; text-align: left; }
 
-  /* ── Iframe embeds (shortcodes rendered as iframes) ── */
-  .wp-shortcode-iframe-embed,
-  .wpforms-container-embed {
-    width: 100%;
-    margin: 1.5rem 0;
-    clear: both;
-    display: block;
-  }
-  .wp-shortcode-iframe-embed iframe,
-  .wpforms-container-embed iframe {
-    width: 100%;
-    border: none;
-    display: block;
-  }
+/* WPForms Modern Styling */
+.wpforms-container {
+  width: 100% !important;
+  margin: 1.5rem auto !important;
+  padding: 1.5rem !important;
+  background: #ffffff;
+  border: 1px solid var(--wp-border);
+  border-radius: 20px;
+  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.08);
+  max-width: 800px !important;
+  box-sizing: border-box !important;
+}
 
-  /* ── Tables ── */
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1.5rem 0 2rem 0;
-    font-size: 0.95em;
-    display: table;
-    overflow-x: auto;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 1px 6px rgba(0,0,0,0.07);
-  }
-  thead { background: #005A8B; color: #fff; }
-  thead th {
-    padding: 12px 16px;
-    font-weight: 700;
-    text-align: left;
-    font-size: 0.92em;
-    white-space: nowrap;
-    color: #fff;
-  }
-  tbody tr { border-bottom: 1px solid #e5e7eb; transition: background 0.15s; }
-  tbody tr:nth-child(even) { background: #f8fafc; }
-  tbody tr:hover { background: #eff6ff; }
-  td, td * { color: #374151; }
-  td {
-    padding: 10px 16px;
-    vertical-align: top;
-    line-height: 1.6;
-  }
-  td:first-child { font-weight: 600; color: #1e3a5f; }
+.wpforms-form {
+  margin: 0 !important;
+}
 
-  /* Responsive table scroll on small screens */
-  .wp-shortcode-container > table,
-  .wp-shortcode-container .wp-block-table table {
-    display: block;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
+.wpforms-head-container {
+  margin-bottom: 1.5rem !important;
+}
 
-  /* ── WPForms styling fallbacks ── */
-  .wpforms-error-noscript, noscript, .wpforms-noscript {
-    display: none !important;
-  }
-  .wpforms-container { margin: 2rem 0; width: 100% !important; }
-  .wpforms-form button[type=submit] {
-    background-color: #005A8B !important;
-    color: white !important;
-    padding: 12px 24px !important;
-    border-radius: 8px !important;
-    border: none !important;
-    font-weight: bold !important;
-    cursor: pointer !important;
-  }
+.wpforms-title {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px !important;
+  text-align: center !important;
+  font-size: 1.85rem !important;
+  font-weight: 900 !important;
+  color: var(--wp-primary) !important;
+  margin-bottom: 0.75rem !important;
+  letter-spacing: -0.025em;
+}
 
-  /* ── Code blocks ── */
-  pre, code {
-    font-family: 'Fira Code', 'Courier New', monospace;
-    background: #f3f4f6;
-    border-radius: 6px;
+.wpforms-description {
+  color: var(--wp-text-light) !important;
+  font-size: 1rem !important;
+}
+
+.wpforms-field-container {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 1.25rem !important;
+}
+
+.wpforms-field {
+  padding: 0 !important;
+  margin: 0 !important;
+  clear: both;
+}
+
+.wpforms-field-label {
+  display: block !important;
+  font-weight: 600 !important;
+  margin-bottom: 0.75rem !important;
+  font-size: 0.95rem !important;
+  color: var(--wp-text) !important;
+}
+
+.wpforms-field-required {
+  color: #ef4444 !important;
+  margin-left: 4px;
+}
+
+.wpforms-field input[type="text"],
+.wpforms-field input[type="email"],
+.wpforms-field input[type="tel"],
+.wpforms-field input[type="url"],
+.wpforms-field input[type="number"],
+.wpforms-field select,
+.wpforms-field textarea {
+  width: 100% !important;
+  padding: 1rem 1.25rem !important;
+  border: 2px solid var(--wp-border) !important;
+  border-radius: 14px !important;
+  background-color: var(--wp-bg-input) !important;
+  font-size: 1rem !important;
+  color: var(--wp-text) !important;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-sizing: border-box !important;
+}
+
+.wpforms-field input:focus,
+.wpforms-field select:focus,
+.wpforms-field textarea:focus {
+  outline: none !important;
+  border-color: var(--wp-primary) !important;
+  background-color: #fff !important;
+  box-shadow: 0 0 0 4px rgba(0, 90, 139, 0.12) !important;
+  transform: translateY(-1px);
+}
+
+.wpforms-submit-container {
+  margin-top: 1.5rem !important;
+  padding: 0 !important;
+}
+
+.wpforms-submit {
+  background: var(--wp-primary) !important;
+  background: linear-gradient(135deg, var(--wp-primary) 0%, var(--wp-primary-dark) 100%) !important;
+  color: #fff !important;
+  border: none !important;
+  width: 100% !important;
+  padding: 1.125rem 2rem !important;
+  font-size: 1.1rem !important;
+  font-weight: 700 !important;
+  border-radius: 14px !important;
+  cursor: pointer !important;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 90, 139, 0.3) !important;
+}
+
+.wpforms-submit:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 25px -5px rgba(0, 90, 139, 0.4) !important;
+  filter: brightness(1.1);
+}
+
+.wpforms-submit:active {
+  transform: translateY(0);
+}
+
+.wpforms-field-sublabel {
+  display: block !important;
+  font-size: 0.8rem !important;
+  color: var(--wp-text-light) !important;
+  margin-top: 0.4rem !important;
+  font-weight: 400 !important;
+}
+
+.wpforms-error {
+  color: #ef4444 !important;
+  font-size: 0.8rem !important;
+  margin-top: 0.4rem !important;
+  display: block !important;
+}
+
+input.wpforms-error, 
+textarea.wpforms-error,
+select.wpforms-error {
+  border-color: #ef4444 !important;
+}
+
+input.wpforms-error:focus {
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1) !important;
+}
+
+/* Success Messages */
+.wpforms-confirmation-container-full {
+  background: #f0fdf4 !important;
+  border: 1px solid #bbf7d0 !important;
+  border-radius: 16px !important;
+  padding: 2rem !important;
+  color: #166534 !important;
+  font-weight: 600 !important;
+  text-align: center !important;
+  box-shadow: var(--wp-shadow-md);
+}
+
+@media (max-width: 640px) {
+  .wpforms-container {
+    padding: 1.5rem !important;
+    border-radius: 16px;
   }
-  code { padding: 2px 6px; font-size: 0.88em; }
-  pre  { padding: 1rem 1.25rem; overflow-x: auto; margin: 1.5rem 0; }
-  pre code { background: none; padding: 0; }
+}
 `;
 
-const ShortcodeRenderer: React.FC<ShortcodeRendererProps> = ({ html, className = '' }) => {
+const ShortcodeRenderer: React.FC<ShortcodeRendererProps> = ({
+  html,
+  className = "",
+}) => {
   const hostRef = useRef<HTMLDivElement>(null);
-  const iframeContainerRef = useRef<HTMLDivElement>(null);
   const [isReady, setIsReady] = useState(false);
 
   useEffect(() => {
     if (!hostRef.current) return;
 
-    // ── 1. Init Shadow DOM ────────────────────────────────────────────────────
     const shadowRoot =
       hostRef.current.shadowRoot ||
-      hostRef.current.attachShadow({ mode: 'open' });
-    shadowRoot.innerHTML = '';
+      hostRef.current.attachShadow({ mode: "open" });
 
-    // ── 2. Strip background-color / background CSS from pasted content ────────
+    shadowRoot.innerHTML = "";
+
+    // remove inline background styles
     let processedHtml = html
-      .replace(/background-color\s*:\s*[^;"']*;?/gi, '')
-      .replace(/background\s*:\s*[^;"']*;?/gi, '');
+      .replace(/background-color\s*:\s*[^;"']*;?/gi, "")
+      .replace(/background\s*:\s*[^;"']*;?/gi, "");
 
-    // ── 3. Extract iframe HTML so it can live OUTSIDE the shadow root ─────────
-    //       (iframes inside shadow DOM have same-origin issues with onload/height)
-    const iframes: string[] = [];
-    const IFRAME_PLACEHOLDER = 'data-iframe-placeholder';
-    processedHtml = processedHtml.replace(
-      /<div[^>]*class="(?:wp-shortcode-iframe-embed|wpforms-container-embed)"[^>]*>[\s\S]*?<\/div>/gi,
-      (match) => {
-        const idx = iframes.length;
-        iframes.push(match);
-        return `<div ${IFRAME_PLACEHOLDER}="${idx}" style="width:100%;margin:1.5rem 0"></div>`;
-      }
-    );
-
-    // ── 4. Build shadow content ───────────────────────────────────────────────
-    const wrapper = document.createElement('div');
+    const wrapper = document.createElement("div");
     wrapper.className = `wp-shortcode-container ${className}`;
     wrapper.innerHTML = processedHtml;
 
-    // WP theme CSS
+    // load WP CSS
     WP_CSS_URLS.forEach((url) => {
-      const link = document.createElement('link');
-      link.rel = 'stylesheet';
+      const link = document.createElement("link");
+      link.rel = "stylesheet";
       link.href = url;
       shadowRoot.appendChild(link);
     });
 
-    const styleEl = document.createElement('style');
+    // internal styles
+    const styleEl = document.createElement("style");
     styleEl.textContent = INTERNAL_STYLES;
     shadowRoot.appendChild(styleEl);
+
     shadowRoot.appendChild(wrapper);
-
-    // ── 5. Render extracted iframes in the light DOM sibling ─────────────────
-    if (iframeContainerRef.current) {
-      iframeContainerRef.current.innerHTML = '';
-      iframes.forEach((iframeHtml) => {
-        const div = document.createElement('div');
-        div.innerHTML = iframeHtml;
-        // Auto-resize iframe on load
-        const iframe = div.querySelector('iframe');
-        if (iframe) {
-          iframe.addEventListener('load', () => {
-            try {
-              const body = iframe.contentDocument?.body;
-              if (body) iframe.style.height = body.scrollHeight + 'px';
-            } catch { /* cross-origin */ }
-          });
-        }
-        iframeContainerRef.current!.appendChild(div);
-      });
-    }
-
-    // ── 6. Placeholder divs inside shadow → sync their position ──────────────
-    //       We don't need to do complex positioning; iframes render sequentially
-    //       below the shadow content, which is fine for most blog layouts.
 
     setIsReady(true);
   }, [html, className]);
 
   return (
     <div
-      className={`shortcode-renderer-wrapper ${isReady ? 'opacity-100' : 'opacity-0'} transition-opacity duration-500`}
+      className={`shortcode-renderer-wrapper ${isReady ? "opacity-100" : "opacity-0"
+        } transition-opacity duration-500`}
     >
-      {/* Shadow DOM host – contains text/images/tables */}
-      <div ref={hostRef} className="shortcode-renderer-host" />
-
-      {/* Light DOM – contains iframes (needed for correct resize & CORS) */}
-      <div ref={iframeContainerRef} className="shortcode-iframe-container" />
+      <div ref={hostRef} />
     </div>
   );
 };
