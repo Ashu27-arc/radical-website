@@ -197,9 +197,9 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
             setLoading(false);
         }).catch(() => setLoading(false));
 
-        getGlobalBanner()
-            .then(setBanners)
-            .catch(console.error);
+        // getGlobalBanner()
+        //     .then(setBanners)
+        //     .catch(console.error);
     }, [slug]);
 
     // Real-time updates for blog changes
@@ -310,8 +310,8 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                                         <span>{formatDate(blog.date)}</span>
                                     </div>
 
-                                    {/* Global Banner Integration */}
-                                    <GlobalBanner banners={banners} />
+                                    {/* Global Banner Integration - Commented out */}
+                                    {/* <GlobalBanner banners={banners} /> */}
 
                                     {/* Blog Image - responsive height */}
                                     <div className="mb-3 sm:mb-4 relative w-full h-40 min-[400px]:h-48 sm:h-52 md:h-60 lg:h-64 rounded-lg overflow-hidden">

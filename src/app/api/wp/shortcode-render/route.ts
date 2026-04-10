@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import axios from 'axios';
 
 export const revalidate = 300;
 
@@ -36,13 +37,10 @@ export async function GET(request: NextRequest) {
       headers['Authorization'] = `Basic ${auth}`;
     }
 
-    const blockRes = await fetch(blockUrl, {
-      headers,
-      next: { revalidate: 300 },
-    });
+    const blockRes = await axios.get(blockUrl, { headers });
 
-    if (blockRes.ok) {
-      const json = await blockRes.json();
+    if (blockRes.status === 200) {
+      const json = blockRes.data;
       const rendered: string = json?.rendered || '';
       if (rendered.trim()) {
         return buildHtmlResponse(rendered);

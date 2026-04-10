@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import axios from 'axios';
 
 const WP_API_BASE = 'https://backup.radicaleducation.in/wp-json/wp/v2/posts';
 
@@ -42,17 +43,15 @@ export async function GET(request: NextRequest) {
         headers['Authorization'] = `Basic ${auth}`;
       }
 
-      const res = await fetch(url, {
-        headers,
-        next: { revalidate: 60 },
-      });
-
-      if (!res.ok) {
-        const errorText = await res.text().catch(() => 'No body');
-        console.error(`[WP API ERROR] ${url} - Status: ${res.status}`, errorText);
-        return { data: null, status: res.status, error: errorText };
+      try {
+        const res = await axios.get(url, { headers });
+        return { data: res.data, status: 200, error: null };
+      } catch (error: any) {
+        const status = error.response?.status || 500;
+        const errorText = error.response?.data || error.message;
+        console.error(`[WP API ERROR] ${url} - Status: ${status}`, errorText);
+        return { data: null, status, error: errorText };
       }
-      return { data: await res.json(), status: 200, error: null };
     }
 
     let result = await fetchFromWp(wpUrl.toString());

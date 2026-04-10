@@ -17,11 +17,6 @@ export default function EverythingSlider() {
     "/images/everythings-banners/mock-3.webp",
     "/images/everythings-banners/mock-4.webp",
     "/images/everythings-banners/mock-5.webp",
-    "/images/everythings-banners/mock-1.webp",
-    "/images/everythings-banners/mock-2.webp",
-    "/images/everythings-banners/mock-3.webp",
-    "/images/everythings-banners/mock-4.webp",
-    "/images/everythings-banners/mock-5.webp",
   ];
 
   return (

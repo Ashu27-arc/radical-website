@@ -1,4 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server';
+import axios from 'axios';
 
 const WP_API_BASE = 'https://backup.radicaleducation.in/wp-json/wp/v2/pages';
 
@@ -38,12 +39,12 @@ export async function GET(request: NextRequest) {
         headers['Authorization'] = `Basic ${auth}`;
       }
 
-      const res = await fetch(url, {
-        headers,
-        next: { revalidate: 60 },
-      });
-      if (!res.ok) return null;
-      return await res.json();
+      try {
+        const res = await axios.get(url, { headers });
+        return res.data;
+      } catch {
+        return null;
+      }
     }
 
     let data = await fetchFromWp(wpUrl.toString());

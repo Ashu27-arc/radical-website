@@ -97,9 +97,9 @@ const BlogsPage = () => {
         setLoading(false);
       });
 
-    getGlobalBanner()
-      .then(setBanners)
-      .catch(console.error);
+    // getGlobalBanner()
+    //   .then(setBanners)
+    //   .catch(console.error);
 
     return () => { isMounted = false; };
   }, [refreshKey]);
@@ -323,7 +323,7 @@ const BlogsPage = () => {
         </div>
       ) : filtered.length > 0 && (
         <div className="container mx-auto px-4 py-15">
-          <GlobalBanner banners={banners} />
+          {/* <GlobalBanner banners={banners} /> */}
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Fresh Update</h2>
           <div className="flex flex-col lg:flex-row gap-6 lg:items-start">
             {(() => {

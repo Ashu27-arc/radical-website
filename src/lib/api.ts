@@ -196,11 +196,8 @@ const mapWpPostToBlog = (post: any): Blog => {
 export async function getWpBlogs(): Promise<Blog[]> {
   try {
     const isClient = typeof window !== 'undefined';
-    // We remove 'content' from fields for the list view to reduce payload size.
-    // '_embedded' is NOT a field in _fields; it's triggered by the _embed query param.
     const params = 'per_page=100&_fields=id,slug,title,excerpt,date,categories,_links';
 
-    // On client, use our local proxy. On server, call WP directly.
     const url = isClient
       ? `/api/wp/posts?${params}`
       : `https://backup.radicaleducation.in/wp-json/wp/v2/posts?_embed=1&${params}`;
@@ -214,15 +211,8 @@ export async function getWpBlogs(): Promise<Blog[]> {
       headers['Authorization'] = `Basic ${encodeBase64(`${process.env.WP_USER}:${process.env.WP_APP_PASSWORD}`)}`;
     }
 
-    const res = await fetch(url, {
-      method: 'GET',
-      headers,
-      next: { revalidate: 60 },
-    });
-
-    if (!res.ok) return [];
-
-    const data = await res.json();
+    const res = await axios.get(url, { headers });
+    const data = res.data;
     if (!Array.isArray(data)) return [];
 
     return data.map(mapWpPostToBlog);
@@ -253,15 +243,8 @@ export async function getWpPages(): Promise<Blog[]> {
       headers['Authorization'] = `Basic ${encodeBase64(`${process.env.WP_USER}:${process.env.WP_APP_PASSWORD}`)}`;
     }
 
-    const res = await fetch(url, {
-      method: 'GET',
-      headers,
-      next: { revalidate: 60 },
-    });
-
-    if (!res.ok) return [];
-
-    const data = await res.json();
+    const res = await axios.get(url, { headers });
+    const data = res.data;
     if (!Array.isArray(data)) return [];
 
     return data.map(mapWpPostToBlog);
@@ -306,18 +289,13 @@ export async function getBlogBySlug(slug: string): Promise<Blog | null> {
         headers['Authorization'] = `Basic ${encodeBase64(`${process.env.WP_USER}:${process.env.WP_APP_PASSWORD}`)}`;
       }
 
-      const res = await fetch(url, {
-        method: 'GET',
-        headers,
-        next: { revalidate: 60 },
-      });
-
-      if (res.ok) {
-        const data = await res.json();
+      try {
+        const res = await axios.get(url, { headers });
+        const data = res.data;
         if (Array.isArray(data) && data.length > 0) {
           return mapWpPostToBlog(data[0]);
         }
-      }
+      } catch { }
       return null;
     }
 
@@ -373,27 +351,25 @@ export async function getBlogBySlug(slug: string): Promise<Blog | null> {
           headers['Authorization'] = `Basic ${encodeBase64(`${process.env.WP_USER}:${process.env.WP_APP_PASSWORD}`)}`;
         }
 
-        const res = await fetch(url, { headers, next: { revalidate: 60 } });
-        if (res.ok) {
-          const results = await res.json();
-          if (Array.isArray(results) && results.length > 0) {
-            // Priority 1: Find result where slug is a direct match to our clean target
-            let match = results.find(r => r.slug === cleanTarget || r.slug.includes(cleanTarget) || cleanTarget.includes(r.slug));
+        const res = await axios.get(url, { headers });
+        const results = res.data;
+        if (Array.isArray(results) && results.length > 0) {
+          // Priority 1: Find result where slug is a direct match to our clean target
+          let match = results.find(r => r.slug === cleanTarget || r.slug.includes(cleanTarget) || cleanTarget.includes(r.slug));
 
-            // Priority 2: Take the first (most relevant) result if it's "close enough" 
-            // We define "close enough" as having at least 2 common words from the slug
-            if (!match) {
-              const targetWords = cleanTarget.split('-');
-              match = results.find(r => {
-                const resultWords = r.slug.split('-');
-                const common = targetWords.filter(w => resultWords.includes(w));
-                return common.length >= 2;
-              });
-            }
+          // Priority 2: Take the first (most relevant) result if it's "close enough" 
+          // We define "close enough" as having at least 2 common words from the slug
+          if (!match) {
+            const targetWords = cleanTarget.split('-');
+            match = results.find(r => {
+              const resultWords = r.slug.split('-');
+              const common = targetWords.filter(w => resultWords.includes(w));
+              return common.length >= 2;
+            });
+          }
 
-            if (match) {
-              blog = mapWpPostToBlog(match);
-            }
+          if (match) {
+            blog = mapWpPostToBlog(match);
           }
         }
       } catch (e) {
@@ -471,26 +447,23 @@ export async function getNeetUpdateById(id: string): Promise<NeetUpdate | null> 
  * Fetch global banner data from the custom endpoint.
  */
 export async function getGlobalBanner(): Promise<BannerItem[]> {
-  try {
-    const res = await fetch('https://backup.radicaleducation.in/wp-json/custom/v1/', {
-      method: 'GET',
-      headers: {
-        'Accept': 'application/json',
-        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-      },
-      next: { revalidate: 60 },
-    });
-
-    if (!res.ok) return [];
-
-    const data: GlobalBannerResponse = await res.json();
-    if (data.status && Array.isArray(data.data)) {
-      // Filter out items with empty images
-      return data.data.filter(item => item.image && item.image.trim() !== '');
-    }
-    return [];
-  } catch (error) {
-    console.error('[getGlobalBanner] error:', error);
-    return [];
-  }
+  // try {
+  //   const res = await axios.get('https://backup.radicaleducation.in/wp-json/custom/v1/global-banner', {
+  //     headers: {
+  //       'Accept': 'application/json',
+  //       'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+  //     }
+  //   });
+  // 
+  //   const data: GlobalBannerResponse = res.data;
+  //   if (data.status && Array.isArray(data.data)) {
+  //     // Filter out items with empty images
+  //     return data.data.filter(item => item.image && item.image.trim() !== '');
+  //   }
+  //   return [];
+  // } catch (error) {
+  //   console.error('[getGlobalBanner] error:', error);
+  //   return [];
+  // }
+  return [];
 }
