@@ -3,10 +3,11 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { getBlogs, getWpBlogs, type Blog } from '@/lib/api';
+import { getBlogs, getWpBlogs, getGlobalBanner, type Blog, type BannerItem } from '@/lib/api';
 import { useWebSocket } from '@/hooks/useWebSocket';
 import CounselorSection from '@/components/CounselorSection';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
+import GlobalBanner from '@/components/GlobalBanner';
 
 const categoryColors: Record<string, string> = {
   'Education': 'bg-[#BFE6DB] text-[#00A88E]',
@@ -49,6 +50,7 @@ const BlogsPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [loading, setLoading] = useState(true);
+  const [banners, setBanners] = useState<BannerItem[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
   const blogsPerPage = 12;
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -94,6 +96,10 @@ const BlogsPage = () => {
         console.error('Error loading blogs:', error);
         setLoading(false);
       });
+
+    getGlobalBanner()
+      .then(setBanners)
+      .catch(console.error);
 
     return () => { isMounted = false; };
   }, [refreshKey]);
@@ -317,6 +323,7 @@ const BlogsPage = () => {
         </div>
       ) : filtered.length > 0 && (
         <div className="container mx-auto px-4 py-15">
+          <GlobalBanner banners={banners} />
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Fresh Update</h2>
           <div className="flex flex-col lg:flex-row gap-6 lg:items-start">
             {(() => {

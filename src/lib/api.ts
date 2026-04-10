@@ -93,6 +93,16 @@ export interface NeetUpdate {
   updatedAt?: string;
 }
 
+export interface BannerItem {
+  image: string;
+  link: string;
+}
+
+export interface GlobalBannerResponse {
+  status: boolean;
+  data: BannerItem[];
+}
+
 export async function getBlogs(): Promise<Blog[]> {
   return getWpBlogs();
 }
@@ -221,6 +231,46 @@ export async function getWpBlogs(): Promise<Blog[]> {
     return [];
   }
 }
+
+/**
+ * Fetch all pages from WordPress.
+ */
+export async function getWpPages(): Promise<Blog[]> {
+  try {
+    const isClient = typeof window !== 'undefined';
+    const params = 'per_page=100&_fields=id,slug,title,excerpt,date,categories,_links';
+    
+    const url = isClient 
+      ? `/api/wp/pages?${params}` 
+      : `https://backup.radicaleducation.in/wp-json/wp/v2/pages?_embed=1&${params}`;
+
+    const headers: Record<string, string> = {
+      'Accept': 'application/json',
+      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+    };
+
+    if (!isClient && process.env.WP_USER && process.env.WP_APP_PASSWORD) {
+      headers['Authorization'] = `Basic ${encodeBase64(`${process.env.WP_USER}:${process.env.WP_APP_PASSWORD}`)}`;
+    }
+
+    const res = await fetch(url, {
+      method: 'GET',
+      headers,
+      next: { revalidate: 60 },
+    });
+
+    if (!res.ok) return [];
+
+    const data = await res.json();
+    if (!Array.isArray(data)) return [];
+
+    return data.map(mapWpPostToBlog);
+  } catch (error) {
+    console.error('[getWpPages] error:', error);
+    return [];
+  }
+}
+
 
 /**
  * Fetch a single post by its slug from WordPress.
@@ -414,5 +464,33 @@ export async function getNeetUpdateById(id: string): Promise<NeetUpdate | null> 
   } catch (error) {
     console.error('Error fetching NEET update by ID:', error);
     return null;
+  }
+}
+
+/**
+ * Fetch global banner data from the custom endpoint.
+ */
+export async function getGlobalBanner(): Promise<BannerItem[]> {
+  try {
+    const res = await fetch('https://backup.radicaleducation.in/wp-json/custom/v1/global-banner', {
+      method: 'GET',
+      headers: {
+        'Accept': 'application/json',
+        'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
+      },
+      next: { revalidate: 60 },
+    });
+
+    if (!res.ok) return [];
+
+    const data: GlobalBannerResponse = await res.json();
+    if (data.status && Array.isArray(data.data)) {
+      // Filter out items with empty images
+      return data.data.filter(item => item.image && item.image.trim() !== '');
+    }
+    return [];
+  } catch (error) {
+    console.error('[getGlobalBanner] error:', error);
+    return [];
   }
 }

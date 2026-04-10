@@ -9,6 +9,8 @@ import { useWebSocket } from '@/hooks/useWebSocket';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import { usePathname } from 'next/navigation';
 import ShortcodeRenderer from '@/components/ShortcodeRenderer';
+import { getGlobalBanner, type BannerItem } from '@/lib/api';
+import GlobalBanner from '@/components/GlobalBanner';
 
 interface BlogsReadProps {
     slug: string;
@@ -186,6 +188,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
     const categoryContainerRef = useRef<HTMLDivElement>(null);
     const [blog, setBlog] = useState<Blog | null>(null);
     const [loading, setLoading] = useState(true);
+    const [banners, setBanners] = useState<BannerItem[]>([]);
     const { addMessageHandler } = useWebSocket();
 
     useEffect(() => {
@@ -193,6 +196,10 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
             setBlog(data);
             setLoading(false);
         }).catch(() => setLoading(false));
+
+        getGlobalBanner()
+            .then(setBanners)
+            .catch(console.error);
     }, [slug]);
 
     // Real-time updates for blog changes
@@ -302,6 +309,9 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                                         <span className="hidden sm:inline">•</span>
                                         <span>{formatDate(blog.date)}</span>
                                     </div>
+
+                                    {/* Global Banner Integration */}
+                                    <GlobalBanner banners={banners} />
 
                                     {/* Blog Image - responsive height */}
                                     <div className="mb-3 sm:mb-4 relative w-full h-40 min-[400px]:h-48 sm:h-52 md:h-60 lg:h-64 rounded-lg overflow-hidden">
