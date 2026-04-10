@@ -81,7 +81,7 @@ export default function StatsCounter() {
 
               {/* DIVIDER */}
               {i !== stats.length - 1 && (
-                <div className="hidden lg:block absolute right-[-11px] top-1/2 -translate-y-1/2 h-[64px] w-[4px] z-10 rounde-[80px]">
+                <div className="hidden lg:block absolute right-[-15px] top-1/2 -translate-y-1/2 h-[64px] w-[4px] z-10 rounde-[80px]">
                   <span className={`block w-full h-full ${i === 0 ? 'bg-gradient-to-b from-[#27AEDC] to-[#3FE198] rounded-[80px]' :
                     i === 1 ? 'bg-gradient-to-b from-[#3FE198] to-[#27AEDC] rounded-[80px]' :
                       'bg-gradient-to-b from-[#27AEDC] to-[#3FE198]'
