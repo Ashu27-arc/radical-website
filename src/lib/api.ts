@@ -134,7 +134,7 @@ export function replaceWpForms(content: string, postSlug?: string): string {
 
   // 1. [wpforms id="123"] or [wp_form id="123"] → proxy iframe for styling
   const slugParam = postSlug ? `&slug=${encodeURIComponent(postSlug)}` : '';
-  
+
   // Combine all shortcodes to be proxied
   // We include wpforms, wp_form, and others here so they all get the same styling treatment.
   const shortcodeRegex = /\[(wpforms|wp_form|iframe|banner|banner-iframe|crm-form|form)([^\]]*)\]/gi;
@@ -199,10 +199,10 @@ export async function getWpBlogs(): Promise<Blog[]> {
     // We remove 'content' from fields for the list view to reduce payload size.
     // '_embedded' is NOT a field in _fields; it's triggered by the _embed query param.
     const params = 'per_page=100&_fields=id,slug,title,excerpt,date,categories,_links';
-    
+
     // On client, use our local proxy. On server, call WP directly.
-    const url = isClient 
-      ? `/api/wp/posts?${params}` 
+    const url = isClient
+      ? `/api/wp/posts?${params}`
       : `https://backup.radicaleducation.in/wp-json/wp/v2/posts?_embed=1&${params}`;
 
     const headers: Record<string, string> = {
@@ -239,9 +239,9 @@ export async function getWpPages(): Promise<Blog[]> {
   try {
     const isClient = typeof window !== 'undefined';
     const params = 'per_page=100&_fields=id,slug,title,excerpt,date,categories,_links';
-    
-    const url = isClient 
-      ? `/api/wp/pages?${params}` 
+
+    const url = isClient
+      ? `/api/wp/pages?${params}`
       : `https://backup.radicaleducation.in/wp-json/wp/v2/pages?_embed=1&${params}`;
 
     const headers: Record<string, string> = {
@@ -278,7 +278,7 @@ export async function getWpPages(): Promise<Blog[]> {
  */
 export async function getBlogBySlug(slug: string): Promise<Blog | null> {
   if (!slug) return null;
-  
+
   // Clean slug: remove query params and trailing/leading slashes
   const cleanSlug = slug.split('?')[0].replace(/^\/+|\/+$/g, '');
   if (!cleanSlug) return null;
@@ -286,11 +286,11 @@ export async function getBlogBySlug(slug: string): Promise<Blog | null> {
   try {
     // Extract the actual post name (last part of the path)
     const wpSlug = cleanSlug.split('/').pop() || cleanSlug;
-    
+
     const isClient = typeof window !== 'undefined';
     const params = `slug=${encodeURIComponent(wpSlug)}&_embed=1`;
     const lowerParams = `slug=${encodeURIComponent(wpSlug.toLowerCase())}&_embed=1`;
-    
+
     // Helper to fetch and check if it's a valid post
     async function tryFetch(type: 'posts' | 'pages', queryParams: string) {
       const url = isClient
@@ -354,11 +354,11 @@ export async function getBlogBySlug(slug: string): Promise<Blog | null> {
     if (!blog) {
       const cleanTarget = wpSlug.replace(/-\d{2,4}$/, ''); // Slug minus year
       const searchQuery = cleanTarget.replace(/-/g, ' ');
-      
+
       const isClient = typeof window !== 'undefined';
       const type = 'posts';
       const queryParams = `search=${encodeURIComponent(searchQuery)}&per_page=5&_embed=1`;
-      
+
       const url = isClient
         ? `/api/wp/${type}?${queryParams}`
         : `https://backup.radicaleducation.in/wp-json/wp/v2/${type}?${queryParams}`;
@@ -379,7 +379,7 @@ export async function getBlogBySlug(slug: string): Promise<Blog | null> {
           if (Array.isArray(results) && results.length > 0) {
             // Priority 1: Find result where slug is a direct match to our clean target
             let match = results.find(r => r.slug === cleanTarget || r.slug.includes(cleanTarget) || cleanTarget.includes(r.slug));
-            
+
             // Priority 2: Take the first (most relevant) result if it's "close enough" 
             // We define "close enough" as having at least 2 common words from the slug
             if (!match) {
@@ -472,7 +472,7 @@ export async function getNeetUpdateById(id: string): Promise<NeetUpdate | null> 
  */
 export async function getGlobalBanner(): Promise<BannerItem[]> {
   try {
-    const res = await fetch('https://backup.radicaleducation.in/wp-json/custom/v1/global-banner', {
+    const res = await fetch('https://backup.radicaleducation.in/wp-json/custom/v1/', {
       method: 'GET',
       headers: {
         'Accept': 'application/json',
