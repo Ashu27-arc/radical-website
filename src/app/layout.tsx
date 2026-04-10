@@ -11,6 +11,8 @@ import ScrollEffectProvider from '@/components/ScrollEffectProvider';
 import ClientWrapper from '@/components/ClientWrapper';
 import { Metadata } from 'next';
 import EnquireButton from '@/components/EnquireButton';
+import Script from 'next/script';
+
 
 export const metadata: Metadata = {
   title: 'Radical Education',
@@ -28,6 +30,9 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
+  verification: {
+    google: 'JeLu6aKkusRuzvliO-x4LtyR-Y23vKn06YFsR1tlK9c',
+  },
 };
 
 import { Poppins } from 'next/font/google';
@@ -42,6 +47,19 @@ export default function RootLayout({ children, }: { children: React.ReactNode; }
   return (
     <html lang="en" className={poppins.className} suppressHydrationWarning>
       <head>
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-GJCQQNBHBB"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-GJCQQNBHBB');
+          `}
+        </Script>
       </head>
       <body className="flex flex-col min-h-screen" suppressHydrationWarning>
         <Providers>
