@@ -446,24 +446,10 @@ export async function getNeetUpdateById(id: string): Promise<NeetUpdate | null> 
 /**
  * Fetch global banner data from the custom endpoint.
  */
+/**
+ * Fetch global banner data.
+ * @deprecated Global banners now handled directly via WordPress content or local assets.
+ */
 export async function getGlobalBanner(): Promise<BannerItem[]> {
-  // try {
-  //   const res = await axios.get('https://backup.radicaleducation.in/wp-json/custom/v1/global-banner', {
-  //     headers: {
-  //       'Accept': 'application/json',
-  //       'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-  //     }
-  //   });
-  // 
-  //   const data: GlobalBannerResponse = res.data;
-  //   if (data.status && Array.isArray(data.data)) {
-  //     // Filter out items with empty images
-  //     return data.data.filter(item => item.image && item.image.trim() !== '');
-  //   }
-  //   return [];
-  // } catch (error) {
-  //   console.error('[getGlobalBanner] error:', error);
-  //   return [];
-  // }
   return [];
 }

@@ -398,10 +398,8 @@ export default function Home() {
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-gray-900">
               Do you have a personal question?
             </h1>
-            <p className="mt-2 text-gray-600 text-lg sm:text-xl">
-              Sometimes clarity comes from a real conversation.
-            </p>
-            <p className="mt-2 md:mt-4 text-gray-700 text-lg sm:text-xl">
+            <p className="py-6 mt-2 text-gray-600 text-lg sm:text-xl">
+              Sometimes clarity comes from a real conversation.<br />
               We’re here to listen, understand, and help you figure it out.
             </p>
           </div>
@@ -537,7 +535,7 @@ export default function Home() {
                   sizes="(max-width: 1024px) 100vw, 55vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors duration-500"></div>
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500"></div>
               </Link>
             </div>
             <div className="lg:col-span-4">
@@ -551,7 +549,7 @@ export default function Home() {
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       className="object-cover transition-transform duration-700 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors duration-500"></div>
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500"></div>
                   </Link>
                 </div>
                 <div className="h-full w-full">
@@ -563,7 +561,7 @@ export default function Home() {
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
                       className="object-cover transition-transform duration-700 scale-102 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-black/10 group-hover:bg-black/20 transition-colors duration-500"></div>
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500"></div>
                   </Link>
                 </div>
               </div>

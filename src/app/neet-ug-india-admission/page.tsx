@@ -86,7 +86,7 @@ export default function NeetUgIndiaAdmissionPage() {
     return (
         <>
             <FloatingWhatsApp />
-            <section className="lg:py-45 md:py-36 py-20 relative overflow-hidden z-2 bg-[url('/images/neet-ug-india-admission-hero.webp')] bg-cover bg-center bg-no-repeat">
+            <section className="lg:py-45 md:py-36 py-20 relative overflow-hidden z-2 bg-[url('/banner-neet-ug.webp')] bg-cover bg-center bg-no-repeat">
                 <div className="container px-3 md:px-4 fadeUp">
                     <div className="w-full lg:w-4/10 md:8/10 md:text-left text-center">
                         <h1 className="uppercase lg:text-5xl text-4xl font-bold text-white lg:mb-6 mb-4">NEET UG <br className="hidden lg:block" />ADMISSION</h1>
@@ -151,7 +151,7 @@ export default function NeetUgIndiaAdmissionPage() {
                             <Link href="https://www.neetbhaiya.in/" target="_blank" className="cursor-pointer text-white rounded-full bg-[#FF3D68] px-6 py-3 uppercase font-medium">BOOK NOW</Link>
                         </div>
                         <div>
-                            <img src="/images/counsellingRi.webp" width={510} height={312} alt=""/>
+                            <img src="/images/counsellingRi.webp" width={510} height={312} alt="" />
                         </div>
                     </div>
                     <div className='mb-10 fadeUp text-center'>

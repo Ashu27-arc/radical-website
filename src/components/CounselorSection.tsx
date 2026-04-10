@@ -12,7 +12,7 @@ export default function CounselorSection() {
                     <div className="">
                         <h2 className="text-4xl md:text-[36px] font-semibold text-gray-900 mb-6">
                             Request a free callback <br /> from
-                            <span className="bg-gradient-to-r from-[#005A8B] to-[#00CFB2] bg-clip-text text-transparent"> Our Counsellor</span>
+                            <span className="bg-gradient-to-r from-[#005A8B] to-[#00CFB2] bg-clip-text text-transparent"> our Counsellor</span>
                         </h2>
                         <p className="text-[18px] font-light text-black lg:mb-24 mb-10 max-w-xl">
                             We will call you back to give you personalised advice and clarity for your next steps

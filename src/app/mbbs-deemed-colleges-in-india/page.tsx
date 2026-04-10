@@ -554,12 +554,7 @@ export default function MBBSDeemedCollegesPage() {
                 </div>
             </div>
 
-            {/* Connect With Us Section */}
-            <div className="py-8 sm:py-10 md:py-12 lg:py-14 xl:py-16 text-center px-3 sm:px-4 md:px-6">
-                <h2 className="text-4xl md:text-6xl lg:text-7xl font-bold text-[#00CFB240] break-words">
-                    CONNECT WITH US
-                </h2>
-            </div>
+
         </div>
     );
 }

@@ -107,7 +107,7 @@ export default function CounsellingAuthorityPage() {
                     <div className="mb-20"></div>
                 </div>
 
-                <div className="text-center uppercase text-4xl lg:text-6xl font-black text-[#00CFB240] fadeUp">CONNECT WITH US</div>
+
             </div>
         </section>
     );

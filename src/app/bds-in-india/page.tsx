@@ -141,7 +141,7 @@ export default function BDSInIndiaPage() {
                         <p className="mb-4 md:mb-6 text-xs md:text-sm leading-relaxed">After completing their BDS degree, they can further pursue a Master of Dental Surgery (MDS) degree in various fields of dentistry. This helps the student gain more knowledge about a particular aspect of the field, hone their skills, and gain better opportunities for their career.</p>
                         <p className="text-xs md:text-sm leading-relaxed">The specializations include Orthodontics, which is a field of dentistry that deals with the alignment of teeth and jaw. Then there is Oral and Maxillofacial Surgery, which includes surgery of the mouth, face, and jaw. The other specializations include Prosthodontics, which deals with replacing missing teeth. Periodontics is another field of dentistry that deals with the gums and their supporting structures. Then there is Endodontics, which deals with the inside of the tooth. The choice of the best specialization for oneself depends on one’s individual interests, what they want to achieve, and the scope of the particular field.</p>
                     </div>
-                    <div className="text-center uppercase text-4xl lg:text-6xl font-black text-[#00CFB240] fadeUp">CONNECT WITH US</div>
+
                 </div>
             </section>
         </>
