@@ -21,9 +21,6 @@ const INTERNAL_STYLES = `
   --wp-text-light: #6b7280;
   --wp-border: #e5e7eb;
   --wp-bg-input: #f9fafb;
-  --wp-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --wp-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --wp-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 .wp-shortcode-container {
@@ -39,7 +36,6 @@ img {
   border-radius: 16px;
   margin: 1.5rem auto;
   display: block;
-  box-shadow: var(--wp-shadow-lg);
 }
 
 table {
@@ -51,7 +47,6 @@ table {
   border: 1px solid var(--wp-border);
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: var(--wp-shadow-md);
 }
 
 thead { background: var(--wp-primary); color: #fff; }
@@ -68,7 +63,6 @@ th { font-weight: 600; text-align: left; }
   background: #ffffff;
   border: 1px solid var(--wp-border);
   border-radius: 20px;
-  box-shadow: 0 15px 35px -10px rgba(0, 0, 0, 0.08);
   max-width: 800px !important;
   box-sizing: border-box !important;
 }
@@ -148,7 +142,6 @@ th { font-weight: 600; text-align: left; }
   outline: none !important;
   border-color: var(--wp-primary) !important;
   background-color: #fff !important;
-  box-shadow: 0 0 0 4px rgba(0, 90, 139, 0.12) !important;
   transform: translateY(-1px);
 }
 
@@ -169,12 +162,10 @@ th { font-weight: 600; text-align: left; }
   border-radius: 14px !important;
   cursor: pointer !important;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
-  box-shadow: 0 10px 15px -3px rgba(0, 90, 139, 0.3) !important;
 }
 
 .wpforms-submit:hover {
   transform: translateY(-2px);
-  box-shadow: 0 20px 25px -5px rgba(0, 90, 139, 0.4) !important;
   filter: brightness(1.1);
 }
 
@@ -204,7 +195,7 @@ select.wpforms-error {
 }
 
 input.wpforms-error:focus {
-  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1) !important;
+  border-color: #ef4444 !important;
 }
 
 /* Success Messages */
@@ -216,7 +207,6 @@ input.wpforms-error:focus {
   color: #166534 !important;
   font-weight: 600 !important;
   text-align: center !important;
-  box-shadow: var(--wp-shadow-md);
 }
 
 @media (max-width: 640px) {
@@ -243,10 +233,11 @@ const ShortcodeRenderer: React.FC<ShortcodeRendererProps> = ({
 
     shadowRoot.innerHTML = "";
 
-    // remove inline background styles
+    // remove inline background and shadow styles
     let processedHtml = html
       .replace(/background-color\s*:\s*[^;"']*;?/gi, "")
-      .replace(/background\s*:\s*[^;"']*;?/gi, "");
+      .replace(/background\s*:\s*[^;"']*;?/gi, "")
+      .replace(/box-shadow\s*:\s*[^;"']*;?/gi, "");
 
     const wrapper = document.createElement("div");
     wrapper.className = `wp-shortcode-container ${className}`;
