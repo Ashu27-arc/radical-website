@@ -66,7 +66,7 @@ const reviewtestimonials = [
         id: 6,
         name: "Aryan Vijay",
         location: "India",
-        text: "I recently took counselling services from Radical Education for my BDS admission. My counsellor, Sudhanshu.",
+        text: "I recently took counselling services from Radical Education for my BDS admission. My counsellor, Pooja.",
         tag: "BDS",
         status: "Secured a seat at",
         avatar: "/images/reviews/user6.webp",
@@ -126,7 +126,7 @@ const reviewtestimonials = [
         id: 12,
         name: "Sangam Yadav",
         location: "India",
-        text: "Attending the Radical Education BAMS counselling was an excellent experience. Specially dr kk sir was always available to answer my queries regarding BAMS colleges",
+        text: "Attending the Radical Education BAMS counselling was an excellent experience. Specially Dr. Alok Sir was always available to answer my queries regarding BAMS colleges",
         tag: "BAMS",
         status: "Secured a seat at",
         avatar: "/images/reviews/user12.webp",
@@ -329,72 +329,70 @@ hover:shadow-2xl hover:scale-[1.03] ${cardClass}`}
                         </div>
                     )}
                     <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mt-16 fadeUp">
-    {reviewtestimonials.map((item, index) => {
-        const total = reviewtestimonials.length;
+                        {reviewtestimonials.map((item, index) => {
+                            const total = reviewtestimonials.length;
 
-        const isLastRowSingle =
-            total % 3 === 1 && index === total - 1;
+                            const isLastRowSingle =
+                                total % 3 === 1 && index === total - 1;
 
-        const isLastRowDouble =
-            total % 3 === 2 && index >= total - 2;
+                            const isLastRowDouble =
+                                total % 3 === 2 && index >= total - 2;
 
-        return (
-            <div
-                key={item.id}
-                className={`bg-white rounded-xl p-5 shadow-sm hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-2
-                ${
-                    isLastRowSingle
-                        ? "lg:col-start-2" // center single item
-                        : ""
-                }
-                ${
-                    isLastRowDouble
-                        ? index === total - 2
-                            ? "lg:col-start-1"
-                            : "lg:col-start-3"
-                        : ""
-                }
+                            return (
+                                <div
+                                    key={item.id}
+                                    className={`bg-white rounded-xl p-5 shadow-sm hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-2
+                ${isLastRowSingle
+                                            ? "lg:col-start-2" // center single item
+                                            : ""
+                                        }
+                ${isLastRowDouble
+                                            ? index === total - 2
+                                                ? "lg:col-start-1"
+                                                : "lg:col-start-3"
+                                            : ""
+                                        }
                 `}
-            >
-                <div className="flex items-center gap-3 mb-3">
-                    <Image
-                        src={item.avatar}
-                        alt={item.name}
-                        width={40}
-                        height={40}
-                        className="rounded-full object-cover"
-                    />
-                    <div>
-                        <h3 className="text-sm font-semibold text-gray-800">
-                            {item.name}
-                        </h3>
-                        <p className="text-xs text-gray-500">{item.location}</p>
-                    </div>
-                </div>
-                <p className="text-sm text-gray-600 leading-relaxed mb-4 min-h-[91px]">
-                    {item.text}
-                </p>
-                <div className="flex items-center justify-between">
-                    <span className="text-xs px-3 py-1 rounded-full bg-blue-100 text-blue-600 font-medium">
-                        {item.tag}
-                    </span>
+                                >
+                                    <div className="flex items-center gap-3 mb-3">
+                                        <Image
+                                            src={item.avatar}
+                                            alt={item.name}
+                                            width={40}
+                                            height={40}
+                                            className="rounded-full object-cover"
+                                        />
+                                        <div>
+                                            <h3 className="text-sm font-semibold text-gray-800">
+                                                {item.name}
+                                            </h3>
+                                            <p className="text-xs text-gray-500">{item.location}</p>
+                                        </div>
+                                    </div>
+                                    <p className="text-sm text-gray-600 leading-relaxed mb-4 min-h-[91px]">
+                                        {item.text}
+                                    </p>
+                                    <div className="flex items-center justify-between">
+                                        <span className="text-xs px-3 py-1 rounded-full bg-blue-100 text-blue-600 font-medium">
+                                            {item.tag}
+                                        </span>
 
-                    <div className="flex items-center gap-2">
-                        <span className="text-xs text-gray-500">
-                            {item.status}
-                        </span>
-                        <Image
-                            src={item.logo}
-                            alt="logo"
-                            width={37}
-                            height={48}
-                        />
+                                        <div className="flex items-center gap-2">
+                                            <span className="text-xs text-gray-500">
+                                                {item.status}
+                                            </span>
+                                            <Image
+                                                src={item.logo}
+                                                alt="logo"
+                                                width={37}
+                                                height={48}
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                            );
+                        })}
                     </div>
-                </div>
-            </div>
-        );
-    })}
-</div>
                 </div>
             </section>
         </div>
