@@ -76,7 +76,7 @@ const CourseSlider: FC = () => {
 
               {/* Bottom Glass Blur Title */}
               <div className="absolute bottom-0 left-0 w-full px-4 py-3 flex items-center justify-between bg-black/30 backdrop-blur-[10px] border-t border-white/10">
-                <span className="text-white text-[18px] font-medium tracking-wide">
+                <span className="text-white text-[15px] font-medium tracking-wide">
                   {course.title}
                 </span>
 
