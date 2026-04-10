@@ -401,7 +401,7 @@ export default function MBBSDeemedCollegesPage() {
                     {/* GET IN TOUCH */}
                     <div className="bg-[#D4ECFF] p-4 md:p-5 lg:p-6 rounded-lg sm:rounded-xl m-0 transition-transform hover:scale-[1.01] duration-300 shadow-sm">
                         <h3 className="text-xl md:text-2xl font-bold text-center text-gray-800 mb-6">
-                            Get In Touch
+                            Request a free callback <br /> from Our Counsellor
                         </h3>
 
                         {submitMessage && (

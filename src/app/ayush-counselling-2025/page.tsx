@@ -117,7 +117,7 @@ export default function AyushCounselling2025() {
 
                 <div className="relative z-2 bg-white rounded-2xl p-5 sm:p-8 shadow-lg">
                   <h3 className="text-xl lg:text-2xl font-bold text-gray-800 mb-4 sm:mb-6 text-center">
-                    Book <span className="text-[#00CFB2]">AYUSH</span> Counselling
+                    Request a free<span className="text-[#00CFB2]"> callback from Our</span> Counsellor
                   </h3>
 
                   <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4">

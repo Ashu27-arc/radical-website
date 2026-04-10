@@ -209,8 +209,8 @@ export default function NeetPgIndiaAdmissionPage() {
                 <div className="fadeUp">
                     <Swiper
                         modules={[Autoplay]}
-                        spaceBetween={24}
-                        slidesPerView={1.2}
+                        spaceBetween={10}
+                        slidesPerView={"auto"}
                         centeredSlides={true}
                         loop={true}
                         navigation
@@ -219,22 +219,11 @@ export default function NeetPgIndiaAdmissionPage() {
                             delay: 3000,
                             disableOnInteraction: false,
                         }}
-                        breakpoints={{
-                            640: {
-                                slidesPerView: 1.5,
-                            },
-                            768: {
-                                slidesPerView: 2.5,
-                            },
-                            1024: {
-                                slidesPerView: 3.5,
-                            },
-                        }}
                     >
                         {branches.map((item, index) => (
-                            <SwiperSlide key={index}>
+                            <SwiperSlide key={index} style={{ width: 'auto' }}>
                                 <div
-                                    className={`${item.color} rounded-2xl p-5 hover:shadow-md transition h-full`}
+                                    className={`${item.color} rounded-[12px] mx-auto w-[295px] h-[164px] p-5 hover:shadow-md transition flex flex-col justify-between`}
                                 >
                                     <div className="w-14 h-14 flex items-center justify-center rounded-full bg-white shadow mb-4">
                                         <img

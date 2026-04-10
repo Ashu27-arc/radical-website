@@ -20,11 +20,11 @@ const BlogSidebar = ({ className = "" }: BlogSidebarProps) => {
     useEffect(() => {
         setLoading(true);
         import('@/lib/api').then(api => api.getWpBlogs())
-        .then((wpData) => {
-            // Take top 5 WordPress blogs
-            setWpBlogs(wpData.slice(0, 5));
-            setLoading(false);
-        }).catch(() => setLoading(false));
+            .then((wpData) => {
+                // Take top 5 WordPress blogs
+                setWpBlogs(wpData.slice(0, 5));
+                setLoading(false);
+            }).catch(() => setLoading(false));
     }, []);
 
     const formatDate = (d?: string) => {
@@ -38,7 +38,7 @@ const BlogSidebar = ({ className = "" }: BlogSidebarProps) => {
             {/* Get In Touch Form */}
             <div className="mb-8">
                 <div className="bg-[#E1F2FF] p-4 sm:p-5 md:p-6 rounded-lg transition-transform hover:scale-[1.01] duration-300 shadow-sm">
-                    <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-800 mb-3 sm:mb-4 text-center">Request a free callback from Our Counsellor </h3>
+                    <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-800 mb-3 sm:mb-4 text-center">Request a free callback <br /> from Our Counsellor </h3>
                     <div className="space-y-4">
                         <div className="relative w-full">
                             <input
