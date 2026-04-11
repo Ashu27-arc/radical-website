@@ -9,7 +9,7 @@ import Image from 'next/image';
 
 
 
-
+import reviews from "@/data/reviews.json";
 
 const reviewtestimonials = [
     {
@@ -193,8 +193,8 @@ export default function TestimonialsPage() {
                             }}
                             className="!p-20 rvwSlider"
                         >
-                            {reviewtestimonials.map((item) => (
-                                <SwiperSlide key={item.id}>
+                            {reviews.map((review: any, index: number) => (
+                                <SwiperSlide key={index}>
                                     {({ isActive, isPrev, isNext }) => {
                                         let cardClass = "";
 
@@ -210,23 +210,32 @@ export default function TestimonialsPage() {
 
                                         return (
                                             <div
-                                                className={`transition-all duration-500 bg-white rounded-2xl px-6 py-10 shadow-xl transform
+                                                className={`transition-all duration-500 bg-white rounded-2xl p-6 shadow-xl transform
 hover:shadow-2xl hover:scale-[1.03] ${cardClass}`}
                                             >
                                                 <div className="flex items-center gap-3 mb-5">
                                                     <img
-                                                        src={item.avatar}
-                                                        alt={item.name}
+                                                        src={review.author_image}
+                                                        alt={review.author_title}
                                                         className="w-12 h-12 rounded-full object-cover"
                                                     />
                                                     <div className="text-left">
-                                                        <h4 className="text-sm font-semibold">{item.name}</h4>
-                                                        <p className="text-xs text-gray-400">{item.location}</p>
+                                                        <h4 className="text-sm font-semibold">{review.author_title}</h4>
+                                                        <p className="text-xs text-gray-400">
+                                                            {new Date(review.review_datetime_utc).toLocaleDateString("en-IN", {
+                                                                day: "numeric",
+                                                                month: "short",
+                                                                year: "numeric",
+                                                            })}
+                                                        </p>
                                                     </div>
                                                 </div>
-                                                <div className="text-yellow-400 text-sm mb-3 text-left">★★★★★</div>
-                                                <p className="text-sm text-gray-600 leading-relaxed text-left overflow-auto h-[140px]">
-                                                    {item.text}
+                                                <div className="text-yellow-400 text-sm mb-3 text-left">
+                                                    {"★".repeat(review.review_rating)}
+                                                    {"☆".repeat(5 - review.review_rating)}
+                                                </div>
+                                                <p className="m-0 p-0 text-sm text-gray-600 leading-relaxed text-left overflow-auto h-[130px]">
+                                                    {review.review_text || "No review available"}
                                                 </p>
                                             </div>
                                         );
@@ -343,7 +352,7 @@ hover:shadow-2xl hover:scale-[1.03] ${cardClass}`}
                                     key={item.id}
                                     className={`bg-white rounded-xl p-5 shadow-sm hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-2
                 ${isLastRowSingle
-                                            ? "lg:col-start-2" // center single item
+                                            ? "lg:col-start-2"
                                             : ""
                                         }
                 ${isLastRowDouble

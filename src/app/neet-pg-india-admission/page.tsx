@@ -12,149 +12,151 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 
 const branches = [
     {
+        title: "Pediatrics",
+        icon: "/images/Pediatrics.webp",
+        color: "#ecd5ff",
+        bg: "bg-[#ecd5ff]"
+    },
+    {
         title: "Internal Medicine",
-        desc: "Studies, prevents, and treats adult diseases. Acts as the backbone for all other medical sciences",
         icon: "/images/InternalMedicine.webp",
-        color: "bg-[#FFEFF2]",
+        color: "#ffe5eb",
+        bg: "bg-[#ffe5eb]"
     },
     {
         title: "Orthopedics",
-        desc: "Studies and treats disorders related to bones, joints, and the musculoskeletal system. Includes trauma, fractures, and joint surgeries.",
         icon: "/images/Orthopedics.webp",
-        color: "bg-[#E4FFDE]",
+        color: "#d0ffc5",
+        bg: "bg-[#d0ffc5]"
     },
     {
         title: "Psychiatry",
-        desc: "Studies and treats mental health-related issues and emotional stability. Includes therapy, counselling, and medication.",
         icon: "/images/Psychiatry.webp",
-        color: "bg-[#FFEDB3]",
-    },
-    {
-        title: "Dermatology",
-        desc: "Studies and treats skin, hair, and nail-related disorders. It includes medical and cosmetic treatments.",
-        icon: "/images/Dermatology.webp",
-        color: "bg-[#F4E7FF]",
-    },
-    {
-        title: "Pediatrics",
-        desc: "Studies and treats health-related issues in infants, children, and teens. It includes growth, development, and childhood-related diseases.",
-        icon: "/images/Pediatrics.webp",
-        color: "bg-[#F4E7FF]",
+        color: "#ffe58f",
+        bg: "bg-[#ffe58f]"
     },
     {
         title: "Radiology",
-        desc: "Uses X-rays, CT scans, and MRI for diagnosis. Acts as a backbone in modern medical sciences for investigations.",
         icon: "/images/Radiology.webp",
-        color: "bg-[#E0F3FF]",
+        color: "#c4e9ff",
+        bg: "bg-[#c4e9ff]"
     },
     {
         title: "Anatomy",
-        desc: "Studies the structure of the human body. Acts as the foundation for all other medical sciences.",
         icon: "/images/Anatomy.webp",
-        color: "bg-[#DCFFD6]",
+        color: "#d0ffc5",
+        bg: "bg-[#d0ffc5]"
     },
     {
         title: "Medical Jurisprudence",
-        desc: "Studies and treats the legal aspects of medical practice.Includes ethics, laws, and responsibilities.",
         icon: "/images/MedicalJurisprudence.webp",
-        color: "bg-[#ffffff]",
-    },
-    {
-        title: "Microbiology",
-        desc: "Studies microorganisms like bacteria, viruses, and fungi. Acts as the backbone for all other medical sciences.",
-        icon: "/images/Microbiology.webp",
-        color: "bg-[#FFEDB3]",
-    },
-    {
-        title: "General Surgery",
-        desc: "It involves the surgical management of all kinds of health conditions. It includes abdominal, traumatic, and emergency surgeries.",
-        icon: "/images/GeneralSurgery.webp",
-        color: "bg-[#F4E7FF]",
-    },
-    {
-        title: "Anesthesiology",
-        desc: "It is concerned with anesthesia and patient care. It ensures that surgical procedures are performed without any pain.",
-        icon: "/images/Anesthesiology.webp",
-        color: "bg-[#FFEFF2]",
-    },
-    {
-        title: "ENT (Otorhinolaryngology) ",
-        desc: "It is concerned with the diagnosis and treatment of ear, nose, and throat disorders. It includes medical and surgical aspects.",
-        icon: "/images/ENT.webp",
-        color: "bg-[#E0F3FF]",
+        color: "#ecd5ff",
+        bg: "bg-[#ecd5ff]"
     },
     {
         title: "Pathology",
-        desc: "It is concerned with the study of diseases through the examination of bodily fluids and tissues.It is very important for the proper diagnosis and treatment of health and disease.",
         icon: "/images/Pathology.webp",
-        color: "bg-[#FFEFF2]",
+        color: "#ffe5eb",
+        bg: "bg-[#ffe5eb]"
     },
     {
-        title: "Obstetrics and Gynecology (OB GYN) ",
-        desc: "Concerned with female reproductive health, pregnancy, and childbirth. It also deals with the diagnosis and treatment of gynecological disorders.",
-        icon: "/images/Gynaecology.webp",
-        color: "bg-[#E0F3FF]",
+        title: "MS Obstetrics and Gyna..",
+        icon: "/images/MS.webp",
+        color: "#d0ffc5",
+        bg: "bg-[#d0ffc5]"
     },
     {
         title: "Pharmacology",
-        desc: "Studies drugs, their mechanisms, effects, and therapeutic use. This field is important for the safe and proper use of drugs.",
         icon: "/images/Pharmacology.webp",
-        color: "bg-[#F4E7FF]",
+        color: "#ffe58f",
+        bg: "bg-[#ffe58f]"
     },
     {
-        title: "Radiotherapy",
-        desc: "The use of radiation to treat cancer and other diseases. This field is concerned with the precise use of radiation therapy.",
-        icon: "/images/RadiationTherapy.webp",
-        color: "bg-[#DCFFD6]",
-    },
-    {
-        title: "MS OB GYN",
-        desc: "Postgraduate specialization in obstetrics and gynecology. This field provides training to medical graduates in the surgical and medical management of female health.",
+        title: "OBGYN",
         icon: "/images/OBGYN.webp",
-        color: "bg-[#FFEDB3]",
+        color: "#c4e9ff",
+        bg: "bg-[#c4e9ff]"
     },
     {
         title: "Biochemistry",
-        desc: "Studies chemical processes in living organisms.This field provides a foundation for the molecular basis of disease.",
         icon: "/images/Biochemistry.webp",
-        color: "bg-[#E4FFDE]",
+        color: "#d0ffc5",
+        bg: "bg-[#d0ffc5]"
     },
     {
-        title: "Community Medicine",
-        desc: "Concerned with public health, disease prevention, and health promotion. This field deals with healthcare at a community or public leve",
+        title: "Community health",
         icon: "/images/CommunityHealth.webp",
-        color: "bg-[#FFEFF2]",
+        color: "#ecd5ff",
+        bg: "bg-[#ecd5ff]"
+    },
+    {
+        title: "Radiation therapy",
+        icon: "/images/RadiationTherapy.webp",
+        color: "#ffe5eb",
+        bg: "bg-[#ffe5eb]"
     },
     {
         title: "Pulmonology",
-        desc: "Specialization in diseases affecting the respiratory system. This field includes various conditions such as asthma, COPD, and lung infections.",
         icon: "/images/Pulmonology.webp",
-        color: "bg-[#F4E7FF]",
-    },
-    {
-        title: "Ophthalmology",
-        desc: "Deals with eye disorders and their treatment. This field includes vision correction, eye surgery, and eye disease management.",
-        icon: "/images/Ophthalmology.webp",
-        color: "bg-[#F4E7FF]",
-    },
-    {
-        title: "Nuclear Medicine",
-        desc: "Uses radioactive substances for diagnosis and treatment.Commonly used in images and cancer treatments.",
-        icon: "/images/NuclearMedicine.webp",
-        color: "bg-[#E0F3FF]",
+        color: "#d0ffc5",
+        bg: "bg-[#d0ffc5]"
     },
     {
         title: "Cardiology",
-        desc: "Studies and treats disorders related to the heart and cardiovascular systems. Includes diagnosis, treatment, and prevention of heart-related diseases.",
         icon: "/images/Cardiology.webp",
-        color: "bg-[#DCFFD6]",
+        color: "#ffe58f",
+        bg: "bg-[#ffe58f]"
     },
     {
         title: "Oncology",
-        desc: "Studies and treats cancer. Includes chemotherapy, radiation, and other cancer treatments.",
         icon: "/images/Oncology.webp",
-        color: "bg-[#E5FBFF]",
+        color: "#c4e9ff",
+        bg: "bg-[#c4e9ff]"
     },
+    {
+        title: "Ophthalmology",
+        icon: "/images/Ophthalmology.webp",
+        color: "#d0ffc5",
+        bg: "bg-[#d0ffc5]"
+    },
+    {
+        title: "Nuclear medicine",
+        icon: "/images/NuclearMedicine.webp",
+        color: "#ecd5ff",
+        bg: "bg-[#ecd5ff]"
+    },
+    {
+        title: "Dermatology",
+        icon: "/images/Dermatology.webp",
+        color: "#ffe5eb",
+        bg: "bg-[#ffe5eb]"
+    },
+    {
+        title: "Microbiology",
+        icon: "/images/Microbiology.webp",
+        color: "#d0ffc5",
+        bg: "bg-[#d0ffc5]"
+    },
+    {
+        title: "General Surgery",
+        icon: "/images/GeneralSurgery.webp",
+        color: "#ffe58f",
+        bg: "bg-[#ffe58f]"
+    },
+    {
+        title: "Anesthesiology",
+        icon: "/images/Anesthesiology.webp",
+        color: "#c4e9ff",
+        bg: "bg-[#c4e9ff]"
+    },
+    {
+        title: "ENT",
+        icon: "/images/ENT.webp",
+        color: "#c4e9ff",
+        bg: "bg-[#c4e9ff]"
+    }
+    
+    
 ];
 
 const features = [
@@ -208,6 +210,7 @@ export default function NeetPgIndiaAdmissionPage() {
                 </div>
                 <div className="fadeUp">
                     <Swiper
+                        style={{ cursor: "grabbing" }}
                         modules={[Autoplay]}
                         spaceBetween={10}
                         slidesPerView={"auto"}
@@ -222,24 +225,34 @@ export default function NeetPgIndiaAdmissionPage() {
                     >
                         {branches.map((item, index) => (
                             <SwiperSlide key={index} style={{ width: 'auto' }}>
-                                <div
-                                    className={`${item.color} rounded-[12px] mx-auto w-[257px] h-[164px] p-5 hover:shadow-md transition flex flex-col justify-between`}
+                                <div style={{ backgroundColor: `${item.color}60` }}
+                                    className="group rounded-[12px] mx-auto w-[146px] h-[176px] pt-6 px-3 transition flex flex-col gap-3 justify-start items-center text-center"
                                 >
-                                    <div className="w-14 h-14 flex items-center justify-center rounded-full bg-white shadow mb-4">
-                                        <img
-                                            src={item.icon}
-                                            alt={item.title}
-                                            className="w-8 h-8 object-contain"
-                                        />
+                                    <div
+    style={{
+      backgroundColor: `${item.color}40`,
+    }}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.backgroundColor = item.color;
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.backgroundColor = `${item.color}40`;
+    }}
+    className="w-[70px] h-[70px] p-2 inline-flex items-center justify-center rounded-full transition-all duration-300 group-hover:scale-110"
+  >
+                                        <div style={{ backgroundColor: `${item.color}` }} className={`w-full h-full inline-flex items-center justify-center rounded-full`}>
+                                            <img
+                                                src={item.icon}
+                                                alt={item.title}
+                                                className="w-8 h-8 object-contain"
+                                            />
+                                        </div>
                                     </div>
 
                                     <div className="flex justify-between items-center">
-                                        <h3 className="font-semibold text-gray-900 text-sm">
+                                        <h3 className="font-normal text-[#0B2E3C] text-[14px]">
                                             {item.title}
                                         </h3>
-                                        {/* <div className="text-[#FF0000] text-xl">
-                                            <i className="pi pi-youtube"></i>
-                                        </div> */}
                                     </div>
                                 </div>
                             </SwiperSlide>
@@ -247,7 +260,7 @@ export default function NeetPgIndiaAdmissionPage() {
                     </Swiper>
                 </div>
             </section>
-            <section className="py-10 lg:py-15 overflow-hidden bg-[#F4F7F8]">
+            <section className="py-10 lg:pt-15 lg:pb-40 overflow-hidden bg-[#F4F7F8]">
                 <div className="container px-3 md:px-4 lg:px-20 max-w-[1010px]!">
                     <div className="grid grid-cols-1 md:grid-cols-2 md:gap-4 lg:gap-10 mb-16">
                         <div className="relative">
@@ -255,7 +268,7 @@ export default function NeetPgIndiaAdmissionPage() {
                         </div>
                         <div>
                             <div
-                                className="group fadeUp relative z-10 rounded-2xl pt-16 pb-8 px-6 shadow-xl transition-all duration-500 bg-white hover:shadow-2xl hover:bg-[linear-gradient(163.56deg,_#02CCB2_6.49%,_#0080C8_98.8%)] transition-all duration-300 hover:text-white"
+                                className="group fadeUp relative z-10 rounded-2xl pt-16 pb-5 px-6 shadow-xl transition-all duration-500 bg-white hover:shadow-2xl hover:bg-[linear-gradient(163.56deg,_#02CCB2_6.49%,_#0080C8_98.8%)] transition-all duration-300 hover:text-white"
                             >
                                 <div className="absolute left-1/2 -translate-x-1/2 -top-[35px] border-[8px] border-[#F4F7F8] rounded-full">
                                     <img
@@ -264,20 +277,20 @@ export default function NeetPgIndiaAdmissionPage() {
                                         className="w-16 h-16 object-contain"
                                     />
                                 </div>
-                                <div className="text-center mb-3 text-lg font-semibold text-[#0B2E3C] group-hover:text-white! transition-colors duration-300 uppercase">Standard</div>
-                                <div className="text-center text-xs text-[#0B2E3C] group-hover:text-white! transition-colors duration-300 mb-6">Turn Your NEET Rank into a Medical <br /> Seat with Expert Guidance. </div>
+                                <div className="text-center mb-3 text-lg font-semibold text-black group-hover:text-white! transition-colors duration-300">Standard</div>
+                                <div className="text-center text-xs text-[#686767] group-hover:text-white! transition-colors duration-300 mb-6">Turn Your NEET Rank into a Medical <br /> Seat with Expert Guidance. </div>
                                 <div className="text-center font-light lg:text-5xl text-4xl group-hover:text-white! transition-colors duration-300 mb-8">₹ 84,999</div>
                                 <div className="flex flex-col gap-3 mb-10">
-                                    <Button className="text-[#005787]! border-[#DFF1FF]! bg-[#128FFF1C]! group-hover:bg-[#FFFFFF47]! group-hover:text-white! group-hover:border-[#FFFFFF47]! w-full flex gap-2 items-center transition-all duration-300" rounded>
-                                        Buy now <i className="pi pi-arrow-right"></i>
+                                    <Button className="text-[#005787]! border-[#DFF1FF]! bg-[#E5F3FF]! group-hover:bg-[#FFFFFF47]! group-hover:text-white! group-hover:border-[#FFFFFF47]! w-full flex gap-2 items-center transition-all duration-300" rounded>
+                                        Pay Now
                                     </Button>
                                 </div>
-                                <div className="text-base text-black font-semibold group-hover:text-white! transition-colors duration-300 mb-5">What's included?</div>
+                                <div className="text-base text-black font-semibold group-hover:text-white! transition-colors duration-300 mb-5">Features</div>
                                 <ul className="space-y-5 text-sm text-gray-700 mb-8">
                                     {features.map((item, index) => (
                                         <li key={index} className="flex gap-2">
                                             <span className="text-yellow-500 transition-colors duration-300">✦</span>
-                                            <span className="group-hover:text-white transition-colors duration-300">{item}</span>
+                                            <span className="text-[#686767] group-hover:text-white transition-colors duration-300">{item}</span>
                                         </li>
                                     ))}
                                 </ul>
@@ -287,10 +300,10 @@ export default function NeetPgIndiaAdmissionPage() {
                     </div>
                     <div className="grid md:grid-cols-2 grid-cols-1 gap-10 mb-10 items-center">
                         <div className="flex flex-wrap gap-2 fadeUp items-end md:justify-start justify-center">
-                            <div className="text-[#0B2E3C] text-2xl font-bold">Admission Service Charge :-</div>
+                            <div className="text-[#0B2E3C] text-2xl font-semibold">Admission Service Charge :-</div>
                         </div>
                         <div className="flex flex-wrap lg:gap-6 gap-3 items-center justify-center md:justify-end fadeUp">
-                            <div className="lg:text-2xl py-3 px-8 rounded-lg text-white font-semibold bg-[#0095C2]">₹ 99,999</div>
+                            <div className="lg:text-2xl py-3 px-8 rounded-lg text-white bg-[#0095C2]">₹ 99,999</div>
                         </div>
                     </div>
                     <div className="bg-white rounded-lg sm:rounded-xl p-6 lg:p-8">
