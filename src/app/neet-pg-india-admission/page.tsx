@@ -223,7 +223,7 @@ export default function NeetPgIndiaAdmissionPage() {
                         {branches.map((item, index) => (
                             <SwiperSlide key={index} style={{ width: 'auto' }}>
                                 <div
-                                    className={`${item.color} rounded-[12px] mx-auto w-[295px] h-[164px] p-5 hover:shadow-md transition flex flex-col justify-between`}
+                                    className={`${item.color} rounded-[12px] mx-auto w-[257px] h-[164px] p-5 hover:shadow-md transition flex flex-col justify-between`}
                                 >
                                     <div className="w-14 h-14 flex items-center justify-center rounded-full bg-white shadow mb-4">
                                         <img
@@ -251,7 +251,7 @@ export default function NeetPgIndiaAdmissionPage() {
                 <div className="container px-3 md:px-4 lg:px-20 max-w-[1010px]!">
                     <div className="grid grid-cols-1 md:grid-cols-2 md:gap-4 lg:gap-10 mb-16">
                         <div className="relative">
-                            <Image src="/images/caremore2.webp" width="572" height="764" className="w-full h-auto" alt="" />
+                            <Image src="/neetpg-card.webp" width="572" height="764" className="w-full h-auto" alt="" />
                         </div>
                         <div>
                             <div
@@ -265,7 +265,7 @@ export default function NeetPgIndiaAdmissionPage() {
                                     />
                                 </div>
                                 <div className="text-center mb-3 text-lg font-semibold text-[#0B2E3C] group-hover:text-white! transition-colors duration-300 uppercase">Standard</div>
-                                <div className="text-center text-xs text-[#0B2E3C] group-hover:text-white! transition-colors duration-300 mb-6">I designed a web UI for an AI-powered HR Co-Pil I </div>
+                                <div className="text-center text-xs text-[#0B2E3C] group-hover:text-white! transition-colors duration-300 mb-6">Turn Your NEET Rank into a Medical Seat with Expert Guidance. </div>
                                 <div className="text-center font-light lg:text-5xl text-4xl group-hover:text-white! transition-colors duration-300 mb-8">₹ 84,999</div>
                                 <div className="flex flex-col gap-3 mb-10">
                                     <Button className="text-[#005787]! border-[#DFF1FF]! bg-[#128FFF1C]! group-hover:bg-[#FFFFFF47]! group-hover:text-white! group-hover:border-[#FFFFFF47]! w-full flex gap-2 items-center transition-all duration-300" rounded>
