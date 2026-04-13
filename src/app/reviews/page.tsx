@@ -204,7 +204,7 @@ hover:shadow-2xl hover:scale-[1.03] ${cardClass}`}
                             </div>
                         </div>
                     )}
-                    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mt-16 fadeUp">
+                    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-6 mt-16 fadeUp">
                         {reviews.map((item: any, index: number) => {
                             const total = reviews.length;
 
@@ -217,15 +217,15 @@ hover:shadow-2xl hover:scale-[1.03] ${cardClass}`}
                             return (
                                 <div
                                     key={index}
-                                    className={`bg-white rounded-xl p-5 shadow-sm hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-2
+                                    className={`bg-white rounded-xl p-5 shadow-sm hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-2 lg:col-span-2
                 ${isLastRowSingle
-                                            ? "lg:col-start-2"
+                                            ? "lg:col-start-3"
                                             : ""
                                         }
                 ${isLastRowDouble
                                             ? index === total - 2
-                                                ? "lg:col-start-1"
-                                                : "lg:col-start-3"
+                                                ? "lg:col-start-2"
+                                                : "lg:col-start-4"
                                             : ""
                                         }
                 `}

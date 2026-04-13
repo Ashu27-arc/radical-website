@@ -28,10 +28,10 @@ export default function MBBSAbroadAdmission() {
             slug: "russia",
             flag: "/images/russia.webp",
             image: "/images/study-abroad/russia.webp",
-            likes: 45,
-            comments: 1244,
-            shares: 420,
-            views: 22,
+            likes: "5K",
+            comments: "120",
+            shares: "12",
+            views: "27",
             users: [
                 { name: "Aarav Raj", avatar: "/images/testi1.webp" },
                 { name: "Navnit", avatar: "/images/testi2.webp" },
@@ -46,10 +46,10 @@ export default function MBBSAbroadAdmission() {
             slug: "kazakhstan",
             flag: "/images/kazakhstan.webp",
             image: "/images/study-abroad/kazakhstan.webp",
-            likes: 45,
-            comments: 1244,
-            shares: 420,
-            views: 22,
+            likes: "1K",
+            comments: "143",
+            shares: "8",
+            views: "257",
             users: [
                 { name: "Aarav Raj", avatar: "/images/testi4.webp" },
                 { name: "Navnit", avatar: "/images/testi5.webp" },
@@ -64,10 +64,10 @@ export default function MBBSAbroadAdmission() {
             slug: "nepal",
             flag: "/images/nepal.webp",
             image: "/images/study-abroad/nepal.webp",
-            likes: 45,
-            comments: 1244,
-            shares: 420,
-            views: 22,
+            likes: "24K",
+            comments: "230",
+            shares: "9",
+            views: "12",
             users: [
                 { name: "Aarav Raj", avatar: "/images/testi7.webp" },
                 { name: "Navnit", avatar: "/images/testi8.webp" },
@@ -82,10 +82,10 @@ export default function MBBSAbroadAdmission() {
             slug: "singapore",
             flag: "/images/singapore.webp",
             image: "/images/study-abroad/singapore.webp",
-            likes: 45,
-            comments: 1244,
-            shares: 420,
-            views: 22,
+            likes: "8K",
+            comments: "100",
+            shares: "7",
+            views: "182",
             users: [
                 { name: "Aarav Raj", avatar: "/images/testi19.webp" },
                 { name: "Navnit", avatar: "/images/testi20.webp" },
@@ -101,10 +101,10 @@ export default function MBBSAbroadAdmission() {
             slug: "georgia",
             flag: "/images/georgia.webp",
             image: "/images/study-abroad/georgia.webp",
-            likes: 45,
-            comments: 1244,
-            shares: 420,
-            views: 22,
+            likes: "1K",
+            comments: "60",
+            shares: "25",
+            views: "80",
             users: [
                 { name: "Aarav Raj", avatar: "/images/testi13.webp" },
                 { name: "Navnit", avatar: "/images/testi14.webp" },
@@ -119,10 +119,10 @@ export default function MBBSAbroadAdmission() {
             slug: "uzbekistan",
             flag: "/images/uzbekistan.webp",
             image: "/images/study-abroad/uzbekistan.webp",
-            likes: 45,
-            comments: 1244,
-            shares: 420,
-            views: 22,
+            likes: "1K",
+            comments: "136",
+            shares: "12",
+            views: "80",
             users: [
                 { name: "Aarav Raj", avatar: "/images/testi10.webp" },
                 { name: "Navnit", avatar: "/images/testi11.webp" },
@@ -138,10 +138,10 @@ export default function MBBSAbroadAdmission() {
             slug: "bangladesh",
             flag: "/images/bangladesh.webp",
             image: "/images/study-abroad/bangladesh.webp",
-            likes: 45,
-            comments: 1244,
-            shares: 420,
-            views: 22,
+            likes: "2K",
+            comments: "123",
+            shares: "40",
+            views: "160",
             users: [
                 { name: "Aarav Raj", avatar: "/images/testi19.webp" },
                 { name: "Navnit", avatar: "/images/testi20.webp" },
@@ -409,7 +409,7 @@ export default function MBBSAbroadAdmission() {
                                                     <path d="M2.55469 4.3932C3.62973 3.33571 4.99809 2.61591 6.48723 2.32457C7.97636 2.03322 9.5196 2.18338 10.9224 2.75611C12.3251 3.32883 13.5246 4.29848 14.3695 5.54279C15.2144 6.78709 15.6669 8.25034 15.6701 9.74803" stroke="black" stroke-miterlimit="10" stroke-linecap="round" />
                                                     <path d="M3.17198 0.5L2.4081 3.55421C2.37307 3.68737 2.36575 3.82615 2.38659 3.96217C2.40744 4.0982 2.45601 4.22864 2.52937 4.34563C2.60274 4.46262 2.69938 4.56373 2.81345 4.64285C2.92753 4.72197 3.05668 4.77746 3.1931 4.80597L6.28809 5.56952" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
                                                 </svg>
-                                                <span className="text-sm">27</span>
+                                                <span className="text-sm">{country.views}</span>
                                             </button>
 
 
@@ -560,7 +560,7 @@ export default function MBBSAbroadAdmission() {
                                                         <path d="M2.55469 4.3932C3.62973 3.33571 4.99809 2.61591 6.48723 2.32457C7.97636 2.03322 9.5196 2.18338 10.9224 2.75611C12.3251 3.32883 13.5246 4.29848 14.3695 5.54279C15.2144 6.78709 15.6669 8.25034 15.6701 9.74803" stroke="black" stroke-miterlimit="10" stroke-linecap="round" />
                                                         <path d="M3.17198 0.5L2.4081 3.55421C2.37307 3.68737 2.36575 3.82615 2.38659 3.96217C2.40744 4.0982 2.45601 4.22864 2.52937 4.34563C2.60274 4.46262 2.69938 4.56373 2.81345 4.64285C2.92753 4.72197 3.05668 4.77746 3.1931 4.80597L6.28809 5.56952" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
                                                     </svg>
-                                                    <span className="text-sm">27</span>
+                                                    <span className="text-sm">{country.views}</span>
                                                 </button>
 
 

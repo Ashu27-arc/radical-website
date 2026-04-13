@@ -215,7 +215,7 @@ export default function Footer() {
                 <div className=''>
                   <Image src='/images/meme.webp' alt='MeMe' width='72' height='72' className='' />
                 </div>
-                <div>
+                <div className='translate-x-8 sm:translate-x-0'>
                   <Image src='/images/iso.webp' alt='ISO' width='50' height='50' className='w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16' />
                 </div>
                 <div className='text-[10px] xs:text-xs sm:text-xs text-[#0B2E3C] leading-tight sm:leading-3 text-center sm:text-left'>
