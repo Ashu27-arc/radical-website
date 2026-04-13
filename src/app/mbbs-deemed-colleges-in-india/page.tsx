@@ -385,7 +385,7 @@ export default function MBBSDeemedCollegesPage() {
                                 value={searchTerm}
                                 onChange={(e) => setSearchTerm(e.target.value)}
                                 onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
-                                className="w-full h-9 sm:h-10 rounded-full bg-white shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 px-4 sm:px-5 text-xs sm:text-sm !placeholder-[#B3B3B3]"
+                                className="w-full h-9 sm:h-10 rounded-full bg-white shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 px-4 sm:px-5 text-xs sm:text-sm !placeholder-[#B3B3B3]/50"
                             />
                             <button
                                 onClick={handleSearch}
