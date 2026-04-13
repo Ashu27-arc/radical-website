@@ -179,16 +179,16 @@ export default function StudyAbroadPage() {
                                         className="w-16 h-16 object-contain"
                                     />
                                 </div>
-                                <div className="text-center mb-3 text-lg font-semibold text-[#0B2E3C] group-hover:text-white! transition-colors duration-300 uppercase">Standard</div>
-                                <div className="text-center text-xs text-[#0B2E3C] group-hover:text-white! transition-colors duration-300 mb-6">Start Your Global Medical Journey <br /> with End-to-End Expert Support. </div>
-                                <div className="text-center font-light lg:text-5xl text-4xl group-hover:text-white! transition-colors duration-300 mb-8">₹ 99,999</div>
+                                <div className="text-center mb-3 text-lg font-semibold text-black group-hover:text-white! transition-colors duration-300">Standard</div>
+                                <div className="text-center text-xs text-[#686767] group-hover:text-white! transition-colors duration-300 mb-6">Start Your Global Medical Journey <br /> with End-to-End Expert Support. </div>
+                                <div className="text-center font-light lg:text-5xl text-black text-4xl group-hover:text-white! transition-colors duration-300 mb-8">₹ 99,999</div>
                                 <div className="flex flex-col gap-3 mb-10">
-                                    <Button className="text-[#005787]! border-[#DFF1FF]! bg-[#128FFF1C]! group-hover:bg-[#FFFFFF47]! group-hover:text-white! group-hover:border-[#FFFFFF47]! w-full flex gap-2 items-center transition-all duration-300" rounded>
-                                        Buy now <i className="pi pi-arrow-right"></i>
+                                    <Button className="text-[#005787]! border-[#DFF1FF]! bg-[#E5F3FF]! group-hover:bg-[#FFFFFF47]! group-hover:text-white! group-hover:border-[#FFFFFF47]! w-full flex gap-2 items-center transition-all duration-300" rounded>
+                                        Pay Now
                                     </Button>
                                 </div>
-                                <div className="text-base text-black font-semibold group-hover:text-white! transition-colors duration-300 mb-5">What's included?</div>
-                                <ul className="space-y-5 text-sm text-gray-700 mb-8">
+                                <div className="text-base text-black font-semibold group-hover:text-white! transition-colors duration-300 mb-5">Features</div>
+                                <ul className="space-y-5 text-sm text-[#686767] mb-4">
                                     {features.map((item, index) => (
                                         <li key={index} className="flex gap-2">
                                             <span className="text-yellow-500 transition-colors duration-300">✦</span>

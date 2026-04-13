@@ -8,7 +8,7 @@ import Link from "next/link";
 const neetupadmissionplans = [
     {
         id: 1,
-        title: "STANDARD",
+        title: "Standard",
         subtitle: "Complete end-to-end premium support",
         price: "₹ 9,999",
         color: "bg-[#B6FFA7]",
@@ -26,7 +26,7 @@ const neetupadmissionplans = [
     },
     {
         id: 2,
-        title: "STRATEGY",
+        title: "Strategy",
         subtitle: "Smart planning with added support",
         price: "₹ 27,999",
         color: "bg-[#AEC2FF]",
@@ -44,7 +44,7 @@ const neetupadmissionplans = [
     },
     {
         id: 3,
-        title: "ULTIMATE",
+        title: "Ultimate",
         subtitle: "Complete end-to-end premium support",
         price: "₹ 129,999",
         color: "bg-[#D3F4FF]",
@@ -97,7 +97,7 @@ export default function NeetUgIndiaAdmissionPage() {
             <section className="py-10 lg:py-15 overflow-hidden bg-[#F4F7F8]">
                 <div className="container px-3 md:px-4 max-w-[1240px]">
                     <h2 className='text-black text-4xl font-bold mb-10 lg:mb-16 text-center fadeUp'>Pricing & <span className='text-[#287FC4]'>Packages</span></h2>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-14 lg:gap-10 mb-10 lg:mb-12">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-14 lg:gap-10 mb-14 lg:mb-20">
                         {neetupadmissionplans.map((plan) => (
                             <div
                                 key={plan.id}
@@ -110,12 +110,12 @@ export default function NeetUgIndiaAdmissionPage() {
                                         className="w-16 h-16 object-contain"
                                     />
                                 </div>
-                                <div className="text-center mb-3 text-lg font-semibold text-[#0B2E3C] group-hover:text-white! transition-colors duration-300 uppercase">{plan.title}</div>
+                                <div className="text-center mb-3 text-lg font-semibold text-[#0B2E3C] group-hover:text-white! transition-colors duration-300">{plan.title}</div>
                                 <div className="text-center text-xs text-[#0B2E3C] group-hover:text-white! transition-colors duration-300 mb-6">{plan.subtitle}</div>
                                 <div className="text-center font-light lg:text-5xl text-4xl group-hover:text-white! transition-colors duration-300 mb-8">{plan.price}</div>
                                 <div className="flex flex-col gap-3 mb-10">
                                     <Button className="text-[#005787]! border-[#DFF1FF]! bg-[#128FFF1C]! group-hover:bg-[#FFFFFF47]! group-hover:text-white! group-hover:border-[#FFFFFF47]! w-full flex gap-2 items-center transition-all duration-300" rounded>
-                                        Pay now <i className="pi pi-arrow-right"></i>
+                                        Pay now
                                     </Button>
                                 </div>
                                 <div className="text-base text-black font-semibold group-hover:text-white! transition-colors duration-300 mb-5">What's included?</div>
@@ -131,19 +131,6 @@ export default function NeetUgIndiaAdmissionPage() {
                             </div>
                         ))}
                     </div>
-                    {/* <div className="mb-20">
-                        <div className="flex md:flex-row flex-col justify-between gap-6 items-center">
-                            <div className="text-center md:text-left">
-                                <div className="text-black fadeUp font-bold text-xl md:text-4xl text-center md:text-left">Get 35% OFF on Ultimate Plan – Now at just</div>
-                                <div className="mt-3 fadeUp flex text-[#538AA1] gap-2 items-center">
-                                    Note:- One Shot Payment (NO PARTIAL PAYMENT, NO NEGOTIATIONS)
-                                </div>
-                            </div>
-                            <div className="fadeRight">
-                                <Link href="https://www.neetbhaiya.in/" target="_blank" className="text-nowrap inline-flex px-4 md:px-8! py-3 text-white md:text-2xl text-lg rounded-lg bg-[#0095C2] font-semibold">₹ 84,499</Link>
-                            </div>
-                        </div>
-                    </div> */}
                     <div id="connect-counselor" className="mb-16 grid grid-cols-1 md:grid-cols-2 md:gap-4 lg:gap-20 gap-10 bg-[#FFE5EB] lg:rounded-3xl rounded-2xl lg:pl-20 md:pl-10 pt-10 md:pr-0 px-10">
                         <div className="text-center md:text-left self-center lg:-translate-6">
                             <h2 className="mb-3 font-bold text-black lg:text-4xl text-3xl">Book your 20 MIN free counselling session today </h2>
