@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
+import Link from "next/link";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 export default function MBBSDeemedCollegesPage() {
@@ -111,32 +112,41 @@ export default function MBBSDeemedCollegesPage() {
                             {/* Content with relative positioning to appear above watermark */}
                             <div className="relative z-10 space-y-3 sm:space-y-4">
                                 <p>
-                                    Invite Your Friends And Unlock Exclusive Benefits—Earn More With
-                                    Every Successful Referral. Invite Your Friends And Unlock
-                                    Exclusive Benefits Invite Your Friends And Unlock Exclusive
-                                    Benefits—Earn More With Every Successful Referral. Invite Your Friends And
-                                    Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite
-                                    Your Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive
+                                    MBBS in India is considered the ultimate dream of many candidates aspiring to be doctors. Government colleges are preferable as they provide education at an affordable price, although private or deemed medical colleges offer the best facilities, well-equipped hospitals, and exposure to the entire world. The top medical schools in India are Kasturba Medical College, which charges about 17 to 20 lakhs annually, Sri Ramachandra Institute of Higher Education and Research, charging 22 to 25 lakhs each year, and DY Patil Medical College, which costs around 25 to 30 lakhs per annum. These institutions provide excellent educational and infrastructural facilities.
                                 </p>
                                 <p>
-                                    Invite Your Friends And Unlock Exclusive Benefits—Earn More With
-                                    Every Successful Referral. Invite Your Friends And Unlock
-                                    Exclusive Benefits Invite Your Friends And Unlock Exclusive
-                                    Benefits—Earn More With Every Successful Referral. Invite Your Friends And
-                                    Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite
-                                    Your Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive
+                                    The best part is that, in addition to offering MBBS, the top medical schools in India also provide courses for higher studies, including MD and MS in subjects like General Medicine, Surgery, Pediatrics, Radiology, Cardiology, and Neurology.
+                                    If you are interested in getting admission to one of the medical colleges for the upcoming academic year 2025–2026, then you need to know the fee structure and cut-off over the last few years.
                                 </p>
                             </div>
                         </div>
 
                         {/* WhatsApp Banner */}
                         <Image
-                            src="/images/deemed/whatsapp-banner.webp"
+                            src="/images/deemed/banner-mbbs.webp"
                             alt="NEET 2025 Latest Updates"
                             width={800}
                             height={200}
                             className="w-full h-auto object-contain my-4 sm:my-5 md:my-6 max-w-full"
                         />
+
+                        <h2 className="text-base sm:text-lg md:text-xl font-bold text-gray-800 mb-3 sm:mb-4">
+                            NEET Exam in India: Your Gateway to a Bright Medical Career
+                        </h2>
+
+                        <p className="text-gray-700 text-xs sm:text-sm md:text-base mb-4 sm:mb-5 md:mb-6 leading-relaxed">
+                            The NEET is the primary entrance examination in India for pursuing courses like MBBS, BDS, and more. The exam is conducted by the NTA and is essential for getting admitted into government, private, or other recognized medical institutions in India. Thousands of candidates give this exam annually, and a good score in this exam increases their chances of admission to the best medical universities, where they can pursue quality medical education. This will help the admission process become more transparent and merit-based, thus paving the way for their successful careers in medicine.
+                        </p>
+
+                        <Link href="https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P" target="_blank" className="block w-full hover:opacity-90 transition-opacity">
+                            <Image
+                                src="/images/deemed/whatsapp-banner.jpg"
+                                alt="MBBS Deemed Colleges"
+                                width={800}
+                                height={200}
+                                className="w-full h-auto object-contain my-4 sm:my-5 md:my-6 max-w-full"
+                            />
+                        </Link>
 
                         <h2 className="text-base sm:text-lg md:text-xl font-bold text-[#287FC4] mt-5 sm:mt-6 md:mt-8 mb-3 sm:mb-4">
                             List of Private Medical colleges in Bihar is given in the table below
@@ -290,10 +300,7 @@ export default function MBBSDeemedCollegesPage() {
                             </h2>
 
                             <p className="text-gray-700 text-xs sm:text-sm md:text-base mb-4 sm:mb-5 md:mb-6 leading-relaxed">
-                                Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite Your Friends And
-                                Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits—
-                                Earn More With Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite
-                                Your Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive
+                                The NEET is the primary entrance examination in India for pursuing courses like MBBS, BDS, and more. The exam is conducted by the NTA and is essential for getting admitted into government, private, or other recognized medical institutions in India. Thousands of candidates give this exam annually, and a good score in this exam increases their chances of admission to the best medical universities, where they can pursue quality medical education. This will help the admission process become more transparent and merit-based, thus paving the way for their successful careers in medicine.
                             </p>
 
                             <h3 className="text-sm sm:text-base md:text-lg font-bold text-gray-800 mb-2 sm:mb-3">
@@ -355,14 +362,25 @@ export default function MBBSDeemedCollegesPage() {
                             </p>
 
                             <h3 className="text-sm sm:text-base md:text-lg font-bold text-gray-800 mt-4 sm:mt-5 md:mt-6 mb-2 sm:mb-3">
-                                NEET Exam in India: Your Gateway to a Bright Medical Career
+                                Benefits of Deemed Universities for NEET Aspirants
                             </h3>
 
                             <p className="text-gray-700 text-xs sm:text-sm md:text-base leading-relaxed">
-                                Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite Your Friends And
-                                Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite
-                                Your Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive
+                                Nowadays, deemed universities have proved to be one of the most sought-after options by students who clear the NEET UG examination, particularly when it comes to gaining good-quality education and admission into universities. Deemed universities offer quality education, up-to-date infrastructure, and career prospects.
                             </p>
+
+                            <ul className="list-disc pl-5 mt-3 space-y-2 text-gray-700 text-xs sm:text-sm md:text-base">
+                                <li>Higher chances of admission</li>
+                                <li>No state domicile restrictions</li>
+                                <li>Advanced infrastructure & facilities</li>
+                                <li>Better clinical exposure</li>
+                                <li>Wide PG & specialization options</li>
+                                <li>Flexible cutoff range</li>
+                                <li>Global exposure opportunities</li>
+                                <li>Quality education under National Medical Commission guidelines</li>
+                                <li>Comfortable campus & hostel facilities</li>
+                                <li>Centralized counselling via the Medical Counselling Committee</li>
+                            </ul>
                         </div>
 
                         {/* FAQ's */}

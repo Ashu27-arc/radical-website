@@ -9,6 +9,7 @@ import { Dropdown } from 'primereact/dropdown';
 import Link from 'next/link';
 import { Image } from 'primereact/image';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import NextImage from 'next/image';
 import { Navigation, Autoplay, Pagination } from 'swiper/modules';
 
 
@@ -214,7 +215,7 @@ export default function EnquireButton() {
                   <div className="space-y-4 md:space-y-5">
                     <div>
                       <div className="text-2xl md:text-3xl font-bold text-black mb-1">
-                        Request a <span className="text-[#00CFB2]">Callback</span>
+                        Request a <span className="text-[#287FC4]"> free callback</span>
                       </div>
                       <div className="text-sm md:text-base text-black opacity-80">
                         Stay Ahead for NEET 2026! Get Expert Guidance & Latest Update.
@@ -226,7 +227,7 @@ export default function EnquireButton() {
                       {/* Name */}
                       <div className="p-inputgroup">
                         <span className="p-inputgroup-addon bg-white! border-gray-300!">
-                          <i className="pi pi-user"></i>
+                          <NextImage src="/icons/enq-4.webp" alt="user" width={16} height={16} />
                         </span>
                         <span className="p-float-label">
                           <InputText
@@ -246,7 +247,7 @@ export default function EnquireButton() {
                       {/* Email */}
                       <div className="p-inputgroup">
                         <span className="p-inputgroup-addon bg-white! border-gray-300!">
-                          <i className="pi pi-envelope"></i>
+                          <NextImage src="/icons/enq-1.webp" alt="envelope" width={16} height={16} />
                         </span>
                         <span className="p-float-label">
                           <InputText
@@ -266,7 +267,7 @@ export default function EnquireButton() {
                       {/* Mobile */}
                       <div className="p-inputgroup">
                         <span className="p-inputgroup-addon bg-white! border-gray-300!">
-                          <i className="pi pi-phone"></i>
+                          <NextImage src="/icons/enq-3.webp" alt="phone" width={16} height={16} />
                         </span>
                         <span className="p-float-label">
                           <InputText
@@ -291,7 +292,7 @@ export default function EnquireButton() {
                       {/* Course */}
                       <div className="p-inputgroup">
                         <span className="p-inputgroup-addon bg-white! border-gray-300!">
-                          <i className="pi pi-book"></i>
+                          <NextImage src="/icons/enq-2.webp" alt="book" width={16} height={16} />
                         </span>
                         <span className="p-float-label w-full">
                           <Dropdown
@@ -312,8 +313,8 @@ export default function EnquireButton() {
 
                     <div>
                       <Button
-                        label="SUBMIT"
-                        icon="pi pi-arrow-right"
+                        label="Let's Connect"
+                        // icon={<NextImage src="/icons/arrow-right.png" alt="arrow" width={16} height={16} className='ml-2' />}
                         iconPos="right"
                         className="w-full py-4 lg:py-4 bg-gradient-to-l! from-[#00CFB2]! to-[#007EC8]! border-[#00CFB2]! text-base lg:text-lg font-bold shadow-lg"
                         onClick={handleSubmit}
@@ -323,7 +324,7 @@ export default function EnquireButton() {
                   </div>
 
                   <div className='grid grid-cols-1 lg:grid-cols-2 gap-4 mt-auto lg:-mt-2'>
-                    <Link href="tel:+919797972465" className='rounded-xl flex items-center gap-3 p-2.5 w-full bg-gradient-to-r! from-[#00CFB2]! to-[#287FC4]! border-[#00CFB2]! transition-transform hover:scale-[1.02]'>
+                    <Link href="tel:+919797972465" className='rounded-[10px] flex items-center gap-3 p-2.5 w-full bg-[#287FC4]! border-[#00CFB2]! transition-transform hover:scale-[1.02]'>
                       <div className='h-9 w-9 flex items-center justify-center rounded-full border border-white/40 bg-white/10 shrink-0'>
                         <i className='pi pi-phone text-white text-sm'></i>
                       </div>
@@ -333,9 +334,9 @@ export default function EnquireButton() {
                       </div>
                     </Link>
 
-                    <Link href="#" className='rounded-xl flex items-center gap-3 p-2.5 w-full bg-gradient-to-l! from-[#00CFB2]! to-[#287FC4]! border-[#00CFB2]! transition-transform hover:scale-[1.02]'>
-                      <div className='flex items-center justify-center shrink-0'>
-                        <i className='pi pi-whatsapp text-green-500 text-3xl!'></i>
+                    <Link href="#" className='rounded-[10px] flex items-center gap-3 p-2.5 w-full bg-[#075C50]! border-[#00CFB2]! transition-transform hover:scale-[1.02]'>
+                      <div className='flex items-center justify-center shrink-0 w-9 h-9'>
+                        <NextImage src="/images/whatsapp.svg" alt="whatsapp" width={30} height={30} />
                       </div>
                       <div className="min-w-0">
                         <div className='text-white font-bold text-[13px] md:text-[12px] lg:text-[10px] truncate'>NEET 2026 LATEST <br /> UPDATES</div>
@@ -442,7 +443,7 @@ export default function EnquireButton() {
             onClick={() => setShowSuccess(false)}
             className="absolute right-5 top-5 text-gray-400 hover:text-gray-600 transition-colors z-10"
           >
-            <i className="pi pi-times text-xl"></i>
+            <NextImage src="/icons/close.png" alt="close" width={20} height={20} />
           </button>
 
           <div className="w-full max-w-[240px] md:max-w-[320px] mb-6 mt-4">

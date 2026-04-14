@@ -30,7 +30,7 @@ const Nepal = () => {
       {/* Main Content Section */}
       <div className="container mx-auto py-8 md:py-16 px-4 md:px-6">
         <div className="flex flex-col lg:flex-row gap-6 md:gap-12">
-          {/* Left Content */}
+
           {/* Left Content */}
           <div className="lg:w-2/3 relative">
             {/* Watermark */}
@@ -62,42 +62,38 @@ const Nepal = () => {
           </div>
 
           {/* Right Sidebar - Consultation Card */}
-          <div className="lg:w-1/2 relative flex justify-center mt-8 lg:mt-16">
-            <div className="bg-[#E3F4F3] rounded-lg shadow-lg p-4 md:p-6 lg:p-8 relative overflow-visible w-full max-w-[280px] sm:max-w-xs lg:max-w-md lg:w-90 h-auto lg:h-60 flex flex-col justify-center items-center text-center">
+          <div className="w-full lg:w-1/2 flex flex-row items-end lg:items-center overflow-visible mt-6 lg:mt-0">
 
-              <div className="relative z-10 flex flex-col justify-center items-center h-full">
-                <h3 className="text-sm md:text-base lg:text-xl font-bold text-gray-800 mb-2 md:mb-3 lg:mb-6 leading-tight">
-                  Are you interested in<br />
-                  studying medicine<br />
-                  in Nepal?
-                </h3>
-
-                <div className="mt-2 md:mt-3 lg:mt-6">
-                  <Link href="https://www.neetbhaiya.in/dedicated-counsellor" target='_blank'>
-                    <button className="cursor-pointer bg-gradient-to-r from-[#28C4B4] to-[#287FC4] hover:from-[#28C4B4] hover:to-[#287FC4] text-white font-semibold py-2 md:py-2.5 lg:py-4 px-4 md:px-5 lg:px-8 rounded-full transition-all duration-300 text-[10px] md:text-xs lg:text-base">
-                      BOOK CONSULTATION
-                    </button>
-                  </Link>
-                </div>
-              </div>
+            {/* Consultation Card - left side */}
+            <div className="relative z-0 bg-[#E3F4F3] rounded-2xl shadow-lg p-4 lg:p-8 flex flex-col justify-center items-start text-left shrink-0 w-[250px] h-[170px] sm:w-[250px] sm:h-[250px] md:w-[290px] md:h-[290px] lg:w-[360px] lg:h-[250px] self-end mb-4 lg:mb-8">
+              <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-gray-800 mb-3 lg:mb-6 leading-snug">
+                Are you interested in<br />
+                studying medicine<br />
+                in Nepal?
+              </h3>
+              <Link href="https://www.neetbhaiya.in/dedicated-counsellor" target='_blank'>
+                <button className="cursor-pointer bg-gradient-to-r from-[#28C4B4] to-[#287FC4] text-white font-semibold py-2 px-4 lg:py-3 lg:px-6 rounded-full transition-all duration-300 text-xs lg:text-sm whitespace-nowrap">
+                  BOOK CONSULTATION
+                </button>
+              </Link>
             </div>
 
-            {/* Image positioned outside card on the right */}
-            <div className="absolute -right-2 sm:-right-4 md:-right-8 lg:-right-28 top-1/2 transform -translate-y-1/2 z-20">
+            {/* Doctor Image - right side, taller, overflowing upward */}
+            <div className="relative z-10 -ml-12 sm:-ml-16 md:-ml-20 lg:-ml-28 flex-1 h-[290px] sm:h-[340px] md:h-[390px] lg:h-[480px] self-end pointer-events-none">
               <Image
                 src="/images/study-abroad/main-content.webp"
                 alt="Medical consultant"
-                width={300}
-                height={300}
-                className="object-contain w-28 sm:w-40 md:w-52 lg:w-[300px]"
+                fill
+                className="object-contain object-bottom pointer-events-auto"
               />
             </div>
           </div>
+
         </div>
       </div>
 
       {/* Universities Section */}
-      <div className="bg-gradient-to-b from-blue-50 to-white py-8 md:py-16">
+      <section className="relative z-20 -mt-16 bg-gradient-to-b from-blue-50 to-white py-8 md:py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-4xl font-bold text-center mb-8 md:mb-12 px-4">
             Universities where you can study <span className="text-blue-500">medicine in Nepal</span>
@@ -107,7 +103,7 @@ const Nepal = () => {
             {/* Row 1 */}
             <div className="flex flex-col items-center">
               <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/1.webp" alt="First Moscow State Medical University" width={190} height={190} className="object-contain" />
+                <Image src="/images/study-abroad/logos/1.webp" alt="Birat Medical College" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-xs md:text-sm px-2">
                 Birat Medical College
@@ -116,7 +112,7 @@ const Nepal = () => {
 
             <div className="flex flex-col items-center">
               <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/2.webp" alt="Kazan Federal University" width={190} height={190} className="object-contain" />
+                <Image src="/images/study-abroad/logos/2.webp" alt="College of Medical Sciences" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-xs md:text-sm px-2">
                 College of Medical Sciences
@@ -125,7 +121,7 @@ const Nepal = () => {
 
             <div className="flex flex-col items-center">
               <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/3.webp" alt="Bashkir State Medical University" width={190} height={190} className="object-contain" />
+                <Image src="/images/study-abroad/logos/3.webp" alt="Devdaha Medical College" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-xs md:text-sm px-2">
                 Devdaha Medical College
@@ -134,7 +130,7 @@ const Nepal = () => {
 
             <div className="flex flex-col items-center">
               <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/4.webp" alt="Crimea Federal University" width={190} height={190} className="object-contain" />
+                <Image src="/images/study-abroad/logos/4.webp" alt="Kathmandu Medical College" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-xs md:text-sm px-2">
                 Kathmandu Medical College
@@ -144,7 +140,7 @@ const Nepal = () => {
             {/* Row 2 */}
             <div className="flex flex-col items-center">
               <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/5.webp" alt="Kursk State Medical University" width={190} height={190} className="object-contain" />
+                <Image src="/images/study-abroad/logos/5.webp" alt="Kathmandu National Medical College" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-xs md:text-sm px-2">
                 Kathmandu National Medical College
@@ -153,7 +149,7 @@ const Nepal = () => {
 
             <div className="flex flex-col items-center">
               <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/6.webp" alt="Volgograd State Medical University" width={190} height={190} className="object-contain" />
+                <Image src="/images/study-abroad/logos/6.webp" alt="Nepal Medical College" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-xs md:text-sm px-2">
                 Nepal Medical College
@@ -162,7 +158,7 @@ const Nepal = () => {
 
             <div className="flex flex-col items-center">
               <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/7.webp" alt="Tver State Medical University" width={190} height={190} className="object-contain" />
+                <Image src="/images/study-abroad/logos/7.webp" alt="Nepalgunj Medical College" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-xs md:text-sm px-2">
                 Nepalgunj Medical College
@@ -171,7 +167,7 @@ const Nepal = () => {
 
             <div className="flex flex-col items-center">
               <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/8.webp" alt="Orenburg State Medical University" width={190} height={190} className="object-contain" />
+                <Image src="/images/study-abroad/logos/8.webp" alt="Manipal College of Medical Sciences" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-xs md:text-sm px-2">
                 Manipal College of Medical Sciences
@@ -181,7 +177,7 @@ const Nepal = () => {
             {/* Row 3 - Single centered item */}
             <div className="flex flex-col items-center col-span-2 md:col-span-4 md:col-start-2 md:col-end-3">
               <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/9.webp" alt="Smolensk State Medical University" width={190} height={190} className="object-contain" />
+                <Image src="/images/study-abroad/logos/9.webp" alt="Lumbini Medical College" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-xs md:text-sm px-2">
                 Lumbini Medical College
@@ -189,9 +185,9 @@ const Nepal = () => {
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* Why Choose Russia Section */}
+      {/* Why Choose Nepal Section */}
       <div className="bg-white py-8 md:py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-3xl font-bold text-gray-800 mb-6 md:mb-8">

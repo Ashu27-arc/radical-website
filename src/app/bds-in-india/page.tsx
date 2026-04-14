@@ -65,7 +65,7 @@ export default function BDSInIndiaPage() {
             <section className="lg:py-50 md:py-40 py-16 relative overflow-hidden z-2 bg-[url('/images/bds/bds-hero.webp')] bg-cover bg-center bg-no-repeat">
                 <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,126,200,1)_0%,rgba(80,166,217,1)_20%,rgba(255,255,255,0)_87%)] -z-1" />
                 <div className="container px-4 md:px-4 fadeUp">
-                    <div className="w-full lg:w-4/10 md:w-8/10 mx-auto text-center">
+                    <div className="w-full lg:w-4/10 md:w-8/10 text-left">
                         <h1 className="uppercase lg:text-5xl md:text-4xl text-3xl font-bold text-white lg:mb-6 md:mb-4 mb-3 leading-tight">BDS IN INDIA</h1>
                         <p className="text-white lg:text-lg md:text-base text-sm m-0 p-0 px-2">Quality dental education at affordable costs—build your future as a dentist with confidence.</p>
                     </div>

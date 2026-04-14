@@ -185,7 +185,24 @@ export default function OurTeam() {
                     </div>
                 </div>
             </section>
-
+            <section className="container mx-auto px-3 md:px-4 mb-24 md:mb-32">
+                <a
+                    href="https://www.neetbhaiya.in/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full"
+                >
+                    <img
+                        src="/images/banner-neet-bhaiya.webp"
+                        alt="Book Your Free Counselling Session"
+                        className="w-full rounded-2xl md:rounded-3xl object-cover shadow-md"
+                    />
+                </a>
+            </section>
+            <br />
+            <br />
+            <br />
+            <br />
             <section id="connect-counselor" className="pb-16">
                 <div className="container mx-auto px-3 md:px-4">
                     <CounselorSection />

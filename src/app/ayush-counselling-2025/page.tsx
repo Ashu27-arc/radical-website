@@ -78,33 +78,33 @@ export default function AyushCounselling2025() {
           <div className='flex flex-col lg:flex-row items-center justify-between gap-10 lg:gap-20'>
             {/* Left Content */}
             <div className="w-full lg:w-1/2 mb-10 lg:mb-0 animate-slide-in-left text-center lg:text-left">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4 sm:mb-6 leading-tight text-balance">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-[40px] font-semibold mb-4 sm:mb-6 leading-tight text-balance">
                 Secure Your Admission in Top
                 <span className="text-[#00CFB2]"> AYUSH</span> Colleges of India
               </h1>
 
-              <div className="text-lg sm:text-xl md:text-2xl font-semibold mb-4 sm:mb-6 text-[#00CFB2] tracking-wide">
+              <div className="text-lg sm:text-xl lg:text-[24px] font-semibold mb-4 sm:mb-6 text-[#00CFB2] tracking-wide">
                 BAMS | BHMS | BNYS | BUMS | BSMS
               </div>
 
-              <p className="text-sm sm:text-base md:text-lg mb-6 sm:mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+              <p className="text-sm sm:text-base md:text-[16px] font-normal mb-6 sm:mb-8 leading-relaxed max-w-2xl mx-auto lg:mx-0">
                 Radical Education guides aspiring doctors in pursuing MBBS-equivalent courses in Ayurveda, Homeopathy, Unani, Siddha, and Yoga & Naturopathy with transparent counselling and admission support.
               </p>
 
               <div className="flex flex-col sm:flex-row items-center lg:items-start justify-center lg:justify-start space-y-4 sm:space-y-0 sm:space-x-8 md:space-x-12">
                 <div className="flex items-center">
-                  <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2">
+                  <svg width="13.33" height="13.33" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2">
                     <circle cx="8" cy="8" r="8" fill="white" />
                     <path d="M11.0126 5.14177L12.1438 6.27303L7.19999 11.2376L4.23438 8.27197L5.36561 7.14071L7.19999 8.97509L11.0126 5.14177Z" fill="#287FC4" />
                   </svg>
-                  <span className="text-sm sm:text-base font-semibold">12+ Years of Experience</span>
+                  <span className="text-sm sm:text-[16px] font-medium">12+ Years of Experience</span>
                 </div>
                 <div className="flex items-center">
-                  <svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2">
+                  <svg width="13.33" height="13.33" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" className="mr-2">
                     <circle cx="8" cy="8" r="8" fill="white" />
                     <path d="M11.0126 5.14177L12.1438 6.27303L7.19999 11.2376L4.23438 8.27197L5.36561 7.14071L7.19999 8.97509L11.0126 5.14177Z" fill="#287FC4" />
                   </svg>
-                  <span className="text-sm sm:text-base font-semibold">15,000+ Admissions</span>
+                  <span className="text-sm sm:text-[16px] font-medium">15,000+ Admissions</span>
                 </div>
               </div>
             </div>
@@ -212,10 +212,10 @@ export default function AyushCounselling2025() {
       <div className="py-16 sm:py-20 md:py-24 bg-white relative overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16 md:mb-20">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-4 text-balance">
+            <h2 className="text-3xl sm:text-4xl md:text-[40px] font-bold text-gray-800 mb-4 text-balance">
               Explore AYUSH Courses
             </h2>
-            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-[20px] font-normal text-gray-600 max-w-3xl mx-auto px-4 leading-relaxed">
               We provide expert counselling for all traditional and alternative medicine programs under AYUSH.
             </p>
           </div>
@@ -341,10 +341,10 @@ export default function AyushCounselling2025() {
       <div className="py-16 sm:py-20 md:py-24 bg-[#EFF6FF]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16 md:mb-20">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-4 text-balance">
+            <h2 className="text-3xl sm:text-4xl md:text-[40px] font-bold text-gray-800 mb-4 text-balance">
               Why Choose Radical Education for AYUSH?
             </h2>
-            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-4xl mx-auto px-4 leading-relaxed">
+            <p className="text-base sm:text-lg md:text-[20px] font-normal text-gray-600 max-w-4xl mx-auto px-4 leading-relaxed">
               Your trusted partner for AYUSH medical admissions with proven expertise and transparent guidance
             </p>
           </div>
@@ -446,10 +446,10 @@ export default function AyushCounselling2025() {
       <div className="pb-12 sm:pb-16 md:pb-20 bg-[#EFF6FF]">
         <div className="container mx-auto px-3 md:px-4">
           <div className="text-center mb-10">
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-3 sm:mb-4">
+            <h2 className="text-2xl sm:text-3xl md:text-[40px] font-extrabold text-gray-800 mb-3 sm:mb-4">
               AYUSH Admission Process
             </h2>
-            <p className="text-base sm:text-lg text-gray-600 max-w-2xl mx-auto px-4 leading-relaxed font-medium">
+            <p className="text-base sm:text-[20px] font-normal text-gray-600 max-w-2xl mx-auto px-4 leading-relaxed font-medium">
               A transparent and hassle-free 4-step process to secure your preferred AYUSH medical college admission with expert support.
             </p>
           </div>
@@ -501,10 +501,10 @@ export default function AyushCounselling2025() {
       <div className="py-16 sm:py-20 md:py-24 bg-[#EFF6FF]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-4 text-balance">
+            <h2 className="text-3xl sm:text-4xl md:text-[40px] font-extrabold text-gray-800 mb-4 text-balance">
               Top AYUSH Colleges We Guide For
             </h2>
-            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-4xl mx-auto px-4 leading-relaxed">
+            <p className="text-base sm:text-[20px] font-normal text-gray-600 max-w-4xl mx-auto px-4 leading-relaxed">
               Reputed government and private AYUSH institutions across India
             </p>
           </div>
@@ -588,10 +588,10 @@ export default function AyushCounselling2025() {
 
           {/* Eligibility & Course Details Section */}
           <div className="text-center mt-16 md:mt-24 mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-4 text-balance">
+            <h2 className="text-3xl sm:text-4xl md:text-[40px] font-bold text-gray-800 mb-4 text-balance">
               Eligibility & Course Details
             </h2>
-            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-4xl mx-auto px-4 leading-relaxed">
+            <p className="text-base sm:text-[20px] font-normal text-gray-600 max-w-4xl mx-auto px-4 leading-relaxed">
               Complete information about AYUSH medical courses and eligibility criteria
             </p>
           </div>
@@ -697,10 +697,10 @@ export default function AyushCounselling2025() {
       <div className="py-16 sm:py-20 md:py-24 bg-[#EFF6FF]">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12 sm:mb-16">
-            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-4 text-balance">
+            <h2 className="text-3xl sm:text-4xl md:text-[40px] font-bold text-gray-800 mb-4 text-balance">
               Student Success Stories
             </h2>
-            <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4 leading-relaxed">
+            <p className="text-base sm:text-[20px] font-normal text-gray-600 max-w-3xl mx-auto px-4 leading-relaxed">
               Hear from our successful students
             </p>
           </div>

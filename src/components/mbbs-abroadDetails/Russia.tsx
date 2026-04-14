@@ -28,7 +28,7 @@ const Russia = () => {
 
       {/* Main Content Section */}
       <div className="container mx-auto py-8 md:py-16 px-4 md:px-6">
-        <div className="flex flex-col lg:flex-row gap-8 md:gap-12">
+        <div className="flex flex-col lg:flex-row gap-6 md:gap-12">
           {/* Left Content */}
           <div className="lg:w-2/3 relative">
             {/* Watermark */}
@@ -90,7 +90,7 @@ const Russia = () => {
       </div>
 
       {/* Universities Section */}
-      <div className="bg-gradient-to-b from-blue-50 to-white py-8 md:py-12 lg:py-16">
+      <section className="relative z-20 -mt-16 bg-gradient-to-b from-blue-50 to-white py-8 md:py-12 lg:py-16">
         <div className="container mx-auto px-4">
           <h2 className="text-xl md:text-3xl lg:text-4xl font-bold text-center mb-6 md:mb-10 lg:mb-12 px-2 md:px-4">
             Universities where you can study <span className="text-blue-500">medicine in Russia</span>
@@ -333,7 +333,7 @@ const Russia = () => {
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Why Choose Russia Section */}
       <div className="bg-white py-8 md:py-12 lg:py-16">

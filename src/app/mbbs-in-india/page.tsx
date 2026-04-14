@@ -62,7 +62,7 @@ export default function MbbsInIndiaPage() {
             <section className="lg:py-34 md:py-30 py-20 relative overflow-hidden z-2 bg-[url('/images/mbbs-in-indiaHero.webp')] bg-cover bg-right bg-no-repeat">
                 {/* <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,126,200,1)_0%,rgba(80,166,217,1)_20%,rgba(255,255,255,0)_87%)] -z-1" /> */}
                 <div className="container px-3 md:px-4 fadeUp">
-                    <div className="w-full lg:w-4/10 md:8/10 mx-auto text-center">
+                    <div className="w-full lg:w-4/10 md:8/10 text-left">
                         <h1 className="uppercase lg:text-5xl text-4xl font-bold text-white lg:mb-6 mb-4">MBBS IN INDIA</h1>
                         <p className="text-white text-lg m-0 p-0">Quality medical education at affordable costs—build your future as a doctor with confidence.</p>
                     </div>

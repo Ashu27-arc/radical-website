@@ -6,53 +6,209 @@ import { useState } from "react";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 const universities = [
-    { id: 1, title: "Andaman & Nicobar Islands", image: "/images/Frame11321317787.webp", url: "/andaman-nicobar" },
-    { id: 2, title: "Andhra Pradesh", image: "/images/Frame1321317787-7.webp", url: "/andhra-pradesh" },
-    { id: 3, title: "Arunachal Pradesh", image: "/images/Frame1321317787-6.webp", url: "/arunachal-pradesh" },
-    { id: 4, title: "Assam", image: "/images/Frame1321317787-8.webp", url: "/assam" },
-    { id: 5, title: "Bihar", image: "/images/Frame1321317787-9.webp", url: "/bihar" },
-    { id: 6, title: "Chandigarh", image: "/images/Frame1321317787.webp", url: "/chandigarh" },
-    { id: 7, title: "Chhattisgarh", image: "/images/Frame1321317787-1.webp", url: "/chhattisgarh" },
-    { id: 8, title: "Delhi - GGSIPU", image: "/images/Frame1321317787-2.webp", url: "/delhi-ggsipu" },
-    { id: 9, title: "ESIC Colleges", image: "/images/Frame1321317787-10.webp", url: "/esic" },
-    { id: 10, title: "Goa", image: "/images/Frame1321317787-3.webp", url: "/goa" },
-    { id: 11, title: "Gujarat", image: "/images/Frame1321317788-2.webp", url: "/gujarat" },
-    { id: 12, title: "Haryana", image: "/images/Frame1321317788-1.webp", url: "/haryana" },
-    { id: 13, title: "Himachal Pradesh", image: "/images/Frame1321317788.webp", url: "/himachal-pradesh" },
-    { id: 14, title: "Jammu & Kashmir", image: "/images/Frame1321317787-5.webp", url: "/jammu-kashmir" },
-    { id: 15, title: "Jharkhand", image: "/images/Frame1321317787-4.webp", url: "/jharkhand" },
-    { id: 16, title: "Karnataka", image: "/images/Frame1321317788-3.webp", url: "/karnataka" },
-    { id: 17, title: "Kerala", image: "/images/Frame1321317788-4.webp", url: "/kerala" },
-    { id: 18, title: "Madhya Pradesh", image: "/images/Frame1321317790.webp", url: "/madhya-pradesh" },
-    { id: 19, title: "Maharashtra", image: "/images/Frame1321317789.webp", url: "/maharashtra" },
-    { id: 20, title: "Manipur", image: "/images/Frame1321317791.webp", url: "/manipur" },
-    { id: 21, title: "MCC (Medical Counselling Committee)", image: "/images/Frame1321317801.webp", url: "/mcc" },
-    { id: 22, title: "Meghalaya", image: "/images/Frame1321317792.webp", url: "/meghalaya" },
-    { id: 23, title: "Nagaland", image: "/images/Frame1321317793.webp", url: "/nagaland" },
-    { id: 24, title: "Odisha", image: "/images/Frame1321317794.webp", url: "/odisha" },
-    { id: 25, title: "Pondicherry", image: "/images/Frame1321317789-1.webp", url: "/pondicherry" },
-    { id: 26, title: "Punjab", image: "/images/Frame1321317795.webp", url: "/punjab" },
-    { id: 27, title: "Rajasthan", image: "/images/Frame1321317796.webp", url: "/rajasthan" },
-    { id: 28, title: "Sikkim", image: "/images/Frame1321317797.webp", url: "/sikkim" },
-    { id: 29, title: "Tamil Nadu", image: "/images/Frame1321317798.webp", url: "/tamil-nadu" },
-    { id: 30, title: "Telangana", image: "/images/Frame1321317799.webp", url: "/telangana" },
-    { id: 31, title: "Uttar Pradesh", image: "/images/Frame1321317788-5.webp", url: "/uttar-pradesh" },
-    { id: 32, title: "Uttarakhand", image: "/images/Frame1321317800.webp", url: "/uttarakhand" },
+    {
+        id: 1,
+        title: "Andaman & Nicobar Islands",
+        image: "/images/Frame11321317787.webp",
+        url: "/andaman-nicobar",
+    },
+    {
+        id: 2,
+        title: "Andhra Pradesh",
+        image: "/images/Frame1321317787-7.webp",
+        url: "/andhra-pradesh",
+    },
+    {
+        id: 3,
+        title: "Arunachal Pradesh",
+        image: "/images/Frame1321317787-6.webp",
+        url: "/arunachal-pradesh",
+    },
+    {
+        id: 4,
+        title: "Assam",
+        image: "/images/Frame1321317787-8.webp",
+        url: "/assam",
+    },
+    {
+        id: 5,
+        title: "Bihar",
+        image: "/images/Frame1321317787-9.webp",
+        url: "/bihar",
+    },
+    {
+        id: 6,
+        title: "Chandigarh",
+        image: "/images/Frame1321317787.webp",
+        url: "/chandigarh",
+    },
+    {
+        id: 7,
+        title: "Chhattisgarh",
+        image: "/images/Frame1321317787-1.webp",
+        url: "/chhattisgarh",
+    },
+    {
+        id: 8,
+        title: "Delhi - GGSIPU",
+        image: "/images/Frame1321317787-2.webp",
+        url: "/delhi-ggsipu",
+    },
+    {
+        id: 9,
+        title: "ESIC Colleges",
+        image: "/images/Frame1321317787-10.webp",
+        url: "/esic",
+    },
+    {
+        id: 10,
+        title: "Goa",
+        image: "/images/Frame1321317787-3.webp",
+        url: "/goa",
+    },
+    {
+        id: 11,
+        title: "Gujarat",
+        image: "/images/Frame1321317788-2.webp",
+        url: "/gujarat",
+    },
+    {
+        id: 12,
+        title: "Haryana",
+        image: "/images/Frame1321317788-1.webp",
+        url: "/haryana",
+    },
+    {
+        id: 13,
+        title: "Himachal Pradesh",
+        image: "/images/Frame1321317788.webp",
+        url: "/himachal-pradesh",
+    },
+    {
+        id: 14,
+        title: "Jammu & Kashmir",
+        image: "/images/Frame1321317787-5.webp",
+        url: "/jammu-kashmir",
+    },
+    {
+        id: 15,
+        title: "Jharkhand",
+        image: "/images/Frame1321317787-4.webp",
+        url: "/jharkhand",
+    },
+    {
+        id: 16,
+        title: "Karnataka",
+        image: "/images/Frame1321317788-3.webp",
+        url: "/karnataka",
+    },
+    {
+        id: 17,
+        title: "Kerala",
+        image: "/images/Frame1321317788-4.webp",
+        url: "/kerala",
+    },
+    {
+        id: 18,
+        title: "Madhya Pradesh",
+        image: "/images/Frame1321317790.webp",
+        url: "/madhya-pradesh",
+    },
+    {
+        id: 19,
+        title: "Maharashtra",
+        image: "/images/Frame1321317789.webp",
+        url: "/maharashtra",
+    },
+    {
+        id: 20,
+        title: "Manipur",
+        image: "/images/Frame1321317791.webp",
+        url: "/manipur",
+    },
+    {
+        id: 21,
+        title: "MCC (Medical Counselling Committee)",
+        image: "/images/Frame1321317801.webp",
+        url: "/mcc",
+    },
+    {
+        id: 22,
+        title: "Meghalaya",
+        image: "/images/Frame1321317792.webp",
+        url: "/meghalaya",
+    },
+    {
+        id: 23,
+        title: "Nagaland",
+        image: "/images/Frame1321317793.webp",
+        url: "/nagaland",
+    },
+    {
+        id: 24,
+        title: "Odisha",
+        image: "/images/Frame1321317794.webp",
+        url: "/odisha",
+    },
+    {
+        id: 25,
+        title: "Pondicherry",
+        image: "/images/Frame1321317789-1.webp",
+        url: "/pondicherry",
+    },
+    {
+        id: 26,
+        title: "Punjab",
+        image: "/images/Frame1321317795.webp",
+        url: "/punjab",
+    },
+    {
+        id: 27,
+        title: "Rajasthan",
+        image: "/images/Frame1321317796.webp",
+        url: "/rajasthan",
+    },
+    {
+        id: 28,
+        title: "Sikkim",
+        image: "/images/Frame1321317797.webp",
+        url: "/sikkim",
+    },
+    {
+        id: 29,
+        title: "Tamil Nadu",
+        image: "/images/Frame1321317798.webp",
+        url: "/tamil-nadu",
+    },
+    {
+        id: 30,
+        title: "Telangana",
+        image: "/images/Frame1321317799.webp",
+        url: "/telangana",
+    },
+    {
+        id: 31,
+        title: "Uttar Pradesh",
+        image: "/images/Frame1321317788-5.webp",
+        url: "/uttar-pradesh",
+    },
+    {
+        id: 32,
+        title: "Uttarakhand",
+        image: "/images/Frame1321317800.webp",
+        url: "/uttarakhand",
+    },
 ];
 
 export default function CounsellingAuthorityPage() {
     const [expanded, setExpanded] = useState(false);
-
-    console.log('Component rendered, expanded:', expanded);
-    console.log('Universities count:', universities.length);
-    console.log('Showing items:', expanded ? universities.length : 4);
 
     return (
         <section className="lg:pb-15 lg:pt-30 py-10 overflow-hidden text-[#4A4A4A]">
             <FloatingWhatsApp />
             <div className="container px-3 md:px-4">
                 <h6 className="uppercase text-sm font-semibold text-black mb-4 fadeUp">NEET 2026-</h6>
-                <h1 className="font-bold text-black text-2xl md:text-4xl mb-8 fadeUp">Counselling Authorities </h1>
+                <h1 className="font-bold text-black text-2xl md:text-4xl mb-8 fadeUp">Counselling Authorities</h1>
                 <p className="mb-6 fadeUp">The counselling process for NEET admission differs considerably across states, as each has its own criteria, reservation policies, seat matrix, fee structures, and counselling dates. Students need to understand the nuances of the counselling process in each state to secure the best available seat in a medical college, which is quite challenging for them to do on their own without proper guidance from experts in the field.  </p>
                 <p className="fadeUp">State-wise NEET counselling authorities are well aware of the nuances of each state’s counselling process, which enables us to provide the best possible guidance to the students to obtain the best available seat in a medical college by guiding the students to the states where they have the highest probability of getting a seat, the criteria for the state of domicile, cut-off trends, and documentation procedures, etc. We do not only provide counselling services but also provide transparent, step-by-step guidance to the students to help them succeed in the admission process to the medical college of their choice, which aligns with their career objectives and aspirations.</p>
 
@@ -72,10 +228,6 @@ export default function CounsellingAuthorityPage() {
 
                 {/* Mobile View - Show 4 initially, all after View More */}
                 <div className="md:hidden">
-                    <div className="mb-4 text-center text-red-500 font-bold">
-                        DEBUG: Expanded = {expanded ? 'TRUE' : 'FALSE'} | Showing {expanded ? universities.length : 4} items
-                    </div>
-
                     <div className="grid grid-cols-2 gap-6 mt-10">
                         {universities.slice(0, expanded ? universities.length : 4).map((item) => (
                             <Link key={item.id} href={item.url} className="group flex flex-col items-center text-center fadeUp">
@@ -92,14 +244,10 @@ export default function CounsellingAuthorityPage() {
                     {!expanded && (
                         <div className="text-center mt-8">
                             <button
-                                onClick={() => {
-                                    console.log('Button clicked!');
-                                    setExpanded(true);
-                                    console.log('State should be true now');
-                                }}
+                                onClick={() => setExpanded(true)}
                                 className="bg-[#287FC4] text-white px-8 py-3 rounded-lg font-semibold hover:bg-[#1e6ba8] transition-colors"
                             >
-                                View More (Click me!)
+                                View More
                             </button>
                         </div>
                     )}
