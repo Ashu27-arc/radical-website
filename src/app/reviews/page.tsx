@@ -11,6 +11,139 @@ import Image from 'next/image';
 
 import reviews from "@/data/reviews.json";
 
+const reviewtestimonials = [
+    {
+        id: 1,
+        name: "Mayank kumar",
+        location: "Delhi → Russia",
+        text: "My name is Mayank Kumar. I have completed my class 12 from Balodir Public School in Delhi. I’m really excited to explore my MBBS dreams at 12th State Medical University.",
+        tag: "MBBS",
+        status: "Secured a seat at",
+        avatar: "/images/reviews/user1.webp",
+        logo: "/images/reviews/university1.webp",
+    },
+    {
+        id: 2,
+        name: "Daksh Moom",
+        location: "Assam → Kyrgyzstan",
+        text: "My name is Daksha Moom. I'm in the Office International Medical University, Kyrgyzstan. And who did you get in which education? I got in the radical education.",
+        tag: "MBBS",
+        status: "Secured a seat at",
+        avatar: "/images/reviews/user2.webp",
+        logo: "/images/reviews/university2.webp",
+    },
+    {
+        id: 3,
+        name: "Aseem",
+        location: "Delhi → Kazakhstan",
+        text: "Krystal Covington is a business growth strategist with 15 years of experience in marketing and public relations. Krystal received varsity",
+        tag: "MBBS",
+        status: "Secured a seat at",
+        avatar: "/images/reviews/user3.webp",
+        logo: "/images/reviews/university3.webp",
+    },
+    {
+        id: 4,
+        name: "Tanishka",
+        location: "Uttar Pradesh → Russia",
+        text: "I'm Tanishka, I'm from Ghaziabad I'm going to Tver State Medical University through Radical Education. Actually I got a pamphlet my initial day when I am preparing for NEET.",
+        tag: "MBBS",
+        status: "Secured a seat at",
+        avatar: "/images/reviews/user4.webp",
+        logo: "/images/reviews/university1.webp",
+    },
+    {
+        id: 5,
+        name: "ETSHAMUL HAQUE",
+        location: "India",
+        text: "I secured an MBBS seat in medical College with the help of radical education. The process was very professional.",
+        tag: "MBBS",
+        status: "Secured a seat at",
+        avatar: "/images/reviews/user5.webp",
+        logo: "/images/reviews/university4.webp",
+    },
+    {
+        id: 6,
+        name: "Aryan Vijay",
+        location: "India",
+        text: "I recently took counselling services from Radical Education for my BDS admission. My counsellor, Pooja.",
+        tag: "BDS",
+        status: "Secured a seat at",
+        avatar: "/images/reviews/user6.webp",
+        logo: "/images/reviews/university5.webp",
+    },
+    {
+        id: 7,
+        name: "YASHVI AGARWAL",
+        location: "India",
+        text: "I’m so grateful to Radical Education and especially Hitesh Agrawal ma'am for helping me throughout my MBBS admission process.",
+        tag: "MBBS",
+        status: "Secured a seat at",
+        avatar: "/images/reviews/user7.webp",
+        logo: "/images/reviews/university6.webp",
+    },
+    {
+        id: 8,
+        name: "Iqra Ansari",
+        location: "India",
+        text: "My experience with Radical Education has been amazing! I took their help for MBBS counselling, and the entire process was smooth and transparent.",
+        tag: "MBBS",
+        status: "Secured a seat at",
+        avatar: "/images/reviews/user8.webp",
+        logo: "/images/reviews/university7.webp",
+    },
+    {
+        id: 9,
+        name: "Swarnjit Bhadra",
+        location: "India",
+        text: "Glad to secure a seat in BAMS in the first round. Great counselling company, very engaging mentors. Highly recommend them.",
+        tag: "BAMS",
+        status: "Secured a seat at",
+        avatar: "/images/reviews/user9.webp",
+        logo: "/images/reviews/university8.webp",
+    },
+    {
+        id: 10,
+        name: "SHREYA JAIN",
+        location: "India",
+        text: "Ms.Hitashi Agarwal Mam counsellor at radical education made NEET counselling hassle free and resolved each and every query regarding whole process.",
+        tag: "MBBS",
+        status: "Secured a seat at",
+        avatar: "/images/reviews/user10.webp",
+        logo: "/images/reviews/university9.webp",
+    },
+    {
+        id: 11,
+        name: "KSHIRAJ LUTHRA",
+        location: "India",
+        text: "I choose radical education for my mbbs counselling and it was very helpful they guided me very well throughout the process in securing",
+        tag: "MBBS",
+        status: "Secured a seat at",
+        avatar: "/images/reviews/user11.webp",
+        logo: "/images/reviews/university10.webp",
+    },
+    {
+        id: 12,
+        name: "Sangam Yadav",
+        location: "India",
+        text: "Attending the Radical Education BAMS counselling was an excellent experience. Specially Dr. Alok Sir was always available to answer my queries regarding BAMS colleges",
+        tag: "BAMS",
+        status: "Secured a seat at",
+        avatar: "/images/reviews/user12.webp",
+        logo: "/images/reviews/university11.webp",
+    },
+    {
+        id: 13,
+        name: "TANYA SAXENA",
+        location: "India",
+        text: "I choose Radical Education for my MBBS counselling. The process was smooth and professional.",
+        tag: "MBBS",
+        status: "Secured a seat at",
+        avatar: "/images/reviews/user13.webp",
+        logo: "/images/reviews/university12.webp",
+    },
+];
+
 
 export default function TestimonialsPage() {
     const [videoPopup, setVideoPopup] = useState<{ id: number; title: string; youtubeId: string } | null>(null);
@@ -204,9 +337,9 @@ hover:shadow-2xl hover:scale-[1.03] ${cardClass}`}
                             </div>
                         </div>
                     )}
-                    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-6 mt-16 fadeUp">
-                        {reviews.map((item: any, index: number) => {
-                            const total = reviews.length;
+                    <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 mt-16 fadeUp">
+                        {reviewtestimonials.map((item, index) => {
+                            const total = reviewtestimonials.length;
 
                             const isLastRowSingle =
                                 total % 3 === 1 && index === total - 1;
@@ -216,52 +349,53 @@ hover:shadow-2xl hover:scale-[1.03] ${cardClass}`}
 
                             return (
                                 <div
-                                    key={index}
-                                    className={`bg-white rounded-xl p-5 shadow-sm hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-2 lg:col-span-2
+                                    key={item.id}
+                                    className={`bg-white rounded-xl p-5 shadow-sm hover:shadow-xl transition-all duration-300 ease-in-out transform hover:-translate-y-2
                 ${isLastRowSingle
-                                            ? "lg:col-start-3"
+                                            ? "lg:col-start-2"
                                             : ""
                                         }
                 ${isLastRowDouble
                                             ? index === total - 2
-                                                ? "lg:col-start-2"
-                                                : "lg:col-start-4"
+                                                ? "lg:col-start-1"
+                                                : "lg:col-start-3"
                                             : ""
                                         }
                 `}
                                 >
                                     <div className="flex items-center gap-3 mb-3">
-                                        <img
-                                            src={item.author_image}
-                                            alt={item.author_title}
+                                        <Image
+                                            src={item.avatar}
+                                            alt={item.name}
                                             width={40}
                                             height={40}
-                                            className="rounded-full object-cover w-10 h-10"
+                                            className="rounded-full object-cover"
                                         />
                                         <div>
                                             <h3 className="text-sm font-semibold text-gray-800">
-                                                {item.author_title}
+                                                {item.name}
                                             </h3>
-                                            <p className="text-xs text-gray-500">{new Date(item.review_datetime_utc).toLocaleDateString("en-IN", {
-                                                                day: "numeric",
-                                                                month: "short",
-                                                                year: "numeric",
-                                                            })}</p>
+                                            <p className="text-xs text-gray-500">{item.location}</p>
                                         </div>
                                     </div>
                                     <p className="text-sm text-gray-600 leading-relaxed mb-4 min-h-[91px]">
-                                        {item.review_text || "No review available"}
+                                        {item.text}
                                     </p>
                                     <div className="flex items-center justify-between">
                                         <span className="text-xs px-3 py-1 rounded-full bg-blue-100 text-blue-600 font-medium">
-                                            Google Review
+                                            {item.tag}
                                         </span>
 
                                         <div className="flex items-center gap-2">
-                                            <div className="text-yellow-400 text-sm">
-                                                {"★".repeat(item.review_rating)}
-                                                {"☆".repeat(5 - item.review_rating)}
-                                            </div>
+                                            <span className="text-xs text-gray-500">
+                                                {item.status}
+                                            </span>
+                                            <Image
+                                                src={item.logo}
+                                                alt="logo"
+                                                width={37}
+                                                height={48}
+                                            />
                                         </div>
                                     </div>
                                 </div>
