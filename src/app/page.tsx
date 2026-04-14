@@ -216,7 +216,7 @@ export default function Home() {
                     </Link>
                     <Link
                       href="/neet-pg-india-admission/"
-                      className="group flex items-center w-[326px] h-[52px] justify-start gap-4 rounded-[20px] px-6 text-white bg-[linear-gradient(90deg,#F6C667_0%,#F04E23_100%)] shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
+                      className="group flex items-center w-[326px] h-[52px] justify-start gap-4 rounded-[20px] px-6 text-white bg-[linear-gradient(90deg,#F4C55C_0%,#E6440C_100%)] shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
                       aria-label="NEET PG India Admissions"
                     >
                       <span className="font-bold text-[18px]">
