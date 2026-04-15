@@ -4,6 +4,16 @@ import { Button } from "primereact/button";
 import { useState } from "react";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import Link from "next/link";
+import Image from "next/image";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
 
 const neetupadmissionplans = [
     {
@@ -131,47 +141,72 @@ export default function NeetUgIndiaAdmissionPage() {
                             </div>
                         ))}
                     </div>
-                    <div id="connect-counselor" className="mb-16 grid grid-cols-1 md:grid-cols-2 md:gap-4 lg:gap-20 gap-10 bg-[#FFE5EB] lg:rounded-3xl rounded-2xl lg:pl-20 md:pl-10 pt-10 md:pr-0 px-10">
-                        <div className="text-center md:text-left self-center lg:-translate-6">
-                            <h2 className="mb-3 font-bold text-black lg:text-4xl text-3xl">Book your 20 MIN free counselling session today </h2>
-                            <div className="text-[#404040] font-medium text-base mb-8">Google Meet | Zoom | Microsoft teams | Whatsapp Available</div>
-                            <Link href="https://www.neetbhaiya.in/" target="_blank" className="cursor-pointer text-white rounded-full bg-[#FF3D68] px-6 py-3 uppercase font-medium">BOOK NOW</Link>
+
+                    <section className="mb-16">
+                        <div className="container px-3 md:px-0">
+                            <div className="relative w-full aspect-[1240/350] rounded-2xl overflow-hidden shadow-lg">
+                                <Image
+                                    src="/images/banner-neet-bhaiya.webp"
+                                    alt="NEET UG Banner"
+                                    fill
+                                    className="object-cover"
+                                />
+                            </div>
                         </div>
-                        <div>
-                            <img src="/images/counsellingRi.webp" width={510} height={312} alt="" />
-                        </div>
-                    </div>
+                    </section>
+
                     <div className='mb-10 fadeUp text-center'>
                         <h2 className='text-black text-4xl font-bold mb-4'>OUR <span className='text-[#287FC4]'>SUCCESSFUL STORIES</span></h2>
                         <div className='uppercase text-[#00CFB240] leading-12 text-[42px] md:text-5xl lg:text-7xl font-black'>HEAR FROM OUR STUDENTS</div>
                     </div>
-                    <div className="grid gap-6 md:grid-cols-3 grid-cols-1">
+                    <Swiper
+                        modules={[Autoplay, Pagination, Navigation]}
+                        spaceBetween={24}
+                        slidesPerView={1}
+                        pagination={{ clickable: true }}
+                        navigation={true}
+                        autoplay={{
+                            delay: 3000,
+                            disableOnInteraction: false,
+                        }}
+                        breakpoints={{
+                            640: {
+                                slidesPerView: 2,
+                            },
+                            1024: {
+                                slidesPerView: 3,
+                            },
+                        }}
+                        className="pb-12"
+                    >
                         {videos.map((video) => (
-                            <div
-                                key={video.id}
-                                className="fadeUp relative min-w-[340px] h-[240px] rounded-xl overflow-hidden shadow-lg cursor-pointer group"
-                                onClick={() => setVideoPopup(video)}
-                            >
-                                <img
-                                    src={`https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`}
-                                    alt={video.title}
-                                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                                />
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    <div className="w-16 h-16 transition-transform duration-300 group-hover:scale-110">
-                                        <img
-                                            src="/images/reviews/you-tube.webp"
-                                            className="w-full h-full object-contain"
-                                            alt="Play button"
-                                        />
+                            <SwiperSlide key={video.id}>
+                                <div
+                                    className="fadeUp relative w-full h-[240px] rounded-xl overflow-hidden shadow-lg cursor-pointer group"
+                                    onClick={() => setVideoPopup(video)}
+                                >
+                                    <img
+                                        src={`https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`}
+                                        alt={video.title}
+                                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                                    />
+                                    <div className="absolute inset-0 flex items-center justify-center">
+                                        <div className="w-16 h-16 transition-transform duration-300 group-hover:scale-110">
+                                            <img
+                                                src="/images/reviews/you-tube.webp"
+                                                className="w-full h-full object-contain"
+                                                alt="Play button"
+                                            />
+                                        </div>
                                     </div>
+                                    <span className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-3 py-2 text-white text-sm font-medium">
+                                        {video.title}
+                                    </span>
                                 </div>
-                                <span className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-3 py-2 text-white text-sm font-medium">
-                                    {video.title}
-                                </span>
-                            </div>
+                            </SwiperSlide>
                         ))}
-                    </div>
+                    </Swiper>
+
                 </div>
             </section>
 
