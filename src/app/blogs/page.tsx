@@ -388,10 +388,17 @@ const BlogsPage = () => {
               ))
               : currentBlogs.map((blog, index) => (
                 <Link key={blog.id} href={`/${blog.slug}`} className="group block h-full animate-fadeIn" style={{ animationDelay: `${0.1 * (index % 3)}s` }}>
-                  <div className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full border border-gray-50">
-                    <div className="relative h-48 sm:h-56 w-full overflow-hidden">
-                      <Image src={blog.featuredImage || '/images/blogs/card.webp'} alt={blog.title} fill unoptimized onError={(e) => { const t = e.target as HTMLImageElement; t.src = '/images/blogs/card.webp'; t.srcset = ''; }} className="object-cover bg-gray-50 transition-transform duration-500 group-hover:scale-110" />
-                    </div>
+                  <div className="transition-transform duration-300 group-hover:scale-102 bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full border border-gray-50">
+                    <div className="w-full overflow-hidden">
+  <Image
+    src={blog.featuredImage || "/images/blogs/card.webp"}
+    alt={blog.title}
+    width={0}
+    height={0}
+    sizes="100vw"
+    className="w-full h-auto object-cover"
+  />
+</div>
                     <div className="p-6 flex-1 flex flex-col">
                       <div className="flex flex-wrap gap-2 mb-3">
                         {toCategoryList(blog.category).map((cat, idx) => (

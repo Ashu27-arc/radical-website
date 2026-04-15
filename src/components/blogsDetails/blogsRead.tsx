@@ -110,23 +110,35 @@ const sanitizeBlogContent = (html: string, slug?: string) => {
         result = result.replace(/<(p|div|span|h[1-6]|figure|strong|b|em|i|a)[^>]*>\s*(?:&nbsp;|\u00A0|\s)*\s*<\/\1>/gi, '');
     } while (result !== prev);
 
-    // 6. Force inject margin onto all images for consistent spacing
-    result = result.replace(/<img([^>]*)>/gi, (match: string, attrs: string) => {
-        const margin = '2rem';
+    // 6. Clean and control all <img> tags
+result = result.replace(/<img([^>]*)>/gi, (match: string, attrs: string) => {
 
-        // Strip out existing margin and padding
-        let cleanAttrs = attrs.replace(/margin[^:]*:[^;"]*;?/gi, '').replace(/padding[^:]*:[^;"]*;?/gi, '');
+    // 🔹 Remove unwanted WordPress attributes
+    let cleanAttrs = attrs
+        .replace(/\s+srcset=["'][^"']*["']/gi, '')
+        .replace(/\s+sizes=["'][^"']*["']/gi, '')
+        .replace(/\s+loading=["'][^"']*["']/gi, '')
+        .replace(/\s+decoding=["'][^"']*["']/gi, '')
+        .replace(/\s+width=["'][^"']*["']/gi, '')
+        .replace(/\s+height=["'][^"']*["']/gi, '')
+        .replace(/margin[^:]*:[^;"]*;?/gi, '')
+        .replace(/padding[^:]*:[^;"]*;?/gi, '');
 
-        const style = `margin: ${margin} auto !important; display: block; border-radius: 12px;`;
+    // 🔥 Convert resized image → original (remove -1024x420 etc.)
+    cleanAttrs = cleanAttrs.replace(/-\d+x\d+(?=\.(jpg|jpeg|png|webp))/gi, '');
 
-        if (/style="/i.test(cleanAttrs)) {
-            return `<img${cleanAttrs.replace(/style="/i, `style="${style} `)}>`;
-        } else if (/style='/i.test(cleanAttrs)) {
-            return `<img${cleanAttrs.replace(/style='/i, `style='${style} `)}>`;
-        } else {
-            return `<img${cleanAttrs} style="${style}">`;
-        }
-    });
+    // 🎨 Your custom styling
+    const style = `margin: 2rem auto !important; display: block; border-radius: 12px; width: 100%; height: auto;`;
+
+    // Inject style safely
+    if (/style="/i.test(cleanAttrs)) {
+        return `<img${cleanAttrs.replace(/style="/i, `style="${style} `)}>`;
+    } else if (/style='/i.test(cleanAttrs)) {
+        return `<img${cleanAttrs.replace(/style='/i, `style='${style} `)}>`;
+    } else {
+        return `<img${cleanAttrs} style="${style}">`;
+    }
+});
 
     // 7. Remove zero-width spaces or other invisible chars that might create layout space
     result = result.replace(/[\u200B-\u200D\uFEFF]/g, '');
@@ -362,28 +374,16 @@ useEffect(() => {
                                     {/* <GlobalBanner banners={banners} /> */}
 
                                     {/* Blog Image - responsive height */}
-                                    <div className="mb-3 sm:mb-4 relative w-full h-40 min-[400px]:h-48 sm:h-52 md:h-60 lg:h-64 rounded-lg overflow-hidden">
-                                        {blog.featuredImage ? (
-                                            <Image
-                                                src={blog.featuredImage}
-                                                alt={blog.title}
-                                                fill
-                                                unoptimized
-                                                className="object-cover rounded-lg"
-                                                onError={(e) => {
-                                                    const t = e.target as HTMLImageElement;
-                                                    t.src = "/images/blogs/card.webp";
-                                                    t.srcset = "";
-                                                }}
-                                            />
-                                        ) : (
-                                            <Image
-                                                src="/images/blogs/card.webp"
-                                                alt={blog.title}
-                                                fill
-                                                className="object-cover rounded-lg"
-                                            />
-                                        )}
+                                    <div className="mb-3 sm:mb-4 w-full rounded-lg overflow-hidden group">
+                                        <Image
+                                            src={blog.featuredImage || "/images/blogs/card.webp"}
+                                            alt={blog.title}
+                                            width={0}
+                                            height={0}
+                                            sizes="100vw"
+                                            unoptimized
+                                            className="w-full h-auto rounded-lg"
+                                        />
                                     </div>
 
                                     {/* Blog Content - Shadow DOM Isolated */}

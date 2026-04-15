@@ -32,13 +32,7 @@ img {
   height: auto !important;
   display: block;
 }
-img[sizes],
-img[sizes="auto"],
-img[sizes^="auto"] {
-  aspect-ratio: 16/9;
-  object-fit: cover;
-  contain: none !important;
-}
+
 
 
 table {
@@ -51,7 +45,16 @@ table {
   border-radius: 12px;
   overflow: hidden;
 }
-
+.wp-block-table{
+margin:0;
+}
+img[class*="wp-image-"]{
+  width: 100% !important;
+    height: auto !important;
+    max-width: 100%;
+    display: block;
+    contain: none !important;
+}
 thead { background: var(--wp-primary); color: #fff; }
 th, td { padding: 14px 18px; border-bottom: 1px solid var(--wp-border); border-right: 1px solid var(--wp-border); }
 th:last-child, td:last-child { border-right: none; }
