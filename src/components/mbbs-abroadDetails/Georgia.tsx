@@ -21,7 +21,7 @@ const Georgia = () => {
               MBBS IN GEORGIA
             </h1>
             <p className="text-sm md:text-lg lg:text-[16px] text-white/90 font-medium max-w-2xl leading-relaxed">
-              Pursue your dream of becoming a doctor in Georgia’s reputed medical colleges with excellent academic support.Begin your medical journey in Georgia with modern facilities, hands-on clinical training, and expert guidance throughout the admission process.
+              Begin your medical journey in Georgia with modern facilities, hands-on clinical training, and expert guidance throughout the admission process.
             </p>
           </div>
         </div>

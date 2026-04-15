@@ -643,7 +643,7 @@ export default function MBBSAbroadAdmission() {
                 <div className="max-w-7xl mx-auto px-6">
                     <div className="bg-[url('/images/study-abroad-cta.webp')] bg-cover bg-center bg-no-repeat p-20 lg:p-30 rounded-2xl">
                         <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal text-white text-center mb-6 sm:mb-8 md:mb-12">
-                            Why <span className="text-[#FCC623]">Abroad</span>
+                            Why Study <span className="text-[#FCC623]">Abroad</span>
                         </h2>
 
                         <div className="space-y-3 sm:space-y-4 md:space-y-6 text-sm sm:text-base md:text-lg">
