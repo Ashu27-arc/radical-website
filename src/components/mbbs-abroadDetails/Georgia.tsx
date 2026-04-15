@@ -105,7 +105,7 @@ const Georgia = () => {
                 <Image src="/images/study-abroad/logos/g.webp" alt="Batumi Shota Rustaveli State Medical University Georgia" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-xs lg:text-sm">
-                Batumi Shota Rustaveli State Medical University Georgia
+                Batumi Shota Rustaveli State Medical University, Georgia
               </h3>
             </div>
 
@@ -169,7 +169,7 @@ const Georgia = () => {
                 <Image src="/images/study-abroad/logos/g-7.webp" alt="University of Georgia" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-xs lg:text-sm">
-                University of Georgia
+                University of Georgia, Georgia
               </h3>
             </div>
 
