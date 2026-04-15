@@ -20,9 +20,9 @@ async function fetchNeetUpdates(): Promise<NeetUpdate[]> {
 
 // Static hero section data (not fetched from CRM)
 const HERO_SECTION_DATA = {
-    date: "19 Jan 2022",
-    title: "NEET Exam in India: Your Gateway to a Bright Medical Career",
-    description: "Invite Your Friends And Unlock Exclusive Benefits—Earn More With Every Successful Referral. Invite Your Friends And Unlock Exclusive Benefits Invite Your Friends And Unlock Exclusive"
+    // date: "15 Apr 2026",
+    title: "NEET 2026 Updates - Exam Dates, Syllabus, Admit Card & News",
+    description: "Find all the important NEET 2026 updates, including exam dates, syllabus, result, and so much more. Stay ahead with latest news related to NEET 2026 in one place."
 };
 
 const PLACEHOLDER_IMAGE = "/images/neet-update/card.webp";
@@ -190,9 +190,9 @@ const NeetUpdateContent = () => {
                 {/* Hero Content - Static (not fetched from CRM) */}
                 <div className="relative z-10 w-full h-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex flex-col md:flex-row items-start md:items-end justify-between pb-8 md:pb-20 text-white">
                     <div className="max-w-2xl pt-10 md:pt-0 top-20">
-                        <span className="text-[#38b6ff] font-medium text-xs sm:text-sm md:text-base mb-1 sm:mb-2 block">
+                        {/* <span className="text-[#38b6ff] font-medium text-xs sm:text-sm md:text-base mb-1 sm:mb-2 block">
                             {HERO_SECTION_DATA.date}
-                        </span>
+                        </span> */}
                         <Link href="?details=true" target="_blank">
                             <h1 className="text-xl sm:text-2xl md:text-3xl font-bold leading-tight mb-3 sm:mb-1 hover:text-[#38b6ff] transition-colors cursor-pointer">
                                 {HERO_SECTION_DATA.title}
