@@ -29,7 +29,7 @@ export default function ContactOptions() {
                             Talk to an expert
                         </h3>
                         <p className="text-lg font-normal text-gray-800 mt-2 leading-relaxed max-w-[75%] md:max-w-none">
-                            No AI. No Bots.<br />
+                            No AI. No bots.<br />
                             Real Human Assistance
                         </p>
                         <button className="cursor-pointer mt-4 md:mt-6 bg-[#8cb37a] text-white px-4 py-1 md:px-8 md:py-3 rounded-[10px] font-semibold text-sm tracking-wide transition-all duration-300">

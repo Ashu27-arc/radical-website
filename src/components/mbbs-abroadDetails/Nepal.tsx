@@ -175,7 +175,7 @@ const Nepal = () => {
             </div>
 
             {/* Row 3 - Single centered item */}
-            <div className="flex flex-col items-center col-span-2 md:col-span-4 md:col-start-2 md:col-end-3">
+            <div className="flex flex-col items-center">
               <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
                 <Image src="/images/study-abroad/logos/9.webp" alt="Lumbini Medical College" width={190} height={190} className="object-contain" />
               </div>

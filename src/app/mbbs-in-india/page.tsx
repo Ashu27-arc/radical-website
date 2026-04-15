@@ -82,7 +82,7 @@ export default function MbbsInIndiaPage() {
                                     <div className="w-[290px] md:mx-0 mx-auto p-6 rounded-xl bg-[#E3F4F3] intereInfoCard translate-x-8">
                                         <h5 className="mb-3 text-[#005A8B] leading-6 font-bold text-lg max-w-[230px]">Are you interested in studying medicine in India?</h5>
                                         <button className='font-semibold text-xs uppercase py-4 px-6 rounded-full cursor-pointer relative text-white! bg-gradient-to-r! from-[#00CFB2]! to-[#005A8B]! border-[#00CFB2]!'>
-                                            BOOK CONSULTANTATION
+                                            BOOK CONSULTATION
                                         </button>
                                     </div>
                                 </div>
@@ -106,7 +106,7 @@ export default function MbbsInIndiaPage() {
                         </div>
                     </div>
                     <div className="w-full text-[#4A4A4A] text-sm fadeUp mb-15">
-                        <h2 className="mb-8 text-2xl font-bold text-black">Why choose Russia as your destination to study MBBS?</h2>
+                        <h2 className="mb-8 text-2xl font-bold text-black">Why choose India as your destination to study MBBS?</h2>
                         <p className="mb-6">Russia has emerged as one of the most sought-after places for international students wishing to study MBBS by providing a highly effective structure and an inexpensive education system. The medical universities in Russia are recognized by international organizations such as the WHO and the NMC, enabling students to build a successful medical career in other countries as well. The course structure is highly effective in providing the student with the necessary knowledge and skills by including both theoretical and practical knowledge.</p>
                         <p>The most important advantage of studying MBBS in Russia is that it is highly inexpensive. The fee structure is highly affordable in comparison to other countries. The admission process is transparent and uncomplicated, and the student is not required to pay any entrance fees or donations.The universities in Russia offer English-medium courses, making it easier for international students to adapt. The cultural diversity in the universities is highly advantageous in providing students with global exposure and personality development. With highly advanced facilities and highly experienced teachers, Russia is the most effective and dependable option for students to build a successful medical career.</p>
                     </div>

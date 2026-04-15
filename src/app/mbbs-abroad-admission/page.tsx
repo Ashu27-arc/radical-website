@@ -684,7 +684,7 @@ export default function MBBSAbroadAdmission() {
                                             <div className="text-xs font-normal">(Starting From)</div>
                                         </th>
                                         <th className="p-4 text-lg font-medium text-center">
-                                            Hostel & Mesh
+                                            Hostel & Mess
                                             <div className="text-xs font-normal">(Starting From)</div>
                                         </th>
                                         <th className="p-4 text-lg font-medium text-center">Total</th>

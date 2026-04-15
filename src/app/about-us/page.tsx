@@ -38,7 +38,7 @@ export default function AboutUsPage() {
 
   const whoWeAreData = {
     title: "Who We Are",
-    paragraph: "Radical Education is your go-to option for understanding the complexities associated with higher education. On our website, you can find in-depth information regarding top universities around the world, making the process easier for you.",
+    paragraph: "Radical Education is your go-to option for understanding the complexities associated with higher education. On our website, you can find in-depth information about top universities around the world, making the process easier for you.",
     expertiseTitle: "Our expertise:",
     expertiseList: [
       {
@@ -51,7 +51,7 @@ export default function AboutUsPage() {
       },
       {
         title: "Understanding at every step:",
-        desc: "Gain clear explanations regarding details of the courses, the process of enrolling, and straightforward tuition fees."
+        desc: "Gain clear explanations about course details, the enrollment process, and straightforward tuition fees."
       }
     ]
   };

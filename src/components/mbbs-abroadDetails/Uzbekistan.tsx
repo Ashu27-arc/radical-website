@@ -124,7 +124,7 @@ const Uzbekistan = () => {
                 />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-[9px] sm:text-[10px] md:text-xs lg:text-sm px-1">
-                Samarkand State Medical University, Uzbekishtan
+                Samarkand State Medical University, Uzbekistan
               </h3>
             </div>
 
@@ -139,7 +139,7 @@ const Uzbekistan = () => {
                 />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-[9px] sm:text-[10px] md:text-xs lg:text-sm px-1">
-                Tashkent Pediatric Medical Institute, Uzbekishtan
+                Tashkent Pediatric Medical Institute, Uzbekistan
               </h3>
             </div>
           </div>

@@ -21,7 +21,7 @@ export default function MBBSDeemedCollegesPage() {
         }
     };
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
         const { name, value } = e.target;
         setFormData(prev => ({
             ...prev,
@@ -417,7 +417,7 @@ export default function MBBSDeemedCollegesPage() {
                     </div>
 
                     {/* GET IN TOUCH */}
-                    <div className="bg-[#D4ECFF] p-4 md:p-5 lg:p-6 rounded-lg sm:rounded-xl m-0 transition-transform hover:scale-[1.01] duration-300 shadow-sm">
+                    <div className="bg-[#D4ECFF] p-4 md:p-5 lg:p-6 rounded-lg sm:rounded-xl m-0 transition-transform duration-300 shadow-sm">
                         <h3 className="text-xl md:text-2xl font-bold text-center text-gray-800 mb-6">
                             Request a free callback <br /> from Our Counsellor
                         </h3>
@@ -478,19 +478,31 @@ export default function MBBSDeemedCollegesPage() {
                                 </span>
                             </div>
                             <div className="relative w-full">
-                                <input
-                                    type="text"
+                                <select
                                     name="course"
-                                    placeholder=" "
                                     value={formData.course}
                                     onChange={handleInputChange}
-                                    className="peer bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm text-gray-900 min-h-[50px] touch-manipulation"
+                                    className="peer bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm text-gray-900 min-h-[50px] touch-manipulation appearance-none"
                                     required
                                     disabled={isSubmitting}
-                                />
-                                <span className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-xs sm:text-sm text-[#78787899] pointer-events-none transition-opacity duration-200 peer-focus:opacity-0 peer-not-placeholder-shown:opacity-0">
+                                >
+                                    <option value="" disabled hidden></option>
+                                    <option value="MBBS">MBBS</option>
+                                    <option value="BDS">BDS</option>
+                                    <option value="BAMS">BAMS</option>
+                                    <option value="BHMS">BHMS</option>
+                                    <option value="MD">MD</option>
+                                    <option value="MS">MS</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                                <span className={`absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-xs sm:text-sm text-[#78787899] pointer-events-none transition-opacity duration-200 ${formData.course ? 'opacity-0' : 'opacity-100'}`}>
                                     Select Course
                                 </span>
+                                <div className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+                                    <svg className="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                    </svg>
+                                </div>
                             </div>
                             <button
                                 type="submit"
@@ -559,7 +571,7 @@ export default function MBBSDeemedCollegesPage() {
                         </div>
 
                         {/* Study India Banner */}
-                        <div className="rounded-lg sm:rounded-xl overflow-hidden max-w-full transform hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-xl">
+                        {/* <div className="rounded-lg sm:rounded-xl overflow-hidden max-w-full transform hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-xl">
                             <Image
                                 src="/images/deemed/banner-mp.webp"
                                 alt="Study in India"
@@ -567,7 +579,7 @@ export default function MBBSDeemedCollegesPage() {
                                 height={200}
                                 className="w-full h-auto object-contain max-w-full"
                             />
-                        </div>
+                        </div> */}
                     </div>
                 </div>
             </div>

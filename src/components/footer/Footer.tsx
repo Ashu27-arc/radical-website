@@ -294,7 +294,7 @@ export default function Footer() {
                 <li className="flex items-start gap-2">
                   <i className="pi pi-map-marker md:mt-0.5 -mt-0.5 text-xs sm:text-sm" />
                   <span className='text-center sm:text-left'>
-                    C-56/30, 3rd Floor, Sector 62<br className='hidden md:block' />
+                    C-56/30, 3rd Floor, Sector 62,<br className='hidden md:block' />
                     Noida, Uttar Pradesh
                   </span>
                 </li>

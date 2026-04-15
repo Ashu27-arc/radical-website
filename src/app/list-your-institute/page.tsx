@@ -291,7 +291,7 @@ export default function InstituteListPage() {
 
               {/* Phone no */}
               <div>
-                <label className="block text-white mb-1.5 sm:mb-2 text-sm sm:text-base">Phone No</label>
+                <label className="block text-white mb-1.5 sm:mb-2 text-sm sm:text-base">Phone No.</label>
                 <input
                   type="tel"
                   name="phoneNo"
@@ -377,7 +377,7 @@ export default function InstituteListPage() {
                     required
                   />
                   <span className="pointer-events-none absolute left-[15px] top-[12px] text-white/50 transition-all duration-200 peer-focus:opacity-0 peer-[&:not(:placeholder-shown)]:opacity-0">
-                    House No./Block No.
+                    Building Name / Block
                   </span>
                 </div>
                 <div className="relative placeholderCOlorWhite">
