@@ -538,7 +538,7 @@ export default function MBBSDeemedCollegesPage() {
                     {/* ADVERTISEMENT BANNERS */}
                     <div className="lg:space-y-6 space-y-4 px-4 md:px-5 lg:px-6">
                         {/* Kyrgyzstan Banner */}
-                        <div className="rounded-lg sm:rounded-xl overflow-hidden max-w-full transform hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-xl">
+                        {/* <div className="rounded-lg sm:rounded-xl overflow-hidden max-w-full transform hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-xl">
                             <Image
                                 src="/images/deemed/banner-k.webp"
                                 alt="Study MBBS in Kyrgyzstan"
@@ -546,10 +546,10 @@ export default function MBBSDeemedCollegesPage() {
                                 height={200}
                                 className="w-full h-auto object-contain max-w-full"
                             />
-                        </div>
+                        </div> */}
 
                         {/* NEET PG Banner */}
-                        <div className="rounded-lg sm:rounded-xl overflow-hidden max-w-full transform hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-xl">
+                        {/* <div className="rounded-lg sm:rounded-xl overflow-hidden max-w-full transform hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-xl">
                             <Image
                                 src="/images/deemed/banner-n.webp"
                                 alt="NEET PG Admission"
@@ -557,10 +557,10 @@ export default function MBBSDeemedCollegesPage() {
                                 height={200}
                                 className="w-full h-auto object-contain max-w-full"
                             />
-                        </div>
+                        </div> */}
 
                         {/* Study Abroad Banner */}
-                        <div className="rounded-lg sm:rounded-xl overflow-hidden max-w-full transform hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-xl">
+                        {/* <div className="rounded-lg sm:rounded-xl overflow-hidden max-w-full transform hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-xl">
                             <Image
                                 src="/images/deemed/banner-mg.webp"
                                 alt="Study Abroad"
@@ -568,7 +568,7 @@ export default function MBBSDeemedCollegesPage() {
                                 height={200}
                                 className="w-full h-auto object-contain max-w-full"
                             />
-                        </div>
+                        </div> */}
 
                         {/* Study India Banner */}
                         {/* <div className="rounded-lg sm:rounded-xl overflow-hidden max-w-full transform hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-xl">

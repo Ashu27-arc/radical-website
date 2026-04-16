@@ -85,7 +85,7 @@ export default function BDSInIndiaPage() {
                                     <div className="w-[250px] md:w-[290px] md:mx-0 mx-auto p-4 md:p-6 rounded-xl bg-[#E3F4F3] intereInfoCard md:translate-x-8 translate-x-0">
                                         <h5 className="mb-3 text-[#005A8B] leading-5 md:leading-6 font-bold text-base md:text-lg max-w-[200px] md:max-w-[230px]">Are you interested in studying medicine in India?</h5>
                                         <button className='font-semibold text-xs uppercase py-3 md:py-4 px-4 md:px-6 rounded-full cursor-pointer relative text-white! bg-gradient-to-r! from-[#00CFB2]! to-[#005A8B]! border-[#00CFB2]!'>
-                                            BOOK CONSULTANTATION
+                                            BOOK CONSULTATION
                                         </button>
                                     </div>
                                 </div>

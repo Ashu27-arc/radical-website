@@ -106,9 +106,35 @@ export default function MbbsInIndiaPage() {
                         </div>
                     </div>
                     <div className="w-full text-[#4A4A4A] text-sm fadeUp mb-15">
-                        <h2 className="mb-8 text-2xl font-bold text-black">Why choose India as your destination to study MBBS?</h2>
-                        <p className="mb-6">Russia has emerged as one of the most sought-after places for international students wishing to study MBBS by providing a highly effective structure and an inexpensive education system. The medical universities in Russia are recognized by international organizations such as the WHO and the NMC, enabling students to build a successful medical career in other countries as well. The course structure is highly effective in providing the student with the necessary knowledge and skills by including both theoretical and practical knowledge.</p>
-                        <p>The most important advantage of studying MBBS in Russia is that it is highly inexpensive. The fee structure is highly affordable in comparison to other countries. The admission process is transparent and uncomplicated, and the student is not required to pay any entrance fees or donations.The universities in Russia offer English-medium courses, making it easier for international students to adapt. The cultural diversity in the universities is highly advantageous in providing students with global exposure and personality development. With highly advanced facilities and highly experienced teachers, Russia is the most effective and dependable option for students to build a successful medical career.</p>
+                        <h2 className="mb-8 text-2xl font-bold text-black">MBBS in India: A Career of Meaning, Esteem, and Opportunity</h2>
+                        <div className="mb-6">
+                            <h3 className="text-xl font-bold text-black mb-2">Make an Impact on the World</h3>
+                            <p>Choose the field of MBBS and contribute to the health and wellness of communities through your efforts in saving lives and promoting well-being.</p>
+                        </div>
+                        <div className="mb-6">
+                            <h3 className="text-xl font-bold text-black mb-2">A Very Esteemed Career Option</h3>
+                            <p>Doctors receive a great deal of respect from people across the globe, and MBBS graduates will be among the most highly regarded professionals.</p>
+                        </div>
+                        <div className="mb-6">
+                            <h3 className="text-xl font-bold text-black mb-2">Excellent Career Security</h3>
+                            <p>Healthcare is a necessity that will always be around, offering tremendous stability and opportunities for advancement.</p>
+                        </div>
+                        <div className="mb-6">
+                            <h3 className="text-xl font-bold text-black mb-2">Multiple Career Paths Available</h3>
+                            <p>From specialization to teaching and managing, practicing, conducting research, etc., the MBBS opens up a diverse range of possibilities for you.</p>
+                        </div>
+                        <div className="mb-6">
+                            <h3 className="text-xl font-bold text-black mb-2">International Career Scope</h3>
+                            <p>MBBS degrees will allow you to practice medicine in different countries of the world.</p>
+                        </div>
+                        <div className="mb-6">
+                            <h3 className="text-xl font-bold text-black mb-2">Significant Career Earnings Potential</h3>
+                            <p>Due to constant advancements and experience in the field, doctors receive great salaries and have the potential for career advancement.</p>
+                        </div>
+                        <div className="mb-6">
+                            <h3 className="text-xl font-bold text-black mb-2">Constant Personal and Professional Development</h3>
+                            <p>With constant changes in medical sciences, there are plenty of opportunities to continue learning throughout your career.</p>
+                        </div>
                     </div>
 
                 </div>

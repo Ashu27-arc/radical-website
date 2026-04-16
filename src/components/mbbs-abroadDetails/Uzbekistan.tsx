@@ -45,7 +45,7 @@ const Uzbekistan = () => {
 
             <div className="relative z-10">
               <h2 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-800 mb-4 md:mb-6 lg:mb-8">
-                Medical Studies in Uzbekishtan
+                Medical Studies in Uzbekistan
               </h2>
 
               <div className="space-y-4 md:space-y-6 text-gray-600 leading-relaxed text-sm md:text-base">
@@ -109,7 +109,7 @@ const Uzbekistan = () => {
                 />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-[9px] sm:text-[10px] md:text-xs lg:text-sm px-1">
-                Bhukhara State Medical University, Uzbekishtan
+                Bhukhara State Medical University, Uzbekistan
               </h3>
             </div>
 
