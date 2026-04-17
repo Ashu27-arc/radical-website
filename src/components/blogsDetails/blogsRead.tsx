@@ -58,7 +58,7 @@ const sanitizeBlogContent = (html: string, slug?: string) => {
 
 
     // Prune specific unwanted banner image URL
-    const unwantedBannerUrl = 'https://backup.radicaleducation.in/wp-content/uploads/2026/04/team-banner-1.png';
+    const unwantedBannerUrl = 'https://swa.radicaleducation.in/wp-content/uploads/2026/04/team-banner-1.png';
     result = result.replace(new RegExp(`<img[^>]*src=["']${unwantedBannerUrl.replace(/\\/g, '\\\\').replace(/\//g, '\\/').replace(/\./g, '\\.')}["'][^>]*>`, 'gi'), '');
 
     // 1. Strip ALL height attributes from images so they don't leave empty vertical gaps 

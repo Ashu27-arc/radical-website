@@ -155,8 +155,8 @@ const branches = [
         color: "#c4e9ff",
         bg: "bg-[#c4e9ff]"
     }
-    
-    
+
+
 ];
 
 const features = [
@@ -229,17 +229,17 @@ export default function NeetPgIndiaAdmissionPage() {
                                     className="group rounded-[12px] mx-auto w-[146px] h-[176px] pt-6 px-3 transition flex flex-col gap-3 justify-start items-center text-center"
                                 >
                                     <div
-    style={{
-      backgroundColor: `${item.color}40`,
-    }}
-    onMouseEnter={(e) => {
-      e.currentTarget.style.backgroundColor = item.color;
-    }}
-    onMouseLeave={(e) => {
-      e.currentTarget.style.backgroundColor = `${item.color}40`;
-    }}
-    className="w-[70px] h-[70px] p-2 inline-flex items-center justify-center rounded-full transition-all duration-300 group-hover:scale-110"
-  >
+                                        style={{
+                                            backgroundColor: `${item.color}40`,
+                                        }}
+                                        onMouseEnter={(e) => {
+                                            e.currentTarget.style.backgroundColor = item.color;
+                                        }}
+                                        onMouseLeave={(e) => {
+                                            e.currentTarget.style.backgroundColor = `${item.color}40`;
+                                        }}
+                                        className="w-[70px] h-[70px] p-2 inline-flex items-center justify-center rounded-full transition-all duration-300 group-hover:scale-110"
+                                    >
                                         <div style={{ backgroundColor: `${item.color}` }} className={`w-full h-full inline-flex items-center justify-center rounded-full`}>
                                             <img
                                                 src={item.icon}
@@ -308,7 +308,7 @@ export default function NeetPgIndiaAdmissionPage() {
                     </div>
                     <div className="bg-white rounded-lg sm:rounded-xl p-6 lg:p-8">
                         <div className="space-y-1 sm:space-y-2">
-                            <div className="flex items-start gap-2">
+                            {/* <div className="flex items-start gap-2">
                                 <span className="text-black flex-shrink-0 text-xs sm:text-sm md:text-base">Note:</span>
                                 <div className="space-y-1 text-xs sm:text-sm md:text-base">
                                     <p className="text-[#2CBF0F]">
@@ -318,7 +318,7 @@ export default function NeetPgIndiaAdmissionPage() {
                                         2. Get the offer price 99,999 before NEET Result
                                     </p>
                                 </div>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>

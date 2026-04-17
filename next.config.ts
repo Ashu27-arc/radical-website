@@ -20,11 +20,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "backup.radicaleducation.in",
-      },
-      {
-        protocol: "https",
-        hostname: "backup.radicaleducation.in",
+        hostname: "swa.radicaleducation.in",
       },
       {
         protocol: "https",

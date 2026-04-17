@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 import axios from 'axios';
 
-const WP_API_BASE = 'https://backup.radicaleducation.in/wp-json/wp/v2/pages';
+const WP_API_BASE = 'https://swa.radicaleducation.in/wp-json/wp/v2/pages';
 
 export const revalidate = 60;
 
