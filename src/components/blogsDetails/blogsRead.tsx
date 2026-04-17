@@ -12,8 +12,8 @@ import ShortcodeRenderer from '@/components/ShortcodeRenderer';
 import { getGlobalBanner, type BannerItem } from '@/lib/api';
 import GlobalBanner from '@/components/GlobalBanner';
 import { Document, Page, pdfjs } from 'react-pdf';
-import 'react-pdf/dist/esm/Page/AnnotationLayer.css';
-import 'react-pdf/dist/esm/Page/TextLayer.css';
+import 'react-pdf/dist/Page/AnnotationLayer.css';
+import 'react-pdf/dist/Page/TextLayer.css';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
