@@ -54,7 +54,7 @@ export default function StudyAbroadPage() {
     const videos = [
         {
             id: 1,
-            title: 'Mahim Kumar',
+            title: 'Mayank Kumar',
             youtubeId: 'Vr6ZZQ3jVH8',
         },
         {
@@ -145,9 +145,9 @@ export default function StudyAbroadPage() {
                                                     height={96}
                                                     className="w-full h-full object-cover"
                                                 />
-                                                <div className="absolute top-0 right-0 p-1 text-[#FF0000]">
+                                                {/* <div className="absolute top-0 right-0 p-1 text-[#FF0000]">
                                                     <i className="pi pi-youtube text-xs"></i>
-                                                </div>
+                                                </div> */}
                                             </div>
                                         </div>
                                     </Link>
