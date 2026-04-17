@@ -185,8 +185,7 @@ const mapWpPostToBlog = (post: any): Blog => {
     author: post._embedded?.author?.[0]?.name || 'Radical Education',
     category: post._embedded?.['wp:term']?.[0]?.map((c: any) => c.name).join(', ') || 'Latest Update',
     status: 'Published',
-    faqs: Array.isArray(post.acf?.faqs) ? post.acf.faqs : Array.isArray(post.faqs) ? post.faqs : [],
-    pdf: post.acf?.pdf || post.pdf || null
+    faqs: Array.isArray(post.acf?.faqs) ? post.acf.faqs : Array.isArray(post.faqs) ? post.faqs : []
   };
 };
 

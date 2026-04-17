@@ -11,11 +11,6 @@ import { usePathname } from 'next/navigation';
 import ShortcodeRenderer from '@/components/ShortcodeRenderer';
 import { getGlobalBanner, type BannerItem } from '@/lib/api';
 import GlobalBanner from '@/components/GlobalBanner';
-import { Document, Page, pdfjs } from 'react-pdf';
-import 'react-pdf/dist/Page/AnnotationLayer.css';
-import 'react-pdf/dist/Page/TextLayer.css';
-
-pdfjs.GlobalWorkerOptions.workerSrc = `//unpkg.com/pdfjs-dist@${pdfjs.version}/build/pdf.worker.min.mjs`;
 
 interface BlogsReadProps {
     slug: string;
@@ -116,34 +111,34 @@ const sanitizeBlogContent = (html: string, slug?: string) => {
     } while (result !== prev);
 
     // 6. Clean and control all <img> tags
-result = result.replace(/<img([^>]*)>/gi, (match: string, attrs: string) => {
+    result = result.replace(/<img([^>]*)>/gi, (match: string, attrs: string) => {
 
-    // 🔹 Remove unwanted WordPress attributes
-    let cleanAttrs = attrs
-        .replace(/\s+srcset=["'][^"']*["']/gi, '')
-        .replace(/\s+sizes=["'][^"']*["']/gi, '')
-        .replace(/\s+loading=["'][^"']*["']/gi, '')
-        .replace(/\s+decoding=["'][^"']*["']/gi, '')
-        .replace(/\s+width=["'][^"']*["']/gi, '')
-        .replace(/\s+height=["'][^"']*["']/gi, '')
-        .replace(/margin[^:]*:[^;"]*;?/gi, '')
-        .replace(/padding[^:]*:[^;"]*;?/gi, '');
+        // 🔹 Remove unwanted WordPress attributes
+        let cleanAttrs = attrs
+            .replace(/\s+srcset=["'][^"']*["']/gi, '')
+            .replace(/\s+sizes=["'][^"']*["']/gi, '')
+            .replace(/\s+loading=["'][^"']*["']/gi, '')
+            .replace(/\s+decoding=["'][^"']*["']/gi, '')
+            .replace(/\s+width=["'][^"']*["']/gi, '')
+            .replace(/\s+height=["'][^"']*["']/gi, '')
+            .replace(/margin[^:]*:[^;"]*;?/gi, '')
+            .replace(/padding[^:]*:[^;"]*;?/gi, '');
 
-    // 🔥 Convert resized image → original (remove -1024x420 etc.)
-    cleanAttrs = cleanAttrs.replace(/-\d+x\d+(?=\.(jpg|jpeg|png|webp))/gi, '');
+        // 🔥 Convert resized image → original (remove -1024x420 etc.)
+        cleanAttrs = cleanAttrs.replace(/-\d+x\d+(?=\.(jpg|jpeg|png|webp))/gi, '');
 
-    // 🎨 Your custom styling
-    const style = `margin: 2rem auto !important; display: block; border-radius: 12px; width: 100%; height: auto;`;
+        // 🎨 Your custom styling
+        const style = `margin: 2rem auto !important; display: block; border-radius: 12px; width: 100%; height: auto;`;
 
-    // Inject style safely
-    if (/style="/i.test(cleanAttrs)) {
-        return `<img${cleanAttrs.replace(/style="/i, `style="${style} `)}>`;
-    } else if (/style='/i.test(cleanAttrs)) {
-        return `<img${cleanAttrs.replace(/style='/i, `style='${style} `)}>`;
-    } else {
-        return `<img${cleanAttrs} style="${style}">`;
-    }
-});
+        // Inject style safely
+        if (/style="/i.test(cleanAttrs)) {
+            return `<img${cleanAttrs.replace(/style="/i, `style="${style} `)}>`;
+        } else if (/style='/i.test(cleanAttrs)) {
+            return `<img${cleanAttrs.replace(/style='/i, `style='${style} `)}>`;
+        } else {
+            return `<img${cleanAttrs} style="${style}">`;
+        }
+    });
 
     // 7. Remove zero-width spaces or other invisible chars that might create layout space
     result = result.replace(/[\u200B-\u200D\uFEFF]/g, '');
@@ -209,39 +204,39 @@ const processFaqAnswer = (rawAnswer: string) => {
 const BlogsRead = ({ slug }: BlogsReadProps) => {
 
 
-useEffect(() => {
-    const initFAQ = () => {
-      const container = document.querySelector(".schema-faq");
-      if (!container) return;
+    useEffect(() => {
+        const initFAQ = () => {
+            const container = document.querySelector(".schema-faq");
+            if (!container) return;
 
-      const faqs = container.querySelectorAll(".schema-faq-section");
+            const faqs = container.querySelectorAll(".schema-faq-section");
 
-      if (!faqs.length) return;
+            if (!faqs.length) return;
 
-      // Reset + first open
-      faqs.forEach(f => f.classList.remove("active"));
-      faqs[0].classList.add("active");
+            // Reset + first open
+            faqs.forEach(f => f.classList.remove("active"));
+            faqs[0].classList.add("active");
 
-      // 🔥 EVENT DELEGATION (BEST WAY)
-      container.addEventListener("click", (e: any) => {
-        const question = e.target.closest(".schema-faq-question");
-        if (!question) return;
+            // 🔥 EVENT DELEGATION (BEST WAY)
+            container.addEventListener("click", (e: any) => {
+                const question = e.target.closest(".schema-faq-question");
+                if (!question) return;
 
-        const parent = question.closest(".schema-faq-section");
+                const parent = question.closest(".schema-faq-section");
 
-        faqs.forEach(f => f.classList.remove("active"));
+                faqs.forEach(f => f.classList.remove("active"));
 
-        if (parent) parent.classList.add("active");
-      });
-    };
+                if (parent) parent.classList.add("active");
+            });
+        };
 
-    // ⏳ Delay to ensure HTML is rendered
-    const timer = setTimeout(initFAQ, 300);
+        // ⏳ Delay to ensure HTML is rendered
+        const timer = setTimeout(initFAQ, 300);
 
-    return () => clearTimeout(timer);
-  }, [slug]); // re-run on page change
+        return () => clearTimeout(timer);
+    }, [slug]); // re-run on page change
 
-    
+
     const [searchTerm, setSearchTerm] = useState('');
     const [activeCategory, setActiveCategory] = useState('All');
     const categoryContainerRef = useRef<HTMLDivElement>(null);
@@ -249,31 +244,6 @@ useEffect(() => {
     const [loading, setLoading] = useState(true);
     const [banners, setBanners] = useState<BannerItem[]>([]);
     const { addMessageHandler } = useWebSocket();
-
-    const [numPages, setNumPages] = useState<number>();
-    const [pageNumber, setPageNumber] = useState<number>(1);
-    const [containerWidth, setContainerWidth] = useState<number>();
-    const pdfWrapperRef = useRef<HTMLDivElement>(null);
-
-    useEffect(() => {
-        const updateWidth = () => {
-            if (pdfWrapperRef.current) {
-                setContainerWidth(pdfWrapperRef.current.clientWidth);
-            }
-        };
-        // Delay width calculation slightly to ensure layout is done
-        const timer = setTimeout(updateWidth, 100);
-        window.addEventListener('resize', updateWidth);
-        return () => {
-            clearTimeout(timer);
-            window.removeEventListener('resize', updateWidth);
-        };
-    }, [blog]);
-
-    function onDocumentLoadSuccess({ numPages }: { numPages: number }) {
-        setNumPages(numPages);
-        setPageNumber(1);
-    }
 
     useEffect(() => {
         getBlogBySlug(slug).then((data) => {
@@ -338,7 +308,7 @@ useEffect(() => {
 
 
 
-    
+
 
     return (
         <div className="w-full min-w-0 bg-gray-50 relative animate-fadeIn">
@@ -422,72 +392,30 @@ useEffect(() => {
                                         className="blog-content-wrapper"
                                     />
 
-                                    {/* PDF Viewer Section - High Impact & Premium */}
+                                    {/* PDF Download Section - High Impact & Premium */}
                                     {blog.pdf && (
-                                        <div className="my-8 p-6 sm:p-8 bg-gradient-to-br from-indigo-50 via-white to-blue-50 rounded-2xl border-2 border-indigo-100 shadow-sm flex flex-col items-center transition-all hover:shadow-md">
-                                            <div className="flex items-center gap-4 mb-6">
-                                                <div className="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center shrink-0 shadow-inner">
-                                                    <svg className="w-6 h-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <div className="my-8 p-6 sm:p-8 bg-gradient-to-br from-indigo-50 via-white to-blue-50 rounded-2xl border-2 border-indigo-100 shadow-sm flex flex-col sm:flex-row items-center justify-between gap-6 transition-all hover:shadow-md">
+                                            <div className="flex items-center gap-5">
+                                                <div className="w-16 h-16 sm:w-20 sm:h-20 bg-red-100 rounded-2xl flex items-center justify-center shrink-0 shadow-inner">
+                                                    <svg className="w-10 h-10 sm:w-12 h-12 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z" />
+                                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 13h6m-3-3v6" />
                                                     </svg>
                                                 </div>
-                                                <h3 className="text-xl sm:text-2xl font-bold text-gray-900">Detailed Guide</h3>
-                                            </div>
-                                            
-                                            <div 
-                                                ref={pdfWrapperRef} 
-                                                className="w-full flex justify-center border border-gray-200 shadow-inner rounded-xl overflow-hidden bg-gray-100"
-                                            >
-                                                <Document
-                                                    file={blog.pdf}
-                                                    onLoadSuccess={onDocumentLoadSuccess}
-                                                    loading={<div className="py-20 text-gray-500 font-medium">Loading PDF...</div>}
-                                                    error={<div className="py-20 text-red-500 font-medium">Failed to load PDF.</div>}
-                                                    className="max-w-full flex justify-center"
-                                                >
-                                                    <Page 
-                                                        pageNumber={pageNumber} 
-                                                        width={containerWidth ? Math.min(containerWidth, 800) : undefined}
-                                                        renderTextLayer={false} 
-                                                        renderAnnotationLayer={false}
-                                                        className="max-w-full shadow-md"
-                                                    />
-                                                </Document>
-                                            </div>
-
-                                            {numPages && (
-                                                <div className="flex items-center gap-6 mt-6">
-                                                    <button 
-                                                        disabled={pageNumber <= 1} 
-                                                        onClick={() => setPageNumber(p => p - 1)}
-                                                        className="px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-sm"
-                                                    >
-                                                        Previous
-                                                    </button>
-                                                    <span className="font-semibold text-gray-700 text-lg">
-                                                        {pageNumber} <span className="text-gray-400 font-normal">/</span> {numPages}
-                                                    </span>
-                                                    <button 
-                                                        disabled={pageNumber >= numPages} 
-                                                        onClick={() => setPageNumber(p => p + 1)}
-                                                        className="px-5 py-2 bg-indigo-600 hover:bg-indigo-700 text-white font-medium rounded-lg disabled:opacity-40 disabled:cursor-not-allowed transition-all shadow-sm"
-                                                    >
-                                                        Next
-                                                    </button>
+                                                <div>
+                                                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-1">Detailed Guide Available</h3>
+                                                    <p className="text-gray-600 text-sm sm:text-base">Download the full PDF version of this blog for offline reading.</p>
                                                 </div>
-                                            )}
-
+                                            </div>
                                             <a
                                                 href={blog.pdf}
                                                 download={`${blog.slug || 'blog'}-detailed-guide.pdf`}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="mt-8 w-full sm:w-auto px-8 py-3.5 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all flex items-center justify-center gap-3 active:scale-95"
+                                                className="w-full sm:w-auto px-10 py-4 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white rounded-xl font-bold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all flex items-center justify-center gap-3 active:scale-95"
                                             >
                                                 <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a2 2 0 002 2h12a2 2 0 002-2v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                                                 </svg>
-                                                DOWNLOAD FULL PDF
+                                                DOWNLOAD PDF
                                             </a>
                                         </div>
                                     )}
@@ -500,8 +428,8 @@ useEffect(() => {
                                             </h2>
                                             <div className="space-y-4 sm:space-y-5">
                                                 {blog.faqs.map((faq, idx) => (
-                                                    <div 
-                                                        key={idx} 
+                                                    <div
+                                                        key={idx}
                                                         className="bg-white p-6 sm:p-8 rounded-xl shadow-[0_4px_20px_-4px_rgba(0,0,0,0.08)] border border-gray-50 transition-all hover:shadow-[0_8px_30px_rgb(0,0,0,0.12)]"
                                                     >
                                                         <h3 className="font-bold text-[#001D2D] text-base sm:text-lg mb-4 flex items-start gap-2">
