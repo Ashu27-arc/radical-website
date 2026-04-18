@@ -1,8 +1,10 @@
 import { NextResponse } from 'next/server';
 import { fetchAllWordPressPosts } from '@/lib/wp-fetcher';
 
-// Revalidate this route's cache every 1 hour (Next.js ISR for Route Handlers)
-export const revalidate = 3600;
+// Force dynamic rendering — this route fetches 3,700+ WP posts and cannot
+// be statically generated at build time (exceeds the 60s build timeout).
+// It will be executed on-demand per request instead.
+export const dynamic = 'force-dynamic';
 
 /**
  * GET /api/wp/all-posts
