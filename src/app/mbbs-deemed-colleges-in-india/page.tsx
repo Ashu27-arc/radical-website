@@ -80,7 +80,7 @@ export default function MBBSDeemedCollegesPage() {
                     </h1>
 
                     <p className="text-xs sm:text-sm text-gray-500 mt-1">
-                        Danish Farzan • 19 Jan 2022
+                        Admin • 19 Jan 2022
                     </p>
 
                     {/* IMAGE */}
@@ -528,7 +528,7 @@ export default function MBBSDeemedCollegesPage() {
                                         NEET Exam in India: Your Gateway to a Bright Medical
                                     </h4>
                                     <p className="text-xs text-gray-500 mt-1">
-                                        Danish Farzan • 19 Jan 2022
+                                        Admin • 19 Jan 2022
                                     </p>
                                 </div>
                             ))}
