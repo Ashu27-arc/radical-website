@@ -46,26 +46,26 @@ export default function EverythingSlider() {
         <span className="block text-[16px] md:text-[20px] font-poppins mt-2 md:mt-0">Smart packages that keep it simple and affordable.</span>
       </h2>
 
-        <Swiper
-          modules={[EffectCoverflow, Autoplay]}
-          effect="coverflow"
-          centeredSlides={true}
-          slidesPerView={"auto"}
-          loop={true}
-          speed={1000}
-          autoplay={{
-            delay: 3000,
-            disableOnInteraction: false,
-          }}
-          coverflowEffect={{
-            rotate: 0,
-            stretch: 0,
-            depth: 200,
-            modifier: 2.5,
-            slideShadows: false,
-          }}
-          className="w-full max-w-6xl"
-        >
+      <Swiper
+        modules={[EffectCoverflow, Autoplay]}
+        effect="coverflow"
+        centeredSlides={true}
+        slidesPerView={"auto"}
+        loop={true}
+        speed={1000}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
+        coverflowEffect={{
+          rotate: 0,
+          stretch: 0,
+          depth: 200,
+          modifier: 2.5,
+          slideShadows: false,
+        }}
+        className="w-full max-w-6xl"
+      >
         {slides.map((src, i) => (
           <SwiperSlide
             key={i}
@@ -96,20 +96,34 @@ export default function EverythingSlider() {
         </div>
         <div className="flex items-center gap-3">
           <span>Download now:</span>
-          <Image
-            src="/svg/play-store.svg"
-            alt="Google Play"
-            width={120}
-            height={40}
-            className="w-[120px] h-[auto]"
-          />
-          <Image
-            src="/svg/app-store.svg"
-            alt="App Store"
-            width={120}
-            height={40}
-            className="w-[120px] h-[auto]"
-          />
+          <a
+            href="https://play.google.com/store/apps/details?id=com.kaveka.NeetBhaiya"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Image
+              src="/svg/play-store.svg"
+              alt="Google Play"
+              width={120}
+              height={40}
+              className="w-[120px] h-[auto]"
+            />
+          </a>
+          <a
+            href="https://apps.apple.com/in/app/neetbhaiya/id6737452892"
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <Image
+              src="/svg/app-store.svg"
+              alt="App Store"
+              width={120}
+              height={40}
+              className="w-[120px] h-[auto]"
+            />
+          </a>
         </div>
       </div>
     </div>
