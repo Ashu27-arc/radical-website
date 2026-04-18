@@ -160,7 +160,7 @@ export default function NeetUgIndiaAdmissionPage() {
                                     className="absolute left-[7.3%] bottom-9 h-[41px] z-10 hover:scale-105 transition-transform"
                                 >
                                     <Link
-                                        href="https://play.google.com/store/apps/details?id=com.radical.neetbhaiya"
+                                        href="https://play.google.com/store/apps/details?id=com.kaveka.NeetBhaiya"
                                         target="_blank"
                                         className="block w-full h-full"
                                     >
