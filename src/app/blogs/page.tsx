@@ -55,83 +55,65 @@ const BlogsPage = () => {
   const blogsPerPage = 12;
   const scrollRef = useRef<HTMLDivElement>(null);
   const [refreshKey, setRefreshKey] = useState(0);
+  const [totalPagesServer, setTotalPagesServer] = useState(1);
   const wsUrl = process.env.NEXT_PUBLIC_WS_URL || 'https://backend-radical.onrender.com';
   const { addMessageHandler, isConnected } = useWebSocket(wsUrl);
 
   useEffect(() => {
     let isMounted = true;
-    let cachedBlogs: Blog[] = [];
+    setLoading(true);
 
-    if (typeof window !== 'undefined') {
+    const fetchBlogs = async () => {
       try {
-        const rawBlogs = sessionStorage.getItem(BLOGS_CACHE_KEY);
-        cachedBlogs = rawBlogs ? JSON.parse(rawBlogs) : [];
-      } catch {
-        cachedBlogs = [];
-      }
-    }
-
-    if (cachedBlogs.length > 0) {
-      setBlogs(cachedBlogs);
-      setLoading(false);
-    } else {
-      setLoading(true);
-    }
-
-    getWpBlogs()
-      .then((blogsData) => {
-        if (!isMounted) return;
-
-        setBlogs(blogsData.length ? blogsData : cachedBlogs);
-        setLoading(false);
-
-        if (typeof window !== 'undefined' && blogsData.length) {
-          try {
-            sessionStorage.setItem(BLOGS_CACHE_KEY, JSON.stringify(blogsData));
-          } catch { }
+        let query = searchQuery.trim();
+        if (activeCategory !== 'All') {
+          query = query ? `${query} ${activeCategory}` : activeCategory;
         }
-      })
-      .catch((error) => {
+
+        const res = await fetch(`/api/wp/paginated-posts?page=${currentPage}&per_page=${blogsPerPage}&search=${encodeURIComponent(query)}`);
+        const data = await res.json();
+
         if (!isMounted) return;
-        console.error('Error loading blogs:', error);
-        setLoading(false);
-      });
 
-    // getGlobalBanner()
-    //   .then(setBanners)
-    //   .catch(console.error);
+        if (data.blogs) {
+          setBlogs(data.blogs);
+          setTotalPagesServer(data.totalPages || 1);
+        }
+      } catch (error) {
+        console.error('Error fetching paginated blogs:', error);
+      } finally {
+        if (isMounted) setLoading(false);
+      }
+    };
 
-    return () => { isMounted = false; };
-  }, [refreshKey]);
+    // Debounce fetch if typing search
+    const timeoutId = setTimeout(() => {
+      fetchBlogs();
+    }, 300);
+
+    return () => {
+      isMounted = false;
+      clearTimeout(timeoutId);
+    };
+  }, [currentPage, searchQuery, activeCategory, refreshKey]);
 
   useEffect(() => {
     const removeHandler = addMessageHandler((data) => {
       switch (data.type) {
         case 'NEW_BLOG':
           if (data.blog && data.blog.status === 'Published') {
-            setBlogs((prev) => {
-              if (prev.find((b) => b.id === data.blog.id)) return prev;
-              return [data.blog, ...prev];
-            });
+            setRefreshKey(k => k + 1); // just refresh the page
           }
           break;
         case 'UPDATE_BLOG':
           if (!data.blog?.id) break;
-          setBlogs((prev) => {
-            if (data.blog.status !== 'Published') {
-              return prev.filter((b) => b.id !== data.blog.id);
-            }
-            const exists = prev.some((b) => b.id === data.blog.id);
-            if (!exists) return [data.blog, ...prev];
-            return prev.map((b) => (b.id === data.blog.id ? { ...b, ...data.blog } : b));
-          });
+          setRefreshKey(k => k + 1);
           break;
         case 'DELETE_BLOG':
           if (data.blogId) {
-            setBlogs((prev) => prev.filter((b) => b.id !== data.blogId));
+            setRefreshKey(k => k + 1);
           }
           break;
-        // BULK_BANNER_UPDATE removed — banners now served directly via WordPress API
       }
     });
     return () => removeHandler();
@@ -166,21 +148,7 @@ const BlogsPage = () => {
       });
   }, [blogs]);
 
-  const categories = useMemo(() => {
-    const allCats = new Set<string>();
-    publishedBlogs.forEach(b => {
-      const cats = toCategoryList(b.category || '');
-      cats.forEach(c => allCats.add(c.trim()));
-    });
-    
-    // Only show categories that have blogs, but keep stable order for known ones
-    const visibleKnown = stableCategoryOrder.filter(c => c === 'All' || allCats.has(c));
-    const dynamic = Array.from(allCats)
-      .filter(c => !stableCategoryOrder.includes(c))
-      .sort((a, b) => a.localeCompare(b));
-
-    return [...visibleKnown, ...dynamic];
-  }, [publishedBlogs]);
+  const categories = stableCategoryOrder;
 
   const connectionStatus = (
     <div className="flex items-center justify-end mb-4 pr-4">
@@ -191,24 +159,12 @@ const BlogsPage = () => {
     </div>
   );
 
-  const filtered = useMemo(() => {
-    return publishedBlogs.filter((b) => {
-      const blogCats = toCategoryList(b.category || '').map(normalizeCategoryForMatch);
-      const activeCategoryNormalized = normalizeCategoryForMatch(activeCategory);
-      const matchCategory = activeCategory === 'All' || blogCats.includes(activeCategoryNormalized);
-      const matchSearch = !searchQuery.trim() ||
-        b.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        (b.excerpt && b.excerpt.toLowerCase().includes(searchQuery.toLowerCase()));
-      return matchCategory && matchSearch;
-    });
-  }, [activeCategory, searchQuery, publishedBlogs]);
+  const filtered = publishedBlogs; // Already paginated and filtered by API
 
   useEffect(() => { setCurrentPage(1); }, [activeCategory, searchQuery]);
 
-  const indexOfLastBlog = currentPage * blogsPerPage;
-  const indexOfFirstBlog = indexOfLastBlog - blogsPerPage;
-  const currentBlogs = filtered.slice(indexOfFirstBlog, indexOfLastBlog);
-  const totalPages = Math.max(1, Math.ceil(filtered.length / blogsPerPage));
+  const currentBlogs = filtered;
+  const totalPages = totalPagesServer;
 
   const getCategoryColor = (cat: string) => categoryColors[cat] || defaultCategoryColor;
   const getCategoryTextColor = (cat: string) => {

@@ -189,33 +189,24 @@ const mapWpPostToBlog = (post: any): Blog => {
   };
 };
 
-/**
- * Fetch the latest blog posts from WordPress.
- * Requirement §1, §8, §9, §10
- */
 export async function getWpBlogs(): Promise<Blog[]> {
   try {
     const isClient = typeof window !== 'undefined';
-    const params = 'per_page=100&_fields=id,slug,title,excerpt,date,categories,_links';
 
-    const url = isClient
-      ? `/api/wp/posts?${params}`
-      : `https://swa.radicaleducation.in/wp-json/wp/v2/posts?_embed=1&${params}`;
-
-    const headers: Record<string, string> = {
-      'Accept': 'application/json',
-      'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36'
-    };
-
-    if (!isClient && process.env.WP_USER && process.env.WP_APP_PASSWORD) {
-      headers['Authorization'] = `Basic ${encodeBase64(`${process.env.WP_USER}:${process.env.WP_APP_PASSWORD}`)}`;
+    if (!isClient) {
+      // If we're on the server (e.g., sitemap.ts), call the fetcher directly
+      const { fetchAllWordPressPosts } = require('./wp-fetcher');
+      return await fetchAllWordPressPosts();
+    } else {
+      // On the client, use our new API route which fetches and caches all posts
+      const res = await axios.get('/api/wp/all-posts');
+      const data = res.data;
+      
+      if (!Array.isArray(data)) return [];
+      
+      // Data is already mapped to Blog[] format by wp-fetcher
+      return data;
     }
-
-    const res = await axios.get(url, { headers });
-    const data = res.data;
-    if (!Array.isArray(data)) return [];
-
-    return data.map(mapWpPostToBlog);
   } catch (error) {
     console.error('[getWpBlogs] error:', error);
     return [];

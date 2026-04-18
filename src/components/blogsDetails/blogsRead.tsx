@@ -51,6 +51,9 @@ const sanitizeBlogContent = (html: string, slug?: string) => {
     // First, replace/convert all WordPress shortcodes to iframes
     let result = replaceWpForms(html, slug);
 
+    // Comment out the JS requirement message from wpforms as requested
+    result = result.replace(/Please enable JavaScript in your browser to complete this form\.?/gi, '<!-- Please enable JavaScript in your browser to complete this form. -->');
+
     // Strip inline background colors pasted from external editors/CRMs
     result = result
         .replace(/background-color\s*:\s*[^;"']*;?/gi, '')
