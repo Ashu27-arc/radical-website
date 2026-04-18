@@ -3,6 +3,7 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   reactCompiler: true,
   turbopack: {},
+  // turbopack: undefined,
   trailingSlash: false,
   productionBrowserSourceMaps: false,
 

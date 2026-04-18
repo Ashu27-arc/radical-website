@@ -144,13 +144,54 @@ export default function NeetUgIndiaAdmissionPage() {
 
                     <section className="mb-16">
                         <div className="container px-3 md:px-0">
-                            <div className="relative w-full aspect-[1240/350] rounded-2xl overflow-hidden shadow-lg">
-                                <Image
-                                    src="/images/banner-neet-bhaiya.webp"
-                                    alt="NEET UG Banner"
-                                    fill
-                                    className="object-cover"
-                                />
+                            <div className="relative w-full aspect-[1240/350] rounded-2xl overflow-hidden shadow-lg cursor-pointer">
+                                {/* Base Banner Link */}
+                                <Link href="https://neetbhaiya.in" target="_blank" className="block w-full h-full">
+                                    <Image
+                                        src="/images/banner-neet-bhaiya.webp"
+                                        alt="NEET UG Banner"
+                                        fill
+                                        className="object-cover"
+                                    />
+                                </Link>
+
+                                {/* Play Store Button Overlay */}
+                                <div
+                                    className="absolute left-[7.3%] bottom-9 h-[41px] z-10 hover:scale-105 transition-transform"
+                                >
+                                    <Link
+                                        href="https://play.google.com/store/apps/details?id=com.radical.neetbhaiya"
+                                        target="_blank"
+                                        className="block w-full h-full"
+                                    >
+                                        <Image
+                                            src="/svg/play-store.svg"
+                                            alt="Google Play Store"
+                                            width={200}
+                                            height={200}
+                                            className="object-contain w-full h-full"
+                                        />
+                                    </Link>
+                                </div>
+
+                                {/* App Store Button Overlay */}
+                                <div
+                                    className="absolute left-[19.9%] bottom-8 h-[45px] z-10 hover:scale-105 transition-transform"
+                                >
+                                    <Link
+                                        href="https://apps.apple.com/in/app/neet-bhaiya/id6737535565"
+                                        target="_blank"
+                                        className="block w-full h-full"
+                                    >
+                                        <Image
+                                            src="/svg/app-store.svg"
+                                            alt="App Store"
+                                            width={200}
+                                            height={200}
+                                            className="object-contain w-full h-full"
+                                        />
+                                    </Link>
+                                </div>
                             </div>
                         </div>
                     </section>

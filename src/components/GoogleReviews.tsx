@@ -10,6 +10,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import reviewsData from "@/data/reviews.json";
 
 /* ------------- Types ------------- */
 interface Review {
@@ -86,29 +87,30 @@ export default function GoogleReviews() {
 
 
   useEffect(() => {
-    let cancelled = false;
-
-    async function fetchReviews() {
-      try {
-        const res = await fetch("/api/google-reviews");
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const json: PlaceData = await res.json();
-        if (!cancelled) {
-          setData(json);
-        }
-      } catch (err: any) {
-        console.warn("[GoogleReviews] API failed, using fallback:", err.message);
-        if (!cancelled) {
-          setError(err.message);
-          setData(FALLBACK_DATA);
-        }
-      } finally {
-        if (!cancelled) setLoading(false);
+    try {
+      if (reviewsData && reviewsData.length > 0) {
+        const first = (reviewsData as any)[0];
+        const formattedData: PlaceData = {
+          name: first.name,
+          rating: first.rating,
+          user_ratings_total: first.reviews,
+          reviews: (reviewsData as any[]).slice(0, 15).map((r: any) => ({
+            author_name: r.author_title,
+            profile_photo_url: r.author_image,
+            rating: r.review_rating,
+            text: r.review_text,
+            time: r.review_timestamp,
+          })),
+        };
+        setData(formattedData);
+      } else {
+        setData(FALLBACK_DATA);
       }
+    } catch (err) {
+      console.error("Error loading reviews from JSON:", err);
+      setData(FALLBACK_DATA);
     }
-
-    fetchReviews();
-    return () => { cancelled = true; };
+    setLoading(false);
   }, []);
 
   return (

@@ -1,10 +1,18 @@
 "use client";
 
 import { Button } from "primereact/button";
-import { Image } from "primereact/image";
+import Image from "next/image";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import Link from "next/link";
 import { useState } from "react";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
 const studyIndiaLists = [
     {
@@ -100,16 +108,7 @@ export default function StudyIndiaPage() {
                             <Link
                                 key={index}
                                 href={item.link}
-                                className="px-6 py-3 text-sm
-text-white
-font-semibold
-rounded-full
-border border-white/30
-bg-white/10
-backdrop-blur-md
-hover:bg-white/20
-transition-all
-duration-300"
+                                className="px-6 py-3 text-sm text-white font-semibold rounded-full border border-white/30 bg-white/10 backdrop-blur-md hover:bg-white/20 transition-all duration-300"
                             >
                                 {item.title}
                             </Link>
@@ -122,53 +121,112 @@ duration-300"
 
             </section>
 
-            <section className="py-10 lg:py-15">
-                <div className="container px-3 md:px-4">
-                    <section id="connect-counselor" className="mb-16">
-                        <a
-                            href="https://www.neetbhaiya.in/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="block w-full"
-                        >
-                            <img
+            <section className="mt-10 lg:mt-20 mb-16 py-12 lg:py-18">
+                <div className="container px-4 md:px-6">
+                    <div className="relative w-full aspect-[1240/350] rounded-2xl overflow-hidden shadow-lg cursor-pointer">
+                        <Link href="https://neetbhaiya.in" target="_blank" className="block w-full h-full">
+                            <Image
                                 src="/images/banner-neet-bhaiya.webp"
-                                alt="Book Your Free Counselling Session"
-                                className="w-full rounded-2xl md:rounded-3xl object-cover"
+                                alt="NEET UG Banner"
+                                fill
+                                className="object-cover"
                             />
-                        </a>
-                    </section>
+                        </Link>
+
+                        {/* Play Store Button Overlay */}
+                        <div
+                            className="absolute left-[7.3%] bottom-9 h-[41px] z-10 hover:scale-105 transition-transform"
+                        >
+                            <Link
+                                href="https://play.google.com/store/apps/details?id=com.radical.neetbhaiya"
+                                target="_blank"
+                                className="block w-full h-full"
+                            >
+                                <Image
+                                    src="/svg/play-store.svg"
+                                    alt="Google Play Store"
+                                    width={200}
+                                    height={200}
+                                    className="object-contain w-full h-full"
+                                />
+                            </Link>
+                        </div>
+
+                        {/* App Store Button Overlay */}
+                        <div
+                            className="absolute left-[19.9%] bottom-8 h-[45px] z-10 hover:scale-105 transition-transform"
+                        >
+                            <Link
+                                href="https://apps.apple.com/in/app/neet-bhaiya/id6737535565"
+                                target="_blank"
+                                className="block w-full h-full"
+                            >
+                                <Image
+                                    src="/svg/app-store.svg"
+                                    alt="App Store"
+                                    width={200}
+                                    height={200}
+                                    className="object-contain w-full h-full"
+                                />
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section className="py-10 lg:py-15">
+                <div className="container px-4 md:px-6">
                     <div className='mb-10 fadeUp text-center'>
                         <h2 className='text-black text-4xl font-bold mb-4'>OUR <span className='text-[#287FC4]'>SUCCESSFUL STORIES</span></h2>
                         <div className='uppercase text-[#00CFB240] leading-12 text-[42px] md:text-5xl lg:text-7xl font-black'>HEAR FROM OUR STUDENTS</div>
                     </div>
-                    <div className="grid gap-6 md:grid-cols-3 grid-cols-1">
+                    <Swiper
+                        modules={[Autoplay, Pagination, Navigation]}
+                        spaceBetween={24}
+                        slidesPerView={1}
+                        pagination={{ clickable: true }}
+                        navigation={true}
+                        autoplay={{
+                            delay: 3000,
+                            disableOnInteraction: false,
+                        }}
+                        breakpoints={{
+                            640: {
+                                slidesPerView: 2,
+                            },
+                            1024: {
+                                slidesPerView: 3,
+                            },
+                        }}
+                        className="pb-12"
+                    >
                         {videos.map((video) => (
-                            <div
-                                key={video.id}
-                                className="fadeUp relative min-w-[340px] h-[240px] rounded-xl overflow-hidden shadow-lg cursor-pointer group"
-                                onClick={() => setVideoPopup(video)}
-                            >
-                                <img
-                                    src={`https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`}
-                                    alt={video.title}
-                                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                                />
-                                <div className="absolute inset-0 flex items-center justify-center">
-                                    <div className="w-16 h-16 transition-transform duration-300 group-hover:scale-110">
-                                        <img
-                                            src="/images/reviews/you-tube.webp"
-                                            className="w-full h-full object-contain"
-                                            alt="Play button"
-                                        />
+                            <SwiperSlide key={video.id}>
+                                <div
+                                    className="fadeUp relative w-full h-[240px] rounded-xl overflow-hidden shadow-lg cursor-pointer group"
+                                    onClick={() => setVideoPopup(video)}
+                                >
+                                    <img
+                                        src={`https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`}
+                                        alt={video.title}
+                                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                                    />
+                                    <div className="absolute inset-0 flex items-center justify-center">
+                                        <div className="w-16 h-16 transition-transform duration-300 group-hover:scale-110">
+                                            <img
+                                                src="/images/reviews/you-tube.webp"
+                                                className="w-full h-full object-contain"
+                                                alt="Play button"
+                                            />
+                                        </div>
                                     </div>
+                                    <span className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-3 py-2 text-white text-sm font-medium">
+                                        {video.title}
+                                    </span>
                                 </div>
-                                <span className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-3 py-2 text-white text-sm font-medium">
-                                    {video.title}
-                                </span>
-                            </div>
+                            </SwiperSlide>
                         ))}
-                    </div>
+                    </Swiper>
                 </div>
             </section>
 

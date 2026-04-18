@@ -566,4 +566,3 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
 };
 
 export default BlogsRead;
-
