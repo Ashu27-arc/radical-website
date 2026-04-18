@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
-import { getWpBlogs, getWpPages } from '@/lib/api';
+import { getWpPages } from '@/lib/api';
+import { fetchAllWpPostsForSitemap } from '@/lib/wp-fetcher';
 import { courses } from '@/data/courses';
 import { services } from '@/data/services';
 
@@ -40,8 +41,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: route === '' ? 1 : 0.8,
   }));
 
-  // 2. Fetch WordPress Posts (Blogs)
-  const wpPosts = await getWpBlogs();
+  // 2. Fetch WordPress Posts (Blogs) — lightweight fetch: slug + date only
+  const wpPosts = await fetchAllWpPostsForSitemap();
   const blogRoutes = wpPosts.map((post) => ({
     url: `${DOMAIN}/${post.slug}`,
     lastModified: new Date(post.date),
