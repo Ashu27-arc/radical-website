@@ -6,13 +6,8 @@ import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import Link from "next/link";
 import Image from "next/image";
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation } from "swiper/modules";
 
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
+
 
 
 const neetupadmissionplans = [
@@ -88,6 +83,21 @@ const videos = [
         title: 'Sangam Yadav, MGAMC, Lucknow',
         youtubeId: 'CxDL_T4CWs8',
     },
+    {
+        id: 4,
+        title: 'Angel, SDC, Meerut',
+        youtubeId: 'z9U9FDWPlYo',
+    },
+    {
+        id: 5,
+        title: 'Mohammad Athar, FHMC, Agra',
+        youtubeId: 'nvZ7duCvCLw',
+    },
+    {
+        id: 6,
+        title: 'Riya Ghosh, KMC, Mathura',
+        youtubeId: 'mF4A-6dvQFU',
+    },
 ];
 
 export default function NeetUgIndiaAdmissionPage() {
@@ -122,7 +132,15 @@ export default function NeetUgIndiaAdmissionPage() {
                                 </div>
                                 <div className="text-center mb-3 text-lg font-semibold text-[#0B2E3C] group-hover:text-white! transition-colors duration-300">{plan.title}</div>
                                 <div className="text-center text-xs text-[#0B2E3C] group-hover:text-white! transition-colors duration-300 mb-6">{plan.subtitle}</div>
-                                <div className="text-center font-light lg:text-5xl text-4xl group-hover:text-white! transition-colors duration-300 mb-8">{plan.price}</div>
+                                <div className="flex justify-center mb-8">
+                                    <div className="relative w-[237px] h-[112px] border-[4px] border-[#0095C2] rounded-[20px] flex flex-col items-center justify-center transition-colors duration-300">
+                                        <div className="text-center font-light lg:text-4xl text-black text-3xl group-hover:text-white! transition-colors duration-300">{plan.price}</div>
+                                        <div className="text-[14px] font-semibold text-[#0095C2] group-hover:text-white! transition-colors duration-300 mt-1 uppercase">Admission Fee</div>
+                                        <div className="absolute -top-5 -right-5 w-12 h-12">
+                                            <img src="/images/rp.svg" alt="" className="w-full h-full object-contain" />
+                                        </div>
+                                    </div>
+                                </div>
                                 <div className="flex flex-col gap-3 mb-10">
                                     <Button className="text-[#005787]! border-[#DFF1FF]! bg-[#128FFF1C]! group-hover:bg-[#FFFFFF47]! group-hover:text-white! group-hover:border-[#FFFFFF47]! w-full flex gap-2 items-center transition-all duration-300" rounded>
                                         Pay now
@@ -200,53 +218,33 @@ export default function NeetUgIndiaAdmissionPage() {
                         <h2 className='text-black text-4xl font-bold mb-4'>OUR <span className='text-[#287FC4]'>SUCCESSFUL STORIES</span></h2>
                         <div className='uppercase text-[#00CFB240] leading-12 text-[42px] md:text-5xl lg:text-7xl font-black'>HEAR FROM OUR STUDENTS</div>
                     </div>
-                    <Swiper
-                        modules={[Autoplay, Pagination, Navigation]}
-                        spaceBetween={24}
-                        slidesPerView={1}
-                        pagination={{ clickable: true }}
-                        navigation={true}
-                        autoplay={{
-                            delay: 3000,
-                            disableOnInteraction: false,
-                        }}
-                        breakpoints={{
-                            640: {
-                                slidesPerView: 2,
-                            },
-                            1024: {
-                                slidesPerView: 3,
-                            },
-                        }}
-                        className="pb-12"
-                    >
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
                         {videos.map((video) => (
-                            <SwiperSlide key={video.id}>
-                                <div
-                                    className="fadeUp relative w-full h-[240px] rounded-xl overflow-hidden shadow-lg cursor-pointer group"
-                                    onClick={() => setVideoPopup(video)}
-                                >
-                                    <img
-                                        src={`https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`}
-                                        alt={video.title}
-                                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                                    />
-                                    <div className="absolute inset-0 flex items-center justify-center">
-                                        <div className="w-16 h-16 transition-transform duration-300 group-hover:scale-110">
-                                            <img
-                                                src="/images/reviews/you-tube.webp"
-                                                className="w-full h-full object-contain"
-                                                alt="Play button"
-                                            />
-                                        </div>
+                            <div
+                                key={video.id}
+                                className="fadeUp relative w-full h-[240px] rounded-xl overflow-hidden shadow-lg cursor-pointer group"
+                                onClick={() => setVideoPopup(video)}
+                            >
+                                <img
+                                    src={`https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`}
+                                    alt={video.title}
+                                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                                />
+                                <div className="absolute inset-0 flex items-center justify-center">
+                                    <div className="w-16 h-16 transition-transform duration-300 group-hover:scale-110">
+                                        <img
+                                            src="/images/reviews/you-tube.webp"
+                                            className="w-full h-full object-contain"
+                                            alt="Play button"
+                                        />
                                     </div>
-                                    <span className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-3 py-2 text-white text-sm font-medium">
-                                        {video.title}
-                                    </span>
                                 </div>
-                            </SwiperSlide>
+                                <span className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-3 py-2 text-white text-sm font-medium">
+                                    {video.title}
+                                </span>
+                            </div>
                         ))}
-                    </Swiper>
+                    </div>
 
                 </div>
             </section>

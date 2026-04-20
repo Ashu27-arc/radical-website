@@ -31,9 +31,14 @@ export default function StudyAbroadPage() {
         "Offer Letter",
         "Admission Assistance",
         "Documentation Assistance",
-        "Health Insurance",
         "Pre- Departure Guidance",
-        "Education Loan"
+        "Education Loan",
+        "Travel Assistance",
+        "Currency exchange Support",
+        "Health Insurance",
+        "Internship Support",
+        "Flight Ticket Booking",
+        "Documentation Attestation"
     ];
 
     const testimonials = [
@@ -67,6 +72,26 @@ export default function StudyAbroadPage() {
             title: 'Daksh',
             youtubeId: 'Eip7W83K8YQ',
         },
+        {
+            id: 4,
+            title: '',
+            youtubeId: '6DJoje1YFI4',
+        },
+        {
+            id: 5,
+            title: 'Aseem',
+            youtubeId: 'E0-uSX-dabA',
+        },
+        {
+            id: 6,
+            title: '',
+            youtubeId: 'd6xSZh_IBCc',
+        },
+        {
+            id: 7,
+            title: '',
+            youtubeId: 'FWEyO03eG90',
+        },
     ];
 
     return (
@@ -78,7 +103,7 @@ export default function StudyAbroadPage() {
                     <div className="w-full lg:w-4/10 md:8/10 md:text-left text-center">
                         <h1 className="uppercase lg:text-5xl text-4xl font-bold text-white lg:mb-4 mb-2">STUDY ABROAD</h1>
                         <h3 className="text-3xl font-bold text-white lg:mb-6 mb-4">Admission Services</h3>
-                        <p className="text-white text-lg m-0 p-0">NEPAL | RUSSIA | GEORGIA | SINGAPORE | BANGLADESH | UZBEKISTAN | KAZAKHSTAN | KYRGYZSTAN | ITALY</p>
+                        <p className="text-white text-lg m-0 p-0">Radical Education is your personalised gateway to a successful medical career. Get expert guidance, clear processes, and authentic information to secure your MBBS seat with confidence.</p>
                     </div>
                 </div>
             </section>
@@ -88,15 +113,15 @@ export default function StudyAbroadPage() {
                 <div className="flex flex-col lg:flex-row items-start justify-between gap-4 sm:gap-8">
                     {/* Left side - Countries and Heading */}
                     <div className="lg:w-1/2">
-                        <p className="text-gray-600 mb-2 text-sm sm:text-base font-semibold">COUNTRIES</p>
-                        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-4">STUDY ABROAD</h2>
+                        {/* <p className="text-gray-600 mb-2 text-sm sm:text-base font-semibold">COUNTRIES</p> */}
+                        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-4">Global Education,
+                            Made Simple.</h2>
                     </div>
 
                     {/* Right side - Description */}
                     <div className="lg:w-1/2">
                         <p className="text-gray-600 text-sm sm:text-base">
-                            Discover a world where you can experience a life, that You have
-                            never experienced, and become what you have never imagined.
+                            Transform your perspective with life-changing study abroad experiences. Gain the international experience, language skills, and global network that top employers are looking for. Your journey to a world-class degree starts here.
                         </p>
                     </div>
                 </div>
@@ -115,16 +140,16 @@ export default function StudyAbroadPage() {
                         }}
                         breakpoints={{
                             0: {
-                                slidesPerView: 3,
+                                slidesPerView: 2,
                             },
                             480: {
-                                slidesPerView: 4,
+                                slidesPerView: 3,
                             },
                             768: {
-                                slidesPerView: 5,
+                                slidesPerView: 4,
                             },
                             1024: {
-                                slidesPerView: 7,
+                                slidesPerView: 6,
                             },
                         }}
                         className="!ease-linear !overflow-visible"
@@ -137,17 +162,14 @@ export default function StudyAbroadPage() {
                                         className="block group"
                                     >
                                         <div className="transition-all hover:scale-110 duration-300 relative hover:z-[100] p-4">
-                                            <div className="w-20 h-20 md:w-24 md:h-24 rounded-full overflow-hidden shadow-lg mx-auto bg-white relative">
+                                            <div className="w-[100px] h-[85px] rounded-[10px] overflow-hidden shadow-lg mx-auto bg-white relative border border-gray-100">
                                                 <Image
                                                     src={country.flag}
                                                     alt={`${country.name} flag`}
-                                                    width={96}
-                                                    height={96}
+                                                    width={100}
+                                                    height={85}
                                                     className="w-full h-full object-cover"
                                                 />
-                                                {/* <div className="absolute top-0 right-0 p-1 text-[#FF0000]">
-                                                    <i className="pi pi-youtube text-xs"></i>
-                                                </div> */}
                                             </div>
                                         </div>
                                     </Link>
@@ -166,7 +188,7 @@ export default function StudyAbroadPage() {
                 <div className="container px-3 md:px-4 lg:px-20 max-w-[1010px]!">
                     <div className="grid grid-cols-1 md:grid-cols-2 md:gap-4 lg:gap-10 mb-16">
                         <div className="relative">
-                            <Image src="/studyAbroad.webp" width="572" height="764" className="w-full h-auto" alt="" />
+                            <Image src="/images/study-abroad/studyAbroad.svg" width="572" height="764" className="w-full h-auto" alt="" />
                         </div>
                         <div>
                             <div
@@ -181,7 +203,15 @@ export default function StudyAbroadPage() {
                                 </div>
                                 <div className="text-center mb-3 text-lg font-semibold text-black group-hover:text-white! transition-colors duration-300">Standard</div>
                                 <div className="text-center text-xs text-[#686767] group-hover:text-white! transition-colors duration-300 mb-6">Start Your Global Medical Journey <br /> with End-to-End Expert Support. </div>
-                                <div className="text-center font-light lg:text-5xl text-black text-4xl group-hover:text-white! transition-colors duration-300 mb-8">₹ 99,999</div>
+                                <div className="flex justify-center mb-8">
+                                    <div className="relative w-[237px] h-[112px] border-[4px] border-[#0095C2] rounded-[20px] flex flex-col items-center justify-center transition-colors duration-300">
+                                        <div className="text-center font-light lg:text-4xl text-black text-3xl group-hover:text-white! transition-colors duration-300">₹ 99,999</div>
+                                        <div className="text-[14px] font-semibold text-[#0095C2] group-hover:text-white! transition-colors duration-300 mt-1 uppercase">Admission Fee</div>
+                                        <div className="absolute -top-5 -right-5 w-12 h-12">
+                                            <img src="/images/study-abroad/corner.svg" alt="" className="w-full h-full object-contain" />
+                                        </div>
+                                    </div>
+                                </div>
                                 <div className="flex flex-col gap-3 mb-10">
                                     <Button className="text-[#005787]! border-[#DFF1FF]! bg-[#E5F3FF]! group-hover:bg-[#FFFFFF47]! group-hover:text-white! group-hover:border-[#FFFFFF47]! w-full flex gap-2 items-center transition-all duration-300" rounded>
                                         Pay Now
@@ -209,7 +239,7 @@ export default function StudyAbroadPage() {
                             <div className="lg:text-2xl py-3 px-8 rounded-lg text-white font-semibold bg-[#0095C2]">₹ 99,999</div>
                         </div>
                     </div>
-                    <div className="bg-white rounded-lg sm:rounded-xl p-6 lg:p-8">
+                    {/* <div className="bg-white rounded-lg sm:rounded-xl p-6 lg:p-8">
                         <div className="space-y-1 sm:space-y-2">
                             <div className="flex items-start gap-2">
                                 <span className="text-black flex-shrink-0 text-xs sm:text-sm md:text-base">Note:</span>
@@ -223,7 +253,7 @@ export default function StudyAbroadPage() {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> */}
                 </div>
             </section>
 

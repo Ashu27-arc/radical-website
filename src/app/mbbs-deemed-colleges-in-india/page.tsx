@@ -1,10 +1,17 @@
 "use client";
 import Image from "next/image";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 export default function MBBSDeemedCollegesPage() {
+    useEffect(() => {
+        document.body.classList.add('reveal-footer-page');
+        return () => {
+            document.body.classList.remove('reveal-footer-page');
+        };
+    }, []);
+
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -65,7 +72,7 @@ export default function MBBSDeemedCollegesPage() {
     };
 
     return (
-        <div className="min-h-screen">
+        <div className="relative z-10 bg-white reveal-footer-page">
             <FloatingWhatsApp />
             <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-7 xl:gap-8">
 
@@ -80,7 +87,7 @@ export default function MBBSDeemedCollegesPage() {
                     </h1>
 
                     <p className="text-xs sm:text-sm text-gray-500 mt-1">
-                        Admin • 19 Jan 2022
+                        Danish Farzan • 19 Jan 2022
                     </p>
 
                     {/* IMAGE */}
@@ -392,10 +399,10 @@ export default function MBBSDeemedCollegesPage() {
                 </div>
 
                 {/* RIGHT SIDEBAR */}
-                <div className="pt-4 lg:pt-30 space-y-4 sm:space-y-5 md:space-y-6 bg-[#D4ECFF] min-h-0 lg:min-h-screen min-w-0 lg:sticky lg:top-[132px] lg:self-start lg:h-[calc(100vh-132px)] lg:overflow-y-auto scrollbar-hide animate-fadeIn" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
+                <div className="pt-4 lg:pt-30 lg:sticky lg:top-[132px] lg:self-start lg:min-h-screen">
+                    <div className="space-y-4 sm:space-y-5 md:space-y-6 bg-[#D4ECFF] rounded-lg sm:rounded-xl p-4 md:p-5 lg:p-6 animate-fadeIn" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
 
-                    {/* SEARCH */}
-                    <div className="bg-[#D4ECFF] px-4 md:px-5 lg:px-6 rounded-lg sm:rounded-xl m-0">
+                        {/* SEARCH */}
                         <div className="relative flex items-center">
                             <input
                                 type="text"
@@ -414,179 +421,130 @@ export default function MBBSDeemedCollegesPage() {
                                 </svg>
                             </button>
                         </div>
-                    </div>
 
-                    {/* GET IN TOUCH */}
-                    <div className="bg-[#D4ECFF] p-4 md:p-5 lg:p-6 rounded-lg sm:rounded-xl m-0 transition-transform duration-300 shadow-sm">
-                        <h3 className="text-xl md:text-2xl font-bold text-center text-gray-800 mb-6">
-                            Request a free callback <br /> from Our Counsellor
-                        </h3>
+                        {/* GET IN TOUCH */}
+                        <div>
+                            <h3 className="text-xl md:text-2xl font-bold text-center text-gray-800 mb-6">
+                                Request a free callback <br /> from Our Counsellor
+                            </h3>
 
-                        {submitMessage && (
-                            <div className={`mb-4 p-3 rounded-lg text-sm ${submitMessage.type === 'success'
-                                ? 'bg-green-100 text-green-700 border border-green-300'
-                                : 'bg-red-100 text-red-700 border border-red-300'
-                                }`}>
-                                {submitMessage.text}
-                            </div>
-                        )}
+                            {submitMessage && (
+                                <div className={`mb-4 p-3 rounded-lg text-sm ${submitMessage.type === 'success'
+                                    ? 'bg-green-100 text-green-700 border border-green-300'
+                                    : 'bg-red-100 text-red-700 border border-red-300'
+                                    }`}>
+                                    {submitMessage.text}
+                                </div>
+                            )}
 
-                        <form onSubmit={handleSubmit} className="space-y-2 sm:space-y-3">
-                            <div className="relative w-full">
-                                <input
-                                    type="text"
-                                    name="name"
-                                    placeholder=" "
-                                    value={formData.name}
-                                    onChange={handleInputChange}
-                                    className="peer bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm text-gray-900 min-h-[50px] touch-manipulation"
-                                    required
+                            <form onSubmit={handleSubmit} className="space-y-2 sm:space-y-3">
+                                <div className="relative w-full">
+                                    <input
+                                        type="text"
+                                        name="name"
+                                        placeholder=" "
+                                        value={formData.name}
+                                        onChange={handleInputChange}
+                                        className="peer bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm text-gray-900 min-h-[50px] touch-manipulation"
+                                        required
+                                        disabled={isSubmitting}
+                                    />
+                                    <span className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-xs sm:text-sm text-[#78787899] pointer-events-none transition-opacity duration-200 peer-focus:opacity-0 peer-not-placeholder-shown:opacity-0">
+                                        Name
+                                    </span>
+                                </div>
+                                <div className="relative w-full">
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        placeholder=" "
+                                        value={formData.email}
+                                        onChange={handleInputChange}
+                                        className="peer bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm text-gray-900 min-h-[50px] touch-manipulation"
+                                        required
+                                        disabled={isSubmitting}
+                                    />
+                                    <span className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-xs sm:text-sm text-[#78787899] pointer-events-none transition-opacity duration-200 peer-focus:opacity-0 peer-not-placeholder-shown:opacity-0">
+                                        Email Address
+                                    </span>
+                                </div>
+                                <div className="relative w-full">
+                                    <input
+                                        type="tel"
+                                        name="mobile"
+                                        placeholder=" "
+                                        value={formData.mobile}
+                                        onChange={handleInputChange}
+                                        className="peer bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm text-gray-900 min-h-[50px] touch-manipulation"
+                                        required
+                                        disabled={isSubmitting}
+                                    />
+                                    <span className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-xs sm:text-sm text-[#78787899] pointer-events-none transition-opacity duration-200 peer-focus:opacity-0 peer-not-placeholder-shown:opacity-0">
+                                        Mobile Number
+                                    </span>
+                                </div>
+                                <div className="relative w-full">
+                                    <select
+                                        name="course"
+                                        value={formData.course}
+                                        onChange={handleInputChange}
+                                        className="peer bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm text-gray-900 min-h-[50px] touch-manipulation appearance-none"
+                                        required
+                                        disabled={isSubmitting}
+                                    >
+                                        <option value="" disabled hidden></option>
+                                        <option value="MBBS">MBBS</option>
+                                        <option value="BDS">BDS</option>
+                                        <option value="BAMS">BAMS</option>
+                                        <option value="BHMS">BHMS</option>
+                                        <option value="MD">MD</option>
+                                        <option value="MS">MS</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    <span className={`absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-xs sm:text-sm text-[#78787899] pointer-events-none transition-opacity duration-200 ${formData.course ? 'opacity-0' : 'opacity-100'}`}>
+                                        Select Course
+                                    </span>
+                                    <div className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 pointer-events-none">
+                                        <svg className="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                <button
+                                    type="submit"
                                     disabled={isSubmitting}
-                                />
-                                <span className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-xs sm:text-sm text-[#78787899] pointer-events-none transition-opacity duration-200 peer-focus:opacity-0 peer-not-placeholder-shown:opacity-0">
-                                    Name
-                                </span>
-                            </div>
-                            <div className="relative w-full">
-                                <input
-                                    type="email"
-                                    name="email"
-                                    placeholder=" "
-                                    value={formData.email}
-                                    onChange={handleInputChange}
-                                    className="peer bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm text-gray-900 min-h-[50px] touch-manipulation"
-                                    required
-                                    disabled={isSubmitting}
-                                />
-                                <span className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-xs sm:text-sm text-[#78787899] pointer-events-none transition-opacity duration-200 peer-focus:opacity-0 peer-not-placeholder-shown:opacity-0">
-                                    Email Address
-                                </span>
-                            </div>
-                            <div className="relative w-full">
-                                <input
-                                    type="tel"
-                                    name="mobile"
-                                    placeholder=" "
-                                    value={formData.mobile}
-                                    onChange={handleInputChange}
-                                    className="peer bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm text-gray-900 min-h-[50px] touch-manipulation"
-                                    required
-                                    disabled={isSubmitting}
-                                />
-                                <span className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-xs sm:text-sm text-[#78787899] pointer-events-none transition-opacity duration-200 peer-focus:opacity-0 peer-not-placeholder-shown:opacity-0">
-                                    Mobile Number
-                                </span>
-                            </div>
-                            <div className="relative w-full">
-                                <select
-                                    name="course"
-                                    value={formData.course}
-                                    onChange={handleInputChange}
-                                    className="peer bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm text-gray-900 min-h-[50px] touch-manipulation appearance-none"
-                                    required
-                                    disabled={isSubmitting}
+                                    className="cursor-pointer w-full mt-2 bg-gradient-to-r from-[#63CDB4] to-[#0077BF] text-white py-2.5 sm:py-3 rounded-lg sm:rounded-xl font-semibold text-sm sm:text-base touch-manipulation min-h-[50px] disabled:opacity-50 disabled:cursor-not-allowed"
                                 >
-                                    <option value="" disabled hidden></option>
-                                    <option value="MBBS">MBBS</option>
-                                    <option value="BDS">BDS</option>
-                                    <option value="BAMS">BAMS</option>
-                                    <option value="BHMS">BHMS</option>
-                                    <option value="MD">MD</option>
-                                    <option value="MS">MS</option>
-                                    <option value="Other">Other</option>
-                                </select>
-                                <span className={`absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-xs sm:text-sm text-[#78787899] pointer-events-none transition-opacity duration-200 ${formData.course ? 'opacity-0' : 'opacity-100'}`}>
-                                    Select Course
-                                </span>
-                                <div className="absolute right-3 sm:right-4 top-1/2 -translate-y-1/2 pointer-events-none">
-                                    <svg className="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                    </svg>
-                                </div>
-                            </div>
-                            <button
-                                type="submit"
-                                disabled={isSubmitting}
-                                className="cursor-pointer w-full mt-2 bg-gradient-to-r from-[#63CDB4] to-[#0077BF] text-white py-2.5 sm:py-3 rounded-lg sm:rounded-xl font-semibold text-sm sm:text-base touch-manipulation min-h-[50px] disabled:opacity-50 disabled:cursor-not-allowed"
-                            >
-                                {isSubmitting ? 'Submitting...' : 'Submit'}
-                            </button>
-
-                        </form>
-                    </div>
-
-                    {/* RELATED */}
-                    <div className="bg-[#D4ECFF] p-4 md:p-5 lg:p-6 m-0">
-                        <h3 className="text-base sm:text-lg font-bold text-[#287FC4] mb-3 sm:mb-4">
-                            Related
-                        </h3>
-
-                        <div className="space-y-3 sm:space-y-4">
-                            {[1, 2, 3].map((item) => (
-                                <div key={item} className="border-b border-[#ABABAB] pb-2 sm:pb-3 last:border-b-0 cursor-pointer group transition-colors duration-300">
-                                    <h4 className="font-semibold text-gray-800 text-xs sm:text-sm md:text-base leading-tight group-hover:text-[#287FC4] transition-colors">
-                                        NEET Exam in India: Your Gateway to a Bright Medical
-                                    </h4>
-                                    <p className="text-xs text-gray-500 mt-1">
-                                        Admin • 19 Jan 2022
-                                    </p>
-                                </div>
-                            ))}
+                                    {isSubmitting ? 'Submitting...' : 'Submit'}
+                                </button>
+                            </form>
                         </div>
-                    </div>
 
-                    {/* ADVERTISEMENT BANNERS */}
-                    <div className="lg:space-y-6 space-y-4 px-4 md:px-5 lg:px-6">
-                        {/* Kyrgyzstan Banner */}
-                        {/* <div className="rounded-lg sm:rounded-xl overflow-hidden max-w-full transform hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-xl">
-                            <Image
-                                src="/images/deemed/banner-k.webp"
-                                alt="Study MBBS in Kyrgyzstan"
-                                width={400}
-                                height={200}
-                                className="w-full h-auto object-contain max-w-full"
-                            />
-                        </div> */}
+                        {/* RELATED */}
+                        <div>
+                            <h3 className="text-base sm:text-lg font-bold text-[#287FC4] mb-3 sm:mb-4">
+                                Related
+                            </h3>
 
-                        {/* NEET PG Banner */}
-                        {/* <div className="rounded-lg sm:rounded-xl overflow-hidden max-w-full transform hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-xl">
-                            <Image
-                                src="/images/deemed/banner-n.webp"
-                                alt="NEET PG Admission"
-                                width={400}
-                                height={200}
-                                className="w-full h-auto object-contain max-w-full"
-                            />
-                        </div> */}
-
-                        {/* Study Abroad Banner */}
-                        {/* <div className="rounded-lg sm:rounded-xl overflow-hidden max-w-full transform hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-xl">
-                            <Image
-                                src="/images/deemed/banner-mg.webp"
-                                alt="Study Abroad"
-                                width={400}
-                                height={200}
-                                className="w-full h-auto object-contain max-w-full"
-                            />
-                        </div> */}
-
-                        {/* Study India Banner */}
-                        {/* <div className="rounded-lg sm:rounded-xl overflow-hidden max-w-full transform hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-xl">
-                            <Image
-                                src="/images/deemed/banner-mp.webp"
-                                alt="Study in India"
-                                width={400}
-                                height={200}
-                                className="w-full h-auto object-contain max-w-full"
-                            />
-                        </div> */}
+                            <div className="space-y-3 sm:space-y-4">
+                                {[1, 2, 3].map((item) => (
+                                    <div key={item} className="border-b border-[#ABABAB] pb-2 sm:pb-3 last:border-b-0 cursor-pointer group transition-colors duration-300">
+                                        <h4 className="font-semibold text-gray-800 text-xs sm:text-sm md:text-base leading-tight group-hover:text-[#287FC4] transition-colors">
+                                            NEET Exam in India: Your Gateway to a Bright Medical
+                                        </h4>
+                                        <p className="text-xs text-gray-500 mt-1">
+                                            Danish Farzan • 19 Jan 2022
+                                        </p>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-
-
         </div>
     );
+
 }
 
 // FAQ Component with animations

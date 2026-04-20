@@ -170,20 +170,30 @@ const features = [
 ];
 
 const videos = [
+    // {
+    //     id: 1,
+    //     title: 'Utkarshika Gupta, CSAMC, Etah',
+    //     youtubeId: 'jfq8RbTIrtI',
+    // },
+    // {
+    //     id: 2,
+    //     title: "Ayush Kushwaha, GSAMC, Hapur",
+    //     youtubeId: 'hwYjHX5pk9w',
+    // },
+    // {
+    //     id: 3,
+    //     title: 'Sangam Yadav, MGAMC, Lucknow',
+    //     youtubeId: 'CxDL_T4CWs8',
+    // },
     {
-        id: 1,
-        title: 'Utkarshika Gupta, CSAMC, Etah',
-        youtubeId: 'jfq8RbTIrtI',
+        id: 4,
+        title: 'Amita Gulia, KD, Mathura',
+        youtubeId: 'zg2naNV56kg',
     },
     {
-        id: 2,
-        title: "Ayush Kushwaha, GSAMC, Hapur",
-        youtubeId: 'hwYjHX5pk9w',
-    },
-    {
-        id: 3,
-        title: 'Sangam Yadav, MGAMC, Lucknow',
-        youtubeId: 'CxDL_T4CWs8',
+        id: 5,
+        title: 'Ankita Sharma, MIMS, Barabanki',
+        youtubeId: 'glMWO1xvfUo',
     },
 ];
 
@@ -279,7 +289,15 @@ export default function NeetPgIndiaAdmissionPage() {
                                 </div>
                                 <div className="text-center mb-3 text-lg font-semibold text-black group-hover:text-white! transition-colors duration-300">Standard</div>
                                 <div className="text-center text-xs text-[#686767] group-hover:text-white! transition-colors duration-300 mb-6">Turn Your NEET Rank into a Medical <br /> Seat with Expert Guidance. </div>
-                                <div className="text-center font-light lg:text-5xl text-4xl group-hover:text-white! transition-colors duration-300 mb-8">₹ 84,999</div>
+                                <div className="flex justify-center mb-8">
+                                    <div className="relative w-[237px] h-[112px] border-[4px] border-[#0095C2] rounded-[20px] flex flex-col items-center justify-center transition-colors duration-300">
+                                        <div className="text-center font-light lg:text-4xl text-black text-3xl group-hover:text-white! transition-colors duration-300">₹ 84,999</div>
+                                        <div className="text-[14px] font-semibold text-[#0095C2] group-hover:text-white! transition-colors duration-300 mt-1 uppercase">Admission Fee</div>
+                                        <div className="absolute -top-5 -right-5 w-12 h-12">
+                                            <img src="/images/rp.svg" alt="" className="w-full h-full object-contain" />
+                                        </div>
+                                    </div>
+                                </div>
                                 <div className="flex flex-col gap-3 mb-10">
                                     <Button className="text-[#005787]! border-[#DFF1FF]! bg-[#E5F3FF]! group-hover:bg-[#FFFFFF47]! group-hover:text-white! group-hover:border-[#FFFFFF47]! w-full flex gap-2 items-center transition-all duration-300" rounded>
                                         Pay Now

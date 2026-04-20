@@ -459,6 +459,51 @@ body {
     /* Firefox */
 }
 
-.marquee-swiper .swiper-wrapper {
-  transition-timing-function: linear !important;
+/* Premium Reveal Footer Effect */
+.reveal-footer-wrapper {
+    position: relative;
+    z-index: 20;
+    margin-bottom: 0;
+    background: white;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
 }
+
+/* Specific logic to target the footer when the wrapper is present */
+/* Note: Since Footer is a sibling in RootLayout, we might need a global context or use a specific trigger */
+
+@media (min-width: 1024px) {
+    /* Sequential Scroll Enhancement for Sidebar */
+    .sidebar-sequential {
+        position: sticky;
+        top: 132px;
+        height: min-content;
+        transition: transform 0.1s ease-out;
+    }
+}
+
+/* Footer Reveal Logic */
+body:has(.reveal-footer-page) main {
+    position: relative;
+    z-index: 2;
+    background: white;
+}
+
+body:has(.reveal-footer-page) footer {
+    position: sticky;
+    bottom: 0;
+    z-index: 1;
+}
+
+/* Animations for premium feel */
+@keyframes reveal {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.premium-reveal {
+    animation: reveal 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Sequential Scroll - Simple but effective */
+.scroll-order-1 { z-index: 10; }
+.scroll-order-2 { z-index: 5; }
