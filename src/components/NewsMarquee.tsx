@@ -91,7 +91,7 @@ export default function NewsMarquee() {
         </div>
       </div>
       <Link
-        href="https://radicaleducation.in/counselling-updates/"
+        href="https://radicaleducation.in/neet-update/"
       >
 
         <Button

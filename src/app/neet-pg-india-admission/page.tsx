@@ -160,13 +160,16 @@ const branches = [
 ];
 
 const features = [
-    "Personalized Profile Evaluation",
+"Personalized Profile Evaluation",
+    "Counselling for AIQ, State, Deemed, DNB & Private Colleges",
+    "Smart Choice Filling & Branch Strategy",
     "Seat Matrix, Fee & Cutoff Insights",
+    "Real-Time Alerts & Deadline Tracking",
+    "1-on-1 Counsellor Access",
     "Document Verification Help",
     "Mop-up & Stray Round Support",
-    "1-on-1 Counsellor Access",
-    "Real-Time Alerts & Deadline Tracking",
     "NRI/Management Quota Guidance",
+    "Post-Admission Help (Hostel, Loan, Relocation)",
 ];
 
 const videos = [
@@ -212,7 +215,7 @@ export default function NeetPgIndiaAdmissionPage() {
                     <Swiper
                         style={{ cursor: "grabbing" }}
                         modules={[Autoplay]}
-                        spaceBetween={10}
+                        spaceBetween={17}
                         slidesPerView={"auto"}
                         centeredSlides={true}
                         loop={true}
@@ -262,9 +265,9 @@ export default function NeetPgIndiaAdmissionPage() {
             </section>
             <section className="py-10 lg:pt-15 lg:pb-40 overflow-hidden bg-[#F4F7F8]">
                 <div className="container px-3 md:px-4 lg:px-20 max-w-[1010px]!">
-                    <div className="grid grid-cols-1 md:grid-cols-2 md:gap-4 lg:gap-10 mb-16">
-                        <div className="relative">
-                            <Image src="/neetpg-card.webp" width="572" height="764" className="w-full h-auto" alt="" />
+                    <div className="grid grid-cols-1 md:grid-cols-2 md:gap-4 lg:gap-10 mb-16 mb-16 items-stretch">
+                        <div className="relative h-full">
+                            <Image src="/neetpg-card.webp" width="572" height="764" className="w-full h-full object-cover rounded-2xl" alt="" />
                         </div>
                         <div>
                             <div
@@ -279,14 +282,43 @@ export default function NeetPgIndiaAdmissionPage() {
                                 </div>
                                 <div className="text-center mb-3 text-lg font-semibold text-black group-hover:text-white! transition-colors duration-300">Standard</div>
                                 <div className="text-center text-xs text-[#686767] group-hover:text-white! transition-colors duration-300 mb-6">Turn Your NEET Rank into a Medical <br /> Seat with Expert Guidance. </div>
-                                <div className="text-center font-light lg:text-5xl text-4xl group-hover:text-white! transition-colors duration-300 mb-8">₹ 84,999</div>
+
+                                <div className="relative mb-8 flex justify-center">
+                                {/* Price Box */}
+                                <div className="relative border-[4px] border-[#EE6E1E]/30 group-hover:border-white rounded-[20px] px-8 py-5 text-center">
+
+                                    {/* Price */}
+                                    <div className="text-3xl lg:text-4xl font-bold text-black group-hover:text-white transition-colors duration-300">
+                                        ₹ 84,999
+                                    </div>
+
+                                    {/* Text */}
+                                    <div className="mt-1 text-sm text-[#EE6E1E] group-hover:text-white transition-colors duration-300">
+                                        <span className="block font-normal">Admission service charge</span>
+                                        <span className="block font-bold">before NEET result</span>
+                                    </div>
+
+                                    <div className="absolute -top-4 -right-4">
+                                        <Image
+                                            src="/images/best-offer.png"
+                                            alt="Best Offer"
+                                            width={50}
+                                            height={50}
+                                            className="object-contain"
+                                        />
+                                    </div>
+
+                                </div>
+                                </div>
+
+
                                 <div className="flex flex-col gap-3 mb-10">
                                     <Button className="text-[#005787]! border-[#DFF1FF]! bg-[#E5F3FF]! group-hover:bg-[#FFFFFF47]! group-hover:text-white! group-hover:border-[#FFFFFF47]! w-full flex gap-2 items-center transition-all duration-300" rounded>
                                         Pay Now
                                     </Button>
                                 </div>
                                 <div className="text-base text-black font-semibold group-hover:text-white! transition-colors duration-300 mb-5">Features</div>
-                                <ul className="space-y-5 text-sm text-gray-700 mb-8">
+                                <ul className="space-y-2 text-sm text-gray-700 mb-8">
                                     {features.map((item, index) => (
                                         <li key={index} className="flex gap-2">
                                             <span className="text-yellow-500 transition-colors duration-300">✦</span>
@@ -304,21 +336,6 @@ export default function NeetPgIndiaAdmissionPage() {
                         </div>
                         <div className="flex flex-wrap lg:gap-6 gap-3 items-center justify-center md:justify-end fadeUp">
                             <div className="lg:text-2xl py-3 px-8 rounded-lg text-white bg-[#0095C2]">₹ 99,999</div>
-                        </div>
-                    </div>
-                    <div className="bg-white rounded-lg sm:rounded-xl p-6 lg:p-8">
-                        <div className="space-y-1 sm:space-y-2">
-                            {/* <div className="flex items-start gap-2">
-                                <span className="text-black flex-shrink-0 text-xs sm:text-sm md:text-base">Note:</span>
-                                <div className="space-y-1 text-xs sm:text-sm md:text-base">
-                                    <p className="text-[#2CBF0F]">
-                                        1. This service charge includes the Visa charges but does not cover the Ticket charges.
-                                    </p>
-                                    <p className="text-[#2CBF0F]">
-                                        2. Get the offer price 99,999 before NEET Result
-                                    </p>
-                                </div>
-                            </div> */}
                         </div>
                     </div>
                 </div>
