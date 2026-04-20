@@ -17,7 +17,7 @@ export const mainMenuData: MenuItem[] = [
     items: [
       {
         label: 'Deemed Universities',
-        url: '/mbbs-deemed-colleges-in-india/',
+        // url: '/mbbs-deemed-colleges-in-india/',
         items: (
           [
             { label: 'Santosh Medical College, Ghaziabad, Uttar Pradesh', url: '/santosh-medical-college-smc-ghaziabad-2025-26/' },
@@ -82,7 +82,7 @@ export const mainMenuData: MenuItem[] = [
 
       {
         label: 'MBBS',
-        url: '/mbbs-in-india/',
+        // url: '/mbbs-in-india/',
         items: [
           { label: 'Andhra Pradesh', url: '/mbbs-in-andhra-pradesh/' },
           { label: 'Arunachal Pradesh', url: '/mbbs-in-arunachal-pradesh/' },
@@ -118,7 +118,7 @@ export const mainMenuData: MenuItem[] = [
 
       {
         label: 'Dental',
-        url: '/bds-in-india/',
+        // url: '/bds-in-india/',
         items: [
           { label: 'Andhra Pradesh', url: '/bds-in-andhra-pradesh/' },
           { label: 'Arunachal Pradesh', url: '/dental-colleges-in-arunachal-pradesh-2025/' },
@@ -152,9 +152,15 @@ export const mainMenuData: MenuItem[] = [
         ],
       },
 
-      { label: 'Ayush', url: '/ayush-counselling-2025/' },
+      {
+        label: 'Ayush',
+        // url: '/ayush-counselling-2025/' 
+      },
       // { label: 'Webinar NEET-UG', url: '/neet-webinar/' },
-      { label: 'NEET Counselling Authorities', url: '/counselling-authority/' },
+      {
+        label: 'NEET Counselling Authorities',
+        // url: '/counselling-authority/'
+      },
     ],
   },
 
