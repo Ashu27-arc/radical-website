@@ -133,11 +133,11 @@ export default function NeetUgIndiaAdmissionPage() {
             <section className="py-10 lg:py-15 overflow-hidden bg-[#F4F7F8]">
                 <div className="container px-3 md:px-4 max-w-[1240px]">
                     <h2 className='text-black text-4xl font-bold mb-10 lg:mb-16 text-center fadeUp'>Pricing & <span className='text-[#287FC4]'>Packages</span></h2>
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-14 lg:gap-10 mb-14 lg:mb-20">
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-14 md:gap-3 md:px-3 lg:gap-10 mb-14 lg:mb-20">
                         {neetupadmissionplans.map((plan) => (
                             <div
                                 key={plan.id}
-                                className="group fadeUp relative z-10 rounded-2xl pt-16 pb-8 px-6 shadow-xl transition-all duration-500 bg-white hover:shadow-2xl hover:bg-[linear-gradient(163.56deg,_#02CCB2_6.49%,_#0080C8_98.8%)] transition-all duration-300 hover:text-white"
+                                className="group fadeUp relative z-10 rounded-2xl pt-16 pb-8 px-6 md:px-3 shadow-xl transition-all duration-500 bg-white hover:shadow-2xl hover:bg-[linear-gradient(163.56deg,_#02CCB2_6.49%,_#0080C8_98.8%)] transition-all duration-300 hover:text-white"
                             >
                                 {plan.title === "Ultimate" && (
                                     <div className="absolute top-0 right-0 w-[120px] h-[120px] overflow-hidden z-20">
@@ -190,7 +190,7 @@ export default function NeetUgIndiaAdmissionPage() {
 
                                 {/* Play Store Button Overlay */}
                                 <div
-                                    className="absolute left-[7.3%] bottom-9 h-[41px] z-10 hover:scale-105 transition-transform"
+                                    className="absolute left-[7.3%] bottom-9 md:bottom-5 h-[41px] z-10 hover:scale-105 transition-transform"
                                 >
                                     <Link
                                         href="https://play.google.com/store/apps/details?id=com.kaveka.NeetBhaiya"
@@ -209,7 +209,7 @@ export default function NeetUgIndiaAdmissionPage() {
 
                                 {/* App Store Button Overlay */}
                                 <div
-                                    className="absolute left-[19.9%] bottom-8 h-[45px] z-10 hover:scale-105 transition-transform"
+                                    className="absolute left-[19.9%] md:left-[28%] md:bottom-4 bottom-8 h-[45px] z-10 hover:scale-105 transition-transform"
                                 >
                                     <Link
                                         href="https://apps.apple.com/in/app/neet-bhaiya/id6737535565"

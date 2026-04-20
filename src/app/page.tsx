@@ -161,15 +161,15 @@ export default function Home() {
         <div className="container px-3 md:px-4">
           <div className="flex flex-col md:flex-row gap-8">
             <div className="md:w-13/20 w-full fadeLeft text-center md:text-left">
-              <div className="lg:pr-30 md:pr-10 lg:pl-6 pl-0 sm:pl-3 relative z-2">
-                <h2 className="text-3xl md:text-[46px] font-light leading-tight text-gray-800 text-center mb-6 md:mb-8">
+              <div className="lg:pr-30 lg:pl-6 pl-0 relative z-2">
+                <h2 className="text-3xl md:text-[26px] lg:text-[46px] font-light leading-tight text-gray-800 text-center mb-6 md:mb-8">
                   A complete guide for your <br />
-                  <span className="text-3xl md:text-[46px] bg-gradient-to-r from-[#1ec8a5] font-bold to-[#0d8f9e] bg-clip-text text-transparent">
+                  <span className="text-3xl md:text-[26px] lg:text-[46px] bg-gradient-to-r from-[#1ec8a5] font-bold to-[#0d8f9e] bg-clip-text text-transparent">
                     medical counselling needs
                   </span>
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:gap-10 gap-4 sm:gap-6 w-full max-w-6xl lg:px-10 mt-4">
-                  <div className="w-full max-w-[189px] mx-auto h-auto md:mx-0 md:h-[210.93px] md:w-[189px]">
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:gap-10 gap-4 md:gap-3 w-full max-w-6xl lg:px-10 mt-4">
+                  <div className="w-full max-w-[189px] mx-auto h-auto md:mx-0 md:h-[180px] md:w-[150px]">
                     <a
                       href="https://www.neetbhaiya.in/rank-predictor"
                       target="_blank"
@@ -177,23 +177,23 @@ export default function Home() {
                       className="group relative block cursor-pointer no-underline rounded-[20px] overflow-hidden shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl h-full outline-none focus:outline-none focus-visible:outline-none"
                       aria-label="Rank Predictor"
                     >
-                      <div className="relative mx-auto w-full aspect-[189/210.93] md:w-[189px] md:h-[210.93px]">
+                      <div className="relative mx-auto w-full aspect-[189/210.93] md:w-[150px] md:h-[180px]">
                         <Image
                           src="/images/rp.svg"
                           alt="Rank Predictor"
                           fill
-                          className="object-cover transition-transform duration-500 group-hover:scale-110"
+                          className="object-cover object-center transition-transform duration-500 group-hover:scale-110"
                         />
                       </div>
                     </a>
                   </div>
-                  <div className="md:col-span-2 flex flex-col gap-5 md:items-start items-center">
+                  <div className="md:col-span-2 flex flex-col gap-5 md:gap-2 md:items-start items-center">
                     <Link
                       href="/neet-ug-india-admission/"
-                      className="group flex items-center w-[326px] h-[52px] justify-start gap-4 rounded-[20px] px-6 text-white bg-[linear-gradient(90deg,#27AEDC_0%,#3FE198_100%)] shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
+                      className="group flex items-center w-full h-[52px] justify-center gap-4 md:gap-2 lg:gap-4 rounded-[20px] px-4 text-white bg-[linear-gradient(90deg,#27AEDC_0%,#3FE198_100%)] shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
                       aria-label="NEET UG India Admissions"
                     >
-                      <span className="font-bold text-[18px]">
+                      <span className="font-bold text-[16px] md:text-[12px]">
                         NEET UG India <span className="font-light">Admissions</span>
                       </span>
                       <div className="bg-white text-[#27AEDC] w-[30px] h-[30px] flex items-center justify-center rounded-full 
@@ -216,10 +216,10 @@ export default function Home() {
                     </Link>
                     <Link
                       href="/neet-pg-india-admission/"
-                      className="group flex items-center w-[326px] h-[52px] justify-start gap-4 rounded-[20px] px-6 text-white bg-[linear-gradient(90deg,#F4C55C_0%,#E6440C_100%)] shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
+                      className="group flex items-center w-full h-[52px] justify-center gap-4 md:gap-2 lg:gap-4 rounded-[20px] px-4 text-white bg-[linear-gradient(90deg,#F4C55C_0%,#E6440C_100%)] shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
                       aria-label="NEET PG India Admissions"
                     >
-                      <span className="font-bold text-[18px]">
+                      <span className="font-bold text-[16px] md:text-[12px]">
                         NEET PG India <span className="font-light">Admissions</span>
                       </span>
                       <div className="bg-white text-[#F04E23] w-[30px] h-[30px] flex items-center justify-center rounded-full 
@@ -242,10 +242,10 @@ export default function Home() {
                     </Link>
                     <Link
                       href="/study-abroad/"
-                      className="group flex items-center w-[326px] h-[52px] justify-start gap-4 rounded-[20px] px-6 text-white bg-[linear-gradient(90deg,#677CE7_0%,#754FA7_100%)] shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
+                      className="group flex items-center w-full h-[52px] justify-center gap-4 md:gap-2 lg:gap-4 rounded-[20px] px-4 text-white bg-[linear-gradient(90deg,#677CE7_0%,#754FA7_100%)] shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
                       aria-label="MBBS Abroad Admissions"
                     >
-                      <span className="font-bold text-[18px]">
+                      <span className="font-bold text-[16px] md:text-[12px]">
                         MBBS Abroad <span className="font-light">Admissions</span>
                       </span>
                       <div className="bg-white text-[#754FA7] w-[30px] h-[30px] flex items-center justify-center rounded-full 
@@ -273,7 +273,7 @@ export default function Home() {
                 </div>
               </div>
             </div>
-            <div className="w-full sm:w-4/5 md:w-7/20 lg:w-[30%] mx-auto md:mx-0 fadePopup px-8 sm:px-12 md:px-0 mt-6 sm:mt-8 md:mt-0 flex justify-center items-center">
+            <div className="w-full sm:w-4/5 md:w-7/20 lg:w-[30%] mx-auto md:mx-0 fadePopup px-8 sm:px-12 md:px-0 mt-6 sm:mt-8 md:mt-0 flex justify-center items-end">
               <Image
                 src="/images/new-abt.webp"
                 width={516}
@@ -527,7 +527,7 @@ export default function Home() {
           </div>
           <div className="grid gap-4 sm:gap-5 md:gap-6 grid-cols-1 lg:grid-cols-9 mb-10 md:mb-20">
             <div className="lg:col-span-5">
-              <Link href="/neet-ug-india-admission" className="block relative group overflow-hidden rounded-2xl h-[220px] sm:h-[280px] md:h-[340px] lg:h-[380px] w-full shadow-sm hover:shadow-xl transition-shadow duration-300">
+              <Link href="/neet-ug-india-admission" className="block relative group overflow-hidden rounded-2xl h-[220px] sm:h-[280px] md:h-[420px] lg:h-[380px] w-full shadow-sm hover:shadow-xl transition-shadow duration-300">
                 <Image
                   src="/svg/ug-card.svg"
                   alt="UG Admission"
@@ -541,7 +541,7 @@ export default function Home() {
             <div className="lg:col-span-4">
               <div className="grid gap-4 sm:gap-5 md:gap-6 grid-cols-2 sm:grid-cols-2 lg:grid-cols-2 h-full">
                 <div className="h-full w-full">
-                  <Link href="/neet-pg-india-admission" className="block relative group overflow-hidden rounded-2xl h-[280px] sm:h-[280px] md:h-[340px] lg:h-[380px] w-full shadow-sm hover:shadow-xl transition-shadow duration-300">
+                  <Link href="/neet-pg-india-admission" className="block relative group overflow-hidden rounded-2xl h-[280px] sm:h-[280px] md:h-[460px] lg:h-[380px] w-full shadow-sm hover:shadow-xl transition-shadow duration-300">
                     <Image
                       src="/svg/neet-pg.svg"
                       alt="PG Admission"
@@ -553,7 +553,7 @@ export default function Home() {
                   </Link>
                 </div>
                 <div className="h-full w-full">
-                  <Link href="/study-abroad" className="block relative group overflow-hidden rounded-2xl h-[280px] sm:h-[280px] md:h-[340px] lg:h-[380px] w-full shadow-sm hover:shadow-xl transition-shadow duration-300">
+                  <Link href="/study-abroad" className="block relative group overflow-hidden rounded-2xl h-[280px] sm:h-[280px] md:h-[460px] lg:h-[380px] w-full shadow-sm hover:shadow-xl transition-shadow duration-300">
                     <Image
                       src="/svg/abroad-card-2.svg"
                       alt="Abroad Admission"

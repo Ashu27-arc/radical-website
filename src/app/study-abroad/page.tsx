@@ -218,7 +218,7 @@ export default function StudyAbroadPage() {
                                     </Button>
                                 </div>
                                 <div className="text-base text-black font-semibold group-hover:text-white! transition-colors duration-300 mb-5">Features</div>
-                                <ul className="space-y-5 text-sm text-[#686767] mb-4">
+                                <ul className="space-y-5 md:space-y-3 text-sm text-[#686767]">
                                     {features.map((item, index) => (
                                         <li key={index} className="flex gap-2">
                                             <span className="text-yellow-500 transition-colors duration-300">✦</span>
@@ -232,7 +232,7 @@ export default function StudyAbroadPage() {
                     </div>
                     <div className="grid md:grid-cols-2 grid-cols-1 gap-10 mb-10 items-center">
                         <div className="flex flex-wrap gap-2 fadeUp items-end md:justify-start justify-center">
-                            <div className="text-[#0B2E3C] text-2xl font-bold">Admission Service Charge :-</div>
+                            <div className="text-[#0B2E3C] md:text-[20px] text-2xl font-bold">Admission Service Charge :-</div>
                         </div>
                         <div className="flex flex-wrap lg:gap-6 gap-3 items-center justify-center md:justify-end fadeUp">
                             <div className="font-light text-[#BDBCBC] line-through text-xl">₹ 1,29,999 </div>
@@ -266,7 +266,7 @@ export default function StudyAbroadPage() {
                         <div className='uppercase text-[#00CFB240] leading-12 text-[42px] md:text-5xl lg:text-7xl font-black'>HEAR FROM OUR STUDENT</div>
                     </div>
 
-                    <div className="grid gap-6 md:grid-cols-3 grid-cols-1">
+                    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 grid-cols-1">
                         {videos.map((video) => (
                             <div
                                 key={video.id}
