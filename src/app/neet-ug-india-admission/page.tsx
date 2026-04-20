@@ -21,11 +21,16 @@ const neetupadmissionplans = [
         bgImage: "/images/borderShape1.webp",
         icon: "/images/st1.svg",
         features: [
-            "All Standard + Strategy features",
-            "Full admission guidance till final seat",
-            "Direct expert (call/WhatsApp) support",
-            "Low budget & NRI quota assistance",
-            "Unlimited counselling & documentation help",
+            "MBBS / BDS",
+            "Alerts, Notifications, Updates",
+            "Detailed Information on Admission Procedure",
+            "Rank Based Analysis",
+            "Guidance over Documentation",
+            "Counselling Registrations Support over call and MEET",
+            "Colleges Choice List Pdf by Our Expert",
+            "Updated Fee and Seat Matrix Round wise",
+            "Bonds and Rural Services Rules Guidance over call",
+            "Central Pool Quota Seats Information",
             "NON REFUNDABLE",
         ],
     },
@@ -39,11 +44,16 @@ const neetupadmissionplans = [
         bgImage: "/images/borderShape2.webp",
         icon: "/images/st2.svg",
         features: [
-            "All Standard features included",
-            "College & budget planning (India + Abroad)",
-            "Offer letters from abroad universities",
-            "Vacant seat alerts",
-            "Expert counselling (limited states)",
+            "MBBS / BDS / AYUSH",
+            "All Services of Standard Plan",
+            "Offer Letters from 2 MBBS Abroad Universities",
+            "Exclusive alerts of Vacant Seats",
+            "Budget friendly colleges suggestion",
+            "Office or Online meet with Senior Admission Manager",
+            "Counselling Registrations and by our Expert up to 2 states only",
+            "MBBS Abroad Dedicated Counselling",
+            "NEET PG Reservations Guidance",
+            "Hidden Charges Information",
             "NON REFUNDABLE",
         ],
     },
@@ -51,18 +61,24 @@ const neetupadmissionplans = [
         id: 3,
         title: "Ultimate",
         subtitle: "Complete end-to-end premium support",
-        price: "₹ 129,999",
+        price: "₹ 84,499",
+        originalPrice: "₹ 129,999",
         color: "bg-[#D3F4FF]",
         border: "border-[#42ACCF]",
         bgImage: "/images/borderShape3.webp",
         icon: "/images/st3.svg",
         features: [
-            "All Standard + Strategy features",
-            "Full admission guidance till final seat",
-            "Direct expert (call/WhatsApp) support",
-            "Low budget & NRI quota assistance",
-            "Unlimited counselling & documentation help",
-            "NON REFUNDABLE",
+            "MBBS / BDS / AYUSH",
+            "All Services of Standard Plan + Strategy",
+            "Full Guidance throughout MBBS/BDS/AYUSH Journey",
+            "Call/Whatsapp Guidance by Directors",
+            "Low Budget and Vacant seats information Of MQ/NRI/Other Quota Seats",
+            "Admission on Negotiated Tuition Fee (If Available)",
+            "Unlimited Counselling registrations and Choice filling by our Experts",
+            "NRI Seats Documentation and Admission Support",
+            "College Reporting and Offline Documentation Support at Nodal Center",
+            "Securities Refund Assurance (if Applicable)",
+            "REFUNDABLE",
         ],
     },
 ];
@@ -123,6 +139,13 @@ export default function NeetUgIndiaAdmissionPage() {
                                 key={plan.id}
                                 className="group fadeUp relative z-10 rounded-2xl pt-16 pb-8 px-6 shadow-xl transition-all duration-500 bg-white hover:shadow-2xl hover:bg-[linear-gradient(163.56deg,_#02CCB2_6.49%,_#0080C8_98.8%)] transition-all duration-300 hover:text-white"
                             >
+                                {plan.title === "Ultimate" && (
+                                    <div className="absolute top-0 right-0 w-[120px] h-[120px] overflow-hidden z-20">
+                                        <div className="absolute top-[18px] right-[-35px] rotate-[33deg] bg-[#FFDB4B] text-[#0B2E3C] text-xs font-semibold text-center py-1 w-[160px]">
+                                            Get 35% OFF
+                                        </div>
+                                    </div>
+                                )}
                                 <div className="absolute left-1/2 -translate-x-1/2 -top-[35px] border-[8px] border-[#F4F7F8] rounded-full">
                                     <img
                                         src={plan.icon}
@@ -132,15 +155,7 @@ export default function NeetUgIndiaAdmissionPage() {
                                 </div>
                                 <div className="text-center mb-3 text-lg font-semibold text-[#0B2E3C] group-hover:text-white! transition-colors duration-300">{plan.title}</div>
                                 <div className="text-center text-xs text-[#0B2E3C] group-hover:text-white! transition-colors duration-300 mb-6">{plan.subtitle}</div>
-                                <div className="flex justify-center mb-8">
-                                    <div className="relative w-[237px] h-[112px] border-[4px] border-[#0095C2] rounded-[20px] flex flex-col items-center justify-center transition-colors duration-300">
-                                        <div className="text-center font-light lg:text-4xl text-black text-3xl group-hover:text-white! transition-colors duration-300">{plan.price}</div>
-                                        <div className="text-[14px] font-semibold text-[#0095C2] group-hover:text-white! transition-colors duration-300 mt-1 uppercase">Admission Fee</div>
-                                        <div className="absolute -top-5 -right-5 w-12 h-12">
-                                            <img src="/images/rp.svg" alt="" className="w-full h-full object-contain" />
-                                        </div>
-                                    </div>
-                                </div>
+                                <div className="text-center font-light lg:text-5xl text-4xl group-hover:text-white! transition-colors duration-300 mb-8">{plan.price}</div>
                                 <div className="flex flex-col gap-3 mb-10">
                                     <Button className="text-[#005787]! border-[#DFF1FF]! bg-[#128FFF1C]! group-hover:bg-[#FFFFFF47]! group-hover:text-white! group-hover:border-[#FFFFFF47]! w-full flex gap-2 items-center transition-all duration-300" rounded>
                                         Pay now

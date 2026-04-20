@@ -25,10 +25,10 @@ export default function CounselorForm() {
         { label: 'BDS INDIA', value: 'BDS INDIA' },
         { label: 'AYUSH INDIA', value: 'AYUSH INDIA' },
         { label: 'MD/MS/DNB', value: 'MD/MS/DNB' },
-        { label: 'MBA', value: 'MBA' },
-        { label: 'PGDM', value: 'PGDM' },
-        { label: 'B.TECH', value: 'B.TECH' },
-        { label: 'M.TECH', value: 'M.TECH' },
+        // { label: 'MBA', value: 'MBA' },
+        // { label: 'PGDM', value: 'PGDM' },
+        // { label: 'B.TECH', value: 'B.TECH' },
+        // { label: 'M.TECH', value: 'M.TECH' },
         { label: 'OTHERS', value: 'OTHERS' },
     ];
 
@@ -177,7 +177,7 @@ export default function CounselorForm() {
                         transition-opacity duration-200 
                         "
                         >
-                        Select Course
+                        Select Course <span className="text-red-500">*</span>
                         </span>
                     )}
                 </div>
@@ -195,7 +195,7 @@ export default function CounselorForm() {
                         transition-opacity duration-200 
                         "
                         >
-                        Select State
+                        Select State <span className="text-red-500">*</span>
                         </span>
                     )}
                 </div>
