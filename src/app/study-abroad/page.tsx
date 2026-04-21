@@ -128,14 +128,15 @@ export default function StudyAbroadPage() {
             </div>
 
             <section className="py-10 bg-white mb-10 lg:mb-20">
-                <div className="study-abroadCuntrySlider overflow-hidden">
+                <div className="study-abroadCuntrySlider overflow-hidden pb-12">
                     <Swiper
-                        modules={[Autoplay]}
+                        modules={[Autoplay, Pagination]}
                         spaceBetween={30}
                         loop={true}
-                        speed={7000}
+                        pagination={{ clickable: true }}
+                        speed={3000}
                         autoplay={{
-                            delay: 0,
+                            delay: 2000,
                             disableOnInteraction: false,
                         }}
                         breakpoints={{
@@ -204,16 +205,16 @@ export default function StudyAbroadPage() {
                                 <div className="text-center mb-3 text-lg font-semibold text-black group-hover:text-white! transition-colors duration-300">Standard</div>
                                 <div className="text-center text-xs text-[#686767] group-hover:text-white! transition-colors duration-300 mb-6">Start Your Global Medical Journey <br /> with End-to-End Expert Support. </div>
                                 <div className="flex justify-center mb-8">
-                                    <div className="relative w-[237px] h-[112px] border-[4px] border-[#0095C2] rounded-[20px] flex flex-col items-center justify-center transition-colors duration-300">
-                                        <div className="text-center font-light lg:text-4xl text-black text-3xl group-hover:text-white! transition-colors duration-300">₹ 99,999</div>
-                                        <div className="text-[14px] font-semibold text-[#0095C2] group-hover:text-white! transition-colors duration-300 mt-1 uppercase">Admission Fee</div>
+                                    <div className="relative w-[237px] h-[112px] border-[4px] border-[#7358B33B] rounded-[20px] flex flex-col items-center justify-center transition-colors duration-300">
+                                        <div className="text-center font-semibold font-weight-600 lg:text-4xl text-black text-3xl group-hover:text-white! transition-colors duration-300">₹ 99,999</div>
+                                        <div className="text-[14px] font-normal font-weight-400 text-[#7061C0] group-hover:text-white! transition-colors duration-300 mt-1 text-center">Admission service charge <span className="font-bold font-weight-700 text-[#7061C0]">before NEET result</span></div>
                                         <div className="absolute -top-5 -right-5 w-12 h-12">
                                             <img src="/images/study-abroad/corner.svg" alt="" className="w-full h-full object-contain" />
                                         </div>
                                     </div>
                                 </div>
                                 <div className="flex flex-col gap-3 mb-10">
-                                    <Button className="text-[#005787]! border-[#DFF1FF]! bg-[#E5F3FF]! group-hover:bg-[#FFFFFF47]! group-hover:text-white! group-hover:border-[#FFFFFF47]! w-full flex gap-2 items-center transition-all duration-300" rounded>
+                                    <Button className="text-white! border-[#DFF1FF]! bg-[#7061C0]! group-hover:bg-[#FFFFFF47]! group-hover:text-white! group-hover:border-[#FFFFFF47]! w-full flex gap-2 items-center transition-all duration-300" rounded>
                                         Pay Now
                                     </Button>
                                 </div>
@@ -226,34 +227,18 @@ export default function StudyAbroadPage() {
                                         </li>
                                     ))}
                                 </ul>
+                                <div className="mt-8 pt-5 border-t border-dashed border-gray-200 group-hover:border-white/20">
+                                    <div className="flex gap-2 items-start">
+                                        <span className="text-[#FF0000] font-bold text-[10px] uppercase tracking-wider group-hover:text-white transition-colors duration-300 mt-0.5">Note:</span>
+                                        <p className="text-[12px] leading-relaxed text-[#686767] group-hover:text-white/90 transition-colors duration-300 italic">
+                                            This service charge includes the Visa charges but does not cover the ticket charges.
+                                        </p>
+                                    </div>
+                                </div>
 
                             </div>
                         </div>
                     </div>
-                    <div className="grid md:grid-cols-2 grid-cols-1 gap-10 mb-10 items-center">
-                        <div className="flex flex-wrap gap-2 fadeUp items-end md:justify-start justify-center">
-                            <div className="text-[#0B2E3C] text-2xl font-bold">Admission Service Charge :-</div>
-                        </div>
-                        <div className="flex flex-wrap lg:gap-6 gap-3 items-center justify-center md:justify-end fadeUp">
-                            <div className="font-light text-[#BDBCBC] line-through text-xl">₹ 1,29,999 </div>
-                            <div className="lg:text-2xl py-3 px-8 rounded-lg text-white font-semibold bg-[#0095C2]">₹ 99,999</div>
-                        </div>
-                    </div>
-                    {/* <div className="bg-white rounded-lg sm:rounded-xl p-6 lg:p-8">
-                        <div className="space-y-1 sm:space-y-2">
-                            <div className="flex items-start gap-2">
-                                <span className="text-black flex-shrink-0 text-xs sm:text-sm md:text-base">Note:</span>
-                                <div className="space-y-1 text-xs sm:text-sm md:text-base">
-                                    <p className="text-[#2CBF0F]">
-                                        1. This service charge includes the Visa charges but does not cover the Ticket charges.
-                                    </p>
-                                    <p className="text-[#2CBF0F]">
-                                        2. Get the offer price 99,999 before NEET Result
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div> */}
                 </div>
             </section>
 
@@ -263,7 +248,7 @@ export default function StudyAbroadPage() {
                 <div className="container mx-auto px-4 text-center">
                     <div className='mb-10 fadeUp text-center'>
                         <h2 className='text-black text-4xl font-bold mb-4'>OUR <span className='text-[#287FC4]'>SUCCESSFUL STORIES</span></h2>
-                        <div className='uppercase text-[#00CFB240] leading-12 text-[42px] md:text-5xl lg:text-7xl font-black'>HEAR FROM OUR STUDENT</div>
+                        <div className='uppercase text-[#00CFB240] leading-12 text-[42px] md:text-5xl lg:text-7xl font-black'>HEAR FROM OUR STUDENTS</div>
                     </div>
 
                     <div className="grid gap-6 md:grid-cols-3 grid-cols-1">

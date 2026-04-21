@@ -160,7 +160,7 @@ const branches = [
 ];
 
 const features = [
-"Personalized Profile Evaluation",
+    "Personalized Profile Evaluation",
     "Counselling for AIQ, State, Deemed, DNB & Private Colleges",
     "Smart Choice Filling & Branch Strategy",
     "Seat Matrix, Fee & Cutoff Insights",
@@ -173,21 +173,6 @@ const features = [
 ];
 
 const videos = [
-    // {
-    //     id: 1,
-    //     title: 'Utkarshika Gupta, CSAMC, Etah',
-    //     youtubeId: 'jfq8RbTIrtI',
-    // },
-    // {
-    //     id: 2,
-    //     title: "Ayush Kushwaha, GSAMC, Hapur",
-    //     youtubeId: 'hwYjHX5pk9w',
-    // },
-    // {
-    //     id: 3,
-    //     title: 'Sangam Yadav, MGAMC, Lucknow',
-    //     youtubeId: 'CxDL_T4CWs8',
-    // },
     {
         id: 4,
         title: 'Amita Gulia, KD, Mathura',
@@ -275,7 +260,7 @@ export default function NeetPgIndiaAdmissionPage() {
             </section>
             <section className="py-10 lg:pt-15 lg:pb-40 overflow-hidden bg-[#F4F7F8]">
                 <div className="container px-3 md:px-4 lg:px-20 max-w-[1010px]!">
-                    <div className="grid grid-cols-1 md:grid-cols-2 md:gap-4 lg:gap-10 mb-16 mb-16 items-stretch">
+                    <div className="grid grid-cols-1 md:grid-cols-2 md:gap-4 lg:gap-10 mb-16 items-stretch">
                         <div className="relative h-full">
                             <Image src="/neetpg-card.webp" width="572" height="764" className="w-full h-full object-cover rounded-2xl" alt="" />
                         </div>
@@ -317,14 +302,6 @@ export default function NeetPgIndiaAdmissionPage() {
                                 </ul>
 
                             </div>
-                        </div>
-                    </div>
-                    <div className="grid md:grid-cols-2 grid-cols-1 gap-10 mb-10 items-center">
-                        <div className="flex flex-wrap gap-2 fadeUp items-end md:justify-start justify-center">
-                            <div className="text-[#0B2E3C] text-2xl font-semibold">Admission Service Charge :-</div>
-                        </div>
-                        <div className="flex flex-wrap lg:gap-6 gap-3 items-center justify-center md:justify-end fadeUp">
-                            <div className="lg:text-2xl py-3 px-8 rounded-lg text-white bg-[#0095C2]">₹ 99,999</div>
                         </div>
                     </div>
                 </div>

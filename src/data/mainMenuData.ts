@@ -17,7 +17,7 @@ export const mainMenuData: MenuItem[] = [
     items: [
       {
         label: 'Deemed Universities',
-        // url: '/mbbs-deemed-colleges-in-india/',
+        url: '/mbbs-deemed-colleges-in-india/',
         items: (
           [
             { label: 'Santosh Medical College, Ghaziabad, Uttar Pradesh', url: '/santosh-medical-college-smc-ghaziabad-2025-26/' },
@@ -159,7 +159,7 @@ export const mainMenuData: MenuItem[] = [
       // { label: 'Webinar NEET-UG', url: '/neet-webinar/' },
       {
         label: 'NEET Counselling Authorities',
-        // url: '/counselling-authority/'
+        url: '/counselling-authority/'
       },
     ],
   },
