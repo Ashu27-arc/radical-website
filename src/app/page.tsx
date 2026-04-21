@@ -168,8 +168,8 @@ export default function Home() {
                     medical counselling needs
                   </span>
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:gap-10 gap-4 md:gap-3 w-full max-w-6xl lg:px-10 mt-4">
-                  <div className="w-full max-w-[189px] mx-auto h-auto md:mx-0 md:h-[180px] md:w-[150px]">
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:gap-10 gap-4 md:gap-3 w-full max-w-6xl lg:px-10 mt-4 lg:items-center">
+                  <div className="w-full max-w-[189px] mx-auto h-auto md:mx-0  lg:h-[220px] md:h-[180px] md:w-[150px] lg:w-[189px]">
                     <a
                       href="https://www.neetbhaiya.in/rank-predictor"
                       target="_blank"
@@ -177,7 +177,7 @@ export default function Home() {
                       className="group relative block cursor-pointer no-underline rounded-[20px] overflow-hidden shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl h-full outline-none focus:outline-none focus-visible:outline-none"
                       aria-label="Rank Predictor"
                     >
-                      <div className="relative mx-auto w-full aspect-[189/210.93] md:w-[150px] md:h-[180px]">
+                      <div className="relative mx-auto w-full aspect-[189/210.93] lg:w-[189px] md:w-[150px] md:h-[180px] lg:h-[220px]">
                         <Image
                           src="/images/rp.svg"
                           alt="Rank Predictor"
@@ -187,13 +187,13 @@ export default function Home() {
                       </div>
                     </a>
                   </div>
-                  <div className="md:col-span-2 flex flex-col gap-5 md:gap-2 md:items-start items-center">
+                  <div className="md:col-span-2 flex flex-col gap-5 md:gap-2 lg:gap-5 md:items-start items-center">
                     <Link
                       href="/neet-ug-india-admission/"
                       className="group flex items-center w-full h-[52px] justify-center gap-4 md:gap-2 lg:gap-4 rounded-[20px] px-4 text-white bg-[linear-gradient(90deg,#27AEDC_0%,#3FE198_100%)] shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
                       aria-label="NEET UG India Admissions"
                     >
-                      <span className="font-bold text-[16px] md:text-[12px]">
+                      <span className="font-bold text-[16px] md:text-[12px] lg:text-[18px]">
                         NEET UG India <span className="font-light">Admissions</span>
                       </span>
                       <div className="bg-white text-[#27AEDC] w-[30px] h-[30px] flex items-center justify-center rounded-full 
@@ -219,7 +219,7 @@ export default function Home() {
                       className="group flex items-center w-full h-[52px] justify-center gap-4 md:gap-2 lg:gap-4 rounded-[20px] px-4 text-white bg-[linear-gradient(90deg,#F4C55C_0%,#E6440C_100%)] shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
                       aria-label="NEET PG India Admissions"
                     >
-                      <span className="font-bold text-[16px] md:text-[12px]">
+                      <span className="font-bold text-[16px] md:text-[12px] lg:text-[18px]">
                         NEET PG India <span className="font-light">Admissions</span>
                       </span>
                       <div className="bg-white text-[#F04E23] w-[30px] h-[30px] flex items-center justify-center rounded-full 
@@ -245,7 +245,7 @@ export default function Home() {
                       className="group flex items-center w-full h-[52px] justify-center gap-4 md:gap-2 lg:gap-4 rounded-[20px] px-4 text-white bg-[linear-gradient(90deg,#677CE7_0%,#754FA7_100%)] shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
                       aria-label="MBBS Abroad Admissions"
                     >
-                      <span className="font-bold text-[16px] md:text-[12px]">
+                      <span className="font-bold text-[16px] md:text-[12px] lg:text-[18px]">
                         MBBS Abroad <span className="font-light">Admissions</span>
                       </span>
                       <div className="bg-white text-[#754FA7] w-[30px] h-[30px] flex items-center justify-center rounded-full 

@@ -477,18 +477,7 @@ body {
     }
 }
 
-/* Footer Reveal Logic */
-body:has(.reveal-footer-page) main {
-    position: relative;
-    z-index: 2;
-    background: white;
-}
 
-body:has(.reveal-footer-page) footer {
-    position: sticky;
-    bottom: 0;
-    z-index: 1;
-}
 
 /* Animations for premium feel */
 @keyframes reveal {
@@ -502,4 +491,4 @@ body:has(.reveal-footer-page) footer {
 
 /* Sequential Scroll - Simple but effective */
 .scroll-order-1 { z-index: 10; }
-.scroll-order-2 { z-index: 5; }
+.scroll-order-2 { z-index: 5; }

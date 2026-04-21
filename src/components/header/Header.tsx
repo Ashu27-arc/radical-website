@@ -69,7 +69,7 @@ export default function Header() {
       </section>
       <header className="w-full sticky top-0 left-0 z-[100]">
         <section className='hdrTop bg-white py-3 sm:py-3 lg:bg-[#ffffff] w-full top-0 left-0 z-[100]'>
-          <div className='container mx-auto px-2 sm:px-4 md:px-8 lg:px-12 flex items-center justify-between'>
+          <div className='container mx-auto px-4 flex items-center justify-between'>
             <div className='flex items-center gap-1.5 sm:gap-4 md:gap-6 shrink-0'>
               <Link href="/" className="headerLogo shrink-0">
                 <img src="/logo.webp" alt="Logo" className="w-[100px] min-w-[100px] sm:w-[140px] md:w-[150px] h-auto object-contain" />
@@ -177,7 +177,7 @@ export default function Header() {
           </div>
         </section>
         <section className='hdrBtm hidden lg:block bg-[rgba(0,0,0,0.3)] backdrop-blur-[10px] absolute w-full left-0'>
-          <div className="container mx-auto px-4 md:px-8 lg:px-12 py-2 flex items-center justify-between relative">
+          <div className="container mx-auto px-4 py-2 flex items-center justify-between relative">
             <div className='deskMnu'><MainMenu mainMenuData={mainMenuData} /></div>
             <div className='flex gap-5 items-center'>
               <div className="flex gap-3">

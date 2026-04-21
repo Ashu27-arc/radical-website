@@ -330,7 +330,7 @@ export default function NeetPgIndiaAdmissionPage() {
 
                         {/* Play Store Button Overlay */}
                         <div
-                            className="absolute left-[7.3%] bottom-9 md:bottom-5 h-[41px] z-10 hover:scale-105 transition-transform"
+                            className="absolute left-[7.3%] bottom-9 lg:bottom-12 md:bottom-5 h-[41px] z-10 hover:scale-105 transition-transform"
                         >
                             <Link
                                 href="https://play.google.com/store/apps/details?id=com.kaveka.NeetBhaiya"
@@ -349,7 +349,7 @@ export default function NeetPgIndiaAdmissionPage() {
 
                         {/* App Store Button Overlay */}
                         <div
-                            className="absolute left-[15.5%] md:left-[19%] md:bottom-4 bottom-8 h-[45px] z-10 hover:scale-105 transition-transform"
+                            className="absolute left-[15.5%] md:left-[19%] md:bottom-4 bottom-8 lg:bottom-11 h-[45px] z-10 hover:scale-105 transition-transform"
                         >
                             <Link
                                 href="https://apps.apple.com/in/app/neet-bhaiya/id6737535565"

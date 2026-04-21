@@ -56,7 +56,7 @@ export default function MainMenu({ mainMenuData }: any) {
                 </div>
             ) : (
                 <nav>
-                    <ul className="flex gap-4 firstLVLmnu">
+                    <ul className="flex gap-4 !md:gap-2 lg:gap-4 firstLVLmnu">
                         {mainMenuData.map((level1: any, i: number) => (
                             <li
                                 key={i}

@@ -260,6 +260,109 @@ input.wpforms-error:focus {
 .schema-faq-section.active .schema-faq-question::after {
   content: "−";
 }
+/* ===== MODERN FAQ ACCORDION ===== */
+
+.sp-easy-accordion {
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Card */
+.sp-easy-accordion .sp-ea-single {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 18px 20px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+}
+
+/* Hover effect */
+.sp-easy-accordion .sp-ea-single:hover {
+  border-color: var(--wp-primary);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+/* Active */
+.sp-easy-accordion .sp-ea-single.active {
+  border-color: var(--wp-primary);
+  background: #f8fbff;
+}
+
+/* Question */
+.sp-easy-accordion .ea-header a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--wp-text);
+  text-decoration: none;
+  cursor: pointer;
+  gap: 15px;
+}
+
+/* Icon circle */
+.sp-easy-accordion .ea-header a::after {
+  content: "+";
+  min-width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f1f5f9;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+.sp-easy-accordion .sp-ea-single .ea-header{
+margin:0;
+}
+/* Active icon */
+.sp-easy-accordion .sp-ea-single.active .ea-header a::after {
+  content: "−";
+  background: var(--wp-primary);
+  color: #fff;
+  transform: rotate(180deg);
+}
+
+/* Answer */
+.sp-easy-accordion .sp-collapse {
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.35s ease;
+  opacity: 0;
+}
+
+/* Active answer */
+.sp-easy-accordion .sp-ea-single.active .sp-collapse {
+  max-height: 500px;
+  opacity: 1;
+  margin-top: 12px;
+}
+
+/* Answer text */
+.sp-easy-accordion .ea-body {
+  font-size: 15.5px;
+  color: var(--wp-text-light);
+  line-height: 1.7;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .sp-easy-accordion .sp-ea-single {
+    padding: 16px;
+  }
+
+  .sp-easy-accordion .ea-header a {
+    font-size: 15px;
+  }
+}
+
+
 /* Success Messages */
 .wpforms-confirmation-container-full {
   background: #f0fdf4 !important;
@@ -331,42 +434,106 @@ const ShortcodeRenderer: React.FC<ShortcodeRendererProps> = ({
 
 
 
-// ================= FAQ ACCORDION JS =================
 
-const faqs = shadowRoot.querySelectorAll(".schema-faq-section");
-const questions = shadowRoot.querySelectorAll(".schema-faq-question");
 
-if (faqs.length > 0) {
-  faqs.forEach((f) => f.classList.remove("active"));
-  faqs[0].classList.add("active");
-}
-
-const handleClick = (e: Event) => {
-  const target = e.currentTarget as HTMLElement;
-  const parent = target.closest(".schema-faq-section");
-
-  faqs.forEach((f) => f.classList.remove("active"));
-
-  if (parent) parent.classList.add("active");
-};
-
-questions.forEach((q) => {
-  q.addEventListener("click", handleClick);
-});
-
-// cleanup (VERY IMPORTANT)
-return () => {
-  questions.forEach((q) => {
-    q.removeEventListener("click", handleClick);
-  });
-};
 
 
   }, [html, className]);
 
 
+// ================= FAQ ACCORDION JS =================
 
 
+useEffect(() => {
+  if (!hostRef.current) return;
+
+  const shadowRoot =
+    hostRef.current.shadowRoot ||
+    hostRef.current.attachShadow({ mode: "open" });
+
+  shadowRoot.innerHTML = "";
+
+  // ✅ CLEAN HTML HERE
+  let processedHtml = html
+    .replace(/background-color\s*:\s*[^;"']*;?/gi, "")
+    .replace(/background\s*:\s*[^;"']*;?/gi, "")
+    .replace(/box-shadow\s*:\s*[^;"']*;?/gi, "")
+    .replace(/href="#"/g, 'href="javascript:void(0)"') // 🔥 FIX scroll
+    .replace(/data-sptoggle="spcollapse"/g, ""); // 🔥 REMOVE plugin conflict
+
+  const wrapper = document.createElement("div");
+  wrapper.className = `wp-shortcode-container ${className}`;
+  wrapper.innerHTML = processedHtml;
+
+  const styleEl = document.createElement("style");
+  styleEl.textContent = INTERNAL_STYLES;
+
+  shadowRoot.appendChild(styleEl);
+  shadowRoot.appendChild(wrapper);
+
+  setIsReady(true);
+
+  // ================= FAQ (schema-faq) =================
+  const faqs = shadowRoot.querySelectorAll(".schema-faq-section");
+  const questions = shadowRoot.querySelectorAll(".schema-faq-question");
+
+  if (faqs.length > 0) {
+    faqs.forEach((f) => f.classList.remove("active"));
+    faqs[0].classList.add("active");
+  }
+
+  const handleSchemaClick = (e: Event) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const target = e.currentTarget as HTMLElement;
+    const parent = target.closest(".schema-faq-section");
+
+    faqs.forEach((f) => f.classList.remove("active"));
+
+    if (parent) parent.classList.add("active");
+  };
+
+  questions.forEach((q) => {
+    q.addEventListener("click", handleSchemaClick);
+  });
+
+  // ================= EASY ACCORDION (sp-ea) =================
+  const accordions = shadowRoot.querySelectorAll(".sp-easy-accordion");
+
+  accordions.forEach((accordion) => {
+    const items = accordion.querySelectorAll(".sp-ea-single");
+    const links = accordion.querySelectorAll(".ea-header a");
+
+    if (items.length > 0) {
+      items.forEach((i) => i.classList.remove("active"));
+      items[0].classList.add("active");
+    }
+
+    const handleAccordionClick = (e: Event) => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      const link = e.currentTarget as HTMLElement;
+      const parent = link.closest(".sp-ea-single");
+
+      items.forEach((i) => i.classList.remove("active"));
+
+      if (parent) parent.classList.add("active");
+    };
+
+    links.forEach((l) => {
+      l.addEventListener("click", handleAccordionClick);
+    });
+  });
+
+  // ✅ CLEANUP
+  return () => {
+    questions.forEach((q) => {
+      q.removeEventListener("click", handleSchemaClick);
+    });
+  };
+}, [html, className]);
   
 
   return (
