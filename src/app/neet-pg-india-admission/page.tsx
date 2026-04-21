@@ -7,6 +7,7 @@ import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation, Pagination, Autoplay } from 'swiper/modules'
+import Link from "next/link";
 
 
 
@@ -278,21 +279,21 @@ export default function NeetPgIndiaAdmissionPage() {
                                 <div className="text-center mb-3 text-lg font-semibold text-black group-hover:text-white! transition-colors duration-300">Standard</div>
                                 <div className="text-center text-xs text-[#686767] group-hover:text-white! transition-colors duration-300 mb-6">Turn Your NEET Rank into a Medical <br /> Seat with Expert Guidance. </div>
                                 <div className="flex justify-center mb-8">
-                                    <div className="relative w-[237px] h-[112px] border-[4px] border-[#0095C2] rounded-[20px] flex flex-col items-center justify-center transition-colors duration-300">
-                                        <div className="text-center font-light lg:text-4xl text-black text-3xl group-hover:text-white! transition-colors duration-300">₹ 84,999</div>
-                                        <div className="text-[14px] font-semibold text-[#0095C2] group-hover:text-white! transition-colors duration-300 mt-1 uppercase">Admission Fee</div>
+                                    <div className="relative w-[237px] h-[112px] border-[4px] border-[#EE6E1E3B] rounded-[20px] flex flex-col items-center justify-center transition-colors duration-300">
+                                        <div className="text-center font-semibold font-weight-600 lg:text-4xl text-black text-3xl group-hover:text-white! transition-colors duration-300">₹ 84,999</div>
+                                        <div className="text-[14px] font-normal font-weight-400 text-[#EE6E1E] group-hover:text-white! transition-colors duration-300 mt-1 text-center">Admission service charge <span className="text-[14px] text-[#EE6E1E] font-bold font-weight-700">before NEET result</span></div>
                                         <div className="absolute -top-5 -right-5 w-12 h-12">
-                                            <img src="/images/rp.svg" alt="" className="w-full h-full object-contain" />
+                                            <img src="/svg/pg-corner.svg" alt="" className="w-full h-full object-contain" />
                                         </div>
                                     </div>
                                 </div>
                                 <div className="flex flex-col gap-3 mb-10">
-                                    <Button className="text-[#005787]! border-[#DFF1FF]! bg-[#E5F3FF]! group-hover:bg-[#FFFFFF47]! group-hover:text-white! group-hover:border-[#FFFFFF47]! w-full flex gap-2 items-center transition-all duration-300" rounded>
+                                    <Button className="text-white! border-[#DFF1FF]! bg-[#EE6E1E]! group-hover:bg-[#FFFFFF47]! group-hover:text-white! group-hover:border-[#FFFFFF47]! w-full flex gap-2 items-center transition-all duration-300" rounded>
                                         Pay Now
                                     </Button>
                                 </div>
                                 <div className="text-base text-black font-semibold group-hover:text-white! transition-colors duration-300 mb-5">Features</div>
-                                <ul className="space-y-2 text-sm text-gray-700 mb-8">
+                                <ul className="space-y-2 text-sm text-gray-700 mb-4">
                                     {features.map((item, index) => (
                                         <li key={index} className="flex gap-2">
                                             <span className="text-yellow-500 transition-colors duration-300">✦</span>
@@ -300,12 +301,75 @@ export default function NeetPgIndiaAdmissionPage() {
                                         </li>
                                     ))}
                                 </ul>
+                                <div className="mt-2">
+                                    <div className="flex gap-2 items-start">
+                                        <span className="text-[#1D1D1D] font-semibold text-[12px] uppercase tracking-wider group-hover:text-white transition-colors duration-300 mt-0.5">Note:</span>
+                                        <p className="text-[12px] font-weight-600 font-semibold leading-relaxed text-[#EE6E1E] group-hover:text-white/90 transition-colors duration-300 poppins">
+                                            This service charge includes the Visa charges but <span className="font-normal font-weight-400 text-[#EE6E1E]">does not cover the ticket charges.</span>
+                                        </p>
+                                    </div>
+                                </div>
 
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+            <section className="mb-16">
+                <div className="container px-3 md:px-0">
+                    <div className="relative w-full aspect-[1240/350] rounded-2xl overflow-hidden shadow-lg cursor-pointer">
+                        {/* Base Banner Link */}
+                        <Link href="https://neetbhaiya.in" target="_blank" className="block w-full h-full">
+                            <Image
+                                src="/images/banner-neet-bhaiya.webp"
+                                alt="NEET UG Banner"
+                                fill
+                                className="object-cover"
+                            />
+                        </Link>
+
+                        {/* Play Store Button Overlay */}
+                        <div
+                            className="absolute left-[7.3%] bottom-9 md:bottom-5 h-[41px] z-10 hover:scale-105 transition-transform"
+                        >
+                            <Link
+                                href="https://play.google.com/store/apps/details?id=com.kaveka.NeetBhaiya"
+                                target="_blank"
+                                className="block w-full h-full"
+                            >
+                                <Image
+                                    src="/svg/play-store.svg"
+                                    alt="Google Play Store"
+                                    width={200}
+                                    height={200}
+                                    className="object-contain w-full h-full"
+                                />
+                            </Link>
+                        </div>
+
+                        {/* App Store Button Overlay */}
+                        <div
+                            className="absolute left-[19.9%] md:left-[28%] md:bottom-4 bottom-8 h-[45px] z-10 hover:scale-105 transition-transform"
+                        >
+                            <Link
+                                href="https://apps.apple.com/in/app/neet-bhaiya/id6737535565"
+                                target="_blank"
+                                className="block w-full h-full"
+                            >
+                                <Image
+                                    src="/svg/app-store.svg"
+                                    alt="App Store"
+                                    width={200}
+                                    height={200}
+                                    className="object-contain w-full h-full"
+                                />
+                            </Link>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
             <section className="pb-10 lg:pb-15 bg-[#F4F7F8]">
                 <div className="container px-3 md:px-4">
                     <div className='mb-10 fadeUp text-center'>

@@ -108,80 +108,71 @@ export default function StudyAbroadPage() {
                 </div>
             </section>
 
-            {/* Countries Section */}
-            <div className="container mx-auto px-4 py-10 sm:py-12 lg:py-16">
-                <div className="flex flex-col lg:flex-row items-start justify-between gap-4 sm:gap-8">
-                    {/* Left side - Countries and Heading */}
-                    <div className="lg:w-1/2">
-                        {/* <p className="text-gray-600 mb-2 text-sm sm:text-base font-semibold">COUNTRIES</p> */}
-                        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-800 mb-4">Global Education,
-                            Made Simple.</h2>
+            <section className="mb-10 lg:mb-20">
+                <div className="bg-white py-12 md:py-16">
+                    <div className="container mx-auto px-4 mb-10 text-center">
+                        <h2 className="text-3xl md:text-[16px] font-medium font-weight-500 text-gray-900 mb-4 text-left">Our Students are Everywhere.</h2>
                     </div>
-
-                    {/* Right side - Description */}
-                    <div className="lg:w-1/2">
-                        <p className="text-gray-600 text-sm sm:text-base">
-                            Transform your perspective with life-changing study abroad experiences. Gain the international experience, language skills, and global network that top employers are looking for. Your journey to a world-class degree starts here.
-                        </p>
-                    </div>
-                </div>
-            </div>
-
-            <section className="py-10 bg-white mb-10 lg:mb-20">
-                <div className="study-abroadCuntrySlider overflow-hidden pb-12">
-                    <Swiper
-                        modules={[Autoplay, Pagination]}
-                        spaceBetween={30}
-                        loop={true}
-                        pagination={{ clickable: true }}
-                        speed={3000}
-                        autoplay={{
-                            delay: 2000,
-                            disableOnInteraction: false,
-                        }}
-                        breakpoints={{
-                            0: {
-                                slidesPerView: 2,
-                            },
-                            480: {
-                                slidesPerView: 3,
-                            },
-                            768: {
-                                slidesPerView: 4,
-                            },
-                            1024: {
-                                slidesPerView: 6,
-                            },
-                        }}
-                        className="!ease-linear !overflow-visible"
-                    >
-                        {countries.map((country, index) => (
-                            <SwiperSlide key={index} className="!overflow-visible">
-                                <div className="text-center flex flex-col items-center">
-                                    <Link
-                                        href={`/mbbs-abroad-admission/`}
-                                        className="block group"
-                                    >
-                                        <div className="transition-all hover:scale-110 duration-300 relative hover:z-[100] p-4">
-                                            <div className="w-[100px] h-[85px] rounded-[10px] overflow-hidden shadow-lg mx-auto bg-white relative border border-gray-100">
-                                                <Image
-                                                    src={country.flag}
-                                                    alt={`${country.name} flag`}
-                                                    width={100}
-                                                    height={85}
-                                                    className="w-full h-full object-cover"
-                                                />
+                    <div className="study-abroadCuntrySlider overflow-hidden">
+                        <Swiper
+                            modules={[Autoplay, Pagination]}
+                            spaceBetween={30}
+                            loop={true}
+                            pagination={{
+                                clickable: true,
+                                el: '.swiper-pagination-custom',
+                            }}
+                            speed={3000}
+                            autoplay={{
+                                delay: 2000,
+                                disableOnInteraction: false,
+                            }}
+                            breakpoints={{
+                                0: {
+                                    slidesPerView: 2,
+                                },
+                                480: {
+                                    slidesPerView: 3,
+                                },
+                                768: {
+                                    slidesPerView: 4,
+                                },
+                                1024: {
+                                    slidesPerView: 6,
+                                },
+                            }}
+                            className="!ease-linear"
+                        >
+                            {countries.map((country, index) => (
+                                <SwiperSlide key={index}>
+                                    <div className="text-center flex flex-col items-center">
+                                        <Link
+                                            href={`/mbbs-abroad-admission/`}
+                                            className="block group"
+                                        >
+                                            <div className="transition-all hover:scale-110 duration-300 p-4">
+                                                <div className="w-[100px] h-[85px] rounded-[10px] overflow-hidden shadow-lg mx-auto bg-white relative border border-gray-100">
+                                                    <Image
+                                                        src={country.flag}
+                                                        alt={`${country.name} flag`}
+                                                        width={100}
+                                                        height={85}
+                                                        className="w-full h-full object-cover"
+                                                    />
+                                                </div>
                                             </div>
-                                        </div>
-                                    </Link>
-                                    <h3 className="font-semibold text-gray-800 mt-0 md:mt-1 text-xs md:text-sm">
-                                        {country.name}
-                                    </h3>
-                                </div>
-                            </SwiperSlide>
-                        ))}
-                    </Swiper>
+                                        </Link>
+                                        <h3 className="font-semibold text-gray-800 mt-0 md:mt-1 text-xs md:text-sm">
+                                            {country.name}
+                                        </h3>
+                                    </div>
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
+                    </div>
                 </div>
+                {/* Custom Pagination outside white section */}
+                <div className="swiper-pagination-custom flex justify-center mt-6 !static"></div>
             </section>
 
 
@@ -227,11 +218,11 @@ export default function StudyAbroadPage() {
                                         </li>
                                     ))}
                                 </ul>
-                                <div className="mt-8 pt-5 border-t border-dashed border-gray-200 group-hover:border-white/20">
+                                <div className="mt-4">
                                     <div className="flex gap-2 items-start">
-                                        <span className="text-[#FF0000] font-bold text-[10px] uppercase tracking-wider group-hover:text-white transition-colors duration-300 mt-0.5">Note:</span>
-                                        <p className="text-[12px] leading-relaxed text-[#686767] group-hover:text-white/90 transition-colors duration-300 italic">
-                                            This service charge includes the Visa charges but does not cover the ticket charges.
+                                        <span className="text-[#1D1D1D] font-semibold text-[12px] uppercase tracking-wider group-hover:text-white transition-colors duration-300 mt-0.5">Note:</span>
+                                        <p className="text-[12px] font-weight-600 font-semibold leading-relaxed text-[#6E67C9] group-hover:text-white/90 transition-colors duration-300 poppins">
+                                            This service charge includes the Visa charges but <span className="font-normal font-weight-400 text-[#6E67C9]">does not cover the ticket charges.</span>
                                         </p>
                                     </div>
                                 </div>
@@ -239,7 +230,60 @@ export default function StudyAbroadPage() {
                             </div>
                         </div>
                     </div>
+                </div>
+            </section>
 
+            <section className="mb-16">
+                <div className="container px-3 md:px-0">
+                    <div className="relative w-full aspect-[1240/350] rounded-2xl overflow-hidden shadow-lg cursor-pointer">
+                        {/* Base Banner Link */}
+                        <Link href="https://neetbhaiya.in" target="_blank" className="block w-full h-full">
+                            <Image
+                                src="/images/banner-neet-bhaiya.webp"
+                                alt="NEET UG Banner"
+                                fill
+                                className="object-cover"
+                            />
+                        </Link>
+
+                        {/* Play Store Button Overlay */}
+                        <div
+                            className="absolute left-[7.3%] bottom-9 md:bottom-5 h-[41px] z-10 hover:scale-105 transition-transform"
+                        >
+                            <Link
+                                href="https://play.google.com/store/apps/details?id=com.kaveka.NeetBhaiya"
+                                target="_blank"
+                                className="block w-full h-full"
+                            >
+                                <Image
+                                    src="/svg/play-store.svg"
+                                    alt="Google Play Store"
+                                    width={200}
+                                    height={200}
+                                    className="object-contain w-full h-full"
+                                />
+                            </Link>
+                        </div>
+
+                        {/* App Store Button Overlay */}
+                        <div
+                            className="absolute left-[19.9%] md:left-[28%] md:bottom-4 bottom-8 h-[45px] z-10 hover:scale-105 transition-transform"
+                        >
+                            <Link
+                                href="https://apps.apple.com/in/app/neet-bhaiya/id6737535565"
+                                target="_blank"
+                                className="block w-full h-full"
+                            >
+                                <Image
+                                    src="/svg/app-store.svg"
+                                    alt="App Store"
+                                    width={200}
+                                    height={200}
+                                    className="object-contain w-full h-full"
+                                />
+                            </Link>
+                        </div>
+                    </div>
                 </div>
             </section>
 
