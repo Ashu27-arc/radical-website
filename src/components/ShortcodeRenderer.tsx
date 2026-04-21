@@ -21,7 +21,7 @@ const INTERNAL_STYLES = `
 }
 
 .wp-shortcode-container {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   line-height: 1.8;
   color: var(--wp-text);
   font-size: 17px;

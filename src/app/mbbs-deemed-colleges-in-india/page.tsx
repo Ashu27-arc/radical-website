@@ -83,12 +83,12 @@ export default function MBBSDeemedCollegesPage() {
                     </span>
 
                     <h1 className="text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-gray-900 mt-2 leading-tight break-words">
-                        MBBS Deemed Colleges in India 2025–2026: Fees, Cutoff & Admission
+                        MBBS Deemed Colleges in India 2026–2027: Fees, Cutoff & Admission
                     </h1>
-
+                    {/* 
                     <p className="text-xs sm:text-sm text-gray-500 mt-1">
                         Danish Farzan • 19 Jan 2022
-                    </p>
+                    </p> */}
 
                     {/* IMAGE */}
                     <div className="mt-4 sm:mt-5 md:mt-6">
@@ -156,8 +156,30 @@ export default function MBBSDeemedCollegesPage() {
                         </Link>
 
                         <h2 className="text-base sm:text-lg md:text-xl font-bold text-[#287FC4] mt-5 sm:mt-6 md:mt-8 mb-3 sm:mb-4">
-                            List of Private Medical colleges in Bihar is given in the table below
+                            Clinical Exposure and Internship Opportunities at Deemed Colleges
                         </h2>
+
+                        <p className="text-gray-700 text-xs sm:text-sm md:text-base mb-4 sm:mb-5 md:mb-6 leading-relaxed">
+                            Clinical and internship training play a crucial role in an MBBS course in deemed universities. The majority of such institutions possess hospitals providing treatments in various fields of medical sciences. From the very beginning, students interact with patients, gradually learning how to react and deal with real-life situations. At each step of the study process, they are assigned to different departments of hospitals, including medicine, surgery, pediatrics, gynecology, etc., and work on treating the patients directly.
+                        </p>
+                        <ul className="list-disc pl-5 mt-3 space-y-2 text-gray-700 text-xs sm:text-sm md:text-base">
+                            <li>
+                                <p>
+                                    Thus, the MBBS course in India includes CRRI internship training for one year.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    During this period of time, students under the supervision of senior practitioners are taking care of patients.
+                                </p>
+                            </li>
+                            <li>
+                                <p>
+                                    It enables students to acquire skills of diagnosing health issues, gain experience in dealing with patients, and improve their diagnostic skills. Otherwise, students will not be able to apply for registration as a doctor in India.
+                                </p>
+                            </li>
+                        </ul>
+
 
                         {/* Private Medical Colleges Table */}
                         <div className="relative overflow-x-auto -mx-1 sm:mx-0 max-w-full rounded-lg border border-gray-200">
@@ -195,15 +217,16 @@ export default function MBBSDeemedCollegesPage() {
                                     </thead>
                                     <tbody className="bg-white">
                                         {[
-                                            { name: "Katihar Medical College", location: "Katihar", logo: "/images/deemed/logos/01.webp" },
-                                            { name: "Mata Gujri Memorial Medical College", location: "Kishanganj", logo: "/images/deemed/logos/02.webp" },
-                                            { name: "Narayan Medical College & Hospital", location: "Sasaram", logo: "/images/deemed/logos/03.webp" },
-                                            { name: "Lord Buddha Koshi Medical College and Hospital", location: "Saharsa", logo: "/images/deemed/logos/04.webp" },
-                                            { name: "Shree Narayan Medical Institute & Hospital", location: "Saharsa", logo: "/images/deemed/logos/05.webp" },
-                                            { name: "Netaji Subhas Medical College & Hospital", location: "Bihta", logo: "/images/deemed/logos/06.webp" },
-                                            { name: "Madhubani Medical College", location: "Madhubani", logo: "/images/deemed/logos/07.webp" },
-                                            { name: "Radha Devi Jageshwari Memorial Medical College and Hospital", location: "Araria", logo: "/images/deemed/logos/08.webp" },
-                                            { name: "Himalaya Medical College and Hospital", location: "Jolly Grant", logo: "/images/deemed/logos/09.webp" }
+                                            { name: "Kasturba Medical College", location: "Manipal, Karnataka", logo: "/images/deemed/logos/01.webp" },
+                                            { name: "Kasturba Medical College", location: "Mangalore, Karnataka", logo: "/images/deemed/logos/02.webp" },
+                                            { name: "Sri Ramachandra Institute of Higher Education and Research", location: "Chennai, Tamil Nadu", logo: "/images/deemed/logos/03.webp" },
+                                            { name: "JSS Medical College", location: "Mysuru, Karnataka", logo: "/images/deemed/logos/04.webp" },
+                                            { name: "Amrita Institute of Medical Sciences", location: "Kochi, Kerala", logo: "/images/deemed/logos/05.webp" },
+                                            { name: "Jawaharlal Nehru Medical College", location: "Belagavi, Karnataka", logo: "/images/deemed/logos/06.webp" },
+                                            { name: "Kalinga Institute of Medical Sciences", location: "Bhubaneswar, Odisha", logo: "/images/deemed/logos/07.webp" },
+                                            { name: "Dr. D. Y. Patil Medical College", location: "Pune, Maharashtra", logo: "/images/deemed/logos/08.webp" },
+                                            { name: "Bharati Vidyapeeth Medical College", location: "Pune, Maharashtra", logo: "/images/deemed/logos/09.webp" },
+                                            { name: "SBKS Medical Institute and Research Centre", location: "Vadodara, Gujarat", logo: "/images/deemed/logos/01.webp" }
                                         ].map((college, index) => (
                                             <tr key={index} className="hover:bg-white-50">
                                                 <td className="border border-gray-300 px-2 sm:px-3 lg:px-4 py-2">{index + 1}</td>
@@ -223,10 +246,10 @@ export default function MBBSDeemedCollegesPage() {
                                                 </td>
                                                 <td className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 whitespace-nowrap">{college.location}</td>
                                                 <td className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2">
-                                                    <button className="text-blue-600 hover:underline text-[10px] sm:text-xs md:text-sm whitespace-nowrap">
+                                                    <Link href="/contact-us" className="text-blue-600 hover:underline text-[10px] sm:text-xs md:text-sm whitespace-nowrap">
                                                         <span className="hidden sm:inline">Click Here</span>
                                                         <span className="sm:hidden">View</span>
-                                                    </button>
+                                                    </Link>
                                                 </td>
                                             </tr>
                                         ))}
@@ -234,167 +257,130 @@ export default function MBBSDeemedCollegesPage() {
                                 </table>
                             </div>
                         </div>
-                        <h2 className="text-base sm:text-lg md:text-xl font-bold text-[#287FC4] mt-5 sm:mt-6 md:mt-8 mb-3 sm:mb-4">
-                            List of Government Medical colleges in Bihar is given in the table below
-                        </h2>
+                        <div className="mt-5 sm:mt-6 md:mt-8 mb-4 sm:mb-6">
+                            <h2 className="text-base sm:text-lg md:text-xl font-bold text-[#287FC4] mb-3 sm:mb-4">
+                                How to choose the right Deemed Medical College
+                            </h2>
+                            <p className="text-xs sm:text-sm md:text-base text-gray-700 leading-relaxed mb-4 sm:mb-6">
+                                Choosing the appropriate medical college for pursuing an undergraduate medical programme is an important step that determines how effectively you acquire knowledge, your practical learning through interaction with patients, and opportunities for future employment. Do not rely on ranking or the reputation of the institution while making this choice. Rather, take several other considerations into account. For instance, ensure that the selected institution is accredited by the National Medical Commission, as only such an institution can offer you accreditation for your qualification within the country. You should also pay attention to the affiliated hospital and the number of patients it accommodates, as this ensures greater practical exposure.
+                            </p>
+                        </div>
                         {/* Government Colleges Table */}
                         <div className="overflow-x-auto -mx-1 sm:mx-0 max-w-full rounded-lg border border-gray-200">
-                            <table className="w-full border-collapse border border-gray-300 text-[10px] sm:text-xs md:text-sm min-w-[320px] sm:min-w-0 table-fixed sm:table-auto">
+                            <table className="w-full border-collapse border border-gray-300 text-[10px] sm:text-xs md:text-sm min-w-[320px] sm:min-w-0">
                                 <thead>
                                     <tr className="bg-[#D4ECFF]">
-                                        <th className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 text-left">S.NO</th>
-                                        <th className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 text-left">NAME of the College</th>
-                                        <th className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 text-left">
-                                            <div className="flex items-center gap-1">
-                                                <svg width="12" height="12" className="sm:w-4 sm:h-4 flex-shrink-0" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" fill="black" />
-                                                </svg>
-                                                <span className="hidden sm:inline">Location</span>
-                                                <span className="sm:hidden">Loc.</span>
-                                            </div>
-                                        </th>
-                                        <th className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 text-left">
-                                            <span className="hidden sm:inline">Detailed Overview</span>
-                                            <span className="sm:hidden">Details</span>
-                                        </th>
+                                        <th className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 text-left font-semibold">Factor</th>
+                                        <th className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 text-left font-semibold">What to Check</th>
+                                        <th className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 text-left font-semibold">Why It Matters</th>
                                     </tr>
                                 </thead>
                                 <tbody className="bg-white">
                                     {[
-                                        { name: "Katihar Medical College", location: "Katihar", logo: "/images/deemed/logos/01.webp" },
-                                        { name: "Mata Gujri Memorial Medical College", location: "Kishanganj", logo: "/images/deemed/logos/02.webp" },
-                                        { name: "Narayan Medical College & Hospital", location: "Sasaram", logo: "/images/deemed/logos/03.webp" },
-                                        { name: "Lord Buddha Koshi Medical College and Hospital", location: "Saharsa", logo: "/images/deemed/logos/04.webp" },
-                                        { name: "Shree Narayan Medical Institute & Hospital", location: "Saharsa", logo: "/images/deemed/logos/05.webp" },
-                                        { name: "Netaji Subhas Medical College & Hospital", location: "Bihta", logo: "/images/deemed/logos/06.webp" },
-                                        { name: "Madhubani Medical College", location: "Madhubani", logo: "/images/deemed/logos/07.webp" },
-                                        { name: "Radha Devi Jageshwari Memorial Medical College and Hospital", location: "Araria", logo: "/images/deemed/logos/08.webp" },
-                                        { name: "Himalaya Medical College and Hospital", location: "Jolly Grant", logo: "/images/deemed/logos/09.webp" }
-                                    ].map((college, index) => (
-                                        <tr key={index} className="hover:bg-gray-50">
-                                            <td className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2">{index + 1}</td>
-                                            <td className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2">
-                                                <div className="flex items-center gap-1 sm:gap-2 min-w-0">
-                                                    <div className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full overflow-hidden flex-shrink-0">
-                                                        <Image
-                                                            src={college.logo}
-                                                            alt={`${college.name} logo`}
-                                                            width={32}
-                                                            height={32}
-                                                            className="w-full h-full object-cover"
-                                                        />
-                                                    </div>
-                                                    <span className="text-[10px] sm:text-xs md:text-sm leading-tight truncate">{college.name}</span>
-                                                </div>
-                                            </td>
-                                            <td className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 whitespace-nowrap">{college.location}</td>
-                                            <td className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2">
-                                                <button className="text-blue-600 hover:underline text-[10px] sm:text-xs md:text-sm whitespace-nowrap">
-                                                    <span className="hidden sm:inline">Click Here</span>
-                                                    <span className="sm:hidden">View</span>
-                                                </button>
-                                            </td>
+                                        { factor: "Recognition", check: "Approved by the National Medical Commission", why: "Ensures your MBBS degree is valid and recognized" },
+                                        { factor: "Admission Process", check: "Through the Medical Counselling Committee", why: "Confirms transparency and proper seat allocation" },
+                                        { factor: "Hospital & Patient Flow", check: "Number of beds, OPD/IPD load", why: "Better clinical exposure and practical learning" },
+                                        { factor: "Infrastructure", check: "Labs, libraries, hostels, simulation labs", why: "Enhances the overall learning environment" },
+                                        { factor: "Fee Structure", check: "Tuition + hostel + miscellaneous costs", why: "Helps in financial planning" },
+                                        { factor: "NEET Cutoff Trends", check: "Previous years’ closing ranks", why: "Helps assess admission chances" },
+                                        { factor: "Internship & Exposure", check: "Hospital training, stipend", why: "Important for real-world medical experience" }
+                                    ].map((item, index) => (
+                                        <tr key={index} className="hover:bg-gray-50 text-gray-700">
+                                            <td className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 font-medium">{item.factor}</td>
+                                            <td className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2">{item.check}</td>
+                                            <td className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2">{item.why}</td>
                                         </tr>
                                     ))}
                                 </tbody>
                             </table>
                         </div>
 
-                        {/* neet exam india */}
-                        <div className="rounded-lg sm:rounded-xl mt-5 sm:mt-6 md:mt-8">
-                            <h2 className="text-base sm:text-lg md:text-xl font-bold text-gray-800 mb-3 sm:mb-4">
-                                NEET Exam in India: Your Gateway to a Bright Medical Career
-                            </h2>
 
-                            <p className="text-gray-700 text-xs sm:text-sm md:text-base mb-4 sm:mb-5 md:mb-6 leading-relaxed">
-                                The NEET is the primary entrance examination in India for pursuing courses like MBBS, BDS, and more. The exam is conducted by the NTA and is essential for getting admitted into government, private, or other recognized medical institutions in India. Thousands of candidates give this exam annually, and a good score in this exam increases their chances of admission to the best medical universities, where they can pursue quality medical education. This will help the admission process become more transparent and merit-based, thus paving the way for their successful careers in medicine.
-                            </p>
 
-                            <h3 className="text-sm sm:text-base md:text-lg font-bold text-gray-800 mb-2 sm:mb-3">
-                                Expected MBBS Cutoff for Bihar 2025
-                            </h3>
+                        <h3 className="text-sm sm:text-base md:text-lg font-bold text-gray-800 mb-2 sm:mb-3">
+                            Expected MBBS Cutoff for Bihar 2025
+                        </h3>
 
-                            <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-3 sm:mb-4">
-                                The cutoff scores vary for different categories and institutions. Below is an estimate based on previous years' trends:
-                            </p>
+                        <p className="text-xs sm:text-sm md:text-base text-gray-600 mb-3 sm:mb-4">
+                            The cutoff scores vary for different categories and institutions. Below is an estimate based on previous years' trends:
+                        </p>
 
-                            <div className="overflow-x-auto -mx-1 sm:mx-0 max-w-full rounded-lg border border-gray-200">
-                                <table className="w-full border-collapse border border-gray-300 bg-white text-[10px] sm:text-xs md:text-sm min-w-[240px]">
-                                    <thead>
-                                        <tr className="bg-[#D4ECFF]">
-                                            <th className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 md:py-3 text-left font-semibold">Category</th>
-                                            <th className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 md:py-3 text-center font-semibold">
-                                                <span className="hidden sm:inline">Government Colleges Cutoff<br />(NEET Score)</span>
-                                                <span className="sm:hidden">Govt. Cutoff</span>
-                                            </th>
-                                            <th className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 md:py-3 text-center font-semibold">
-                                                <span className="hidden sm:inline">Private Colleges Cutoff<br />(NEET Score)</span>
-                                                <span className="sm:hidden">Pvt. Cutoff</span>
-                                            </th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr className="hover:bg-gray-50">
-                                            <td className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 md:py-3 font-medium">General</td>
-                                            <td className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 md:py-3 text-center">600+</td>
-                                            <td className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 md:py-3 text-center">450+</td>
-                                        </tr>
-                                        <tr className="hover:bg-gray-50">
-                                            <td className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 md:py-3 font-medium">OBC</td>
-                                            <td className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 md:py-3 text-center">580+</td>
-                                            <td className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 md:py-3 text-center">430+</td>
-                                        </tr>
-                                        <tr className="hover:bg-gray-50">
-                                            <td className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 md:py-3 font-medium">SC</td>
-                                            <td className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 md:py-3 text-center">480+</td>
-                                            <td className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 md:py-3 text-center">350+</td>
-                                        </tr>
-                                        <tr className="hover:bg-gray-50">
-                                            <td className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 md:py-3 font-medium">ST</td>
-                                            <td className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 md:py-3 text-center">450+</td>
-                                            <td className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 md:py-3 text-center">320+</td>
-                                        </tr>
-                                        <tr className="hover:bg-gray-50">
-                                            <td className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 md:py-3 font-medium">EWS</td>
-                                            <td className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 md:py-3 text-center">590+</td>
-                                            <td className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 md:py-3 text-center">440+</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-
-                            <p className="text-xs sm:text-sm text-gray-600 mt-3 sm:mt-4">
-                                These cutoff scores are approximate and may change based on NEET 2025 results and the number of applicants for MBBS
-                                in Bihar 2025.
-                            </p>
-
-                            <h3 className="text-sm sm:text-base md:text-lg font-bold text-gray-800 mt-4 sm:mt-5 md:mt-6 mb-2 sm:mb-3">
-                                Benefits of Deemed Universities for NEET Aspirants
-                            </h3>
-
-                            <p className="text-gray-700 text-xs sm:text-sm md:text-base leading-relaxed">
-                                Nowadays, deemed universities have proved to be one of the most sought-after options by students who clear the NEET UG examination, particularly when it comes to gaining good-quality education and admission into universities. Deemed universities offer quality education, up-to-date infrastructure, and career prospects.
-                            </p>
-
-                            <ul className="list-disc pl-5 mt-3 space-y-2 text-gray-700 text-xs sm:text-sm md:text-base">
-                                <li>Higher chances of admission</li>
-                                <li>No state domicile restrictions</li>
-                                <li>Advanced infrastructure & facilities</li>
-                                <li>Better clinical exposure</li>
-                                <li>Wide PG & specialization options</li>
-                                <li>Flexible cutoff range</li>
-                                <li>Global exposure opportunities</li>
-                                <li>Quality education under National Medical Commission guidelines</li>
-                                <li>Comfortable campus & hostel facilities</li>
-                                <li>Centralized counselling via the Medical Counselling Committee</li>
-                            </ul>
+                        <div className="overflow-x-auto -mx-1 sm:mx-0 max-w-full rounded-lg border border-gray-200">
+                            <table className="w-full border-collapse border border-gray-300 bg-white text-[10px] sm:text-xs md:text-sm min-w-[240px]">
+                                <thead>
+                                    <tr className="bg-[#D4ECFF]">
+                                        <th className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 md:py-3 text-left font-semibold">Category</th>
+                                        <th className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 md:py-3 text-center font-semibold">
+                                            <span className="hidden sm:inline">Government Colleges Cutoff<br />(NEET Score)</span>
+                                            <span className="sm:hidden">Govt. Cutoff</span>
+                                        </th>
+                                        <th className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 md:py-3 text-center font-semibold">
+                                            <span className="hidden sm:inline">Private Colleges Cutoff<br />(NEET Score)</span>
+                                            <span className="sm:hidden">Pvt. Cutoff</span>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr className="hover:bg-gray-50">
+                                        <td className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 md:py-3 font-medium">General</td>
+                                        <td className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 md:py-3 text-center">600+</td>
+                                        <td className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 md:py-3 text-center">450+</td>
+                                    </tr>
+                                    <tr className="hover:bg-gray-50">
+                                        <td className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 md:py-3 font-medium">OBC</td>
+                                        <td className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 md:py-3 text-center">580+</td>
+                                        <td className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 md:py-3 text-center">430+</td>
+                                    </tr>
+                                    <tr className="hover:bg-gray-50">
+                                        <td className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 md:py-3 font-medium">SC</td>
+                                        <td className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 md:py-3 text-center">480+</td>
+                                        <td className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 md:py-3 text-center">350+</td>
+                                    </tr>
+                                    <tr className="hover:bg-gray-50">
+                                        <td className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 md:py-3 font-medium">ST</td>
+                                        <td className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 md:py-3 text-center">450+</td>
+                                        <td className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 md:py-3 text-center">320+</td>
+                                    </tr>
+                                    <tr className="hover:bg-gray-50">
+                                        <td className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 md:py-3 font-medium">EWS</td>
+                                        <td className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 md:py-3 text-center">590+</td>
+                                        <td className="border border-gray-300 px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 md:py-3 text-center">440+</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
 
-                        {/* FAQ's */}
-                        <div className="mt-5 sm:mt-6 md:mt-8">
-                            <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-gray-800 mb-3 sm:mb-4 md:mb-6">FAQ'S</h2>
-                            <FAQSection />
-                        </div>
+                        <p className="text-xs sm:text-sm text-gray-600 mt-3 sm:mt-4">
+                            These cutoff scores are approximate and may change based on NEET 2025 results and the number of applicants for MBBS
+                            in Bihar 2025.
+                        </p>
+
+                        <h3 className="text-sm sm:text-base md:text-lg font-bold text-gray-800 mt-4 sm:mt-5 md:mt-6 mb-2 sm:mb-3">
+                            Benefits of Deemed Universities for NEET Aspirants
+                        </h3>
+
+                        <p className="text-gray-700 text-xs sm:text-sm md:text-base leading-relaxed">
+                            Nowadays, deemed universities have proved to be one of the most sought-after options by students who clear the NEET UG examination, particularly when it comes to gaining good-quality education and admission into universities. Deemed universities offer quality education, up-to-date infrastructure, and career prospects.
+                        </p>
+
+                        <ul className="list-disc pl-5 mt-3 space-y-2 text-gray-700 text-xs sm:text-sm md:text-base">
+                            <li>Higher chances of admission</li>
+                            <li>No state domicile restrictions</li>
+                            <li>Advanced infrastructure & facilities</li>
+                            <li>Better clinical exposure</li>
+                            <li>Wide PG & specialization options</li>
+                            <li>Flexible cutoff range</li>
+                            <li>Global exposure opportunities</li>
+                            <li>Quality education under National Medical Commission guidelines</li>
+                            <li>Comfortable campus & hostel facilities</li>
+                            <li>Centralized counselling via the Medical Counselling Committee</li>
+                        </ul>
+                    </div>
+
+                    {/* FAQ's */}
+                    <div className="mt-5 sm:mt-6 md:mt-8">
+                        <h2 className="text-base sm:text-lg md:text-xl lg:text-2xl font-bold text-gray-800 mb-3 sm:mb-4 md:mb-6">FAQ'S</h2>
+                        <FAQSection />
                     </div>
                 </div>
 
@@ -477,6 +463,8 @@ export default function MBBSDeemedCollegesPage() {
                                         onChange={handleInputChange}
                                         className="peer bg-white w-full px-3 sm:px-4 py-2.5 sm:py-2 rounded-lg outline-none text-xs sm:text-sm text-gray-900 min-h-[50px] touch-manipulation"
                                         required
+                                        pattern="[0-9]{10}"
+                                        title="Please enter a 10-digit mobile number"
                                         disabled={isSubmitting}
                                     />
                                     <span className="absolute left-3 sm:left-4 top-1/2 -translate-y-1/2 text-xs sm:text-sm text-[#78787899] pointer-events-none transition-opacity duration-200 peer-focus:opacity-0 peer-not-placeholder-shown:opacity-0">
@@ -525,17 +513,20 @@ export default function MBBSDeemedCollegesPage() {
                             <h3 className="text-base sm:text-lg font-bold text-[#287FC4] mb-3 sm:mb-4">
                                 Related
                             </h3>
-
                             <div className="space-y-3 sm:space-y-4">
-                                {[1, 2, 3].map((item) => (
-                                    <div key={item} className="border-b border-[#ABABAB] pb-2 sm:pb-3 last:border-b-0 cursor-pointer group transition-colors duration-300">
+                                {[
+                                    { title: "Top Deemed Medical Colleges in India 2025", date: "20 Jan 2024", href: "/neet-ug-india-admission" },
+                                    { title: "MBBS Admission Process & Counseling Guide", date: "15 Feb 2024", href: "/mbbs-in-india" },
+                                    { title: "NEET UG 2025: Syllabus and Exam Pattern", date: "10 Mar 2024", href: "/blogs" }
+                                ].map((item, index) => (
+                                    <Link key={index} href={item.href} className="block border-b border-[#ABABAB] pb-2 sm:pb-3 last:border-b-0 cursor-pointer group transition-colors duration-300">
                                         <h4 className="font-semibold text-gray-800 text-xs sm:text-sm md:text-base leading-tight group-hover:text-[#287FC4] transition-colors">
-                                            NEET Exam in India: Your Gateway to a Bright Medical
+                                            {item.title}
                                         </h4>
                                         <p className="text-xs text-gray-500 mt-1">
-                                            Danish Farzan • 19 Jan 2022
+                                            Danish Farzan • {item.date}
                                         </p>
-                                    </div>
+                                    </Link>
                                 ))}
                             </div>
                         </div>

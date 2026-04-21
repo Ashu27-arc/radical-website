@@ -11,6 +11,7 @@ import ScrollEffectProvider from '@/components/ScrollEffectProvider';
 import ClientWrapper from '@/components/ClientWrapper';
 import { Metadata } from 'next';
 import EnquireButton from '@/components/EnquireButton';
+import ScrollToTop from '@/components/ScrollToTop';
 import Script from 'next/script';
 
 
@@ -61,10 +62,11 @@ export default function RootLayout({ children, }: { children: React.ReactNode; }
           `}
         </Script>
       </head>
-      <body className="flex flex-col min-h-screen" suppressHydrationWarning>
+      <body className={`${poppins.className} flex flex-col min-h-screen`} suppressHydrationWarning>
         <Providers>
           <ScrollEffectProvider />
           <EnquireButton />
+          <ScrollToTop />
           <Header />
           <main className="flex-grow">
             {children}

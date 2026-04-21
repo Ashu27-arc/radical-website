@@ -71,7 +71,7 @@ function buildHtmlResponse(htmlContent: string): NextResponse {
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 * {
@@ -80,7 +80,7 @@ function buildHtmlResponse(htmlContent: string): NextResponse {
   padding: 0
 }
 body {
-  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   background: transparent;
 }
 
