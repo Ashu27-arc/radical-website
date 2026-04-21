@@ -262,7 +262,7 @@ export default function NeetPgIndiaAdmissionPage() {
                 <div className="container px-3 md:px-4 lg:px-20 max-w-[1010px]!">
                     <div className="grid grid-cols-1 md:grid-cols-2 md:gap-4 lg:gap-10 mb-16 items-stretch">
                         <div className="relative h-full">
-                            <Image src="/neetpg-card.webp" width="572" height="764" className="w-full h-full object-cover rounded-2xl" alt="" />
+                            <Image src="/neetpg-card.webp" width="572" height="764" className="w-full h-auto rounded-2xl" alt="" />
                         </div>
                         <div>
                             <div
@@ -312,7 +312,7 @@ export default function NeetPgIndiaAdmissionPage() {
                         <h2 className='text-black text-4xl font-bold mb-4'>OUR <span className='text-[#287FC4]'>SUCCESSFUL STORIES</span></h2>
                         <div className='uppercase text-[#00CFB240] leading-12 text-[42px] md:text-5xl lg:text-7xl font-black'>HEAR FROM OUR STUDENTS</div>
                     </div>
-                    <div className="grid gap-6 md:grid-cols-3 grid-cols-1">
+                    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 grid-cols-1">
                         {videos.map((video) => (
                             <div
                                 key={video.id}

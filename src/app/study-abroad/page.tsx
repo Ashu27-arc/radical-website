@@ -219,7 +219,7 @@ export default function StudyAbroadPage() {
                                     </Button>
                                 </div>
                                 <div className="text-base text-black font-semibold group-hover:text-white! transition-colors duration-300 mb-5">Features</div>
-                                <ul className="space-y-5 text-sm text-[#686767] mb-4">
+                                <ul className="space-y-5 md:space-y-3 text-sm text-[#686767]">
                                     {features.map((item, index) => (
                                         <li key={index} className="flex gap-2">
                                             <span className="text-yellow-500 transition-colors duration-300">✦</span>
@@ -239,6 +239,7 @@ export default function StudyAbroadPage() {
                             </div>
                         </div>
                     </div>
+
                 </div>
             </section>
 
@@ -251,7 +252,7 @@ export default function StudyAbroadPage() {
                         <div className='uppercase text-[#00CFB240] leading-12 text-[42px] md:text-5xl lg:text-7xl font-black'>HEAR FROM OUR STUDENTS</div>
                     </div>
 
-                    <div className="grid gap-6 md:grid-cols-3 grid-cols-1">
+                    <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 grid-cols-1">
                         {videos.map((video) => (
                             <div
                                 key={video.id}

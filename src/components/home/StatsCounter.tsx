@@ -63,7 +63,7 @@ export default function StatsCounter() {
       className="w-full max-w-[1240px] mx-auto relative z-2"
     >
       <div className="bg-[#262626] rounded-[30px] px-8 py-10 md:pl-10 md:pr-16 md:py-12 border border-white/5 shadow-2xl">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 items-center">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 items-center">
           {stats.map((item, i) => (
             <div key={i} className="flex items-center justify-center gap-4 h-full relative py-6 md:py-0 fadeUp">
               <div className="flex items-center gap-4 lg:gap-6 lg:mr-8">
