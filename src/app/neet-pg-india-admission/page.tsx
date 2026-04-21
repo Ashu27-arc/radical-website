@@ -349,7 +349,7 @@ export default function NeetPgIndiaAdmissionPage() {
 
                         {/* App Store Button Overlay */}
                         <div
-                            className="absolute left-[19.9%] md:left-[28%] md:bottom-4 bottom-8 h-[45px] z-10 hover:scale-105 transition-transform"
+                            className="absolute left-[15.5%] md:left-[19%] md:bottom-4 bottom-8 h-[45px] z-10 hover:scale-105 transition-transform"
                         >
                             <Link
                                 href="https://apps.apple.com/in/app/neet-bhaiya/id6737535565"
