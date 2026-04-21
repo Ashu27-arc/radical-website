@@ -69,13 +69,16 @@ export default function CareersPage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [selectedJob, setSelectedJob] = useState<JobDetails | null>(null);
   const [formData, setFormData] = useState({
-    firstName: '',
-    email: '',
-    opening: ''
+    firstName: "",
+    email: "",
+    opening: "",
   });
   const [resumeFile, setResumeFile] = useState<File | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitMessage, setSubmitMessage] = useState<{ type: 'success' | 'error', text: string } | null>(null);
+  const [submitMessage, setSubmitMessage] = useState<{
+    type: "success" | "error";
+    text: string;
+  } | null>(null);
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
   // Drag-to-scroll state
@@ -86,35 +89,29 @@ export default function CareersPage() {
 
   const workEnvironmentData = [
     {
-      image: "/images/careers/work-06.webp",
-      title: "Collaborative Culture",
+      image: "/images/careers/ourOffice-1.png",
+      title: "Supportive & Helping Culture",
       dotColor: "bg-[#005A8B]",
-      titleColor: "text-[#10B65C]"
+      titleColor: "text-[#10B65C]",
     },
     {
-      image: "/images/careers/work-07.webp",
-      title: "Professional Growth",
+      image: "/images/careers/ourOffice-2.png",
+      title: "Learning-Driven Environment",
       dotColor: "bg-[#005A8B]",
-      titleColor: "text-[#005A8B]"
+      titleColor: "text-[#005A8B]",
     },
     {
-      image: "/images/careers/work-03.webp",
-      title: "Flexible & Dynamic",
+      image: "/images/careers/ourOffice-3.png",
+      title: "Ethical & Responsible Work Practices",
       dotColor: "bg-[#005A8B]",
-      titleColor: "text-[#00CFB2]"
+      titleColor: "text-[#00CFB2]",
     },
     {
-      image: "/images/careers/work-04.webp",
-      title: "Impactful Work",
+      image: "/images/careers/ourOffice-4.png",
+      title: "Growth-Oriented & Inclusive Space",
       dotColor: "bg-[#005A8B]",
-      titleColor: "text-[#F48126]"
+      titleColor: "text-[#F48126]",
     },
-    {
-      image: "/images/careers/work-05.webp",
-      title: "Recognition & Appreciation",
-      dotColor: "bg-[#005A8B]",
-      titleColor: "text-[#9B59B6]"
-    }
   ];
 
   // Mouse drag-to-scroll handlers
@@ -154,25 +151,27 @@ export default function CareersPage() {
   };
 
   const scrollToResumeSection = () => {
-    const resumeSection = document.getElementById('submit-resume-section');
+    const resumeSection = document.getElementById("submit-resume-section");
     if (resumeSection) {
       // Set the selected job in the form automatically
       if (selectedJob) {
-        setFormData(prev => ({
+        setFormData((prev) => ({
           ...prev,
-          opening: selectedJob.title
+          opening: selectedJob.title,
         }));
       }
 
-      resumeSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      resumeSection.scrollIntoView({ behavior: "smooth", block: "start" });
       closeModal();
     }
   };
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>,
+  ) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
     });
   };
 
@@ -189,37 +188,42 @@ export default function CareersPage() {
 
     try {
       const formDataToSend = new FormData();
-      formDataToSend.append('firstName', formData.firstName);
-      formDataToSend.append('email', formData.email);
-      formDataToSend.append('opening', formData.opening);
+      formDataToSend.append("firstName", formData.firstName);
+      formDataToSend.append("email", formData.email);
+      formDataToSend.append("opening", formData.opening);
       if (resumeFile) {
-        formDataToSend.append('resume', resumeFile);
+        formDataToSend.append("resume", resumeFile);
       }
 
-      const response = await fetch('/api/submit-resume', {
-        method: 'POST',
-        body: formDataToSend
+      const response = await fetch("/api/submit-resume", {
+        method: "POST",
+        body: formDataToSend,
       });
 
       const data = await response.json();
 
       if (data.success) {
         setShowSuccessPopup(true);
-        setFormData({ firstName: '', email: '', opening: '' });
+        setFormData({ firstName: "", email: "", opening: "" });
         setResumeFile(null);
         // Reset file input
-        const fileInput = document.getElementById('resume-upload') as HTMLInputElement;
-        if (fileInput) fileInput.value = '';
+        const fileInput = document.getElementById(
+          "resume-upload",
+        ) as HTMLInputElement;
+        if (fileInput) fileInput.value = "";
 
         // Auto-dismiss success popup after 3 seconds
         setTimeout(() => {
           setShowSuccessPopup(false);
         }, 3000);
       } else {
-        setSubmitMessage({ type: 'error', text: data.message });
+        setSubmitMessage({ type: "error", text: data.message });
       }
     } catch (error) {
-      setSubmitMessage({ type: 'error', text: 'Something went wrong. Please try again.' });
+      setSubmitMessage({
+        type: "error",
+        text: "Something went wrong. Please try again.",
+      });
     } finally {
       setIsSubmitting(false);
     }
@@ -247,7 +251,8 @@ export default function CareersPage() {
               INSPIRE. EMPOWER. SUCCEED
             </h1>
             <p className="text-black max-w-3xl mx-auto text-sm md:text-base px-4">
-              Join Radical Education and make a real impact on <br className="hidden md:block" />
+              Join Radical Education and make a real impact on{" "}
+              <br className="hidden md:block" />
               students’ medical journeys.
             </p>
           </div>
@@ -280,11 +285,23 @@ export default function CareersPage() {
           </h2>
           <div className="max-w-5xl mx-auto text-gray-600 space-y-4 md:space-y-6 leading-relaxed text-sm md:text-base">
             <p>
-              At Radical Education, we're changing the way learning happens, bravely, openly, and with a goal in mind. When you join us, you're not just joining us; you're becoming part of a team that challenges the old ways and builds better ones. We're for new ideas more than rules, for teamwork more than being bossed around, and for getting the job done more than tradition.
-              Your ideas matter here. You won't just go along with things, you'll help make them happen.
+              At Radical Education, we're changing the way learning happens,
+              bravely, openly, and with a goal in mind. When you join us, you're
+              not just joining us; you're becoming part of a team that
+              challenges the old ways and builds better ones. We're for new
+              ideas more than rules, for teamwork more than being bossed around,
+              and for getting the job done more than tradition. Your ideas
+              matter here. You won't just go along with things, you'll help make
+              them happen.
             </p>
             <p>
-              We're for building learning spaces where people are inspired to ask questions, where they'll talk openly about the important stuff, and where they'll have the tools they need to ask questions, grow, and make changes in the real world. If making a difference is what gets you out of bed in the morning, and you're ready to rethink education from the ground up, then here's where you belong
+              We're for building learning spaces where people are inspired to
+              ask questions, where they'll talk openly about the important
+              stuff, and where they'll have the tools they need to ask
+              questions, grow, and make changes in the real world. If making a
+              difference is what gets you out of bed in the morning, and you're
+              ready to rethink education from the ground up, then here's where
+              you belong
             </p>
           </div>
         </div>
@@ -293,7 +310,9 @@ export default function CareersPage() {
       {/* Work Environment Section */}
       <section className="py-12 md:py-16">
         <div className="container mx-auto px-4">
-          <p className="text-gray-500 font-bold text-xs md:text-sm text-left md:mb-4 mb-6">About Us Radical Education</p>
+          <p className="text-gray-500 font-bold text-xs md:text-sm text-left md:mb-4 mb-6">
+            About Us Radical Education
+          </p>
           <h2 className="text-2xl md:text-4xl font-bold text-left mb-8 md:mb-12">
             Our <span className="text-[#287FC4]">Work Environment</span>
           </h2>
@@ -306,7 +325,7 @@ export default function CareersPage() {
           {/* Mouse/Touch Drag Slider Animation for all views */}
           <div
             ref={sliderRef}
-            className={`relative overflow-x-auto w-full pb-8 scrollbar-hide select-none cursor-${isMouseDown ? 'grabbing' : 'grab'}`}
+            className={`relative overflow-x-auto w-full pb-8 scrollbar-hide select-none cursor-${isMouseDown ? "grabbing" : "grab"}`}
             onMouseDown={onMouseDown}
             onMouseLeave={onMouseLeave}
             onMouseUp={onMouseUp}
@@ -316,7 +335,9 @@ export default function CareersPage() {
               {workEnvironmentData.map((item, index) => (
                 <div key={index} className="flex flex-col items-center">
                   <div className="overflow-visible w-56 md:w-72 flex-shrink-0 relative h-[280px] md:h-[328px] flex flex-col">
-                    <div className={`relative rounded-t-lg overflow-hidden ${index === 1 || index === 3 ? 'h-32 md:h-40 mt-6 md:mt-8' : 'h-44 md:h-56'}`}>
+                    <div
+                      className={`relative rounded-t-lg overflow-hidden ${index === 1 || index === 3 ? "h-32 md:h-40 mt-6 md:mt-8" : "h-44 md:h-56"}`}
+                    >
                       <Image
                         src={item.image}
                         alt={item.title}
@@ -328,17 +349,24 @@ export default function CareersPage() {
                     <div className="flex-1"></div>
                     {/* Dot positioned at bottom center on shadow line - fully visible */}
                     <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 flex justify-center z-10">
-                      <div className={`w-4 h-4 md:w-5 md:h-5 rounded-full ${item.dotColor} shadow-xl ring-2 md:ring-4 ring-white`}></div>
+                      <div
+                        className={`w-4 h-4 md:w-5 md:h-5 rounded-full ${item.dotColor} shadow-xl ring-2 md:ring-4 ring-white`}
+                      ></div>
                     </div>
                   </div>
                   {/* Title below the card and dot */}
                   <div className="pt-5 md:pt-6 pb-4 text-center select-none pointer-events-none">
-                    <h3 className={`text-xs md:text-sm font-medium ${item.titleColor}`}>
-                      {item.title.includes(' & ') ? (
+                    <h3
+                      className={`text-xs md:text-sm font-medium ${item.titleColor}`}
+                    >
+                      {item.title.includes(" & ") ? (
                         <>
-                          {item.title.split(' & ')[0]} {item.title === "learning-driven & environment" ? "" : "&"}
+                          {item.title.split(" & ")[0]}{" "}
+                          {item.title === "learning-driven & environment"
+                            ? ""
+                            : "&"}
                           <br />
-                          {item.title.split(' & ')[1]}
+                          {item.title.split(" & ")[1]}
                         </>
                       ) : (
                         item.title
@@ -351,8 +379,9 @@ export default function CareersPage() {
           </div>
         </div>
 
-        <style dangerouslySetInnerHTML={{
-          __html: `
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
           .scrollbar-hide::-webkit-scrollbar {
             display: none;
           }
@@ -360,7 +389,9 @@ export default function CareersPage() {
             -ms-overflow-style: none;
             scrollbar-width: none;
           }
-        ` }} />
+        `,
+          }}
+        />
       </section>
 
       {/* Latest Openings Section */}
@@ -389,7 +420,8 @@ export default function CareersPage() {
                       No Opening Yet
                     </h3>
                     <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-                      We currently have no open positions.<br />
+                      We currently have no open positions.
+                      <br />
                       Check back soon for new opportunities!
                     </p>
                   </div>
@@ -399,7 +431,10 @@ export default function CareersPage() {
               // Job Cards Grid
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {jobsData.map((job, index) => (
-                  <div key={index} className="bg-white rounded-xl p-5 md:p-6 shadow-lg">
+                  <div
+                    key={index}
+                    className="bg-white rounded-xl p-5 md:p-6 shadow-lg"
+                  >
                     <div className="flex justify-left mb-4">
                       <div className="w-14 h-14 md:w-16 rounded-lg md:h-16 bg-blue-100 flex items-center justify-center overflow-hidden">
                         <Image
@@ -411,8 +446,12 @@ export default function CareersPage() {
                         />
                       </div>
                     </div>
-                    <h3 className="text-xl font-bold text-gray-800 mb-2">{job.title}</h3>
-                    <p className="text-red-500 text-xs md:text-sm font-medium mb-4 pb-4 border-b border-[#00000040]">experience:- {job.experience}</p>
+                    <h3 className="text-xl font-bold text-gray-800 mb-2">
+                      {job.title}
+                    </h3>
+                    <p className="text-red-500 text-xs md:text-sm font-medium mb-4 pb-4 border-b border-[#00000040]">
+                      experience:- {job.experience}
+                    </p>
                     <p className="text-gray-600 text-xs md:text-sm leading-relaxed mb-4">
                       {job.description}
                     </p>
@@ -422,8 +461,18 @@ export default function CareersPage() {
                         className="cursor-pointer text-green-500 text-sm font-semibold hover:text-green-600 inline-flex items-center gap-2"
                       >
                         APPLY NOW
-                        <svg className="w-4 h-4 -mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                        <svg
+                          className="w-4 h-4 -mt-0.5"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M9 5l7 7-7 7"
+                          />
                         </svg>
                       </button>
                     </div>
@@ -442,14 +491,21 @@ export default function CareersPage() {
             Submit Your <span className="text-[#287FC4]">Resume</span>
           </h2>
           <div className="max-w-6xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 bg-[url('/images/careers/resume-image.webp')] bg-cover bg-center bg-no-repeat rounded-2xl overflow-hidden shadow-xl">
-
+            <div className="grid grid-cols-1 md:grid-cols-2 bg-[url('/images/careers/resume-image.png')] bg-cover bg-center bg-no-repeat rounded-[12px] overflow-hidden shadow-xl">
               <div className="md:order-2 relative px-6 md:px-12 py-10 md:py-20 flex items-center overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#005A8B]/50 to-[#63CDB4]/50"></div>
+                <div
+                  className="absolute inset-0 
+  bg-[linear-gradient(90deg,rgba(99,205,180,0.65)_0%,rgba(0,90,139,0.85)_100%)]"
+                ></div>
                 <div className="absolute inset-0 backdrop-blur-[10px]"></div>
-                <form onSubmit={handleSubmit} className="space-y-4 md:space-y-5 w-full relative z-10">
+                <form
+                  onSubmit={handleSubmit}
+                  className="space-y-4 md:space-y-5 w-full relative z-10"
+                >
                   {submitMessage && (
-                    <div className={`p-3 rounded-lg text-sm ${submitMessage.type === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}`}>
+                    <div
+                      className={`p-3 rounded-lg text-sm ${submitMessage.type === "success" ? "bg-green-100 text-green-800" : "bg-red-100 text-red-800"}`}
+                    >
                       {submitMessage.text}
                     </div>
                   )}
@@ -457,6 +513,7 @@ export default function CareersPage() {
                     <input
                       type="text"
                       name="firstName"
+                      aria-label="First-Name"
                       value={formData.firstName}
                       onChange={handleInputChange}
                       placeholder=" "
@@ -475,6 +532,7 @@ export default function CareersPage() {
                     <input
                       type="email"
                       name="email"
+                      aria-label="Email"
                       value={formData.email}
                       onChange={handleInputChange}
                       placeholder=" "
@@ -492,6 +550,7 @@ export default function CareersPage() {
                   <div className="relative w-full group">
                     <select
                       name="opening"
+                      aria-label="Opening"
                       value={formData.opening}
                       onChange={handleInputChange}
                       required
@@ -526,15 +585,52 @@ export default function CareersPage() {
                       htmlFor="resume-upload"
                       className="w-full px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base rounded-lg bg-black/15 backdrop-blur-md text-white cursor-pointer flex items-center justify-center border-2 border-dashed border-white border-opacity-50 transition-all"
                     >
-                      <span>{resumeFile ? resumeFile.name : 'Upload Your Resume'}</span>
+                      <span>
+                        {resumeFile ? resumeFile.name : "Upload Your Resume"}
+                      </span>
                     </label>
                   </div>
+
+                  <div className="flex items-start gap-3 mt-2">
+                    {/* checkbox */}
+                    <div className="relative mt-1 min-w-5 h-5">
+                      <input
+                        type="checkbox"
+                        id="career-consent"
+                        required
+                        className="peer w-5 h-5 appearance-none border border-white/70 rounded bg-transparent cursor-pointer 
+      checked:bg-[#00B4B4] checked:border-[#00B4B4]"
+                      />
+
+                      {/* tick */}
+                      <svg
+                        className="absolute top-[2px] left-[2px] w-4 h-4 text-white pointer-events-none opacity-0 peer-checked:opacity-100"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="3"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+
+                    {/* label */}
+                    <label
+                      htmlFor="career-consent"
+                      className="text-xs font-normal text-white/90 leading-[1.6] cursor-pointer"
+                    >
+                      I hereby consent to the processing of my personal
+                      information for recruitment and other relevant
+                      opportunities.
+                    </label>
+                  </div>
+
                   <button
                     type="submit"
                     disabled={isSubmitting}
                     className="bg-[linear-gradient(270deg,#287FC4_0%,#00CFB2_100%)] opacity-80 cursor-pointer w-full text-white font-semibold py-2.5 md:py-3 text-sm md:text-base rounded-lg shadow-lg"
                   >
-                    {isSubmitting ? 'Submitting...' : 'Submit'}
+                    {isSubmitting ? "Submitting..." : "Submit"}
                   </button>
                 </form>
               </div>
@@ -558,10 +654,21 @@ export default function CareersPage() {
             {/* Close Button */}
             <button
               onClick={closeModal}
+              aria-label="Modal"
               className="absolute top-3 right-3 md:top-4 md:right-4 text-gray-400 hover:text-gray-600 transition-colors z-10"
             >
-              <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              <svg
+                className="w-5 h-5 md:w-6 md:h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             </button>
 
@@ -572,27 +679,42 @@ export default function CareersPage() {
               </h2>
 
               <div className="space-y-1 mb-3 md:mb-4 text-gray-700 text-xs md:text-sm">
-                <p><span className="font-semibold">Experience:</span> {selectedJob?.experience}</p>
-                <p><span className="font-semibold">Location:</span> {selectedJob?.location}</p>
-                <p><span className="font-semibold">Employment Type:</span> {selectedJob?.employmentType}</p>
+                <p>
+                  <span className="font-semibold">Experience:</span>{" "}
+                  {selectedJob?.experience}
+                </p>
+                <p>
+                  <span className="font-semibold">Location:</span>{" "}
+                  {selectedJob?.location}
+                </p>
+                <p>
+                  <span className="font-semibold">Employment Type:</span>{" "}
+                  {selectedJob?.employmentType}
+                </p>
               </div>
 
               <div className="mb-3 md:mb-4">
-                <h3 className="text-base md:text-lg font-bold text-gray-900 mb-2">Job Overview:</h3>
+                <h3 className="text-base md:text-lg font-bold text-gray-900 mb-2">
+                  Job Overview:
+                </h3>
                 <p className="text-gray-600 leading-relaxed text-xs md:text-sm">
                   {selectedJob?.overview}
                 </p>
               </div>
 
               <div className="mb-5 md:mb-6">
-                <h3 className="text-base md:text-lg font-bold text-gray-900 mb-2">Key Responsibilities:</h3>
+                <h3 className="text-base md:text-lg font-bold text-gray-900 mb-2">
+                  Key Responsibilities:
+                </h3>
                 <ul className="space-y-1 text-gray-600 text-xs md:text-sm">
-                  {selectedJob?.responsibilities.map((responsibility, index) => (
-                    <li key={index} className="flex items-start">
-                      <span className="mr-2">•</span>
-                      <span>{responsibility}</span>
-                    </li>
-                  ))}
+                  {selectedJob?.responsibilities.map(
+                    (responsibility, index) => (
+                      <li key={index} className="flex items-start">
+                        <span className="mr-2">•</span>
+                        <span>{responsibility}</span>
+                      </li>
+                    ),
+                  )}
                 </ul>
               </div>
 
@@ -623,7 +745,13 @@ export default function CareersPage() {
             {/* Decorative Elements - Scaled Down */}
             <div className="absolute top-6 left-6 w-2 h-2 rounded-full bg-pink-500"></div>
             <div className="absolute top-8 left-12 w-1.5 h-1.5 rounded-full bg-purple-400"></div>
-            <div className="absolute top-6 right-12 w-1.5 h-1.5 bg-orange-400" style={{ clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)' }}></div>
+            <div
+              className="absolute top-6 right-12 w-1.5 h-1.5 bg-orange-400"
+              style={{
+                clipPath:
+                  "polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)",
+              }}
+            ></div>
             <div className="absolute top-6 right-6 w-3 h-3 rounded-full bg-orange-500"></div>
             <div className="absolute top-12 right-3 w-1.5 h-1.5 rounded-full bg-blue-400"></div>
 
@@ -631,8 +759,20 @@ export default function CareersPage() {
             <div className="absolute top-16 right-8 w-6 h-0.5 rounded-full bg-blue-500 transform rotate-12"></div>
 
             <div className="absolute bottom-24 left-4 w-1.5 h-1.5 rounded-full bg-blue-300"></div>
-            <div className="absolute bottom-20 right-6 w-1.5 h-1.5 bg-pink-400" style={{ clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)' }}></div>
-            <div className="absolute bottom-18 right-3 w-1.5 h-1.5 bg-orange-400" style={{ clipPath: 'polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)' }}></div>
+            <div
+              className="absolute bottom-20 right-6 w-1.5 h-1.5 bg-pink-400"
+              style={{
+                clipPath:
+                  "polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)",
+              }}
+            ></div>
+            <div
+              className="absolute bottom-18 right-3 w-1.5 h-1.5 bg-orange-400"
+              style={{
+                clipPath:
+                  "polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)",
+              }}
+            ></div>
             <div className="absolute bottom-16 left-8 w-2 h-2 rounded-full bg-purple-400"></div>
 
             {/* Success Icon - Reduced Size */}
@@ -641,12 +781,28 @@ export default function CareersPage() {
               <div className="absolute inset-0 bg-green-100 rounded-full opacity-50"></div>
               {/* Green badge with checkmark */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="relative w-20 h-20 bg-green-500 flex items-center justify-center" style={{ clipPath: 'polygon(93.3% 50%, 89.8% 62.2%, 78.5% 74.5%, 66.3% 78%, 54.1% 74.5%, 42.8% 62.2%, 39.3% 50%, 42.8% 37.8%, 54.1% 25.5%, 66.3% 22%, 78.5% 25.5%, 89.8% 37.8%)' }}>
+                <div
+                  className="relative w-20 h-20 bg-green-500 flex items-center justify-center"
+                  style={{
+                    clipPath:
+                      "polygon(93.3% 50%, 89.8% 62.2%, 78.5% 74.5%, 66.3% 78%, 54.1% 74.5%, 42.8% 62.2%, 39.3% 50%, 42.8% 37.8%, 54.1% 25.5%, 66.3% 22%, 78.5% 25.5%, 89.8% 37.8%)",
+                  }}
+                >
                   {/* White circle in center */}
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="w-14 h-14 bg-white rounded-full flex items-center justify-center">
-                      <svg className="w-8 h-8 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      <svg
+                        className="w-8 h-8 text-green-500"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={3}
+                          d="M5 13l4 4L19 7"
+                        />
                       </svg>
                     </div>
                   </div>
@@ -678,4 +834,3 @@ export default function CareersPage() {
     </div>
   );
 }
-

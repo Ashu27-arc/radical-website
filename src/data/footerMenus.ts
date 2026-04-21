@@ -8,7 +8,7 @@ export const importantLinks: MenuItem[] = [
   { label: 'Registration & Security Charges for NEET UG', icon: 'pi pi-angle-right', url: 'https://www.neetbhaiya.in/rs-charges' },
   { label: 'State-Wise PG Reservation after UG', icon: 'pi pi-angle-right', url: 'https://www.neetbhaiya.in/pg-reservation' },
   { label: 'NEET UG Bond 2025', icon: 'pi pi-angle-right', url: 'https://www.neetbhaiya.in/bond-details' },
-  { label: 'List Your Institute With Us', icon: 'pi pi-angle-right', url: '/list-your-institute' }
+  // { label: 'List Your Institute With Us', icon: 'pi pi-angle-right', url: '/list-your-institute' }
 ];
 
 export const quickLinks: MenuItem[] = [
