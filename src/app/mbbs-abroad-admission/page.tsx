@@ -8,6 +8,12 @@ import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/autoplay";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
 
 
 const logos = [
@@ -17,7 +23,6 @@ const logos = [
     "/images/c-logo4.webp",
     "/images/c-logo5.webp",
     "/images/c-logo6.webp",
-    "/images/c-logo7.webp",
 ];
 
 export default function MBBSAbroadAdmission() {
@@ -236,7 +241,7 @@ export default function MBBSAbroadAdmission() {
             <FloatingWhatsApp />
 
             <section className="w-full min-h-[500px] md:min-h-[550px] 
-                bg-[url('/images/study-abroad-banner.webp')] 
+                bg-[url('/images/study-abroad/hero-banner.svg')] 
                 bg-cover bg-center bg-no-repeat 
                 py-20 md:py-40 overflow-hidden">
                 <div className="relative z-10 max-w-7xl mx-auto px-6 h-full flex flex-col justify-center">
@@ -264,8 +269,8 @@ export default function MBBSAbroadAdmission() {
                                 1024: { slidesPerView: 6 },
                             }}
                         >
-                            {countries.map((item) => (
-                                <SwiperSlide key={item.id}>
+                            {[...countries, ...countries].map((item, index) => (
+                                <SwiperSlide key={`${item.id}-${index}`}>
                                     <div className="flex flex-col items-center relative">
                                         <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-white shadow-md">
                                             <Image
@@ -319,7 +324,7 @@ export default function MBBSAbroadAdmission() {
                         },
                     }}
                 >
-                    {logos.map((logo, index) => (
+                    {[...logos, ...logos, ...logos].map((logo, index) => (
                         <SwiperSlide key={index}>
                             <div className="bg-white px-4 flex items-center justify-center h-[80px]">
                                 <img
@@ -644,7 +649,7 @@ export default function MBBSAbroadAdmission() {
                                 Cost Breakdown
                             </h2>
                             <p className="text-gray-600 text-xs sm:text-sm md:text-base px-2 sm:px-4 max-w-3xl mx-auto leading-relaxed">
-                                This Section Outlines The Complete Cost Structure For MBBS Abroad. Everything
+                                This section outlines the complete cost structure for MBBS abroad. everything
                                 <br className="hidden md:block" />
                                 related to expenses is explained clearly for easy understanding.
                             </p>
@@ -717,7 +722,7 @@ export default function MBBSAbroadAdmission() {
                             </table>
                         </div>
 
-
+                        {/* 
                         <div className="px-4 lg:px-20 bg-white py-10">
                             <div className="bg-white border-1 border-dashed border-[#2CBF0F] rounded-xl p-3 sm:p-4 md:p-6">
                                 <div className="space-y-2">
@@ -734,7 +739,7 @@ export default function MBBSAbroadAdmission() {
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> */}
 
                     </div>
                 </div>
