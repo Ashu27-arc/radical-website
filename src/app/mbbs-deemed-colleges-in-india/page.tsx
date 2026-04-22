@@ -77,7 +77,7 @@ export default function MBBSDeemedCollegesPage() {
             <div className="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-5 md:gap-6 lg:gap-7 xl:gap-8">
 
                 {/* LEFT CONTENT */}
-                <div className="lg:col-span-2 pt-4 lg:pt-30 min-w-0">
+                <div className="lg:col-span-2 pt-4 lg:pt-21 min-w-0">
                     <span className="text-xs sm:text-sm md:text-base text-emerald-500 font-semibold">
                         Educational
                     </span>
@@ -385,7 +385,7 @@ export default function MBBSDeemedCollegesPage() {
                 </div>
 
                 {/* RIGHT SIDEBAR */}
-                <div className="pt-4 lg:pt-30 lg:sticky lg:top-[52px] lg:self-start lg:min-h-screen">
+                <div className="pt-4 lg:pt-21 lg:sticky lg:top-[75px] lg:self-start lg:min-h-screen">
                     <div className="space-y-4 sm:space-y-5 md:space-y-6 bg-[#D4ECFF] rounded-lg sm:rounded-xl p-4 md:p-5 lg:p-6 animate-fadeIn" style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
 
                         {/* SEARCH */}

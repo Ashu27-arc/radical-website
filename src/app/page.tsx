@@ -157,19 +157,19 @@ export default function Home() {
       </section>
       <FloatingWhatsApp />
       <NewsMarquee />
-      <section className="lg:pt-24 pt-16 overflow-hidden">
+      <section className="xl:pt-20 lg:pt-16 pt-10 overflow-hidden">
         <div className="container px-3 md:px-4">
           <div className="flex flex-col md:flex-row gap-8">
             <div className="md:w-13/20 w-full fadeLeft text-center md:text-left">
-              <div className="lg:pr-30 lg:pl-6 pl-0 relative z-2">
-                <h2 className="text-3xl md:text-[26px] lg:text-[46px] font-light leading-tight text-gray-800 text-center mb-6 md:mb-8">
+              <div className="lg:pr-10 xl:pr-30 lg:pl-6 pl-0 relative z-2">
+                <h2 className="text-3xl md:text-[26px] lg:text-[36px] xl:text-[46px] font-light leading-tight text-gray-800 text-center mb-6 md:mb-8">
                   A complete guide for your <br />
-                  <span className="text-3xl md:text-[26px] lg:text-[46px] bg-gradient-to-r from-[#1ec8a5] font-bold to-[#0d8f9e] bg-clip-text text-transparent">
+                  <span className="text-3xl md:text-[26px] lg:text-[36px] xl:text-[46px] bg-gradient-to-r from-[#1ec8a5] font-bold to-[#0d8f9e] bg-clip-text text-transparent">
                     medical counselling needs
                   </span>
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:gap-10 gap-4 md:gap-3 w-full max-w-6xl lg:px-10 mt-4 lg:items-center">
-                  <div className="w-full max-w-[189px] mx-auto h-auto md:mx-0  lg:h-[220px] md:h-[180px] md:w-[150px] lg:w-[189px]">
+                <div className="grid grid-cols-1 md:grid-cols-3 lg:gap-10 gap-4 md:gap-3 w-full max-w-6xl xl:px-10 mt-4 lg:items-center xl:pb-0 lg:pb-4 md:pb-3">
+                  <div className="w-full max-w-[189px] mx-auto h-auto md:mx-0 lg:h-[200px] xl:h-[220px] md:h-[180px] md:w-[150px] lg:w-[189px]">
                     <a
                       href="https://www.neetbhaiya.in/rank-predictor"
                       target="_blank"
@@ -177,7 +177,7 @@ export default function Home() {
                       className="group relative block cursor-pointer no-underline rounded-[20px] overflow-hidden shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl h-full outline-none focus:outline-none focus-visible:outline-none"
                       aria-label="Rank Predictor"
                     >
-                      <div className="relative mx-auto w-full aspect-[189/210.93] lg:w-[189px] md:w-[150px] md:h-[180px] lg:h-[220px]">
+                      <div className="relative mx-auto w-full aspect-[189/210.93] lg:w-[189px] md:w-[150px] md:h-[180px] lg:h-[200px] xl:h-[220px]">
                         <Image
                           src="/images/rp.svg"
                           alt="Rank Predictor"
@@ -187,10 +187,10 @@ export default function Home() {
                       </div>
                     </a>
                   </div>
-                  <div className="md:col-span-2 flex flex-col gap-5 md:gap-2 lg:gap-5 md:items-start items-center">
+                  <div className="md:col-span-2 flex flex-col gap-5 md:gap-2 md:pl-3 lg:pl-0 lg:gap-5 md:items-start items-center">
                     <Link
                       href="/neet-ug-india-admission/"
-                      className="group flex items-center w-[326px] h-[52px] justify-center gap-4 md:gap-2 lg:gap-4 rounded-[20px] px-4 text-white bg-[linear-gradient(90deg,#27AEDC_0%,#3FE198_100%)] shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
+                      className="group flex items-center md:w-[300px] lg:w-full w-[326px] h-[52px] lg:h-[56px] justify-center gap-4 md:gap-2 lg:gap-4 rounded-[20px] px-4 text-white bg-[linear-gradient(90deg,#27AEDC_0%,#3FE198_100%)] shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
                       aria-label="NEET UG India Admissions"
                     >
                       <span className="font-bold text-[16px] md:text-[12px] lg:text-[18px]">
@@ -216,7 +216,7 @@ export default function Home() {
                     </Link>
                     <Link
                       href="/neet-pg-india-admission/"
-                      className="group flex items-center w-[326px] h-[52px] justify-center gap-4 md:gap-2 lg:gap-4 rounded-[20px] px-4 text-white bg-[linear-gradient(90deg,#F4C55C_0%,#E6440C_100%)] shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
+                      className="group flex items-center md:w-[300px] lg:w-full w-[326px] h-[52px] lg:h-[56px] justify-center gap-4 md:gap-2 lg:gap-4 rounded-[20px] px-4 text-white bg-[linear-gradient(90deg,#F4C55C_0%,#E6440C_100%)] shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
                       aria-label="NEET PG India Admissions"
                     >
                       <span className="font-bold text-[16px] md:text-[12px] lg:text-[18px]">
@@ -242,7 +242,7 @@ export default function Home() {
                     </Link>
                     <Link
                       href="/study-abroad/"
-                      className="group flex items-center w-[326px] h-[52px] justify-center gap-4 md:gap-2 lg:gap-4 rounded-[20px] px-4 text-white bg-[linear-gradient(90deg,#677CE7_0%,#754FA7_100%)] shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
+                      className="group flex items-center md:w-[300px] lg:w-full w-[326px] h-[52px] lg:h-[56px] justify-center gap-4 md:gap-2 lg:gap-4 rounded-[20px] px-4 text-white bg-[linear-gradient(90deg,#677CE7_0%,#754FA7_100%)] shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
                       aria-label="MBBS Abroad Admissions"
                     >
                       <span className="font-bold text-[16px] md:text-[12px] lg:text-[18px]">

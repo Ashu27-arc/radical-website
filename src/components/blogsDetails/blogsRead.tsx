@@ -318,7 +318,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
         <div className="w-full min-w-0 bg-gray-50 relative animate-fadeIn">
             <FloatingWhatsApp />
             {/* Navigation / Back Button */}
-            <div className="bg-white border-b border-gray-100 py-2 sticky top-[80px] md:top-[130px] z-40 shadow-sm backdrop-blur-sm">
+            <div className="bg-white border-b border-gray-100 py-2 sticky xl:top-[130px] lg:top-[130px] md:top-[73px] top-[57px] z-40 shadow-sm backdrop-blur-sm">
                 <div className="max-w-6xl mx-auto px-4">
                     <div className="flex flex-col md:flex-row items-center gap-4">
                         <Link href="/blogs" className="text-[#005A8B] hover:underline flex items-center gap-2 font-medium shrink-0">
@@ -384,7 +384,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
             </div>
 
             {/* Scrollable Content */}
-            <div className="lg:pt-2 md:pt-2 pt-2">
+            <div className="xl:pt-20 lg:pt-20 md:pt-8 pt-6">
                 {/* main content */}
                 <div className="container px-4 mt-1">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
@@ -408,7 +408,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                             ) : (
                                 <>
                                     {/* Blog Category Badge */}
-                                    <div className="mb-2 flex flex-wrap gap-2 mt-8">
+                                    <div className="mb-2 flex flex-wrap gap-2">
                                         {blog.category?.split(',').map((c) => c.trim()).filter(Boolean).map((cat, idx) => (
                                             <span key={idx} className={`inline-block ${getCategoryTextColor(cat)} text-xs sm:text-sm font-semibold`}>
                                                 {cat}

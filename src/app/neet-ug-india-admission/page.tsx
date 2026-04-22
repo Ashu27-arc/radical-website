@@ -122,7 +122,7 @@ export default function NeetUgIndiaAdmissionPage() {
     return (
         <>
             <FloatingWhatsApp />
-            <section className="lg:py-45 md:py-36 py-20 relative overflow-hidden z-2 bg-[url('/banner-neet-ug.webp')] bg-cover bg-center bg-no-repeat">
+            <section className="lg:py-45 md:py-36 py-20 relative overflow-hidden z-2 bg-[url('/images/neet-ug-india-hero.webp')] bg-cover bg-center bg-no-repeat">
                 <div className="container px-3 md:px-4 fadeUp">
                     <div className="w-full lg:w-4/10 md:8/10 md:text-left text-center">
                         <h1 className="uppercase lg:text-5xl text-4xl font-bold text-white lg:mb-6 mb-4">NEET UG <br className="hidden lg:block" />ADMISSION</h1>
@@ -188,42 +188,37 @@ export default function NeetUgIndiaAdmissionPage() {
                                     />
                                 </Link>
 
-                                {/* Play Store Button Overlay */}
-                                <div
-                                    className="absolute left-[7.3%] bottom-9 lg:bottom-12 md:bottom-5 h-[41px] z-10 hover:scale-105 transition-transform"
-                                >
-                                    <Link
-                                        href="https://play.google.com/store/apps/details?id=com.kaveka.NeetBhaiya"
-                                        target="_blank"
-                                        className="block w-full h-full"
-                                    >
-                                        <Image
-                                            src="/svg/play-store.svg"
-                                            alt="Google Play Store"
-                                            width={200}
-                                            height={200}
-                                            className="object-contain w-full h-full"
-                                        />
-                                    </Link>
-                                </div>
-
-                                {/* App Store Button Overlay */}
-                                <div
-                                    className="absolute left-[15.5%] md:left-[19%] md:bottom-4 bottom-8 lg:bottom-11 h-[45px] z-10 hover:scale-105 transition-transform"
-                                >
-                                    <Link
-                                        href="https://apps.apple.com/in/app/neet-bhaiya/id6737535565"
-                                        target="_blank"
-                                        className="block w-full h-full"
-                                    >
-                                        <Image
-                                            src="/svg/app-store.svg"
-                                            alt="App Store"
-                                            width={200}
-                                            height={200}
-                                            className="object-contain w-full h-full"
-                                        />
-                                    </Link>
+                                <div className="grid grid-cols-2 lg:gap-3 md:gap-2 gap-2 absolute left-[7.3%] bottom-2.5 md:bottom-5 lg:bottom-7 xl:bottom-12 w-[40%] xl:w-[30%]">
+                                    <div className="hover:scale-105 transition-transform">
+                                        <Link
+                                            href="https://play.google.com/store/apps/details?id=com.kaveka.NeetBhaiya"
+                                            target="_blank"
+                                            className="block w-full h-full"
+                                        >
+                                            <Image
+                                                src="/svg/play-store.svg"
+                                                alt="Google Play Store"
+                                                width={200}
+                                                height={200}
+                                                className="object-contain w-full h-full"
+                                            />
+                                        </Link>
+                                    </div>
+                                    <div className="hover:scale-105 transition-transform">
+                                        <Link
+                                            href="https://apps.apple.com/in/app/neet-bhaiya/id6737535565"
+                                            target="_blank"
+                                            className="block w-full h-full"
+                                        >
+                                            <Image
+                                                src="/svg/app-store.svg"
+                                                alt="App Store"
+                                                width={200}
+                                                height={200}
+                                                className="object-contain w-full h-full"
+                                            />
+                                        </Link>
+                                    </div>
                                 </div>
                             </div>
                         </div>

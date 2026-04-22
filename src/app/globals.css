@@ -1,7 +1,8 @@
-@import "tailwindcss";
+
 @import "swiper/css";
 @import "swiper/css/navigation";
 @import "swiper/css/effect-coverflow";
+@import "tailwindcss";
 
 @font-face {
     font-family: 'PrimeIcons';
@@ -10,7 +11,10 @@
     font-style: normal;
     font-display: swap;
 }
-
+.coverflowslider .swiper-slide {
+    width: 300px;
+    height: 400px;
+}
 * {
     font-family: 'Poppins', sans-serif;
 }

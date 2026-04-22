@@ -34,12 +34,12 @@ const BlogSidebar = ({ className = "" }: BlogSidebarProps) => {
     };
 
     return (
-        <div className={`w-full px-4 sm:px-6 lg:px-0 lg:col-span-1 animate-fadeIn mb-12 sm:mb-16 lg:mb-20 lg:sticky lg:top-[160px] lg:w-full lg:max-w-none lg:self-start lg:h-[calc(100vh-8rem)] lg:overflow-y-auto scrollbar-hide ${className}`} style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
+        <div className={`w-full px-4 sm:px-6 lg:px-0 lg:col-span-1 animate-fadeIn mb-12 sm:mb-16 lg:mb-20 lg:sticky lg:top-[210px] lg:w-full lg:max-w-none lg:self-start lg:h-[calc(100vh-13rem)] lg:overflow-y-auto scrollbar-hide ${className}`} style={{ animationDelay: '0.2s', animationFillMode: 'both' }}>
             {/* Get In Touch Form */}
             <div className="mb-8">
                 <div className="bg-[#E1F2FF] p-4 sm:p-5 md:p-6 rounded-lg transition-transform hover:scale-[1.01] duration-300 shadow-sm">
                     <h3 className="text-base sm:text-lg md:text-xl font-bold text-gray-800 mb-3 sm:mb-4 text-center">Request a free callback <br /> from Our Counsellor </h3>
-                    <div className="space-y-4">
+                    <div className="space-y-3">
                         <div className="relative w-full">
                             <input
                                 type="text"
