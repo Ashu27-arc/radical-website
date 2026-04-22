@@ -133,7 +133,7 @@ className="flex flex-col items-start rounded-lg p-3 sm:p-4"
                 <span className="">Of</span> {heroData.headingRight}
               </h1>
               <div className="border-l-4 border-[#00CFB2] pl-4 md:pl-4s">
-                <p className="text-base md:text-xs md:text-sm leading-relaxed opacity-90">
+                <p className="text-base font-normal md:text-xs md:text-sm leading-relaxed opacity-90">
                   {heroData.paragraph}
                 </p>
               </div>

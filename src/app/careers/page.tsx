@@ -485,7 +485,7 @@ export default function CareersPage() {
       </section>
 
       {/* Submit Resume Section */}
-      <section id="submit-resume-section" className="py-12 md:py-16 bg-gray-50">
+      <section id="submit-resume-section" className="py-12 md:py-8 bg-gray-50">
         <div className="container mx-auto px-4">
           <h2 className="text-2xl md:text-4xl font-bold text-center mb-8 md:mb-12 text-gray-800">
             Submit Your <span className="text-[#287FC4]">Resume</span>
@@ -497,7 +497,7 @@ export default function CareersPage() {
                   className="absolute inset-0 
   bg-[linear-gradient(90deg,rgba(99,205,180,0.65)_0%,rgba(0,90,139,0.85)_100%)]"
                 ></div>
-                <div className="absolute inset-0 backdrop-blur-[10px]"></div>
+                <div className="absolute inset-0 backdrop-blur-[3px]"></div>
                 <form
                   onSubmit={handleSubmit}
                   className="space-y-4 md:space-y-5 w-full relative z-10"
@@ -518,7 +518,7 @@ export default function CareersPage() {
                       onChange={handleInputChange}
                       placeholder=" "
                       required
-                      className="peer w-full px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base rounded-lg bg-white border border-gray-300 focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                      className="peer w-full px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base rounded-[5px] bg-white border border-gray-300 focus:ring-2 focus:ring-blue-400 focus:outline-none"
                     />
                     <span
                       className="absolute left-3 md:left-4 top-2.5 md:top-3 text-sm md:text-base text-[#78787899] pointer-events-none 
@@ -537,7 +537,7 @@ export default function CareersPage() {
                       onChange={handleInputChange}
                       placeholder=" "
                       required
-                      className="peer w-full px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base rounded-lg bg-white border border-gray-300 focus:ring-2 focus:ring-blue-400 focus:outline-none"
+                      className="peer w-full px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base rounded-[5px] bg-white border border-gray-300 focus:ring-2 focus:ring-blue-400 focus:outline-none"
                     />
                     <span
                       className="absolute left-3 md:left-4 top-2.5 md:top-3 text-sm md:text-base text-[#78787899] pointer-events-none 
@@ -547,14 +547,14 @@ export default function CareersPage() {
                       Email Address
                     </span>
                   </div>
-                  <div className="relative w-full group">
+                  <div className="relative w-full">
                     <select
                       name="opening"
                       aria-label="Opening"
                       value={formData.opening}
                       onChange={handleInputChange}
                       required
-                      className="h-[49px] w-full px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base rounded-lg bg-white border border-gray-300 focus:ring-2 focus:ring-blue-400 focus:outline-none text-gray-700"
+                      className="appearance-none h-[49px] w-full px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base rounded-[5px] bg-white border border-gray-300 focus:ring-2 focus:ring-blue-400 focus:outline-none text-gray-700 pr-10"
                     >
                       <option value=""></option>
                       {jobsData.map((job, index) => (
@@ -563,15 +563,26 @@ export default function CareersPage() {
                         </option>
                       ))}
                     </select>
+
+                    {/* placeholder */}
                     {!formData.opening && (
-                      <span
-                        className="absolute left-3 md:left-4 top-2.5 md:top-3 text-sm md:text-base text-[#78787899] pointer-events-none 
-                        transition-opacity duration-200 
-                        "
-                      >
+                      <span className="absolute left-3 md:left-4 top-2.5 md:top-3 text-sm md:text-base text-[#78787899] pointer-events-none">
                         Select Opening
                       </span>
                     )}
+
+                    {/* custom dropdown icon */}
+                    <div className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2">
+                      <svg
+                        className="w-5 h-5 text-[#AAAAAA]"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M6 9l6 6 6-6" />
+                      </svg>
+                    </div>
                   </div>
                   <div className="relative">
                     <input
@@ -583,7 +594,7 @@ export default function CareersPage() {
                     />
                     <label
                       htmlFor="resume-upload"
-                      className="w-full px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base rounded-lg bg-black/15 backdrop-blur-md text-white cursor-pointer flex items-center justify-center border-2 border-dashed border-white border-opacity-50 transition-all"
+                      className="w-full px-3 md:px-4 py-2.5 md:py-3 font-normal text-sm md:text-base rounded-[5px] bg-black/15 backdrop-blur-md text-white cursor-pointer flex items-center justify-center border-2 border-dashed border-white border-opacity-50 transition-all"
                     >
                       <span>
                         {resumeFile ? resumeFile.name : "Upload Your Resume"}
