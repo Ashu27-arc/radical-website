@@ -241,7 +241,8 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
 
 
     const [searchTerm, setSearchTerm] = useState('');
-    const [activeCategory, setActiveCategory] = useState('All');
+    const [selectedCategories, setSelectedCategories] = useState<string[]>(['All']);
+    const stableCategoryOrder = ['All', 'Exams', 'Government', 'MBBS in India', 'MBBS Abroad', 'Study Abroad', 'NEET UG', 'NEET PG', 'Notification'];
     const categoryContainerRef = useRef<HTMLDivElement>(null);
     const [blog, setBlog] = useState<Blog | null>(null);
     const [loading, setLoading] = useState(true);
@@ -317,14 +318,68 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
         <div className="w-full min-w-0 bg-gray-50 relative animate-fadeIn">
             <FloatingWhatsApp />
             {/* Navigation / Back Button */}
-            <div className="bg-white border-b border-gray-100 py-2">
+            <div className="bg-white border-b border-gray-100 py-2 sticky top-[80px] md:top-[130px] z-40 shadow-sm backdrop-blur-sm">
                 <div className="max-w-6xl mx-auto px-4">
-                    <Link href="/blogs" className="text-[#005A8B] hover:underline flex items-center gap-2 font-medium">
-                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                        </svg>
-                        Back to Blogs
-                    </Link>
+                    <div className="flex flex-col md:flex-row items-center gap-4">
+                        <Link href="/blogs" className="text-[#005A8B] hover:underline flex items-center gap-2 font-medium shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                            </svg>
+                            Back to Blogs
+                        </Link>
+                        
+                        <div className="flex items-center gap-3 flex-1 overflow-hidden w-full">
+                            <div ref={categoryContainerRef} className="flex gap-2 md:gap-3 items-center flex-1 overflow-x-auto scrollbar-hide py-1" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
+                                {stableCategoryOrder.map((category) => {
+                                    const isSelected = selectedCategories.includes(category);
+                                    const isAll = category === 'All';
+                                    const themeStyle = isAll ? 'bg-white text-gray-600 border-gray-200' : (categoryColors[category] || defaultCategoryColor);
+                                    
+                                    const toggleCategory = () => {
+                                        let nextCategories: string[];
+                                        if (isAll) {
+                                            nextCategories = ['All'];
+                                        } else {
+                                            const withoutAll = selectedCategories.filter(c => c !== 'All');
+                                            if (selectedCategories.includes(category)) {
+                                                const next = withoutAll.filter(c => c !== category);
+                                                nextCategories = next.length === 0 ? ['All'] : next;
+                                            } else {
+                                                nextCategories = [...withoutAll, category];
+                                            }
+                                        }
+                                        setSelectedCategories(nextCategories);
+                                        
+                                        // Redirect to blogs page with filters
+                                        const query = nextCategories.includes('All') ? '' : `?search=${encodeURIComponent(nextCategories.join(' '))}`;
+                                        window.location.href = `/blogs${query}`;
+                                    };
+
+                                    return (
+                                        <button key={category} onClick={toggleCategory}
+                                            className={`px-3 py-1.5 rounded-full font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 text-xs whitespace-nowrap shrink-0 border ${isSelected ? 'bg-[#005A8B] text-white border-[#005A8B] shadow-md' : `${themeStyle} ${isAll ? '' : 'border-transparent'} hover:bg-[#005A8B] hover:text-white hover:border-[#005A8B]`}`}>
+                                            {category}
+                                        </button>
+                                    );
+                                })}
+                            </div>
+                            
+                            {!selectedCategories.includes('All') && (
+                                <button 
+                                    onClick={() => {
+                                        setSelectedCategories(['All']);
+                                        window.location.href = '/blogs';
+                                    }}
+                                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#005A8B] text-white hover:bg-blue-700 transition-all duration-300 text-[10px] font-bold shadow-md hover:shadow-lg active:scale-95 shrink-0 ml-2"
+                                >
+                                    <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                                    </svg>
+                                    Clear Filters
+                                </button>
+                            )}
+                        </div>
+                    </div>
                 </div>
             </div>
 

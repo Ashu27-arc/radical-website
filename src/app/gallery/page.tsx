@@ -55,40 +55,13 @@ export default function GalleryPage() {
                     <div className="absolute inset-0 bg-black/50 -z-1" />
                     <div className="mx-auto px-4 w-full lg:w-4/10 md:8/10 text-center fadeUp">
                         <h1 className="uppercase lg:text-5xl text-4xl font-bold text-white lg:mb-6 mb-4">OUR GALLERY</h1>
-                        <p className="text-white text-lg m-0 p-0">Take a look at moments from our seminars, airport send-offs, and counselling sessions where future doctors receive expert guidance and step confidently toward their dreams.</p>
+                        <p className="text-white text-lg m-0 p-0">Explore our journey through the years as we help students achieve their medical career goals across the globe.</p>
                     </div>
                 </section>
-                <section className='bg-[#F4F7F8]'>
-                    <div className='container px-3 md:px-4'>
-                        <div className="grid md:grid-cols-2 grid-cols-1 gap-4 mx-auto w-15/20 md:-mt-30 -mt-15 relative z-2">
-                            <div className="lg:px-8 px-6 lg:py-12 py-8 rounded-lg shadow-lg text-white bg-[url('/images/semi.webp')]
-                        bg-[length:100%]
-                        hover:bg-[length:105%]
-                        bg-center
-                        transition-[background-size]
-                        duration-700 ease-out fadeLeft">
-                                <div className="pr-20 md:pr-30 lg:pr-40">
-                                    <h3 className="font-bold text-white text-4xl mb-2">Seminar Highlights</h3>
-                                    <p className="p-0 m-0 text-white">Moments from our informative seminars where experts guide aspiring medical students</p>
-                                </div>
-                            </div>
-                            <div className="lg:px-8 px-6 lg:py-12 py-8 rounded-lg shadow-lg text-white bg-[url('/images/air.webp')]
-                        bg-[length:100%]
-                        hover:bg-[length:105%]
-                        bg-center
-                        transition-[background-size]
-                        duration-700 ease-out fadeRight">
-                                <div className="pr-20 md:pr-30 lg:pr-40">
-                                    <h3 className="font-bold text-white text-4xl mb-2">Airport Visit Gallery</h3>
-                                    <p className="p-0 m-0 text-white">Glimpses of our student airport send-offs as they begin their exciting journey toward medical education abroad.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+
                 <section className="bg-[#F4F7F8] pt-14">
                     <div className='container px-3 md:px-4'>
-                        <div className="text-[#0B2E3C] font-semibold mb-3 fadeUp">Select country</div>
+                        {/* <div className="text-[#0B2E3C] font-semibold mb-3 fadeUp">Select country</div> */}
                     </div>
                     <div className="bg-white py-4 fadeUp">
                         <div className='container px-3 md:px-4'>
@@ -104,13 +77,13 @@ export default function GalleryPage() {
                                 {countries.map((item, index) => (
                                     <SwiperSlide key={index}>
                                         <div className="flex flex-col items-center gap-2">
-                                            <div className="w-16 h-16 rounded-full overflow-hidden shadow-md bg-white flex items-center justify-center">
+                                            <div className="w-[85px] h-[60px] rounded-[15px] overflow-hidden shadow-sm bg-gray-50 flex items-center justify-center p-1.5">
                                                 <Image
                                                     src={item.flag}
                                                     alt={item.name}
-                                                    width="64"
-                                                    height="64"
-                                                    className="object-cover"
+                                                    width={85}
+                                                    height={60}
+                                                    className="object-contain w-full h-full"
                                                 />
                                             </div>
                                             <p className="text-sm font-medium text-gray-700 text-center">
@@ -128,10 +101,10 @@ export default function GalleryPage() {
                         <div className='flex flex-col md:flex-row gap-8'>
                             <div className='md:w-13/20 w-full fadeLeft'>
                                 <div className='lg:pr-60 md:pr-10 lg:pl-6 pl-3 relative z-2'>
-                                    <div className='text-[#0B2E3C] uppercase text-sm font-semibold tracking-widest mb-4 lg:mb-6'>Airport Visits Gallery</div>
+                                    <div className='text-[#0B2E3C] uppercase text-sm font-semibold tracking-widest mb-4 lg:mb-6'>Explore Our Journey</div>
                                     <div className='text-[#4A4A4A] mb-4 lg:mb-6 leading-7 relative'>
                                         <span className="absolute left-[-20px] top-0 bottom-0 w-[2px] bg-[#00CFB2]" />
-                                        <div>Take a closer look at the heartfelt airport send-offs of our students. Our team proudly supports and sends off future doctors as they take the next step toward their global education.</div>
+                                        <div>Take a closer look at our milestones and the success stories of future doctors. Our team proudly supports students as they take the next step toward their global medical education.</div>
                                     </div>
                                 </div>
                             </div>

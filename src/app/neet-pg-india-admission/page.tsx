@@ -262,9 +262,9 @@ export default function NeetPgIndiaAdmissionPage() {
             </section>
             <section className="py-10 lg:pt-15 lg:pb-40 overflow-hidden bg-[#F4F7F8]">
                 <div className="container px-6 md:px-12 lg:px-20 max-w-[1010px]!">
-                    <div className="grid grid-cols-1 md:grid-cols-2 md:gap-8 lg:gap-12 mb-16">
-                        <div className="relative h-full">
-                            <Image src="/neetpg-card.webp" width="572" height="764" className="w-full h-full object-cover rounded-2xl" alt="" />
+                    <div className="grid grid-cols-1 md:grid-cols-2 md:gap-8 lg:gap-12 mb-16 items-start">
+                        <div className="relative">
+                            <Image src="/neetpg-card.webp" width="572" height="764" className="w-full object-cover rounded-2xl" alt="" />
                         </div>
                         <div className="h-full">
                             <div

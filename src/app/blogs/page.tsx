@@ -10,10 +10,10 @@ import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import GlobalBanner from '@/components/GlobalBanner';
 
 const categoryColors: Record<string, string> = {
-  'Education': 'bg-[#BFE6DB] text-[#00A88E]',
+  // 'Education': 'bg-[#BFE6DB] text-[#00A88E]',
   'Exams': 'bg-[#FFE0B2] text-[#C77700]',
   'Government': 'bg-[#D5DCE5] text-[#2C3E50]',
-  'Careers': 'bg-[#C9E2FF] text-[#004E89]',
+  // 'Careers': 'bg-[#C9E2FF] text-[#004E89]',
   'MBBS in India': 'bg-[#E8F5E9] text-[#2E7D32]',
   'MBBS Abroad': 'bg-[#BFE6DB] text-[#00A88E]',
   'Study Abroad': 'bg-[#BFE6DB] text-[#00A88E]',
@@ -23,7 +23,7 @@ const categoryColors: Record<string, string> = {
 };
 
 const defaultCategoryColor = 'bg-[#E3F2FD] text-[#005A8B]';
-const stableCategoryOrder = ['All', 'Education', 'Exams', 'Government', 'Careers', 'MBBS in India', 'MBBS Abroad', 'Study Abroad', 'NEET UG', 'NEET PG', 'Notification'];
+const stableCategoryOrder = ['All', 'Exams', 'Government', 'MBBS in India', 'MBBS Abroad', 'Study Abroad', 'NEET UG', 'NEET PG', 'Notification'];
 const BLOGS_CACHE_KEY = 'radical_blogs_cache_v1';
 
 const excludedCategoryNames = ['blog', 'blogs', 'other', 'others', 'uncategorized', 'uncategorised'];
@@ -46,7 +46,7 @@ const normalizeCategoryForMatch = (value: string) =>
     .replace(/[^a-z0-9]/g, '');
 
 const BlogsPage = () => {
-  const [activeCategory, setActiveCategory] = useState('All');
+  const [selectedCategories, setSelectedCategories] = useState<string[]>(['All']);
   const [searchQuery, setSearchQuery] = useState('');
   const [blogs, setBlogs] = useState<Blog[]>([]);
   const [loading, setLoading] = useState(true);
@@ -57,7 +57,7 @@ const BlogsPage = () => {
   const [refreshKey, setRefreshKey] = useState(0);
   const [totalPagesServer, setTotalPagesServer] = useState(1);
   const wsUrl = process.env.NEXT_PUBLIC_WS_URL || 'https://backend-radical.onrender.com';
-  const { addMessageHandler, isConnected } = useWebSocket(wsUrl);
+  const { addMessageHandler } = useWebSocket(wsUrl);
 
   useEffect(() => {
     let isMounted = true;
@@ -66,8 +66,9 @@ const BlogsPage = () => {
     const fetchBlogs = async () => {
       try {
         let query = searchQuery.trim();
-        if (activeCategory !== 'All') {
-          query = query ? `${query} ${activeCategory}` : activeCategory;
+        if (!selectedCategories.includes('All')) {
+          const catQuery = selectedCategories.join(' ');
+          query = query ? `${query} ${catQuery}` : catQuery;
         }
 
         const res = await fetch(`/api/wp/paginated-posts?page=${currentPage}&per_page=${blogsPerPage}&search=${encodeURIComponent(query)}`);
@@ -95,7 +96,7 @@ const BlogsPage = () => {
       isMounted = false;
       clearTimeout(timeoutId);
     };
-  }, [currentPage, searchQuery, activeCategory, refreshKey]);
+  }, [currentPage, searchQuery, selectedCategories, refreshKey]);
 
   useEffect(() => {
     const removeHandler = addMessageHandler((data) => {
@@ -150,18 +151,9 @@ const BlogsPage = () => {
 
   const categories = stableCategoryOrder;
 
-  const connectionStatus = (
-    <div className="flex items-center justify-end mb-4 pr-4">
-      <span className={`inline-flex items-center text-xs ${isConnected ? 'text-green-600' : 'text-red-600'}`}>
-        <span className={`inline-block w-2 h-2 rounded-full mr-2 ${isConnected ? 'bg-green-600' : 'bg-red-600'}`}></span>
-        {isConnected ? 'Live Updates Active' : 'Live Updates Offline'}
-      </span>
-    </div>
-  );
-
   const filtered = publishedBlogs; // Already paginated and filtered by API
 
-  useEffect(() => { setCurrentPage(1); }, [activeCategory, searchQuery]);
+  useEffect(() => { setCurrentPage(1); }, [selectedCategories, searchQuery]);
 
   const currentBlogs = filtered;
   const totalPages = totalPagesServer;
@@ -238,17 +230,45 @@ const BlogsPage = () => {
                 </button>
                 <div ref={scrollRef} className="flex gap-3 md:gap-4 items-center flex-1 overflow-x-auto scrollbar-hide py-1 min-w-0" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                   {categories.map((category) => {
-                    const isActive = activeCategory === category;
+                    const isSelected = selectedCategories.includes(category);
                     const isAll = category === 'All';
                     const themeStyle = isAll ? 'bg-white text-gray-600 border-gray-200' : (categoryColors[category] || defaultCategoryColor);
+                    
+                    const toggleCategory = () => {
+                      if (isAll) {
+                        setSelectedCategories(['All']);
+                      } else {
+                        setSelectedCategories(prev => {
+                          const withoutAll = prev.filter(c => c !== 'All');
+                          if (prev.includes(category)) {
+                            const next = withoutAll.filter(c => c !== category);
+                            return next.length === 0 ? ['All'] : next;
+                          } else {
+                            return [...withoutAll, category];
+                          }
+                        });
+                      }
+                    };
+
                     return (
-                      <button key={category} onClick={() => setActiveCategory(category)}
-                        className={`px-3 sm:px-4 md:px-5 py-1.5 rounded-full font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 text-xs sm:text-sm whitespace-nowrap shrink-0 border ${isActive ? 'bg-[#005A8B] text-white border-[#005A8B] shadow-md' : `${themeStyle} ${isAll ? '' : 'border-transparent'} hover:bg-[#005A8B] hover:text-white hover:border-[#005A8B]`}`}>
+                      <button key={category} onClick={toggleCategory}
+                        className={`px-3 sm:px-4 md:px-5 py-1.5 rounded-full font-medium transition-all duration-300 transform hover:scale-105 active:scale-95 text-xs sm:text-sm whitespace-nowrap shrink-0 border ${isSelected ? 'bg-[#005A8B] text-white border-[#005A8B] shadow-md' : `${themeStyle} ${isAll ? '' : 'border-transparent'} hover:bg-[#005A8B] hover:text-white hover:border-[#005A8B]`}`}>
                         {category}
                       </button>
                     );
                   })}
                 </div>
+                {!selectedCategories.includes('All') && (
+                  <button 
+                    onClick={() => setSelectedCategories(['All'])}
+                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#005A8B] text-white hover:bg-blue-700 transition-all duration-300 text-xs font-bold shadow-md hover:shadow-lg active:scale-95 shrink-0 ml-2"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+                    </svg>
+                    Clear Filters
+                  </button>
+                )}
                 <button onClick={() => scroll('right')} className="hidden md:flex w-10 h-10 rounded-full bg-white shadow-sm hover:shadow-md transition-all duration-200 items-center justify-center shrink-0 border border-gray-200 hover:border-gray-300 hover:scale-110 active:scale-95">
                   <Image src="/images/blogs/right-arrow.webp" alt="Scroll Right" width={16} height={16} className="object-contain opacity-60 hover:opacity-100" />
                 </button>
@@ -346,15 +366,15 @@ const BlogsPage = () => {
                 <Link key={blog.id} href={`/${blog.slug}`} className="group block h-full animate-fadeIn" style={{ animationDelay: `${0.1 * (index % 3)}s` }}>
                   <div className="transition-transform duration-300 group-hover:scale-102 bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full border border-gray-50">
                     <div className="w-full overflow-hidden">
-  <Image
-    src={blog.featuredImage || "/images/blogs/card.webp"}
-    alt={blog.title}
-    width={0}
-    height={0}
-    sizes="100vw"
-    className="w-full h-auto object-cover"
-  />
-</div>
+                      <Image
+                        src={blog.featuredImage || "/images/blogs/card.webp"}
+                        alt={blog.title}
+                        width={0}
+                        height={0}
+                        sizes="100vw"
+                        className="w-full h-auto object-cover"
+                      />
+                    </div>
                     <div className="p-6 flex-1 flex flex-col">
                       <div className="flex flex-wrap gap-2 mb-3">
                         {toCategoryList(blog.category).map((cat, idx) => (
@@ -389,7 +409,6 @@ const BlogsPage = () => {
             <CounselorSection />
           </div>
         </div>
-        <div className="container mx-auto px-4 pb-8">{connectionStatus}</div>
       </div>
     </>
   );

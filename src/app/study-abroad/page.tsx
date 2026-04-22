@@ -39,7 +39,11 @@ export default function StudyAbroadPage() {
         "Health Insurance",
         "Internship Support",
         "Flight Ticket Booking",
-        "Documentation Attestation"
+        "Documentation Attestation",
+        "Scholarship Guidance",
+        "Post-Arrival Support",
+        "Accommodation Help",
+        "Part-time Job Assistance"
     ];
 
     const testimonials = [
@@ -211,18 +215,23 @@ export default function StudyAbroadPage() {
                                     </Button>
                                 </div>
                                 <div className="text-base text-black font-semibold mb-5">Features</div>
-                                <ul className="space-y-5 md:space-y-3 text-sm text-[#686767] flex-grow">
-                                    {(showAllFeatures ? features : features.slice(0, 6)).map((item, index) => (
-                                        <li key={index} className="flex gap-2">
-                                            <span className="text-yellow-500">✦</span>
-                                            <span>{item}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                                {features.length > 6 && (
+                                <div className="flex-1 min-h-0 overflow-hidden relative">
+                                    <ul className={`space-y-4 text-sm text-[#686767] transition-all duration-300 ${showAllFeatures ? 'max-h-[280px] overflow-y-auto pr-2' : 'max-h-[160px] overflow-hidden'}`}>
+                                        {(showAllFeatures ? features : features.slice(0, 4)).map((item, index) => (
+                                            <li key={index} className="flex gap-2">
+                                                <span className="text-yellow-500">✦</span>
+                                                <span>{item}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                    {!showAllFeatures && features.length > 4 && (
+                                        <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-white to-transparent pointer-events-none" />
+                                    )}
+                                </div>
+                                {features.length > 4 && (
                                     <button
                                         onClick={() => setShowAllFeatures(!showAllFeatures)}
-                                        className="mt-6 text-sm font-semibold text-[#005A88] flex items-center justify-between w-full"
+                                        className="mt-6 text-sm font-semibold text-[#005A88] flex items-center justify-between w-full border-t pt-4"
                                     >
                                         <span>{showAllFeatures ? 'View Less' : 'View More'}</span>
                                         <Image
