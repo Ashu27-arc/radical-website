@@ -523,9 +523,9 @@ export default function MBBSDeemedCollegesPage() {
                                         <h4 className="font-semibold text-gray-800 text-xs sm:text-sm md:text-base leading-tight group-hover:text-[#287FC4] transition-colors">
                                             {item.title}
                                         </h4>
-                                        <p className="text-xs text-gray-500 mt-1">
+                                        {/* <p className="text-xs text-gray-500 mt-1">
                                             Danish Farzan • {item.date}
-                                        </p>
+                                        </p> */}
                                     </Link>
                                 ))}
                             </div>

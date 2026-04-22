@@ -78,8 +78,8 @@ export default function MBBSAbroadAdmission() {
         },
         {
             id: 4,
-            name: "Kyrgistan",
-            slug: "kyrgistan",
+            name: "Kyrgyzstan",
+            slug: "kyrgyzstan",
             flag: "/images/study-abroad/flags/kyrgistan.webp",
             image: "/images/study-abroad/kyrgistan.webp",
             likes: "4K",
@@ -174,60 +174,60 @@ export default function MBBSAbroadAdmission() {
 
     const data = [
         {
+            country: "Bangladesh",
+            flag: "/images/bangladesh.webp",
+            academic: { inr: "USD 36,000", usd: "" },
+            hostel: { inr: "Included in academic charges", usd: "" },
+            total: { inr: "USD 36,000", usd: "" },
+        },
+        {
             country: "Georgia",
             flag: "/images/georgia.webp",
-            academic: { inr: "INR 26,81,156", usd: "USD 28,800" },
-            hostel: { inr: "INR 8,33,719", usd: "USD 9,000" },
-            total: { inr: "INR 35,14,875", usd: "USD 37,800" },
+            academic: { inr: "USD 30,000", usd: "" },
+            hostel: { inr: "USD 18,000", usd: "" },
+            total: { inr: "USD 48,000", usd: "" },
         },
         {
             country: "Kazakhstan",
             flag: "/images/kazakhstan.webp",
-            academic: { inr: "INR 20,58,826", usd: "USD 22,200" },
-            hostel: { inr: "INR 6,66,975", usd: "USD 7,200" },
-            total: { inr: "INR 27,25,801", usd: "USD 29,400" },
+            academic: { inr: "USD 22,200", usd: "" },
+            hostel: { inr: "USD 9,600", usd: "" },
+            total: { inr: "USD 31,800", usd: "" },
         },
         {
-            country: "Uzbekistan",
-            flag: "/images/uzbekistan.webp",
-            academic: { inr: "INR 19,45,345", usd: "USD 21,000" },
-            hostel: { inr: "INR 6,66,975", usd: "USD 7,200" },
-            total: { inr: "INR 26,12,320", usd: "USD 28,200" },
+            country: "Kyrgyzstan",
+            flag: "/images/study-abroad/flags/kyrgistan.webp",
+            academic: { inr: "INR 21,90,000", usd: "" },
+            hostel: { inr: "Included in academic charges", usd: "" },
+            total: { inr: "INR 21,90,000", usd: "" },
         },
         {
             country: "Nepal",
             flag: "/images/nepal.webp",
-            academic: { inr: "INR 62,00,000", usd: "" },
-            hostel: { inr: "Included In Academic", usd: "" },
-            total: { inr: "INR 62,00,000", usd: "" },
+            academic: { inr: "INR 50,00,000", usd: "" },
+            hostel: { inr: "INR 6,34,500", usd: "" },
+            total: { inr: "INR 56,34,500", usd: "" },
         },
         {
             country: "Russia",
             flag: "/images/russia.webp",
-            academic: { inr: "INR 15,00,000", usd: "RUB 12,94,040" },
-            hostel: { inr: "INR 1,41,408", usd: "RUB 1,20,000" },
-            total: { inr: "INR 16,41,408", usd: "RUB 14,14,040" },
+            academic: { inr: "RB 12,00,000", usd: "" },
+            hostel: { inr: "RB 9,69,024", usd: "" },
+            total: { inr: "RB 21,69,024", usd: "" },
         },
         {
             country: "Singapore",
             flag: "/images/singapore.webp",
-            academic: { inr: "INR 1,15,74,062", usd: "USD 1,25,000" },
-            hostel: { inr: "INR 9,25,925", usd: "USD 10,000" },
-            total: { inr: "INR 1,24,99,987", usd: "USD 1,35,000" },
+            academic: { inr: "S$ 373,750", usd: "" },
+            hostel: { inr: "S$ 50,100", usd: "" },
+            total: { inr: "S$ 423,850", usd: "" },
         },
         {
-            country: "Kyrgystan",
-            flag: "/images/kyrgyzstan.webp",
-            academic: { inr: "INR 21,00,000", usd: "USD 22,680" },
-            hostel: { inr: "Included In Academic", usd: "" },
-            total: { inr: "INR 21,00,000", usd: "USD 22,680" },
-        },
-        {
-            country: "Bangladesh",
-            flag: "/images/bangladesh.webp",
-            academic: { inr: "INR 26,00,000", usd: "USD 27,936" },
-            hostel: { inr: "INR 10,00,000", usd: "USD 10,741" },
-            total: { inr: "INR 36,00,000", usd: "USD 38,677" },
+            country: "Uzbekistan",
+            flag: "/images/uzbekistan.webp",
+            academic: { inr: "USD 22,000", usd: "" },
+            hostel: { inr: "USD 8,000", usd: "" },
+            total: { inr: "USD 30,000", usd: "" },
         },
     ];
 
@@ -341,7 +341,7 @@ export default function MBBSAbroadAdmission() {
 
                             </p>
                             <h2 className="text-3xl md:text-4xl lg:text-5xl font-normal text-black">
-                                Country  <span className="text-[#287FC4]">we serve</span>
+                                Countries  <span className="text-[#287FC4]">we serve</span>
                             </h2>
                         </div>
                         <p className="text-gray-600 text-sm sm:text-base md:text-lg max-w-2xl leading-relaxed md:mt-8 lg:pl-20">
@@ -377,7 +377,7 @@ export default function MBBSAbroadAdmission() {
                                                 <p className="text-xs sm:text-sm text-gray-500">Just now</p>
                                             </div>
                                         </div>
-                                        <button className="text-black">
+                                        <div className="text-black">
                                             <svg
                                                 className="w-5 h-5 sm:w-6 sm:h-6"
                                                 fill="currentColor"
@@ -387,7 +387,7 @@ export default function MBBSAbroadAdmission() {
                                                 <circle cx="10" cy="10" r="1.5" />
                                                 <circle cx="10" cy="16" r="1.5" />
                                             </svg>
-                                        </button>
+                                        </div>
                                     </div>
 
                                     <div className="relative h-[220px] overflow-hidden">
@@ -403,7 +403,7 @@ export default function MBBSAbroadAdmission() {
                                     <div className="p-3 sm:p-4 flex-shrink-0">
                                         {/* Engagement Stats */}
                                         <div className="flex items-center gap-2 sm:gap-3 mb-4 text-sm text-gray-600">
-                                            <button className="flex items-center gap-1 text-[#F12424] transition-all">
+                                            <div className="flex items-center gap-1 text-[#F12424] transition-all">
                                                 <svg
                                                     className="w-5 h-5"
                                                     fill="currentColor"
@@ -412,14 +412,14 @@ export default function MBBSAbroadAdmission() {
                                                     <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
                                                 </svg>
                                                 <span className="text-sm">{country.likes}</span>
-                                            </button>
-                                            <button className="flex items-center gap-1 hover:text-blue-500 transition-colors">
+                                            </div>
+                                            <div className="flex items-center gap-1 hover:text-blue-500 transition-colors">
                                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M7.77941 14.8627C9.21914 14.8627 10.6265 14.4416 11.8236 13.6525C13.0207 12.8634 13.9537 11.7418 14.5047 10.4296C15.0557 9.11734 15.1998 7.67341 14.9189 6.28036C14.6381 4.88731 13.9448 3.60771 12.9267 2.60338C11.9087 1.59905 10.6116 0.915086 9.19955 0.637991C7.78748 0.360896 6.32384 0.503112 4.9937 1.04665C3.66356 1.59019 2.52667 2.51065 1.7268 3.69162C0.92693 4.87259 0.5 6.26103 0.5 7.68137C0.5 8.86869 0.791176 9.98739 1.30882 10.9744L0.5 14.8627L4.4414 14.0648C5.4411 14.5747 6.57669 14.8627 7.77941 14.8627Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
                                                 </svg>
                                                 <span className="text-sm">{country.comments}</span>
-                                            </button>
-                                            <button className="flex items-center gap-1 hover:text-blue-500 transition-colors">
+                                            </div>
+                                            <div className="flex items-center gap-1 hover:text-blue-500 transition-colors">
                                                 <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M13.6145 13.3626C12.5394 14.4198 11.1711 15.1394 9.68211 15.4305C8.19312 15.7217 6.65009 15.5715 5.24753 14.9988C3.84496 14.4261 2.64565 13.4566 1.80078 12.2125C0.955907 10.9683 0.503295 9.50532 0.5 8.00781" stroke="black" stroke-miterlimit="10" stroke-linecap="round" />
                                                     <path d="M12.995 17.257L13.7589 14.2028C13.7941 14.0697 13.8015 13.931 13.7808 13.7949C13.7601 13.6589 13.7116 13.5285 13.6383 13.4114C13.565 13.2944 13.4684 13.1933 13.3544 13.1142C13.2403 13.035 13.1112 12.9796 12.9748 12.9511L9.87891 12.1875" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
@@ -427,41 +427,21 @@ export default function MBBSAbroadAdmission() {
                                                     <path d="M3.17198 0.5L2.4081 3.55421C2.37307 3.68737 2.36575 3.82615 2.38659 3.96217C2.40744 4.0982 2.45601 4.22864 2.52937 4.34563C2.60274 4.46262 2.69938 4.56373 2.81345 4.64285C2.92753 4.72197 3.05668 4.77746 3.1931 4.80597L6.28809 5.56952" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
                                                 </svg>
                                                 <span className="text-sm">{country.views}</span>
-                                            </button>
+                                            </div>
 
 
 
-                                            <button className="flex items-center gap-1 hover:text-green-500 transition-colors">
+                                            <div className="flex items-center gap-1 hover:text-green-500 transition-colors">
                                                 <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M6.86323 1.253C7.0287 1.253 7.1874 1.31896 7.30441 1.43636C7.42142 1.55377 7.48716 1.713 7.48716 1.87903C7.48716 2.04507 7.42142 2.2043 7.30441 2.32171C7.1874 2.43911 7.0287 2.50507 6.86323 2.50507H3.11965C2.62322 2.50507 2.14712 2.70294 1.79609 3.05515C1.44507 3.40736 1.24786 3.88506 1.24786 4.38316V13.1476C1.24786 13.6457 1.44507 14.1234 1.79609 14.4756C2.14712 14.8278 2.62322 15.0257 3.11965 15.0257H11.8547C12.3511 15.0257 12.8272 14.8278 13.1782 14.4756C13.5292 14.1234 13.7265 13.6457 13.7265 13.1476V10.6435C13.7265 10.4775 13.7922 10.3182 13.9092 10.2008C14.0262 10.0834 14.1849 10.0175 14.3504 10.0175C14.5159 10.0175 14.6746 10.0834 14.7916 10.2008C14.9086 10.3182 14.9743 10.4775 14.9743 10.6435V13.1476C14.9743 13.9778 14.6456 14.774 14.0606 15.361C13.4755 15.948 12.682 16.2778 11.8547 16.2778H3.11965C2.29227 16.2778 1.49877 15.948 0.913724 15.361C0.328676 14.774 0 13.9778 0 13.1476V4.38316C0 3.55299 0.328676 2.75682 0.913724 2.16981C1.49877 1.58279 2.29227 1.253 3.11965 1.253H6.86323ZM10.9562 0.063541C11.0612 0.0120516 11.1786 -0.00879336 11.2949 0.00338208C11.4111 0.0155575 11.5216 0.0602636 11.6138 0.132405L17.2292 4.51463C17.3043 4.57315 17.3652 4.64813 17.407 4.73385C17.4488 4.81957 17.4706 4.91375 17.4706 5.0092C17.4706 5.10464 17.4488 5.19882 17.407 5.28454C17.3652 5.37026 17.3043 5.44524 17.2292 5.50376L11.6138 9.88599C11.5216 9.95797 11.4111 10.0025 11.2949 10.0146C11.1786 10.0266 11.0614 10.0057 10.9564 9.95415C10.8515 9.90261 10.7631 9.82253 10.7013 9.72305C10.6395 9.62356 10.6067 9.50866 10.6068 9.39142V7.54463C7.82158 7.8326 6.08456 10.015 5.12121 11.8004L4.9253 12.176C4.86235 12.302 4.75885 12.4031 4.63155 12.4627C4.50425 12.5224 4.36061 12.5372 4.22389 12.5047C4.08716 12.4723 3.96536 12.3945 3.87819 12.2839C3.79102 12.1734 3.74359 12.0365 3.74358 11.8956C3.74358 9.29627 4.38997 6.96117 5.66154 5.25961C6.83203 3.69453 8.51414 2.69663 10.6068 2.53136V0.62697C10.6066 0.509639 10.6392 0.394604 10.701 0.294983C10.7628 0.195362 10.8512 0.115166 10.9562 0.063541ZM11.8547 3.1311C11.8547 3.29713 11.7889 3.45637 11.6719 3.57377C11.5549 3.69118 11.3962 3.75713 11.2307 3.75713C9.24664 3.75713 7.71551 4.59977 6.66107 6.01085C5.99097 6.90733 5.50306 8.04671 5.23352 9.36638C6.51632 7.76123 8.45425 6.26126 11.2307 6.26126C11.3962 6.26126 11.5549 6.32722 11.6719 6.44462C11.7889 6.56203 11.8547 6.72126 11.8547 6.88729V8.11181L15.8291 5.0092L11.8547 1.90533V3.1311Z" fill="black" />
                                                 </svg>
                                                 <span className="text-sm">{country.shares}</span>
-                                            </button>
-                                            <button className="flex items-center gap-1 hover:text-purple-500 transition-colors ml-auto">
-                                                {/* <svg
-                                                        className="w-5 h-5"
-                                                        fill="none"
-                                                        stroke="currentColor"
-                                                        viewBox="0 0 24 24"
-                                                    >
-                                                        <path
-                                                            strokeLinecap="round"
-                                                            strokeLinejoin="round"
-                                                            strokeWidth={2}
-                                                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                                                        />
-                                                        <path
-                                                            strokeLinecap="round"
-                                                            strokeLinejoin="round"
-                                                            strokeWidth={2}
-                                                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                                                        />
-                                                    </svg>
-                                                    <span className="text-sm">{country.views}</span> */}
+                                            </div>
+                                            <div className="flex items-center gap-1 hover:text-purple-500 transition-colors ml-auto">
                                                 <svg width="13" height="19" viewBox="0 0 13 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                     <path d="M10.2059 0.5H2.44118C1.92634 0.5 1.4326 0.701762 1.06856 1.0609C0.704516 1.42004 0.5 1.90713 0.5 2.41503V17.7353L6.32353 14.8627L12.1471 17.7353V2.41503C12.1471 1.90713 11.9425 1.42004 11.5785 1.0609C11.2145 0.701762 10.7207 0.5 10.2059 0.5Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
                                                 </svg>
-                                            </button>
+                                            </div>
                                         </div>
 
                                         {/* User Avatars */}
@@ -500,11 +480,13 @@ export default function MBBSAbroadAdmission() {
                             </Link>
                         ))}
                     </div>
-                    <div className="flex justify-center mt-4 sm:mt-6">
-                        <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 lg:px-3">
-                            {countries.slice(6, 7).map((country) => (
+                    <div className="flex flex-wrap justify-center mt-4 sm:mt-6 gap-4 lg:gap-8">
+                        {countries.slice(6, 8).map((country) => (
+                            <div
+                                key={country.id}
+                                className="w-full sm:w-[calc(50%-1rem)] lg:w-1/3 lg:px-3"
+                            >
                                 <Link
-                                    key={country.id}
                                     href={`/mbbs-abroad-admission/${country.slug}`}
                                     className="block"
                                 >
@@ -528,7 +510,7 @@ export default function MBBSAbroadAdmission() {
                                                     <p className="text-xs sm:text-sm text-gray-500">Just now</p>
                                                 </div>
                                             </div>
-                                            <button className="text-black">
+                                            <div className="text-black">
                                                 <svg
                                                     className="w-5 h-5 sm:w-6 sm:h-6"
                                                     fill="currentColor"
@@ -538,7 +520,7 @@ export default function MBBSAbroadAdmission() {
                                                     <circle cx="10" cy="10" r="1.5" />
                                                     <circle cx="10" cy="16" r="1.5" />
                                                 </svg>
-                                            </button>
+                                            </div>
                                         </div>
 
                                         <div className="relative h-[220px] overflow-hidden">
@@ -554,7 +536,7 @@ export default function MBBSAbroadAdmission() {
                                         <div className="p-3 sm:p-4 flex-shrink-0">
                                             {/* Engagement Stats */}
                                             <div className="flex items-center gap-2 sm:gap-3 mb-4 text-sm text-gray-600">
-                                                <button className="flex items-center gap-1 text-[#F12424] transition-all">
+                                                <div className="flex items-center gap-1 text-[#F12424] transition-all">
                                                     <svg
                                                         className="w-5 h-5"
                                                         fill="currentColor"
@@ -563,14 +545,14 @@ export default function MBBSAbroadAdmission() {
                                                         <path d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" />
                                                     </svg>
                                                     <span className="text-sm">{country.likes}</span>
-                                                </button>
-                                                <button className="flex items-center gap-1 hover:text-blue-500 transition-colors">
+                                                </div>
+                                                <div className="flex items-center gap-1 hover:text-blue-500 transition-colors">
                                                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M7.77941 14.8627C9.21914 14.8627 10.6265 14.4416 11.8236 13.6525C13.0207 12.8634 13.9537 11.7418 14.5047 10.4296C15.0557 9.11734 15.1998 7.67341 14.9189 6.28036C14.6381 4.88731 13.9448 3.60771 12.9267 2.60338C11.9087 1.59905 10.6116 0.915086 9.19955 0.637991C7.78748 0.360896 6.32384 0.503112 4.9937 1.04665C3.66356 1.59019 2.52667 2.51065 1.7268 3.69162C0.92693 4.87259 0.5 6.26103 0.5 7.68137C0.5 8.86869 0.791176 9.98739 1.30882 10.9744L0.5 14.8627L4.4414 14.0648C5.4411 14.5747 6.57669 14.8627 7.77941 14.8627Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
                                                     </svg>
                                                     <span className="text-sm">{country.comments}</span>
-                                                </button>
-                                                <button className="flex items-center gap-1 hover:text-blue-500 transition-colors">
+                                                </div>
+                                                <div className="flex items-center gap-1 hover:text-blue-500 transition-colors">
                                                     <svg width="17" height="18" viewBox="0 0 17 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M13.6145 13.3626C12.5394 14.4198 11.1711 15.1394 9.68211 15.4305C8.19312 15.7217 6.65009 15.5715 5.24753 14.9988C3.84496 14.4261 2.64565 13.4566 1.80078 12.2125C0.955907 10.9683 0.503295 9.50532 0.5 8.00781" stroke="black" stroke-miterlimit="10" stroke-linecap="round" />
                                                         <path d="M12.995 17.257L13.7589 14.2028C13.7941 14.0697 13.8015 13.931 13.7808 13.7949C13.7601 13.6589 13.7116 13.5285 13.6383 13.4114C13.565 13.2944 13.4684 13.1933 13.3544 13.1142C13.2403 13.035 13.1112 12.9796 12.9748 12.9511L9.87891 12.1875" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
@@ -578,41 +560,18 @@ export default function MBBSAbroadAdmission() {
                                                         <path d="M3.17198 0.5L2.4081 3.55421C2.37307 3.68737 2.36575 3.82615 2.38659 3.96217C2.40744 4.0982 2.45601 4.22864 2.52937 4.34563C2.60274 4.46262 2.69938 4.56373 2.81345 4.64285C2.92753 4.72197 3.05668 4.77746 3.1931 4.80597L6.28809 5.56952" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
                                                     </svg>
                                                     <span className="text-sm">{country.views}</span>
-                                                </button>
-
-
-
-                                                <button className="flex items-center gap-1 hover:text-green-500 transition-colors">
+                                                </div>
+                                                <div className="flex items-center gap-1 hover:text-green-500 transition-colors">
                                                     <svg width="18" height="17" viewBox="0 0 18 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                        <path d="M6.86323 1.253C7.0287 1.253 7.1874 1.31896 7.30441 1.43636C7.42142 1.55377 7.48716 1.713 7.48716 1.87903C7.48716 2.04507 7.42142 2.2043 7.30441 2.32171C7.1874 2.43911 7.0287 2.50507 6.86323 2.50507H3.11965C2.62322 2.50507 2.14712 2.70294 1.79609 3.05515C1.44507 3.40736 1.24786 3.88506 1.24786 4.38316V13.1476C1.24786 13.6457 1.44507 14.1234 1.79609 14.4756C2.14712 14.8278 2.62322 15.0257 3.11965 15.0257H11.8547C12.3511 15.0257 12.8272 14.8278 13.1782 14.4756C13.5292 14.1234 13.7265 13.6457 13.7265 13.1476V10.6435C13.7265 10.4775 13.7922 10.3182 13.9092 10.2008C14.0262 10.0834 14.1849 10.0175 14.3504 10.0175C14.5159 10.0175 14.6746 10.0834 14.7916 10.2008C14.9086 10.3182 14.9743 10.4775 14.9743 10.6435V13.1476C14.9743 13.9778 14.6456 14.774 14.0606 15.361C13.4755 15.948 12.682 16.2778 11.8547 16.2778H3.11965C2.29227 16.2778 1.49877 15.948 0.913724 15.361C0.328676 14.774 0 13.9778 0 13.1476V4.38316C0 3.55299 0.328676 2.75682 0.913724 2.16981C1.49877 1.58279 2.29227 1.253 3.11965 1.253H6.86323ZM10.9562 0.063541C11.0612 0.0120516 11.1786 -0.00879336 11.2949 0.00338208C11.4111 0.0155575 11.5216 0.0602636 11.6138 0.132405L17.2292 4.51463C17.3043 4.57315 17.3652 4.64813 17.407 4.73385C17.4488 4.81957 17.4706 4.91375 17.4706 5.0092C17.4706 5.10464 17.4488 5.19882 17.407 5.28454C17.3652 5.37026 17.3043 5.44524 17.2292 5.50376L11.6138 9.88599C11.5216 9.95797 11.4111 10.0025 11.2949 10.0146C11.1786 10.0266 11.0614 10.0057 10.9564 9.95415C10.8515 9.90261 10.7631 9.82253 10.7013 9.72305C10.6395 9.62356 10.6067 9.50866 10.6068 9.39142V7.54463C7.82158 7.8326 6.08456 10.015 5.12121 11.8004L4.9253 12.176C4.86235 12.302 4.75885 12.4031 4.63155 12.4627C4.50425 12.5224 4.36061 12.5372 4.22389 12.5047C4.08716 12.4723 3.96536 12.3945 3.87819 12.2839C3.79102 12.1734 3.74359 12.0365 3.74358 11.8956C3.74358 9.29627 4.38997 6.96117 5.66154 5.25961C6.83203 3.69453 8.51414 2.69663 10.6068 2.53136V0.62697C10.6066 0.509639 10.6392 0.394604 10.701 0.294983C10.7628 0.195362 10.8512 0.115166 10.9562 0.063541ZM11.8547 3.1311C11.8547 3.29713 11.7889 3.45637 11.6719 3.57377C11.5549 3.69118 11.3962 3.75713 11.2307 3.75713C9.24664 3.75713 7.71551 4.59977 6.66107 6.01085C5.99097 6.90733 5.50306 8.04671 5.23352 9.36638C6.51632 7.76123 8.45425 6.26126 11.2307 6.26126C11.3962 6.26126 11.5549 6.32722 11.6719 6.44462C11.7889 6.56203 11.8547 6.72126 11.8547 6.88729V8.11181L15.8291 5.0092L11.8547 1.90533V3.1311Z" fill="black" />
+                                                        <path d="M6.86323 1.253C7.0287 1.253 7.1874 1.31896 7.30441 1.43636C7.42142 1.55377 7.48716 1.713 7.48716 1.87903C7.48716 2.04507 7.42142 2.2043 7.30441 2.32171C7.1874 2.43911 7.0287 2.50507 6.86323 2.50507H3.11965C2.62322 2.50507 2.14712 2.70294 1.79609 3.05515C1.44507 3.40736 1.24786 3.88506 1.24786 4.38316V13.1476C1.24786 13.6457 1.44507 14.1234 1.79609 14.4756C2.14712 14.8278 2.62322 15.0257 3.11965 15.0257H11.8547C12.3511 15.0257 12.8272 14.8278 13.1782 14.4756C13.5292 14.1234 13.7265 13.6457 13.7265 13.1476V10.6435C13.7265 10.4775 13.7922 10.3182 13.9092 10.2008C14.0262 10.0834 14.1849 10.0175 14.3504 10.0175C14.5159 10.0175 14.6746 10.0834 14.7916 10.2008C14.9086 10.3182 14.9743 10.4775 14.9743 10.6435V13.1476C14.9743 13.9778 14.6456 14.774 14.0606 15.361C13.4755 15.948 12.682 16.2778 11.8547 16.2778H3.11965C2.29227 16.2778 1.49877 15.948 0.913724 15.361C0.328676 14.774 0 13.9778 0 13.1476V4.38316C0 3.55299 0.328676 2.75682 0.913724 2.16981C1.49877 1.58279 2.29227 1.253 3.11965 1.253H6.86323ZM10.9562 0.063541C11.0612 0.0120516 11.1786 -0.00879336 11.2949 0.00338208C11.4111 0.0155575 11.5216 0.0602636 11.6138 0.132405L17.2292 4.51463C17.3043 4.57315 17.3652 4.64813 17.407 4.73385C17.4488 4.81957 17.4706 4.91375 17.4706 5.0092C17.4706 5.10464 17.4488 5.19882 17.407 5.28454C17.3652 5.37026 17.3043 5.44524 17.2292 5.50376L11.6138 9.88599C11.5216 9.95797 11.4111 10.0025 11.2949 10.0146C11.1786 10.0266 11.0614 10.0057 10.9564 9.95415C10.8515 9.90261 10.7631 9.82253 10.7013 9.72305C10.6395 9.62356 10.6067 9.50866 10.6068 9.39142V7.54463C7.82158 7.8326 6.08456 10.015 5.12121 11.8004L4.9253 12.176C4.86235 12.302 4.75885 12.4031 4.63155 12.4627C4.50425 12.5224 4.36061 12.5372 4.36061 12.5372V12.5372C4.22389 12.5224 4.08716 12.4723 3.96536 12.3945C3.87819 12.2839C3.79102 12.1734 3.74359 12.0365 3.74358 11.8956C3.74358 9.29627 4.38997 6.96117 5.66154 5.25961C6.83203 3.69453 8.51414 2.69663 10.6068 2.53136V0.62697C10.6066 0.509639 10.6392 0.394604 10.701 0.294983C10.7628 0.195362 10.8512 0.115166 10.9562 0.063541ZM11.8547 3.1311C11.8547 3.29713 11.7889 3.45637 11.6719 3.57377C11.5549 3.69118 11.3962 3.75713 11.2307 3.75713C9.24664 3.75713 7.71551 4.59977 6.66107 6.01085C5.99097 6.90733 5.50306 8.04671 5.23352 9.36638C6.51632 7.76123 8.45425 6.26126 11.2307 6.26126C11.3962 6.26126 11.5549 6.32722 11.6719 6.44462C11.7889 6.56203 11.8547 6.72126 11.8547 6.88729V8.11181L15.8291 5.0092L11.8547 1.90533V3.1311Z" fill="black" />
                                                     </svg>
                                                     <span className="text-sm">{country.shares}</span>
-                                                </button>
-                                                <button className="flex items-center gap-1 hover:text-purple-500 transition-colors ml-auto">
-                                                    {/* <svg
-                                                        className="w-5 h-5"
-                                                        fill="none"
-                                                        stroke="currentColor"
-                                                        viewBox="0 0 24 24"
-                                                    >
-                                                        <path
-                                                            strokeLinecap="round"
-                                                            strokeLinejoin="round"
-                                                            strokeWidth={2}
-                                                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                                                        />
-                                                        <path
-                                                            strokeLinecap="round"
-                                                            strokeLinejoin="round"
-                                                            strokeWidth={2}
-                                                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"
-                                                        />
-                                                    </svg>
-                                                    <span className="text-sm">{country.views}</span> */}
+                                                </div>
+                                                <div className="flex items-center gap-1 hover:text-purple-500 transition-colors ml-auto">
                                                     <svg width="13" height="19" viewBox="0 0 13 19" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                         <path d="M10.2059 0.5H2.44118C1.92634 0.5 1.4326 0.701762 1.06856 1.0609C0.704516 1.42004 0.5 1.90713 0.5 2.41503V17.7353L6.32353 14.8627L12.1471 17.7353V2.41503C12.1471 1.90713 11.9425 1.42004 11.5785 1.0609C11.2145 0.701762 10.7207 0.5 10.2059 0.5Z" stroke="black" stroke-linecap="round" stroke-linejoin="round" />
                                                     </svg>
-                                                </button>
+                                                </div>
                                             </div>
 
                                             {/* User Avatars */}
@@ -649,8 +608,8 @@ export default function MBBSAbroadAdmission() {
                                         </div>
                                     </div>
                                 </Link>
-                            ))}
-                        </div>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
@@ -695,7 +654,7 @@ export default function MBBSAbroadAdmission() {
                             <table className="w-full min-w-[800px] text-left border-collapse">
                                 <thead>
                                     <tr className="bg-[#FCC623] text-black">
-                                        <th className="p-4 text-lg font-medium text-center">Country</th>
+                                        <th className="p-4 text-lg font-medium text-center">Countries</th>
                                         <th className="p-4 text-lg font-medium text-center">
                                             Academic
                                             <div className="text-xs font-normal">(Starting From)</div>
