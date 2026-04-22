@@ -12,6 +12,7 @@ import { Button } from "primereact/button";
 
 export default function StudyAbroadPage() {
     const [showAllCountries, setShowAllCountries] = useState(false);
+    const [showAllFeatures, setShowAllFeatures] = useState(false);
     const [videoPopup, setVideoPopup] = useState<{ id: number; title: string; youtubeId: string } | null>(null);
 
     const countries = [
@@ -99,7 +100,7 @@ export default function StudyAbroadPage() {
             <FloatingWhatsApp />
             <section className="lg:py-50 md:py-40 py-20 relative overflow-hidden z-2 bg-[url('/images/study-abroad-hero.webp')] bg-cover bg-center bg-no-repeat">
                 <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,126,200,1)_0%,rgba(80,166,217,1)_20%,rgba(255,255,255,0)_87%)] -z-1" />
-                <div className="container px-3 md:px-4 fadeUp">
+                <div className="container px-6 md:px-12 lg:px-20 fadeUp">
                     <div className="w-full lg:w-4/10 md:8/10 md:text-left text-center">
                         <h1 className="uppercase lg:text-5xl text-4xl font-bold text-white lg:mb-4 mb-2">STUDY ABROAD</h1>
                         <h3 className="text-3xl font-bold text-white lg:mb-6 mb-4">Admission Services</h3>
@@ -177,14 +178,14 @@ export default function StudyAbroadPage() {
 
 
             <section className="py-10 lg:py-15 overflow-hidden bg-[#F4F7F8]">
-                <div className="container px-3 md:px-4 lg:px-20 max-w-[1010px]!">
-                    <div className="grid grid-cols-1 md:grid-cols-2 md:gap-4 lg:gap-10 mb-16">
-                        <div className="relative">
-                            <Image src="/images/study-abroad/studyAbroad.svg" width="572" height="764" className="w-full h-auto" alt="" />
+                <div className="container px-6 md:px-12 lg:px-20 max-w-[1010px]!">
+                    <div className="grid grid-cols-1 md:grid-cols-2 md:gap-8 lg:gap-12 mb-16">
+                        <div className="relative h-full">
+                            <Image src="/images/study-abroad/studyAbroad.svg" width="572" height="764" className="w-full h-full object-cover rounded-2xl" alt="" />
                         </div>
-                        <div>
+                        <div className="h-full">
                             <div
-                                className="group fadeUp relative z-10 rounded-2xl pt-16 pb-8 px-6 shadow-xl transition-all duration-500 bg-white hover:shadow-2xl hover:bg-[linear-gradient(163.56deg,_#02CCB2_6.49%,_#0080C8_98.8%)] transition-all duration-300 hover:text-white"
+                                className="fadeUp relative z-10 rounded-2xl pt-16 pb-8 px-8 shadow-xl bg-white h-full flex flex-col"
                             >
                                 <div className="absolute left-1/2 -translate-x-1/2 -top-[35px] border-[8px] border-[#F4F7F8] rounded-full">
                                     <img
@@ -193,35 +194,50 @@ export default function StudyAbroadPage() {
                                         className="w-16 h-16 object-contain"
                                     />
                                 </div>
-                                <div className="text-center mb-3 text-lg font-semibold text-black group-hover:text-white! transition-colors duration-300">Standard</div>
-                                <div className="text-center text-xs text-[#686767] group-hover:text-white! transition-colors duration-300 mb-6">Start Your Global Medical Journey <br /> with End-to-End Expert Support. </div>
+                                <div className="text-center mb-3 text-lg font-semibold text-black">Standard</div>
+                                <div className="text-center text-xs text-[#686767] mb-6">Start Your Global Medical Journey <br /> with End-to-End Expert Support. </div>
                                 <div className="flex justify-center mb-8">
-                                    <div className="relative w-[237px] h-[112px] border-[4px] border-[#7358B33B] rounded-[20px] flex flex-col items-center justify-center transition-colors duration-300">
-                                        <div className="text-center font-semibold font-weight-600 lg:text-4xl text-black text-3xl group-hover:text-white! transition-colors duration-300">₹ 99,999</div>
-                                        <div className="text-[14px] font-normal font-weight-400 text-[#7061C0] group-hover:text-white! transition-colors duration-300 mt-1 text-center">Admission service charge <span className="font-bold font-weight-700 text-[#7061C0]">before NEET result</span></div>
+                                    <div className="relative w-[237px] h-[112px] border-[4px] border-[#7358B33B] rounded-[20px] flex flex-col items-center justify-center">
+                                        <div className="text-center font-semibold font-weight-600 lg:text-4xl text-black text-3xl">₹ 99,999</div>
+                                        <div className="text-[14px] font-normal font-weight-400 text-[#7061C0] mt-1 text-center">Admission service charge <span className="font-bold font-weight-700 text-[#7061C0]">before NEET result</span></div>
                                         <div className="absolute -top-5 -right-5 w-12 h-12">
                                             <img src="/images/study-abroad/corner.svg" alt="" className="w-full h-full object-contain" />
                                         </div>
                                     </div>
                                 </div>
                                 <div className="flex flex-col gap-3 mb-10">
-                                    <Button className="text-white! border-[#DFF1FF]! bg-[#7061C0]! group-hover:bg-[#FFFFFF47]! group-hover:text-white! group-hover:border-[#FFFFFF47]! w-full flex gap-2 items-center transition-all duration-300" rounded>
+                                    <Button className="text-white! border-[#DFF1FF]! bg-[#7061C0]! w-full flex gap-2 items-center" rounded>
                                         Pay Now
                                     </Button>
                                 </div>
-                                <div className="text-base text-black font-semibold group-hover:text-white! transition-colors duration-300 mb-5">Features</div>
-                                <ul className="space-y-5 md:space-y-3 text-sm text-[#686767]">
-                                    {features.map((item, index) => (
+                                <div className="text-base text-black font-semibold mb-5">Features</div>
+                                <ul className="space-y-5 md:space-y-3 text-sm text-[#686767] flex-grow">
+                                    {(showAllFeatures ? features : features.slice(0, 6)).map((item, index) => (
                                         <li key={index} className="flex gap-2">
-                                            <span className="text-yellow-500 transition-colors duration-300">✦</span>
-                                            <span className="group-hover:text-white transition-colors duration-300">{item}</span>
+                                            <span className="text-yellow-500">✦</span>
+                                            <span>{item}</span>
                                         </li>
                                     ))}
                                 </ul>
+                                {features.length > 6 && (
+                                    <button
+                                        onClick={() => setShowAllFeatures(!showAllFeatures)}
+                                        className="mt-6 text-sm font-semibold text-[#005A88] flex items-center justify-between w-full"
+                                    >
+                                        <span>{showAllFeatures ? 'View Less' : 'View More'}</span>
+                                        <Image
+                                            src="/svg/down-circle-arrow.svg"
+                                            alt="arrow"
+                                            width={32}
+                                            height={32}
+                                            className={`transition-all duration-300 ${showAllFeatures ? 'rotate-180' : ''}`}
+                                        />
+                                    </button>
+                                )}
                                 <div className="mt-4">
                                     <div className="flex gap-2 items-start">
-                                        <span className="text-[#1D1D1D] font-semibold text-[12px] uppercase tracking-wider group-hover:text-white transition-colors duration-300 mt-0.5">Note:</span>
-                                        <p className="text-[12px] font-weight-600 font-semibold leading-relaxed text-[#6E67C9] group-hover:text-white/90 transition-colors duration-300 poppins">
+                                        <span className="text-[#1D1D1D] font-semibold text-[12px] uppercase tracking-wider mt-0.5">Note:</span>
+                                        <p className="text-[12px] font-weight-600 font-semibold leading-relaxed text-[#6E67C9] poppins">
                                             This service charge includes the Visa charges but <span className="font-normal font-weight-400 text-[#6E67C9] text-[12px]">does not cover the ticket charges.</span>
                                         </p>
                                     </div>
@@ -234,7 +250,7 @@ export default function StudyAbroadPage() {
             </section>
 
             <section className="mb-16">
-                <div className="container px-3 md:px-0">
+                <div className="container px-6 md:px-12 lg:px-20">
                     <div className="relative w-full aspect-[1240/350] rounded-2xl overflow-hidden shadow-lg cursor-pointer">
                         {/* Base Banner Link */}
                         <Link href="https://neetbhaiya.in" target="_blank" className="block w-full h-full">
@@ -290,7 +306,7 @@ export default function StudyAbroadPage() {
 
             {/* Success Stories Section */}
             <div className="py-6 sm:py-8 md:py-12 lg:py-16">
-                <div className="container mx-auto px-4 text-center">
+                <div className="container mx-auto px-6 md:px-12 lg:px-20 text-center">
                     <div className='mb-10 fadeUp text-center'>
                         <h2 className='text-black text-4xl font-bold mb-4'>OUR <span className='text-[#287FC4]'>SUCCESSFUL STORIES</span></h2>
                         <div className='uppercase text-[#00CFB240] leading-12 text-[42px] md:text-5xl lg:text-7xl font-black'>HEAR FROM OUR STUDENTS</div>

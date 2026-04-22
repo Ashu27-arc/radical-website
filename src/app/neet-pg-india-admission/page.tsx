@@ -187,6 +187,7 @@ const videos = [
 ];
 
 export default function NeetPgIndiaAdmissionPage() {
+    const [showAllFeatures, setShowAllFeatures] = useState(false);
     const [videoPopup, setVideoPopup] = useState<{ id: number; title: string; youtubeId: string } | null>(null);
 
 
@@ -195,7 +196,7 @@ export default function NeetPgIndiaAdmissionPage() {
             <FloatingWhatsApp />
             <section className="lg:py-50 md:py-40 py-20 relative overflow-hidden z-2 bg-[url('/images/neet-pg-india-admission.webp')] bg-cover bg-center bg-no-repeat">
                 <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,126,200,1)_0%,rgba(80,166,217,1)_20%,rgba(255,255,255,0)_87%)] -z-1" />
-                <div className="container px-3 md:px-4 fadeUp">
+                <div className="container px-6 md:px-12 lg:px-20 fadeUp">
                     <div className="w-full lg:w-4/10 md:8/10 md:text-left text-center">
                         <h1 className="uppercase lg:text-5xl text-4xl font-bold text-white lg:mb-6 mb-4">NEET PG <br className="hidden lg:block" />ADMISSION</h1>
                         <p className="text-white text-lg m-0 p-0">Advance your medical career with expert guidance for postgraduate admissions—navigate counselling, secure top specializations, and take the next step with confidence.</p>
@@ -203,7 +204,7 @@ export default function NeetPgIndiaAdmissionPage() {
                 </div>
             </section>
             <section className="py-10 lg:py-15 overflow-hidden bg-[#F4F7F8]">
-                <div className="container px-3 md:px-4 max-w-[1240px]!">
+                <div className="container px-6 md:px-12 lg:px-20 max-w-[1240px]!">
                     <h6 className="text-black font-semibold mb-6 fadeUp">Courses</h6>
                     <h2 className='text-black text-4xl font-bold mb-6 lg:mb-10 fadeUp mb-8'>PG Branches</h2>
                 </div>
@@ -260,14 +261,14 @@ export default function NeetPgIndiaAdmissionPage() {
                 </div>
             </section>
             <section className="py-10 lg:pt-15 lg:pb-40 overflow-hidden bg-[#F4F7F8]">
-                <div className="container px-3 md:px-4 lg:px-20 max-w-[1010px]!">
-                    <div className="grid grid-cols-1 md:grid-cols-2 md:gap-4 lg:gap-10 mb-16 items-stretch">
+                <div className="container px-6 md:px-12 lg:px-20 max-w-[1010px]!">
+                    <div className="grid grid-cols-1 md:grid-cols-2 md:gap-8 lg:gap-12 mb-16">
                         <div className="relative h-full">
-                            <Image src="/neetpg-card.webp" width="572" height="764" className="w-full h-auto rounded-2xl" alt="" />
+                            <Image src="/neetpg-card.webp" width="572" height="764" className="w-full h-full object-cover rounded-2xl" alt="" />
                         </div>
-                        <div>
+                        <div className="h-full">
                             <div
-                                className="group fadeUp relative z-10 rounded-2xl pt-16 pb-5 px-6 shadow-xl transition-all duration-500 bg-white hover:shadow-2xl hover:bg-[linear-gradient(163.56deg,_#02CCB2_6.49%,_#0080C8_98.8%)] transition-all duration-300 hover:text-white"
+                                className="fadeUp relative z-10 rounded-2xl pt-16 pb-8 px-8 shadow-xl bg-white h-full flex flex-col"
                             >
                                 <div className="absolute left-1/2 -translate-x-1/2 -top-[35px] border-[8px] border-[#F4F7F8] rounded-full">
                                     <img
@@ -276,35 +277,50 @@ export default function NeetPgIndiaAdmissionPage() {
                                         className="w-16 h-16 object-contain"
                                     />
                                 </div>
-                                <div className="text-center mb-3 text-lg font-semibold text-black group-hover:text-white! transition-colors duration-300">Standard</div>
-                                <div className="text-center text-xs text-[#686767] group-hover:text-white! transition-colors duration-300 mb-6">Turn Your NEET Rank into a Medical <br /> Seat with Expert Guidance. </div>
+                                <div className="text-center mb-3 text-lg font-semibold text-black">Standard</div>
+                                <div className="text-center text-xs text-[#686767] mb-6">Turn Your NEET Rank into a Medical <br /> Seat with Expert Guidance. </div>
                                 <div className="flex justify-center mb-8">
-                                    <div className="relative w-[237px] h-[112px] border-[4px] border-[#EE6E1E3B] rounded-[20px] flex flex-col items-center justify-center transition-colors duration-300">
-                                        <div className="text-center font-semibold font-weight-600 lg:text-4xl text-black text-3xl group-hover:text-white! transition-colors duration-300">₹ 84,999</div>
-                                        <div className="text-[14px] font-normal font-weight-400 text-[#EE6E1E] group-hover:text-white! transition-colors duration-300 mt-1 text-center">Admission service charge <span className="text-[14px] text-[#EE6E1E] font-bold font-weight-700">before NEET result</span></div>
+                                    <div className="relative w-[237px] h-[112px] border-[4px] border-[#EE6E1E3B] rounded-[20px] flex flex-col items-center justify-center">
+                                        <div className="text-center font-semibold font-weight-600 lg:text-4xl text-black text-3xl">₹ 84,999</div>
+                                        <div className="text-[14px] font-normal font-weight-400 text-[#EE6E1E] mt-1 text-center">Admission service charge <span className="text-[14px] text-[#EE6E1E] font-bold font-weight-700">before NEET result</span></div>
                                         <div className="absolute -top-5 -right-5 w-12 h-12">
                                             <img src="/svg/pg-corner.svg" alt="" className="w-full h-full object-contain" />
                                         </div>
                                     </div>
                                 </div>
                                 <div className="flex flex-col gap-3 mb-10">
-                                    <Button className="text-white! border-[#DFF1FF]! bg-[#EE6E1E]! group-hover:bg-[#FFFFFF47]! group-hover:text-white! group-hover:border-[#FFFFFF47]! w-full flex gap-2 items-center transition-all duration-300" rounded>
+                                    <Button className="text-white! border-[#DFF1FF]! bg-[#EE6E1E]! w-full flex gap-2 items-center" rounded>
                                         Pay Now
                                     </Button>
                                 </div>
-                                <div className="text-base text-black font-semibold group-hover:text-white! transition-colors duration-300 mb-5">Features</div>
-                                <ul className="space-y-2 text-sm text-gray-700 mb-4">
-                                    {features.map((item, index) => (
+                                <div className="text-base text-black font-semibold mb-5">Features</div>
+                                <ul className="space-y-4 text-sm text-[#686767] flex-grow">
+                                    {(showAllFeatures ? features : features.slice(0, 6)).map((item, index) => (
                                         <li key={index} className="flex gap-2">
-                                            <span className="text-yellow-500 transition-colors duration-300">✦</span>
-                                            <span className="text-[#686767] group-hover:text-white transition-colors duration-300">{item}</span>
+                                            <span className="text-yellow-500">✦</span>
+                                            <span>{item}</span>
                                         </li>
                                     ))}
                                 </ul>
+                                {features.length > 6 && (
+                                    <button
+                                        onClick={() => setShowAllFeatures(!showAllFeatures)}
+                                        className="mt-6 text-sm font-semibold text-[#005A88] flex items-center justify-between w-full"
+                                    >
+                                        <span>{showAllFeatures ? 'View Less' : 'View More'}</span>
+                                        <Image
+                                            src="/svg/down-circle-arrow.svg"
+                                            alt="arrow"
+                                            width={32}
+                                            height={32}
+                                            className={`transition-all duration-300 ${showAllFeatures ? 'rotate-180' : ''}`}
+                                        />
+                                    </button>
+                                )}
                                 <div className="mt-2">
                                     <div className="flex gap-2 items-start">
-                                        <span className="text-[#1D1D1D] font-semibold text-[12px] uppercase tracking-wider group-hover:text-white transition-colors duration-300 mt-0.5">Note:</span>
-                                        <p className="text-[12px] font-weight-600 font-semibold leading-relaxed text-[#EE6E1E] group-hover:text-white/90 transition-colors duration-300 poppins">
+                                        <span className="text-[#1D1D1D] font-semibold text-[12px] uppercase tracking-wider mt-0.5">Note:</span>
+                                        <p className="text-[12px] font-weight-600 font-semibold leading-relaxed text-[#EE6E1E] poppins">
                                             This service charge includes the Visa charges but <span className="font-normal font-weight-400 text-[#EE6E1E]">does not cover the ticket charges.</span>
                                         </p>
                                     </div>
@@ -316,7 +332,7 @@ export default function NeetPgIndiaAdmissionPage() {
                 </div>
             </section>
             <section className="mb-16">
-                <div className="container px-3 md:px-0">
+                <div className="container px-6 md:px-12 lg:px-20">
                     <div className="relative w-full aspect-[1240/350] rounded-2xl overflow-hidden shadow-lg cursor-pointer">
                         {/* Base Banner Link */}
                         <Link href="https://neetbhaiya.in" target="_blank" className="block w-full h-full">
@@ -371,7 +387,7 @@ export default function NeetPgIndiaAdmissionPage() {
 
 
             <section className="pb-10 lg:pb-15 bg-[#F4F7F8]">
-                <div className="container px-3 md:px-4">
+                <div className="container px-6 md:px-12 lg:px-20">
                     <div className='mb-10 fadeUp text-center'>
                         <h2 className='text-black text-4xl font-bold mb-4'>OUR <span className='text-[#287FC4]'>SUCCESSFUL STORIES</span></h2>
                         <div className='uppercase text-[#00CFB240] leading-12 text-[42px] md:text-5xl lg:text-7xl font-black'>HEAR FROM OUR STUDENTS</div>
