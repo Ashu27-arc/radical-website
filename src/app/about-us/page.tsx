@@ -101,7 +101,7 @@ We handle the timeline; you handle the dream.`,
 
             <div className="mb-6 px-3">
             <div className="border-l-2 border-[#00CFB2] pl-3 pr-2 max-w-full">
-                <p className="text-[14px] leading-[1.6] opacity-90 text-left">
+                <p className="text-[14px] font-normal leading-[1.6] opacity-90 text-left">
                   {heroData.paragraph}
                 </p>
               </div>
@@ -116,7 +116,7 @@ className="flex flex-col items-start rounded-lg p-3 sm:p-4"
                   <h3 className="text-3xl sm:text-4xl font-bold mb-1">
                     {stat.value}
                   </h3>
-                  <p className="text-xs sm:text-sm opacity-90">{stat.label}</p>
+                  <p className="text-xs font-medium sm:text-sm opacity-90">{stat.label}</p>
                 </div>
               ))}
             </div>
@@ -157,7 +157,7 @@ className="flex flex-col items-start rounded-lg p-3 sm:p-4"
                     <h3 className="text-3xl sm:text-4xl md:text-2xl md:text-3xl font-bold mb-1">
                       {stat.value}
                     </h3>
-                    <p className="text-xs sm:text-sm md:text-xs opacity-90">
+                    <p className="text-xs font-medium sm:text-sm md:text-xs opacity-90">
                       {stat.label}
                     </p>
                   </div>

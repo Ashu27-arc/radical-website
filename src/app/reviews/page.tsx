@@ -18,39 +18,49 @@ const reviewtestimonials = [
         location: "Delhi → Russia",
         text: "My name is Mayank Kumar. I have completed my class 12 from Balodir Public School in Delhi. I’m really excited to explore my MBBS dreams at 12th State Medical University.",
         tag: "MBBS",
-        status: "Secured a seat at",
+        status: "TSMU",
         avatar: "/images/reviews/user1.webp",
         logo: "/images/reviews/university1.webp",
     },
     {
         id: 2,
         name: "Daksh Moom",
-        location: "Assam → Kyrgyzstan",
-        text: "My name is Daksha Moom. I'm in the Office International Medical University, Kyrgyzstan. And who did you get in which education? I got in the radical education.",
+        location: "Uttar Pradesh → Kyrgyzstan",
+        text: "The entire admission process—from counselling to visa—was handled professionally by Radical Education. Choosing Radical Education was the right decision for my MBBS abroad journey. Highly recommended for students planning to study in Kyrgyzstan.",
         tag: "MBBS",
-        status: "Secured a seat at",
+        status: "OIMU",
         avatar: "/images/reviews/user2.webp",
         logo: "/images/reviews/university2.webp",
     },
+    // {
+    //     id: 3,
+    //     name: "Aseem",
+    //     location: "Delhi → Kazakhstan",
+    //     text: "Radical Education made my dream of studying MBBS in Kazakhstan a reality. From documentation to departure, they provided complete support for my MBBS journey in Kazakhstan. The team supported me at every step of the process.",
+    //     tag: "MBBS",
+    //     status: "Secured a seat at",
+    //     avatar: "/images/reviews/user3.webp",
+    //     logo: "/images/reviews/university3.webp",
+    // },
     {
         id: 3,
-        name: "Aseem",
-        location: "Delhi → Kazakhstan",
-        text: "Krystal Covington is a business growth strategist with 15 years of experience in marketing and public relations. Krystal received varsity",
-        tag: "MBBS",
-        status: "Secured a seat at",
-        avatar: "/images/reviews/user3.webp",
-        logo: "/images/reviews/university3.webp",
-    },
-    {
-        id: 4,
         name: "Tanishka",
         location: "Uttar Pradesh → Russia",
         text: "I'm Tanishka, I'm from Ghaziabad I'm going to Tver State Medical University through Radical Education. Actually I got a pamphlet my initial day when I am preparing for NEET.",
         tag: "MBBS",
-        status: "Secured a seat at",
+        status: "TSMU",
         avatar: "/images/reviews/user4.webp",
         logo: "/images/reviews/university1.webp",
+    },
+    {
+        id: 4,
+        name: "TANYA SAXENA",
+        location: "India",
+        text: "I choose Radical Education for my MBBS counselling. The process was smooth and professional.",
+        tag: "MBBS",
+        status: "HIMS",
+        avatar: "/images/reviews/user13.webp",
+        logo: "/images/reviews/university13.webp",
     },
     {
         id: 5,
@@ -58,9 +68,9 @@ const reviewtestimonials = [
         location: "India",
         text: "I secured an MBBS seat in medical College with the help of radical education. The process was very professional.",
         tag: "MBBS",
-        status: "Secured a seat at",
+        status: "NCRIMS",
         avatar: "/images/reviews/user5.webp",
-        logo: "/images/reviews/university4.webp",
+        logo: "/images/reviews/university5.webp",
     },
     {
         id: 6,
@@ -68,9 +78,9 @@ const reviewtestimonials = [
         location: "India",
         text: "I recently took counselling services from Radical Education for my BDS admission. My counsellor, Pooja.",
         tag: "BDS",
-        status: "Secured a seat at",
+        status: "UIMS",
         avatar: "/images/reviews/user6.webp",
-        logo: "/images/reviews/university5.webp",
+        logo: "/images/reviews/university6.webp",
     },
     {
         id: 7,
@@ -78,9 +88,9 @@ const reviewtestimonials = [
         location: "India",
         text: "I’m so grateful to Radical Education and especially Hitesh Agrawal ma'am for helping me throughout my MBBS admission process.",
         tag: "MBBS",
-        status: "Secured a seat at",
+        status: "MRMCW",
         avatar: "/images/reviews/user7.webp",
-        logo: "/images/reviews/university6.webp",
+        logo: "/images/reviews/university7.webp",
     },
     {
         id: 8,
@@ -88,9 +98,9 @@ const reviewtestimonials = [
         location: "India",
         text: "My experience with Radical Education has been amazing! I took their help for MBBS counselling, and the entire process was smooth and transparent.",
         tag: "MBBS",
-        status: "Secured a seat at",
+        status: "SMCH",
         avatar: "/images/reviews/user8.webp",
-        logo: "/images/reviews/university7.webp",
+        logo: "/images/reviews/university8.webp",
     },
     {
         id: 9,
@@ -98,9 +108,9 @@ const reviewtestimonials = [
         location: "India",
         text: "Glad to secure a seat in BAMS in the first round. Great counselling company, very engaging mentors. Highly recommend them.",
         tag: "BAMS",
-        status: "Secured a seat at",
+        status: "KACRC",
         avatar: "/images/reviews/user9.webp",
-        logo: "/images/reviews/university8.webp",
+        logo: "/images/reviews/university9.webp",
     },
     {
         id: 10,
@@ -108,9 +118,9 @@ const reviewtestimonials = [
         location: "India",
         text: "Ms.Hitashi Agarwal Mam counsellor at radical education made NEET counselling hassle free and resolved each and every query regarding whole process.",
         tag: "MBBS",
-        status: "Secured a seat at",
+        status: "TMMCRC",
         avatar: "/images/reviews/user10.webp",
-        logo: "/images/reviews/university9.webp",
+        logo: "/images/reviews/university10.webp",
     },
     {
         id: 11,
@@ -118,9 +128,9 @@ const reviewtestimonials = [
         location: "India",
         text: "I choose radical education for my mbbs counselling and it was very helpful they guided me very well throughout the process in securing",
         tag: "MBBS",
-        status: "Secured a seat at",
+        status: "GMC",
         avatar: "/images/reviews/user11.webp",
-        logo: "/images/reviews/university10.webp",
+        logo: "/images/reviews/university11.webp",
     },
     {
         id: 12,
@@ -128,18 +138,8 @@ const reviewtestimonials = [
         location: "India",
         text: "Attending the Radical Education BAMS counselling was an excellent experience. Specially Dr. Alok Sir was always available to answer my queries regarding BAMS colleges",
         tag: "BAMS",
-        status: "Secured a seat at",
+        status: "MGAMCRC",
         avatar: "/images/reviews/user12.webp",
-        logo: "/images/reviews/university11.webp",
-    },
-    {
-        id: 13,
-        name: "TANYA SAXENA",
-        location: "India",
-        text: "I choose Radical Education for my MBBS counselling. The process was smooth and professional.",
-        tag: "MBBS",
-        status: "Secured a seat at",
-        avatar: "/images/reviews/user13.webp",
         logo: "/images/reviews/university12.webp",
     },
 ];
@@ -154,6 +154,9 @@ export default function TestimonialsPage() {
         { id: 4, title: 'Anhad Kaur, SGRDIMSR, Amristar', youtubeId: '7t81QLx4TeM' },
         { id: 5, title: 'Prabhat Soni, GMC, Jhunjhunu', youtubeId: 'XYZPevx_UE0' },
         { id: 6, title: 'Aditya Maan, GMC, Sirohi', youtubeId: 'QdpT-kOvM2g' },
+        { id: 7, title: '', youtubeId: '6DJoje1YFI4' },
+        { id: 8, title: 'Aseem, Kazakhstan', youtubeId: 'E0-uSX-dabA' },
+        { id: 9, title: '', youtubeId: 'd6xSZh_IBCc' },
         // { id: 7, title: 'Annant, MMC, Muzaffarnagar', youtubeId: '6lhfvUFUoQM' },
     ];
     return (
@@ -163,13 +166,13 @@ export default function TestimonialsPage() {
             <section className="py-16 bg-gradient-to-b from-[#CDE7FF] to-[#F4F7F8]">
                 <div className="max-w-7xl pt-14 mx-auto px-4">
                     <div className='text-center'>
-                        <h2 className="text-5xl font-bold fadeUp">
+                        <h2 className="text-5xl font-semibold fadeUp">
                             <span className="bg-gradient-to-r from-[#128FFF] to-[#63CDB4] bg-clip-text text-transparent">Radical Education</span>
                         </h2>
-                        <p className="mt-2 text-black text-3xl fadeUp">
+                        <p className="mt-2 text-black font-light text-3xl fadeUp">
                             is trusted by parents and students like you
                         </p>
-                        <p className="text-lg text-black mt-6 fadeUp">
+                        <p className="text-lg text-black font-normal mt-6 fadeUp">
                             Here are a few real experiences from those who navigated NEET counselling with clarity.
                         </p>
                     </div>
@@ -246,14 +249,14 @@ hover:shadow-2xl hover:scale-[1.03] ${cardClass}`}
                     </div>
                     <div className="mt-8 flex items-center justify-center gap-2 text-gray-600 fadeUp">
                         <div className="flex -space-x-2">
-                            <img src="/images/reviews/Iqra-Ansari.webp" className="w-10 h-10 rounded-full border" />
-                            <img src="/images/reviews/Sahil-Gautam.webp" className="w-10 h-10 rounded-full border" />
-                            <img src="/images/reviews/Iqra-Ansari.webp" className="w-10 h-10 rounded-full border" />
+                            <img src="/images/reviews/Iqra-Ansari.webp" alt="Iqra-Ansari" className="w-10 h-10 rounded-full border" />
+                            <img src="/images/reviews/Sahil-Gautam.webp" alt="Sahil-Gautam" className="w-10 h-10 rounded-full border" />
+                            <img src="/images/reviews/Iqra-Ansari.webp" alt="Iqra-Ansari" className="w-10 h-10 rounded-full border" />
                         </div>
-                        <span className="text-[#005787]">
-                            <span className='font-bold'>200+</span> Success Stories
+                        <span className="text-[#005787] font-normal">
+                            <span className='font-semibold'>200+</span> Success Stories
                         </span>
-                        <span>That Define Success</span>
+                        <span className='font-normal'>That Define Success</span>
                     </div>
                 </div>
             </section>

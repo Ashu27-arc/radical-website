@@ -81,6 +81,8 @@ export default function CareersPage() {
   } | null>(null);
   const [showSuccessPopup, setShowSuccessPopup] = useState(false);
 
+  const [consent, setConsent] = useState(false);
+
   // Drag-to-scroll state
   const sliderRef = useRef<HTMLDivElement>(null);
   const [isMouseDown, setIsMouseDown] = useState(false);
@@ -186,6 +188,14 @@ export default function CareersPage() {
     setIsSubmitting(true);
     setSubmitMessage(null);
 
+    if (!consent) {
+      setSubmitMessage({
+        type: "error",
+        text: "Please accept the consent to proceed",
+      });
+      return;
+    }
+
     try {
       const formDataToSend = new FormData();
       formDataToSend.append("firstName", formData.firstName);
@@ -247,13 +257,12 @@ export default function CareersPage() {
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-6 pt-8 md:pt-15">
-            <h1 className="text-3xl md:text-5xl font-bold text-black mb-4">
-              INSPIRE. EMPOWER. SUCCEED
+            <h1 className="text-3xl md:text-5xl font-normal text-[#0B2E3C] mb-4">
+              Join. Guide. Inspire.
             </h1>
-            <p className="text-black max-w-3xl mx-auto text-sm md:text-base px-4">
-              Join Radical Education and make a real impact on{" "}
-              <br className="hidden md:block" />
-              students’ medical journeys.
+            <p className="text-[#4A4A4A] font-normal max-w-3xl mx-auto text-sm md:text-base px-4">
+            Be a part of a passionate team dedicated to guiding <br />
+            students towards the right academic and career choices. 
             </p>
           </div>
           <div className="flex justify-center mt-8 -mb-16 md:-mb-35">
@@ -280,7 +289,7 @@ export default function CareersPage() {
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <h2 className="text-3xl md:text-5xl font-bold text-center mb-8 md:mb-12">
+          <h2 className="text-3xl md:text-5xl font-semibold text-center mb-8 md:mb-12">
             Why Work With <span className="text-[#287FC4]">Us?</span>
           </h2>
           <div className="max-w-5xl mx-auto text-gray-600 space-y-4 md:space-y-6 leading-relaxed text-sm md:text-base">
@@ -313,7 +322,7 @@ export default function CareersPage() {
           <p className="text-gray-500 font-bold text-xs md:text-sm text-left md:mb-4 mb-6">
             About Us Radical Education
           </p>
-          <h2 className="text-2xl md:text-4xl font-bold text-left mb-8 md:mb-12">
+          <h2 className="text-2xl md:text-4xl font-semibold text-left mb-8 md:mb-12">
             Our <span className="text-[#287FC4]">Work Environment</span>
           </h2>
         </div>
@@ -398,7 +407,7 @@ export default function CareersPage() {
       <section className="">
         <div className="container mx-auto">
           <div className="py-8 md:py-12 bg-[#DFF1FF] px-4 md:px-12 rounded-xl">
-            <h2 className="text-2xl md:text-3xl font-bold text-center mb-6 md:mb-8">
+            <h2 className="text-2xl md:text-3xl font-semibold text-center mb-6 md:mb-8">
               Latest <span className="text-[#287FC4]">Openings</span>
             </h2>
 
@@ -416,7 +425,7 @@ export default function CareersPage() {
                     />
                   </div>
                   <div className="text-left">
-                    <h3 className="text-xl md:text-2xl font-bold text-gray-800 mb-3">
+                    <h3 className="text-xl md:text-2xl font-semibold text-gray-800 mb-3">
                       No Opening Yet
                     </h3>
                     <p className="text-gray-600 text-sm md:text-base leading-relaxed">
@@ -487,7 +496,7 @@ export default function CareersPage() {
       {/* Submit Resume Section */}
       <section id="submit-resume-section" className="py-12 md:py-8 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl md:text-4xl font-bold text-center mb-8 md:mb-12 text-gray-800">
+          <h2 className="text-2xl md:text-4xl font-semibold text-center mb-8 md:mb-12 text-gray-800">
             Submit Your <span className="text-[#287FC4]">Resume</span>
           </h2>
           <div className="max-w-6xl mx-auto">
@@ -500,7 +509,7 @@ export default function CareersPage() {
                 <div className="absolute inset-0 backdrop-blur-[3px]"></div>
                 <form
                   onSubmit={handleSubmit}
-                  className="space-y-4 md:space-y-5 w-full relative z-10"
+                  className="space-y-4 md:space-y-5 w-full max-w-[400px] mx-auto relative z-10"
                 >
                   {submitMessage && (
                     <div
@@ -608,14 +617,16 @@ export default function CareersPage() {
                       <input
                         type="checkbox"
                         id="career-consent"
+                        checked={consent}
+                        onChange={(e) => setConsent(e.target.checked)}
                         required
-                        className="peer w-5 h-5 appearance-none border border-white/70 rounded bg-transparent cursor-pointer 
+                        className="peer w-4 h-4 appearance-none border border-white/70 rounded bg-transparent cursor-pointer 
       checked:bg-[#00B4B4] checked:border-[#00B4B4]"
                       />
 
                       {/* tick */}
                       <svg
-                        className="absolute top-[2px] left-[2px] w-4 h-4 text-white pointer-events-none opacity-0 peer-checked:opacity-100"
+                        className="absolute top-[2px] left-[2px] w-3 h-3 text-white pointer-events-none opacity-0 peer-checked:opacity-100"
                         fill="none"
                         stroke="currentColor"
                         strokeWidth="3"
@@ -628,18 +639,26 @@ export default function CareersPage() {
                     {/* label */}
                     <label
                       htmlFor="career-consent"
-                      className="text-xs font-normal text-white/90 leading-[1.6] cursor-pointer"
+                      className="text-[11px] font-normal text-white/90 leading-[1.6] cursor-pointer"
                     >
-                      I hereby consent to the processing of my personal
-                      information for recruitment and other relevant
-                      opportunities.
+                      I Hereby Consent To The Processing Of My Personal
+                      Information For Recruitment And Other Relevant
+                      Opportunities.
                     </label>
                   </div>
 
                   <button
                     type="submit"
-                    disabled={isSubmitting}
-                    className="bg-[linear-gradient(270deg,#287FC4_0%,#00CFB2_100%)] opacity-80 cursor-pointer w-full text-white font-semibold py-2.5 md:py-3 text-sm md:text-base rounded-lg shadow-lg"
+                    disabled={isSubmitting || !consent}
+                    className={`
+                       opacity-80 cursor-pointer w-full text-white font-semibold py-2.5 md:py-3 text-sm md:text-base rounded-lg shadow-lg
+                                ${
+                                  !consent
+                                    ? "bg-[#ccc] text-white !cursor-not-allowed"
+                                    : "bg-[linear-gradient(270deg,#287FC4_0%,#00CFB2_100%)]"
+                                }
+
+                      `}
                   >
                     {isSubmitting ? "Submitting..." : "Submit"}
                   </button>

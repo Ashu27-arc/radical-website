@@ -6,7 +6,7 @@ export default function CounselorSection() {
     return (
         <section className="relative bg-gradient-to-r from-[#DEFFFA] to-[#AAE1FF] overflow-hidden p-4 lg:p-10 md:p-6 rounded-[30px] font-poppins">
             <div className="relative z-10">
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:gap-30 md:gap-6 gap-10 items-center">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:gap-30 md:gap-6 gap-10 justify-items-center">
 
                     {/* Left Content */}
                     <div className="">
@@ -14,7 +14,7 @@ export default function CounselorSection() {
                             Request a free callback <br className='hidden lg:block' /> from
                             <span className="bg-gradient-to-r from-[#005A8B] to-[#00CFB2] bg-clip-text text-transparent"> our Counsellor</span>
                         </h2>
-                        <p className="text-[18px] font-light text-black lg:mb-24 mb-10 max-w-xl">
+                        <p className="text-[18px] font-normal text-black lg:mb-24 mb-10 max-w-xl">
                             We will call you back to give you personalised advice and clarity for your next steps
                         </p>
 
@@ -25,8 +25,8 @@ export default function CounselorSection() {
                                     <Image src="/icons/location.png" alt="Location Icon" width={28} height={28} className="object-contain" />
                                 </div>
                                 <div>
-                                    <h4 className="text-[18px] font-bold font-poppins text-[#0A1A2F]">Visit Us</h4>
-                                    <p className="text-[#089241] mt-1 text-[14px] font-poppins">
+                                    <h4 className="text-[18px] font-medium font-poppins text-[#0A1A2F]">Visit us</h4>
+                                    <p className="text-[#089241] mt-1 text-[14px] font-poppins font-normal">
                                         C-56/30, C Block, Sector 62, Noida, Uttar Pradesh 201309
                                     </p>
                                 </div>
@@ -39,8 +39,8 @@ export default function CounselorSection() {
                                         <Image src="/icons/phone.png" alt="Phone Icon" width={28} height={28} className="object-contain" />
                                     </div>
                                     <div>
-                                        <h4 className="text-[18px] font-bold font-poppins text-[#0A1A2F]">Call Us</h4>
-                                        <a href="tel:+919797972465" className="text-[#089241] mt-1 text-[14px] font-poppins whitespace-nowrap hover:underline">+91 97 97 97 2465</a>
+                                        <h4 className="text-[18px] font-medium font-poppins text-[#0A1A2F]">Call us</h4>
+                                        <a href="tel:+919797972465" className="text-[#089241] mt-1 text-[14px] font-poppins font-normal whitespace-nowrap hover:underline">+91 97 97 97 2465</a>
                                     </div>
                                 </div>
 
@@ -49,8 +49,8 @@ export default function CounselorSection() {
                                         <Image src="/icons/mail.png" alt="Mail Icon" width={28} height={28} className="object-contain" />
                                     </div>
                                     <div>
-                                        <h4 className="text-[18px] font-bold font-poppins text-[#0A1A2F]">Write to Us</h4>
-                                        <a href="mailto:Info@Radicaleducation.in" className="text-[#089241] mt-1 text-[14px] font-poppins hover:underline">info@radicaleducation.in</a>
+                                        <h4 className="text-[18px] font-medium font-poppins text-[#0A1A2F]">Write to us</h4>
+                                        <a href="mailto:Info@Radicaleducation.in" className="text-[#089241] mt-1 text-[14px] font-poppins font-normal hover:underline">info@radicaleducation.in</a>
                                     </div>
                                 </div>
                             </div>
@@ -59,7 +59,7 @@ export default function CounselorSection() {
 
                     {/* Right Form Card */}
                     <div className="">
-                        <div className="bg-white p-8 md:p-6 rounded-[18px] shadow-[0_2px_10px_rgba(0,90,139,0),0_5px_20px_rgba(0,90,139,0.01),0_10px_40px_rgba(0,90,139,0.05),0_20px_80px_rgba(0,90,139,0.09),0_40px_100px_rgba(0,90,139,0.1)]">
+                        <div className="w-full max-w-[441px] bg-white p-8 md:p-6 rounded-[18px] shadow-[0_2px_10px_rgba(0,90,139,0),0_5px_20px_rgba(0,90,139,0.01),0_10px_40px_rgba(0,90,139,0.05),0_20px_80px_rgba(0,90,139,0.09),0_40px_100px_rgba(0,90,139,0.1)]">
                             <CounselorForm />
                         </div>
                     </div>

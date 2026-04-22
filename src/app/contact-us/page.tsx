@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import CounselorForm from "@/components/CounselorForm";
 import CounselorSection from "@/components/CounselorSection";
@@ -7,93 +7,214 @@ import Link from "next/link";
 import Image from "next/image";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
-
-
-
 export default function ContactPage() {
-    return (
-        <>
-            <FloatingWhatsApp />
-            <div className="bg-[#F4F7F8]">
-                <section className="lg:py-40 md:py-30 py-20 relative overflow-hidden z-2 bg-[url('/images/contactHero.webp')] bg-cover bg-center bg-no-repeat">
-                    <div className="absolute inset-0 bg-black/50 -z-1" />
-                    <div className="mx-auto px-4 w-full lg:w-4/10 md:8/10 text-center fadeUp">
-                        <h1 className="uppercase lg:text-5xl text-4xl font-bold text-white lg:mb-6 mb-4">CONTACT US</h1>
-                        <p className="text-white text-lg m-0 p-0">Our team of experts is just a call or a message away. If you are having any trouble with your medical studies, come join us.</p>
-                    </div>
-                </section>
-                <section className='pb-15'>
-                    <div className="container px-3 md:px-4">
-                        <div className="grid md:grid-cols-3 grid-cols-1 gap-4 lg:gap-8 mb-8 md:-mt-16 -mt-8 relative z-2">
-                            <div className="fadeUp bg-white p-8 rounded-xl shadow-[0px_6px_14px_0px_rgba(41,128,196,0.10),0px_25px_25px_0px_rgba(41,128,196,0.09),0px_57px_34px_0px_rgba(41,128,196,0.05),0px_101px_40px_0px_rgba(41,128,196,0.02),0px_157px_44px_0px_rgba(41,128,196,0)]">
-                                <div className="-ml-2"><Image src="/images/visitUs.webp" className="" alt="" width="110" height="110" /></div>
-                                <h4 className="my-3 text-xl font-semibold text-[#0A1A2F] -mt-2">Visit Us</h4>
-                                <div className="text-sm text-[#555555] mb-6">Meet our counselling experts in person for valuable discussions, profile evaluation, and resolution of any query in a comfortable, student-friendly environment.</div>
-                                <Link href="https://maps.app.goo.gl/NbWqaZNNHtJqE5Br9" target="_blank">
-                                    <div className="flex items-center gap-2 justify-between text-[#089241] font-semibold">
-                                        <div className="">C-56/30, C Block, Sector 62, Noida, Uttar Pradesh 201309</div>
-                                        <i className="pi pi-arrow-right"></i>
-                                    </div>
-                                </Link>
-                            </div>
-                            <div className="fadeUp bg-white p-8 rounded-xl shadow-[0px_6px_14px_0px_rgba(41,128,196,0.10),0px_25px_25px_0px_rgba(41,128,196,0.09),0px_57px_34px_0px_rgba(41,128,196,0.05),0px_101px_40px_0px_rgba(41,128,196,0.02),0px_157px_44px_0px_rgba(41,128,196,0)]">
-                                <div className="-ml-2"><Image src="/images/callUs.webp" className="" alt="" width="110" height="110" /></div>
-                                <h4 className="my-3 text-xl font-semibold text-[#0A1A2F] -mt-2">Call Us</h4>
-                                <div className="text-sm text-[#555555] mb-6">Speak to us directly with experienced counsellors at your disposal to resolve doubts, understand counselling procedures, and receive complete guidance for NEET and medical admissions.</div>
-                                <Link href="tel:9797972465">
-                                    <div className="flex items-center gap-2 justify-between text-[#089241] font-semibold">
-                                        <div className="">+91 97 97 97 2465</div>
-                                        <i className="pi pi-arrow-right"></i>
-                                    </div>
-                                </Link>
-                            </div>
-                            <div className="fadeUp bg-white p-8 rounded-xl shadow-[0px_6px_14px_0px_rgba(41,128,196,0.10),0px_25px_25px_0px_rgba(41,128,196,0.09),0px_57px_34px_0px_rgba(41,128,196,0.05),0px_101px_40px_0px_rgba(41,128,196,0.02),0px_157px_44px_0px_rgba(41,128,196,0)]">
-                                <div className="-ml-2"><Image src="/images/writeToUs.webp" className="" alt="" width="110" height="110" /></div>
-                                <h4 className="my-3 text-xl font-semibold text-[#0A1A2F] -mt-2">Write To Us</h4>
-                                <div className="text-sm text-[#555555] mb-6">Email us your doubts, documents, or concerns and receive clear, well-researched responses from our counselling team, ensuring you're confident and informed before making important decisions.</div>
-                                <Link href="mailto:info@radicaleducation.in">
-                                    <div className="flex items-center gap-2 justify-between text-[#089241] font-semibold">
-                                        <div className="">info@radicaleducation.in</div>
-                                        <i className="pi pi-arrow-right"></i>
-                                    </div>
-                                </Link>
-                            </div>
-                        </div>
-                        <div className="flex items-center justify-center text-[#0B2E3C] gap-4 fadeUp">
-                            <span className="font-semibold">Follow Us On</span>
-                            <Link target='_blank' href="https://twitter.com/Radical_Edu_"><i className='pi pi-twitter'></i></Link>
-                            <Link target='_blank' href="https://www.facebook.com/profile.php?id=61556350017734"><i className='pi pi-facebook'></i></Link>
-                            <Link target='_blank' href="https://www.instagram.com/radicaleducationofficial/"><i className='pi pi-instagram'></i></Link>
-                            <Link target='_blank' href="https://www.linkedin.com/company/radical-education-official/about/?viewAsMember=true"><i className='pi pi-linkedin'></i></Link>
-                            <Link target='_blank' href="https://whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P"><i className='pi pi-whatsapp'></i></Link>
-                            <Link target='_blank' href="https://t.me/radicaleducation"><i className='pi pi-telegram'></i></Link>
-                            <Link target='_blank' href="https://www.youtube.com/@radicaleducationofficial"><i className='pi pi-youtube'></i></Link>
-                        </div>
-                    </div>
-                </section>
-
-                <div className="my-20">
-                    <CounselorSection />
+  return (
+    <>
+      <FloatingWhatsApp />
+      <div className="bg-[#F4F7F8]">
+        <section className="lg:py-40 md:py-30 py-20 relative overflow-hidden z-2 bg-[url('/images/contactHero.webp')] bg-cover bg-center bg-no-repeat">
+          <div className="absolute inset-0 bg-black/50 -z-1" />
+          <div className="mx-auto px-4 w-full lg:w-4/10 md:8/10 text-center fadeUp">
+            <h1 className="uppercase lg:text-5xl text-4xl font-bold text-white lg:mb-6 mb-4">
+              CONTACT US
+            </h1>
+            <p className="text-white text-lg m-0 p-0 font-medium">
+              Our team of experts is just a call or a message away. If you are
+              having any trouble with your medical studies, come join us.
+            </p>
+          </div>
+        </section>
+        <section className="pb-15">
+          <div className="container px-3 md:px-4">
+            <div className="grid md:grid-cols-3 grid-cols-1 gap-4 lg:gap-8 mb-8 md:-mt-16 -mt-8 relative z-2">
+              <div className="fadeUp bg-white p-8 rounded-xl shadow-[0px_6px_14px_0px_rgba(41,128,196,0.10),0px_25px_25px_0px_rgba(41,128,196,0.09),0px_57px_34px_0px_rgba(41,128,196,0.05),0px_101px_40px_0px_rgba(41,128,196,0.02),0px_157px_44px_0px_rgba(41,128,196,0)]">
+                <div className="-ml-2">
+                  <Image
+                    src="/images/visitUs.webp"
+                    className=""
+                    alt=""
+                    width="110"
+                    height="110"
+                  />
                 </div>
-                <section className="pt-2 bg-white">
-                    <div className="w-full">
-                        {/* <h2 className="text-3xl font-bold text-center mb-8 text-[#0A1A2F]">Find Us On Map</h2> */}
-                        <div className="w-full">
-                            <iframe
-                                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16362.70161406333!2d77.34890896424375!3d28.618242396946375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xb5e08fd7f7fce5f%3A0x8e575b0a42691cba!2sRadical%20Education%20%7C%20RDLEDU%20Pvt%20Ltd!5e1!3m2!1sen!2sin!4v1771237199124!5m2!1sen!2sin"
-                                width="100%"
-                                height="450"
-                                style={{ border: 0 }}
-                                allowFullScreen={true}
-                                loading="lazy"
-                                referrerPolicy="no-referrer-when-downgrade"
-                                title="Radical Education Location Map"
-                                className="m-0 leading-[0]"
-                            />
-                        </div>
+                <h4 className="my-3 text-xl font-medium text-[#0A1A2F] -mt-2">
+                  Visit us
+                </h4>
+                <div className="text-sm text-[#555555] mb-10 font-normal">
+                  Meet our counselling experts in person for valuable
+                  discussions, profile evaluation, and resolution of any query
+                  in a comfortable, student-friendly environment.
+                </div>
+                <Link
+                  href="https://maps.app.goo.gl/NbWqaZNNHtJqE5Br9"
+                  target="_blank"
+                >
+                  <div className="flex items-center gap-2 justify-between text-[#089241] text-[14px] font-medium">
+                    <div className="">
+                      C-56/30, C Block, Sector 62, Noida, Uttar Pradesh 201309
                     </div>
-                </section>
+                    <i className="pi pi-arrow-right pb-4"></i>
+                  </div>
+                </Link>
+              </div>
+              <div className="fadeUp bg-white p-8 rounded-xl shadow-[0px_6px_14px_0px_rgba(41,128,196,0.10),0px_25px_25px_0px_rgba(41,128,196,0.09),0px_57px_34px_0px_rgba(41,128,196,0.05),0px_101px_40px_0px_rgba(41,128,196,0.02),0px_157px_44px_0px_rgba(41,128,196,0)]">
+                <div className="-ml-2">
+                  <Image
+                    src="/images/callUs.webp"
+                    className=""
+                    alt=""
+                    width="110"
+                    height="110"
+                  />
+                </div>
+                <h4 className="my-3 text-xl font-medium text-[#0A1A2F] -mt-2">
+                  Call us
+                </h4>
+                <div className="text-sm text-[#555555] mb-6 font-normal">
+                  Speak to us directly with experienced counsellors at your
+                  disposal to resolve doubts, understand counselling procedures,
+                  and receive complete guidance for NEET and medical admissions.
+                </div>
+                <Link href="tel:9797972465">
+                  <div className="flex items-center gap-2 justify-between text-[#089241] text-[14px] font-medium">
+                    <div className="">+91 97 97 97 2465</div>
+                    <i className="pi pi-arrow-right"></i>
+                  </div>
+                </Link>
+              </div>
+              <div className="fadeUp bg-white p-8 rounded-xl shadow-[0px_6px_14px_0px_rgba(41,128,196,0.10),0px_25px_25px_0px_rgba(41,128,196,0.09),0px_57px_34px_0px_rgba(41,128,196,0.05),0px_101px_40px_0px_rgba(41,128,196,0.02),0px_157px_44px_0px_rgba(41,128,196,0)]">
+                <div className="-ml-2">
+                  <Image
+                    src="/images/writeToUs.webp"
+                    className=""
+                    alt=""
+                    width="110"
+                    height="110"
+                  />
+                </div>
+                <h4 className="my-3 text-xl font-medium text-[#0A1A2F] -mt-2">
+                  Write to us
+                </h4>
+                <div className="text-sm text-[#555555] mb-6 font-normal">
+                  Email us your doubts, documents, or concerns and receive
+                  clear, well-researched responses from our counselling team,
+                  ensuring you're confident and informed before making important
+                  decisions.
+                </div>
+                <Link href="mailto:info@radicaleducation.in">
+                  <div className="flex items-center gap-2 justify-between text-[#089241] text-[14px] font-medium">
+                    <div className="">info@radicaleducation.in</div>
+                    <i className="pi pi-arrow-right"></i>
+                  </div>
+                </Link>
+              </div>
             </div>
-        </>
-    );
+            <div className="flex items-center justify-center text-[#0B2E3C] gap-4 fadeUp">
+              <span className="font-semibold text-[21px] text-[#0B2E3C]">Follow Us On</span>
+              <Link target="_blank" href="https://twitter.com/Radical_Edu_">
+                <Image
+                  src="/images/twitter.svg"
+                  width="14"
+                  height="14"
+                  alt=""
+                  className="sm:w-[16px] sm:h-[16px] object-contain"
+                />
+              </Link>
+              <Link
+                target="_blank"
+                href="https://www.facebook.com/profile.php?id=61556350017734"
+              >
+                <Image
+                  src="/images/facebook.svg"
+                  width="16"
+                  height="16"
+                  alt=""
+                  className="sm:w-[18px] sm:h-[18px] object-contain"
+                />
+              </Link>
+              <Link
+                target="_blank"
+                href="https://www.instagram.com/radicaleducationofficial/"
+              >
+                <Image
+                  src="/images/instagram.svg"
+                  width="14"
+                  height="14"
+                  alt=""
+                  className="sm:w-[16px] sm:h-[16px] object-contain"
+                />
+              </Link>
+              <Link
+                target="_blank"
+                href="https://www.linkedin.com/company/radical-education-official/about/?viewAsMember=true"
+              >
+                <Image
+                  src="/images/linkedin.svg"
+                  width="14"
+                  height="14"
+                  alt=""
+                  className="sm:w-[16px] sm:h-[16px] object-contain"
+                />
+              </Link>
+              <Link
+                target="_blank"
+                href="https://whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P"
+              >
+                <Image
+                  src="/images/whatsapp.svg"
+                  width="18"
+                  height="18"
+                  alt=""
+                  className="sm:w-[20px] sm:h-[20px] object-contain"
+                />
+              </Link>
+              <Link target="_blank" href="https://t.me/radicaleducation">
+                <Image
+                  src="/images/teligram.svg"
+                  width="16"
+                  height="16"
+                  alt=""
+                  className="sm:w-[18px] sm:h-[18px] object-contain"
+                />
+              </Link>
+              <Link
+                target="_blank"
+                href="https://www.youtube.com/@radicaleducationofficial"
+              >
+                <Image
+                  src="/images/youtube.svg"
+                  width="18"
+                  height="18"
+                  alt=""
+                  className="sm:w-[20px] sm:h-[20px] object-contain"
+                />
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <div className="my-20">
+          <CounselorSection />
+        </div>
+        <section className="pt-2 bg-white">
+          <div className="w-full">
+            {/* <h2 className="text-3xl font-bold text-center mb-8 text-[#0A1A2F]">Find Us On Map</h2> */}
+            <div className="w-full">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16362.70161406333!2d77.34890896424375!3d28.618242396946375!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xb5e08fd7f7fce5f%3A0x8e575b0a42691cba!2sRadical%20Education%20%7C%20RDLEDU%20Pvt%20Ltd!5e1!3m2!1sen!2sin!4v1771237199124!5m2!1sen!2sin"
+                width="100%"
+                height="450"
+                style={{ border: 0 }}
+                allowFullScreen={true}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Radical Education Location Map"
+                className="m-0 leading-[0]"
+              />
+            </div>
+          </div>
+        </section>
+      </div>
+    </>
+  );
 }

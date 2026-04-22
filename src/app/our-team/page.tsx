@@ -76,13 +76,13 @@ export default function OurTeam() {
                     priority
                 />
                 <div className="absolute inset-0 bg-black/50" />
-                <div className="relative z-10 text-center text-white">
-                    <h1 className="lg:text-5xl md:text-4xl text-3xl font-bold mb-3">
+                <div className="relative z-10 top-32 text-center text-white">
+                    <h1 className="lg:text-5xl md:text-4xl text-3xl font-normal mb-3">
                         The Faces Changing
                         <br />
                         Future Careers
                     </h1>
-                    <p className="text-base">
+                    <p className="text-base font-medium">
                         Our team of “professional medical counsellors you can trust” works to <br className="md:block hidden" /> secure your academic journey.
                     </p>
                 </div>

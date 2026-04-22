@@ -78,9 +78,12 @@ export default function NewsMarquee() {
               target="_blank"
               className="min-w-[320px] rounded-lg transition"
             >
-              <div className="flex items-center gap-2 text-sm mb-1 text-[#829dac]">
-                <i className="pi pi-calendar text-xs text-[#829dac]!" />
-                <small>{item.date}</small>
+              <div className="flex items-center gap-2 text-sm mb-1 text-white [&_.pi]:text-white"
+               style={{ color: "#fff" }}>
+                <i className="pi pi-calendar text-xs !text-white" 
+                 style={{ color: "#fff" }}/>
+                <small className='text-white'
+                 style={{ color: "#fff" }}>{item.date}</small>
               </div>
               <div className="font-medium leading-snug flex items-center gap-2 text-sm">
                 <div><div className='h-2 w-2 rounded-full bg-[#FF7A00]'></div></div>
