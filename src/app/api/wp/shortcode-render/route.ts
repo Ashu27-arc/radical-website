@@ -3,7 +3,7 @@ import axios from 'axios';
 
 export const revalidate = 300;
 
-const WP_BASE = 'https://swa.radicaleducation.in';
+const WP_BASE = 'https://news.radicaleducation.in';
 
 export async function GET(request: NextRequest) {
   const { searchParams } = request.nextUrl;

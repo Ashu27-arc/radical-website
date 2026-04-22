@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import axios from 'axios';
 import { fetchAllWordPressPosts } from '@/lib/wp-fetcher';
 
-const WP_API_BASE = 'https://swa.radicaleducation.in/wp-json/wp/v2/posts';
+const WP_API_BASE = 'https://news.radicaleducation.in/wp-json/wp/v2/posts';
 
 export const revalidate = 60;
 

@@ -222,7 +222,7 @@ export default function StudyAbroadPage() {
                                     <div className="flex gap-2 items-start">
                                         <span className="text-[#1D1D1D] font-semibold text-[12px] uppercase tracking-wider group-hover:text-white transition-colors duration-300 mt-0.5">Note:</span>
                                         <p className="text-[12px] font-weight-600 font-semibold leading-relaxed text-[#6E67C9] group-hover:text-white/90 transition-colors duration-300 poppins">
-                                            This service charge includes the Visa charges but <span className="font-normal font-weight-400 text-[#6E67C9]">does not cover the ticket charges.</span>
+                                            This service charge includes the Visa charges but <span className="font-normal font-weight-400 text-[#6E67C9] text-[12px]">does not cover the ticket charges.</span>
                                         </p>
                                     </div>
                                 </div>

@@ -12,7 +12,7 @@ const stripHtml = (html: string): string => {
  * Uses pagination and parallel requests with controlled concurrency.
  */
 export async function fetchAllWordPressPosts(
-  baseUrl: string = 'https://swa.radicaleducation.in/wp-json/wp/v2/posts'
+  baseUrl: string = 'https://news.radicaleducation.in/wp-json/wp/v2/posts'
 ): Promise<Blog[]> {
   const PER_PAGE = 100;
   // Limit concurrent requests to avoid overloading the WordPress server
@@ -81,7 +81,7 @@ export async function fetchAllWordPressPosts(
  * This is ~95% smaller than the full fetch and completes well within build timeouts.
  */
 export async function fetchAllWpPostsForSitemap(
-  baseUrl: string = 'https://swa.radicaleducation.in/wp-json/wp/v2/posts'
+  baseUrl: string = 'https://news.radicaleducation.in/wp-json/wp/v2/posts'
 ): Promise<{ slug: string; date: string }[]> {
   const PER_PAGE = 100;
   const CONCURRENCY_LIMIT = 8; // Can be higher since payloads are tiny

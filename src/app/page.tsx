@@ -190,7 +190,7 @@ export default function Home() {
                   <div className="md:col-span-2 flex flex-col gap-5 md:gap-2 lg:gap-5 md:items-start items-center">
                     <Link
                       href="/neet-ug-india-admission/"
-                      className="group flex items-center w-full h-[52px] justify-center gap-4 md:gap-2 lg:gap-4 rounded-[20px] px-4 text-white bg-[linear-gradient(90deg,#27AEDC_0%,#3FE198_100%)] shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
+                      className="group flex items-center w-[326px] h-[52px] justify-center gap-4 md:gap-2 lg:gap-4 rounded-[20px] px-4 text-white bg-[linear-gradient(90deg,#27AEDC_0%,#3FE198_100%)] shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
                       aria-label="NEET UG India Admissions"
                     >
                       <span className="font-bold text-[16px] md:text-[12px] lg:text-[18px]">
@@ -216,7 +216,7 @@ export default function Home() {
                     </Link>
                     <Link
                       href="/neet-pg-india-admission/"
-                      className="group flex items-center w-full h-[52px] justify-center gap-4 md:gap-2 lg:gap-4 rounded-[20px] px-4 text-white bg-[linear-gradient(90deg,#F4C55C_0%,#E6440C_100%)] shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
+                      className="group flex items-center w-[326px] h-[52px] justify-center gap-4 md:gap-2 lg:gap-4 rounded-[20px] px-4 text-white bg-[linear-gradient(90deg,#F4C55C_0%,#E6440C_100%)] shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
                       aria-label="NEET PG India Admissions"
                     >
                       <span className="font-bold text-[16px] md:text-[12px] lg:text-[18px]">
@@ -242,7 +242,7 @@ export default function Home() {
                     </Link>
                     <Link
                       href="/study-abroad/"
-                      className="group flex items-center w-full h-[52px] justify-center gap-4 md:gap-2 lg:gap-4 rounded-[20px] px-4 text-white bg-[linear-gradient(90deg,#677CE7_0%,#754FA7_100%)] shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
+                      className="group flex items-center w-[326px] h-[52px] justify-center gap-4 md:gap-2 lg:gap-4 rounded-[20px] px-4 text-white bg-[linear-gradient(90deg,#677CE7_0%,#754FA7_100%)] shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
                       aria-label="MBBS Abroad Admissions"
                     >
                       <span className="font-bold text-[16px] md:text-[12px] lg:text-[18px]">

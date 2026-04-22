@@ -6,6 +6,8 @@ import Singapore from '@/components/mbbs-abroadDetails/Singapore';
 import Georgia from '@/components/mbbs-abroadDetails/Georgia';
 import Uzbekistan from '@/components/mbbs-abroadDetails/Uzbekistan';
 import Bangladesh from '@/components/mbbs-abroadDetails/Bangladesh';
+import Kyrgyzstan from '@/components/mbbs-abroadDetails/Kyrgyzstan';
+
 
 interface CountryPageProps {
   params: Promise<{
@@ -25,7 +27,8 @@ export default async function CountryPage({ params }: CountryPageProps) {
     georgia: Georgia,
     uzbekistan: Uzbekistan,
     bangladesh: Bangladesh,
-    kyrgyzstan: Russia, // Placeholder
+    kyrgyzstan: Kyrgyzstan,
+
   };
 
   const CountryComponent = countryComponents[country.toLowerCase()];

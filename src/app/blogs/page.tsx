@@ -52,7 +52,7 @@ const BlogsPage = () => {
   const [loading, setLoading] = useState(true);
   const [banners, setBanners] = useState<BannerItem[]>([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const blogsPerPage = 12;
+  const blogsPerPage = 100;
   const scrollRef = useRef<HTMLDivElement>(null);
   const [refreshKey, setRefreshKey] = useState(0);
   const [totalPagesServer, setTotalPagesServer] = useState(1);

@@ -223,7 +223,7 @@ export async function getWpPages(): Promise<Blog[]> {
 
     const url = isClient
       ? `/api/wp/pages?${params}`
-      : `https://swa.radicaleducation.in/wp-json/wp/v2/pages?_embed=1&${params}`;
+      : `https://news.radicaleducation.in/wp-json/wp/v2/pages?_embed=1&${params}`;
 
     const headers: Record<string, string> = {
       'Accept': 'application/json',
@@ -269,7 +269,7 @@ export async function getBlogBySlug(slug: string): Promise<Blog | null> {
     async function tryFetch(type: 'posts' | 'pages', queryParams: string) {
       const url = isClient
         ? `/api/wp/${type}?${queryParams}`
-        : `https://swa.radicaleducation.in/wp-json/wp/v2/${type}?${queryParams}`;
+        : `https://news.radicaleducation.in/wp-json/wp/v2/${type}?${queryParams}`;
 
       const headers: Record<string, string> = {
         'Accept': 'application/json',
@@ -330,7 +330,7 @@ export async function getBlogBySlug(slug: string): Promise<Blog | null> {
 
       const url = isClient
         ? `/api/wp/${type}?${queryParams}`
-        : `https://swa.radicaleducation.in/wp-json/wp/v2/${type}?${queryParams}`;
+        : `https://news.radicaleducation.in/wp-json/wp/v2/${type}?${queryParams}`;
 
       try {
         const headers: Record<string, string> = {

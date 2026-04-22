@@ -9,7 +9,7 @@ export function replaceWpForms(content: string): string {
     return `
       <div class="wpforms-container" style="margin: 2rem 0; clear: both; width: 100%;">
         <iframe 
-          src="https://swa.radicaleducation.in/wpforms/view/${formId}" 
+          src="https://news.radicaleducation.in/wpforms/view/${formId}" 
           style="border: none; width: 100%; min-height: 650px; overflow: hidden;"
           loading="lazy"
           allow="payment; clipboard-write; camera; microphone"

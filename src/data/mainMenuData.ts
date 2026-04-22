@@ -168,6 +168,70 @@ export const mainMenuData: MenuItem[] = [
     label: 'Study Abroad',
     url: '/mbbs-abroad-admission/',
     items: [
+      // BANGLADESH
+      {
+        label: 'Bangladesh',
+        url: '/mbbs-abroad-admission/bangladesh/',
+        items: [
+          { label: 'Popular Medical College, Dhaka', url: '/popular-medical-collegebangladesh/' },
+          { label: 'Dhaka National Medical College, Dhaka', url: '/dhaka-national-medical-college/' },
+          { label: 'Tairunnessa Memorial Medical College, Gazipur', url: '/tairnunnessa-memorial-medical-collegebangladesh/' },
+          { label: 'Holy Family Red Crescent Medical College, Dhaka', url: '/holy-family-red-crescent-medical-collegebangladesh/' },
+          { label: 'Eastern Medical College, Comilla', url: '/bangladesh-university-of-professional-studies/' },
+          { label: 'Monowara Sikdar Medical College, Shariatpur', url: '/monowara-sikdar-medical-college-shariatpur-2025-2026-fees-structure-cutoff-admission-process/' },
+          { label: 'Medical College for Women, Dhaka', url: '/medical-college-for-women-dhaka-2025-2026/' },
+          { label: 'East West Medical College, Dhaka', url: '/east-west-medical-college-dhaka-2025-2026/' },
+          { label: 'International Medical College, Tongi', url: '/international-medical-college-tongi/' },
+          { label: 'Dr. Sirajul Islam Medical College, Dhaka', url: '/dr-sirajul-islam-medical-college/' },
+          { label: 'Anwer Khan Modern Medical College, Dhaka', url: '/anwer-khan-modern-medical-college-dhaka-2025/' },
+          { label: 'US–Bangla Medical College, Tarabo', url: '/us-bangla-medical-college-tarabo-2025/' },
+          { label: 'Delta Medical College, Dhaka', url: '/delta-medical-college-dhaka/' },
+        ],
+      },
+
+      // GEORGIA
+      {
+        label: 'Georgia',
+        url: '/mbbs-abroad-admission/georgia/',
+        items: [
+          { label: 'Batumi Shota Rustaveli State University, Batumi', url: '/batumi-shota-rustaveli-state-university/' },
+          { label: 'Caucasus International University, Tbilisi', url: '/caucasus-international-university/' },
+          { label: 'European University, Tbilisi', url: '/east-european-university-georgia-2/' },
+          { label: 'SEU Georgian National University, Tbilisi', url: '/georgian-national-university-seu/' },
+          { label: 'Grigol Robakidze University, Tbilisi', url: '/grigol-robakidze-university/' },
+          { label: 'Tbilisi Medical Academy, Tbilisi', url: '/tbilisi-medical-academy/' },
+          { label: 'Tbilisi State Medical University, Tbilisi', url: '/tbilisi-state-medical-university-georgia/' },
+          { label: 'University of Georgia, Tbilisi', url: '/georgia-national-university-georgia/' },
+          { label: 'BAU International University, Batumi', url: '/bau-internationa-university/' },
+        ],
+      },
+
+      // KAZAKHSTAN
+      {
+        label: 'Kazakhstan',
+        url: '/mbbs-abroad-admission/kazakhstan/',
+        items: [
+          { label: 'Al-Farabi Kazakh National Medical University', url: '/al-farabi-kazakh-national-medical-university/' },
+          { label: 'Asfendiyarov Kazakh National Medical University', url: '/asfendiyarov-kazakh-national-medical-university/' },
+          { label: 'Astana Medical University', url: '/astana-medical-university-kazakhstan/' },
+          { label: 'South Kazakhstan Medical Academy', url: '/south-kazakhstan-medical-academy-kazakhstan/' },
+          { label: 'West Kazakhstan Medical Academy', url: '/west-kazakhstan-medical-academy/' },
+          { label: 'International Medical School Almaty', url: '/international-medical-school-almaty-kazakhstan/' },
+        ],
+      },
+
+      // KYRGYZSTAN
+      {
+        label: 'Kyrgyzstan',
+        url: '/mbbs-abroad-admission/kyrgyzstan/',
+        items: [
+          { label: 'Medical Faculty & Asian Medical Institute, Kant', url: '/medical-faculty-and-asian-medical-institute-kyrgyzstan/' },
+          { label: 'Osh International Medical University, Osh', url: '/osh-international-medical-university-kyrgyzstan/' },
+          { label: 'Kyrgyz State Medical Academy, Bishkek', url: '/kyrgyz-state-medical-academy-kyrgyzstan/' },
+          { label: 'Jalal-Abad State University, Jalal-Abad', url: '/jalal-abad-state-university-kyrgyzstan/' },
+        ],
+      },
+
       // NEPAL
       {
         label: 'Nepal',
@@ -241,22 +305,7 @@ export const mainMenuData: MenuItem[] = [
         ],
       },
 
-      // GEORGIA
-      {
-        label: 'Georgia',
-        url: '/mbbs-abroad-admission/georgia/',
-        items: [
-          { label: 'Batumi Shota Rustaveli State University, Batumi', url: '/batumi-shota-rustaveli-state-university/' },
-          { label: 'Caucasus International University, Tbilisi', url: '/caucasus-international-university/' },
-          { label: 'European University, Tbilisi', url: '/east-european-university-georgia-2/' },
-          { label: 'SEU Georgian National University, Tbilisi', url: '/georgian-national-university-seu/' },
-          { label: 'Grigol Robakidze University, Tbilisi', url: '/grigol-robakidze-university/' },
-          { label: 'Tbilisi Medical Academy, Tbilisi', url: '/tbilisi-medical-academy/' },
-          { label: 'Tbilisi State Medical University, Tbilisi', url: '/tbilisi-state-medical-university-georgia/' },
-          { label: 'University of Georgia, Tbilisi', url: '/georgia-national-university-georgia/' },
-          { label: 'BAU International University, Batumi', url: '/bau-internationa-university/' },
-        ],
-      },
+
 
       // SINGAPORE
       {
@@ -269,26 +318,7 @@ export const mainMenuData: MenuItem[] = [
         ],
       },
 
-      // BANGLADESH
-      {
-        label: 'Bangladesh',
-        url: '/mbbs-abroad-admission/bangladesh/',
-        items: [
-          { label: 'Popular Medical College, Dhaka', url: '/popular-medical-collegebangladesh/' },
-          { label: 'Dhaka National Medical College, Dhaka', url: '/dhaka-national-medical-college/' },
-          { label: 'Tairunnessa Memorial Medical College, Gazipur', url: '/tairnunnessa-memorial-medical-collegebangladesh/' },
-          { label: 'Holy Family Red Crescent Medical College, Dhaka', url: '/holy-family-red-crescent-medical-collegebangladesh/' },
-          { label: 'Eastern Medical College, Comilla', url: '/bangladesh-university-of-professional-studies/' },
-          { label: 'Monowara Sikdar Medical College, Shariatpur', url: '/monowara-sikdar-medical-college-shariatpur-2025-2026-fees-structure-cutoff-admission-process/' },
-          { label: 'Medical College for Women, Dhaka', url: '/medical-college-for-women-dhaka-2025-2026/' },
-          { label: 'East West Medical College, Dhaka', url: '/east-west-medical-college-dhaka-2025-2026/' },
-          { label: 'International Medical College, Tongi', url: '/international-medical-college-tongi/' },
-          { label: 'Dr. Sirajul Islam Medical College, Dhaka', url: '/dr-sirajul-islam-medical-college/' },
-          { label: 'Anwer Khan Modern Medical College, Dhaka', url: '/anwer-khan-modern-medical-college-dhaka-2025/' },
-          { label: 'US–Bangla Medical College, Tarabo', url: '/us-bangla-medical-college-tarabo-2025/' },
-          { label: 'Delta Medical College, Dhaka', url: '/delta-medical-college-dhaka/' },
-        ],
-      },
+
 
       // UZBEKISTAN
       {
@@ -302,31 +332,6 @@ export const mainMenuData: MenuItem[] = [
         ],
       },
 
-      // KAZAKHSTAN
-      {
-        label: 'Kazakhstan',
-        url: '/mbbs-abroad-admission/kazakhstan/',
-        items: [
-          { label: 'Al-Farabi Kazakh National Medical University', url: '/al-farabi-kazakh-national-medical-university/' },
-          { label: 'Asfendiyarov Kazakh National Medical University', url: '/asfendiyarov-kazakh-national-medical-university/' },
-          { label: 'Astana Medical University', url: '/astana-medical-university-kazakhstan/' },
-          { label: 'South Kazakhstan Medical Academy', url: '/south-kazakhstan-medical-academy-kazakhstan/' },
-          { label: 'West Kazakhstan Medical Academy', url: '/west-kazakhstan-medical-academy/' },
-          { label: 'International Medical School Almaty', url: '/international-medical-school-almaty-kazakhstan/' },
-        ],
-      },
-
-      // KYRGYZSTAN
-      {
-        label: 'Kyrgyzstan',
-        url: '/mbbs-abroad-admission/kyrgyzstan/',
-        items: [
-          { label: 'Medical Faculty & Asian Medical Institute, Kant', url: '/medical-faculty-and-asian-medical-institute-kyrgyzstan/' },
-          { label: 'Osh International Medical University, Osh', url: '/osh-international-medical-university-kyrgyzstan/' },
-          { label: 'Kyrgyz State Medical Academy, Bishkek', url: '/kyrgyz-state-medical-academy-kyrgyzstan/' },
-          { label: 'Jalal-Abad State University, Jalal-Abad', url: '/jalal-abad-state-university-kyrgyzstan/' },
-        ],
-      },
     ],
   },
 

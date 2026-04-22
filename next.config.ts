@@ -21,11 +21,15 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "swa.radicaleducation.in",
+        hostname: "news.radicaleducation.in",
       },
       {
         protocol: "https",
         hostname: "backend-radical.onrender.com",
+      },
+      {
+        protocol: "https",
+        hostname: "news.radicaleducation.in",
       },
     ],
   },
