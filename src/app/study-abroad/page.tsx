@@ -64,38 +64,38 @@ export default function StudyAbroadPage() {
     const videos = [
         {
             id: 1,
-            title: 'Mayank Kumar',
-            youtubeId: 'Vr6ZZQ3jVH8',
-        },
-        {
-            id: 2,
-            title: "Tanishka",
+            title: 'Tanishka Rana, TVER',
             youtubeId: 'Fccp8dm3ewA',
         },
         {
+            id: 2,
+            title: 'Mayank Kumar, TVER',
+            youtubeId: 'Vr6ZZQ3jVH8',
+        },
+        {
             id: 3,
-            title: 'Daksh',
-            youtubeId: 'Eip7W83K8YQ',
+            title: 'Mayank’s Proud Parent, TVER',
+            youtubeId: 'WP7BbcvkLL0',
         },
         {
             id: 4,
-            title: '',
+            title: 'Aseem, Asfendiyarov Kazakh National Medical University, Kazakhstan',
             youtubeId: '6DJoje1YFI4',
         },
         {
             id: 5,
-            title: 'Aseem',
-            youtubeId: 'E0-uSX-dabA',
+            title: 'Daksh Moom, OSH INTERNATIONAL MEDICAL UNIVERSITY, Kyrgyzstan',
+            youtubeId: 'Eip7W83K8YQ',
         },
         {
             id: 6,
-            title: '',
-            youtubeId: 'd6xSZh_IBCc',
+            title: 'Riddhi Singh, KSMU, Russia',
+            youtubeId: 'FWEyO03eG90',
         },
         {
             id: 7,
-            title: '',
-            youtubeId: 'FWEyO03eG90',
+            title: 'TANJINA NASRIN CHOUDHURY, OSH INTERNATIONAL MEDICAL UNIVERSITY, Kyrgyzstan',
+            youtubeId: 'E0-uSX-dabA',
         },
     ];
 
