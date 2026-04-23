@@ -534,7 +534,7 @@ export default function CareersPage() {
                       transition-opacity duration-200 
                       peer-focus:opacity-0 peer-not-placeholder-shown:opacity-0"
                     >
-                      First Name
+                      First Name <span className="text-red-500">*</span>
                     </span>
                   </div>
                   <div className="relative w-full">
@@ -553,7 +553,7 @@ export default function CareersPage() {
                       transition-opacity duration-200 
                       peer-focus:opacity-0 peer-not-placeholder-shown:opacity-0"
                     >
-                      Email Address
+                      Email Address <span className="text-red-500">*</span>
                     </span>
                   </div>
                   <div className="relative w-full">
@@ -576,7 +576,7 @@ export default function CareersPage() {
                     {/* placeholder */}
                     {!formData.opening && (
                       <span className="absolute left-3 md:left-4 top-2.5 md:top-3 text-sm md:text-base text-[#78787899] pointer-events-none">
-                        Select Opening
+                        Select Opening <span className="text-red-500">*</span>
                       </span>
                     )}
 

@@ -171,7 +171,14 @@ export default function Header() {
                 </Link>
               </div>
               <div className='lg:hidden flex items-center shrink-0'>
-                <button className='ml-3 btnico cursor-pointer relative p-1 sm:p-2 hover:opacity-75 transition-opacity' onClick={() => setVisible(true)}><i className='pi pi-bars text-[18px] sm:text-2xl! text-[#121212]'></i></button>
+                <button 
+                className='ml-3 btnico cursor-pointer relative p-1 sm:p-2 hover:opacity-75 transition-opacity' 
+                onClick={() => setVisible(true)}
+                aria-label="Open menu"
+                title="Open menu"
+                >
+                  <i className='pi pi-bars text-[18px] sm:text-2xl! text-[#121212]'></i>
+                </button>
               </div>
             </div>
           </div>
