@@ -21,9 +21,19 @@ async function fetchNeetUpdates(): Promise<NeetUpdate[]> {
 // Static hero section data (not fetched from CRM)
 const HERO_SECTION_DATA = {
     // date: "15 Apr 2026",
-    title: "NEET 2026 Updates - Exam Dates, Syllabus, Admit Card & News",
-    description: "Find all the important NEET 2026 updates, including exam dates, syllabus, result, and so much more. Stay ahead with latest news related to NEET 2026 in one place."
+    title: "NEET Updates - Exam Dates, Syllabus, Admit Card & News",
+    description: "Find all the important NEET updates, including exam dates, syllabus, result, and so much more. Stay ahead with the latest news related to NEET in one place."
 };
+
+const categoryColors: Record<string, string> = {
+    'Counselling Update': 'bg-[#FFEBEE] text-[#D32F2F]',
+    'Updates': 'bg-[#E1F5FE] text-[#0288D1]',
+    'Entrance Exam': 'bg-[#FFE0B2] text-[#C77700]',
+    'NTA': 'bg-[#FFF9C4] text-[#F9A825]',
+};
+
+const defaultCategoryColor = 'bg-[#E3F2FD] text-[#005A8B]';
+const getCategoryColor = (cat: string) => categoryColors[cat] || defaultCategoryColor;
 
 const PLACEHOLDER_IMAGE = "/images/neet-update/card.webp";
 const CRM_API_BASE = process.env.NEXT_PUBLIC_CRM_API_URL || "https://backend-radical.onrender.com";
@@ -39,19 +49,104 @@ function getArticleImageSrc(imageUrl: string | undefined): string {
 const NeetUpdateContent = () => {
     const [articles, setArticles] = useState<NeetUpdate[]>([]);
     const [loading, setLoading] = useState(true);
+    // Calculate pagination values (initially empty, will be updated by filteredArticles)
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 6;
 
-    // Calculate pagination values
-    const totalPages = Math.ceil(articles.length / itemsPerPage);
+    // Filter states
+    const [selectedFilters, setSelectedFilters] = useState<{ [key: string]: string[] }>({
+        courses: [],
+        categories: [],
+        years: [],
+        months: [],
+        states: []
+    });
+    const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+    const [searchQuery, setSearchQuery] = useState("");
+
+    // Calculate filtered articles
+    const filteredArticles = articles.filter(article => {
+        // Search query filter
+        const matchesSearch = searchQuery === "" ||
+            article.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+            article.description.toLowerCase().includes(searchQuery.toLowerCase());
+
+        if (!matchesSearch) return false;
+
+        // Courses filter
+        if (selectedFilters.courses.length > 0 && (!article.course || !selectedFilters.courses.includes(article.course))) {
+            return false;
+        }
+
+        // Categories filter
+        if (selectedFilters.categories.length > 0 && (!article.category || !selectedFilters.categories.includes(article.category))) {
+            return false;
+        }
+
+        // Years filter
+        if (selectedFilters.years.length > 0 && (!article.year || !selectedFilters.years.includes(article.year.toString()))) {
+            return false;
+        }
+
+        // Months filter
+        if (selectedFilters.months.length > 0 && (!article.month || !selectedFilters.months.includes(article.month))) {
+            return false;
+        }
+
+        // States filter
+        if (selectedFilters.states.length > 0 && (!article.state || !selectedFilters.states.includes(article.state))) {
+            return false;
+        }
+
+        return true;
+    });
+
+    const totalPages = Math.ceil(filteredArticles.length / itemsPerPage);
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
-    const currentArticles = articles.slice(startIndex, endIndex);
-    const [isCourseOpen, setIsCourseOpen] = useState(false);
-    const [selectedCourse, setSelectedCourse] = useState("MBBS");
+    const currentArticles = filteredArticles.slice(startIndex, endIndex);
+
     const [newUpdateCount, setNewUpdateCount] = useState(0);
     const wsUrl = process.env.NEXT_PUBLIC_WS_URL || 'wss://backend-radical.onrender.com';
     const { addMessageHandler } = useWebSocket(wsUrl);
+
+    // Filter options
+    const FILTER_OPTIONS = {
+        courses: ["MBBS", "BDS", "MS", "BNB", "MD", "AYUSH"],
+        categories: ["Counselling Update", "Updates", "Entrance Exam", "NTA"],
+        years: ["2024", "2025", "2026"],
+        months: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        states: ["Maharashtra", "Delhi", "Karnataka", "Tamil Nadu", "Uttar Pradesh", "West Bengal", "Gujarat"]
+    };
+
+    const toggleFilter = (category: string, value: string) => {
+        setSelectedFilters(prev => {
+            const current = prev[category];
+            const updated = current.includes(value)
+                ? current.filter(v => v !== value)
+                : [...current, value];
+            return { ...prev, [category]: updated };
+        });
+    };
+
+    const removeTag = (category: string, value: string) => {
+        setSelectedFilters(prev => ({
+            ...prev,
+            [category]: prev[category].filter(v => v !== value)
+        }));
+    };
+
+    const clearAllFilters = () => {
+        setSelectedFilters({
+            courses: [],
+            categories: [],
+            years: [],
+            months: [],
+            states: []
+        });
+    };
+
+    const hasFilters = Object.values(selectedFilters).some(arr => arr.length > 0);
 
     const searchParams = useSearchParams();
     const showDetails = searchParams.get("details") === "true";
@@ -194,16 +289,15 @@ const NeetUpdateContent = () => {
                             {HERO_SECTION_DATA.date}
                         </span> */}
                         <Link href="?details=true" target="_blank">
-                            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold leading-tight mb-3 sm:mb-1 hover:text-[#38b6ff] transition-colors cursor-pointer">
+                            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold font-weight-700 leading-tight mb-3 sm:mb-1 hover:text-[#38b6ff] transition-colors cursor-pointer">
                                 {HERO_SECTION_DATA.title}
                             </h1>
                         </Link>
-                        <p className="text-gray-200 text-xs sm:text-sm md:text-base leading-relaxed max-w-2xl mb-6 md:-mb-1 line-clamp-3 md:line-clamp-none">
+                        <p className="text-gray-200 text-xs sm:text-sm md:text-base font-normal font-weight-500 leading-relaxed max-w-2xl mb-6 md:-mb-1 line-clamp-3 md:line-clamp-none">
                             {HERO_SECTION_DATA.description}
                         </p>
                     </div>
 
-                    {/* Slider Arrows (Visual Only) - Hidden on smallest phones for better layout */}
                     <div className="flex justify-center md:justify-start w-full md:w-auto gap-4 mt-4 md:mt-0 md:mb-8 shrink-0">
                         <button className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white text-black flex items-center justify-center hover:bg-gray-200 transition">
                             <i className="pi pi-arrow-left text-xs sm:text-sm"></i>
@@ -215,104 +309,116 @@ const NeetUpdateContent = () => {
                 </div>
             </section>
 
-            {/* New Updates Indicator */}
-            {newUpdateCount > 0 && (
-                <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-2">
-                    <div className="bg-gradient-to-r from-green-500 to-emerald-600 text-white rounded-lg p-3 text-center animate-pulse">
-                        <div className="flex items-center justify-center gap-2">
-                            <i className="pi pi-bell text-lg"></i>
-                            <span className="font-semibold">
-                                {newUpdateCount} New Update{newUpdateCount > 1 ? 's' : ''} Received!
-                            </span>
-                            <i className="pi pi-bell text-lg"></i>
-                        </div>
-                    </div>
-                </div>
-            )}
-
             {/* Search & Filter Section */}
-            <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-1 md:py-2">
-                <div className="flex flex-col xl:flex-row items-center justify-start gap-2">
-                    {/* Search Bar */}
-                    <div className="relative w-full sm:w-[320px]">
-                        <input
-                            type="text"
-                            placeholder="search here"
-                            className="w-full h-9 sm:h-10 rounded-full pl-5 pr-12 bg-white border border-gray-100 shadow-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-100 text-sm"
-                        />
-                        <button className="absolute right-1 top-1/2 -translate-y-1/2 h-7 w-7 sm:h-8 sm:w-8 rounded-full bg-[#005A8B] text-white flex items-center justify-center hover:bg-[#024d7a] transition shadow-md">
-                            <i className="pi pi-search text-xs sm:text-sm"></i>
-                        </button>
-                    </div>
+            <section className="sticky top-[80px] md:top-[130px] z-40 w-full bg-white/95 backdrop-blur-sm shadow-sm border-b border-gray-100 transition-all duration-200">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 py-4 sm:py-6">
+                    <div className="flex flex-col xl:flex-row items-center justify-between gap-4">
+                        <div className="relative w-full sm:w-[400px]">
+                            <input
+                                type="text"
+                                placeholder="search updates..."
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                className="w-full h-10 sm:h-12 rounded-full pl-6 pr-12 bg-white border border-gray-200 shadow-sm text-gray-600 focus:outline-none focus:ring-2 focus:ring-blue-100 text-sm sm:text-base"
+                            />
+                            <button className="absolute right-1.5 top-1/2 -translate-y-1/2 h-8 w-8 sm:h-9 sm:w-9 rounded-full bg-[#005A8B] text-white flex items-center justify-center hover:bg-[#024d7a] transition shadow-md">
+                                <i className="pi pi-search text-xs sm:text-sm"></i>
+                            </button>
+                        </div>
 
-                    {/* Filters */}
-                    <div className="flex flex-wrap items-center gap-2 w-full xl:w-auto justify-center xl:justify-start">
-                        <button className="h-8 sm:h-9 px-3 sm:px-4 rounded-full bg-[#2CBF0F] text-white font-medium hover:bg-[#34a834] transition shadow-sm text-sm">
-                            All
-                        </button>
-
-                        <div className="relative">
+                        {/* Filters */}
+                        <div className="flex flex-wrap items-center gap-2 sm:gap-3 w-full xl:w-auto justify-center xl:justify-end">
                             <button
-                                onClick={() => setIsCourseOpen(!isCourseOpen)}
-                                className="h-8 sm:h-9 px-3 sm:px-4 rounded-full bg-[#E0F4FF] text-[#035f94] font-medium flex items-center gap-2 hover:bg-[#d1e9fc] transition shadow-sm text-sm"
+                                onClick={clearAllFilters}
+                                className={`h-9 sm:h-10 px-4 sm:px-6 rounded-full font-medium transition shadow-sm text-sm ${!hasFilters ? 'bg-[#2CBF0F] text-white' : 'bg-gray-100 text-gray-500 hover:bg-gray-200'}`}
                             >
-                                Course
-                                <i className={`pi pi-chevron-down text-[10px] sm:text-xs transition-transform ${isCourseOpen ? 'rotate-180' : ''}`}></i>
+                                All
                             </button>
 
-                            {/* Dropdown Menu - Responsive width */}
-                            {isCourseOpen && (
-                                <div className="absolute top-12 left-1/2 -translate-x-1/2 sm:left-0 sm:translate-x-0 z-50 w-[280px] sm:w-[340px] bg-[#E0F4FF] border border-blue-100 rounded-2xl shadow-xl p-4 sm:p-5 animate-in fade-in zoom-in duration-200">
-                                    <div className="grid grid-cols-2 gap-2 sm:gap-3">
-                                        {[
-                                            "MBBS",
-                                            "BDS",
-                                            "MS",
-                                            "BNB",
-                                            "MD",
-                                            "AYUSH"
-                                        ].map((course) => (
-                                            <button
-                                                key={course}
-                                                onClick={() => {
-                                                    setSelectedCourse(course);
-                                                    setIsCourseOpen(false);
-                                                }}
-                                                className={`
-                                                    h-10 sm:h-12 rounded-lg font-semibold text-xs sm:text-sm transition-all shadow-sm border
-                                                    ${selectedCourse === course
-                                                        ? "bg-gradient-to-r from-[#3facb1] to-[#0d6ea6] text-white border-transparent shadow-md"
-                                                        : "bg-transparent border-[#0B6096] text-[#0B6096] hover:bg-white hover:border-[#3facb1]"
-                                                    }
-                                                `}
-                                            >
-                                                {course}
-                                            </button>
-                                        ))}
-                                    </div>
-                                </div>
-                            )}
-                        </div>
+                            {/* Dropdowns */}
+                            {Object.entries(FILTER_OPTIONS).map(([category, options]) => (
+                                <div key={category} className="relative">
+                                    <button
+                                        onClick={() => setOpenDropdown(openDropdown === category ? null : category)}
+                                        className={`h-8 sm:h-9 px-3 sm:px-4 rounded-full font-medium flex items-center gap-2 transition shadow-sm text-sm
+                                            ${selectedFilters[category].length > 0
+                                                ? "bg-[#035f94] text-white"
+                                                : "bg-[#E0F4FF] text-[#035f94] hover:bg-[#d1e9fc]"
+                                            }`}
+                                    >
+                                        {selectedFilters[category].length === 0
+                                            ? category.charAt(0).toUpperCase() + category.slice(1)
+                                            : selectedFilters[category].length === 1
+                                                ? selectedFilters[category][0]
+                                                : `${category.charAt(0).toUpperCase() + category.slice(1)} (${selectedFilters[category].length})`
+                                        }
+                                        <i className={`pi pi-chevron-down text-[10px] sm:text-xs transition-transform ${openDropdown === category ? 'rotate-180' : ''}`}></i>
+                                    </button>
 
-                        {["Year", "Months", "State"].map((filter) => (
-                            <div key={filter} className="relative">
-                                <button
-                                    className="h-8 sm:h-9 px-3 sm:px-4 rounded-full bg-[#E0F4FF] text-[#035f94] font-medium flex items-center gap-2 hover:bg-[#d1e9fc] transition shadow-sm text-sm"
-                                >
-                                    {filter}
-                                    <i className="pi pi-chevron-down text-[10px] sm:text-xs"></i>
-                                </button>
-                            </div>
-                        ))}
+                                    {openDropdown === category && (
+                                        <div className="absolute top-10 right-0 z-50 w-[280px] sm:w-[350px] bg-white border border-gray-100 rounded-2xl shadow-xl p-4 animate-in fade-in zoom-in duration-200">
+                                            <div className="grid grid-cols-2 gap-2">
+                                                {options.map((option) => (
+                                                    <button
+                                                        key={option}
+                                                        onClick={() => {
+                                                            toggleFilter(category, option);
+                                                        }}
+                                                        className={`
+                                                            h-10 sm:h-12 rounded-lg font-semibold text-xs sm:text-sm transition-all shadow-sm border
+                                                            ${selectedFilters[category].includes(option)
+                                                                ? "bg-gradient-to-r from-[#3facb1] to-[#0d6ea6] text-white border-transparent shadow-md"
+                                                                : "bg-transparent border-[#0B6096] text-[#0B6096] hover:bg-white hover:border-[#3facb1]"
+                                                            }
+                                                        `}
+                                                    >
+                                                        {option}
+                                                    </button>
+                                                ))}
+                                            </div>
+                                        </div>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
                     </div>
+
+                    {/* Tags Section */}
+                    {hasFilters && (
+                        <div className="mt-4 flex flex-wrap items-center gap-2 animate-in fade-in slide-in-from-top-2 duration-300">
+                            {Object.entries(selectedFilters).map(([category, values]) =>
+                                values.map(value => (
+                                    <div
+                                        key={`${category}-${value}`}
+                                        className="flex items-center gap-1.5 px-3 py-1 bg-white border border-[#E0F4FF] text-[#035f94] rounded-full text-xs font-medium shadow-sm group hover:border-[#035f94] transition-all"
+                                    >
+                                        <span>{value}</span>
+                                        <button
+                                            onClick={() => removeTag(category, value)}
+                                            className="text-gray-400 group-hover:text-red-500 transition-colors"
+                                        >
+                                            <i className="pi pi-times text-[10px]"></i>
+                                        </button>
+                                    </div>
+                                ))
+                            )}
+                            <button
+                                onClick={clearAllFilters}
+                                className="ml-2 text-[#035f94] font-bold text-xs sm:text-sm hover:text-[#024d7a] transition-colors flex items-center gap-1"
+                            >
+                                <i className="pi pi-trash text-[10px]"></i>
+                                Clear All
+                            </button>
+                        </div>
+                    )}
                 </div>
             </section>
 
             {/* Articles Grid - Fetched from CRM */}
             <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 pb-10 sm:pb-16">
-                {articles.length === 0 && !loading ? (
+                {filteredArticles.length === 0 && !loading ? (
                     <div className="text-center py-12">
-                        <p className="text-gray-500">No NEET updates available at the moment.</p>
+                        <p className="text-gray-500">No NEET updates available for the selected filters.</p>
                     </div>
                 ) : (
                     <div className="grid grid-cols-1 xl:grid-cols-2 gap-4 sm:gap-8">
@@ -337,9 +443,16 @@ const NeetUpdateContent = () => {
                                     />
                                 </div>
                                 <div className="flex-1 py-1 sm:pr-2">
-                                    <span className="text-[#38b6ff] text-[10px] sm:text-xs font-semibold block mb-1 sm:mb-2">
-                                        {article.date}
-                                    </span>
+                                    <div className="flex items-center justify-between mb-1 sm:mb-2">
+                                        <span className="text-[#38b6ff] text-[10px] sm:text-xs font-semibold">
+                                            {article.date}
+                                        </span>
+                                        {article.category && (
+                                            <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${getCategoryColor(article.category)}`}>
+                                                {article.category}
+                                            </span>
+                                        )}
+                                    </div>
                                     <div>
                                         <h3 className="text-lg sm:text-xl font-bold text-gray-900 leading-tight mb-2 sm:mb-3 hover:text-[#035f94] transition-colors line-clamp-2">
                                             {article.title}
@@ -359,13 +472,13 @@ const NeetUpdateContent = () => {
             </section>
 
             {/* Pagination - For CRM fetched articles */}
-            {articles.length > 0 && (
+            {filteredArticles.length > 0 && (
                 <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 pb-8 sm:pb-12">
                     <div className="bg-white rounded-full py-1.5 sm:py-2 px-3 sm:px-4 inline-flex items-center justify-center gap-1 mx-auto relative left-1/2 -translate-x-1/2 shadow-sm border border-gray-100 overflow-x-auto max-w-[90vw] no-scrollbar">
                         <button
                             onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
                             disabled={currentPage === 1}
-                            className={`whitespace-now600 px-2 h-8 sm:h-10 flex items-center justify-center transition text-xs sm:text-sm ${currentPage === 1 ? 'text-gray-300 cursor-not-allowed' : 'text-gray-400 hover:text-gray-600'}`}>
+                            className={`whitespace-nowrap px-2 h-8 sm:h-10 flex items-center justify-center transition text-xs sm:text-sm ${currentPage === 1 ? 'text-gray-300 cursor-not-allowed' : 'text-gray-400 hover:text-gray-600'}`}>
                             <i className="pi pi-chevron-left text-[10px] sm:text-xs mr-1"></i> Prev
                         </button>
 

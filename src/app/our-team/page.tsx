@@ -4,6 +4,13 @@ import CounselorSection from "@/components/CounselorSection";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 export default function OurTeam() {
+    const getCounselledCount = (base: number) => {
+        const startDate = new Date(2024, 0, 1); // Jan 1, 2024
+        const today = new Date();
+        const monthsPassed = (today.getFullYear() - startDate.getFullYear()) * 12 + (today.getMonth() - startDate.getMonth());
+        return (base + (monthsPassed * 15)).toLocaleString();
+    };
+
     const teamMembers = [
         {
             name: "Hitashi Aggarwal",
@@ -11,6 +18,7 @@ export default function OurTeam() {
             image: "/images/011.webp",
             experience: "Experience: 7+ Years",
             available: true,
+            baseCounselled: 550,
         },
         {
             name: "Shivanshu Shakya",
@@ -18,6 +26,7 @@ export default function OurTeam() {
             image: "/images/022.webp",
             experience: "Experience: 3+ Years",
             available: true,
+            baseCounselled: 250,
         },
         {
             name: "Pooja Kumari",
@@ -25,13 +34,15 @@ export default function OurTeam() {
             image: "/images/033.webp",
             experience: "Experience: 4+ Years",
             available: true,
+            baseCounselled: 350,
         },
         {
             name: "Raj Kishore",
-            role: "NEET UG/PG COUNSELLOR    ",
+            role: "NEET UG/PG COUNSELLOR",
             image: "/images/044.webp",
             experience: "Experience: 3+ Years",
             available: true,
+            baseCounselled: 280,
         },
         {
             name: "Sudakshina Singh",
@@ -39,6 +50,7 @@ export default function OurTeam() {
             image: "/images/055.webp",
             experience: "Experience: 4+ Years",
             available: true,
+            baseCounselled: 380,
         },
         {
             name: "Manish Jha",
@@ -46,6 +58,7 @@ export default function OurTeam() {
             image: "/images/066.webp",
             experience: "Experience: 5+ Years",
             available: true,
+            baseCounselled: 450,
         },
         {
             name: "Rangnath Jha",
@@ -53,6 +66,7 @@ export default function OurTeam() {
             image: "/images/077.webp",
             experience: "Experience: 6+ Years",
             available: true,
+            baseCounselled: 520,
         },
         {
             name: "Shashwat Pandey",
@@ -60,6 +74,7 @@ export default function OurTeam() {
             image: "/images/088.webp",
             experience: "Experience: 4+ Years",
             available: true,
+            baseCounselled: 360,
         },
     ];
 
@@ -170,9 +185,21 @@ export default function OurTeam() {
                                         </svg>
                                         <span className="truncate">{member.experience}</span>
                                     </div>
-                                    <div className="flex items-center gap-1 mb-3">
-                                        <span className="w-1.5 h-1.5 rounded-full bg-green-500 shrink-0" aria-hidden />
-                                        <span className="text-xs text-green-600">{member.available ? "Available" : "Unavailable"}</span>
+                                    <div className="flex items-center justify-between gap-2 mb-3">
+                                        <div className="flex items-center gap-1">
+                                            <span className="relative flex h-1.5 w-1.5 shrink-0">
+                                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
+                                                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-green-500"></span>
+                                            </span>
+                                            <span className="text-xs text-green-600 truncate">{member.available ? "Available" : "Unavailable"}</span>
+                                        </div>
+                                        <div className="flex items-center gap-1">
+                                            <span className="relative flex h-1.5 w-1.5 shrink-0">
+                                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#005A8B] opacity-75"></span>
+                                                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#005A8B]"></span>
+                                            </span>
+                                            <span className="text-xs text-[#005A8B] truncate">Counselled: {getCounselledCount(member.baseCounselled)}</span>
+                                        </div>
                                     </div>
                                     <a
                                         href="https://www.neetbhaiya.in/dedicated-counsellor"

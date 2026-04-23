@@ -100,8 +100,8 @@ We handle the timeline; you handle the dream.`,
             </div>
 
             <div className="mb-6 px-3">
-            <div className="border-l-2 border-[#00CFB2] pl-3 pr-2 max-w-full">
-                <p className="text-[14px] font-normal leading-[1.6] opacity-90 text-left">
+              <div className="border-l-2 border-[#00CFB2] pl-3 pr-2 max-w-full">
+                <p className="text-[14px] font-normal leading-[1.6] opacity-90 text-justify">
                   {heroData.paragraph}
                 </p>
               </div>
@@ -111,7 +111,7 @@ We handle the timeline; you handle the dream.`,
               {heroData.stats.map((stat, idx) => (
                 <div
                   key={`stat-mobile-${idx}`}
-className="flex flex-col items-start rounded-lg p-3 sm:p-4"
+                  className="flex flex-col items-start rounded-lg p-3 sm:p-4"
                 >
                   <h3 className="text-3xl sm:text-4xl font-bold mb-1">
                     {stat.value}
@@ -133,7 +133,7 @@ className="flex flex-col items-start rounded-lg p-3 sm:p-4"
                 <span className="">Of</span> {heroData.headingRight}
               </h1>
               <div className="border-l-4 border-[#00CFB2] pl-4 md:pl-4s">
-                <p className="text-base font-normal md:text-xs md:text-sm leading-relaxed opacity-90">
+                <p className="text-base font-normal md:text-xs md:text-sm leading-relaxed opacity-90 text-justify">
                   {heroData.paragraph}
                 </p>
               </div>
@@ -357,13 +357,13 @@ className="flex flex-col items-start rounded-lg p-3 sm:p-4"
                   {whoWeAreData.title}
                 </h2>
 
-                <p className="text-sm leading-relaxed mb-4 opacity-90">
+                <p className="text-sm leading-relaxed mb-4 opacity-90 text-justify">
                   Radical Education is built to simplify one of the most complex
                   and high-stakes decisions in a student’s life—
                   <span className="font-semibold"> NEET counselling.</span>
                 </p>
 
-                <p className="text-sm leading-relaxed opacity-80">
+                <p className="text-sm leading-relaxed opacity-80 text-justify">
                   In a system filled with scattered information, unclear
                   processes, and overwhelming choices, we bring clarity through
                   data, structure, and expert guidance.
@@ -398,13 +398,13 @@ className="flex flex-col items-start rounded-lg p-3 sm:p-4"
                   {whoWeAreData.title}
                 </h2>
 
-                <p className="text-base font-normal leading-relaxed mb-6 opacity-90">
+                <p className="text-base font-normal leading-relaxed mb-6 opacity-90 text-justify">
                   Radical Education is built to simplify one of the most complex
                   and high-stakes decisions in a student’s life—
                   <span className="font-bold"> NEET counselling.</span>
                 </p>
 
-                <p className="text-sm font-normal leading-relaxed opacity-80 mb-4">
+                <p className="text-sm font-normal leading-relaxed opacity-80 mb-4 text-justify">
                   In a system filled with scattered information, unclear
                   processes, and overwhelming choices, we bring clarity through
                   data, structure, and expert guidance. From understanding
@@ -413,7 +413,7 @@ className="flex flex-col items-start rounded-lg p-3 sm:p-4"
                   parents never have to rely on guesswork.
                 </p>
 
-                <p className="text-sm font-normal leading-relaxed opacity-80">
+                <p className="text-sm font-normal leading-relaxed opacity-80 text-justify">
                   Radical Education transforms the NEET counselling process into
                   a structured, data-driven decision-making journey. By
                   combining predictive insights, expert guidance, and simplified
@@ -441,20 +441,20 @@ shadow-[0_11px_21px_rgba(102,187,229,0.1)]"
                   Mission
                 </h3>
 
-                <p className="text-[#4A4A4A] font-normal text-sm leading-relaxed mb-4">
+                <p className="text-[#4A4A4A] font-normal text-[12px] leading-relaxed mb-4 text-justify">
                   At Radical Education, our mission is to eliminate the
                   confusion, anxiety and misinformation that define the NEET
                   counselling journey.
                 </p>
 
-                <p className="text-[#4A4A4A] text-sm leading-relaxed font-semibold mb-4">
+                <p className="text-[#4A4A4A] text-[12px] leading-relaxed font-semibold mb-4 text-justify">
                   Every year, millions of students and parents are forced to
                   make life-altering decisions with incomplete knowledge,
                   unreliable advice, and overwhelming data. We exist to change
                   that.
                 </p>
 
-                <p className="text-[#4A4A4A] font-normal text-sm leading-relaxed mb-4">
+                <p className="text-[#4A4A4A] font-normal text-[12px] leading-relaxed mb-4 text-justify">
                   By transforming complex counselling data into clear,
                   personalized, and actionable insights, we enable students and
                   families to navigate the process with confidence. Through a
@@ -463,7 +463,7 @@ shadow-[0_11px_21px_rgba(102,187,229,0.1)]"
                   that no opportunity is missed due to lack of clarity.
                 </p>
 
-                <p className="text-[#4A4A4A] text-sm font-semibold">
+                <p className="text-[#4A4A4A] text-[12px] font-semibold text-justify">
                   “Because the right decision, at the right time, can change the
                   trajectory of a life.”
                 </p>
@@ -480,21 +480,21 @@ shadow-[0_11px_21px_rgba(102,187,229,0.1)]"
                   Vision
                 </h3>
 
-                <p className="text-[#4A4A4A] text-sm leading-relaxed font-semibold mb-4">
+                <p className="text-[#4A4A4A] text-[12px] font-semibold leading-relaxed font-weight-600 mb-4 text-justify">
                   We envision a future where every medical aspirant in India,
                   regardless of their background, has equal access to
                   transparent, trustworthy, and intelligent decision-making
                   support.
                 </p>
 
-                <p className="text-[#4A4A4A] font-normal text-sm leading-relaxed mb-4">
+                <p className="text-[#4A4A4A] font-normal text-[12px] font-weight-400 leading-relaxed mb-4 text-justify">
                   Radical Education aims to become India’s most trusted
                   ecosystem for medical admissions—where data replaces
                   guesswork, guidance replaces confusion, and every student is
                   empowered to make the best possible choice for their future.
                 </p>
 
-                <p className="text-[#4A4A4A] font-normal text-sm leading-relaxed">
+                <p className="text-[#4A4A4A] font-normal text-[12px] font-weight-400 leading-relaxed text-justify">
                   In the long run, we aspire to redefine how high-stakes
                   educational decisions are made in India—not just for NEET, but
                   across all career pathways—by building systems that are
@@ -508,7 +508,7 @@ shadow-[0_11px_21px_rgba(102,187,229,0.1)]"
               <img
                 src="/images/about/core.webp"
                 alt="NEET Counselling"
-className="w-full h-auto md:h-full object-contain md:object-cover"
+                className="w-full h-auto md:h-full object-contain md:object-cover"
               />
             </div>
           </div>
