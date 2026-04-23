@@ -52,19 +52,38 @@ export default function Home() {
     []
   );
 
-  const search = (event: AutoCompleteCompleteEvent) => {
-    const query = event.query.trim().toLowerCase();
+  const search = async (event: AutoCompleteCompleteEvent) => {
+    const query = event.query.trim();
 
     if (!query) {
       setItems(collegeOptions);
       return;
     }
 
-    setItems(
-      collegeOptions.filter((college) =>
-        college.toLowerCase().includes(query)
-      )
+    let fetchedColleges: string[] = [];
+    try {
+      const res = await fetch(`/api/wp/posts?search=${encodeURIComponent(query)}&per_page=10`);
+      if (res.ok) {
+        const data = await res.json();
+        const decodeHtml = (html: string) => {
+          const txt = document.createElement("textarea");
+          txt.innerHTML = html;
+          return txt.value;
+        };
+        if (Array.isArray(data)) {
+          fetchedColleges = data.map((post: any) => decodeHtml(post.title?.rendered || ""));
+        }
+      }
+    } catch (error) {
+      console.error("Failed to fetch colleges", error);
+    }
+
+    const localMatches = collegeOptions.filter((college) =>
+      college.toLowerCase().includes(query.toLowerCase())
     );
+
+    const combined = Array.from(new Set([...localMatches, ...fetchedColleges])).filter(Boolean);
+    setItems(combined);
   };
 
   const handleCollegeSearch = () => {
