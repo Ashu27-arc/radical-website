@@ -763,7 +763,7 @@ export default function MBBSDeemedCollegesPage() {
                     className="text-[11px] text-[#787878] font-medium leading-[1.6] cursor-pointer"
                   >
                     I Consent To Receiving Calls, WhatsApp, Email And Google RCS
-                    From Edwise To Assist With This Enquiry.
+                    From Radical Education To Assist With This Enquiry.
                   </label>
                 </div>
 

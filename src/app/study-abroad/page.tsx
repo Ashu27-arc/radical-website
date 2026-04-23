@@ -183,13 +183,18 @@ export default function StudyAbroadPage() {
 
             <section className="py-10 lg:py-15 overflow-hidden bg-[#F4F7F8]">
                 <div className="container px-6 md:px-12 lg:px-20 max-w-[1010px]!">
-                    <div className="grid grid-cols-1 md:grid-cols-2 md:gap-8 lg:gap-12 mb-16 items-stretch">
-                        <div className="relative">
-                            <Image src="/images/study-abroad/studyAbroad.svg" width="572" height="764" className="w-full object-cover rounded-2xl" alt="" />
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8 lg:gap-12 mb-16 items-stretch">
+                        <div className="flex flex-col h-full px-12 pt-12 bg-cover bg-center bg-no-repeat rounded-2xl" style={{ backgroundImage: "url('/images/study-bg.webp')" }}>
+                            <div className="md:pr-0 pr-6 mb-6">
+                                <h3 className="text-white mb-5 text-3xl font-light">Study Abroad. <span className="font-medium block">But do it smart.</span></h3>
+                                <div className="text-white text-base mb-3">Your future isn’t average. Your decisions shouldn’t be either. </div>
+                                <div className="text-white text-base">Get expert-guided admission into top international universities with zero confusion, zero guesswork.</div>
+                            </div>
+                            <Image src="/images/study-img.webp" width="333" height="416" className="w-full h-auto mt-auto" alt="" />
                         </div>
-                        <div className="h-full">
+                        <div className="">
                             <div
-                                className="fadeUp relative z-10 rounded-2xl pt-16 pb-8 px-8 shadow-xl bg-white h-full flex flex-col"
+                                className="fadeUp relative z-10 rounded-2xl pt-16 pb-8 px-8 shadow-xl bg-white flex flex-col"
                             >
                                 <div className="absolute left-1/2 -translate-x-1/2 -top-[35px] border-[8px] border-[#F4F7F8] rounded-full">
                                     <img
@@ -209,15 +214,15 @@ export default function StudyAbroadPage() {
                                         </div>
                                     </div>
                                 </div>
-                                <div className="flex flex-col gap-3 mb-10">
+                                <div className="flex flex-col gap-3 mb-6">
                                     <Button className="text-white! border-[#DFF1FF]! bg-[#7061C0]! w-full flex gap-2 items-center" rounded>
                                         Pay Now
                                     </Button>
                                 </div>
                                 <div className="text-base text-black font-semibold mb-5">Features</div>
-                                <div className="flex-1 min-h-0 relative">
-                                    <ul className={`space-y-4 text-sm text-[#686767] transition-all duration-700 ease-in-out overflow-hidden ${showAllFeatures ? 'max-h-[800px] opacity-100' : 'max-h-[110px]'}`}>
-                                        {(showAllFeatures ? features : features.slice(0, 3)).map((item, index) => (
+                                <div className="relative">
+                                    <ul className={`space-y-4 text-sm text-[#686767] transition-all duration-700 ease-in-out overflow-hidden ${showAllFeatures ? 'max-h-[800px] opacity-100' : 'max-h-[210px]'}`}>
+                                        {(showAllFeatures ? features : features.slice(0, 6)).map((item, index) => (
                                             <li key={index} className="flex gap-2">
                                                 <span className="text-yellow-500">✦</span>
                                                 <span>{item}</span>
@@ -225,13 +230,13 @@ export default function StudyAbroadPage() {
                                         ))}
                                     </ul>
                                     {!showAllFeatures && features.length > 3 && (
-                                        <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-white to-transparent pointer-events-none" />
+                                        <div className="absolute bottom-0 left-0 right-0 h-4 bg-gradient-to-t from-white to-transparent pointer-events-none" />
                                     )}
                                 </div>
                                 {features.length > 3 && (
                                     <button
                                         onClick={() => setShowAllFeatures(!showAllFeatures)}
-                                        className="mt-6 text-sm font-semibold text-[#005A88] flex items-center justify-between w-full"
+                                        className="mt-2 text-sm font-semibold text-[#005A88] flex items-center justify-between w-full"
                                     >
                                         <span>{showAllFeatures ? 'View Less' : 'View More'}</span>
                                         <Image

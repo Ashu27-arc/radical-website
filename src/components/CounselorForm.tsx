@@ -217,7 +217,7 @@ export default function CounselorForm() {
             className="text-xs text-gray-500 font-medium !leading-[1.6] block cursor-pointer"
           >
             I Consent To Receiving Calls, WhatsApp, Email And Google RCS From
-            Edwise To Assist With This Enquiry.
+            Radical Education To Assist With This Enquiry.
           </label>
         </div>
 

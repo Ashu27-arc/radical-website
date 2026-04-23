@@ -62,26 +62,23 @@ export default function StatsCounter() {
       ref={ref}
       className="w-full max-w-[1240px] mx-auto relative z-2"
     >
-      <div className="bg-[#262626] rounded-[30px] px-8 py-10 md:pl-10 md:pr-16 md:py-12 border border-white/5 shadow-2xl">
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 items-center">
+      <div className="bg-[#262626] rounded-[30px] py-10 md:py-12 border border-white/5 shadow-2xl">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-y-6 gap-x-2">
           {stats.map((item, i) => (
-            <div key={i} className="flex items-center justify-center gap-4 h-full relative py-6 md:py-0 fadeUp">
-              <div className="flex items-center gap-4 lg:gap-6 lg:mr-8">
-                {/* NUMBER */}
-                <div className="text-4xl lg:text-[28px] font-bold text-white tracking-tighter leading-none whitespace-nowrap min-w-[100px] lg:min-w-[115px] text-right">
+            <div key={i} className="flex items-center justify-center gap-4 h-full relative py-2 fadeUp">
+              <div className="space-y-3 text-center">
+                <div className="text-4xl lg:text-[40px] font-bold text-white tracking-tighter leading-none whitespace-nowrap min-w-[100px] lg:min-w-[115px]">
                   {counts[i].toLocaleString()}
                   {item.suffix}
                 </div>
-
-                {/* LABEL */}
-                <div className="text-white text-[14px] lg:text-[16px] leading-tight font-light max-w-[130px] whitespace-pre-line text-left">
+                <div className="text-white text-[14px] lg:text-[14px] leading-tight font-light">
                   {item.label}
                 </div>
               </div>
 
               {/* DIVIDER */}
               {i !== stats.length - 1 && (
-                <div className="hidden lg:block absolute right-[-15px] top-1/2 -translate-y-1/2 h-[64px] w-[4px] z-10 rounde-[80px]">
+                <div className="hidden lg:block absolute -right-2 top-1/2 -translate-y-1/2 h-full w-1 z-10 rounde-[80px]">
                   <span className={`block w-full h-full ${i === 0 ? 'bg-gradient-to-b from-[#27AEDC] to-[#3FE198] rounded-[80px]' :
                     i === 1 ? 'bg-gradient-to-b from-[#27AEDC] to-[#3FE198] rounded-[80px]' :
                       'bg-gradient-to-b from-[#27AEDC] to-[#3FE198] rounded-[80px]'
@@ -89,7 +86,7 @@ export default function StatsCounter() {
                 </div>
               )}
               {i % 2 === 0 && i !== stats.length - 1 && (
-                <div className="hidden sm:block lg:hidden absolute right-2 top-1/2 -translate-y-1/2 h-[64px] w-[4px] z-10 rounded-[80px]">
+                <div className="hidden sm:block lg:hidden absolute right-2 top-1/2 -translate-y-1/2 h-full w-1 z-10 rounded-[80px]">
                   <span className={`block w-full h-full ${i === 0 ? 'bg-gradient-to-b from-[#27AEDC] to-[#3FE198] rounded-[80px]' :
                     'bg-gradient-to-b from-[#27AEDC] to-[#3FE198] rounded-[80px]'
                     }`} />
