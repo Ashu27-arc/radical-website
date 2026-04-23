@@ -23,6 +23,15 @@ const logos = [
     "/images/c-logo4.webp",
     "/images/c-logo5.webp",
     "/images/c-logo6.webp",
+    "/images/c-logo-7.webp",
+    "/images/c-logo-8.webp",
+    "/images/c-logo-9.webp",
+    "/images/c-logo-10.webp",
+    "/images/c-logo-11.webp",
+    "/images/c-logo-12.webp",
+    "/images/c-logo-13.webp",
+    "/images/c-logo-14.webp",
+    "/images/c-logo-15.webp",
 ];
 
 export default function MBBSAbroadAdmission() {

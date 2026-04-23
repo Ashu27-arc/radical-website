@@ -630,11 +630,10 @@ export default function MBBSDeemedCollegesPage() {
 
               {submitMessage && (
                 <div
-                  className={`mb-4 p-3 rounded-lg text-sm ${
-                    submitMessage.type === "success"
-                      ? "bg-green-100 text-green-700 border border-green-300"
-                      : "bg-red-100 text-red-700 border border-red-300"
-                  }`}
+                  className={`mb-4 p-3 rounded-lg text-sm ${submitMessage.type === "success"
+                    ? "bg-green-100 text-green-700 border border-green-300"
+                    : "bg-red-100 text-red-700 border border-red-300"
+                    }`}
                 >
                   {submitMessage.text}
                 </div>
@@ -771,11 +770,10 @@ export default function MBBSDeemedCollegesPage() {
                   disabled={isSubmitting || !consent}
                   className={`cursor-pointer w-full mt-2 text-white py-2.5 sm:py-3 rounded-lg sm:rounded-xl font-semibold text-sm sm:text-base min-h-[50px] transition-all
 
-                                ${
-                                  !consent
-                                    ? "bg-[#ccc] text-white !cursor-not-allowed"
-                                    : "bg-gradient-to-r from-[#63CDB4] to-[#0077BF]"
-                                }
+                                ${!consent
+                      ? "bg-[#ccc] text-white !cursor-not-allowed"
+                      : "bg-gradient-to-r from-[#63CDB4] to-[#0077BF]"
+                    }
                     `}
                 >
                   {isSubmitting ? "Submitting..." : "Submit"}
@@ -906,9 +904,8 @@ function FAQSection() {
           </button>
 
           <div
-            className={`transition-all duration-300 ease-in-out ${
-              openFAQ === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
-            } overflow-hidden`}
+            className={`transition-all duration-300 ease-in-out ${openFAQ === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+              } overflow-hidden`}
           >
             <div className="px-3 sm:px-4 pb-3 sm:pb-4 border-t border-gray-100">
               <p className="text-gray-600 text-xs sm:text-sm leading-relaxed pt-2 sm:pt-3 animate-fadeIn">
