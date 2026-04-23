@@ -260,9 +260,9 @@ export default function NeetPgIndiaAdmissionPage() {
                     </Swiper>
                 </div>
             </section>
-            <section className="py-10 lg:pt-15 lg:pb-40 overflow-hidden bg-[#F4F7F8]">
+            <section className="py-10 lg:pt-15 lg:pb-20 overflow-hidden bg-[#F4F7F8]">
                 <div className="container px-6 md:px-12 lg:px-20 max-w-[1010px]!">
-                    <div className="grid grid-cols-1 md:grid-cols-2 md:gap-8 lg:gap-12 mb-16 items-start">
+                    <div className="grid grid-cols-1 md:grid-cols-2 md:gap-8 lg:gap-12 mb-16 items-stretch">
                         <div className="relative">
                             <Image src="/neetpg-card.webp" width="572" height="764" className="w-full object-cover rounded-2xl" alt="" />
                         </div>
@@ -294,15 +294,20 @@ export default function NeetPgIndiaAdmissionPage() {
                                     </Button>
                                 </div>
                                 <div className="text-base text-black font-semibold mb-5">Features</div>
-                                <ul className="space-y-4 text-sm text-[#686767] flex-grow">
-                                    {(showAllFeatures ? features : features.slice(0, 6)).map((item, index) => (
-                                        <li key={index} className="flex gap-2">
-                                            <span className="text-yellow-500">✦</span>
-                                            <span>{item}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                                {features.length > 6 && (
+                                <div className="flex-1 min-h-0 relative">
+                                    <ul className={`space-y-4 text-sm text-[#686767] transition-all duration-700 ease-in-out overflow-hidden ${showAllFeatures ? 'max-h-[500px] opacity-100' : 'max-h-[110px]'}`}>
+                                        {(showAllFeatures ? features : features.slice(0, 3)).map((item, index) => (
+                                            <li key={index} className="flex gap-2">
+                                                <span className="text-yellow-500">✦</span>
+                                                <span>{item}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                    {!showAllFeatures && features.length > 3 && (
+                                        <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-white to-transparent pointer-events-none" />
+                                    )}
+                                </div>
+                                {features.length > 3 && (
                                     <button
                                         onClick={() => setShowAllFeatures(!showAllFeatures)}
                                         className="mt-6 text-sm font-semibold text-[#005A88] flex items-center justify-between w-full"
@@ -345,37 +350,37 @@ export default function NeetPgIndiaAdmissionPage() {
                         </Link>
 
                         <div className="grid grid-cols-2 lg:gap-3 md:gap-2 gap-2 absolute left-[7.3%] bottom-2.5 md:bottom-5 lg:bottom-7 xl:bottom-12 w-[40%] xl:w-[30%]">
-                                    <div className="hover:scale-105 transition-transform">
-                                        <Link
-                                            href="https://play.google.com/store/apps/details?id=com.kaveka.NeetBhaiya"
-                                            target="_blank"
-                                            className="block w-full h-full"
-                                        >
-                                            <Image
-                                                src="/svg/play-store.svg"
-                                                alt="Google Play Store"
-                                                width={200}
-                                                height={200}
-                                                className="object-contain w-full h-full"
-                                            />
-                                        </Link>
-                                    </div>
-                                    <div className="hover:scale-105 transition-transform">
-                                        <Link
-                                            href="https://apps.apple.com/in/app/neet-bhaiya/id6737535565"
-                                            target="_blank"
-                                            className="block w-full h-full"
-                                        >
-                                            <Image
-                                                src="/svg/app-store.svg"
-                                                alt="App Store"
-                                                width={200}
-                                                height={200}
-                                                className="object-contain w-full h-full"
-                                            />
-                                        </Link>
-                                    </div>
-                                </div>
+                            <div className="hover:scale-105 transition-transform">
+                                <Link
+                                    href="https://play.google.com/store/apps/details?id=com.kaveka.NeetBhaiya"
+                                    target="_blank"
+                                    className="block w-full h-full"
+                                >
+                                    <Image
+                                        src="/svg/play-store.svg"
+                                        alt="Google Play Store"
+                                        width={200}
+                                        height={200}
+                                        className="object-contain w-full h-full"
+                                    />
+                                </Link>
+                            </div>
+                            <div className="hover:scale-105 transition-transform">
+                                <Link
+                                    href="https://apps.apple.com/in/app/neet-bhaiya/id6737535565"
+                                    target="_blank"
+                                    className="block w-full h-full"
+                                >
+                                    <Image
+                                        src="/svg/app-store.svg"
+                                        alt="App Store"
+                                        width={200}
+                                        height={200}
+                                        className="object-contain w-full h-full"
+                                    />
+                                </Link>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>

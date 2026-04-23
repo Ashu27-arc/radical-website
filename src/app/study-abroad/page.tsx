@@ -183,9 +183,9 @@ export default function StudyAbroadPage() {
 
             <section className="py-10 lg:py-15 overflow-hidden bg-[#F4F7F8]">
                 <div className="container px-6 md:px-12 lg:px-20 max-w-[1010px]!">
-                    <div className="grid grid-cols-1 md:grid-cols-2 md:gap-8 lg:gap-12 mb-16">
-                        <div className="relative h-full">
-                            <Image src="/images/study-abroad/studyAbroad.svg" width="572" height="764" className="w-full h-full object-cover rounded-2xl" alt="" />
+                    <div className="grid grid-cols-1 md:grid-cols-2 md:gap-8 lg:gap-12 mb-16 items-stretch">
+                        <div className="relative">
+                            <Image src="/images/study-abroad/studyAbroad.svg" width="572" height="764" className="w-full object-cover rounded-2xl" alt="" />
                         </div>
                         <div className="h-full">
                             <div
@@ -215,23 +215,23 @@ export default function StudyAbroadPage() {
                                     </Button>
                                 </div>
                                 <div className="text-base text-black font-semibold mb-5">Features</div>
-                                <div className="flex-1 min-h-0 overflow-hidden relative">
-                                    <ul className={`space-y-4 text-sm text-[#686767] transition-all duration-300 ${showAllFeatures ? 'max-h-[280px] overflow-y-auto pr-2' : 'max-h-[160px] overflow-hidden'}`}>
-                                        {(showAllFeatures ? features : features.slice(0, 4)).map((item, index) => (
+                                <div className="flex-1 min-h-0 relative">
+                                    <ul className={`space-y-4 text-sm text-[#686767] transition-all duration-700 ease-in-out overflow-hidden ${showAllFeatures ? 'max-h-[800px] opacity-100' : 'max-h-[110px]'}`}>
+                                        {(showAllFeatures ? features : features.slice(0, 3)).map((item, index) => (
                                             <li key={index} className="flex gap-2">
                                                 <span className="text-yellow-500">✦</span>
                                                 <span>{item}</span>
                                             </li>
                                         ))}
                                     </ul>
-                                    {!showAllFeatures && features.length > 4 && (
+                                    {!showAllFeatures && features.length > 3 && (
                                         <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-white to-transparent pointer-events-none" />
                                     )}
                                 </div>
-                                {features.length > 4 && (
+                                {features.length > 3 && (
                                     <button
                                         onClick={() => setShowAllFeatures(!showAllFeatures)}
-                                        className="mt-6 text-sm font-semibold text-[#005A88] flex items-center justify-between w-full border-t pt-4"
+                                        className="mt-6 text-sm font-semibold text-[#005A88] flex items-center justify-between w-full"
                                     >
                                         <span>{showAllFeatures ? 'View Less' : 'View More'}</span>
                                         <Image
@@ -243,7 +243,7 @@ export default function StudyAbroadPage() {
                                         />
                                     </button>
                                 )}
-                                <div className="mt-4">
+                                <div className="mt-2">
                                     <div className="flex gap-2 items-start">
                                         <span className="text-[#1D1D1D] font-semibold text-[12px] uppercase tracking-wider mt-0.5">Note:</span>
                                         <p className="text-[12px] font-weight-600 font-semibold leading-relaxed text-[#6E67C9] poppins">
@@ -272,37 +272,37 @@ export default function StudyAbroadPage() {
                         </Link>
 
                         <div className="grid grid-cols-2 lg:gap-3 md:gap-2 gap-2 absolute left-[7.3%] bottom-2.5 md:bottom-5 lg:bottom-7 xl:bottom-12 w-[40%] xl:w-[30%]">
-                                    <div className="hover:scale-105 transition-transform">
-                                        <Link
-                                            href="https://play.google.com/store/apps/details?id=com.kaveka.NeetBhaiya"
-                                            target="_blank"
-                                            className="block w-full h-full"
-                                        >
-                                            <Image
-                                                src="/svg/play-store.svg"
-                                                alt="Google Play Store"
-                                                width={200}
-                                                height={200}
-                                                className="object-contain w-full h-full"
-                                            />
-                                        </Link>
-                                    </div>
-                                    <div className="hover:scale-105 transition-transform">
-                                        <Link
-                                            href="https://apps.apple.com/in/app/neet-bhaiya/id6737535565"
-                                            target="_blank"
-                                            className="block w-full h-full"
-                                        >
-                                            <Image
-                                                src="/svg/app-store.svg"
-                                                alt="App Store"
-                                                width={200}
-                                                height={200}
-                                                className="object-contain w-full h-full"
-                                            />
-                                        </Link>
-                                    </div>
-                                </div>
+                            <div className="hover:scale-105 transition-transform">
+                                <Link
+                                    href="https://play.google.com/store/apps/details?id=com.kaveka.NeetBhaiya"
+                                    target="_blank"
+                                    className="block w-full h-full"
+                                >
+                                    <Image
+                                        src="/svg/play-store.svg"
+                                        alt="Google Play Store"
+                                        width={200}
+                                        height={200}
+                                        className="object-contain w-full h-full"
+                                    />
+                                </Link>
+                            </div>
+                            <div className="hover:scale-105 transition-transform">
+                                <Link
+                                    href="https://apps.apple.com/in/app/neet-bhaiya/id6737535565"
+                                    target="_blank"
+                                    className="block w-full h-full"
+                                >
+                                    <Image
+                                        src="/svg/app-store.svg"
+                                        alt="App Store"
+                                        width={200}
+                                        height={200}
+                                        className="object-contain w-full h-full"
+                                    />
+                                </Link>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
