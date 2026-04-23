@@ -247,16 +247,16 @@ hover:shadow-2xl hover:scale-[1.03] ${cardClass}`}
                             ))}
                         </Swiper>
                     </div>
-                    <div className="mt-8 flex flex-col items-center justify-center gap-2 text-gray-600 fadeUp sm:flex-row">
+                    <div className="mt-8 flex flex-col items-center justify-center gap-2 text-gray-600 fadeUp sm:flex-row sm:gap-2">
                         <div className="flex -space-x-2">
                             <img src="/images/reviews/Iqra-Ansari.webp" alt="Iqra-Ansari" className="w-10 h-10 rounded-full border" />
                             <img src="/images/reviews/Sahil-Gautam.webp" alt="Sahil-Gautam" className="w-10 h-10 rounded-full border" />
                             <img src="/images/reviews/Iqra-Ansari.webp" alt="Iqra-Ansari" className="w-10 h-10 rounded-full border" />
                         </div>
-                        <span className="text-[#005787] font-normal text-center sm:text-left">
+                        <span className="text-[#005787] font-normal text-center sm:text-left leading-tight">
                             <span className='font-semibold'>200+</span> Success Stories
                         </span>
-                        <span className='font-normal text-center sm:text-left'>That Define Success</span>
+                        <span className='font-normal text-center sm:text-left leading-tight'>That Define Success</span>
                     </div>
                 </div>
             </section>

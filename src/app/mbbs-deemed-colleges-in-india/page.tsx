@@ -362,13 +362,15 @@ export default function MBBSDeemedCollegesPage() {
                             </span>
                           </div>
                         </td>
-                        <td className="border border-gray-300 font-normal px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 whitespace-nowrap">
-                          {college.location}
+                        <td className="border border-gray-300 font-normal px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 whitespace-normal break-words sm:whitespace-nowrap">
+                          <span className="block leading-tight">
+                            {college.location}
+                          </span>
                         </td>
-                        <td className="border border-gray-300 font-semibold px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2">
+                        <td className="border border-gray-300 font-semibold px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 text-center sm:text-left">
                           <Link
                             href="/contact-us"
-                            className="text-blue-600 hover:underline text-[10px] sm:text-xs md:text-sm whitespace-nowrap"
+                            className="inline-flex w-full justify-start text-blue-600 hover:underline text-[10px] sm:text-xs md:text-sm whitespace-nowrap sm:justify-start"
                           >
                             <span className="hidden sm:inline">Click Here</span>
                             <span className="sm:hidden">View</span>

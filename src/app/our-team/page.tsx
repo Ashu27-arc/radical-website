@@ -91,14 +91,14 @@ export default function OurTeam() {
                     priority
                 />
                 <div className="absolute inset-0 bg-black/50" />
-                <div className="relative z-10 top-32 text-center text-white">
-                    <h1 className="lg:text-5xl md:text-4xl text-3xl font-normal mb-3">
-                        The Faces Changing
+                <div className="relative z-10 top-19 md:top-28 lg:top-32 text-center text-white">
+                    <h1 className="lg:text-5xl md:text-4xl text-[25px] leading-7 md:leading-9 lg:leading-none font-normal mb-3">
+                    The faces changing your 
                         <br />
-                        Future Careers
+                        future career
                     </h1>
-                    <p className="text-base font-medium">
-                        Our team of “professional medical counsellors you can trust” works to <br className="md:block hidden" /> secure your academic journey.
+                    <p className="text-[11px] md:text-[14px] font-medium leading-3 lg:leading-5">
+                    Our counselors and consultants bring years of experience in global healthcare education counselling <br className="md:block hidden" /> to ensure you don’t just get an admission, but a clear path to becoming a doctor.
                     </p>
                 </div>
             </section>
@@ -158,7 +158,7 @@ export default function OurTeam() {
                         {teamMembers.map((member, index) => (
                             <div
                                 key={index}
-                                className="bg-white p-4 rounded-2xl overflow-hidden hover:shadow-md transition-shadow grid grid-cols-2 gap-2"
+                                className="bg-white p-4 rounded-2xl overflow-hidden hover:shadow-md transition-shadow grid grid-cols-1 md:grid-cols-2 gap-2"
                             >
                                 <div className="relative rounded-xl overflow-hidden h-[230px]">
                                     <Image
@@ -185,7 +185,7 @@ export default function OurTeam() {
                                         </svg>
                                         <span className="truncate">{member.experience}</span>
                                     </div>
-                                    <div className="flex items-center justify-between gap-2 mb-3">
+                                    <div className="flex items-center justify-between gap-2 mb-3 md:flex-col md:items-start md:justify-start lg:flex-row lg:items-center lg:justify-between">
                                         <div className="flex items-center gap-1">
                                             <span className="relative flex h-1.5 w-1.5 shrink-0">
                                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
@@ -198,7 +198,9 @@ export default function OurTeam() {
                                                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#005A8B] opacity-75"></span>
                                                 <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#005A8B]"></span>
                                             </span>
-                                            <span className="text-xs text-[#005A8B] truncate">Counselled: {getCounselledCount(member.baseCounselled)}</span>
+                                            <span className="text-xs text-[#005A8B] truncate md:whitespace-normal md:overflow-visible md:text-[11px] lg:text-xs lg:truncate">
+                                                Counselled: {getCounselledCount(member.baseCounselled)}
+                                            </span>
                                         </div>
                                     </div>
                                     <a
@@ -228,7 +230,7 @@ export default function OurTeam() {
 
                         {/* Play Store Button Overlay */}
                         <div
-                            className="absolute left-[7.3%] bottom-9 h-[41px] z-10 hover:scale-105 transition-transform"
+                            className="absolute left-[7.3%] bottom-4 lg:bottom-9 h-[11px] md:h-[31px] lg:h-[41px] z-10 hover:scale-105 transition-transform"
                         >
                             <Link
                                 href="https://play.google.com/store/apps/details?id=com.kaveka.NeetBhaiya"
@@ -247,7 +249,7 @@ export default function OurTeam() {
 
                         {/* App Store Button Overlay */}
                         <div
-                            className="absolute left-[19.9%] bottom-8 h-[45px] z-10 hover:scale-105 transition-transform"
+                            className="absolute left-[19.9%] md:left-[23%] lg:left-[19.9%] bottom-4 lg:bottom-8 h-[11px] md:h-[31px] lg:h-[45px] z-10 hover:scale-105 transition-transform"
                         >
                             <Link
                                 href="https://apps.apple.com/in/app/neet-bhaiya/id6737535565"
