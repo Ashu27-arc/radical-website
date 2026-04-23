@@ -4,6 +4,10 @@ import Image from "next/image";
 import CounselorForm from "@/components/CounselorForm";
 import CounselorSection from "@/components/CounselorSection";
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, FreeMode } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/autoplay';
+import 'swiper/css/free-mode';
 
 import { galleryData } from "@/data/galleryData";
 import { useEffect, useState } from "react";
@@ -12,15 +16,15 @@ import GalleryCard from "@/components/gallery/GalleryCard";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 const countries = [
-    { name: 'India', flag: '/images/india.webp' },
-    { name: 'Nepal', flag: '/images/nepal.webp' },
-    { name: 'Kyrgyzstan', flag: '/images/kyrgyzstan.webp' },
-    { name: 'Russia', flag: '/images/russia.webp' },
-    { name: 'Kazakhstan', flag: '/images/kazakhstan.webp' },
-    { name: 'Georgia', flag: '/images/georgia.webp' },
-    { name: 'Singapore', flag: '/images/singapore.webp' },
-    { name: 'Bangladesh', flag: '/images/bangladesh.webp' },
-    { name: 'Uzbekistan', flag: '/images/uzbekistan.webp' },
+    { name: 'India', flag: '/flags/india.webp' },
+    { name: 'Nepal', flag: '/flags/nepal.webp' },
+    { name: 'Kyrgyzstan', flag: '/flags/kyrgyzstan.webp' },
+    { name: 'Russia', flag: '/flags/russia.webp' },
+    { name: 'Kazakhstan', flag: '/flags/kazakhstan.webp' },
+    { name: 'Georgia', flag: '/flags/georgia.webp' },
+    { name: 'Singapore', flag: '/flags/singapore.webp' },
+    { name: 'Bangladesh', flag: '/flags/bangladesh.webp' },
+    { name: 'Uzbekistan', flag: '/flags/uzbekistan.webp' },
 ];
 
 
@@ -59,41 +63,45 @@ export default function GalleryPage() {
                     </div>
                 </section>
 
-                <section className="bg-[#F4F7F8] pt-14">
-                    <div className='container px-3 md:px-4'>
-                        {/* <div className="text-[#0B2E3C] font-semibold mb-3 fadeUp">Select country</div> */}
-                    </div>
-                    <div className="bg-white py-4 fadeUp">
-                        <div className='container px-3 md:px-4'>
-                            <Swiper
-                                spaceBetween={24}
-                                slidesPerView={2}
-                                breakpoints={{
-                                    768: { slidesPerView: 4 },
-                                    1024: { slidesPerView: 9 },
-                                }}
-                                className="w-full"
-                            >
-                                {countries.map((item, index) => (
-                                    <SwiperSlide key={index}>
-                                        <div className="flex flex-col items-center gap-2">
-                                            <div className="w-[85px] h-[60px] rounded-[15px] overflow-hidden shadow-sm bg-gray-50 flex items-center justify-center p-1.5">
-                                                <Image
-                                                    src={item.flag}
-                                                    alt={item.name}
-                                                    width={85}
-                                                    height={60}
-                                                    className="object-contain w-full h-full"
-                                                />
-                                            </div>
-                                            <p className="text-sm font-medium text-gray-700 text-center">
-                                                {item.name}
-                                            </p>
+                <section className="bg-white pt-10">
+                    <div className="container mx-auto px-4 fadeUp">
+                        <Swiper
+                            modules={[Autoplay, FreeMode]}
+                            spaceBetween={20}
+                            slidesPerView={3}
+                            loop={true}
+                            speed={5000}
+                            freeMode={true}
+                            autoplay={{
+                                delay: 0,
+                                disableOnInteraction: false,
+                            }}
+                            breakpoints={{
+                                640: { slidesPerView: 4, spaceBetween: 20 },
+                                768: { slidesPerView: 5, spaceBetween: 30 },
+                                1024: { slidesPerView: 7, spaceBetween: 40 },
+                            }}
+                            className="w-full pb-10"
+                        >
+                            {countries.map((item, index) => (
+                                <SwiperSlide key={index}>
+                                    <div className="flex flex-col items-center gap-3 cursor-pointer group">
+                                        <div className="w-[55px] h-[55px] rounded-[18px] overflow-hidden flex items-center justify-center bg-white shadow-[0_4px_15px_rgba(0,0,0,0.08)] border border-gray-50 transition-transform duration-300 group-hover:scale-110">
+                                            <Image
+                                                src={item.flag}
+                                                alt={item.name}
+                                                width={55}
+                                                height={55}
+                                                className="object-cover w-full h-full"
+                                            />
                                         </div>
-                                    </SwiperSlide>
-                                ))}
-                            </Swiper>
-                        </div>
+                                        <p className="text-[13px] md:text-sm font-medium text-[#4A4A4A] text-center whitespace-nowrap">
+                                            {item.name}
+                                        </p>
+                                    </div>
+                                </SwiperSlide>
+                            ))}
+                        </Swiper>
                     </div>
                 </section>
                 <section className="pt-20 pb-20 bg-[#F4F7F8] overflow-hidden">

@@ -86,33 +86,128 @@ const neetupadmissionplans = [
 const videos = [
     {
         id: 1,
-        title: 'Utkarshika Gupta, CSAMC, Etah',
-        youtubeId: 'jfq8RbTIrtI',
+        title: 'Arush Loomba, KD Medical College, Mathura',
+        youtubeId: '5cGL3vAHVgY',
     },
     {
         id: 2,
-        title: "Ayush Kushwaha, GSAMC, Hapur",
-        youtubeId: 'hwYjHX5pk9w',
+        title: 'Etshamul Haque, NCR Institute of Medical Sciences, Uttar Pradesh',
+        youtubeId: '_voXIMBO5kE',
     },
     {
         id: 3,
-        title: 'Sangam Yadav, MGAMC, Lucknow',
-        youtubeId: 'CxDL_T4CWs8',
+        title: 'Tanish Bhatiya, GMC, Washim',
+        youtubeId: 'LGz27v7iCf0',
     },
     {
         id: 4,
-        title: 'Angel, SDC, Meerut',
-        youtubeId: 'z9U9FDWPlYo',
+        title: 'Saubhagya Agrawal, NIMS, Noida',
+        youtubeId: 'lHUOtZmHvng',
     },
     {
         id: 5,
-        title: 'Mohammad Athar, FHMC, Agra',
-        youtubeId: 'nvZ7duCvCLw',
+        title: 'Anhad Kaur, Sri Guru Ram Das Institute of Medical Sciences and Research, Amritsar',
+        youtubeId: '7t81QLx4TeM',
     },
     {
         id: 6,
-        title: 'Riya Ghosh, KMC, Mathura',
-        youtubeId: 'mF4A-6dvQFU',
+        title: 'Aditya Verma, Maharishi Markandeshwar Dental Sciences & Research College',
+        youtubeId: 'EG7fg6sd5Uo',
+    },
+    {
+        id: 7,
+        title: 'Piyush Bisht, GMC, Haldwani',
+        youtubeId: 'AY9meq3dpRA',
+    },
+    {
+        id: 8,
+        title: 'Prabhat Soni, GMC Jhunjhunu',
+        youtubeId: 'XYZPevx_UE0',
+    },
+    {
+        id: 9,
+        title: 'Rudra Pratap Singh, HIMS, Sitapur',
+        youtubeId: 'tBWzWhOelNo',
+    },
+    {
+        id: 10,
+        title: 'Sherya Jain, TMU, Moradabad',
+        youtubeId: 'Ltk485g1cEw',
+    },
+    {
+        id: 11,
+        title: 'Aditya Maan, GMC Sirohi',
+        youtubeId: 'QdpT-kOvM2g',
+    },
+    {
+        id: 12,
+        title: 'Yashvi Agarwal, MRWC, Hyderabad',
+        youtubeId: '37-KkRicxAs',
+    },
+    {
+        id: 13,
+        title: 'Kumar Amlendu, Government Medical College, Ariyalur',
+        youtubeId: 'TRLNAiSqDqY',
+    },
+    {
+        id: 14,
+        title: 'Abhishek Sharma, NIIMS, Gr. Noida',
+        youtubeId: 'UxIt6DyD4CE',
+    },
+    {
+        id: 15,
+        title: 'Prabhleen Kaur, GDC, Amritsar',
+        youtubeId: '0GAQQwIU8n0',
+    },
+    {
+        id: 16,
+        title: 'Annant, MMC, Muzaffarnagar',
+        youtubeId: '6lhfvUFUoQM',
+    },
+    {
+        id: 17,
+        title: 'Ved Unnarkar, BVDU Medical College, Sangli',
+        youtubeId: 'qiE-UwKIPD8',
+    },
+    {
+        id: 18,
+        title: 'Sangam Yadav, MGAMC',
+        youtubeId: 'CxDL_T4CWs8',
+    },
+    {
+        id: 19,
+        title: 'Vyomkesh, FHMC, Agra',
+        youtubeId: 'i76uENNwSok',
+    },
+    {
+        id: 20,
+        title: 'Angel, SDC',
+        youtubeId: 'z9U9FDWPlYo',
+    },
+    {
+        id: 21,
+        title: 'Mohammed Athar, FHMC, Agra',
+        youtubeId: 'nvZ7duCvCLw',
+    },
+    {
+        id: 22,
+        title: 'Kshiraj Luthra, GMC Alwar',
+        youtubeId: 'sOUSF0lu4fw',
+    },
+    {
+        id: 23,
+        title: 'Amara, IAMS',
+        youtubeId: 'Xuk6FOEcmIc',
+    },
+    {
+        id: 24,
+        title: 'Ayush Kushwaha, Hapur',
+        youtubeId: 'hwYjHX5pk9w',
+    },
+    {
+        id: 25,
+        title: 'Utkarshika, CSAMC, Etah',
+        youtubeId: 'jfq8RbTIrtI',
     },
 ];
 

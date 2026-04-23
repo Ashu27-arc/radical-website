@@ -306,7 +306,7 @@ const BlogsPage = () => {
               const featured = filtered[0];
               return (
                 <Link href={`/${featured.slug}`} className="group lg:w-[70%] w-full flex-shrink-0 block">
-                  <div className="rounded-2xl overflow-hidden relative h-[220px] sm:h-[270px] md:h-[310px] w-full shadow-sm">
+                  <div className="rounded-2xl overflow-hidden relative h-[220px] sm:h-[270px] md:h-[310px] w-full">
                     <Image src={featured.featuredImage || '/images/blogs/card.webp'} alt={featured.title} fill unoptimized onError={(e) => { const t = e.target as HTMLImageElement; t.src = '/images/blogs/card.webp'; t.srcset = ''; }} className="object-cover bg-gray-50 transition-transform duration-500 group-hover:scale-105" />
                   </div>
                   <div className="mt-3">
@@ -353,7 +353,7 @@ const BlogsPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
             {loading
               ? Array.from({ length: 6 }).map((_, index) => (
-                <div key={`blog-skeleton-${index}`} className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-50 animate-pulse">
+                <div key={`blog-skeleton-${index}`} className="bg-white rounded-t-[10px] rounded-b-2xl overflow-hidden border border-gray-50 animate-pulse">
                   <div className="h-48 sm:h-56 w-full bg-gray-200" />
                   <div className="p-6 space-y-3">
                     <div className="h-4 w-28 bg-gray-200 rounded" />
@@ -364,7 +364,7 @@ const BlogsPage = () => {
               ))
               : currentBlogs.map((blog, index) => (
                 <Link key={blog.id} href={`/${blog.slug}`} className="group block h-full animate-fadeIn" style={{ animationDelay: `${0.1 * (index % 3)}s` }}>
-                  <div className="transition-transform duration-300 group-hover:scale-102 bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col h-full border border-gray-50">
+                  <div className="transition-transform duration-300 group-hover:scale-102 bg-white rounded-t-[10px] rounded-b-2xl overflow-hidden transition-all duration-500 flex flex-col h-full border border-gray-50">
                     <div className="w-full overflow-hidden">
                       <Image
                         src={blog.featuredImage || "/images/blogs/card.webp"}
