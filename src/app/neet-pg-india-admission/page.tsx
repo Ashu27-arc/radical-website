@@ -260,7 +260,7 @@ export default function NeetPgIndiaAdmissionPage() {
                     </Swiper>
                 </div>
             </section>
-            <section className="py-10 lg:pt-15 lg:pb-20 overflow-hidden bg-[#F4F7F8]">
+            <section className="py-10 lg:pt-15 lg:pb-20 overflow-hidden">
                 <div className="container px-6 md:px-12 lg:px-20 max-w-[1240px]!">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-8 mb-16 items-stretch">
                         <div className="flex flex-col w-full md:w-[443px] md:h-[768.23px] px-12 pt-12 bg-cover bg-center bg-no-repeat rounded-2xl md:ml-auto md:mr-0 mx-auto" style={{ backgroundImage: "url('/images/pg-bg.webp')" }}>
