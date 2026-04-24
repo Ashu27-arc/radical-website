@@ -86,7 +86,7 @@ export default function GalleryPage() {
                             {countries.map((item, index) => (
                                 <SwiperSlide key={index}>
                                     <div className="flex flex-col items-center gap-3 cursor-pointer group">
-                                        <div className="w-[55px] h-[55px] rounded-[18px] overflow-hidden flex items-center justify-center bg-white shadow-[0_4px_15px_rgba(0,0,0,0.08)] border border-gray-50 transition-transform duration-300 group-hover:scale-110">
+                                        <div className="w-[55px] h-[55px] rounded-[10px] overflow-hidden flex items-center justify-center bg-white shadow-[0_4px_15px_rgba(0,0,0,0.08)] border border-gray-50 transition-transform duration-300 group-hover:scale-110">
                                             <Image
                                                 src={item.flag}
                                                 alt={item.name}
@@ -112,7 +112,7 @@ export default function GalleryPage() {
                                     <div className='text-[#0B2E3C] uppercase text-sm font-semibold tracking-widest mb-4 lg:mb-6'>Explore Our Journey</div>
                                     <div className='text-[#4A4A4A] mb-4 lg:mb-6 leading-7 relative'>
                                         <span className="absolute left-[-20px] top-0 bottom-0 w-[2px] bg-[#00CFB2]" />
-                                        <div>Take a closer look at our milestones and the success stories of future doctors. Our team proudly supports students as they take the next step toward their global medical education.</div>
+                                        <div>From final goodbyes to the first taste of independence, see our students off as they depart for top-tier medical universities worldwide.</div>
                                     </div>
                                 </div>
                             </div>
