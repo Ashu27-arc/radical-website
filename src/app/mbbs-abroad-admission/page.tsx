@@ -30,8 +30,6 @@ const logos = [
     "/images/mbbs-abroad-logo/c-logo-11.webp",
     "/images/mbbs-abroad-logo/c-logo-12.webp",
     "/images/mbbs-abroad-logo/c-logo-13.webp",
-
-
 ];
 
 export default function MBBSAbroadAdmission() {
@@ -339,7 +337,7 @@ export default function MBBSAbroadAdmission() {
                                 <img
                                     src={logo}
                                     alt="logo"
-                                    className="max-h-full object-contain transition"
+                                    className="w-[120px] h-[60px] object-contain transition"
                                 />
                             </div>
                         </SwiperSlide>
