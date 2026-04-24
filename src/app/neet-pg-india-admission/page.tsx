@@ -357,8 +357,8 @@ export default function NeetPgIndiaAdmissionPage() {
                             />
                         </Link>
 
-                        <div className="flex gap-2 absolute left-[7.3%] bottom-2.5 md:bottom-5 lg:bottom-7 xl:bottom-12">
-                            <div className="hover:scale-105 transition-transform" style={{ width: '130.58px', height: '37.1px' }}>
+                        <div className="flex gap-2 absolute left-[7.3%] bottom-2.5 md:bottom-5 lg:bottom-7 xl:bottom-10 w-[135px] md:w-[200px] lg:w-[250px] xl:w-[300px]">
+                            <div className="hover:scale-105 transition-transform w-full">
                                 <Link
                                     href="https://play.google.com/store/apps/details?id=com.kaveka.NeetBhaiya"
                                     target="_blank"
@@ -373,7 +373,7 @@ export default function NeetPgIndiaAdmissionPage() {
                                     />
                                 </Link>
                             </div>
-                            <div className="hover:scale-105 transition-transform" style={{ width: '130.58px', height: '37.1px' }}>
+                            <div className="hover:scale-105 transition-transform w-full mt-0.5">
                                 <Link
                                     href="https://apps.apple.com/in/app/neet-bhaiya/id6737535565"
                                     target="_blank"

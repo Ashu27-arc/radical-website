@@ -194,7 +194,7 @@ export default function TestimonialsPage() {
                                     slidesPerView: 3,
                                 },
                             }}
-                            className="!p-20 rvwSlider"
+                            className="!px-16 !py-16 md:px-6! md:py-20! lg:p-16! xl:p-20! rvwSlider"
                         >
                             {reviews.map((review: any, index: number) => (
                                 <SwiperSlide key={index}>
@@ -202,7 +202,7 @@ export default function TestimonialsPage() {
                                         let cardClass = "";
 
                                         if (isActive) {
-                                            cardClass = "border-2 border-white rotate-0 z-20 bg-gradient-to-b from-[#D0FFAD] to-[#F4F7F8]";
+                                            cardClass = "border-2 border-white rotate-0 z-20 md:translate-y-2 bg-gradient-to-b from-[#D0FFAD] to-[#F4F7F8]";
                                         } else if (isPrev) {
                                             cardClass = "border-2 border-white -rotate-6 z-10 translate-y-6 bg-gradient-to-b from-[#CDE7FF] to-[#F4F7F8]";
                                         } else if (isNext) {
