@@ -326,16 +326,16 @@ const BlogsPage = () => {
                 </Link>
               );
             })()}
-            <div className="lg:w-[48%] w-full flex flex-col divide-y divide-gray-200 lg:h-[310px] sm:h-[270px] h-[220px] overflow-hidden">
+            <div className="lg:w-[48%] w-full flex flex-col divide-y divide-gray-200 lg:h-[350px] sm:h-[270px] h-[220px] overflow-hidden">
               {filtered.slice(1, 3).map((blog, idx) => (
                 <Link key={`fresh-${blog.id}-${idx}`} href={`/${blog.slug}`} className="group py-4 first:pt-0 last:pb-0 block flex-1">
                   <div className="flex flex-wrap gap-1 mb-1">
                     {toCategoryList(blog.category).map((cat, catIdx) => (
-                      <span key={catIdx} className={`inline-block ${getCategoryTextColor(cat)} font-semibold text-[15px] px-1.5 py-0.5 rounded-full`}>{cat}</span>
+                      <span key={catIdx} className={`inline-block ${getCategoryTextColor(cat)}  leading-3 font-semibold text-[15px] py-0.5 rounded-full`}>{cat}</span>
                     ))}
                   </div>
-                  <h3 className="text-sm font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors line-clamp-2 leading-snug">{blog.title}</h3>
-                  <p className="text-gray-500 text-xs line-clamp-2 mb-1.5">{blog.excerpt || blog.title}</p>
+                  <h3 className="text-sm font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors line-clamp-2 leading-snug mt-3">{blog.title}</h3>
+                  <p className="text-gray-500 text-xs line-clamp-2 my-5">{blog.excerpt || blog.title}</p>
                   <div className="flex items-center text-gray-400 text-[10px] font-medium">
                     <span>{blog.author || 'Radical Education'}</span>
                     <span className="mx-1.5">•</span>
@@ -349,7 +349,8 @@ const BlogsPage = () => {
       )}
 
       <div className="min-h-screen">
-        <div className="container mx-auto px-4 py-8">
+        <div className="container mx-auto px-4 pt-0 pb-8">
+          <div className="w-full h-px bg-gray-200/80 -mt-6 mb-10" aria-hidden />
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-10">
             {loading
               ? Array.from({ length: 6 }).map((_, index) => (

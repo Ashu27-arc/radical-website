@@ -295,51 +295,61 @@ export default function MBBSDeemedCollegesPage() {
                         name: "Kasturba Medical College",
                         location: "Manipal, Karnataka",
                         logo: "/images/deemed/logos/01.webp",
+                        url: "https://www.radicaleducation.in/kasturba-medical-college-manipal-2026-2027",
                       },
                       {
                         name: "Kasturba Medical College",
                         location: "Mangalore, Karnataka",
                         logo: "/images/deemed/logos/02.webp",
+                        url: "https://www.radicaleducation.in/kasturba-medical-college-kmc-mangalore-2026-27",
                       },
                       {
                         name: "Sri Ramachandra Institute of Higher Education and Research",
                         location: "Chennai, Tamil Nadu",
                         logo: "/images/deemed/logos/03.webp",
+                        url: "https://www.radicaleducation.in/sri-ramachandra-medical-college-chennai",
                       },
                       {
                         name: "JSS Medical College",
                         location: "Mysuru, Karnataka",
                         logo: "/images/deemed/logos/04.webp",
+                        url: "https://www.radicaleducation.in/jss-medical-college-mysore-karnataka-2026-2027",
                       },
                       {
                         name: "Amrita Institute of Medical Sciences",
                         location: "Kochi, Kerala",
                         logo: "/images/deemed/logos/05.webp",
+                        url: "https://www.radicaleducation.in/amrita-school-of-medicine-elamkara-kochi",
                       },
                       {
                         name: "Jawaharlal Nehru Medical College",
                         location: "Belagavi, Karnataka",
                         logo: "/images/deemed/logos/06.webp",
+                        url: "https://www.radicaleducation.in/jawaharlal-nehru-medical-college-2026-27",
                       },
                       {
                         name: "Kalinga Institute of Medical Sciences",
                         location: "Bhubaneswar, Odisha",
                         logo: "/images/deemed/logos/07.webp",
+                        url: "https://www.radicaleducation.in/kalinga-institute-of-medical-sciences-kims",
                       },
                       {
                         name: "Dr. D. Y. Patil Medical College",
-                        location: "Pune, Maharashtra",
+                        location: "Kolhapur, Maharashtra",
                         logo: "/images/deemed/logos/08.webp",
+                        url: "https://www.radicaleducation.in/dr-d-y-patil-medical-college-kolhapur",
                       },
                       {
                         name: "Bharati Vidyapeeth Medical College",
                         location: "Pune, Maharashtra",
                         logo: "/images/deemed/logos/09.webp",
+                        url: "https://www.radicaleducation.in/bharati-vidyapeeth-university-mediclal-college",
                       },
                       {
                         name: "SBKS Medical Institute and Research Centre",
                         location: "Vadodara, Gujarat",
                         logo: "/images/deemed/logos/01.webp",
+                        url: "https://www.radicaleducation.in/sbks-medical-instt-research-centre-vadodra",
                       },
                     ].map((college, index) => (
                       <tr key={index} className="hover:bg-white-50">
@@ -369,8 +379,10 @@ export default function MBBSDeemedCollegesPage() {
                         </td>
                         <td className="border border-gray-300 font-semibold px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 text-center sm:text-left">
                           <Link
-                            href="/contact-us"
-                            className="inline-flex w-full justify-start text-blue-600 hover:underline text-[10px] sm:text-xs md:text-sm whitespace-nowrap sm:justify-start"
+                            href={college.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex w-full justify-center text-blue-600 hover:underline text-[10px] sm:text-xs md:text-sm whitespace-nowrap sm:justify-start"
                           >
                             <span className="hidden sm:inline">Click Here</span>
                             <span className="sm:hidden">View</span>
@@ -472,7 +484,7 @@ export default function MBBSDeemedCollegesPage() {
               </table>
             </div>
 
-            <h3 className="text-sm sm:text-base md:text-lg font-medium text-gray-800 mb-2 sm:mb-3">
+            {/* <h3 className="text-sm sm:text-base md:text-lg font-medium text-gray-800 mb-2 sm:mb-3">
               MBBS Deemed Colleges in India: Fees, Cutoff & Admission
             </h3>
 
@@ -488,7 +500,7 @@ export default function MBBSDeemedCollegesPage() {
               Patil Medical College, which costs around 25 to 30 lakhs per
               annum. These institutions provide excellent educational and
               infrastructural facilities.
-            </p>
+            </p> */}
 
             {/* <div className="overflow-x-auto -mx-1 sm:mx-0 max-w-full rounded-lg border border-gray-200">
                             <table className="w-full border-collapse border border-gray-300 bg-white text-[10px] sm:text-xs md:text-sm min-w-[240px]">
@@ -535,7 +547,7 @@ export default function MBBSDeemedCollegesPage() {
                             </table>
                         </div> */}
 
-            <p className="text-xs sm:text-sm text-gray-600 font-normal mt-3 sm:mt-4">
+            {/* <p className="text-xs sm:text-sm text-gray-600 font-normal mt-3 sm:mt-4">
               The best part is that, in addition to offering MBBS, the top
               medical schools in India also provide courses for higher studies,
               including MD and MS in subjects like General Medicine, Surgery,
@@ -543,7 +555,7 @@ export default function MBBSDeemedCollegesPage() {
               interested in getting admission to one of the medical colleges for
               the upcoming academic year, then you need to know the fee
               structure and cut-off over the last few years.
-            </p>
+            </p> */}
 
             <h3 className="text-sm sm:text-base md:text-lg font-medium text-gray-800 mt-4 sm:mt-5 md:mt-6 mb-2 sm:mb-3">
               Benefits of Deemed Universities for NEET Aspirants
@@ -595,11 +607,11 @@ export default function MBBSDeemedCollegesPage() {
             <div className="relative flex items-center">
               <input
                 type="text"
-                placeholder="search your blog here"
+                placeholder="Search any blog from here"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-                className="w-full h-9 sm:h-10 rounded-full bg-white shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 font-medium px-4 sm:px-5 text-xs sm:text-sm !placeholder-[#B3B3B3]/50"
+                className="w-full h-9 sm:h-10 rounded-full bg-white shadow-md focus:outline-none focus:ring-2 focus:ring-blue-500 text-[#787878] font-normal px-4 sm:px-5 text-xs sm:text-sm !placeholder-[#B3B3B3]/50"
               />
               <button
                 onClick={handleSearch}
@@ -626,8 +638,8 @@ export default function MBBSDeemedCollegesPage() {
 
             {/* GET IN TOUCH */}
             <div>
-              <h3 className="text-xl md:text-2xl font-bold text-center text-gray-800 font-semibold mb-6">
-                Request a free callback <br /> from Our Counsellor
+              <h3 className="text-xl md:text-2xl text-center text-[#0B2E3C] font-semibold mb-6">
+                Request a free callback
               </h3>
 
               {submitMessage && (
