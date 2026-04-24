@@ -32,13 +32,13 @@ const Russia = () => {
           {/* Left Content */}
           <div className="lg:w-2/3 relative">
             {/* Watermark */}
-            <div className="absolute inset-0 flex items-center justify-center opacity-10 z-0 pointer-events-none overflow-hidden">
+            <div className="absolute bottom-14 inset-0 flex items-center justify-center opacity-100 z-0 pointer-events-none overflow-hidden">
               <Image
-                src="/images/study-abroad/flags/russia.webp"
+                src="/images/study-abroad/flags/bg-russia.png"
                 alt="Russia Flag"
-                width={500}
-                height={500}
-                className="object-contain w-3/4 h-3/4"
+                width={162}
+                height={162}
+                className="object-contain w-[53%] h-[53%]"
               />
             </div>
 
