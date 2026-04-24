@@ -220,7 +220,7 @@ export default function NeetUgIndiaAdmissionPage() {
                 <div className="container px-3 md:px-4 fadeUp">
                     <div className="w-full lg:w-4/10 md:8/10 md:text-left text-center">
                         <h1 className="uppercase lg:text-5xl text-4xl font-bold text-white lg:mb-6 mb-4">NEET UG <br className="hidden lg:block" />ADMISSION</h1>
-                        <p className="text-white text-lg m-0 p-0">Radical Education is your personalised gateway to a successful medical career. Get expert guidance, clear processes, and authentic information to secure your MBBS seat with confidence.</p>
+                        <p className="text-white text-[16px] font-normal font-weight-400m-0 p-0">Radical Education is your personalised gateway to a successful medical career. Get expert guidance, clear processes, and authentic information to secure your MBBS seat with confidence.</p>
                     </div>
                 </div>
             </section>
