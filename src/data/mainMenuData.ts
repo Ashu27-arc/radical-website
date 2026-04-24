@@ -194,7 +194,7 @@ export const mainMenuData: MenuItem[] = [
         label: 'Georgia',
         url: '/mbbs-abroad-admission/georgia/',
         items: [
-          { label: 'BAU International University, Batumi', url: '/bau-internationa-university/' },
+          { label: 'BAU International University, Batumi', url: '/bau-international-university/' },
           { label: 'Batumi Shota Rustaveli State University, Batumi', url: '/batumi-shota-rustaveli-state-university/' },
           { label: 'Caucasus International University, Tbilisi', url: '/caucasus-international-university/' },
           { label: 'European University, Tbilisi', url: '/east-european-university-georgia-2/' },
