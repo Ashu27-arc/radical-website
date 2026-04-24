@@ -29,6 +29,9 @@ const logos = [
     "/images/mbbs-abroad-logo/c-logo-10.webp",
     "/images/mbbs-abroad-logo/c-logo-11.webp",
     "/images/mbbs-abroad-logo/c-logo-12.webp",
+    "/images/mbbs-abroad-logo/c-logo-13.webp",
+
+
 ];
 
 export default function MBBSAbroadAdmission() {
