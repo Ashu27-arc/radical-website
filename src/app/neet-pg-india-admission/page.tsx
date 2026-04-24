@@ -394,11 +394,11 @@ export default function NeetPgIndiaAdmissionPage() {
             </section>
 
 
-            <section className="pb-10 lg:pb-15 bg-[#F4F7F8]">
+            <section className="pb-10 lg:pb-15">
                 <div className="container px-6 md:px-12 lg:px-20">
                     <div className='mb-10 fadeUp text-center'>
-                        <h2 className='text-black text-4xl font-bold mb-4'>OUR <span className='text-[#287FC4]'>SUCCESSFUL STORIES</span></h2>
-                        <div className='uppercase text-[#00CFB240] leading-12 text-[42px] md:text-5xl lg:text-7xl font-black'>HEAR FROM OUR STUDENTS</div>
+                        <h2 className='text-black text-[40px] font-weight-500 font-medium mb-4'>OUR <span className='text-[#287FC4]'>SUCCESSFUL STORIES</span></h2>
+                        <div className='uppercase text-[#00CFB240] leading-12 text-[80px] md:text-5xl lg:text-7xl font-black font-weight-500 font-medium'>HEAR FROM OUR STUDENTS</div>
                     </div>
                     <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3 grid-cols-1">
                         {videos.map((video) => (
