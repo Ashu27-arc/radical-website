@@ -264,7 +264,7 @@ export default function StudyAbroadPage() {
                         {/* Base Banner Link */}
                         <Link href="https://neetbhaiya.in" target="_blank" className="block w-full h-full">
                             <Image
-                                src="/images/banner-neet-bhaiya.webp"
+                                src="/images/packages-nb-banner.webp"
                                 alt="NEET UG Banner"
                                 fill
                                 className="object-cover"
