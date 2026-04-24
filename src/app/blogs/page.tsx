@@ -45,6 +45,10 @@ const normalizeCategoryForMatch = (value: string) =>
     .replace(/&/g, 'and')
     .replace(/[^a-z0-9]/g, '');
 
+const normalizedCategoryColors = Object.fromEntries(
+  Object.entries(categoryColors).map(([key, value]) => [normalizeCategoryForMatch(key), value])
+);
+
 const BlogsPage = () => {
   const [selectedCategories, setSelectedCategories] = useState<string[]>(['All']);
   const [searchQuery, setSearchQuery] = useState('');
@@ -158,7 +162,21 @@ const BlogsPage = () => {
   const currentBlogs = filtered;
   const totalPages = totalPagesServer;
 
-  const getCategoryColor = (cat: string) => categoryColors[cat] || defaultCategoryColor;
+  const getCategoryColor = (cat: string) => {
+    const direct = categoryColors[cat];
+    if (direct) return direct;
+
+    const normalized = normalizeCategoryForMatch(cat);
+    const normalizedDirect = normalizedCategoryColors[normalized];
+    if (normalizedDirect) return normalizedDirect;
+
+    // Handles variants like "NEET UG 2026" -> "NEET UG"
+    const partialMatchEntry = Object.entries(normalizedCategoryColors)
+      .filter(([key]) => normalized.includes(key) || key.includes(normalized))
+      .sort((a, b) => b[0].length - a[0].length)[0];
+
+    return partialMatchEntry?.[1] || defaultCategoryColor;
+  };
   const getCategoryTextColor = (cat: string) => {
     const style = getCategoryColor(cat);
     return style.split(' ').find(s => s.startsWith('text-')) || style;
@@ -326,17 +344,17 @@ const BlogsPage = () => {
                 </Link>
               );
             })()}
-            <div className="lg:w-[48%] w-full flex flex-col divide-y divide-gray-200 lg:h-[350px] sm:h-[270px] h-[220px] overflow-hidden">
+            <div className="lg:w-[48%] w-full flex flex-col divide-y divide-gray-200 lg:h-[420px] sm:h-[270px] h-[220px] overflow-hidden">
               {filtered.slice(1, 3).map((blog, idx) => (
                 <Link key={`fresh-${blog.id}-${idx}`} href={`/${blog.slug}`} className="group py-4 first:pt-0 last:pb-0 block flex-1">
                   <div className="flex flex-wrap gap-1 mb-1">
                     {toCategoryList(blog.category).map((cat, catIdx) => (
-                      <span key={catIdx} className={`inline-block ${getCategoryTextColor(cat)}  leading-3 font-semibold text-[15px] py-0.5 rounded-full`}>{cat}</span>
+                      <span key={catIdx} className={`inline-block ${getCategoryTextColor(cat)}  leading-3 font-bold text-[13px] py-0.5 rounded-full`}>{cat}</span>
                     ))}
                   </div>
-                  <h3 className="text-sm font-bold text-gray-900 mb-1 group-hover:text-blue-600 transition-colors line-clamp-2 leading-snug mt-3">{blog.title}</h3>
-                  <p className="text-gray-500 text-xs line-clamp-2 my-5">{blog.excerpt || blog.title}</p>
-                  <div className="flex items-center text-gray-400 text-[10px] font-medium">
+                  <h3 className="text-[22px] font-semibold text-[#0B2E3C] mb-1 group-hover:text-blue-600 transition-colors line-clamp-2 leading-snug mt-3">{blog.title}</h3>
+                  <p className="text-[#4A4A4A] font-medium text-[16px] line-clamp-2 my-5">{blog.excerpt || blog.title}</p>
+                  <div className="flex items-center text-[#ABABAB] text-[13px] font-medium">
                     <span>{blog.author || 'Radical Education'}</span>
                     <span className="mx-1.5">•</span>
                     <span>{formatDate(blog.date || blog.createdAt)}</span>
