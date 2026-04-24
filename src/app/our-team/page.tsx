@@ -19,64 +19,64 @@ export default function OurTeam() {
       role: "NEET UG/PG COUNSELLOR",
       image: "/images/011.webp",
       experience: "Experience: 7+ Years",
+      studentCounselled: 550,
       available: true,
-      baseCounselled: 550,
     },
     {
       name: "Shivanshu Shakya",
       role: "NEET UG/PG COUNSELLOR",
       image: "/images/022.webp",
       experience: "Experience: 3+ Years",
+      studentCounselled: 250,
       available: true,
-      baseCounselled: 250,
     },
     {
       name: "Pooja Kumari",
       role: "NEET UG/PG COUNSELLOR",
       image: "/images/033.webp",
       experience: "Experience: 4+ Years",
+      studentCounselled: 350,
       available: true,
-      baseCounselled: 350,
     },
     {
       name: "Raj Kishore",
       role: "NEET UG/PG COUNSELLOR",
       image: "/images/044.webp",
       experience: "Experience: 3+ Years",
+      studentCounselled: 280,
       available: true,
-      baseCounselled: 280,
     },
     {
       name: "Sudakshina Singh",
       role: "NEET UG/PG COUNSELLOR",
       image: "/images/055.webp",
       experience: "Experience: 4+ Years",
+      studentCounselled: 380,
       available: true,
-      baseCounselled: 380,
     },
     {
       name: "Manish Jha",
       role: "NEET UG/PG COUNSELLOR",
       image: "/images/066.webp",
       experience: "Experience: 5+ Years",
+      studentCounselled: 450,
       available: true,
-      baseCounselled: 450,
     },
     {
       name: "Rangnath Jha",
       role: "NEET UG/PG COUNSELLOR",
       image: "/images/077.webp",
       experience: "Experience: 6+ Years",
+      studentCounselled: 520,
       available: true,
-      baseCounselled: 520,
     },
     {
       name: "Shashwat Pandey",
       role: "NEET UG/PG COUNSELLOR",
       image: "/images/088.webp",
       experience: "Experience: 4+ Years",
+      studentCounselled: 360,
       available: true,
-      baseCounselled: 360,
     },
   ];
 
@@ -217,7 +217,16 @@ export default function OurTeam() {
                     </svg>
                     <span className="truncate">{member.experience}</span>
                   </div>
-                  <div className="flex items-center justify-between gap-2 mb-3 md:flex-col md:items-start md:justify-start lg:flex-row lg:items-center lg:justify-between">
+                  <div className="flex flex-col items-start gap-1 mb-3">
+                    <div className="flex items-center gap-1">
+                      <span className="relative flex h-1.5 w-1.5 shrink-0">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#005A8B] opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#005A8B]"></span>
+                      </span>
+                      <span className="text-xs text-[#005A8B] truncate md:whitespace-normal md:overflow-visible md:text-[11px] lg:text-xs lg:truncate">
+                        Student Counselled: {getCounselledCount(member.studentCounselled)}
+                      </span>
+                    </div>
                     <div className="flex items-center gap-1">
                       <span className="relative flex h-1.5 w-1.5 shrink-0">
                         <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-500 opacity-75"></span>
@@ -225,15 +234,6 @@ export default function OurTeam() {
                       </span>
                       <span className="text-xs text-green-600 truncate">
                         {member.available ? "Available" : "Unavailable"}
-                      </span>
-                    </div>
-                    <div className="flex items-center gap-1">
-                      <span className="relative flex h-1.5 w-1.5 shrink-0">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#005A8B] opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#005A8B]"></span>
-                      </span>
-                      <span className="text-xs text-[#005A8B] truncate md:whitespace-normal md:overflow-visible md:text-[11px] lg:text-xs lg:truncate">
-                        Counselled: {getCounselledCount(member.baseCounselled)}
                       </span>
                     </div>
                   </div>

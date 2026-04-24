@@ -21,7 +21,7 @@ async function fetchNeetUpdates(): Promise<NeetUpdate[]> {
 // Static hero section data (not fetched from CRM)
 const HERO_SECTION_DATA = {
     // date: "15 Apr 2026",
-    title: "NEET Updates - Exam Dates, Syllabus, Admit Card & News",
+    title: "NEET Exam in India: Your gateway to a bright medical career",
     description: "Find all the important NEET updates, including exam dates, syllabus, result, and so much more. Stay ahead with the latest news related to NEET in one place."
 };
 
@@ -298,14 +298,7 @@ const NeetUpdateContent = () => {
                         </p>
                     </div>
 
-                    <div className="flex justify-center md:justify-start w-full md:w-auto gap-4 mt-4 md:mt-0 md:mb-8 shrink-0">
-                        <button className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white text-black flex items-center justify-center hover:bg-gray-200 transition">
-                            <i className="pi pi-arrow-left text-xs sm:text-sm"></i>
-                        </button>
-                        <button className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white text-black flex items-center justify-center hover:bg-gray-200 transition">
-                            <i className="pi pi-arrow-right text-xs sm:text-sm"></i>
-                        </button>
-                    </div>
+
                 </div>
             </section>
 
