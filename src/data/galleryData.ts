@@ -390,6 +390,25 @@ export const galleryData: GalleryData = {
         },
       ],
     },
+    {
+      month: 'FEBRUARY',
+      year: 2026,
+      mainImage: '/images/g-2026.webp',
+      events: [
+        {
+          title: 'Global Education Orientation',
+          date: 'Feb 2026',
+          images: [
+            // '/images/g1.webp',
+            // '/images/g2.webp',
+            // '/images/g3.webp',
+            // '/images/g4.webp',
+            // '/images/g5.webp',
+            // '/images/g6.webp',
+          ],
+        },
+      ],
+    },
     // 👉 Continue same structure for full year
   ],
 };

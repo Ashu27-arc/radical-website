@@ -266,8 +266,8 @@ export default function OurTeam() {
               />
             </Link>
 
-            <div className="grid grid-cols-2 lg:gap-3 md:gap-2 gap-2 absolute left-[7.3%] bottom-2.5 md:bottom-5 lg:bottom-7 xl:bottom-12 w-[40%] xl:w-[30%]">
-              <div className="hover:scale-105 transition-transform">
+            <div className="flex gap-2 absolute left-[7.3%] bottom-2.5 md:bottom-5 lg:bottom-7 xl:bottom-12">
+              <div className="hover:scale-105 transition-transform" style={{ width: '130.58px', height: '37.1px' }}>
                 <Link
                   href="https://play.google.com/store/apps/details?id=com.kaveka.NeetBhaiya"
                   target="_blank"
@@ -276,13 +276,13 @@ export default function OurTeam() {
                   <Image
                     src="/svg/play-store.svg"
                     alt="Google Play Store"
-                    width={200}
-                    height={200}
+                    width={131}
+                    height={37}
                     className="object-contain w-full h-full"
                   />
                 </Link>
               </div>
-              <div className="hover:scale-105 transition-transform">
+              <div className="hover:scale-105 transition-transform" style={{ width: '130.58px', height: '37.1px' }}>
                 <Link
                   href="https://apps.apple.com/in/app/neet-bhaiya/id6737535565"
                   target="_blank"
@@ -291,8 +291,8 @@ export default function OurTeam() {
                   <Image
                     src="/svg/app-store.svg"
                     alt="App Store"
-                    width={200}
-                    height={200}
+                    width={131}
+                    height={37}
                     className="object-contain w-full h-full"
                   />
                 </Link>

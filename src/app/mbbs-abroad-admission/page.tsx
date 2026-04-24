@@ -247,10 +247,8 @@ export default function MBBSAbroadAdmission() {
         <div className="min-h-screen">
             <FloatingWhatsApp />
 
-            <section className="w-full min-h-[500px] md:min-h-[550px] 
-                bg-[url('/images/study-abroad/hero-banner.svg')] 
-                bg-cover bg-center bg-no-repeat 
-                py-20 md:py-40 overflow-hidden">
+            <section className="relative w-full min-h-[500px] md:min-h-[550px] py-20 md:py-40 overflow-hidden">
+                <div className="absolute inset-0 bg-[url('/images/study-abroad/hero-banner.svg')] bg-cover bg-center bg-no-repeat brightness-125" />
                 <div className="relative z-10 max-w-7xl mx-auto px-6 h-full flex flex-col justify-center">
 
                     <h1 className="text-white text-4xl md:text-6xl font-bold mb-4 text-center lg:text-left">
