@@ -598,7 +598,7 @@ export default function MBBSDeemedCollegesPage() {
         </div>
 
         {/* RIGHT SIDEBAR */}
-        <div className="pt-4 lg:pt-21 lg:sticky lg:top-[75px] lg:self-start lg:min-h-screen">
+        <div className="pt-4 lg:pt-14 lg:sticky lg:top-[75px] lg:self-start lg:min-h-screen">
           <div
             className="space-y-4 sm:space-y-5 md:space-y-6 bg-[#D4ECFF] rounded-lg sm:rounded-xl p-4 md:p-5 lg:p-6 animate-fadeIn"
             style={{ animationDelay: "0.2s", animationFillMode: "both" }}
