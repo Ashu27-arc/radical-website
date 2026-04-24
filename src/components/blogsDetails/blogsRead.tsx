@@ -318,23 +318,39 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
         <div className="w-full min-w-0 bg-gray-50 relative animate-fadeIn">
             <FloatingWhatsApp />
             {/* Navigation / Back Button */}
-            <div className="bg-white border-b border-gray-100 py-2 sticky xl:top-[130px] lg:top-[130px] md:top-[73px] top-[57px] z-40 shadow-sm backdrop-blur-sm">
-                <div className="max-w-6xl mx-auto px-4">
-                    <div className="flex flex-col md:flex-row items-center gap-4">
-                        <Link href="/blogs" className="text-[#005A8B] hover:underline flex items-center gap-2 font-medium shrink-0">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-                            </svg>
-                            Back to Blogs
-                        </Link>
-                        
-                        <div className="flex items-center gap-3 flex-1 overflow-hidden w-full">
+            <div className="sticky top-[57px] md:top-[73px] lg:top-[130px] xl:top-[130px] z-40 bg-white/95 backdrop-blur-sm shadow-md border-b border-gray-100 transition-all duration-200">
+                <div className="container mx-auto px-4 py-1.5 md:py-2">
+                    <div className="max-w-6xl mx-auto px-3 sm:px-4 md:px-6">
+                        <div className="flex flex-col lg:flex-row gap-2 sm:gap-2 items-stretch lg:items-center justify-start">
+                        <div className="relative w-full lg:max-w-[450px] md:max-w-[320px] max-w-full">
+                            <input
+                                type="text"
+                                placeholder="Search your dream college"
+                                value={searchTerm}
+                                onChange={(e) => setSearchTerm(e.target.value)}
+                                onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+                                className="w-full px-3 sm:px-4 h-9 sm:h-10 rounded-full bg-white shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-700 placeholder-gray-400 text-sm sm:text-base opacity-80"
+                            />
+                            <button
+                                onClick={handleSearch}
+                                className="absolute right-1 top-1/2 -translate-y-1/2 bg-[#005A8B] hover:bg-blue-700 text-white h-7 w-7 sm:h-8 sm:w-8 rounded-full transition-colors duration-200 flex items-center justify-center"
+                            >
+                                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div className="flex bg-white lg:bg-transparent rounded-full lg:rounded-none shadow-sm lg:shadow-none p-1.5 sm:p-1 lg:p-0 items-center gap-2 sm:gap-3 flex-1 min-w-0 w-full lg:w-auto overflow-hidden">
+                            <button onClick={() => scroll('left')} className="hidden md:flex w-10 h-10 rounded-full bg-white shadow-sm hover:shadow-md transition-all duration-200 items-center justify-center shrink-0 border border-gray-200 hover:border-gray-300 hover:scale-110 active:scale-95">
+                                <Image src="/images/blogs/left-arrow.webp" alt="Scroll Left" width={16} height={16} className="object-contain opacity-60 hover:opacity-100" />
+                            </button>
                             <div ref={categoryContainerRef} className="flex gap-2 md:gap-3 items-center flex-1 overflow-x-auto scrollbar-hide py-1" style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}>
                                 {stableCategoryOrder.map((category) => {
                                     const isSelected = selectedCategories.includes(category);
                                     const isAll = category === 'All';
                                     const themeStyle = isAll ? 'bg-white text-gray-600 border-gray-200' : (categoryColors[category] || defaultCategoryColor);
-                                    
+
                                     const toggleCategory = () => {
                                         let nextCategories: string[];
                                         if (isAll) {
@@ -349,7 +365,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                                             }
                                         }
                                         setSelectedCategories(nextCategories);
-                                        
+
                                         // Redirect to blogs page with filters
                                         const query = nextCategories.includes('All') ? '' : `?search=${encodeURIComponent(nextCategories.join(' '))}`;
                                         window.location.href = `/blogs${query}`;
@@ -363,9 +379,9 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                                     );
                                 })}
                             </div>
-                            
+
                             {!selectedCategories.includes('All') && (
-                                <button 
+                                <button
                                     onClick={() => {
                                         setSelectedCategories(['All']);
                                         window.location.href = '/blogs';
@@ -378,12 +394,24 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
                                     Clear Filters
                                 </button>
                             )}
+                            <button onClick={() => scroll('right')} className="hidden md:flex w-10 h-10 rounded-full bg-white shadow-sm hover:shadow-md transition-all duration-200 items-center justify-center shrink-0 border border-gray-200 hover:border-gray-300 hover:scale-110 active:scale-95">
+                                <Image src="/images/blogs/right-arrow.webp" alt="Scroll Right" width={16} height={16} className="object-contain opacity-60 hover:opacity-100" />
+                            </button>
+                        </div>
+                        <div className="flex md:hidden justify-center gap-3 sm:gap-4 w-full mt-1">
+                            <button onClick={() => scroll('left')} className="flex w-11 h-11 sm:w-10 sm:h-10 rounded-full bg-white shadow-md hover:shadow-lg transition-all duration-200 items-center justify-center border border-gray-100 active:scale-95 min-h-[44px] min-w-[44px]">
+                                <Image src="/images/blogs/left-arrow.webp" alt="Scroll Left" width={20} height={20} className="object-contain" />
+                            </button>
+                            <button onClick={() => scroll('right')} className="flex w-11 h-11 sm:w-10 sm:h-10 rounded-full bg-white shadow-md hover:shadow-lg transition-all duration-200 items-center justify-center border border-gray-100 active:scale-95 min-h-[44px] min-w-[44px]">
+                                <Image src="/images/blogs/right-arrow.webp" alt="Scroll Right" width={20} height={20} className="object-contain" />
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
+        </div>
 
-            {/* Scrollable Content */}
+        {/* Scrollable Content */}
             <div className="xl:pt-20 lg:pt-20 md:pt-8 pt-6">
                 {/* main content */}
                 <div className="container px-4 mt-1">

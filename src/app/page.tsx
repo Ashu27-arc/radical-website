@@ -52,19 +52,38 @@ export default function Home() {
     []
   );
 
-  const search = (event: AutoCompleteCompleteEvent) => {
-    const query = event.query.trim().toLowerCase();
+  const search = async (event: AutoCompleteCompleteEvent) => {
+    const query = event.query.trim();
 
     if (!query) {
       setItems(collegeOptions);
       return;
     }
 
-    setItems(
-      collegeOptions.filter((college) =>
-        college.toLowerCase().includes(query)
-      )
+    let fetchedColleges: string[] = [];
+    try {
+      const res = await fetch(`/api/wp/posts?search=${encodeURIComponent(query)}&per_page=10`);
+      if (res.ok) {
+        const data = await res.json();
+        const decodeHtml = (html: string) => {
+          const txt = document.createElement("textarea");
+          txt.innerHTML = html;
+          return txt.value;
+        };
+        if (Array.isArray(data)) {
+          fetchedColleges = data.map((post: any) => decodeHtml(post.title?.rendered || ""));
+        }
+      }
+    } catch (error) {
+      console.error("Failed to fetch colleges", error);
+    }
+
+    const localMatches = collegeOptions.filter((college) =>
+      college.toLowerCase().includes(query.toLowerCase())
     );
+
+    const combined = Array.from(new Set([...localMatches, ...fetchedColleges])).filter(Boolean);
+    setItems(combined);
   };
 
   const handleCollegeSearch = () => {
@@ -118,7 +137,7 @@ export default function Home() {
         </video>
         <div className="container px-3 md:px-4 lg:px-40 text-center text-white">
           <h1 className="text-white font-bold text-3xl sm:text-4xl md:text-[50px] leading-tight md:leading-[60px] md:mb-5 mb-3 fadeUp">
-            Secure your medical seat easily <br className="block" />
+            Secure your Medical seat easily <br className="block" />
             <span className="font-light">with expert assistance</span>
           </h1>
           <div className="text-base sm:text-lg lg:px-16 px-3 md:mb-8 mb-6 font-semibold fadeUp">
@@ -159,41 +178,42 @@ export default function Home() {
       <NewsMarquee />
       <section className="xl:pt-20 lg:pt-16 pt-10 overflow-hidden">
         <div className="container px-3 md:px-4">
-          <div className="flex flex-col md:flex-row gap-8">
+          <div className="flex flex-col md:flex-row gap-8 md:gap-4">
             <div className="md:w-13/20 w-full fadeLeft text-center md:text-left">
               <div className="lg:pr-10 xl:pr-30 lg:pl-6 pl-0 relative z-2">
-                <h2 className="text-3xl md:text-[26px] lg:text-[36px] xl:text-[46px] font-light leading-tight text-gray-800 text-center mb-6 md:mb-8">
+                <h2 className="text-3xl md:text-[26px] lg:text-[36px] xl:text-[46px] font-light leading-tight text-gray-800 text-center mb-6 lg:mb-10">
                   A complete guide for your <br />
                   <span className="text-3xl md:text-[26px] lg:text-[36px] xl:text-[46px] bg-gradient-to-r from-[#1ec8a5] font-bold to-[#0d8f9e] bg-clip-text text-transparent">
-                    medical counselling needs
+                    Medical Counselling needs
                   </span>
                 </h2>
-                <div className="grid grid-cols-1 md:grid-cols-3 lg:gap-10 gap-4 md:gap-3 w-full max-w-6xl xl:px-10 mt-4 lg:items-center xl:pb-0 lg:pb-4 md:pb-3">
-                  <div className="w-full max-w-[189px] mx-auto h-auto md:mx-0 lg:h-[200px] xl:h-[220px] md:h-[180px] md:w-[150px] lg:w-[189px]">
+                <div className="grid md:grid-cols-3 grid-cols-1 gap-6 md:gap-3 lg:gap-4 xl:gap-6 w-full max-w-6xl xl:px-10 lg:px-5 md:px-2 px-12 pb-4 md:pb-6 lg:pb-10 xl:pb-18">
+                  <div className="">
                     <a
                       href="https://www.neetbhaiya.in/rank-predictor"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="group relative block cursor-pointer no-underline rounded-[20px] overflow-hidden shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl h-full outline-none focus:outline-none focus-visible:outline-none"
+                      className="h-full group relative block cursor-pointer no-underline rounded-[30px] overflow-hidden shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-2xl h-full outline-none focus:outline-none focus-visible:outline-none"
                       aria-label="Rank Predictor"
                     >
-                      <div className="relative mx-auto w-full aspect-[189/210.93] lg:w-[189px] md:w-[150px] md:h-[180px] lg:h-[200px] xl:h-[220px]">
+                      <div className="relative h-full">
                         <Image
                           src="/images/rp.svg"
                           alt="Rank Predictor"
-                          fill
-                          className="object-cover object-center transition-transform duration-500 group-hover:scale-110"
+                          height={100}
+                          width={100}
+                          className="transition-transform duration-500 group-hover:scale-110 rounded-[30px] w-full h-full object-cover"
                         />
                       </div>
                     </a>
                   </div>
-                  <div className="md:col-span-2 flex flex-col gap-5 md:gap-2 md:pl-3 lg:pl-0 lg:gap-5 md:items-start items-center">
+                  <div className="md:col-span-2 flex flex-col justify-between gap-6 md:gap-3 lg:gap-4 xl:gap-6">
                     <Link
                       href="/neet-ug-india-admission/"
-                      className="group flex items-center md:w-[300px] lg:w-full w-[326px] h-[52px] lg:h-[56px] justify-center gap-4 md:gap-2 lg:gap-4 rounded-[20px] px-4 text-white bg-[linear-gradient(90deg,#27AEDC_0%,#3FE198_100%)] shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
+                      className="group flex items-center w-full md:h-[52px] lg:h-[56px] h-[56px] justify-center gap-4 md:gap-2 lg:gap-4 rounded-[20px] px-2 text-white bg-[linear-gradient(90deg,#27AEDC_0%,#3FE198_100%)] shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
                       aria-label="NEET UG India Admissions"
                     >
-                      <span className="font-bold text-[16px] md:text-[12px] lg:text-[18px]">
+                      <span className="font-bold text-[16px] lg:text-[18px]">
                         NEET UG India <span className="font-light">Admissions</span>
                       </span>
                       <div className="bg-white text-[#27AEDC] w-[30px] h-[30px] flex items-center justify-center rounded-full 
@@ -216,10 +236,10 @@ export default function Home() {
                     </Link>
                     <Link
                       href="/neet-pg-india-admission/"
-                      className="group flex items-center md:w-[300px] lg:w-full w-[326px] h-[52px] lg:h-[56px] justify-center gap-4 md:gap-2 lg:gap-4 rounded-[20px] px-4 text-white bg-[linear-gradient(90deg,#F4C55C_0%,#E6440C_100%)] shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
+                      className="group flex items-center w-full md:h-[52px] lg:h-[56px] h-[56px] justify-center gap-4 md:gap-2 lg:gap-4 rounded-[20px] px-2 text-white bg-[linear-gradient(90deg,#F4C55C_0%,#E6440C_100%)] shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
                       aria-label="NEET PG India Admissions"
                     >
-                      <span className="font-bold text-[16px] md:text-[12px] lg:text-[18px]">
+                      <span className="font-bold text-[16px] lg:text-[18px]">
                         NEET PG India <span className="font-light">Admissions</span>
                       </span>
                       <div className="bg-white text-[#F04E23] w-[30px] h-[30px] flex items-center justify-center rounded-full 
@@ -242,10 +262,10 @@ export default function Home() {
                     </Link>
                     <Link
                       href="/study-abroad/"
-                      className="group flex items-center md:w-[300px] lg:w-full w-[326px] h-[52px] lg:h-[56px] justify-center gap-4 md:gap-2 lg:gap-4 rounded-[20px] px-4 text-white bg-[linear-gradient(90deg,#677CE7_0%,#754FA7_100%)] shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
+                      className="group flex items-center w-full md:h-[52px] lg:h-[56px] h-[56px] justify-center gap-4 md:gap-2 lg:gap-4 rounded-[20px] px-2 text-white bg-[linear-gradient(90deg,#677CE7_0%,#754FA7_100%)] shadow-md transition-all duration-300 hover:scale-[1.02] hover:shadow-xl cursor-pointer"
                       aria-label="MBBS Abroad Admissions"
                     >
-                      <span className="font-bold text-[16px] md:text-[12px] lg:text-[18px]">
+                      <span className="font-bold text-[16px] lg:text-[18px]">
                         MBBS Abroad <span className="font-light">Admissions</span>
                       </span>
                       <div className="bg-white text-[#754FA7] w-[30px] h-[30px] flex items-center justify-center rounded-full 
@@ -293,13 +313,13 @@ export default function Home() {
       <section className="py-24 bg-white">
         <div className="container px-3 md:px-4">
           <div className="text-center mb-10 md:mb-16 px-2">
-            <h2 className="text-2xl sm:text-3xl md:text-5xl font-semibold text-gray-800">
+            <h2 className="text-2xl sm:text-3xl md:text-[44px] font-light text-gray-800">
               Welcome to the{" "}
-              <span className="text-red-500 font-bold block sm:inline">
+              <span className="text-red-500 font-semibold block sm:inline">
                 Admission Reality
               </span>
             </h2>
-            <p className="mt-2 text-gray-700 text-lg sm:text-xl">
+            <p className="mt-2 text-gray-700 text-lg sm:text-xl tracking-[1.3px]">
               <span className="font-semibold text-black">
                 To secure the right medical seat,
               </span>{" "}

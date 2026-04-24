@@ -329,23 +329,75 @@ export default function CareersPage() {
 
         <div className="relative pb-8">
           {/* Horizontal shadow line */}
-          <div className="absolute left-0 right-0 top-[280px] md:top-[328px] h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent shadow-sm"></div>
+          <div className="hidden md:block absolute left-0 right-0 top-[328px] h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent shadow-sm"></div>
 
-          {/* Mouse/Touch Drag Slider Animation for all views */}
+          {/* Mobile: vertical list (no horizontal scroll) */}
+          <div className="md:hidden px-4">
+            <div className="flex flex-col gap-8">
+              {workEnvironmentData.map((item, index) => (
+                <div key={index} className="flex flex-col items-center">
+                    <div className="w-full max-w-sm">
+                      <div
+                        className={`relative rounded-lg overflow-hidden ${index === 1 || index === 3 ? "h-40" : "h-56"}`}
+                      >
+                        <Image
+                          src={item.image}
+                          alt={item.title}
+                          fill
+                          className="object-cover object-center select-none pointer-events-none"
+                          draggable={false}
+                        />
+                      </div>
+                      <div className="mt-3 flex justify-center relative">
+                        <div className={`w-4 h-4 rounded-full ${item.dotColor} shadow-xl ring-2 ring-white relative z-10`}></div>
+                        {/* line from image bottom -> dot (mobile) */}
+                        <div
+                          className="absolute left-1/2 bottom-full -translate-x-1/2 w-px h-3 bg-gray-300 z-0"
+                          aria-hidden
+                        />
+                        {index !== workEnvironmentData.length - 1 && (
+                          <div
+                            className="absolute left-1/2 top-full -translate-x-1/2 w-px h-24 bg-gray-300 z-0"
+                            aria-hidden
+                          />
+                        )}
+                      </div>
+                    </div>
+                    {/* Title below the card and dot */}
+                    <div className="pt-2 pb-2 text-center select-none pointer-events-none">
+                      <h3 className={`text-sm font-medium ${item.titleColor} inline-block bg-white px-2 relative z-10`}>
+                        {item.title.includes(" & ") ? (
+                          <>
+                            {item.title.split(" & ")[0]}{" "}
+                            {item.title === "learning-driven & environment" ? "" : "&"}
+                            <br />
+                            {item.title.split(" & ")[1]}
+                          </>
+                        ) : (
+                          item.title
+                        )}
+                      </h3>
+                    </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* md+: horizontal drag/scroll slider */}
           <div
             ref={sliderRef}
-            className={`relative overflow-x-auto w-full pb-8 scrollbar-hide select-none cursor-${isMouseDown ? "grabbing" : "grab"}`}
+            className={`hidden md:block relative overflow-x-auto w-full pb-8 scrollbar-hide select-none cursor-${isMouseDown ? "grabbing" : "grab"}`}
             onMouseDown={onMouseDown}
             onMouseLeave={onMouseLeave}
             onMouseUp={onMouseUp}
             onMouseMove={onMouseMove}
           >
-            <div className="flex gap-4 md:gap-6 min-w-max pl-4 lg:pl-[calc((100vw-1280px)/2+1rem)] pr-4 lg:pr-[calc((100vw-1280px)/2+1rem)]">
+            <div className="flex gap-6 min-w-max pl-4 lg:pl-[calc((100vw-1280px)/2+1rem)] pr-4 lg:pr-[calc((100vw-1280px)/2+1rem)]">
               {workEnvironmentData.map((item, index) => (
                 <div key={index} className="flex flex-col items-center">
-                  <div className="overflow-visible w-56 md:w-72 flex-shrink-0 relative h-[280px] md:h-[328px] flex flex-col">
+                  <div className="overflow-visible w-72 shrink-0 relative h-[328px] flex flex-col">
                     <div
-                      className={`relative rounded-t-lg overflow-hidden ${index === 1 || index === 3 ? "h-32 md:h-40 mt-6 md:mt-8" : "h-44 md:h-56"}`}
+                      className={`relative rounded-t-lg overflow-hidden ${index === 1 || index === 3 ? "h-40 mt-8" : "h-56"}`}
                     >
                       <Image
                         src={item.image}
@@ -358,22 +410,16 @@ export default function CareersPage() {
                     <div className="flex-1"></div>
                     {/* Dot positioned at bottom center on shadow line - fully visible */}
                     <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 flex justify-center z-10">
-                      <div
-                        className={`w-4 h-4 md:w-5 md:h-5 rounded-full ${item.dotColor} shadow-xl ring-2 md:ring-4 ring-white`}
-                      ></div>
+                      <div className={`w-5 h-5 rounded-full ${item.dotColor} shadow-xl ring-4 ring-white`}></div>
                     </div>
                   </div>
                   {/* Title below the card and dot */}
-                  <div className="pt-5 md:pt-6 pb-4 text-center select-none pointer-events-none">
-                    <h3
-                      className={`text-xs md:text-sm font-medium ${item.titleColor}`}
-                    >
+                  <div className="pt-6 pb-4 text-center select-none pointer-events-none">
+                    <h3 className={`text-sm font-medium ${item.titleColor}`}>
                       {item.title.includes(" & ") ? (
                         <>
                           {item.title.split(" & ")[0]}{" "}
-                          {item.title === "learning-driven & environment"
-                            ? ""
-                            : "&"}
+                          {item.title === "learning-driven & environment" ? "" : "&"}
                           <br />
                           {item.title.split(" & ")[1]}
                         </>

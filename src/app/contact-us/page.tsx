@@ -40,7 +40,7 @@ export default function ContactPage() {
                 <h4 className="my-3 text-xl font-medium text-[#0A1A2F] -mt-2">
                   Visit us
                 </h4>
-                <div className="text-sm text-[#555555] mb-10 font-normal">
+                <div className="text-sm text-[#555555] mb-10 md:mb-19 lg:mb-10 font-normal">
                   Meet our counselling experts in person for valuable
                   discussions, profile evaluation, and resolution of any query
                   in a comfortable, student-friendly environment.
@@ -70,7 +70,7 @@ export default function ContactPage() {
                 <h4 className="my-3 text-xl font-medium text-[#0A1A2F] -mt-2">
                   Call us
                 </h4>
-                <div className="text-sm text-[#555555] mb-6 font-normal">
+                <div className="text-sm text-[#555555] mb-6 md:mb-15 lg:mb-6 font-normal">
                   Speak to us directly with experienced counsellors at your
                   disposal to resolve doubts, understand counselling procedures,
                   and receive complete guidance for NEET and medical admissions.
@@ -95,7 +95,7 @@ export default function ContactPage() {
                 <h4 className="my-3 text-xl font-medium text-[#0A1A2F] -mt-2">
                   Write to us
                 </h4>
-                <div className="text-sm text-[#555555] mb-6 font-normal">
+                <div className="text-sm text-[#555555] mb-6 md:mb-11 lg:mb-6 font-normal">
                   Email us your doubts, documents, or concerns and receive
                   clear, well-researched responses from our counselling team,
                   ensuring you're confident and informed before making important
