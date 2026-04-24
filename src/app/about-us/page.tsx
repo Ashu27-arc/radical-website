@@ -272,25 +272,25 @@ We handle the timeline; you handle the dream.`,
             <div className="animate-marquee-left gap-4 sm:gap-6">
               {[...Array(6)].map((_, i) => (
                 <div key={`row1-${i}`} className="flex gap-4 sm:gap-6">
-                  <div className="w-32 h-11 sm:w-56 md:w-54 bg-white rounded-xl sm:rounded-[10px] p-4 sm:p-6 md:p-8 flex items-center justify-center sm:h-28 md:h-11 shrink-0">
+                  <div className="w-[263.88px] h-[78.19px] bg-white rounded-xl sm:rounded-[10px] p-3 flex items-center justify-center shrink-0">
                     <img
                       src="/images/about/feature-1.webp"
                       alt="APN News"
-                      className="max-h-8 sm:max-h-10 md:max-h-12 max-w-full object-contain"
+                      className="max-h-full max-w-full object-contain"
                     />
                   </div>
-                  <div className="w-32 h-11 sm:w-56 md:w-54 bg-white rounded-xl sm:rounded-[10px] p-4 sm:p-6 md:p-8 flex items-center justify-center sm:h-28 md:h-11 shrink-0">
+                  <div className="w-[263.88px] h-[78.19px] bg-white rounded-xl sm:rounded-[10px] p-3 flex items-center justify-center shrink-0">
                     <img
                       src="/images/about/feature-2.webp"
                       alt="Hindustan"
-                      className="max-h-8 sm:max-h-10 md:max-h-12 max-w-full object-contain"
+                      className="max-h-full max-w-full object-contain"
                     />
                   </div>
-                  <div className="w-32 h-11 sm:w-56 md:w-54 bg-white rounded-xl sm:rounded-[10px] p-4 sm:p-6 md:p-8 flex items-center justify-center sm:h-28 md:h-11 shrink-0">
+                  <div className="w-[263.88px] h-[78.19px] bg-white rounded-xl sm:rounded-[10px] p-3 flex items-center justify-center shrink-0">
                     <img
                       src="/images/about/feature-3.webp"
                       alt="BIS Infotech"
-                      className="max-h-8 sm:max-h-10 md:max-h-12 max-w-full object-contain"
+                      className="max-h-full max-w-full object-contain"
                     />
                   </div>
                 </div>
@@ -301,25 +301,25 @@ We handle the timeline; you handle the dream.`,
             <div className="animate-marquee-right gap-4 sm:gap-6">
               {[...Array(6)].map((_, i) => (
                 <div key={`row2-${i}`} className="flex gap-4 sm:gap-6">
-                  <div className="w-32 h-11 sm:w-56 md:w-54 bg-white rounded-xl sm:rounded-[10px] p-4 sm:p-6 md:p-8 flex items-center justify-center sm:h-28 md:h-11 shrink-0">
+                  <div className="w-[263.88px] h-[78.19px] bg-white rounded-xl sm:rounded-[10px] p-3 flex items-center justify-center shrink-0">
                     <img
                       src="/images/about/feature-4.webp"
                       alt="Dainik Bhaskar"
-                      className="max-h-8 sm:max-h-10 md:max-h-12 max-w-full object-contain"
+                      className="max-h-full max-w-full object-contain"
                     />
                   </div>
-                  <div className="w-32 h-11 sm:w-56 md:w-54 bg-white rounded-xl sm:rounded-[10px] p-4 sm:p-6 md:p-8 flex items-center justify-center sm:h-28 md:h-11 shrink-0">
+                  <div className="w-[263.88px] h-[78.19px] bg-white rounded-xl sm:rounded-[10px] p-3 flex items-center justify-center shrink-0">
                     <img
                       src="/images/about/feature-5.webp"
                       alt="Hindustan Times"
-                      className="max-h-8 sm:max-h-10 md:max-h-12 max-w-full object-contain"
+                      className="max-h-full max-w-full object-contain"
                     />
                   </div>
-                  <div className="w-32 h-11 sm:w-56 md:w-54 bg-white rounded-xl sm:rounded-[10px] p-4 sm:p-6 md:p-8 flex items-center justify-center sm:h-28 md:h-11 shrink-0">
+                  <div className="w-[263.88px] h-[78.19px] bg-white rounded-xl sm:rounded-[10px] p-3 flex items-center justify-center shrink-0">
                     <img
                       src="/images/about/feature-6.webp"
                       alt="Dainik Jagran"
-                      className="max-h-8 sm:max-h-10 md:max-h-12 max-w-full object-contain"
+                      className="max-h-full max-w-full object-contain"
                     />
                   </div>
                 </div>

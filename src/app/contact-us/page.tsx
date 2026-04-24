@@ -27,7 +27,7 @@ export default function ContactPage() {
         <section className="pb-15">
           <div className="container px-3 md:px-4">
             <div className="grid md:grid-cols-3 grid-cols-1 gap-4 lg:gap-8 mb-8 md:-mt-16 -mt-8 relative z-2">
-              <div className="fadeUp bg-white p-8 rounded-xl shadow-[0px_6px_14px_0px_rgba(41,128,196,0.10),0px_25px_25px_0px_rgba(41,128,196,0.09),0px_57px_34px_0px_rgba(41,128,196,0.05),0px_101px_40px_0px_rgba(41,128,196,0.02),0px_157px_44px_0px_rgba(41,128,196,0)]">
+              <div className="fadeUp bg-white p-8 rounded-xl shadow-[0px_6px_14px_0px_rgba(41,128,196,0.10),0px_25px_25px_0px_rgba(41,128,196,0.09),0px_57px_34px_0px_rgba(41,128,196,0.05),0px_101px_40px_0px_rgba(41,128,196,0.02),0px_157px_44px_0px_rgba(41,128,196,0)] flex flex-col">
                 <div className="-ml-2">
                   <Image
                     src="/images/visitUs.webp"
@@ -40,24 +40,28 @@ export default function ContactPage() {
                 <h4 className="my-3 text-xl font-medium text-[#0A1A2F] -mt-2">
                   Visit us
                 </h4>
-                <div className="text-sm text-[#555555] mb-10 md:mb-19 lg:mb-10 font-normal">
+                <div className="text-sm text-[#555555] mb-6 md:mb-15 lg:mb-6 font-normal">
                   Meet our counselling experts in person for valuable
-                  discussions, profile evaluation, and resolution of any query
-                  in a comfortable, student-friendly environment.
+                  discussions, profile evaluation,
+                  <br />and resolution of any query in a
+                  <br />comfortable, student-friendly
+                  <br />
+                  environment.
                 </div>
                 <Link
                   href="https://maps.app.goo.gl/NbWqaZNNHtJqE5Br9"
                   target="_blank"
                 >
-                  <div className="flex items-center gap-2 justify-between text-[#089241] text-[14px] font-medium">
+                  <div className="flex items-start gap-2 justify-between text-[#089241] text-[14px] font-medium pr-2">
                     <div className="">
-                      C-56/30, C Block, Sector 62, Noida, Uttar Pradesh 201309
+                      C-56/30, C Block, Sector 62,
+                      <br />Noida, Uttar Pradesh 201309
                     </div>
-                    <i className="pi pi-arrow-right pb-4"></i>
+                    <i className="pi pi-arrow-right"></i>
                   </div>
                 </Link>
               </div>
-              <div className="fadeUp bg-white p-8 rounded-xl shadow-[0px_6px_14px_0px_rgba(41,128,196,0.10),0px_25px_25px_0px_rgba(41,128,196,0.09),0px_57px_34px_0px_rgba(41,128,196,0.05),0px_101px_40px_0px_rgba(41,128,196,0.02),0px_157px_44px_0px_rgba(41,128,196,0)]">
+              <div className="fadeUp bg-white p-8 rounded-xl shadow-[0px_6px_14px_0px_rgba(41,128,196,0.10),0px_25px_25px_0px_rgba(41,128,196,0.09),0px_57px_34px_0px_rgba(41,128,196,0.05),0px_101px_40px_0px_rgba(41,128,196,0.02),0px_157px_44px_0px_rgba(41,128,196,0)] flex flex-col">
                 <div className="-ml-2">
                   <Image
                     src="/images/callUs.webp"
@@ -71,18 +75,24 @@ export default function ContactPage() {
                   Call us
                 </h4>
                 <div className="text-sm text-[#555555] mb-6 md:mb-15 lg:mb-6 font-normal">
-                  Speak to us directly with experienced counsellors at your
-                  disposal to resolve doubts, understand counselling procedures,
-                  and receive complete guidance for NEET and medical admissions.
+                  Speak to us directly with experienced
+                  <br />
+                  counsellors at your disposal to resolve doubts,
+                  <br />
+                  understand counselling procedures and
+                  <br />
+                  receive total guidance for NEET and medical
+                  <br />
+                  admissions.
                 </div>
                 <Link href="tel:9797972465">
-                  <div className="flex items-center gap-2 justify-between text-[#089241] text-[14px] font-medium">
+                  <div className="flex items-start gap-2 justify-between text-[#089241] text-[14px] font-medium pr-2">
                     <div className="">+91 97 97 97 2465</div>
                     <i className="pi pi-arrow-right"></i>
                   </div>
                 </Link>
               </div>
-              <div className="fadeUp bg-white p-8 rounded-xl shadow-[0px_6px_14px_0px_rgba(41,128,196,0.10),0px_25px_25px_0px_rgba(41,128,196,0.09),0px_57px_34px_0px_rgba(41,128,196,0.05),0px_101px_40px_0px_rgba(41,128,196,0.02),0px_157px_44px_0px_rgba(41,128,196,0)]">
+              <div className="fadeUp bg-white p-8 rounded-xl shadow-[0px_6px_14px_0px_rgba(41,128,196,0.10),0px_25px_25px_0px_rgba(41,128,196,0.09),0px_57px_34px_0px_rgba(41,128,196,0.05),0px_101px_40px_0px_rgba(41,128,196,0.02),0px_157px_44px_0px_rgba(41,128,196,0)] flex flex-col">
                 <div className="-ml-2">
                   <Image
                     src="/images/writeToUs.webp"
@@ -95,14 +105,19 @@ export default function ContactPage() {
                 <h4 className="my-3 text-xl font-medium text-[#0A1A2F] -mt-2">
                   Write to us
                 </h4>
-                <div className="text-sm text-[#555555] mb-6 md:mb-11 lg:mb-6 font-normal">
-                  Email us your doubts, documents, or concerns and receive
-                  clear, well-researched responses from our counselling team,
-                  ensuring you're confident and informed before making important
-                  decisions.
+                <div className="text-sm text-[#555555] mb-6 md:mb-15 lg:mb-6 font-normal">
+                  Email us your doubts, documents, or concerns
+                  <br />
+                  and receive clear, well-researched
+                  <br />
+                  responses from our counselling team,
+                  <br />
+                  ensuring you're confident and educated before
+                  <br />
+                  making important decisions.
                 </div>
                 <Link href="mailto:info@radicaleducation.in">
-                  <div className="flex items-center gap-2 justify-between text-[#089241] text-[14px] font-medium">
+                  <div className="flex items-start gap-2 justify-between text-[#089241] text-[14px] font-medium pr-2">
                     <div className="">info@radicaleducation.in</div>
                     <i className="pi pi-arrow-right"></i>
                   </div>

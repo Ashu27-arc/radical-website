@@ -55,7 +55,7 @@ const reviewtestimonials = [
     {
         id: 4,
         name: "TANYA SAXENA",
-        location: "India",
+        location: "Uttar Pradesh",
         text: "I choose Radical Education for my MBBS counselling. The process was smooth and professional.",
         tag: "MBBS",
         status: "HIMS",
@@ -65,7 +65,7 @@ const reviewtestimonials = [
     {
         id: 5,
         name: "ETSHAMUL HAQUE",
-        location: "India",
+        location: "Uttar Pradesh",
         text: "I secured an MBBS seat in medical College with the help of radical education. The process was very professional.",
         tag: "MBBS",
         status: "NCRIMS",
@@ -75,7 +75,7 @@ const reviewtestimonials = [
     {
         id: 6,
         name: "Aryan Vijay",
-        location: "India",
+        location: "Rajasthan",
         text: "I recently took counselling services from Radical Education for my BDS admission. My counsellor, Pooja.",
         tag: "BDS",
         status: "UIMS",
@@ -85,7 +85,7 @@ const reviewtestimonials = [
     {
         id: 7,
         name: "YASHVI AGARWAL",
-        location: "India",
+        location: "Uttar Pradesh",
         text: "I’m so grateful to Radical Education and especially Hitesh Agrawal ma'am for helping me throughout my MBBS admission process.",
         tag: "MBBS",
         status: "MRMCW",
@@ -95,7 +95,7 @@ const reviewtestimonials = [
     {
         id: 8,
         name: "Iqra Ansari",
-        location: "India",
+        location: "Delhi",
         text: "My experience with Radical Education has been amazing! I took their help for MBBS counselling, and the entire process was smooth and transparent.",
         tag: "MBBS",
         status: "SMCH",
@@ -105,7 +105,7 @@ const reviewtestimonials = [
     {
         id: 9,
         name: "Swarnjit Bhadra",
-        location: "India",
+        location: "Assam",
         text: "Glad to secure a seat in BAMS in the first round. Great counselling company, very engaging mentors. Highly recommend them.",
         tag: "BAMS",
         status: "KACRC",
@@ -115,7 +115,7 @@ const reviewtestimonials = [
     {
         id: 10,
         name: "SHREYA JAIN",
-        location: "India",
+        location: "Delhi",
         text: "Ms.Hitashi Agarwal Mam counsellor at radical education made NEET counselling hassle free and resolved each and every query regarding whole process.",
         tag: "MBBS",
         status: "TMMCRC",
@@ -125,7 +125,7 @@ const reviewtestimonials = [
     {
         id: 11,
         name: "KSHIRAJ LUTHRA",
-        location: "India",
+        location: "Uttar Pradesh",
         text: "I choose radical education for my mbbs counselling and it was very helpful they guided me very well throughout the process in securing",
         tag: "MBBS",
         status: "GMC",
@@ -135,7 +135,7 @@ const reviewtestimonials = [
     {
         id: 12,
         name: "Sangam Yadav",
-        location: "India",
+        location: "Uttar Pradesh",
         text: "Attending the Radical Education BAMS counselling was an excellent experience. Specially Dr. Alok Sir was always available to answer my queries regarding BAMS colleges",
         tag: "BAMS",
         status: "MGAMCRC",

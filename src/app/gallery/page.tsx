@@ -1,7 +1,5 @@
 'use client';
-//import { Image } from "primereact/image";
 import Image from "next/image";
-import CounselorForm from "@/components/CounselorForm";
 import CounselorSection from "@/components/CounselorSection";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, FreeMode } from 'swiper/modules';
@@ -27,10 +25,8 @@ const countries = [
     { name: 'Uzbekistan', flag: '/flags/uzbekistan.webp' },
 ];
 
-
-
 export default function GalleryPage() {
-    const years = Object.keys(galleryData).map(Number).sort();
+    const years = Object.keys(galleryData).map(Number).sort((a, b) => a - b);
 
     const currentYear = new Date().getFullYear();
     const currentMonth = new Date()
@@ -48,23 +44,40 @@ export default function GalleryPage() {
 
     const activeYear = years[yearIndex];
 
-
-
-
     return (
         <>
             <FloatingWhatsApp />
             <div className="bg-[#F4F7F8]">
-                <section className="lg:py-60 md:py-40 py-20 relative overflow-hidden z-2 bg-[url('/images/galleryHero.webp')] bg-cover bg-center bg-no-repeat bg-fixed">
-                    <div className="absolute inset-0 bg-black/50 -z-1" />
-                    <div className="mx-auto px-4 w-full lg:w-4/10 md:8/10 text-center fadeUp">
-                        <h1 className="uppercase lg:text-5xl text-4xl font-bold text-white lg:mb-6 mb-4">OUR GALLERY</h1>
-                        <p className="text-white text-lg m-0 p-0">Explore our journey through the years as we help students achieve their medical career goals across the globe.</p>
+                {/* Hero Section */}
+                <section className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center overflow-hidden">
+                    <div
+                        className="absolute inset-0 bg-[url('/images/galleryHero.webp')] bg-cover bg-center bg-no-repeat"
+                        style={{ backgroundAttachment: 'scroll' }}
+                    />
+                    <div className="absolute inset-0 bg-black/50" />
+                    <div className="container mx-auto px-4 relative z-10 text-center fadeUp">
+                        <div className="max-w-3xl mx-auto">
+                            <h1 className="uppercase text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-4 lg:mb-6">
+                                OUR GALLERY
+                            </h1>
+                            <p className="text-white text-base md:text-lg lg:text-xl leading-relaxed">
+                                Explore our journey through the years as we help students achieve their medical career goals across the globe.
+                            </p>
+                        </div>
                     </div>
                 </section>
 
-                <section className="bg-white pt-10">
-                    <div className="container mx-auto px-4 fadeUp">
+                {/* Countries Swiper */}
+                <section className="bg-white py-12 md:py-20">
+                    <div className="container mx-auto px-4 fadeUp text-center">
+                        <div className="mb-10 md:mb-14">
+                            {/* <h2 className="text-[#0B2E3C] text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
+                                Our Global Presence
+                            </h2> */}
+                            <p className="text-[#4A4A4A] text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+                                Empowering students to achieve their dreams in top medical destinations across the globe.
+                            </p>
+                        </div>
                         <Swiper
                             modules={[Autoplay, FreeMode]}
                             spaceBetween={20}
@@ -81,11 +94,11 @@ export default function GalleryPage() {
                                 768: { slidesPerView: 5, spaceBetween: 30 },
                                 1024: { slidesPerView: 7, spaceBetween: 40 },
                             }}
-                            className="w-full pb-10"
+                            className="w-full"
                         >
                             {countries.map((item, index) => (
                                 <SwiperSlide key={index}>
-                                    <div className="flex flex-col items-center gap-3 cursor-pointer group">
+                                    <div className="flex flex-col items-center gap-3 cursor-pointer group pb-4">
                                         <div className="w-[55px] h-[55px] rounded-[10px] overflow-hidden flex items-center justify-center bg-white shadow-[0_4px_15px_rgba(0,0,0,0.08)] border border-gray-50 transition-transform duration-300 group-hover:scale-110">
                                             <Image
                                                 src={item.flag}
@@ -104,71 +117,84 @@ export default function GalleryPage() {
                         </Swiper>
                     </div>
                 </section>
-                <section className="pt-20 pb-20 bg-[#F4F7F8] overflow-hidden">
-                    <div className="container px-3 md:px-4">
-                        <div className='flex flex-col md:flex-row gap-8'>
-                            <div className='md:w-13/20 w-full fadeLeft'>
-                                <div className='lg:pr-60 md:pr-10 lg:pl-6 pl-3 relative z-2'>
-                                    <div className='text-[#0B2E3C] uppercase text-sm font-semibold tracking-widest mb-4 lg:mb-6'>Explore Our Journey</div>
-                                    <div className='text-[#4A4A4A] mb-4 lg:mb-6 leading-7 relative'>
-                                        <span className="absolute left-[-20px] top-0 bottom-0 w-[2px] bg-[#00CFB2]" />
-                                        <div>From final goodbyes to the first taste of independence, see our students off as they depart for top-tier medical universities worldwide.</div>
+
+                {/* Journey Section */}
+                <section className="py-12 md:py-20 bg-[#F4F7F8]">
+                    <div className="container mx-auto px-4">
+                        <div className='flex flex-col md:flex-row items-center gap-8 mb-12 md:mb-20'>
+                            <div className='w-full md:w-[65%] fadeLeft'>
+                                <div className='lg:pr-20 md:pr-10'>
+                                    <div className='text-[#0B2E3C] uppercase text-sm font-semibold tracking-widest mb-4'>
+                                        Explore Our Journey
+                                    </div>
+                                    <div className='text-[#4A4A4A] text-base md:text-lg leading-relaxed relative pl-6'>
+                                        <span className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#00CFB2]" />
+                                        <div>
+                                            From final goodbyes to the first taste of independence, see our students off as they depart for top-tier medical universities worldwide.
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <div className='md:w-7/20 w-full fadePopup'>
-                                <div className='text-nowrap text-[#00CFB212] text-[80px] md:text-[100px] lg:text-[180px] font-bold leading-1 md:mt-16'>{activeYear}</div>
+                            <div className='w-full md:w-[35%] flex justify-center md:justify-end fadePopup'>
+                                <div className='text-[#00CFB212] text-[80px] md:text-[100px] lg:text-[150px] font-bold leading-none'>
+                                    {activeYear}
+                                </div>
                             </div>
                         </div>
-                        <div>
-                            <div className="flex justify-end items-center gap-4 mb-20 -mt-15 relative z-2">
-                                <button
-                                    onClick={() => setYearIndex((i) => Math.max(i - 1, 0))}
-                                    disabled={yearIndex === 0}
-                                    className="w-10 h-10 cursor-pointer rounded-full bg-transparent border border-black flex items-center justify-center disabled:opacity-40"
-                                    aria-label="Previous year"
-                                >
-                                    <i className="pi pi-arrow-left text-black"></i>
-                                </button>
 
-                                <span className="text-[#005A8B] font-semibold text-lg">
-                                    {activeYear}
-                                </span>
+                        {/* Year Navigation */}
+                        <div className="flex justify-end items-center gap-4 mb-12 relative z-2">
+                            <button
+                                onClick={() => setYearIndex((i) => Math.max(i - 1, 0))}
+                                disabled={yearIndex === 0}
+                                className="w-10 h-10 cursor-pointer rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center disabled:opacity-40 hover:border-black transition-colors"
+                                aria-label="Previous year"
+                            >
+                                <i className="pi pi-arrow-left text-black"></i>
+                            </button>
 
-                                <button
-                                    onClick={() => setYearIndex((i) => Math.min(i + 1, years.length - 1))}
-                                    disabled={yearIndex === years.length - 1}
-                                    className="w-10 h-10 cursor-pointer rounded-full bg-transparent border border-black flex items-center justify-center disabled:opacity-40"
-                                    aria-label="Next year"
-                                >
-                                    <i className="pi pi-arrow-right text-black"></i>
-                                </button>
-                            </div>
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-30 mb-15 fadeUp">
-                                {galleryData[activeYear].map((item, index) => (
-                                    <GalleryCard
-                                        key={index}
-                                        item={item}
-                                        isActive={
-                                            activeYear === currentYear && item.month === currentMonth
-                                        }
-                                        onClick={() => setModalEvents(item.events)}
-                                    />
-                                ))}
-                            </div>
-                            {modalEvents && (
-                                <GalleryModal
-                                    visible
-                                    events={modalEvents}
-                                    onHide={() => setModalEvents(null)}
+                            <span className="text-[#005A8B] font-bold text-xl min-w-[50px] text-center">
+                                {activeYear}
+                            </span>
+
+                            <button
+                                onClick={() => setYearIndex((i) => Math.min(i + 1, years.length - 1))}
+                                disabled={yearIndex === years.length - 1}
+                                className="w-10 h-10 cursor-pointer rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center disabled:opacity-40 hover:border-black transition-colors"
+                                aria-label="Next year"
+                            >
+                                <i className="pi pi-arrow-right text-black"></i>
+                            </button>
+                        </div>
+
+                        {/* Gallery Grid */}
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 mb-20 fadeUp">
+                            {galleryData[activeYear].map((item, index) => (
+                                <GalleryCard
+                                    key={index}
+                                    item={item}
+                                    isActive={
+                                        activeYear === currentYear && item.month === currentMonth
+                                    }
+                                    onClick={() => setModalEvents(item.events)}
                                 />
-                            )}
+                            ))}
                         </div>
                     </div>
                 </section>
-                <div className="my-20">
+
+                {/* Counselor Section Wrapper */}
+                <div className="mb-20">
                     <CounselorSection />
                 </div>
+
+                {modalEvents && (
+                    <GalleryModal
+                        visible
+                        events={modalEvents}
+                        onHide={() => setModalEvents(null)}
+                    />
+                )}
             </div>
         </>
     );
