@@ -261,18 +261,21 @@ export default function NeetPgIndiaAdmissionPage() {
                 </div>
             </section>
             <section className="py-10 lg:pt-15 lg:pb-20 overflow-hidden bg-[#F4F7F8]">
-                <div className="container px-6 md:px-12 lg:px-20 max-w-[1010px]!">
+                <div className="container px-6 md:px-12 lg:px-20 max-w-[1240px]!">
                     <div className="grid grid-cols-1 md:grid-cols-2 md:gap-8 gap-16 lg:gap-12 mb-16 items-stretch">
                         <div className="flex flex-col h-full px-12 pt-12 bg-cover bg-center bg-no-repeat rounded-2xl" style={{ backgroundImage: "url('/images/pg-bg.webp')" }}>
                             <div className="md:pr-0 pr-6 mb-6">
-                                <h3 className="text-white mb-5 text-3xl font-light">Your NEET PG <span className="font-medium block">rank deserves the right seat.</span></h3>
-                                <div className="text-white text-base">Your NEET PG rank is the key to your future. Don't leave your specialty to chance. Secure the right seat with expert, data-driven strategy without breaking a sweat.</div>
+                                <h3 className="text-white mb-5 text-[30px] font-normal font-weight-400">Your NEET PG <span className="font-medium font-weight-500 text-[30px] block">rank deserves the <br /> right seat.</span></h3>
+                                <div className="text-white text-[14px] font-normal font-weight-400">Your NEET PG rank is the key to your future.
+                                    Don't leave your specialty to chance.<br />
+                                    Secure the right seat with expert, data-driven
+                                    strategy without breaking a sweat.</div>
                             </div>
                             <Image src="/images/pg-img.webp" width="333" height="416" className="w-full h-auto mt-auto" alt="" />
                         </div>
-                        <div className="">
+                        <div className="h-full">
                             <div
-                                className="fadeUp relative z-10 rounded-2xl pt-16 pb-8 px-8 shadow-xl bg-white flex flex-col"
+                                className="fadeUp relative z-10 rounded-2xl pt-16 pb-8 px-8 shadow-xl bg-white flex flex-col h-full"
                             >
                                 <div className="absolute left-1/2 -translate-x-1/2 -top-[35px] border-[8px] border-[#F4F7F8] rounded-full">
                                     <img
@@ -314,23 +317,24 @@ export default function NeetPgIndiaAdmissionPage() {
                                 {features.length > 3 && (
                                     <button
                                         onClick={() => setShowAllFeatures(!showAllFeatures)}
-                                        className="mt-2 text-sm font-semibold text-[#005A88] flex items-center justify-between w-full"
+                                        className="mt-6 text-[16px] font-normal font-weight-500 text-[#005A88] flex items-center justify-between w-full"
                                     >
                                         <span>{showAllFeatures ? 'View Less' : 'View More'}</span>
                                         <Image
                                             src="/svg/down-circle-arrow.svg"
                                             alt="arrow"
-                                            width={32}
-                                            height={32}
+                                            width={25}
+                                            height={25}
                                             className={`transition-all duration-300 ${showAllFeatures ? 'rotate-180' : ''}`}
                                         />
                                     </button>
                                 )}
-                                <div className="mt-2">
+                                <div className="mt-auto pt-4">
                                     <div className="flex gap-2 items-start">
                                         <span className="text-[#1D1D1D] font-semibold text-[12px] uppercase tracking-wider mt-0.5">Note:</span>
-                                        <p className="text-[12px] font-weight-600 font-semibold leading-relaxed text-[#EE6E1E] poppins">
-                                            This service charge includes the Visa charges but <span className="font-normal font-weight-400 text-[#EE6E1E]">does not cover the ticket charges.</span>
+                                        <p className="text-[12px] font-weight-600 text-[#EE6E1E] poppins">
+                                            This service charge includes the Visa charges but <br />
+                                            <span className="font-semibold font-weight-400 text-[#EE6E1E] text-[12px]"> does not cover the ticket charges.</span>
                                         </p>
                                     </div>
                                 </div>
@@ -353,8 +357,8 @@ export default function NeetPgIndiaAdmissionPage() {
                             />
                         </Link>
 
-                        <div className="grid grid-cols-2 lg:gap-3 md:gap-2 gap-2 absolute left-[7.3%] bottom-2.5 md:bottom-5 lg:bottom-7 xl:bottom-12 w-[40%] xl:w-[30%]">
-                            <div className="hover:scale-105 transition-transform">
+                        <div className="flex gap-2 absolute left-[7.3%] bottom-2.5 md:bottom-5 lg:bottom-7 xl:bottom-12">
+                            <div className="hover:scale-105 transition-transform" style={{ width: '130.58px', height: '37.1px' }}>
                                 <Link
                                     href="https://play.google.com/store/apps/details?id=com.kaveka.NeetBhaiya"
                                     target="_blank"
@@ -363,13 +367,13 @@ export default function NeetPgIndiaAdmissionPage() {
                                     <Image
                                         src="/svg/play-store.svg"
                                         alt="Google Play Store"
-                                        width={200}
-                                        height={200}
+                                        width={131}
+                                        height={37}
                                         className="object-contain w-full h-full"
                                     />
                                 </Link>
                             </div>
-                            <div className="hover:scale-105 transition-transform">
+                            <div className="hover:scale-105 transition-transform" style={{ width: '130.58px', height: '37.1px' }}>
                                 <Link
                                     href="https://apps.apple.com/in/app/neet-bhaiya/id6737535565"
                                     target="_blank"
@@ -378,8 +382,8 @@ export default function NeetPgIndiaAdmissionPage() {
                                     <Image
                                         src="/svg/app-store.svg"
                                         alt="App Store"
-                                        width={200}
-                                        height={200}
+                                        width={131}
+                                        height={37}
                                         className="object-contain w-full h-full"
                                     />
                                 </Link>

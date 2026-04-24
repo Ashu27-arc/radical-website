@@ -11,8 +11,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticRoutes = [
     '',
     '/about-us',
-    '/ayush-counselling-2025',
-    '/bds-in-india',
+    // '/ayush-counselling-2025',
+    // '/bds-in-india',
     '/blogs',
     '/careers',
     '/contact-us',
@@ -22,7 +22,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/list-your-institute',
     '/mbbs-abroad-admission',
     '/mbbs-deemed-colleges-in-india',
-    '/mbbs-in-india',
+    // '/mbbs-in-india',
     '/neet-pg-india-admission',
     '/neet-ug-india-admission',
     '/neet-update',
@@ -32,7 +32,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     '/reviews',
     '/services',
     '/study-abroad',
-    '/study-india',
+    // '/study-india',
     '/terms-condition',
   ].map((route) => ({
     url: `${DOMAIN}${route}`,

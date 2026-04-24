@@ -182,13 +182,13 @@ export default function StudyAbroadPage() {
 
 
             <section className="py-10 lg:py-15 overflow-hidden bg-[#F4F7F8]">
-                <div className="container px-6 md:px-12 lg:px-20 max-w-[1010px]!">
+                <div className="container px-6 md:px-12 lg:px-20 max-w-[1240px]!">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8 lg:gap-12 mb-16 items-stretch">
                         <div className="flex flex-col h-full px-12 pt-12 bg-cover bg-center bg-no-repeat rounded-2xl" style={{ backgroundImage: "url('/images/study-bg.webp')" }}>
                             <div className="md:pr-0 pr-6 mb-6">
                                 <h3 className="text-white mb-5 text-3xl font-light">Study Abroad. <span className="font-medium block">But do it smart.</span></h3>
-                                <div className="text-white text-base mb-3">Your future isn’t average. Your decisions shouldn’t be either. </div>
-                                <div className="text-white text-base">Get expert-guided admission into top international universities with zero confusion, zero guesswork.</div>
+                                <div className="text-white text-[14px] font-normal mb-3 font-weight-400">Your future isn’t average. <br />Your decisions shouldn’t be either. </div>
+                                <div className="text-white text-[14px] font-normal font-weight-400">Get expert-guided admission into top international universities with zero confusion, zero guesswork.</div>
                             </div>
                             <Image src="/images/study-img.webp" width="333" height="416" className="w-full h-auto mt-auto" alt="" />
                         </div>
@@ -236,14 +236,14 @@ export default function StudyAbroadPage() {
                                 {features.length > 3 && (
                                     <button
                                         onClick={() => setShowAllFeatures(!showAllFeatures)}
-                                        className="mt-2 text-sm font-semibold text-[#005A88] flex items-center justify-between w-full"
+                                        className="mt-6 text-[16px] font-normal font-weight-500 text-[#005A88] flex items-center justify-between w-full"
                                     >
                                         <span>{showAllFeatures ? 'View Less' : 'View More'}</span>
                                         <Image
                                             src="/svg/down-circle-arrow.svg"
                                             alt="arrow"
-                                            width={32}
-                                            height={32}
+                                            width={25}
+                                            height={25}
                                             className={`transition-all duration-300 ${showAllFeatures ? 'rotate-180' : ''}`}
                                         />
                                     </button>
@@ -251,8 +251,9 @@ export default function StudyAbroadPage() {
                                 <div className="mt-2">
                                     <div className="flex gap-2 items-start">
                                         <span className="text-[#1D1D1D] font-semibold text-[12px] uppercase tracking-wider mt-0.5">Note:</span>
-                                        <p className="text-[12px] font-weight-600 font-semibold leading-relaxed text-[#6E67C9] poppins">
-                                            This service charge includes the Visa charges but <span className="font-normal font-weight-400 text-[#6E67C9] text-[12px]">does not cover the ticket charges.</span>
+                                        <p className="text-[12px] font-weight-600 text-[#6E67C9] poppins">
+                                            This service charge includes the Visa charges but <br />
+                                            <span className="font-semibold font-weight-400 text-[#6E67C9] text-[12px]"> does not cover the ticket charges.</span>
                                         </p>
                                     </div>
                                 </div>
@@ -276,8 +277,8 @@ export default function StudyAbroadPage() {
                             />
                         </Link>
 
-                        <div className="grid grid-cols-2 lg:gap-3 md:gap-2 gap-2 absolute left-[7.3%] bottom-2.5 md:bottom-5 lg:bottom-7 xl:bottom-12 w-[40%] xl:w-[30%]">
-                            <div className="hover:scale-105 transition-transform">
+                        <div className="flex gap-2 absolute left-[7.3%] bottom-2.5 md:bottom-5 lg:bottom-7 xl:bottom-12">
+                            <div className="hover:scale-105 transition-transform" style={{ width: '130.58px', height: '37.1px' }}>
                                 <Link
                                     href="https://play.google.com/store/apps/details?id=com.kaveka.NeetBhaiya"
                                     target="_blank"
@@ -286,13 +287,13 @@ export default function StudyAbroadPage() {
                                     <Image
                                         src="/svg/play-store.svg"
                                         alt="Google Play Store"
-                                        width={200}
-                                        height={200}
+                                        width={131}
+                                        height={37}
                                         className="object-contain w-full h-full"
                                     />
                                 </Link>
                             </div>
-                            <div className="hover:scale-105 transition-transform">
+                            <div className="hover:scale-105 transition-transform" style={{ width: '130.58px', height: '37.1px' }}>
                                 <Link
                                     href="https://apps.apple.com/in/app/neet-bhaiya/id6737535565"
                                     target="_blank"
@@ -301,8 +302,8 @@ export default function StudyAbroadPage() {
                                     <Image
                                         src="/svg/app-store.svg"
                                         alt="App Store"
-                                        width={200}
-                                        height={200}
+                                        width={131}
+                                        height={37}
                                         className="object-contain w-full h-full"
                                     />
                                 </Link>

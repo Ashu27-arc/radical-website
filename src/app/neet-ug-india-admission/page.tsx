@@ -249,7 +249,12 @@ export default function NeetUgIndiaAdmissionPage() {
                                 </div>
                                 <div className="text-center mb-3 text-lg font-semibold text-[#0B2E3C] group-hover:text-white! transition-colors duration-300">{plan.title}</div>
                                 <div className="text-center text-xs text-[#0B2E3C] group-hover:text-white! transition-colors duration-300 mb-6">{plan.subtitle}</div>
-                                <div className="text-center font-light lg:text-5xl text-4xl group-hover:text-white! transition-colors duration-300 mb-8">{plan.price}</div>
+                                <div className="flex items-center justify-center gap-3 mb-8">
+                                    {plan.originalPrice && (
+                                        <span className="text-xl font-medium text-gray-500 line-through group-hover:text-gray-200 transition-colors duration-300">{plan.originalPrice}</span>
+                                    )}
+                                    <span className="font-light lg:text-5xl text-4xl group-hover:text-white! transition-colors duration-300">{plan.price}</span>
+                                </div>
                                 <div className="flex flex-col gap-3 mb-10">
                                     <Button className="text-[#005787]! border-[#DFF1FF]! bg-[#128FFF1C]! group-hover:bg-[#FFFFFF47]! group-hover:text-white! group-hover:border-[#FFFFFF47]! w-full flex gap-2 items-center transition-all duration-300" rounded>
                                         Pay now
@@ -282,8 +287,8 @@ export default function NeetUgIndiaAdmissionPage() {
                                     />
                                 </Link>
 
-                                <div className="grid grid-cols-2 lg:gap-3 md:gap-2 gap-2 absolute left-[7.3%] bottom-2.5 md:bottom-5 lg:bottom-7 xl:bottom-12 w-[40%] xl:w-[30%]">
-                                    <div className="hover:scale-105 transition-transform">
+                                <div className="flex gap-2 absolute left-[7.3%] bottom-2.5 md:bottom-5 lg:bottom-7 xl:bottom-12">
+                                    <div className="hover:scale-105 transition-transform" style={{ width: '130.58px', height: '37.1px' }}>
                                         <Link
                                             href="https://play.google.com/store/apps/details?id=com.kaveka.NeetBhaiya"
                                             target="_blank"
@@ -292,13 +297,13 @@ export default function NeetUgIndiaAdmissionPage() {
                                             <Image
                                                 src="/svg/play-store.svg"
                                                 alt="Google Play Store"
-                                                width={200}
-                                                height={200}
+                                                width={131}
+                                                height={37}
                                                 className="object-contain w-full h-full"
                                             />
                                         </Link>
                                     </div>
-                                    <div className="hover:scale-105 transition-transform">
+                                    <div className="hover:scale-105 transition-transform" style={{ width: '130.58px', height: '37.1px' }}>
                                         <Link
                                             href="https://apps.apple.com/in/app/neet-bhaiya/id6737535565"
                                             target="_blank"
@@ -307,8 +312,8 @@ export default function NeetUgIndiaAdmissionPage() {
                                             <Image
                                                 src="/svg/app-store.svg"
                                                 alt="App Store"
-                                                width={200}
-                                                height={200}
+                                                width={131}
+                                                height={37}
                                                 className="object-contain w-full h-full"
                                             />
                                         </Link>

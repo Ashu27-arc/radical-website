@@ -17,21 +17,18 @@ import "swiper/css/navigation";
 
 
 const logos = [
-    "/images/c-logo1.webp",
-    "/images/c-logo2.webp",
-    "/images/c-logo3.webp",
-    "/images/c-logo4.webp",
-    "/images/c-logo5.webp",
-    "/images/c-logo6.webp",
-    "/images/c-logo-7.webp",
-    "/images/c-logo-8.webp",
-    "/images/c-logo-9.webp",
-    "/images/c-logo-10.webp",
-    "/images/c-logo-11.webp",
-    "/images/c-logo-12.webp",
-    "/images/c-logo-13.webp",
-    "/images/c-logo-14.webp",
-    "/images/c-logo-15.webp",
+    "/images/mbbs-abroad-logo/c-logo-1.webp",
+    "/images/mbbs-abroad-logo/c-logo-2.webp",
+    "/images/mbbs-abroad-logo/c-logo-3.webp",
+    "/images/mbbs-abroad-logo/c-logo-4.webp",
+    "/images/mbbs-abroad-logo/c-logo-5.webp",
+    "/images/mbbs-abroad-logo/c-logo-6.webp",
+    "/images/mbbs-abroad-logo/c-logo-7.webp",
+    "/images/mbbs-abroad-logo/c-logo-8.webp",
+    "/images/mbbs-abroad-logo/c-logo-9.webp",
+    "/images/mbbs-abroad-logo/c-logo-10.webp",
+    "/images/mbbs-abroad-logo/c-logo-11.webp",
+    "/images/mbbs-abroad-logo/c-logo-12.webp",
 ];
 
 export default function MBBSAbroadAdmission() {
