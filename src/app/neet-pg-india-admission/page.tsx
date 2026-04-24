@@ -262,8 +262,8 @@ export default function NeetPgIndiaAdmissionPage() {
             </section>
             <section className="py-10 lg:pt-15 lg:pb-20 overflow-hidden bg-[#F4F7F8]">
                 <div className="container px-6 md:px-12 lg:px-20 max-w-[1240px]!">
-                    <div className="grid grid-cols-1 md:grid-cols-2 md:gap-8 gap-16 lg:gap-12 mb-16 items-stretch">
-                        <div className="flex flex-col h-full px-12 pt-12 bg-cover bg-center bg-no-repeat rounded-2xl" style={{ backgroundImage: "url('/images/pg-bg.webp')" }}>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-8 mb-16 items-stretch">
+                        <div className="flex flex-col w-full md:w-[443px] md:h-[768.23px] px-12 pt-12 bg-cover bg-center bg-no-repeat rounded-2xl md:ml-auto md:mr-0 mx-auto" style={{ backgroundImage: "url('/images/pg-bg.webp')" }}>
                             <div className="md:pr-0 pr-6 mb-6">
                                 <h3 className="text-white mb-5 text-[30px] font-normal font-weight-400">Your NEET PG <span className="font-medium font-weight-500 text-[30px] block">rank deserves the <br /> right seat.</span></h3>
                                 <div className="text-white text-[14px] font-normal font-weight-400">Your NEET PG rank is the key to your future.
@@ -273,9 +273,9 @@ export default function NeetPgIndiaAdmissionPage() {
                             </div>
                             <Image src="/images/pg-img.webp" width="333" height="416" className="w-full h-auto mt-auto" alt="" />
                         </div>
-                        <div className="h-full">
+                        <div className="">
                             <div
-                                className="fadeUp relative z-10 rounded-2xl pt-16 pb-8 px-8 shadow-xl bg-white flex flex-col h-full"
+                                className="fadeUp relative z-10 rounded-2xl pt-16 pb-8 px-8 shadow-xl bg-white flex flex-col w-full md:w-[425px] md:min-h-[768.23px] md:ml-0 md:mr-auto mx-auto"
                             >
                                 <div className="absolute left-1/2 -translate-x-1/2 -top-[35px] border-[8px] border-[#F4F7F8] rounded-full">
                                     <img

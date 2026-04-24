@@ -40,10 +40,10 @@ export default function StudyAbroadPage() {
         "Internship Support",
         "Flight Ticket Booking",
         "Documentation Attestation",
-        "Scholarship Guidance",
-        "Post-Arrival Support",
-        "Accommodation Help",
-        "Part-time Job Assistance"
+        // "Scholarship Guidance",
+        // "Post-Arrival Support",
+        // "Accommodation Help",
+        // "Part-time Job Assistance"
     ];
 
     const testimonials = [
@@ -183,8 +183,8 @@ export default function StudyAbroadPage() {
 
             <section className="py-10 lg:py-15 overflow-hidden bg-[#F4F7F8]">
                 <div className="container px-6 md:px-12 lg:px-20 max-w-[1240px]!">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8 lg:gap-12 mb-16 items-stretch">
-                        <div className="flex flex-col h-full px-12 pt-12 bg-cover bg-center bg-no-repeat rounded-2xl" style={{ backgroundImage: "url('/images/study-bg.webp')" }}>
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-8 mb-16 items-stretch">
+                        <div className="flex flex-col w-full md:w-[443px] md:h-[768.23px] px-12 pt-12 bg-cover bg-center bg-no-repeat rounded-2xl md:ml-auto md:mr-0 mx-auto" style={{ backgroundImage: "url('/images/study-bg.webp')" }}>
                             <div className="md:pr-0 pr-6 mb-6">
                                 <h3 className="text-white mb-5 text-3xl font-light">Study Abroad. <span className="font-medium block">But do it smart.</span></h3>
                                 <div className="text-white text-[14px] font-normal mb-3 font-weight-400">Your future isn’t average. <br />Your decisions shouldn’t be either. </div>
@@ -194,7 +194,7 @@ export default function StudyAbroadPage() {
                         </div>
                         <div className="">
                             <div
-                                className="fadeUp relative z-10 rounded-2xl pt-16 pb-8 px-8 shadow-xl bg-white flex flex-col"
+                                className="fadeUp relative z-10 rounded-2xl pt-16 pb-8 px-8 shadow-xl bg-white flex flex-col w-full md:w-[425px] md:min-h-[768.23px] md:ml-0 md:mr-auto mx-auto"
                             >
                                 <div className="absolute left-1/2 -translate-x-1/2 -top-[35px] border-[8px] border-[#F4F7F8] rounded-full">
                                     <img
@@ -248,7 +248,7 @@ export default function StudyAbroadPage() {
                                         />
                                     </button>
                                 )}
-                                <div className="mt-2">
+                                <div className="mt-auto pt-4">
                                     <div className="flex gap-2 items-start">
                                         <span className="text-[#1D1D1D] font-semibold text-[12px] uppercase tracking-wider mt-0.5">Note:</span>
                                         <p className="text-[12px] font-weight-600 text-[#6E67C9] poppins">
