@@ -291,21 +291,21 @@ export default function AboutUsPage() {
                 <div key={`row1-${i}`} className="flex gap-4 sm:gap-6">
                   <div className="w-[263.88px] h-[78.19px] bg-white rounded-xl sm:rounded-[10px] p-3 flex items-center justify-center shrink-0">
                     <img
-                      src="/images/about/feature-1.webp"
+                      src="/images/about/feature-1.svg"
                       alt="APN News"
                       className="max-h-full max-w-full object-contain"
                     />
                   </div>
                   <div className="w-[263.88px] h-[78.19px] bg-white rounded-xl sm:rounded-[10px] p-3 flex items-center justify-center shrink-0">
                     <img
-                      src="/images/about/feature-2.webp"
+                      src="/images/about/feature-2.svg"
                       alt="Hindustan"
                       className="max-h-full max-w-full object-contain"
                     />
                   </div>
                   <div className="w-[263.88px] h-[78.19px] bg-white rounded-xl sm:rounded-[10px] p-3 flex items-center justify-center shrink-0">
                     <img
-                      src="/images/about/feature-3.webp"
+                      src="/images/about/feature-3.svg"
                       alt="BIS Infotech"
                       className="max-h-full max-w-full object-contain"
                     />
@@ -320,21 +320,21 @@ export default function AboutUsPage() {
                 <div key={`row2-${i}`} className="flex gap-4 sm:gap-6">
                   <div className="w-[263.88px] h-[78.19px] bg-white rounded-xl sm:rounded-[10px] p-3 flex items-center justify-center shrink-0">
                     <img
-                      src="/images/about/feature-4.webp"
+                      src="/images/about/feature-4.svg"
                       alt="Dainik Bhaskar"
                       className="max-h-full max-w-full object-contain"
                     />
                   </div>
                   <div className="w-[263.88px] h-[78.19px] bg-white rounded-xl sm:rounded-[10px] p-3 flex items-center justify-center shrink-0">
                     <img
-                      src="/images/about/feature-5.webp"
+                      src="/images/about/feature-5.svg"
                       alt="Hindustan Times"
                       className="max-h-full max-w-full object-contain"
                     />
                   </div>
                   <div className="w-[263.88px] h-[78.19px] bg-white rounded-xl sm:rounded-[10px] p-3 flex items-center justify-center shrink-0">
                     <img
-                      src="/images/about/feature-6.webp"
+                      src="/images/about/feature-6.svg"
                       alt="Dainik Jagran"
                       className="max-h-full max-w-full object-contain"
                     />
