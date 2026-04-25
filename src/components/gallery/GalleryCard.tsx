@@ -16,12 +16,17 @@ export default function GalleryCard({ item, onClick, isActive }: Props) {
   return (
     <div
       onClick={onClick}
-      className={`relative cursor-pointer transition
-        ${isActive ? '' : ''}
-      `}
+      className={`relative cursor-pointer transition flex items-end gap-4 ${isActive ? '' : ''}`}
     >
-      {/* IMAGE WITH SKELETON */}
-      <div className="relative w-full h-[400px] pl-20 rounded-xl">
+      {/* MONTH - Now Outside the Image Card */}
+      <div className="flex items-end pb-4">
+        <span className="vertical-text text-[#005A8B] text-4xl md:text-5xl uppercase font-semibold tracking-widest leading-none">
+          {item.month}
+        </span>
+      </div>
+
+      {/* IMAGE CONTAINER */}
+      <div className="relative flex-1 h-[400px] rounded-xl">
         {!loaded && (
           <Skeleton
             width="100%"
@@ -37,19 +42,12 @@ export default function GalleryCard({ item, onClick, isActive }: Props) {
           className={`object-cover rounded-xl shadow-lg transition-opacity duration-500 ${loaded ? 'opacity-100' : 'opacity-0'}`}
           sizes="(max-width: 768px) 100vw, 50vw"
         />
-      </div>
 
-      {/* MONTH */}
-      <div className="absolute left-2 top-2 -bottom-4 flex items-end">
-        <span className="vertical-text text-[#005A8B] text-4xl uppercase font-semibold tracking-widest">
-          {item.month}
+        {/* YEAR - Kept as absolute to overlay top-right of image */}
+        <span className="absolute -top-8 right-0 font-semibold text-[#005A8B] text-base">
+          {item.year}
         </span>
       </div>
-
-      {/* YEAR */}
-      <span className="absolute -top-6 font-semibold text-[#005A8B] text-base right-0">
-        {item.year}
-      </span>
     </div>
   );
 }

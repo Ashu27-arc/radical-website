@@ -150,120 +150,120 @@ export const galleryData: GalleryData = {
         },
       ],
     },
-    {
-      month: 'JULY',
-      year: 2024,
-      mainImage: '/images/g1.webp',
-      events: [
-        {
-          title: 'International University Meet',
-          date: '07 Jul 2024',
-          images: [
-            '/images/g1.webp',
-            '/images/g2.webp',
-            '/images/g3.webp',
-            '/images/g4.webp',
-            '/images/g5.webp',
-            '/images/g6.webp',
-          ],
-        },
-      ],
-    },
-    {
-      month: 'AUGUST',
-      year: 2024,
-      mainImage: '/images/g2.webp',
-      events: [
-        {
-          title: 'Independence Day Celebration',
-          date: '15 Aug 2024',
-          images: [
-            '/images/g1.webp',
-            '/images/g2.webp',
-            '/images/g3.webp',
-            '/images/g4.webp',
-            '/images/g5.webp',
-            '/images/g6.webp',
-          ],
-        },
-      ],
-    },
-    {
-      month: 'SEPTEMBER',
-      year: 2024,
-      mainImage: '/images/g3.webp',
-      events: [
-        {
-          title: 'Student Interaction Session',
-          date: '10 Sep 2024',
-          images: [
-            '/images/g1.webp',
-            '/images/g2.webp',
-            '/images/g3.webp',
-            '/images/g4.webp',
-            '/images/g5.webp',
-            '/images/g6.webp',
-          ],
-        },
-      ],
-    },
-    {
-      month: 'OCTOBER',
-      year: 2024,
-      mainImage: '/images/g4.webp',
-      events: [
-        {
-          title: 'Education Summit',
-          date: '14 Oct 2024',
-          images: [
-            '/images/g1.webp',
-            '/images/g2.webp',
-            '/images/g3.webp',
-            '/images/g4.webp',
-            '/images/g5.webp',
-            '/images/g6.webp',
-          ],
-        },
-      ],
-    },
-    {
-      month: 'NOVEMBER',
-      year: 2024,
-      mainImage: '/images/g5.webp',
-      events: [
-        {
-          title: 'Overseas Admission Drive',
-          date: '09 Nov 2024',
-          images: [
-            '/images/g1.webp',
-            '/images/g2.webp',
-            '/images/g3.webp',
-            '/images/g4.webp',
-            '/images/g5.webp',
-            '/images/g6.webp',
-          ],
-        },
-      ],
-    },
-    {
-      month: 'DECEMBER',
-      year: 2024,
-      mainImage: '/images/g6.webp',
-      events: [
-        {
-          title: 'Year End Review Meet',
-          date: '20 Dec 2024',
-          images: [
-            '/images/g1.webp',
-            '/images/g2.webp',
-            '/images/g3.webp',
-            '/images/g4.webp',
-            '/images/g5.webp',
-            '/images/g6.webp',
-          ],
-        },
-      ],
-    },
+    // {
+    //   month: 'JULY',
+    //   year: 2024,
+    //   mainImage: '/images/g1.webp',
+    //   events: [
+    //     {
+    //       title: 'International University Meet',
+    //       date: '07 Jul 2024',
+    //       images: [
+    //         '/images/g1.webp',
+    //         '/images/g2.webp',
+    //         '/images/g3.webp',
+    //         '/images/g4.webp',
+    //         '/images/g5.webp',
+    //         '/images/g6.webp',
+    //       ],
+    //     },
+    //   ],
+    // },
+    // {
+    //   month: 'AUGUST',
+    //   year: 2024,
+    //   mainImage: '/images/g2.webp',
+    //   events: [
+    //     {
+    //       title: 'Independence Day Celebration',
+    //       date: '15 Aug 2024',
+    //       images: [
+    //         '/images/g1.webp',
+    //         '/images/g2.webp',
+    //         '/images/g3.webp',
+    //         '/images/g4.webp',
+    //         '/images/g5.webp',
+    //         '/images/g6.webp',
+    //       ],
+    //     },
+    //   ],
+    // },
+    // {
+    //   month: 'SEPTEMBER',
+    //   year: 2024,
+    //   mainImage: '/images/g3.webp',
+    //   events: [
+    //     {
+    //       title: 'Student Interaction Session',
+    //       date: '10 Sep 2024',
+    //       images: [
+    //         '/images/g1.webp',
+    //         '/images/g2.webp',
+    //         '/images/g3.webp',
+    //         '/images/g4.webp',
+    //         '/images/g5.webp',
+    //         '/images/g6.webp',
+    //       ],
+    //     },
+    //   ],
+    // },
+    // {
+    //   month: 'OCTOBER',
+    //   year: 2024,
+    //   mainImage: '/images/g4.webp',
+    //   events: [
+    //     {
+    //       title: 'Education Summit',
+    //       date: '14 Oct 2024',
+    //       images: [
+    //         '/images/g1.webp',
+    //         '/images/g2.webp',
+    //         '/images/g3.webp',
+    //         '/images/g4.webp',
+    //         '/images/g5.webp',
+    //         '/images/g6.webp',
+    //       ],
+    //     },
+    //   ],
+    // },
+    // {
+    //   month: 'NOVEMBER',
+    //   year: 2024,
+    //   mainImage: '/images/g5.webp',
+    //   events: [
+    //     {
+    //       title: 'Overseas Admission Drive',
+    //       date: '09 Nov 2024',
+    //       images: [
+    //         '/images/g1.webp',
+    //         '/images/g2.webp',
+    //         '/images/g3.webp',
+    //         '/images/g4.webp',
+    //         '/images/g5.webp',
+    //         '/images/g6.webp',
+    //       ],
+    //     },
+    //   ],
+    // },
+    // {
+    //   month: 'DECEMBER',
+    //   year: 2024,
+    //   mainImage: '/images/g6.webp',
+    //   events: [
+    //     {
+    //       title: 'Year End Review Meet',
+    //       date: '20 Dec 2024',
+    //       images: [
+    //         '/images/g1.webp',
+    //         '/images/g2.webp',
+    //         '/images/g3.webp',
+    //         '/images/g4.webp',
+    //         '/images/g5.webp',
+    //         '/images/g6.webp',
+    //       ],
+    //     },
+    //   ],
+    // },
   ],
 
   /* ======================= 2025 ======================= */
