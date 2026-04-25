@@ -100,51 +100,51 @@ const Bangladesh = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-8 max-w-6xl mx-auto">
             {/* Row 1 */}
-            <div className="flex flex-col items-center">
+            <Link href="https://www.radicaleducation.in/popular-medical-collegebangladesh" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
               <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
                 <Image src="/images/study-abroad/logos/b.webp" alt="Popular Medical College, Bangladesh" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-xs lg:text-sm">
                 Popular Medical College, Bangladesh
               </h3>
-            </div>
+            </Link>
 
-            <div className="flex flex-col items-center">
+            <Link href="https://www.radicaleducation.in/dhaka-national-medical-college-bangladesh" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
               <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
                 <Image src="/images/study-abroad/logos/b-1.webp" alt="Dhaka National Medical College, Bangladesh" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-xs lg:text-sm">
                 Dhaka National Medical College, Bangladesh
               </h3>
-            </div>
+            </Link>
 
-            <div className="flex flex-col items-center">
+            <Link href="https://www.radicaleducation.in/tairnunnessa-memorial-medical-college" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
               <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
                 <Image src="/images/study-abroad/logos/b-2.webp" alt="Tairunnessa Memorial Medical College, Bangladesh" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-xs lg:text-sm">
                 Tairunnessa Memorial Medical College, Bangladesh
               </h3>
-            </div>
+            </Link>
 
-            <div className="flex flex-col items-center">
+            <Link href="https://www.radicaleducation.in/holy-family-red-crescent-medical-college" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
               <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
                 <Image src="/images/study-abroad/logos/b-3.webp" alt="Holy Family Red Crescent Medical College, Bangladesh" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-xs lg:text-sm">
                 Holy Family Red Crescent Medical College, Bangladesh
               </h3>
-            </div>
+            </Link>
 
             {/* Row 2 */}
-            <div className="flex flex-col items-center">
+            <Link href="https://www.radicaleducation.in/bangladesh-university-of-professional-studies" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
               <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
                 <Image src="/images/study-abroad/logos/b-4.webp" alt="Bangladesh University of Professionals, Bangladesh" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-xs lg:text-sm">
                 Bangladesh University of Professionals, Bangladesh
               </h3>
-            </div>
+            </Link>
           </div>
         </div>
       </div>
