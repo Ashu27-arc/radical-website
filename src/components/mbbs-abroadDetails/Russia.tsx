@@ -115,7 +115,7 @@ const universities = [
   },
   {
     name: "Ural State Medical University Russia",
-    logo: "/images/study-abroad/logos/r-22.webp",
+    logo: "/images/study-abroad/logos/r-22.png",
     link: "https://www.radicaleducation.in/ural-state-medical-university-russia"
   },
   {
