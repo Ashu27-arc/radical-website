@@ -172,7 +172,7 @@ export default function GalleryPage() {
                         </div>
 
                         {/* Gallery Grid */}
-                        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 mb-20 fadeUp">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 lg:gap-24 mb-20 fadeUp">
                             {galleryData[activeYear].map((item, index) => (
                                 <GalleryCard
                                     key={index}

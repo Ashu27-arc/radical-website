@@ -20,7 +20,7 @@ export default function GalleryCard({ item, onClick, isActive }: Props) {
       `}
     >
       {/* IMAGE WITH SKELETON */}
-      <div className="relative w-full h-[300px] pl-15 rounded-xl">
+      <div className="relative w-full h-[400px] pl-20 rounded-xl">
         {!loaded && (
           <Skeleton
             width="100%"
@@ -32,7 +32,7 @@ export default function GalleryCard({ item, onClick, isActive }: Props) {
           src={item.mainImage}
           alt={item.month}
           onLoad={() => setLoaded(true)}
-          className={`w-full h-[360px] object-cover rounded-xl shadow-lg ${loaded ? 'block' : 'hidden'}`}
+          className={`w-full h-full object-cover rounded-xl shadow-lg ${loaded ? 'block' : 'hidden'}`}
         />
       </div>
 
