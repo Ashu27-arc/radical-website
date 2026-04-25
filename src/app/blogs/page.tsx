@@ -64,6 +64,16 @@ const BlogsPage = () => {
   const { addMessageHandler } = useWebSocket(wsUrl);
 
   useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const search = params.get('search');
+      if (search) {
+        setSearchQuery(search);
+      }
+    }
+  }, []);
+
+  useEffect(() => {
     let isMounted = true;
     setLoading(true);
 

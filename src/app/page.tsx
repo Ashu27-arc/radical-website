@@ -90,10 +90,7 @@ export default function Home() {
     const query = value.trim();
     if (!query) return;
 
-    const collegePredictorUrl = `https://www.neetbhaiya.in/college-predictor?search=${encodeURIComponent(
-      query
-    )}`;
-    window.open(collegePredictorUrl, "_blank", "noopener,noreferrer");
+    window.location.href = `/blogs?search=${encodeURIComponent(query)}`;
   };
 
   const videos = [
