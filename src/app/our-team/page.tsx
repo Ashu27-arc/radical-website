@@ -239,9 +239,9 @@ export default function OurTeam() {
                   </div>
                   <a
                     href="https://www.neetbhaiya.in/dedicated-counsellor"
-                    className="mt-auto w-full py-3 px-3 rounded-[100px] bg-[#005A8B] text-[#FFFFFF] font-semibold text-center text-xs transition-colors"
+                    className="mt-auto w-full py-3 px-3 rounded-[100px] bg-[#DFF1FF] hover:bg-[#005A88] text-[#005A88] hover:text-[#FFFFFF] font-semibold text-center text-xs transition-colors"
                   >
-                    Book a Call
+                    Book a call
                   </a>
                 </div>
               </div>
