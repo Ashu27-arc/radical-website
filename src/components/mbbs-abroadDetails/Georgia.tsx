@@ -38,9 +38,9 @@ const Georgia = () => {
               <Image
                 src="/images/study-abroad/flags/bg-georgia.png"
                 alt="Georgia Flag"
-                width={500}
-                height={500}
-                className="object-contain w-[53%] h-[53%]"
+                width={183}
+                height={183}
+                className="object-contain w-[183px] h-[183px]"
               />
             </div>
 
