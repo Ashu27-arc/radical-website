@@ -34,13 +34,13 @@ const Nepal = () => {
           {/* Left Content */}
           <div className="lg:w-2/3 relative">
             {/* Watermark */}
-            <div className="absolute inset-0 flex items-center justify-center opacity-10 z-0 pointer-events-none overflow-hidden">
+            <div className="absolute inset-0 flex items-center justify-center opacity-70 z-0 pointer-events-none overflow-hidden">
               <Image
-                src="/images/study-abroad/flags/nepal.webp"
+                src="/images/study-abroad/flags/bg-nepal.png"
                 alt="Nepal Flag"
-                width={500}
-                height={500}
-                className="object-contain w-3/4 h-3/4"
+                width={183}
+                height={183}
+                className="object-contain w-[183px] h-[183px]"
               />
             </div>
 
@@ -101,88 +101,88 @@ const Nepal = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-6xl mx-auto">
             {/* Row 1 */}
-            <div className="flex flex-col items-center">
+            <Link href="https://www.radicaleducation.in/birat-medical-college-bmc-nepal-2025-26" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
               <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
                 <Image src="/images/study-abroad/logos/1.webp" alt="Birat Medical College" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-xs md:text-sm px-2">
                 Birat Medical College
               </h3>
-            </div>
+            </Link>
 
-            <div className="flex flex-col items-center">
+            <Link href="https://www.radicaleducation.in/college-of-medical-sciences-cmc-nepal" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
               <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
                 <Image src="/images/study-abroad/logos/2.webp" alt="College of Medical Sciences" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-xs md:text-sm px-2">
                 College of Medical Sciences
               </h3>
-            </div>
+            </Link>
 
-            <div className="flex flex-col items-center">
+            <Link href="https://www.radicaleducation.in/devdaha-medical-college-dmc-nepal" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
               <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
                 <Image src="/images/study-abroad/logos/3.webp" alt="Devdaha Medical College" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-xs md:text-sm px-2">
                 Devdaha Medical College
               </h3>
-            </div>
+            </Link>
 
-            <div className="flex flex-col items-center">
+            <Link href="https://www.radicaleducation.in/kathmandu-medical-college-kmc-nepal" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
               <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
                 <Image src="/images/study-abroad/logos/4.webp" alt="Kathmandu Medical College" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-xs md:text-sm px-2">
                 Kathmandu Medical College
               </h3>
-            </div>
+            </Link>
 
             {/* Row 2 */}
-            <div className="flex flex-col items-center">
+            <Link href="https://www.radicaleducation.in/national-medical-college-private-limited-nepal" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
               <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
                 <Image src="/images/study-abroad/logos/5.webp" alt="Kathmandu National Medical College" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-xs md:text-sm px-2">
                 Kathmandu National Medical College
               </h3>
-            </div>
+            </Link>
 
-            <div className="flex flex-col items-center">
+            <Link href="https://www.radicaleducation.in/nepal-medical-college-nmc-nepal-2025-26-update" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
               <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
                 <Image src="/images/study-abroad/logos/6.webp" alt="Nepal Medical College" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-xs md:text-sm px-2">
                 Nepal Medical College
               </h3>
-            </div>
+            </Link>
 
-            <div className="flex flex-col items-center">
+            <Link href="https://www.radicaleducation.in/nepalgunj-medical-college-nepal-2025-26-update" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
               <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
                 <Image src="/images/study-abroad/logos/7.webp" alt="Nepalgunj Medical College" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-xs md:text-sm px-2">
                 Nepalgunj Medical College
               </h3>
-            </div>
+            </Link>
 
-            <div className="flex flex-col items-center">
+            <Link href="https://www.radicaleducation.in/manipal-college-of-medical-science-nepal-2025" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
               <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
                 <Image src="/images/study-abroad/logos/8.webp" alt="Manipal College of Medical Sciences" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-xs md:text-sm px-2">
                 Manipal College of Medical Sciences
               </h3>
-            </div>
+            </Link>
 
             {/* Row 3 - Single centered item */}
-            <div className="flex flex-col items-center">
+            <Link href="https://www.radicaleducation.in/lumbini-medical-college-nepal-2025-26" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
               <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
                 <Image src="/images/study-abroad/logos/9.webp" alt="Lumbini Medical College" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-xs md:text-sm px-2">
                 Lumbini Medical College
               </h3>
-            </div>
+            </Link>
           </div>
         </div>
       </section>

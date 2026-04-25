@@ -38,9 +38,9 @@ const Bangladesh = () => {
               <Image
                 src="/images/study-abroad/flags/bg-bangladesh.png"
                 alt="Bangladesh Flag"
-                width={500}
-                height={500}
-                className="object-contain w-[53%] h-[53%]"
+                width={183}
+                height={183}
+                className="object-contain w-[183px] h-[183px]"
               />
             </div>
 

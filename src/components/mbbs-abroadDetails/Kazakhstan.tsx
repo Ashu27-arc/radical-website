@@ -33,13 +33,13 @@ const Kazakhstan = () => {
           {/* Left Content */}
           <div className="w-full lg:w-2/3 relative">
             {/* Watermark */}
-            <div className="absolute inset-0 flex items-center justify-center opacity-10 z-0 pointer-events-none overflow-hidden">
+            <div className="absolute inset-0 flex items-center justify-center opacity-70 z-0 pointer-events-none overflow-hidden">
               <Image
-                src="/images/study-abroad/flags/kazakhstan.webp"
+                src="/images/study-abroad/flags/bg-kazakhstan.png"
                 alt="Kazakhstan Flag"
-                width={500}
-                height={500}
-                className="object-contain w-3/4 h-3/4"
+                width={183}
+                height={183}
+                className="object-contain w-[183px] h-[183px]"
               />
             </div>
 
@@ -99,60 +99,60 @@ const Kazakhstan = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto">
             {/* Row 1 */}
-            <div className="flex flex-col items-center">
+            <Link href="https://www.radicaleducation.in/al-farabi-kazakh-national-medical-university" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
               <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
                 <Image src="/images/study-abroad/logos/k.webp" alt="Al-Farabi Kazakh National Medical University Kazakhstan" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-sm">
                 Al-Farabi Kazakh National Medical University Kazakhstan
               </h3>
-            </div>
+            </Link>
 
-            <div className="flex flex-col items-center">
+            <Link href="https://www.radicaleducation.in/asfendiyarov-kazakh-national-medical-university" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
               <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
                 <Image src="/images/study-abroad/logos/k-1.webp" alt="Asfendiyarov National Medical University Kazakhstan" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-sm">
                 Asfendiyarov National Medical University Kazakhstan
               </h3>
-            </div>
+            </Link>
 
-            <div className="flex flex-col items-center">
+            <Link href="https://www.radicaleducation.in/astana-medical-university-kazakhstan" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
               <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
                 <Image src="/images/study-abroad/logos/k-2.webp" alt="Astana Medical University Kazakhstan" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-sm">
                 Astana Medical University Kazakhstan
               </h3>
-            </div>
+            </Link>
 
-            <div className="flex flex-col items-center">
+            <Link href="https://www.radicaleducation.in/international-medical-school-almaty-kazakhstan" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
               <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
                 <Image src="/images/study-abroad/logos/k-3.webp" alt="International Medical School Almaty Kazakhstan" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-sm">
                 International Medical School Almaty Kazakhstan
               </h3>
-            </div>
+            </Link>
 
             {/* Row 2 */}
-            <div className="flex flex-col items-center">
+            <Link href="https://www.radicaleducation.in/south-kazakhstan-medical-academy-kazakhstan" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
               <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
                 <Image src="/images/study-abroad/logos/k-4.webp" alt="South Kazakhstan Medical Academy Kazakhstan" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-sm">
                 South Kazakhstan Medical Academy Kazakhstan
               </h3>
-            </div>
+            </Link>
 
-            <div className="flex flex-col items-center">
+            <Link href="https://www.radicaleducation.in/west-kazakhstan-medical-academy" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
               <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
                 <Image src="/images/study-abroad/logos/k-5.webp" alt="West Kazakhstan State Medical University Kazakhstan" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-sm">
                 West Kazakhstan State Medical University Kazakhstan
               </h3>
-            </div>
+            </Link>
 
             {/* <div className="flex flex-col items-center">
               <div className="w-32 h-32 rounded-full border-4 border-cyan-300 bg-white flex items-center justify-center mb-4">

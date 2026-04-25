@@ -3,6 +3,24 @@ import Image from 'next/image';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import Link from 'next/link';
 
+const universities = [
+  {
+    name: "Bhukhara State Medical University, Uzbekistan",
+    logo: "/images/study-abroad/logos/u.webp",
+    link: "https://www.radicaleducation.in/bukhara-state-medical-college"
+  },
+  {
+    name: "Samarkand State Medical University, Uzbekistan",
+    logo: "/images/study-abroad/logos/u-1.webp",
+    link: "https://www.radicaleducation.in/samarkand-state-medical-college"
+  },
+  {
+    name: "Tashkent Pediatric Medical Institute, Uzbekistan",
+    logo: "/images/study-abroad/logos/u-2.webp",
+    link: "https://www.radicaleducation.in/tashkent-pediatric-medical-institute-uzbekistan"
+  }
+];
+
 const Uzbekistan = () => {
   return (
     <div className="min-h-screen bg-gray-50">
@@ -33,13 +51,13 @@ const Uzbekistan = () => {
           {/* Left Content */}
           <div className="w-full lg:w-2/3 relative">
             {/* Watermark */}
-            <div className="absolute inset-0 flex items-center justify-center opacity-10 z-0 pointer-events-none overflow-hidden">
+            <div className="absolute inset-0 flex items-center justify-center opacity-70 z-0 pointer-events-none overflow-hidden">
               <Image
-                src="/images/study-abroad/flags/uzbekistan.webp"
+                src="/images/study-abroad/flags/bg-uzbekistan.png"
                 alt="Uzbekistan Flag"
-                width={500}
-                height={500}
-                className="object-contain w-3/4 h-3/4"
+                width={190}
+                height={190}
+                className="object-contain w-[190px] h-[190px]"
               />
             </div>
 
@@ -98,50 +116,16 @@ const Uzbekistan = () => {
           </h2>
 
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 md:gap-6 lg:gap-8 max-w-5xl mx-auto">
-            <div className="flex flex-col items-center">
-              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                <Image
-                  src="/images/study-abroad/logos/u.webp"
-                  alt="Bukhara State Medical University"
-                  width={190}
-                  height={190}
-                  className="object-contain"
-                />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-[9px] sm:text-[10px] md:text-xs lg:text-sm px-1">
-                Bhukhara State Medical University, Uzbekistan
-              </h3>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                <Image
-                  src="/images/study-abroad/logos/u-1.webp"
-                  alt="Samarkand State Medical University"
-                  width={190}
-                  height={190}
-                  className="object-contain"
-                />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-[9px] sm:text-[10px] md:text-xs lg:text-sm px-1">
-                Samarkand State Medical University, Uzbekistan
-              </h3>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                <Image
-                  src="/images/study-abroad/logos/u-2.webp"
-                  alt="Tashkent Pediatric Medical Institute"
-                  width={190}
-                  height={190}
-                  className="object-contain"
-                />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-[9px] sm:text-[10px] md:text-xs lg:text-sm px-1">
-                Tashkent Pediatric Medical Institute, Uzbekistan
-              </h3>
-            </div>
+            {universities.map((uni, index) => (
+              <Link key={index} href={uni.link} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center group">
+                <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4 transition-transform duration-300 group-hover:scale-105">
+                  <Image src={uni.logo} alt={uni.name} width={190} height={190} className="object-contain" />
+                </div>
+                <h3 className="text-blue-600 font-semibold text-center text-[9px] sm:text-[10px] md:text-xs lg:text-sm px-1 group-hover:text-blue-800 transition-colors">
+                  {uni.name}
+                </h3>
+              </Link>
+            ))}
           </div>
         </div>
       </div>

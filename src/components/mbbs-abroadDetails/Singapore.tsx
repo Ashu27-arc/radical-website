@@ -3,6 +3,24 @@ import Image from 'next/image';
 import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import Link from 'next/link';
 
+const universities = [
+  {
+    name: "Lee Kong Chian University of Medical Sciences Singapore",
+    logo: "/images/study-abroad/logos/s.webp",
+    link: "https://www.radicaleducation.in/lee-kong-chian-university"
+  },
+  {
+    name: "National University of Singapore",
+    logo: "/images/study-abroad/logos/s-1.webp",
+    link: "https://www.radicaleducation.in/national-university-of-singapore"
+  },
+  {
+    name: "Yong Loo Lin School of Medicine Singapore",
+    logo: "/images/study-abroad/logos/s-2.webp",
+    link: "https://www.radicaleducation.in/yong-loo-lin-school-of-medicine"
+  }
+];
+
 const Singapore = () => {
   return (
     <div className="min-h-screen bg-gray-50">
@@ -34,13 +52,13 @@ const Singapore = () => {
           {/* Left Content */}
           <div className="lg:w-2/3 relative">
             {/* Watermark */}
-            <div className="absolute inset-0 flex items-center justify-center opacity-10 z-0 pointer-events-none overflow-hidden">
+            <div className="absolute inset-0 flex items-center justify-center opacity-90 z-0 pointer-events-none overflow-hidden">
               <Image
-                src="/images/study-abroad/singapore.webp"
+                src="/images/study-abroad/flags/bg-singapore.png"
                 alt="Singapore Flag"
-                width={500}
-                height={500}
-                className="object-contain w-3/4 h-3/4"
+                width={190}
+                height={190}
+                className="object-contain w-[190px] h-[190px]"
               />
             </div>
 
@@ -99,89 +117,16 @@ const Singapore = () => {
           </h2>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8 max-w-6xl mx-auto">
-            {/* Row 1 */}
-            <div className="flex flex-col items-center">
-              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/s.webp" alt="Lee Kong Chian School of Medicine, Singapore" width={190} height={190} className="object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-xs md:text-sm px-2">
-                Lee Kong Chian School of Medicine, Singapore
-              </h3>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/s-1.webp" alt="National University of Singapore" width={190} height={190} className="object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-xs md:text-sm px-2">
-                National University of Singapore
-              </h3>
-            </div>
-
-            <div className="flex flex-col items-center">
-              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/s-2.webp" alt="Yong Loo Lin School of Medicine, Singapore" width={190} height={190} className="object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-xs md:text-sm px-2">
-                Yong Loo Lin School of Medicine, Singapore
-              </h3>
-            </div>
-
-            {/* <div className="flex flex-col items-center">
-              <div className="w-32 h-32 rounded-full border-4 border-cyan-300 bg-white flex items-center justify-center mb-4">
-                <Image src="/images/russia-uni-4.webp" alt="Crimea Federal University" width={80} height={80} className="object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-sm">
-                Crimea Federal University
-              </h3>
-            </div> */}
-
-            {/* Row 2 */}
-            {/* <div className="flex flex-col items-center">
-              <div className="w-32 h-32 rounded-full border-4 border-cyan-300 bg-white flex items-center justify-center mb-4">
-                <Image src="/images/russia-uni-5.webp" alt="Kursk State Medical University" width={80} height={80} className="object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-sm">
-                Kursk State Medical University
-              </h3>
-            </div> */}
-            {/*             
-            <div className="flex flex-col items-center">
-              <div className="w-32 h-32 rounded-full border-4 border-cyan-300 bg-white flex items-center justify-center mb-4">
-                <Image src="/images/russia-uni-6.webp" alt="Volgograd State Medical University" width={80} height={80} className="object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-sm">
-                Volgograd State Medical University
-              </h3>
-            </div> */}
-
-            {/* <div className="flex flex-col items-center">
-              <div className="w-32 h-32 rounded-full border-4 border-cyan-300 bg-white flex items-center justify-center mb-4">
-                <Image src="/images/russia-uni-7.webp" alt="Tver State Medical University" width={80} height={80} className="object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-sm">
-                Tver State Medical University
-              </h3>
-            </div> */}
-
-            {/* <div className="flex flex-col items-center">
-              <div className="w-32 h-32 rounded-full border-4 border-cyan-300 bg-white flex items-center justify-center mb-4">
-                <Image src="/images/russia-uni-8.webp" alt="Orenburg State Medical University" width={80} height={80} className="object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-sm">
-                Orenburg State Medical University
-              </h3>
-            </div> */}
-
-            {/* Row 3 - Single centered item */}
-            {/* <div className="flex flex-col items-center col-span-2 md:col-span-4 md:col-start-2 md:col-end-3">
-              <div className="w-32 h-32 rounded-full border-4 border-cyan-300 bg-white flex items-center justify-center mb-4">
-                <Image src="/images/russia-uni-9.webp" alt="Smolensk State Medical University" width={80} height={80} className="object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-sm">
-                Smolensk State Medical University
-              </h3>
-            </div> */}
+            {universities.map((uni, index) => (
+              <Link key={index} href={uni.link} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center group">
+                <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4 transition-transform duration-300 group-hover:scale-105">
+                  <Image src={uni.logo} alt={uni.name} width={190} height={190} className="object-contain" />
+                </div>
+                <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2 group-hover:text-blue-800 transition-colors">
+                  {uni.name}
+                </h3>
+              </Link>
+            ))}
           </div>
         </div>
       </div>
