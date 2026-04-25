@@ -374,10 +374,11 @@ export default function AboutUsPage() {
                   {whoWeAreData.title}
                 </h2>
 
-                <p className="text-sm leading-relaxed mb-4 opacity-90 text-justify">
-                  Radical Education is built to simplify one of the most complex
-                  and high-stakes decisions in a student’s life—
-                  <span className="font-semibold"> NEET counselling.</span>
+                <p className="text-[24px] font-normal font-400 leading-relaxed mb-4 opacity-90 text-justify">
+                  Radical Education is built to simplify one of the<br />
+                  most complex and high-stakes decisions in a<br />
+                  student’s life—
+                  <span className="font-bold text-[24px] font-700"> NEET counselling.</span>
                 </p>
 
                 <p className="text-sm leading-relaxed opacity-80 text-justify">
@@ -415,10 +416,11 @@ export default function AboutUsPage() {
                   {whoWeAreData.title}
                 </h2>
 
-                <p className="text-base font-normal leading-relaxed mb-6 opacity-90 text-justify">
-                  Radical Education is built to simplify one of the most complex
-                  and high-stakes decisions in a student’s life—
-                  <span className="font-bold"> NEET counselling.</span>
+                <p className="text-[24px] font-normal font-400 leading-relaxed mb-4 opacity-90 text-justify">
+                  Radical Education is built to simplify one of the<br />
+                  most complex and high-stakes decisions in a<br />
+                  student’s life—
+                  <span className="font-bold text-[24px] font-700"> NEET counselling.</span>
                 </p>
 
                 <p className="text-sm font-normal leading-relaxed opacity-80 mb-4 text-justify">
