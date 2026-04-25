@@ -139,10 +139,10 @@ const Georgia = () => {
             {/* Row 2 */}
             <Link href="https://www.radicaleducation.in/grigol-robakidze-university" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
               <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/g-4.webp" alt="Gruni Grigol Robakide University, Georgia" width={190} height={190} className="object-contain" />
+                <Image src="/images/study-abroad/logos/g-4.webp" alt="Gruni Grigol Robakidze University, Georgia" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-xs lg:text-sm">
-                Gruni Grigol Robakide University, Georgia
+                Gruni Grigol Robakidze University, Georgia
               </h3>
             </Link>
 

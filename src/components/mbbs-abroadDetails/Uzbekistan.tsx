@@ -5,8 +5,8 @@ import Link from 'next/link';
 
 const universities = [
   {
-    name: "Bhukhara State Medical University, Uzbekistan",
-    logo: "/images/study-abroad/logos/u.webp",
+    name: "Bukhara State Medical University, Uzbekistan",
+    logo: "/images/study-abroad/logos/u-2.webp",
     link: "https://www.radicaleducation.in/bukhara-state-medical-college"
   },
   {
@@ -16,7 +16,7 @@ const universities = [
   },
   {
     name: "Tashkent Pediatric Medical Institute, Uzbekistan",
-    logo: "/images/study-abroad/logos/u-2.webp",
+    logo: "/images/study-abroad/logos/u.webp",
     link: "https://www.radicaleducation.in/tashkent-pediatric-medical-institute-uzbekistan"
   }
 ];

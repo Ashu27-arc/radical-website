@@ -140,7 +140,7 @@ const Nepal = () => {
             {/* Row 2 */}
             <Link href="https://www.radicaleducation.in/national-medical-college-private-limited-nepal" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
               <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/5.webp" alt="Kathmandu National Medical College" width={190} height={190} className="object-contain" />
+                <Image src="/images/study-abroad/logos/nepal.png" alt="Kathmandu National Medical College" width={190} height={190} className="object-contain" />
               </div>
               <h3 className="text-blue-600 font-semibold text-center text-xs md:text-sm px-2">
                 Kathmandu National Medical College

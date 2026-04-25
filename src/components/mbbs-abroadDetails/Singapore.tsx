@@ -6,7 +6,7 @@ import Link from 'next/link';
 const universities = [
   {
     name: "Lee Kong Chian University of Medical Sciences Singapore",
-    logo: "/images/study-abroad/logos/s.webp",
+    logo: "/images/study-abroad/logos/s-2.webp",
     link: "https://www.radicaleducation.in/lee-kong-chian-university"
   },
   {
@@ -16,7 +16,7 @@ const universities = [
   },
   {
     name: "Yong Loo Lin School of Medicine Singapore",
-    logo: "/images/study-abroad/logos/s-2.webp",
+    logo: "/images/study-abroad/logos/s.webp",
     link: "https://www.radicaleducation.in/yong-loo-lin-school-of-medicine"
   }
 ];

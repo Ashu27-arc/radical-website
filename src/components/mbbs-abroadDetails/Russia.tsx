@@ -75,12 +75,12 @@ const universities = [
   },
   {
     name: "Omsk State Medical University Russia",
-    logo: "/images/study-abroad/logos/r-14.webp",
+    logo: "/images/study-abroad/logos/r-14.png",
     link: "https://www.radicaleducation.in/omsk-state-medical-university-russia"
   },
   {
-    name: "Oren burg State Medical University Russia",
-    logo: "/images/study-abroad/logos/r-15.webp",
+    name: "Orenburg State Medical University Russia",
+    logo: "/images/study-abroad/logos/r-15.png",
     link: "https://www.radicaleducation.in/orenburg-state-medical-university-russia"
   },
   {
@@ -109,7 +109,7 @@ const universities = [
     link: "https://www.radicaleducation.in/south-ural-state-medical-university"
   },
   {
-    name: "Volgogard State Medical University Russia",
+    name: "Volgograd State Medical University Russia",
     logo: "/images/study-abroad/logos/r-21.webp",
     link: "https://www.radicaleducation.in/volgograd-state-medical-university-russia"
   },
@@ -125,7 +125,7 @@ const universities = [
   },
   {
     name: "Tver State Medical University",
-    logo: "/images/study-abroad/logos/r-24.webp",
+    logo: "/images/study-abroad/logos/r-24.png",
     link: "https://www.radicaleducation.in/tver-state-medical-unviersity"
   },
   {
