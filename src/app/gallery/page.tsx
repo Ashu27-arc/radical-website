@@ -75,7 +75,7 @@ export default function GalleryPage() {
                                 Our Global Presence
                             </h2> */}
                             <p className="text-[#4A4A4A] text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-                                Empowering students to achieve their dreams in top medical destinations across the globe.
+                                We are proud to support students pursuing their goals in these nations
                             </p>
                         </div>
                         <Swiper
