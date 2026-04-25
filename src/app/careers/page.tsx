@@ -294,23 +294,21 @@ export default function CareersPage() {
           </h2>
           <div className="max-w-5xl mx-auto text-gray-600 space-y-4 md:space-y-6 leading-relaxed text-sm md:text-base">
             <p>
-              At Radical Education, we're changing the way learning happens,
-              bravely, openly, and with a goal in mind. When you join us, you're
-              not just joining us; you're becoming part of a team that
-              challenges the old ways and builds better ones. We're for new
-              ideas more than rules, for teamwork more than being bossed around,
-              and for getting the job done more than tradition. Your ideas
-              matter here. You won't just go along with things, you'll help make
-              them happen.
+              At Radical Education, you’re not just joining a company—you’re
+              solving a problem that impacts millions of students making
+              life-defining decisions under uncertainty. The system is broken,
+              the stakes are high, and the opportunity to create real impact is
+              massive. If you care about building meaningful solutions—not just
+              shipping features or following playbooks—you’ll find the work here
+              deeply challenging and rewarding.
             </p>
             <p>
-              We're for building learning spaces where people are inspired to
-              ask questions, where they'll talk openly about the important
-              stuff, and where they'll have the tools they need to ask
-              questions, grow, and make changes in the real world. If making a
-              difference is what gets you out of bed in the morning, and you're
-              ready to rethink education from the ground up, then here's where
-              you belong
+              We operate at the intersection of data, design, and human
+              behavior—where clarity can change outcomes. This means ownership,
+              fast learning, and the chance to shape a category that doesn’t yet
+              have clear leaders. If you’re someone who values thinking deeply,
+              moving with in  tent, and building something that genuinely improves
+              lives, you’ll feel at home here.
             </p>
           </div>
         </div>
