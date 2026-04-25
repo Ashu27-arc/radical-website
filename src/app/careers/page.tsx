@@ -92,25 +92,25 @@ export default function CareersPage() {
   const workEnvironmentData = [
     {
       image: "/images/careers/ourOffice-1.png",
-      title: "Supportive & Helping Culture",
+      title: "Supportive & helping culture",
       dotColor: "bg-[#005A8B]",
       titleColor: "text-[#10B65C]",
     },
     {
       image: "/images/careers/ourOffice-2.png",
-      title: "Learning-Driven Environment",
+      title: "Learning-driven environment",
       dotColor: "bg-[#005A8B]",
       titleColor: "text-[#005A8B]",
     },
     {
       image: "/images/careers/ourOffice-3.png",
-      title: "Ethical & Responsible Work Practices",
+      title: "Ethical & responsible work practices",
       dotColor: "bg-[#005A8B]",
       titleColor: "text-[#00CFB2]",
     },
     {
       image: "/images/careers/ourOffice-4.png",
-      title: "Growth-Oriented & Inclusive Space",
+      title: "Growth-oriented & inclusive space",
       dotColor: "bg-[#005A8B]",
       titleColor: "text-[#F48126]",
     },
@@ -289,7 +289,7 @@ export default function CareersPage() {
         </div>
 
         <div className="container mx-auto px-4 relative z-10">
-          <h2 className="text-3xl md:text-5xl font-semibold text-center mb-8 md:mb-12">
+          <h2 className="text-3xl md:text-[40px] font-normal text-center mb-8 md:mb-12">
             Why Work With <span className="text-[#287FC4]">Us?</span>
           </h2>
           <div className="max-w-5xl mx-auto text-gray-600 space-y-4 md:space-y-6 leading-relaxed text-sm md:text-base">
@@ -320,14 +320,14 @@ export default function CareersPage() {
           <p className="text-gray-500 font-bold text-xs md:text-sm text-left md:mb-4 mb-6">
             About Us Radical Education
           </p>
-          <h2 className="text-2xl md:text-4xl font-semibold text-left mb-8 md:mb-12">
-            Our <span className="text-[#287FC4]">Work Environment</span>
+          <h2 className="text-2xl md:text-[40px] font-normal text-left mb-8 md:mb-12">
+            Our <span className="text-[#287FC4]">work environment</span>
           </h2>
         </div>
 
         <div className="relative pb-8">
           {/* Horizontal shadow line */}
-          <div className="hidden md:block absolute left-0 right-0 top-[328px] h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent shadow-sm"></div>
+          <div className="hidden md:block absolute left-4 right-4 lg:left-[calc((100vw-1280px)/2+1rem)] lg:right-[calc((100vw-1280px)/2+1rem)] top-[328px] h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent shadow-sm"></div>
 
           {/* Mobile: vertical list (no horizontal scroll) */}
           <div className="md:hidden px-4">
@@ -685,9 +685,9 @@ export default function CareersPage() {
                       htmlFor="career-consent"
                       className="text-[11px] font-normal text-white/90 leading-[1.6] cursor-pointer"
                     >
-                      I Hereby Consent To The Processing Of My Personal
-                      Information For Recruitment And Other Relevant
-                      Opportunities.
+                      I hereby consent to the processing Of my personal
+                      information for recruitment and other relevant
+                      opportunities.
                     </label>
                   </div>
 
