@@ -333,14 +333,14 @@ export const galleryData: GalleryData = {
     {
       month: 'NOVEMBER',
       year: 2025,
-      mainImage: '/images/gallery/tanishka.webp',
+      mainImage: '/images/gallery/2025/tanishka.webp',
       events: [
         {
           title: 'University Fair',
           date: '18 Dec 2025',
           images: [
-            '/images/gallery/mayank.webp',
-            '/images/gallery/neet2025-3.webp',
+            '/images/gallery/2025/mayank.webp',
+            '/images/gallery/2025/neet2025-3.webp',
             '/images/gallery/2025/november/n1.webp',
             '/images/gallery/2025/november/n2.webp',
             '/images/gallery/2025/november/n3.webp',
@@ -353,7 +353,7 @@ export const galleryData: GalleryData = {
     {
       month: 'DECEMBER',
       year: 2025,
-      mainImage: '/images/gallery/aseem.webp',
+      mainImage: '/images/gallery/2025/aseem.webp',
       events: [
         {
           title: 'University Fair',

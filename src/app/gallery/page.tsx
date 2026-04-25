@@ -47,7 +47,7 @@ export default function GalleryPage() {
     return (
         <>
             <FloatingWhatsApp />
-            <div className="bg-[#F4F7F8]">
+            <div className="bg-[#F4F7F8] min-h-screen">
                 {/* Hero Section */}
                 <section className="relative h-[400px] md:h-[500px] lg:h-[600px] flex items-center justify-center overflow-hidden">
                     <div
@@ -188,7 +188,7 @@ export default function GalleryPage() {
                 </section>
 
                 {/* Counselor Section Wrapper */}
-                <div className="mb-20 bg-white! py-16">
+                <div className="pb-20">
                     <CounselorSection />
                 </div>
 
