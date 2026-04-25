@@ -219,18 +219,18 @@ export default function AboutUsPage() {
               {steps.map((step) => (
                 <div
                   key={step.id}
-                  className="relative flex flex-col items-center pt-5 h-full"
+                  className="relative flex flex-col items-center pt-20 h-full"
                 >
-                  <div className="absolute -top-10 left-16">
+                  <div className="absolute -top-12 left-12">
                     <img
                       src={step.img}
                       alt={step.title}
-                      className="w-13 h-13 object-contain"
+                      className="w-[103px] h-[103px] object-contain"
                     />
                   </div>
 
                   {/* Card */}
-                  <div className="bg-[#F9FEFF] shadow-[0_3px_5px_rgb(0,0,0,0.12)] border border-[#E6E4E4] w-[calc(100%-2rem)] md:w-[calc(100%-5rem)] rounded-2xl p-6 sm:p-8 relative z-10 flex-1 flex flex-col items-start justify-start min-h-[260px]">
+                  <div className="bg-[#F9FEFF] shadow-[0_3px_5px_rgb(0,0,0,0.12)] border border-[#E6E4E4] w-[300.78px] h-[289.22px] rounded-2xl p-6 sm:p-8 relative z-10 flex flex-col items-start justify-start">
                     <h3 className="text-[#287FC4] font-bold text-[15px] mb-4">
                       {step.title}
                     </h3>
