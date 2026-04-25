@@ -257,12 +257,12 @@ export default function CareersPage() {
 
         <div className="container mx-auto px-4 relative z-10">
           <div className="text-center mb-6 pt-8 md:pt-15">
-            <h1 className="text-3xl md:text-5xl font-normal text-[#0B2E3C] mb-4">
+            <h1 className="text-3xl md:text-[48px] font-normal font-400 text-[#0B2E3C] mb-4">
               Join. Guide. Inspire.
             </h1>
-            <p className="text-[#4A4A4A] font-normal max-w-3xl mx-auto text-sm md:text-base px-4">
-            Be a part of a passionate team dedicated to guiding <br />
-            students towards the right academic and career choices. 
+            <p className="text-[#4A4A4A] font-normal font-400 max-w-3xl mx-auto text-sm md:text-[14px] px-4 py-3">
+              Be a part of a passionate team dedicated to guiding <br />
+              students towards the right academic and career choices.
             </p>
           </div>
           <div className="flex justify-center mt-8 -mb-16 md:-mb-35">
@@ -336,48 +336,48 @@ export default function CareersPage() {
             <div className="flex flex-col gap-8">
               {workEnvironmentData.map((item, index) => (
                 <div key={index} className="flex flex-col items-center">
-                    <div className="w-full max-w-sm">
+                  <div className="w-full max-w-sm">
+                    <div
+                      className={`relative rounded-lg overflow-hidden ${index === 1 || index === 3 ? "h-40" : "h-56"}`}
+                    >
+                      <Image
+                        src={item.image}
+                        alt={item.title}
+                        fill
+                        className="object-cover object-center select-none pointer-events-none"
+                        draggable={false}
+                      />
+                    </div>
+                    <div className="mt-3 flex justify-center relative">
+                      <div className={`w-4 h-4 rounded-full ${item.dotColor} shadow-xl ring-2 ring-white relative z-10`}></div>
+                      {/* line from image bottom -> dot (mobile) */}
                       <div
-                        className={`relative rounded-lg overflow-hidden ${index === 1 || index === 3 ? "h-40" : "h-56"}`}
-                      >
-                        <Image
-                          src={item.image}
-                          alt={item.title}
-                          fill
-                          className="object-cover object-center select-none pointer-events-none"
-                          draggable={false}
-                        />
-                      </div>
-                      <div className="mt-3 flex justify-center relative">
-                        <div className={`w-4 h-4 rounded-full ${item.dotColor} shadow-xl ring-2 ring-white relative z-10`}></div>
-                        {/* line from image bottom -> dot (mobile) */}
+                        className="absolute left-1/2 bottom-full -translate-x-1/2 w-px h-3 bg-gray-300 z-0"
+                        aria-hidden
+                      />
+                      {index !== workEnvironmentData.length - 1 && (
                         <div
-                          className="absolute left-1/2 bottom-full -translate-x-1/2 w-px h-3 bg-gray-300 z-0"
+                          className="absolute left-1/2 top-full -translate-x-1/2 w-px h-24 bg-gray-300 z-0"
                           aria-hidden
                         />
-                        {index !== workEnvironmentData.length - 1 && (
-                          <div
-                            className="absolute left-1/2 top-full -translate-x-1/2 w-px h-24 bg-gray-300 z-0"
-                            aria-hidden
-                          />
-                        )}
-                      </div>
+                      )}
                     </div>
-                    {/* Title below the card and dot */}
-                    <div className="pt-2 pb-2 text-center select-none pointer-events-none">
-                      <h3 className={`text-sm font-medium ${item.titleColor} inline-block bg-white px-2 relative z-10`}>
-                        {item.title.includes(" & ") ? (
-                          <>
-                            {item.title.split(" & ")[0]}{" "}
-                            {item.title === "learning-driven & environment" ? "" : "&"}
-                            <br />
-                            {item.title.split(" & ")[1]}
-                          </>
-                        ) : (
-                          item.title
-                        )}
-                      </h3>
-                    </div>
+                  </div>
+                  {/* Title below the card and dot */}
+                  <div className="pt-2 pb-2 text-center select-none pointer-events-none">
+                    <h3 className={`text-sm font-medium ${item.titleColor} inline-block bg-white px-2 relative z-10`}>
+                      {item.title.includes(" & ") ? (
+                        <>
+                          {item.title.split(" & ")[0]}{" "}
+                          {item.title === "learning-driven & environment" ? "" : "&"}
+                          <br />
+                          {item.title.split(" & ")[1]}
+                        </>
+                      ) : (
+                        item.title
+                      )}
+                    </h3>
+                  </div>
                 </div>
               ))}
             </div>
@@ -698,11 +698,10 @@ export default function CareersPage() {
                     disabled={isSubmitting || !consent}
                     className={`
                        opacity-80 cursor-pointer w-full text-white font-semibold py-2.5 md:py-3 text-sm md:text-base rounded-lg shadow-lg
-                                ${
-                                  !consent
-                                    ? "bg-[#ccc] text-white !cursor-not-allowed"
-                                    : "bg-[linear-gradient(270deg,#287FC4_0%,#00CFB2_100%)]"
-                                }
+                                ${!consent
+                        ? "bg-[#ccc] text-white !cursor-not-allowed"
+                        : "bg-[linear-gradient(270deg,#287FC4_0%,#00CFB2_100%)]"
+                      }
 
                       `}
                   >
