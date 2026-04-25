@@ -7,6 +7,12 @@ import NeetDetails from "@/components/neet-update-details/neet-details";
 import { useWebSocket } from "@/hooks/useWebSocket";
 import { getNeetUpdates, type NeetUpdate as ApiNeetUpdate } from "@/lib/api";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+import 'swiper/css/autoplay';
 
 // Define types for NEET updates (using the imported type)
 interface NeetUpdate extends ApiNeetUpdate {
@@ -19,11 +25,18 @@ async function fetchNeetUpdates(): Promise<NeetUpdate[]> {
 }
 
 // Static hero section data (not fetched from CRM)
-const HERO_SECTION_DATA = {
-    // date: "15 Apr 2026",
-    title: "NEET Exam in India: Your gateway to a bright medical career",
-    description: "Find all the important NEET updates, including exam dates, syllabus, result, and so much more. Stay ahead with the latest news related to NEET in one place."
-};
+const HERO_SECTION_DATA = [
+    {
+        title: "NEET Exam in India: Your gateway to a bright medical career",
+        description: "Find all the important NEET updates, including exam dates, syllabus, result, and so much more. Stay ahead with the latest news related to NEET in one place.",
+        image: "/images/neet-update/banner-2.webp"
+    },
+    {
+        title: "Stay Ahead with Real-time NEET Updates",
+        description: "Get instant notifications and detailed analysis of all NTA announcements, counselling schedules, and admission processes across all states.",
+        image: "/images/neet-update/banner-1.webp"
+    }
+];
 
 const categoryColors: Record<string, string> = {
     'Counselling Update': 'bg-[#FFEBEE] text-[#D32F2F]',
@@ -269,37 +282,63 @@ const NeetUpdateContent = () => {
         <div className="bg-[#Fdfdfd] min-h-screen pb-10 md:pb-20 py-1">
             <FloatingWhatsApp />
             {/* Hero Section */}
-            <section className="relative w-full h-[350px] sm:h-[400px] md:h-[500px]">
-                {/* Background Image */}
-                <div
-                    className="absolute inset-0 bg-cover bg-center"
-                    style={{
-                        backgroundImage:
-                            "url('/images/neet-update/hero-section.webp')",
+            <section className="relative w-full h-[350px] sm:h-[400px] md:h-[500px] group">
+                <Swiper
+                    modules={[Navigation]}
+                    navigation={{
+                        prevEl: '.hero-prev',
+                        nextEl: '.hero-next',
                     }}
+                    loop={true}
+                    className="w-full h-full"
                 >
-                    {/* Dark Overlay */}
-                    <div className="absolute inset-0 bg-black/40"></div>
-                </div>
+                    {HERO_SECTION_DATA.map((slide, index) => (
+                        <SwiperSlide key={index}>
+                            <div className="relative w-full h-full">
+                                {/* Background Image */}
+                                <div
+                                    className="absolute inset-0 bg-cover bg-center object-cover"
+                                    style={{
+                                        backgroundImage: `url('${slide.image}')`,
+                                    }}
+                                >
+                                    {/* Dark Overlay */}
+                                    <div className="absolute inset-0 bg-black/40"></div>
+                                </div>
 
-                {/* Hero Content - Static (not fetched from CRM) */}
-                <div className="relative z-10 w-full h-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex flex-col md:flex-row items-start md:items-end justify-between pb-8 md:pb-20 text-white">
-                    <div className="max-w-2xl pt-10 md:pt-0 top-20">
-                        {/* <span className="text-[#38b6ff] font-medium text-xs sm:text-sm md:text-base mb-1 sm:mb-2 block">
-                            {HERO_SECTION_DATA.date}
-                        </span> */}
-                        <Link href="?details=true" target="_blank">
-                            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold font-weight-700 leading-tight mb-3 sm:mb-1 hover:text-[#38b6ff] transition-colors cursor-pointer">
-                                {HERO_SECTION_DATA.title}
-                            </h1>
-                        </Link>
-                        <p className="text-gray-200 text-xs sm:text-sm md:text-base font-normal font-weight-500 leading-relaxed max-w-2xl mb-6 md:-mb-1 line-clamp-3 md:line-clamp-none">
-                            {HERO_SECTION_DATA.description}
-                        </p>
+                                {/* Hero Content */}
+                                <div className="relative z-10 w-full h-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex flex-col md:flex-row items-start md:items-end justify-between pb-12 md:pb-24 text-white">
+                                    <div className="max-w-2xl pt-10 md:pt-0">
+                                        <Link href="?details=true" target="_blank">
+                                            <h1 className="text-xl sm:text-2xl md:text-3xl font-bold leading-tight mb-3 sm:mb-1 hover:text-[#38b6ff] transition-colors cursor-pointer">
+                                                {slide.title}
+                                            </h1>
+                                        </Link>
+                                        <p className="text-gray-200 text-xs sm:text-sm md:text-base font-normal leading-relaxed max-w-2xl mb-6 md:-mb-1 line-clamp-3 md:line-clamp-none">
+                                            {slide.description}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </SwiperSlide>
+                    ))}
+                </Swiper>
+
+                {/* Custom Navigation Arrows Aligned with Content */}
+                <div className="absolute inset-x-0 bottom-12 md:bottom-24 z-20 pointer-events-none">
+                    <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-12 flex justify-end">
+                        <div className="flex gap-3 pointer-events-auto">
+                            <button className="hero-prev w-8 h-8 rounded-full bg-white flex items-center justify-center text-black shadow-lg transition-all hover:scale-110 active:scale-95 cursor-pointer">
+                                <i className="pi pi-arrow-left text-sm text-[#000000]"></i>
+                            </button>
+                            <button className="hero-next w-8 h-8 rounded-full bg-white flex items-center justify-center text-black shadow-lg transition-all hover:scale-110 active:scale-95 cursor-pointer">
+                                <i className="pi pi-arrow-right text-sm text-[#000000]"></i>
+                            </button>
+                        </div>
                     </div>
-
-
                 </div>
+
+
             </section>
 
             {/* Search & Filter Section */}
