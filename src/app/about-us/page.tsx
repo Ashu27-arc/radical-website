@@ -219,13 +219,13 @@ export default function AboutUsPage() {
               {steps.map((step) => (
                 <div
                   key={step.id}
-                  className="relative flex flex-col items-center pt-20 h-full"
+                  className="relative flex flex-col items-center pt-14 h-full"
                 >
                   <div className="absolute -top-12 left-12">
                     <img
                       src={step.img}
                       alt={step.title}
-                      className="w-[103px] h-[103px] object-contain"
+                      className="w-[76px] h-[76px] object-contain"
                     />
                   </div>
 
