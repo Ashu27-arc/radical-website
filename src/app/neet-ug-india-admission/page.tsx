@@ -21,17 +21,17 @@ const neetupadmissionplans = [
         bgImage: "/images/borderShape1.webp",
         icon: "/images/st1.svg",
         features: [
-            "All Standard + Strategy features",
-            "Full admission guidance till final seat",
-            "Direct expert support (call/WhatsApp)",
-            "Low budget & NRI quota assistance",
-            "Unlimited counselling & documentation help",
+            "MBBS / BDS",
+            "Alerts, Notifications, Updates",
+            "Detailed Information on Admission Procedure",
+            "Rank Based Analysis",
+            "Guidance over Documentation",
+            "Counselling Registrations Support over call and MEET",
+            "Colleges Choice List Pdf by Our Expert",
+            "Updated Fee and Seat Matrix Round wise",
+            "Bonds and Rural Services Rules Guidance over call",
+            "Central Pool Quota Seats Information",
             "NON REFUNDABLE",
-            // "Colleges Choice List Pdf by Our Expert",
-            // "Updated Fee and Seat Matrix Round wise",
-            // "Bonds and Rural Services Rules Guidance over call",
-            // "Central Pool Quota Seats Information",
-            // "NON REFUNDABLE",
         ],
     },
     {
@@ -44,16 +44,16 @@ const neetupadmissionplans = [
         bgImage: "/images/borderShape2.webp",
         icon: "/images/st2.svg",
         features: [
-            "All Standard features included",
-            "College & budget planning (India + Abroad)",
-            "Offer letters from abroad universities",
-            "Vacant seat alerts",
-            "Expert counselling (limited states)",
-            // "Office or Online meet with Senior Admission Manager",
-            // "Counselling Registrations and by our Expert up to 2 states only",
-            // "MBBS Abroad Dedicated Counselling",
-            // "NEET PG Reservations Guidance",
-            // "Hidden Charges Information",
+            "MBBS / BDS / AYUSH",
+            "All Services of Standard Plan",
+            "Offer Letters from 2 MBBS Abroad Universities",
+            "Exclusive alerts of Vacant Seats",
+            "Budget friendly colleges suggestion",
+            "Office or Online meet with Senior Admission Manager",
+            "Counselling Registrations and by our Expert up to 2 states only",
+            "MBBS Abroad Dedicated Counselling",
+            "NEET PG Reservations Guidance",
+            "Hidden Charges Information",
             "NON REFUNDABLE",
         ],
     },
@@ -68,15 +68,15 @@ const neetupadmissionplans = [
         bgImage: "/images/borderShape3.webp",
         icon: "/images/st3.svg",
         features: [
-            "All Standard + Strategy features",
-            "Full admission guidance till final seat",
-            "Direct expert (call/WhatsApp) support",
-            "Low budget & NRI quota assistance",
-            "Unlimited counselling & documentation help",
-            // "Unlimited Counselling registrations and Choice filling by our Experts",
-            // "NRI Seats Documentation and Admission Support",
-            // "College Reporting and Offline Documentation Support at Nodal Center",
-            // "Securities Refund Assurance (if Applicable)",
+            "MBBS / BDS / AYUSH",
+            "All Services of Standard Plan + Strategy",
+            "Full Guidance throughout MBBS/BDS/AYUSH Journey",
+            "Call/Whatsapp Guidance by Directors",
+            "Low Budget and Vacant seats information Of MQ/NRI/Other Quota Seats",
+            "Unlimited Counselling registrations and Choice filling by our Experts",
+            "NRI Seats Documentation and Admission Support",
+            "College Reporting and Offline Documentation Support at Nodal Center",
+            "Securities Refund Assurance (if Applicable)",
             "REFUNDABLE",
         ],
     },
@@ -292,37 +292,37 @@ export default function NeetUgIndiaAdmissionPage() {
                                 </Link>
 
                                 <div className="flex gap-2 absolute left-[7.3%] bottom-2.5 md:bottom-6 lg:bottom-8 xl:bottom-12 w-[135px] md:w-[200px] lg:w-[250px] xl:w-[300px]">
-                                                            <div className="hover:scale-105 transition-transform w-full">
-                                                                <Link
-                                                                    href="https://play.google.com/store/apps/details?id=com.kaveka.NeetBhaiya"
-                                                                    target="_blank"
-                                                                    className="block w-full h-full"
-                                                                >
-                                                                    <Image
-                                                                        src="/svg/play-store.svg"
-                                                                        alt="Google Play Store"
-                                                                        width={131}
-                                                                        height={37}
-                                                                        className="object-contain w-full h-full"
-                                                                    />
-                                                                </Link>
-                                                            </div>
-                                                            <div className="hover:scale-105 transition-transform w-full mt-0.5">
-                                                                <Link
-                                                                    href="https://apps.apple.com/in/app/neet-bhaiya/id6737535565"
-                                                                    target="_blank"
-                                                                    className="block w-full h-full"
-                                                                >
-                                                                    <Image
-                                                                        src="/svg/app-store.svg"
-                                                                        alt="App Store"
-                                                                        width={131}
-                                                                        height={37}
-                                                                        className="object-contain w-full h-full"
-                                                                    />
-                                                                </Link>
-                                                            </div>
-                                                        </div>
+                                    <div className="hover:scale-105 transition-transform w-full">
+                                        <Link
+                                            href="https://play.google.com/store/apps/details?id=com.kaveka.NeetBhaiya"
+                                            target="_blank"
+                                            className="block w-full h-full"
+                                        >
+                                            <Image
+                                                src="/svg/play-store.svg"
+                                                alt="Google Play Store"
+                                                width={131}
+                                                height={37}
+                                                className="object-contain w-full h-full"
+                                            />
+                                        </Link>
+                                    </div>
+                                    <div className="hover:scale-105 transition-transform w-full mt-0.5">
+                                        <Link
+                                            href="https://apps.apple.com/in/app/neet-bhaiya/id6737535565"
+                                            target="_blank"
+                                            className="block w-full h-full"
+                                        >
+                                            <Image
+                                                src="/svg/app-store.svg"
+                                                alt="App Store"
+                                                width={131}
+                                                height={37}
+                                                className="object-contain w-full h-full"
+                                            />
+                                        </Link>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </section>
