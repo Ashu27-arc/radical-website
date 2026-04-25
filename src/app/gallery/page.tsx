@@ -67,20 +67,21 @@ export default function GalleryPage() {
                     </div>
                 </section>
 
-                {/* Countries Swiper */}
-                <section className="bg-white py-12 md:py-20">
+                {/* Countries Description */}
+                <section className="pt-12 md:pt-20 pb-8">
                     <div className="container mx-auto px-4 fadeUp text-center">
-                        <div className="mb-10 md:mb-14">
-                            {/* <h2 className="text-[#0B2E3C] text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
-                                Our Global Presence
-                            </h2> */}
-                            <p className="text-[#4A4A4A] text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
-                                We are proud to support students pursuing their goals in these nations
-                            </p>
-                        </div>
+                        <p className="text-[#0B2E3C] text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+                            We are proud to support students pursuing their goals in these nations
+                        </p>
+                    </div>
+                </section>
+
+                {/* Countries Swiper */}
+                <section className="bg-white h-[117px] flex items-center relative z-10 shadow-[0_-8px_20px_-10px_rgba(0,0,0,0.06),0_8px_20px_-10px_rgba(0,0,0,0.06)]">
+                    <div className="container mx-auto px-4 fadeUp">
                         <Swiper
                             modules={[Autoplay, FreeMode]}
-                            spaceBetween={20}
+                            spaceBetween={15}
                             slidesPerView={3}
                             loop={true}
                             speed={5000}
@@ -91,15 +92,15 @@ export default function GalleryPage() {
                             }}
                             breakpoints={{
                                 640: { slidesPerView: 4, spaceBetween: 20 },
-                                768: { slidesPerView: 5, spaceBetween: 30 },
-                                1024: { slidesPerView: 7, spaceBetween: 40 },
+                                768: { slidesPerView: 6, spaceBetween: 25 },
+                                1024: { slidesPerView: 9, spaceBetween: 30 },
                             }}
                             className="w-full"
                         >
                             {countries.map((item, index) => (
                                 <SwiperSlide key={index}>
-                                    <div className="flex flex-col items-center gap-3 cursor-pointer group pb-4">
-                                        <div className="w-[55px] h-[55px] rounded-[10px] overflow-hidden flex items-center justify-center bg-white shadow-[0_4px_15px_rgba(0,0,0,0.08)] border border-gray-50 transition-transform duration-300 group-hover:scale-110">
+                                    <div className="flex flex-col items-center gap-2 cursor-pointer group">
+                                        <div className="w-[55px] h-[55px] rounded-[12px] overflow-hidden flex items-center justify-center bg-white transition-transform duration-300 group-hover:scale-105">
                                             <Image
                                                 src={item.flag}
                                                 alt={item.name}
@@ -108,7 +109,7 @@ export default function GalleryPage() {
                                                 className="object-cover w-full h-full"
                                             />
                                         </div>
-                                        <p className="text-[13px] md:text-sm font-medium text-[#4A4A4A] text-center whitespace-nowrap">
+                                        <p className="text-[12px] md:text-[13px] text-[#666666] text-center whitespace-nowrap">
                                             {item.name}
                                         </p>
                                     </div>
@@ -130,7 +131,10 @@ export default function GalleryPage() {
                                     <div className='text-[#4A4A4A] text-base md:text-lg leading-relaxed relative pl-6'>
                                         <span className="absolute left-0 top-0 bottom-0 w-[3px] bg-[#00CFB2]" />
                                         <div>
-                                            From final goodbyes to the first taste of independence, see our students off as they depart for top-tier medical universities worldwide.
+                                            From final goodbyes to the first taste
+                                            <br />of independence, see our students off
+                                            <br />as they depart for top-tier medical
+                                            <br />universities worldwide.
                                         </div>
                                     </div>
                                 </div>
@@ -184,7 +188,7 @@ export default function GalleryPage() {
                 </section>
 
                 {/* Counselor Section Wrapper */}
-                <div className="mb-20">
+                <div className="mb-20 bg-white! py-16">
                     <CounselorSection />
                 </div>
 
