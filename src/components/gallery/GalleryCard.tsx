@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { Skeleton } from 'primereact/skeleton';
 
 interface Props {
@@ -28,11 +29,13 @@ export default function GalleryCard({ item, onClick, isActive }: Props) {
             className="absolute inset-0 rounded-xl"
           />
         )}
-        <img
+        <Image
           src={item.mainImage}
           alt={item.month}
+          fill
           onLoad={() => setLoaded(true)}
-          className={`w-full h-full object-cover rounded-xl shadow-lg ${loaded ? 'block' : 'hidden'}`}
+          className={`object-cover rounded-xl shadow-lg transition-opacity duration-500 ${loaded ? 'opacity-100' : 'opacity-0'}`}
+          sizes="(max-width: 768px) 100vw, 50vw"
         />
       </div>
 

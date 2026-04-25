@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { Dialog } from 'primereact/dialog';
 import { Skeleton } from 'primereact/skeleton';
+import Image from 'next/image';
 
 export default function GalleryModal({
     visible,
@@ -24,7 +25,7 @@ export default function GalleryModal({
         const [loaded, setLoaded] = useState(false);
 
         return (
-            <div className="relative w-full h-full">
+            <div className="relative w-full h-full min-h-[100px]">
                 {!loaded && (
                     <Skeleton
                         width="100%"
@@ -33,11 +34,13 @@ export default function GalleryModal({
                         className="absolute inset-0"
                     />
                 )}
-                <img
+                <Image
                     src={src}
+                    fill
                     onLoad={() => setLoaded(true)}
-                    className={`${className} ${loaded ? 'block' : 'hidden'}`}
+                    className={`${className} transition-opacity duration-500 ${loaded ? 'opacity-100' : 'opacity-0'}`}
                     alt=""
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
             </div>
         );
