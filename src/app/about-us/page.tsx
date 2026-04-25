@@ -3,32 +3,6 @@
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 export default function AboutUsPage() {
-  const heroData = {
-    tagline: "About Us Radical Education",
-    headingLeft: "Empowering",
-    headingHighlight: "Next Generation",
-    headingRight: "Students Empowering",
-    paragraph: (
-      <>
-        Radical Education serves as the strategic bridge between ambitious
-        students and the world’s leading academic institutions. More than just a
-        directory of colleges, we are a dedicated career consultancy
-        specialising in navigating the complex landscape of domestic and
-        international admissions. Our role is to strip away the "hustle" of the
-        application process, replacing it with expert advocacy and direct
-        linkages to premier educational resources. At Radical, we don’t just
-        offer advice; we provide the professional scaffolding necessary for you
-        to secure your seat at a dream institution.
-      </>
-    ),
-    stats: [
-      { value: "100%", label: "Rate of Success" },
-      { value: "50,000+", label: "Students Counselled" },
-      { value: "13+", label: "Years of Experience" },
-      { value: "90+", label: "Team Strength" },
-    ],
-  };
-
   const whoWeAreData = {
     title: "Who We Are",
     paragraph:
@@ -54,20 +28,39 @@ export default function AboutUsPage() {
     {
       id: 1,
       title: "Comprehensive Career Support",
-      desc: `We don’t just place you in a college; we support our growth as a medical professional even after you complete your studies.`,
+      desc: <>We don’t just place you in a
+        <br />college; we support our
+        <br />growth as a medical
+        <br /> professional even after you
+        <br /> complete your studies.</>,
       img: "/images/about/tile1.png",
     },
     {
       id: 2,
       title: "Stay Informed",
-      desc: `Real-time updates on admissions, fees, and documentation. 
-We handle the timeline; you handle the dream.`,
+      desc: (
+        <>
+          Real-time updates on
+          admissions, fees, and <br />
+          documentation. <br />
+          We handle the timeline; you handle the dream.
+        </>
+      ),
       img: "/images/about/tile2.png",
     },
     {
       id: 3,
       title: "Impartial Advice",
-      desc: `We provide objective advice tailored strictly to your career goals, ensuring your future is never compromised by institutional bias.`,
+      desc: (
+        <>
+          We provide objective<br />
+          advice tailored strictly to<br />
+          your career goals, ensuring <br />
+          your future is never<br />
+          compromised by<br />
+          institutional bias.
+        </>
+      ),
       img: "/images/about/tile3.png",
     },
   ];
@@ -83,11 +76,9 @@ We handle the timeline; you handle the dream.`,
           <div className="block md:hidden">
             <div className="mb-8">
               <h1 className="normal-case text-xl sm:text-2xl md:text-3xl font-bold mb-4 leading-tight text-center">
-                {heroData.headingLeft} <span className="">The</span>{" "}
-                <span className="text-[#00D9A3]">
-                  {heroData.headingHighlight}
-                </span>{" "}
-                <span className="">Of</span> {heroData.headingRight}
+                Empowering the
+                <br /><span className="text-[#00D9A3]">next generation</span>
+                <br /> of Students
               </h1>
             </div>
 
@@ -100,15 +91,29 @@ We handle the timeline; you handle the dream.`,
             </div>
 
             <div className="mb-6 px-3">
-              <div className="border-l-2 border-[#00CFB2] pl-3 pr-2 max-w-full">
-                <p className="text-[14px] font-normal leading-[1.6] opacity-90 text-justify">
-                  {heroData.paragraph}
+              <div className="relative pl-3 pr-2 max-w-full">
+                <div className="absolute left-0 top-0 h-1/2 border-l-2 border-[#00CFB2]"></div>
+                <p className="text-[16px] font-normal leading-relaxed opacity-90 text-justify">
+                  Radical Education serves as the strategic bridge between ambitious
+                  students and the world’s leading academic institutions. More than just a
+                  directory of colleges, we are a dedicated career consultancy
+                  specialising in navigating the complex landscape of domestic and
+                  international admissions. Our role is to strip away the "hustle" of the
+                  application process, replacing it with expert advocacy and direct
+                  linkages to premier educational resources. At Radical, we don’t just
+                  offer advice; we provide the professional scaffolding necessary for you
+                  to secure your seat at a dream institution.
                 </p>
               </div>
             </div>
 
             <div className="grid grid-cols-2 gap-3 sm:gap-4 relative z-10">
-              {heroData.stats.map((stat, idx) => (
+              {[
+                { value: "100%", label: "Rate of Success" },
+                { value: "50,000+", label: "Students Counselled" },
+                { value: "13+", label: "Years of Experience" },
+                { value: "90+", label: "Team Strength" },
+              ].map((stat, idx) => (
                 <div
                   key={`stat-mobile-${idx}`}
                   className="flex flex-col items-start rounded-lg p-3 sm:p-4"
@@ -125,16 +130,23 @@ We handle the timeline; you handle the dream.`,
           {/* Desktop Layout */}
           <div className="hidden md:grid md:grid-cols-2 gap-8 md:gap-6 items-center">
             <div>
-              <h1 className="normal-case text-2xl sm:text-3xl md:text-4xl lg:text-[42px] lg:ml-5 font-bold mb-4 md:mb-3 leading-tight">
-                {heroData.headingLeft} <span className="">The</span>{" "}
-                <span className="text-[#00D9A3]">
-                  {heroData.headingHighlight}
-                </span>{" "}
-                <span className="">Of</span> {heroData.headingRight}
+              <h1 className="normal-case text-2xl sm:text-3xl md:text-4xl lg:text-[45px] lg:ml-5 font-medium font-wight-500 mb-4 md:mb-3 leading-tight">
+                Empowering the
+                <br /><span className="text-[#00D9A3] text-[45px] font-medium font-weight-500">next generation</span>
+                <br /> of students
               </h1>
-              <div className="border-l-4 border-[#00CFB2] pl-4 md:pl-4s">
-                <p className="text-base font-normal md:text-xs md:text-sm leading-relaxed opacity-90 text-justify">
-                  {heroData.paragraph}
+              <div className="relative pl-4 md:pl-4">
+                <div className="absolute left-0 top-0 h-1/2 border-l-4 border-[#00CFB2]"></div>
+                <p className="text-[16px] font-normal leading-relaxed opacity-90 text-justify">
+                  Radical Education serves as the strategic bridge between ambitious<br />
+                  students and the world’s leading academic institutions. More than<br />
+                  just a directory of colleges, we are a dedicated career consultancy<br />
+                  specialising in navigating the complex landscape of domestic and<br />
+                  international admissions. Our role is to strip away the "hustle" of the<br />
+                  application process, replacing it with expert advocacy and direct<br />
+                  linkages to premier educational resources. At Radical, we don’t just<br />
+                  offer advice; we provide the professional scaffolding necessary for<br />
+                  you to secure your seat at a dream institution.
                 </p>
               </div>
             </div>
@@ -149,7 +161,12 @@ We handle the timeline; you handle the dream.`,
               </div>
 
               <div className="grid grid-cols-2 gap-3 sm:gap-4 relative z-10 justify-items-center">
-                {heroData.stats.map((stat, idx) => (
+                {[
+                  { value: "100%", label: "Rate of Success" },
+                  { value: "50,000+", label: "Students Counselled" },
+                  { value: "13+", label: "Years of Experience" },
+                  { value: "90+", label: "Team Strength" },
+                ].map((stat, idx) => (
                   <div
                     key={`stat-desktop-${idx}`}
                     className="w-[170px] flex flex-col items-start rounded-lg p-3 sm:p-4"
@@ -181,14 +198,14 @@ We handle the timeline; you handle the dream.`,
             </div>
             <div className="md:w-2/3">
               <div className="md:border-l-4 md:border-[#00CFB2] md:pl-6 mb-6 md:mb-8">
-                <p className="text-sm sm:text-base md:text-base text-[#4A4A4A] font-medium leading-relaxed">
+                <p className="text-[16px] sm:text-base md:text-[16px] text-[#4A4A4A] font-medium leading-relaxed">
                   Choosing the right college is a crucial decision that can
-                  shape your future career
+                  shape your future career journey.
                   <br />
-                  journey. At Radical Education, we understand the importance of
-                  this decision
+                  At Radical Education, we understand the importance of
+                  this decision and aim to make
                   <br />
-                  and aim to make the process as seamless and effortless as
+                  the process as seamless and effortless as
                   possible for you.
                 </p>
               </div>
@@ -231,8 +248,8 @@ We handle the timeline; you handle the dream.`,
       <section className="py-12 md:py-16 bg-gray-50">
         <div className="container mx-auto px-4 md:px-8">
           <p className="text-3xl sm:text-4xl md:text-5xl font-semibold text-center mb-8 md:mb-12">
-            <span className="text-[#005A8B]">FEATURED</span>{" "}
-            <span className="text-[#00CFB2]">ACROSS</span>
+            <span className="text-[#005A8B] font-semibold text-[70px] font-600">FEATURED</span>{" "}
+            <span className="text-[#00CFB2] font-semibold text-[70px] font-600">ACROSS</span>
           </p>
 
           <style
