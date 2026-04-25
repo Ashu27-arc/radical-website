@@ -36,8 +36,8 @@ const Russia = () => {
               <Image
                 src="/images/study-abroad/flags/bg-russia.png"
                 alt="Russia Flag"
-                width={162}
-                height={162}
+                width={500}
+                height={500}
                 className="object-contain w-[53%] h-[53%]"
               />
             </div>
