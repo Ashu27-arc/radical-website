@@ -121,7 +121,7 @@ const universities = [
   {
     name: "Yaroslavl State Medical University Russia",
     logo: "/images/study-abroad/logos/r-23.webp",
-    link: ""
+    link: "https://www.radicaleducation.in/yaroslavl-state-medical-university-russia"
   },
   {
     name: "Tver State Medical University",
@@ -131,7 +131,7 @@ const universities = [
   {
     name: "Synergy University Russia",
     logo: "/images/study-abroad/logos/r-25.webp",
-    link: ""
+    link: "https://www.radicaleducation.in/synergy-university"
   }
 ];
 
