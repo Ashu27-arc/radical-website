@@ -88,7 +88,7 @@ export async function fetchAllWpPostsForSitemap(
 
   try {
     const firstPageUrl = `${baseUrl}?per_page=${PER_PAGE}&page=1&_fields=id,slug,date`;
-    const response = await fetch(firstPageUrl, { cache: 'no-store' });
+    const response = await fetch(firstPageUrl, { next: { revalidate: 3600 } });
 
     if (!response.ok) {
       throw new Error(`Sitemap fetch failed: ${response.status} ${response.statusText}`);
@@ -111,7 +111,7 @@ export async function fetchAllWpPostsForSitemap(
             try {
               const res = await fetch(
                 `${baseUrl}?per_page=${PER_PAGE}&page=${page}&_fields=id,slug,date`,
-                { cache: 'no-store' }
+                { next: { revalidate: 3600 } }
               );
               if (!res.ok) return [];
               const data: { slug: string; date: string }[] = await res.json();

@@ -7,7 +7,8 @@ import { mainMenuData } from '@/data/mainMenuData';
 
 const DOMAIN = 'https://radicaleducation.in';
 
-export const revalidate = 3600; // revalidate every hour
+// Dynamic route — Next.js will server-render /sitemap.xml on demand
+export const dynamic = 'force-dynamic';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // 1. Static Routes
