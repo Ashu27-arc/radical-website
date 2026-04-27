@@ -239,7 +239,7 @@ const BlogsPage = () => {
   return (
     <>
       <FloatingWhatsApp />
-      <div className="sticky top-[80px] md:top-[130px] z-40 bg-white/95 backdrop-blur-sm shadow-md border-b border-gray-100 transition-all duration-200">
+      <div className="sticky top-[56px] md:top-[73px] lg:top-[133px] z-40 bg-white/95 backdrop-blur-sm shadow-md border-b border-gray-100 transition-all duration-200">
         <div className="container mx-auto px-4 py-1.5 md:py-2">
           <div className="max-w-6xl mx-auto px-3 sm:px-4 md:px-6">
             <div className="flex flex-col lg:flex-row gap-2 sm:gap-2 items-stretch lg:items-center justify-start">
@@ -315,7 +315,7 @@ const BlogsPage = () => {
       </div>
 
       {loading ? (
-        <div className="container mx-auto px-4 py-15 animate-pulse">
+        <div className="container mx-auto px-4 py-20 animate-pulse">
           <div className="h-8 bg-gray-200 rounded w-52 mb-6" />
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
             <div className="lg:col-span-2 h-[310px] bg-gray-200 rounded-2xl" />
@@ -326,7 +326,7 @@ const BlogsPage = () => {
           </div>
         </div>
       ) : filtered.length > 0 && (
-        <div className="container mx-auto px-4 py-15">
+        <div className="container mx-auto px-4 py-20">
           {/* <GlobalBanner banners={banners} /> */}
           <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Fresh Update</h2>
           <div className="flex flex-col lg:flex-row gap-6 lg:items-start">
