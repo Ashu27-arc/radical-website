@@ -94,11 +94,6 @@ const universities = [
     link: "https://www.radicaleducation.in/orel-state-medical-university"
   },
   {
-    name: "Kalinga Institute of Medical science",
-    logo: "/images/study-abroad/logos/r-18.webp",
-    link: ""
-  },
-  {
     name: "Samara State Medical University Russia",
     logo: "/images/study-abroad/logos/r-19.webp",
     link: "https://www.radicaleducation.in/samara-state-medical-university-russia"

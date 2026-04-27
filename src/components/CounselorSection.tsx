@@ -11,11 +11,11 @@ export default function CounselorSection() {
 
                         {/* Left Content */}
                         <div className="max-w-2xl">
-                            <h2 className="text-[32px] md:text-[36px] font-semibold text-gray-900 mb-6 leading-tight">
-                                Request a free callback <br />
-                                <span className="bg-gradient-to-r from-[#005A8B] to-[#00CFB2] bg-clip-text text-transparent">from our Counsellor</span>
+                            <h2 className="text-[32px] md:text-[36px] font-semibold text-[#000000] mb-6 leading-tight">
+                                Request a free callback <br />from{" "}
+                                <span className="bg-gradient-to-r from-[#005A8B] to-[#00CFB2] bg-clip-text text-transparent">our Counsellor</span>
                             </h2>
-                            <p className="text-base md:text-lg font-normal text-gray-700 mb-10 lg:mb-16">
+                            <p className="text-base md:text-lg font-normal text-[#000000] mb-10 lg:mb-16">
                                 We will call you back to give you personalised advice and clarity for your next steps.
                             </p>
 
@@ -26,8 +26,8 @@ export default function CounselorSection() {
                                         <Image src="/icons/location.png" alt="Location Icon" width={28} height={28} className="object-contain w-6 h-6 md:w-8 md:h-8" />
                                     </div>
                                     <div>
-                                        <h4 className="text-lg font-semibold text-[#0A1A2F]">Visit us</h4>
-                                        <p className="text-[#089241] mt-1 text-sm md:text-base">
+                                        <h4 className="text-lg font-medium text-[#0A1A2F]">Visit us</h4>
+                                        <p className="text-[#089241] mt-1  text-[14px] font-normal">
                                             C-56/30, C Block, Sector 62, Noida, Uttar Pradesh 201309
                                         </p>
                                     </div>
@@ -39,9 +39,9 @@ export default function CounselorSection() {
                                         <div className="flex-shrink-0 w-12 h-12 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center shadow-md">
                                             <Image src="/icons/phone.png" alt="Phone Icon" width={28} height={28} className="object-contain w-6 h-6 md:w-8 md:h-8" />
                                         </div>
-                                        <div className="flex flex-wrap items-center gap-x-2">
-                                            <h4 className="text-lg font-semibold text-[#0A1A2F]">Call us</h4>
-                                            <a href="tel:+919797972465" className="text-[#089241] text-sm md:text-base hover:underline">+91 97 97 97 2465</a>
+                                        <div className="flex flex-wrap items-center gap-x-2 whitespace-nowrap">
+                                            <h4 className="text-lg font-medium text-[#0A1A2F]">Call us</h4>
+                                            <a href="tel:+919797972465" className="text-[#089241] text-[14px] font-normal hover:underline">+91 97 97 97 2465</a>
                                         </div>
                                     </div>
 
@@ -49,9 +49,9 @@ export default function CounselorSection() {
                                         <div className="flex-shrink-0 w-12 h-12 md:w-16 md:h-16 bg-white rounded-full flex items-center justify-center shadow-md">
                                             <Image src="/icons/mail.png" alt="Mail Icon" width={28} height={28} className="object-contain w-6 h-6 md:w-8 md:h-8" />
                                         </div>
-                                        <div className="flex flex-wrap items-center gap-x-2">
-                                            <h4 className="text-lg font-semibold text-[#0A1A2F]">Write to us</h4>
-                                            <a href="mailto:Info@Radicaleducation.in" className="text-[#089241] text-sm md:text-base hover:underline">info@radicaleducation.in</a>
+                                        <div className="flex flex-wrap items-center gap-x-2 whitespace-nowrap">
+                                            <h4 className="text-lg font-medium text-[#0A1A2F]">Write to us</h4>
+                                            <a href="mailto:Info@Radicaleducation.in" className="text-[#089241] text-[14px] font-normal hover:underline">info@radicaleducation.in</a>
                                         </div>
                                     </div>
                                 </div>
