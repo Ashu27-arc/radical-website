@@ -8,7 +8,6 @@ import { mainMenuData } from '@/data/mainMenuData';
 const DOMAIN = 'https://radicaleducation.in';
 
 export const revalidate = 3600; // revalidate every hour
-export const dynamic = 'force-dynamic';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   // 1. Static Routes

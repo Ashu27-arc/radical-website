@@ -1,7 +1,6 @@
 import { MetadataRoute } from 'next';
 
 export const revalidate = 3600; // revalidate every hour
-export const dynamic = 'force-dynamic';
 
 export default function robots(): MetadataRoute.Robots {
   return {
