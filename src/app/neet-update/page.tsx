@@ -4,8 +4,7 @@ import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { Suspense } from "react";
 import NeetDetails from "@/components/neet-update-details/neet-details";
-import { useWebSocket } from "@/hooks/useWebSocket";
-import { getNeetUpdates, type NeetUpdate as ApiNeetUpdate } from "@/lib/api";
+import { getWpBlogs, type Blog } from "@/lib/api";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
@@ -14,14 +13,21 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/autoplay';
 
-// Define types for NEET updates (using the imported type)
-interface NeetUpdate extends ApiNeetUpdate {
-    date: string; // Override to ensure string type for display
-}
-
-// Fetch NEET updates using the API service
-async function fetchNeetUpdates(): Promise<NeetUpdate[]> {
-    return await getNeetUpdates();
+// Define types for NEET updates
+interface NeetUpdate {
+    id: string;
+    title: string;
+    description: string;
+    date: string;
+    category: string;
+    important?: boolean;
+    course?: string;
+    year?: number;
+    month?: string;
+    state?: string;
+    imageUrl?: string;
+    link?: string;
+    status: string;
 }
 
 // Static hero section data (not fetched from CRM)
@@ -49,13 +55,10 @@ const defaultCategoryColor = 'bg-[#E3F2FD] text-[#005A8B]';
 const getCategoryColor = (cat: string) => categoryColors[cat] || defaultCategoryColor;
 
 const PLACEHOLDER_IMAGE = "/images/neet-update/card.webp";
-const CRM_API_BASE = process.env.NEXT_PUBLIC_CRM_API_URL || "https://backend-radical.onrender.com";
 
 function getArticleImageSrc(imageUrl: string | undefined): string {
     if (!imageUrl) return PLACEHOLDER_IMAGE;
-    if (imageUrl.startsWith("http://") || imageUrl.startsWith("https://")) return imageUrl;
-    const path = imageUrl.startsWith("/") ? imageUrl : `/uploads/${imageUrl}`;
-    return `${CRM_API_BASE.replace(/\/$/, "")}${path}`;
+    return imageUrl;
 }
 
 // Articles fetched from CRM (excluding hero section)
@@ -87,13 +90,15 @@ const NeetUpdateContent = () => {
         if (!matchesSearch) return false;
 
         // Courses filter
-        if (selectedFilters.courses.length > 0 && (!article.course || !selectedFilters.courses.includes(article.course))) {
-            return false;
+        if (selectedFilters.courses.length > 0) {
+            const matchesCourse = selectedFilters.courses.some(c => article.category?.toLowerCase().includes(c.toLowerCase()));
+            if (!matchesCourse) return false;
         }
 
         // Categories filter
-        if (selectedFilters.categories.length > 0 && (!article.category || !selectedFilters.categories.includes(article.category))) {
-            return false;
+        if (selectedFilters.categories.length > 0) {
+            const matchesCategory = selectedFilters.categories.some(cat => article.category?.toLowerCase().includes(cat.toLowerCase()));
+            if (!matchesCategory) return false;
         }
 
         // Years filter
@@ -107,8 +112,9 @@ const NeetUpdateContent = () => {
         }
 
         // States filter
-        if (selectedFilters.states.length > 0 && (!article.state || !selectedFilters.states.includes(article.state))) {
-            return false;
+        if (selectedFilters.states.length > 0) {
+            const matchesState = selectedFilters.states.some(s => article.category?.toLowerCase().includes(s.toLowerCase()));
+            if (!matchesState) return false;
         }
 
         return true;
@@ -119,9 +125,6 @@ const NeetUpdateContent = () => {
     const endIndex = startIndex + itemsPerPage;
     const currentArticles = filteredArticles.slice(startIndex, endIndex);
 
-    const [newUpdateCount, setNewUpdateCount] = useState(0);
-    const wsUrl = process.env.NEXT_PUBLIC_WS_URL || 'wss://backend-radical.onrender.com';
-    const { addMessageHandler } = useWebSocket(wsUrl);
 
     // Filter options
     const FILTER_OPTIONS = {
@@ -164,24 +167,36 @@ const NeetUpdateContent = () => {
     const searchParams = useSearchParams();
     const showDetails = searchParams.get("details") === "true";
 
-    // Fetch articles from CRM (for grid section only, hero section is static)
+    // Fetch articles from WordPress blogs
     useEffect(() => {
         const loadArticles = async () => {
             setLoading(true);
             try {
-                const data = await fetchNeetUpdates();
-                // Convert date format for display
-                const formattedData = data.map(article => ({
-                    ...article,
-                    date: new Date(article.date).toLocaleDateString('en-US', {
-                        month: 'short',
-                        day: 'numeric',
-                        year: 'numeric'
-                    })
-                }));
+                const blogs = await getWpBlogs();
+                // Changed from 'notification' to 'update' because 'notification' category doesn't exist in WordPress yet
+                const notificationBlogs = blogs.filter(blog => blog.category?.toLowerCase().includes('update'));
+                const formattedData: NeetUpdate[] = notificationBlogs.map(blog => {
+                    const dateObj = new Date(blog.date);
+                    const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+                    return {
+                        id: blog.slug || blog.id,
+                        title: blog.title,
+                        description: blog.excerpt,
+                        date: dateObj.toLocaleDateString('en-US', {
+                            month: 'short',
+                            day: 'numeric',
+                            year: 'numeric'
+                        }),
+                        category: blog.category,
+                        year: dateObj.getFullYear(),
+                        month: months[dateObj.getMonth()],
+                        imageUrl: blog.featuredImage,
+                        status: blog.status
+                    };
+                });
                 setArticles(formattedData);
             } catch (error) {
-                console.error('Error loading articles from CRM:', error);
+                console.error('Error loading articles from WordPress:', error);
                 // Set empty array on error to show no results
                 setArticles([]);
             } finally {
@@ -192,90 +207,8 @@ const NeetUpdateContent = () => {
         loadArticles();
     }, []);
 
-    // Handle real-time WebSocket updates
-    useEffect(() => {
-        const removeHandler = addMessageHandler((data) => {
-            console.log('Received NEET update message:', data);
-
-            switch (data.type) {
-                case 'NEW_NEET_UPDATE':
-                    if (data.update) {
-                        const newArticle = {
-                            ...data.update,
-                            date: new Date(data.update.date).toLocaleDateString('en-US', {
-                                month: 'short',
-                                day: 'numeric',
-                                year: 'numeric'
-                            })
-                        };
-
-                        // Add to the beginning of the list
-                        setArticles(prev => [newArticle, ...prev]);
-                        // Increment new update counter
-                        setNewUpdateCount(prev => prev + 1);
-
-                        // Auto-reset counter after 10 seconds
-                        setTimeout(() => {
-                            setNewUpdateCount(0);
-                        }, 10000);
-                    }
-                    break;
-
-                case 'UPDATE_NEET_UPDATE':
-                    if (data.update) {
-                        const updatedArticle = {
-                            ...data.update,
-                            date: new Date(data.update.date).toLocaleDateString('en-US', {
-                                month: 'short',
-                                day: 'numeric',
-                                year: 'numeric'
-                            })
-                        };
-
-                        // Update existing article
-                        setArticles(prev =>
-                            prev.map(article =>
-                                article.id === data.update.id ? updatedArticle : article
-                            )
-                        );
-                    }
-                    break;
-
-                case 'DELETE_NEET_UPDATE':
-                    if (data.updateId) {
-                        // Remove deleted article
-                        setArticles(prev => {
-                            const filtered = prev.filter(article => article.id !== data.updateId);
-                            console.log(`Removed article with ID: ${data.updateId}. Remaining: ${filtered.length}`);
-                            return filtered;
-                        });
-                    } else {
-                        console.warn('DELETE_NEET_UPDATE received without updateId');
-                    }
-                    break;
-            }
-        });
-
-        return () => {
-            removeHandler();
-        };
-    }, [addMessageHandler]);
-
     if (showDetails) {
         return <NeetDetails />;
-    }
-
-    if (loading) {
-        return (
-            <div className="bg-[#Fdfdfd] min-h-screen py-10 flex items-center justify-center">
-                <div className="text-center">
-                    <div className="inline-block h-12 w-12 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]" role="status">
-                        <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
-                    </div>
-                    <p className="mt-4 text-gray-500">Loading NEET updates...</p>
-                </div>
-            </div>
-        );
     }
 
     return (
@@ -447,8 +380,15 @@ const NeetUpdateContent = () => {
             </section>
 
             {/* Articles Grid - Fetched from CRM */}
-            <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 pb-10 sm:pb-16">
-                {filteredArticles.length === 0 && !loading ? (
+            <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 md:px-12 pb-10 sm:pb-16 min-h-[400px]">
+                {loading ? (
+                    <div className="flex flex-col items-center justify-center py-20">
+                        <div className="inline-block h-10 w-10 sm:h-12 sm:w-12 animate-spin rounded-full border-4 border-solid border-[#035f94] border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]" role="status">
+                            <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
+                        </div>
+                        <p className="mt-4 text-[#035f94] font-medium animate-pulse text-sm sm:text-base">Loading NEET updates...</p>
+                    </div>
+                ) : filteredArticles.length === 0 ? (
                     <div className="text-center py-12">
                         <p className="text-gray-500">No NEET updates available for the selected filters.</p>
                     </div>
@@ -504,7 +444,7 @@ const NeetUpdateContent = () => {
             </section>
 
             {/* Pagination - For CRM fetched articles */}
-            {filteredArticles.length > 0 && (
+            {!loading && filteredArticles.length > 0 && (
                 <section className="w-full max-w-7xl mx-auto px-4 sm:px-6 pb-8 sm:pb-12">
                     <div className="bg-white rounded-full py-1.5 sm:py-2 px-3 sm:px-4 inline-flex items-center justify-center gap-1 mx-auto relative left-1/2 -translate-x-1/2 shadow-sm border border-gray-100 overflow-x-auto max-w-[90vw] no-scrollbar">
                         <button

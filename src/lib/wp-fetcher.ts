@@ -82,13 +82,13 @@ export async function fetchAllWordPressPosts(
  */
 export async function fetchAllWpPostsForSitemap(
   baseUrl: string = 'https://news.radicaleducation.in/wp-json/wp/v2/posts'
-): Promise<{ slug: string; date: string }[]> {
+): Promise<{ slug: string; date: string; modified: string }[]> {
   const PER_PAGE = 100;
   const CONCURRENCY_LIMIT = 8; // Can be higher since payloads are tiny
 
   try {
-    const firstPageUrl = `${baseUrl}?per_page=${PER_PAGE}&page=1&_fields=id,slug,date`;
-    const response = await fetch(firstPageUrl, { cache: 'no-store' });
+    const firstPageUrl = `${baseUrl}?per_page=${PER_PAGE}&page=1&_fields=id,slug,date,modified`;
+    const response = await fetch(firstPageUrl, { next: { revalidate: 3600 } });
 
     if (!response.ok) {
       throw new Error(`Sitemap fetch failed: ${response.status} ${response.statusText}`);
@@ -97,8 +97,8 @@ export async function fetchAllWpPostsForSitemap(
     const totalPagesHeader = response.headers.get('x-wp-totalpages');
     const totalPages = totalPagesHeader ? parseInt(totalPagesHeader, 10) : 1;
 
-    const firstPage: { slug: string; date: string }[] = await response.json();
-    let allPosts = firstPage.map((p) => ({ slug: p.slug, date: p.date }));
+    const firstPage: { slug: string; date: string; modified: string }[] = await response.json();
+    let allPosts = firstPage.map((p) => ({ slug: p.slug, date: p.date, modified: p.modified ?? p.date }));
 
     if (totalPages > 1) {
       const pageNumbers = Array.from({ length: totalPages - 1 }, (_, i) => i + 2);
@@ -110,12 +110,12 @@ export async function fetchAllWpPostsForSitemap(
           chunk.map(async (page) => {
             try {
               const res = await fetch(
-                `${baseUrl}?per_page=${PER_PAGE}&page=${page}&_fields=id,slug,date`,
-                { cache: 'no-store' }
+                `${baseUrl}?per_page=${PER_PAGE}&page=${page}&_fields=id,slug,date,modified`,
+                { next: { revalidate: 3600 } }
               );
               if (!res.ok) return [];
-              const data: { slug: string; date: string }[] = await res.json();
-              return data.map((p) => ({ slug: p.slug, date: p.date }));
+              const data: { slug: string; date: string; modified: string }[] = await res.json();
+              return data.map((p) => ({ slug: p.slug, date: p.date, modified: p.modified ?? p.date }));
             } catch {
               return [];
             }

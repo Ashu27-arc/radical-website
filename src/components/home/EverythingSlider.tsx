@@ -23,11 +23,6 @@ export default function EverythingSlider() {
     "/images/everythings-banners/mock-3.png",
     "/images/everythings-banners/mock-4.png",
     "/images/everythings-banners/mock-5.png",
-    // "/images/everythings-banners/mock-5.png",
-    // "/images/everythings-banners/mock-4.png",
-    // "/images/everythings-banners/mock-3.png",
-    // "/images/everythings-banners/mock-2.png",
-    // "/images/everythings-banners/mock-1.png",
   ];
 
   return (

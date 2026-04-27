@@ -1,5 +1,7 @@
 import { MetadataRoute } from 'next';
 
+export const revalidate = 3600; // revalidate every hour
+
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
@@ -13,7 +15,7 @@ export default function robots(): MetadataRoute.Robots {
         '/private/',
       ],
     },
-    sitemap: 'https://radicaleducation.in/sitemap.xml',
-    host: 'https://radicaleducation.in',
+    sitemap: 'https://www.radicaleducation.in/sitemap.xml',
+    host: 'https://www.radicaleducation.in',
   };
 }

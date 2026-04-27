@@ -375,22 +375,22 @@ hover:shadow-2xl hover:scale-[1.03] ${cardClass}`}
                                             className="rounded-full object-cover"
                                         />
                                         <div>
-                                            <h3 className="text-sm font-semibold text-gray-800">
+                                            <h3 className="text-[16px] font-semibold text-[#000000]">
                                                 {item.name}
                                             </h3>
-                                            <p className="text-xs text-gray-500">{item.location}</p>
+                                            <p className="text-[14px] text-[#9a9a9a]">{item.location}</p>
                                         </div>
                                     </div>
                                     <p className="text-sm text-gray-600 leading-relaxed mb-4 min-h-[91px]">
                                         {item.text}
                                     </p>
                                     <div className="flex items-center justify-between">
-                                        <span className="text-xs px-3 py-1 rounded-full bg-blue-100 text-blue-600 font-medium">
+                                        <span className="text-[14px] px-3 py-1 rounded-full bg-blue-100 text-blue-600 font-medium">
                                             {item.tag}
                                         </span>
 
                                         <div className="flex items-center gap-2">
-                                            <span className="text-xs text-gray-500">
+                                            <span className="text-[14px] text--[#000000]">
                                                 {item.status}
                                             </span>
                                             <Image
