@@ -51,47 +51,37 @@ export default function GalleryModal({
             visible={visible}
             onHide={onHide}
             dismissableMask
-            style={{ width: '72vw' }}
+            style={{ width: 'fit-content', maxWidth: '95vw', maxHeight: '95vh' }}
             className="gallery-modal"
             header={null}
+            contentClassName="p-0 overflow-hidden rounded-xl"
+            contentStyle={{ overflow: 'hidden' }}
         >
-            <div className="space-y-8">
-
-                {events.map((event, index) => (
-                    <div key={index}>
-                        <h3 className="text-center font-semibold text-[#005A8B] mb-6">
-                            {event.title} – {event.date}
-                        </h3>
-                        <div className="grid grid-cols-3 gap-4">
-                            <div className="col-span-2 row-span-2 pb-4">
-                                <ImageWithSkeleton
-                                    src={event.images[0]}
-                                    className="w-full h-full object-cover rounded-lg"
-                                />
-                            </div>
-                            <div className="grid grid-cols-1 gap-4">
-                                <ImageWithSkeleton
-                                    src={event.images[1]}
-                                    className="w-full h-full object-cover rounded-lg"
-                                />
-                                <ImageWithSkeleton
-                                    src={event.images[2]}
-                                    className="w-full h-full object-cover rounded-lg"
-                                />
-                            </div>
+            <div className="bg-white overflow-hidden">
+                {events && events.length > 0 && (
+                    <div className="flex flex-col overflow-hidden">
+                        <div className="p-4 md:p-5 text-center border-b border-gray-100 bg-white">
+                            <h3 className="text-lg font-semibold text-[#005A8B]">
+                                {events[0].title} {events[0].date && `– ${events[0].date}`}
+                            </h3>
                         </div>
-                        <div className="grid grid-cols-3 gap-4 mt-4">
-                            {event.images.slice(3, 7).map((img: string, i: number) => (
-                                <ImageWithSkeleton
-                                    key={i}
-                                    src={img}
-                                    className="h-32 w-full object-cover rounded-lg"
-                                />
-                            ))}
+
+                        <div className="relative flex justify-center items-center bg-gray-50/30 overflow-hidden">
+                            {events[0].images && events[0].images[0] && (
+                                <div className="relative max-h-[75vh] flex justify-center overflow-hidden">
+                                    <Image
+                                        src={events[0].images[0]}
+                                        alt={events[0].title}
+                                        width={1600}
+                                        height={1200}
+                                        className="w-auto h-auto max-w-full max-h-[70vh] object-contain block shadow-2xl"
+                                        priority
+                                    />
+                                </div>
+                            )}
                         </div>
                     </div>
-                ))}
-
+                )}
             </div>
         </Dialog>
     );
