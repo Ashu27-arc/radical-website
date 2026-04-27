@@ -230,9 +230,9 @@ export default function MBBSAbroadAdmission() {
         {
             country: "Singapore",
             flag: "/images/singapore.webp",
-            academic: { inr: "S$ 373,750", usd: "" },
-            hostel: { inr: "S$ 50,100", usd: "" },
-            total: { inr: "S$ 423,850", usd: "" },
+            academic: { inr: "$ 373,750", usd: "" },
+            hostel: { inr: "$ 50,100", usd: "" },
+            total: { inr: "$ 423,850", usd: "" },
         },
         {
             country: "Uzbekistan",
