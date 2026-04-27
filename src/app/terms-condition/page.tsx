@@ -1,7 +1,8 @@
 'use client';
 
 import Link from "next/link";
-import { Image } from "primereact/image";
+import Image from "next/image";
+
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 
@@ -12,15 +13,12 @@ export default function TermsConditionPage() {
         <>
             <FloatingWhatsApp />
             <div className="h-[60px] hidden lg:block"></div>
-            <div className="py-10 lg:py-20 bg-[#F4F7F8]">
-                <div className="container px-3 md:px-4">
-                    <div className="flex md:flex-row flex-col gap-6">
-                        <div className="w-full md:w-4/10">
-                            <h1 className="lg:text-5xl text-4xl font-bold text-[#0B2E3C] fadeUp text-center">Terms & <span className="text-[#2980C4]">Condition</span></h1>
-                            <div className="hidden md:block mt-10 lg:w-[250px] md:w-[200px] fadePopup"><Image src="/images/squreTexcher.webp" alt="" width="" height="" /></div>
-                        </div>
-                        <div className="w-full md:w-6/10">
+            <div className="py-12 lg:py-24 bg-[#F4F7F8]">
+                <div className="container mx-auto px-6 md:px-12 lg:px-20 max-w-7xl">
+                    <div className="flex flex-col md:flex-row gap-12 lg:gap-24 items-start">
+                        <div className="w-full md:w-[60%]">
                             <div className="space-y-6 text-[#4A4A4A]">
+                                <h1 className="lg:text-5xl text-4xl font-semibold text-[#0B2E3C] fadeUp mb-8">Terms & <span className="text-[#2980C4]">Conditions</span></h1>
                                 <p className="text-gray-700 leading-relaxed fadeUp">
                                     Welcome to Radical Education. These terms and conditions explain how
                                     you can use our education consultancy website and services. By visiting
@@ -149,6 +147,17 @@ export default function TermsConditionPage() {
                                         our website if you do not agree with all of these terms.
                                     </p>
                                 </section>
+                            </div>
+                        </div>
+                        <div className="w-full md:w-[35%] flex justify-end">
+                            <div className="hidden md:block fadePopup w-full max-w-[400px]">
+                                <Image
+                                    src="/images/terms-condition.png"
+                                    alt="Terms and Conditions Illustration"
+                                    width={450}
+                                    height={450}
+                                    className="w-full h-auto object-contain"
+                                />
                             </div>
                         </div>
                     </div>
