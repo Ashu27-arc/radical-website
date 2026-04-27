@@ -9,7 +9,7 @@ import { mainMenuData } from '@/data/mainMenuData';
 
 // ─── Config ───────────────────────────────────────────────────────────────────
 
-export const dynamic = 'force-dynamic';
+export const revalidate = 3600; // revalidate every hour
 
 const BASE_URL = 'https://www.radicaleducation.in';
 
