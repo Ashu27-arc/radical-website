@@ -53,6 +53,29 @@ export default function Home() {
     []
   );
 
+  const rankSearchResults = (results: string[], query: string) => {
+    const normalizedQuery = query.trim().toLowerCase();
+
+    return [...results].sort((a, b) => {
+      const normalizedA = a.toLowerCase();
+      const normalizedB = b.toLowerCase();
+
+      const exactA = normalizedA === normalizedQuery ? 1 : 0;
+      const exactB = normalizedB === normalizedQuery ? 1 : 0;
+      if (exactA !== exactB) return exactB - exactA;
+
+      const startsWithA = normalizedA.startsWith(normalizedQuery) ? 1 : 0;
+      const startsWithB = normalizedB.startsWith(normalizedQuery) ? 1 : 0;
+      if (startsWithA !== startsWithB) return startsWithB - startsWithA;
+
+      const indexA = normalizedA.indexOf(normalizedQuery);
+      const indexB = normalizedB.indexOf(normalizedQuery);
+      if (indexA !== indexB) return indexA - indexB;
+
+      return a.localeCompare(b);
+    });
+  };
+
   const search = async (event: AutoCompleteCompleteEvent) => {
     const query = event.query.trim();
 
@@ -83,7 +106,10 @@ export default function Home() {
       college.toLowerCase().includes(query.toLowerCase())
     );
 
-    const combined = Array.from(new Set([...localMatches, ...fetchedColleges])).filter(Boolean);
+    const combined = rankSearchResults(
+      Array.from(new Set([...localMatches, ...fetchedColleges])).filter(Boolean),
+      query
+    );
     setItems(combined);
   };
 
