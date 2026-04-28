@@ -10,20 +10,61 @@ import FloatingWhatsApp from '@/components/FloatingWhatsApp';
 import GlobalBanner from '@/components/GlobalBanner';
 
 const categoryColors: Record<string, string> = {
-  // 'Education': 'bg-[#BFE6DB] text-[#00A88E]',
+  // 'Education': 'bg-[#EFEBE9] text-[#5D4037]',
   'Exams': 'bg-[#FFE0B2] text-[#C77700]',
   'Government': 'bg-[#D5DCE5] text-[#2C3E50]',
   // 'Careers': 'bg-[#C9E2FF] text-[#004E89]',
   'MBBS in India': 'bg-[#E8F5E9] text-[#2E7D32]',
   'MBBS Abroad': 'bg-[#BFE6DB] text-[#00A88E]',
-  'Study Abroad': 'bg-[#BFE6DB] text-[#00A88E]',
+  'Study Abroad': 'bg-[#F3E5F5] text-[#7B1FA2]',
   'NEET UG': 'bg-[#FFEBEE] text-[#D32F2F]',
   'NEET PG': 'bg-[#FFF9C4] text-[#F9A825]',
   'Notification': 'bg-[#E1F5FE] text-[#0288D1]',
+  // Added categories
+  'Counselling Update': 'bg-[#E0F2F1] text-[#00695C]',
+  'Study India': 'bg-[#F1F8E9] text-[#558B2F]',
+  'MBBS': 'bg-[#E3F2FD] text-[#1565C0]',
+  'AYUSH': 'bg-[#F9FBE7] text-[#9E9D24]',
+  'BDS': 'bg-[#FCE4EC] text-[#AD1457]',
+  'BHMS': 'bg-[#E8EAF6] text-[#283593]',
+  'BAMS': 'bg-[#FFF3E0] text-[#E65100]',
+  'BNYS': 'bg-[#FBE9E7] text-[#D84315]',
+  'Medical': 'bg-[#EFEBE9] text-[#4E342E]',
+  'CET': 'bg-[#ECEFF1] text-[#37474F]',
+  'MBA': 'bg-[#EDE7F6] text-[#4527A0]',
+  'PGDM': 'bg-[#FFF8E1] text-[#FF8F00]',
+  'Entrance Exam': 'bg-[#FFCDD2] text-[#B71C1C]',
+  'NTA': 'bg-[#B2DFDB] text-[#004D40]',
+  'MS': 'bg-[#C8E6C9] text-[#1B5E20]',
+  'MD': 'bg-[#BBDEFB] text-[#0D47A1]',
+  'DNB': 'bg-[#D1C4E9] text-[#311B92]',
+  // States
+  'Uttarakhand': 'bg-[#FFECB3] text-[#F57F17]',
+  'Karnataka': 'bg-[#CFD8DC] text-[#263238]',
+  'Uttar Pradesh': 'bg-[#B3E5FC] text-[#01579B]',
+  'Kerala': 'bg-[#DCEDC8] text-[#33691E]',
+  'Punjab': 'bg-[#F8BBD0] text-[#880E4F]',
+  'Haryana': 'bg-[#D7CCC8] text-[#3E2723]',
+  'Madhya Pradesh': 'bg-[#FFCC80] text-[#E65100]',
+  'Rajasthan': 'bg-[#C5CAE9] text-[#1A237E]',
+  'Gujarat': 'bg-[#B2EBF2] text-[#006064]',
+  'Maharashtra': 'bg-[#F0F4C3] text-[#827717]',
+  'Odisha': 'bg-[#E1BEE7] text-[#4A148C]',
+  'Andhra Pradesh': 'bg-[#FFCCBC] text-[#BF360C]',
+  'Bihar': 'bg-[#BCAAA4] text-[#3E2723]',
 };
 
 const defaultCategoryColor = 'bg-[#E3F2FD] text-[#005A8B]';
-const stableCategoryOrder = ['All', 'Exams', 'Government', 'MBBS in India', 'MBBS Abroad', 'Study Abroad', 'NEET UG', 'NEET PG', 'Notification'];
+const stableCategoryOrder = [
+  'All', 'Exams', 'Government', 'MBBS in India', 'MBBS Abroad', 'Study Abroad', 
+  'NEET UG', 'NEET PG', 'Notification',
+  'NEET UG 2025', 'NEET UG 2026', 'NEET PG 2025', 'NEET PG 2026', 'NEET 2026',
+  'Counselling Update', 'Study India', 'MBBS', 'MBBS 2026', 'AYUSH', 'BDS', 'BHMS', 'BAMS', 'BNYS',
+  'Medical', 'CET 2026', 'MBA ENTRANCE EXAMS', 'MBA-PGDM 2025 Updates', 'MBA', 'PGDM', 'Entrance Exam', 'NTA',
+  'MS', 'MD', 'DNB',
+  'Andhra Pradesh', 'Bihar', 'Gujarat', 'Haryana', 'Karnataka', 'Kerala', 'Madhya Pradesh', 
+  'Maharashtra', 'Odisha', 'Punjab', 'Rajasthan', 'Uttar Pradesh', 'Uttarakhand'
+];
 const BLOGS_CACHE_KEY = 'radical_blogs_cache_v1';
 
 const excludedCategoryNames = ['blog', 'blogs', 'other', 'others', 'uncategorized', 'uncategorised'];
@@ -36,7 +77,14 @@ const toCategoryList = (value: unknown): string[] => {
     list = value.split(',').map((item) => item.trim()).filter(Boolean);
   }
 
-  return list.filter(cat => !excludedCategoryNames.includes(cat.toLowerCase()));
+  const validCats = list.filter(cat => !excludedCategoryNames.includes(cat.toLowerCase()));
+  const seen = new Set<string>();
+  return validCats.filter(cat => {
+    const lowerCat = cat.toLowerCase();
+    if (seen.has(lowerCat)) return false;
+    seen.add(lowerCat);
+    return true;
+  });
 };
 
 const normalizeCategoryForMatch = (value: string) =>

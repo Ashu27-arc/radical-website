@@ -115,65 +115,68 @@ export default function StudyAbroadPage() {
 
             <section className="mb-10 lg:mb-20">
                 <div className="bg-white py-12 md:py-16">
-                    <div className="container mx-auto px-4 mb-10 text-center">
-                        <h2 className="text-3xl md:text-[16px] font-medium font-weight-500 text-gray-900 mb-4 text-left">Our Students are Everywhere.</h2>
-                    </div>
-                    <div className="study-abroadCuntrySlider overflow-hidden">
-                        <Swiper
-                            modules={[Autoplay, Pagination]}
-                            spaceBetween={30}
-                            loop={true}
-                            pagination={{
-                                clickable: true,
-                                el: '.swiper-pagination-custom',
-                            }}
-                            speed={3000}
-                            autoplay={{
-                                delay: 2000,
-                                disableOnInteraction: false,
-                            }}
-                            breakpoints={{
-                                0: {
-                                    slidesPerView: 2,
-                                },
-                                480: {
-                                    slidesPerView: 3,
-                                },
-                                768: {
-                                    slidesPerView: 4,
-                                },
-                                1024: {
-                                    slidesPerView: 6,
-                                },
-                            }}
-                            className="!ease-linear"
-                        >
-                            {countries.map((country, index) => (
-                                <SwiperSlide key={index}>
-                                    <div className="text-center flex flex-col items-center">
-                                        <Link
-                                            href={`/mbbs-abroad-admission/`}
-                                            className="block group"
-                                        >
-                                            <div className="transition-all hover:scale-110 duration-300 p-4">
-                                                <div className="w-[100px] h-[85px] rounded-[10px] overflow-hidden shadow-lg mx-auto bg-white relative border border-gray-100">
-                                                    <Image
-                                                        src={country.flag}
-                                                        alt={`${country.name} flag`}
-                                                        width={100}
-                                                        height={85}
-                                                        className="w-full h-full object-cover"
-                                                    />
+                    <div className="container mx-auto px-4 text-center">
+                        <div className="mb-10">
+                            <h2 className="text-3xl md:text-[16px] font-medium font-weight-500 text-gray-900 mb-4 text-left">Our Students are Everywhere.</h2>
+                        </div>
+                        <div className="study-abroadCuntrySlider overflow-hidden">
+                            <Swiper
+                                modules={[Autoplay, Pagination]}
+                                spaceBetween={10}
+                                loop={true}
+                                slidesPerGroup={3}
+                                pagination={{
+                                    clickable: true,
+                                    el: '.swiper-pagination-custom',
+                                }}
+                                speed={3000}
+                                autoplay={{
+                                    delay: 2000,
+                                    disableOnInteraction: false,
+                                }}
+                                breakpoints={{
+                                    0: {
+                                        slidesPerView: 3,
+                                    },
+                                    480: {
+                                        slidesPerView: 5,
+                                    },
+                                    768: {
+                                        slidesPerView: 7,
+                                    },
+                                    1024: {
+                                        slidesPerView: 9,
+                                    },
+                                }}
+                                className="!ease-linear"
+                            >
+                                {[...countries, ...countries.slice(0, 3)].map((country, index) => (
+                                    <SwiperSlide key={index}>
+                                        <div className="text-center flex flex-col items-center">
+                                            <Link
+                                                href={`/mbbs-abroad-admission/`}
+                                                className="block group"
+                                            >
+                                                <div className="transition-all hover:scale-110 duration-300 p-2">
+                                                    <div className="w-[68px] h-[68px] rounded-[10px] overflow-hidden shadow-lg mx-auto bg-white relative border border-gray-100 flex items-center justify-center">
+                                                        <Image
+                                                            src={country.flag}
+                                                            alt={`${country.name} flag`}
+                                                            width={68}
+                                                            height={68}
+                                                            className="w-full h-full object-cover"
+                                                        />
+                                                    </div>
                                                 </div>
-                                            </div>
-                                        </Link>
-                                        <h3 className="font-semibold text-gray-800 mt-0 md:mt-1 text-xs md:text-sm">
-                                            {country.name}
-                                        </h3>
-                                    </div>
-                                </SwiperSlide>
-                            ))}
-                        </Swiper>
+                                            </Link>
+                                            <h3 className="font-semibold text-gray-800 mt-0 md:mt-1 text-xs md:text-sm">
+                                                {country.name}
+                                            </h3>
+                                        </div>
+                                    </SwiperSlide>
+                                ))}
+                            </Swiper>
+                        </div>
                     </div>
                 </div>
                 {/* Custom Pagination outside white section */}
