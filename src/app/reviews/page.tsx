@@ -86,7 +86,7 @@ const reviewtestimonials = [
         id: 7,
         name: "YASHVI AGARWAL",
         location: "Uttar Pradesh",
-        text: "I’m so grateful to Radical Education and especially Hitesh Agrawal ma'am for helping me throughout my MBBS admission process.",
+        text: "I’m so grateful to Radical Education and especially Hitashi Agrawal ma'am for helping me throughout my MBBS admission process.",
         tag: "MBBS",
         status: "MRMCW",
         avatar: "/images/reviews/user7.webp",
