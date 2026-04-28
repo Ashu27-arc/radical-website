@@ -1,5 +1,6 @@
 'use client';
 import Image from "next/image";
+import Link from "next/link";
 import CounselorSection from "@/components/CounselorSection";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, FreeMode } from 'swiper/modules';
@@ -183,6 +184,59 @@ export default function GalleryPage() {
                                     onClick={() => setModalEvents(item.events)}
                                 />
                             ))}
+                        </div>
+                    </div>
+                </section>
+
+                {/* NB Banner Section */}
+                <section className="bg-[#F4F7F8] py-10 md:py-16">
+                    <div className="container mx-auto px-4">
+                        <div className="relative w-full aspect-[1240/350] rounded-2xl overflow-hidden shadow-lg cursor-pointer">
+                            <Link
+                                href="https://neetbhaiya.in"
+                                target="_blank"
+                                className="block w-full h-full"
+                            >
+                                <Image
+                                    src="/images/packages-nb-banner.webp"
+                                    alt="NEET Bhaiya Banner"
+                                    fill
+                                    className="object-cover"
+                                />
+                            </Link>
+
+                            <div className="flex gap-2 absolute left-[7.3%] bottom-3 md:bottom-7 lg:bottom-10 xl:bottom-14 w-[135px] md:w-[200px] lg:w-[250px] xl:w-[300px]">
+                                <div className="hover:scale-105 transition-transform w-full">
+                                    <Link
+                                        href="https://play.google.com/store/apps/details?id=com.kaveka.NeetBhaiya"
+                                        target="_blank"
+                                        className="block w-full h-full"
+                                    >
+                                        <Image
+                                            src="/svg/play-store.svg"
+                                            alt="Google Play Store"
+                                            width={131}
+                                            height={37}
+                                            className="object-contain w-full h-full"
+                                        />
+                                    </Link>
+                                </div>
+                                <div className="hover:scale-105 transition-transform w-full mt-0.5">
+                                    <Link
+                                        href="https://apps.apple.com/in/app/neet-bhaiya/id6737535565"
+                                        target="_blank"
+                                        className="block w-full h-full"
+                                    >
+                                        <Image
+                                            src="/svg/app-store.svg"
+                                            alt="App Store"
+                                            width={131}
+                                            height={37}
+                                            className="object-contain w-full h-full"
+                                        />
+                                    </Link>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>
