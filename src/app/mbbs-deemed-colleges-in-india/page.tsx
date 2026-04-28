@@ -1300,9 +1300,13 @@ export default function MBBSDeemedCollegesPage() {
                     disabled={isSubmitting}
                   >
                     <option value="" disabled hidden></option>
-                    <option value="MBBS">MBBS</option>
+                    <option value="MBBS Abroad">MBBS Abroad</option>
+                    <option value="MBBS India">MBBS India</option>
                     <option value="BDS">BDS</option>
                     <option value="BAMS">BAMS</option>
+                    <option value="BYMS">BYMS</option>
+                    <option value="BUMS">BUMS</option>
+                    <option value="BSMS">BSMS</option>
                     <option value="BHMS">BHMS</option>
                     <option value="MD">MD</option>
                     <option value="MS">MS</option>
