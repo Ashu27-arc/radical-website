@@ -21,7 +21,7 @@ const Bangladesh = () => {
               MBBS IN BANGLADESH
             </h1>
             <p className="text-sm md:text-lg lg:text-[16px] text-white/90 font-medium max-w-2xl leading-relaxed">
-              Achieve your dream of becoming a doctor with Bangladesh’s affordable and academically excellent MBBS programmes.
+              Achieve your dream of becoming a doctor with Bangladesh affordable and academically excellent MBBS programmes.
             </p>
           </div>
         </div>
