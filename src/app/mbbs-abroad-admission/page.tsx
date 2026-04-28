@@ -254,8 +254,9 @@ export default function MBBSAbroadAdmission() {
                     <h1 className="text-white text-4xl md:text-6xl font-bold mb-4 text-center lg:text-left">
                         Study <span className="text-[#F9F500]">abroad</span>
                     </h1>
-                    <p className="text-white/80 mt-4 max-w-xl text-lg mb-8 text-center lg:text-left">
-                        Your gateway to world-class education and global medical careers. From application to admission—we guide your medical journey
+                    <p className="text-[#353535] mt-4 max-w-xl text-[16.93px] font-normal mb-8 text-center lg:text-left">
+                        Your gateway to world-class education and global medical careers.<br />
+                        <span className="text-[#353535] font-semibold"> From application to admission—we guide your medical journey</span>   
                     </p>
 
                     <div className="relative max-w-xl">
@@ -335,7 +336,7 @@ export default function MBBSAbroadAdmission() {
                                 <img
                                     src={logo}
                                     alt="logo"
-                                    className="w-[120px] h-[60px] object-contain transition"
+                                    className="w-[319px] h-[70px] object-contain transition"
                                 />
                             </div>
                         </SwiperSlide>
@@ -727,24 +728,24 @@ export default function MBBSAbroadAdmission() {
                             </table>
                         </div>
 
-                        {/* 
+                        
                         <div className="px-4 lg:px-20 bg-white py-10">
-                            <div className="bg-white border-1 border-dashed border-[#2CBF0F] rounded-xl p-3 sm:p-4 md:p-6">
+                            <div className="bg-white p-3 sm:p-4 md:p-6">
                                 <div className="space-y-2">
                                     <div className="flex items-start gap-2">
-                                        <span className="text-[#FF0000] font-semibold flex-shrink-0 text-sm sm:text-base md:text-lg">Note:</span>
+                                        <span className="text-[#FF4B4B] font-bold flex-shrink-0 text-sm sm:text-base md:text-[12px]">Note:</span>
                                         <div className="space-y-1 text-[#2CBF0F] text-xs sm:text-sm md:text-base">
-                                            <p className="text-green-600">
-                                                1. This service charge includes visa charges but does not cover ticket charges.
+                                            <p className="text-[#000000] font-medium text-sm sm:text-base md:text-[12px]">
+                                                Fee structures for these colleges and universities are updated annually; consequently, the provided figures are subject to change
                                             </p>
-                                            <p className="text-green-600">
+                                            {/* <p className="text-green-600">
                                                 2. Get the offer price of ₹99,999 before the NEET result.
-                                            </p>
+                                            </p> */}
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div> */}
+                        </div>
 
                     </div>
                 </div>
