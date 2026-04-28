@@ -29,7 +29,7 @@ export default function EverythingSlider() {
 
   return (
     <div
-      className="bg-gradient-to-br from-[#DFF1FF] via-[#FFFFFF] to-[#DFF1FF] rounded-4xl p-6 md:p-10 text-center relative cursor-pointer"
+      className="bg-[#dbeafe] rounded-4xl p-6 md:p-10 text-center relative cursor-pointer"
       onClick={handleRedirect}
     >
       <div className="flex justify-center mb-6">
@@ -37,14 +37,13 @@ export default function EverythingSlider() {
           <img src={'/images/logo-neetbhaiya.webp'} alt="" className="w-[160px] h-[auto]" height={160} width={58} />
         </div>
       </div>
-      <div className="p-6 md:p-10">
-        <h2 className="text-center cursor-pointer text-3xl lg:text-4xl font-normal mb-8">
-          From <span className="text-[#3569C0]">Rank</span> to{" "}
-          <span className="text-[#3569C0]">Seat</span> → All Data in <span className="text-[#3569C0]">one app</span>
-          <span className="block text-[16px] md:text-[20px] font-poppins mt-2 md:mt-0">Smart packages that keep it simple and affordable.</span>
-        </h2>
+      <h2 className="bg-[#dbeafe]/28! rounded-4xl p-6 md:p-10 text-center cursor-pointer text-3xl lg:text-4xl font-normal mb-8">
+        From <span className="text-[#3569C0]">Rank</span> to{" "}
+        <span className="text-[#3569C0]">Seat</span> → All Data in <span className="text-[#3569C0]">one app</span>
+        <span className="block text-[16px] md:text-[20px] font-poppins mt-2 md:mt-0">Smart packages that keep it simple and affordable.</span>
+      </h2>
 
-        <div className="p-8 md:p-12">
+      <div className="bg-[#f0f0f0]/28 rounded-4xl p-8 md:p-12">
         <Swiper
           modules={[EffectCoverflow, Autoplay]}
           effect="coverflow"
@@ -84,10 +83,9 @@ export default function EverythingSlider() {
             </SwiperSlide>
           ))}
         </Swiper>
-        </div>
       </div>
 
-      <div className="bg-[#DFF1FF] rounded-4xl flex justify-center md:justify-between items-center mt-7 md:mt-10 flex-wrap gap-y-6 md:gap-y-4 gap-4 text-sm text-gray-600 p-4 md:p-6">
+      <div className="flex justify-center md:justify-between items-center mt-7 md:mt-10 flex-wrap gap-y-6 md:gap-y-4 gap-4 text-sm text-gray-600">
         <div className="flex items-center gap-2">
           <span>Powered by:</span>
           <Image
