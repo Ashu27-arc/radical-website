@@ -4,13 +4,16 @@ import CounselorSection from "@/components/CounselorSection";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 export default function OurTeam() {
-  const getCounselledCount = (base: number) => {
+  const getCounselledCount = (base: number, index: number) => {
     const startDate = new Date(2024, 0, 1); // Jan 1, 2024
     const today = new Date();
     const monthsPassed =
       (today.getFullYear() - startDate.getFullYear()) * 12 +
       (today.getMonth() - startDate.getMonth());
-    return (base + monthsPassed * 15).toLocaleString();
+    // Different growth rates for each counselor to make numbers more unique
+    const growthRates = [18, 12, 15, 13, 16, 17, 19, 14];
+    const rate = growthRates[index] || 15;
+    return (base + monthsPassed * rate).toLocaleString();
   };
 
   const teamMembers = [
@@ -224,7 +227,7 @@ export default function OurTeam() {
                         <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#005A8B]"></span>
                       </span>
                       <span className="text-xs text-[#005A8B] truncate md:whitespace-normal md:overflow-visible md:text-[11px] lg:text-xs lg:truncate">
-                        Student Counselled: {getCounselledCount(member.studentCounselled)}
+                        Student Counselled: {getCounselledCount(member.studentCounselled, index)}
                       </span>
                     </div>
                     <div className="flex items-center gap-1">
