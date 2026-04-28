@@ -29,11 +29,7 @@ export default function EverythingSlider() {
 
   return (
     <div
-      className="rounded-4xl p-6 md:p-10 text-center relative cursor-pointer"
-      style={{
-        background:
-          "linear-gradient(135deg, #FFFFFF 0%, #DFF1FF 48%, #FFFFFF 100%), linear-gradient(45deg, rgba(255,255,255,0) 30%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 70%)",
-      }}
+      className="rounded-4xl p-6 md:p-10 text-center relative cursor-pointer bg-[linear-gradient(135deg,_#FFFFFF_0%,_#DFF1FF_48%,_#FFFFFF_100%),linear-gradient(45deg,_rgba(255,255,255,0)_30%,_rgba(255,255,255,0.8)_50%,_rgba(255,255,255,0)_70%)]"
       onClick={handleRedirect}
     >
       <div className="flex justify-center mb-6">
