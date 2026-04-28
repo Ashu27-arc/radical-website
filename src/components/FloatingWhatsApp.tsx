@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { Card } from "primereact/card";
 import { Button } from "primereact/button";
 import { Image } from "primereact/image";
+import ContactOptions from "@/components/home/ContactOptions";
 
 const WHATSAPP_ITEMS = [
   {
@@ -18,8 +19,13 @@ const WHATSAPP_ITEMS = [
     icon: "/images/wp-ico3.svg",
     experts: [
       {
-        name: "Shivanshu Shakya",
-        experience: "3+ Years",
+        name: "Hitashi Aggarwal",
+        experience: "7+ Years",
+        link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
+      },
+      {
+        name: "Pooja Kumari",
+        experience: "4+ Years",
         link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
       },
       {
@@ -28,8 +34,23 @@ const WHATSAPP_ITEMS = [
         link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
       },
       {
+        name: "Rangnath Jha",
+        experience: "6+ Years",
+        link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
+      },
+      {
+        name: "Raj Kishore",
+        experience: "3+ Years",
+        link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
+      },
+      {
         name: "Manish Jha",
         experience: "5+ Years",
+        link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
+      },
+      {
+        name: "Shashwat Pandey",
+        experience: "4+ Years",
         link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
       },
     ],
@@ -40,18 +61,38 @@ const WHATSAPP_ITEMS = [
     icon: "/images/wp-ico3.svg",
     experts: [
       {
+        name: "Hitashi Aggarwal",
+        experience: "7+ Years",
+        link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
+      },
+      {
+        name: "Pooja Kumari",
+        experience: "4+ Years",
+        link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
+      },
+      {
+        name: "Sudakshina Singh",
+        experience: "4+ Years",
+        link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
+      },
+      {
         name: "Rangnath Jha",
         experience: "6+ Years",
         link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
       },
       {
-        name: "Shashwat Pandey",
-        experience: "4+ Years",
+        name: "Raj Kishore",
+        experience: "3+ Years",
         link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
       },
       {
-        name: "Hitashi Aggarwal",
-        experience: "7+ Years",
+        name: "Manish Jha",
+        experience: "5+ Years",
+        link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
+      },
+      {
+        name: "Shashwat Pandey",
+        experience: "4+ Years",
         link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
       },
     ],
@@ -67,12 +108,32 @@ const WHATSAPP_ITEMS = [
         link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
       },
       {
-        name: "Shivanshu Shakya",
+        name: "Pooja Kumari",
+        experience: "4+ Years",
+        link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
+      },
+      {
+        name: "Sudakshina Singh",
+        experience: "4+ Years",
+        link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
+      },
+      {
+        name: "Rangnath Jha",
+        experience: "6+ Years",
+        link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
+      },
+      {
+        name: "Raj Kishore",
         experience: "3+ Years",
         link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
       },
       {
-        name: "Pooja Kumari",
+        name: "Manish Jha",
+        experience: "5+ Years",
+        link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
+      },
+      {
+        name: "Shashwat Pandey",
         experience: "4+ Years",
         link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
       },
@@ -83,21 +144,21 @@ const WHATSAPP_ITEMS = [
     title: "Support (24/7)",
     icon: "/images/wp-ico5.svg",
     experts: [
-      {
-        name: "Raj Kishor",
-        experience: "24/7 Available",
-        link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
-      },
-      {
-        name: "Sudakshina Singh",
-        experience: "24/7 Available",
-        link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
-      },
-      {
-        name: "Manish Jha",
-        experience: "24/7 Available",
-        link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
-      },
+      // {
+      //   name: "Raj Kishor",
+      //   experience: "24/7 Available",
+      //   link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
+      // },
+      // {
+      //   name: "Sudakshina Singh",
+      //   experience: "24/7 Available",
+      //   link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
+      // },
+      // {
+      //   name: "Manish Jha",
+      //   experience: "24/7 Available",
+      //   link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
+      // },
     ],
   },
 ];
@@ -251,6 +312,13 @@ export default function FloatingWhatsApp() {
                 <div className="text-[#0B2E3C] font-semibold mb-4 text-xs">
                   {selectedItem.title}
                 </div>
+                
+                {selectedItem.title === "Support (24/7)" && (
+                  <div className="mb-2">
+                    <ContactOptions variant="small" />
+                  </div>
+                )}
+
                 <div className="space-y-3">
                   {selectedItem.experts.map((expert: any, idx: number) => (
                     <div

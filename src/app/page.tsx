@@ -94,21 +94,199 @@ export default function Home() {
   };
 
   const videos = [
+    // ug-videos here
     {
       id: 1,
-      title: "Utkarshika Gupta, CSAMC, Etah",
-      youtubeId: "jfq8RbTIrtI",
+      title: 'Arush Loomba, KD Medical College, Mathura',
+      youtubeId: '5cGL3vAHVgY',
     },
     {
       id: 2,
-      title: "Ayush Kushwaha, GSAMC, Hapur",
-      youtubeId: "hwYjHX5pk9w",
+      title: 'Etshamul Haque, NCR Institute of Medical Sciences, Uttar Pradesh',
+      youtubeId: '_voXIMBO5kE',
     },
     {
       id: 3,
-      title: "Sangam Yadav, MGAMC, Lucknow",
-      youtubeId: "CxDL_T4CWs8",
+      title: 'Tanish Bhatiya, GMC, Washim',
+      youtubeId: 'LGz27v7iCf0',
     },
+    {
+      id: 4,
+      title: 'Saubhagya Agrawal, NIMS, Noida',
+      youtubeId: 'lHUOtZmHvng',
+    },
+    {
+      id: 5,
+      title: 'Anhad Kaur, Sri Guru Ram Das Institute of Medical Sciences and Research, Amritsar',
+      youtubeId: '7t81QLx4TeM',
+    },
+    {
+      id: 6,
+      title: 'Aditya Verma, Maharishi Markandeshwar Dental Sciences & Research College',
+      youtubeId: 'EG7fg6sd5Uo',
+    },
+    {
+      id: 7,
+      title: 'Piyush Bisht, GMC, Haldwani',
+      youtubeId: 'AY9meq3dpRA',
+    },
+    {
+      id: 8,
+      title: 'Prabhat Soni, GMC Jhunjhunu',
+      youtubeId: 'XYZPevx_UE0',
+    },
+    {
+      id: 9,
+      title: 'Rudra Pratap Singh, HIMS, Sitapur',
+      youtubeId: 'tBWzWhOelNo',
+    },
+    {
+      id: 10,
+      title: 'Sherya Jain, TMU, Moradabad',
+      youtubeId: 'Ltk485g1cEw',
+    },
+    {
+      id: 11,
+      title: 'Aditya Maan, GMC Sirohi',
+      youtubeId: 'QdpT-kOvM2g',
+    },
+    {
+      id: 12,
+      title: 'Yashvi Agarwal, MRWC, Hyderabad',
+      youtubeId: '37-KkRicxAs',
+    },
+    {
+      id: 13,
+      title: 'Kumar Amlendu, Government Medical College, Ariyalur',
+      youtubeId: 'TRLNAiSqDqY',
+    },
+    {
+      id: 14,
+      title: 'Abhishek Sharma, NIIMS, Gr. Noida',
+      youtubeId: 'UxIt6DyD4CE',
+    },
+    {
+      id: 15,
+      title: 'Prabhleen Kaur, GDC, Amritsar',
+      youtubeId: '0GAQQwIU8n0',
+    },
+    {
+      id: 16,
+      title: 'Annant, MMC, Muzaffarnagar',
+      youtubeId: '6lhfvUFUoQM',
+    },
+    {
+      id: 17,
+      title: 'Ved Unnarkar, BVDU Medical College, Sangli',
+      youtubeId: 'qiE-UwKIPD8',
+    },
+    {
+      id: 18,
+      title: 'Sangam Yadav, MGAMC',
+      youtubeId: 'CxDL_T4CWs8',
+    },
+    {
+      id: 19,
+      title: 'Vyomkesh, FHMC, Agra',
+      youtubeId: 'i76uENNwSok',
+    },
+    {
+      id: 20,
+      title: 'Angel, SDC',
+      youtubeId: 'z9U9FDWPlYo',
+    },
+    {
+      id: 21,
+      title: 'Mohammed Athar, FHMC, Agra',
+      youtubeId: 'nvZ7duCvCLw',
+    },
+    {
+      id: 22,
+      title: 'Kshiraj Luthra, GMC Alwar',
+      youtubeId: 'sOUSF0lu4fw',
+    },
+    {
+      id: 23,
+      title: 'Amara, IAMS',
+      youtubeId: 'Xuk6FOEcmIc',
+    },
+    {
+      id: 24,
+      title: 'Ayush Kushwaha, Hapur',
+      youtubeId: 'hwYjHX5pk9w',
+    },
+    {
+      id: 25,
+      title: 'Utkarshika, CSAMC, Etah',
+      youtubeId: 'jfq8RbTIrtI',
+    },
+
+    // home-page videos here
+    {
+      id: 26,
+      title: "Utkarshika Gupta, CSAMC, Etah",
+      youtubeId: "jfq8RbTIrtI",
+    },
+    // {
+    //   id: 2,
+    //   title: "Ayush Kushwaha, GSAMC, Hapur",
+    //   youtubeId: "hwYjHX5pk9w",
+    // },
+    // {
+    //   id: 3,
+    //   title: "Sangam Yadav, MGAMC, Lucknow",
+    //   youtubeId: "CxDL_T4CWs8",
+    // },
+
+    // pg videos here
+    {
+      id: 27,
+      title: 'Amita Gulia, KD, Mathura',
+      youtubeId: 'zg2naNV56kg',
+    },
+    {
+      id: 28,
+      title: 'Ankita Sharma, MIMS, Barabanki',
+      youtubeId: 'glMWO1xvfUo',
+    },
+
+    // study abroad videos here
+    {
+      id: 29,
+      title: 'Tanishka Rana, TVER',
+      youtubeId: 'Fccp8dm3ewA',
+    },
+    {
+      id: 30,
+      title: 'Mayank Kumar, TVER',
+      youtubeId: 'Vr6ZZQ3jVH8',
+    },
+    {
+      id: 31,
+      title: 'Mayank’s Proud Parent, TVER',
+      youtubeId: 'WP7BbcvkLL0',
+    },
+    {
+      id: 32,
+      title: 'Aseem, Asfendiyarov Kazakh National Medical University, Kazakhstan',
+      youtubeId: '6DJoje1YFI4',
+    },
+    {
+      id: 33,
+      title: 'Daksh Moom, OSH INTERNATIONAL MEDICAL UNIVERSITY, Kyrgyzstan',
+      youtubeId: 'Eip7W83K8YQ',
+    },
+    {
+      id: 34,
+      title: 'Riddhi Singh, KSMU, Russia',
+      youtubeId: 'FWEyO03eG90',
+    },
+    {
+      id: 35,
+      title: 'TANJINA NASRIN CHOUDHURY, OSH INTERNATIONAL MEDICAL UNIVERSITY, Kyrgyzstan',
+      youtubeId: 'E0-uSX-dabA',
+    },
+
   ];
 
   const [videoPopup, setVideoPopup] = useState<{
