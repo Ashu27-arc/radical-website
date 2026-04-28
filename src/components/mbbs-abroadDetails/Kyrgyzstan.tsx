@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Kyrgyzstan = () => {
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 pb-20">
       <FloatingWhatsApp />
       {/* Hero Section */}
       <div
@@ -234,6 +234,60 @@ const Kyrgyzstan = () => {
           </div>
         </div>
       </div>
+
+      {/* Banner Section */}
+      <section className="bg-[#F4F7F8]">
+        <div className="container px-4 md:px-6">
+          <div className="relative w-full aspect-[1240/350] rounded-2xl overflow-hidden shadow-lg cursor-pointer">
+            {/* Base Banner Link */}
+            <Link
+              href="https://neetbhaiya.in"
+              target="_blank"
+              className="block w-full h-full"
+            >
+              <Image
+                src="/images/nb-abroad-banner.webp"
+                alt="NEET UG Banner"
+                fill
+                className="object-cover"
+              />
+            </Link>
+
+            <div className="flex gap-2 absolute left-[7.3%] -bottom-2 md:bottom-1 lg:bottom-4 xl:bottom-8 w-[135px] md:w-[200px] lg:w-[250px] xl:w-[300px]">
+              <div className="hover:scale-105 transition-transform w-full">
+                <Link
+                  href="https://play.google.com/store/apps/details?id=com.kaveka.NeetBhaiya"
+                  target="_blank"
+                  className="block w-full h-full"
+                >
+                  <Image
+                    src="/svg/play-store.svg"
+                    alt="Google Play Store"
+                    width={131}
+                    height={37}
+                    className="object-contain w-full h-full"
+                  />
+                </Link>
+              </div>
+              <div className="hover:scale-105 transition-transform w-full mt-0.5">
+                <Link
+                  href="https://apps.apple.com/in/app/neet-bhaiya/id6737535565"
+                  target="_blank"
+                  className="block w-full h-full"
+                >
+                  <Image
+                    src="/svg/app-store.svg"
+                    alt="App Store"
+                    width={131}
+                    height={37}
+                    className="object-contain w-full h-full"
+                  />
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 };
