@@ -21,37 +21,37 @@ const WHATSAPP_ITEMS = [
       {
         name: "Hitashi Aggarwal",
         experience: "7+ Years",
-        link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
+        link: "https://wa.me/919990498984",
       },
       {
         name: "Pooja Kumari",
         experience: "4+ Years",
-        link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
+        link: "https://wa.me/919718182131",
       },
       {
         name: "Sudakshina Singh",
         experience: "4+ Years",
-        link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
+        link: "https://wa.me/918929021497",
       },
       {
         name: "Rangnath Jha",
         experience: "6+ Years",
-        link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
+        link: "https://wa.me/919911518257",
       },
       {
         name: "Raj Kishore",
         experience: "3+ Years",
-        link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
+        link: "https://wa.me/919540008120",
       },
       {
         name: "Manish Jha",
         experience: "5+ Years",
-        link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
+        link: "",
       },
       {
         name: "Shashwat Pandey",
         experience: "4+ Years",
-        link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
+        link: "",
       },
     ],
   },
@@ -63,37 +63,37 @@ const WHATSAPP_ITEMS = [
       {
         name: "Hitashi Aggarwal",
         experience: "7+ Years",
-        link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
+        link: "https://wa.me/919990498984",
       },
       {
         name: "Pooja Kumari",
         experience: "4+ Years",
-        link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
+        link: "https://wa.me/919718182131",
       },
       {
         name: "Sudakshina Singh",
         experience: "4+ Years",
-        link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
+        link: "https://wa.me/918929021497",
       },
       {
         name: "Rangnath Jha",
         experience: "6+ Years",
-        link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
+        link: "https://wa.me/919911518257",
       },
       {
         name: "Raj Kishore",
         experience: "3+ Years",
-        link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
+        link: "https://wa.me/919540008120",
       },
       {
         name: "Manish Jha",
         experience: "5+ Years",
-        link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
+        link: "",
       },
       {
         name: "Shashwat Pandey",
         experience: "4+ Years",
-        link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
+        link: "",
       },
     ],
   },
@@ -105,37 +105,37 @@ const WHATSAPP_ITEMS = [
       {
         name: "Hitashi Aggarwal",
         experience: "7+ Years",
-        link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
+        link: "https://wa.me/919990498984",
       },
       {
         name: "Pooja Kumari",
         experience: "4+ Years",
-        link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
+        link: "https://wa.me/919718182131",
       },
       {
         name: "Sudakshina Singh",
         experience: "4+ Years",
-        link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
+        link: "https://wa.me/918929021497",
       },
       {
         name: "Rangnath Jha",
         experience: "6+ Years",
-        link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
+        link: "https://wa.me/919911518257",
       },
       {
         name: "Raj Kishore",
         experience: "3+ Years",
-        link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
+        link: "https://wa.me/919540008120",
       },
       {
         name: "Manish Jha",
         experience: "5+ Years",
-        link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
+        link: "",
       },
       {
         name: "Shashwat Pandey",
         experience: "4+ Years",
-        link: "https://www.whatsapp.com/channel/0029Vajjreq0G0Xmr5ILp81P",
+        link: "",
       },
     ],
   },
@@ -191,10 +191,25 @@ export default function FloatingWhatsApp() {
     : "opacity-0 -translate-x-4";
 
   const openWhatsApp = (expert: any) => {
+    let msgText = "Hello, I would like to know more about your services.";
+    if (selectedItem?.title) {
+      if (selectedItem.title === "Support (24/7)") {
+        msgText = "Hello, I need some support and assistance.";
+      } else {
+        msgText = `Hello, I would like to know more about ${selectedItem.title}.`;
+      }
+    }
+    const defaultMessage = encodeURIComponent(msgText);
+
     if (expert.link) {
-      window.open(expert.link, "_blank");
+      if (expert.link.includes('wa.me') || expert.link.includes('api.whatsapp.com')) {
+        const separator = expert.link.includes('?') ? '&' : '?';
+        window.open(`${expert.link}${separator}text=${defaultMessage}`, "_blank");
+      } else {
+        window.open(expert.link, "_blank");
+      }
     } else if (expert.phone) {
-      window.open(`https://wa.me/${expert.phone}`, "_blank");
+      window.open(`https://wa.me/${expert.phone}?text=${defaultMessage}`, "_blank");
     }
   };
 
@@ -312,7 +327,7 @@ export default function FloatingWhatsApp() {
                 <div className="text-[#0B2E3C] font-semibold mb-4 text-xs">
                   {selectedItem.title}
                 </div>
-                
+
                 {selectedItem.title === "Support (24/7)" && (
                   <div className="mb-2">
                     <ContactOptions variant="small" />

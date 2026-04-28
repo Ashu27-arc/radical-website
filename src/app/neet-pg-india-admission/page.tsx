@@ -329,7 +329,7 @@ export default function NeetPgIndiaAdmissionPage() {
                                         />
                                     </button>
                                 )}
-                                <div className="mt-auto pt-4">
+                                {/* <div className="mt-auto pt-4">
                                     <div className="flex gap-2 items-start">
                                         <span className="text-[#1D1D1D] font-semibold text-[12px] uppercase tracking-wider mt-0.5">Note:</span>
                                         <p className="text-[12px] font-weight-600 text-[#EE6E1E] poppins">
@@ -337,7 +337,7 @@ export default function NeetPgIndiaAdmissionPage() {
                                             <span className="font-semibold font-weight-400 text-[#EE6E1E] text-[12px]"> does not cover the ticket charges.</span>
                                         </p>
                                     </div>
-                                </div>
+                                </div> */}
 
                             </div>
                         </div>

@@ -26,7 +26,8 @@ import ContactOptions from "@/components/home/ContactOptions";
 import EverythingSlider from "@/components/home/EverythingSlider";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay } from "swiper/modules";
+import { Autoplay, Navigation } from "swiper/modules";
+
 
 
 
@@ -222,11 +223,11 @@ export default function Home() {
     },
 
     // home-page videos here
-    {
-      id: 26,
-      title: "Utkarshika Gupta, CSAMC, Etah",
-      youtubeId: "jfq8RbTIrtI",
-    },
+    // {
+    //   id: 26,
+    //   title: "Utkarshika Gupta, CSAMC, Etah",
+    //   youtubeId: "jfq8RbTIrtI",
+    // },
     // {
     //   id: 2,
     //   title: "Ayush Kushwaha, GSAMC, Hapur",
@@ -240,49 +241,49 @@ export default function Home() {
 
     // pg videos here
     {
-      id: 27,
+      id: 26,
       title: 'Amita Gulia, KD, Mathura',
       youtubeId: 'zg2naNV56kg',
     },
     {
-      id: 28,
+      id: 27,
       title: 'Ankita Sharma, MIMS, Barabanki',
       youtubeId: 'glMWO1xvfUo',
     },
 
     // study abroad videos here
     {
-      id: 29,
+      id: 28,
       title: 'Tanishka Rana, TVER',
       youtubeId: 'Fccp8dm3ewA',
     },
     {
-      id: 30,
+      id: 39,
       title: 'Mayank Kumar, TVER',
       youtubeId: 'Vr6ZZQ3jVH8',
     },
     {
-      id: 31,
+      id: 30,
       title: 'Mayank’s Proud Parent, TVER',
       youtubeId: 'WP7BbcvkLL0',
     },
     {
-      id: 32,
+      id: 31,
       title: 'Aseem, Asfendiyarov Kazakh National Medical University, Kazakhstan',
       youtubeId: '6DJoje1YFI4',
     },
     {
-      id: 33,
+      id: 32,
       title: 'Daksh Moom, OSH INTERNATIONAL MEDICAL UNIVERSITY, Kyrgyzstan',
       youtubeId: 'Eip7W83K8YQ',
     },
     {
-      id: 34,
+      id: 33,
       title: 'Riddhi Singh, KSMU, Russia',
       youtubeId: 'FWEyO03eG90',
     },
     {
-      id: 35,
+      id: 34,
       title: 'TANJINA NASRIN CHOUDHURY, OSH INTERNATIONAL MEDICAL UNIVERSITY, Kyrgyzstan',
       youtubeId: 'E0-uSX-dabA',
     },
@@ -612,9 +613,25 @@ export default function Home() {
               Listen to real experiences
             </h2>
           </div>
-          <div className="fadeUp">
+          <div className="fadeUp relative px-6 md:px-12">
+            <div className="video-button-prev absolute left-0 md:-left-2 top-1/2 -translate-y-1/2 z-20 cursor-pointer transition-transform hover:scale-110">
+              <svg width="22" height="22" viewBox="0 0 22 22" className="rotate-180">
+                <circle cx="11" cy="11" r="11" fill="#005A8B" />
+                <path d="M8.91579 16.7895L7.29474 15.1476L11.4307 11L7.29474 6.85242L8.92737 5.21053L14.7168 11L8.91579 16.7895Z" fill="#FFFFFF" />
+              </svg>
+            </div>
+            <div className="video-button-next absolute right-0 md:-right-2 top-1/2 -translate-y-1/2 z-20 cursor-pointer transition-transform hover:scale-110">
+              <svg width="22" height="22" viewBox="0 0 22 22">
+                <circle cx="11" cy="11" r="11" fill="#005A8B" />
+                <path d="M8.91579 16.7895L7.29474 15.1476L11.4307 11L7.29474 6.85242L8.92737 5.21053L14.7168 11L8.91579 16.7895Z" fill="#FFFFFF" />
+              </svg>
+            </div>
             <Swiper
-              modules={[Autoplay]}
+              modules={[Autoplay, Navigation]}
+              navigation={{
+                nextEl: ".video-button-next",
+                prevEl: ".video-button-prev",
+              }}
               spaceBetween={24}
               loop={true}
               autoplay={{

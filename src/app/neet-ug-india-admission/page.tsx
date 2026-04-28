@@ -14,7 +14,7 @@ const neetupadmissionplans = [
     {
         id: 1,
         title: "Standard",
-        subtitle: "Complete end-to-end premium support",
+        subtitle: "Smart planning for NEET Counselling",
         price: "₹ 9,999",
         color: "bg-[#B6FFA7]",
         border: "border-[#2CBF0F]",
