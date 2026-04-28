@@ -43,7 +43,7 @@ export default function EverythingSlider() {
         <span className="block text-[16px] md:text-[20px] font-poppins mt-2 md:mt-0">Smart packages that keep it simple and affordable.</span>
       </h2>
 
-      <div className="bg-[#f0f0f0]/28 rounded-4xl p-8 md:p-12">
+      <div className="bg-[#f0f0f0]/28 p-8 md:p-12">
         <Swiper
           modules={[EffectCoverflow, Autoplay]}
           effect="coverflow"
