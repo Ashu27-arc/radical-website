@@ -351,6 +351,582 @@ export default function MBBSDeemedCollegesPage() {
                         logo: "/images/deemed/logos/01.webp",
                         url: "https://www.radicaleducation.in/sbks-medical-instt-research-centre-vadodra",
                       },
+                      {
+                        name: "Aarupadai veedu medical college and hospital",
+                        location: "Pondicherry, Tamil Nadu",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/aarupadai-veedu-medical-college-hospital-2025",
+                      },
+                      {
+                        name: "ACS Medical College and Hospital",
+                        location: "Chennai, Tamil Nadu",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/acs-medical-college-and-hospital-chennai",
+                      },
+                      {
+                        name: "Amrita School of Medicine",
+                        location: "Faridabad, Uttar Pradesh",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/amrita-school-of-medicine-faridabad-asm",
+                      },
+                      {
+                        name: "B.L.D.E University, Bijapur",
+                        location: "Bijapur, Karnataka",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/b-l-d-e-university-bijapur-karnataka-2025-26",
+                      },
+                      {
+                        name: "Bhaarat Medical College & Hospital",
+                        location: "Chennai, Tamil Nadu",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/bhaarat-medical-college-hospital-bmc-2025",
+                      },
+                      {
+                        name: "Bharati Vidyapeeth Deemed University Medical College & Hospital",
+                        location: "Sangli, Maharashtra",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/bharati-vidyapeeth-deemed-university-medical",
+                      },
+                      {
+                        name: "Chettinad Hospital & Research Institute",
+                        location: "Kanchipuram, Tamil Nadu",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/chettinad-hospital-research-institute-2025-26",
+                      },
+                      {
+                        name: "Datta Meghe Medical College",
+                        location: "Nagpur, Maharashtra",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/datta-meghe-medical-college-nagpur-2025-26",
+                      },
+                      {
+                        name: "GITAM Institute of Medical Sciences and Research",
+                        location: "Visakhapatnam, Andhra Pradesh",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/gitam-institute-of-medical-sciences-research",
+                      },
+                      {
+                        name: "Graphic Era Institute of Medical Science",
+                        location: "Dehradun, Uttrakhand",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/graphic-era-institute-of-medical-science-2025",
+                      },
+                      {
+                        name: "Hamdard Institute of Medical Sciences and Research",
+                        location: "New Delhi",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/hamdard-institute-of-medical-sciences-2025-26",
+                      },
+                      {
+                        name: "Institute of medical sciences and SUM hospital",
+                        location: "Bhubaneswar, Odisha",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/institute-of-medical-sciences-and-sum-hospital",
+                      },
+                      {
+                        name: "J R Medical college and hospital",
+                        location: "Chennai, Tamil Nadu",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/jr-medical-college-and-hospita-chennai-2025-26",
+                      },
+                      {
+                        name: "Jagadguru Gangadhar Mahaswamigalu Moorusavirmath Medical College JGMMMC",
+                        location: "Hubballi, Karnataka",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/jagadguru-gangadhar-medical-college-2025-26",
+                      },
+                      {
+                        name: "JLN Medical College, Datta Meghe, Wardha,",
+                        location: "Wardha, Maharashtra",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/jawaharlal-nehru-medical-college-sawangi-2025",
+                      },
+                      {
+                        name: "K S Hegde Medical Academy",
+                        location: "Mangalore, Karnataka",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/k-s-hegde-medical-academy-mangalore-2025-26",
+                      },
+                      {
+                        name: "Krishna Inst. of Med. Scie., Karad",
+                        location: "Karad, Maharashtra",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/krishna-institute-of-med-science-karad-2025-26",
+                      },
+                      {
+                        name: "Maharishi Markandeshwar Institute Of Medical Sciences & Research",
+                        location: "Ambala, Haryana",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/maharishi-markandeshwar-institute-of-medica",
+                      },
+                      {
+                        name: "Mahatma Gandhi Mission Medical College",
+                        location: "Kamothe, Mumbai",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/mahatma-gandhi-mission-medical-college-kamothe",
+                      },
+                      {
+                        name: "Mahatma Gandhi Medical College and Research Institute",
+                        location: "Pondicherry, Tamil Nadu",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/mahatma-gandhi-medical-college-reseach",
+                      },
+                      {
+                        name: "Mahatma Gandhi Mission Medical College",
+                        location: "Nerul, Mumbai",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/mahatma-gandhi-mission-medical-college",
+                      },
+                      {
+                        name: "Mahatma Gandhi Missions Medical College",
+                        location: "Aurangabad, Maharashtra",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/mahatma-gandhi-medical-college-aurangabad",
+                      },
+                      {
+                        name: "Mahatma Gandhi Missions Medical College",
+                        location: "Vashi, Mumbai",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/mgm-navi-mumbai",
+                      },
+                      {
+                        name: "Malla Reddy Institution of Medical Science",
+                        location: "Hyderabad, Telangana",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/malla-reddy-institution-of-medical-science",
+                      },
+                      {
+                        name: "Malla Reddy Medical College for Women",
+                        location: "Hyderabad, Telangana",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/malla-reddy-medical-college-women-hyderabad",
+                      },
+                      {
+                        name: "Manipal Tata Medical College, Baridih",
+                        location: "Jamshedpur, Jharkhand",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/manipal-tata-medical-college-baridih-2025",
+                      },
+                      {
+                        name: "Meenakshi Medical College and Research Institute",
+                        location: "Enathur, Tamil Nadu",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/meenakshi-medical-college-research-institute",
+                      },
+                      {
+                        name: "Padmashree Dr. D.Y.Patil Medical College",
+                        location: "Navi Mumbai, Maharashtra",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/padmashree-dr-d-y-patil-medical-college-2025",
+                      },
+                      {
+                        name: "Padmashri Dr. D Y Patil Medical College, Hospital and Research Centre",
+                        location: "Pune, Maharashtra",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/padmashri-d-y-patil-medical-college-hospital",
+                      },
+                      {
+                        name: "Rajarajeswari Medical College & Hospital,",
+                        location: "Bangalore, Karnataka",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/rajarajeswari-medical-college-hospital",
+                      },
+                      {
+                        name: "Rural Medical College",
+                        location: "Loni, Maharashtra",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/rural-medical-college-loni-maharashtra-2025",
+                      },
+                      {
+                        name: "Santosh Medical College",
+                        location: "Ghaziabad, Uttar Pradesh",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/santosh-medical-college-smc-ghaziabad-2025-26",
+                      },
+                      {
+                        name: "Saveetha Medical College and Hospital",
+                        location: "Kanchipuram, Tamil Nadu",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/saveetha-medical-college-and-hospital-smch",
+                      },
+                      {
+                        name: "Shri Sathya Sai Medical College and Research Institute",
+                        location: "Kanchipuram, Tamil Nadu",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/shri-sathya-sai-medical-college",
+                      },
+                      {
+                        name: "Sree Balaji Medical College and Hospital, Chennai",
+                        location: "Chennai, Tamil Nadu",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/sree-balaji-medical-college-chennai-2025-26",
+                      },
+                      {
+                        name: "Sree Lakshmi Narayana Institute of Medical Sciences & Hospital",
+                        location: "Puducherry",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/sree-lakshmi-narayana-medical-institute",
+                      },
+                      {
+                        name: "Sri Devaraj URS Medical College",
+                        location: "Kolar, Karnataka",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/sri-devaraj-urs-medical-college-kolar",
+                      },
+                      {
+                        name: "SRI LALITHAMBIGAI MEDICAL COLLEGE & HOSPITAL",
+                        location: "Chennai, Tamil Nadu",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/sri-lalithambigai-medical-college-hospital",
+                      },
+                      {
+                        name: "Sri Siddhartha Institute Of Medical Sciences",
+                        location: "Begur, Karnataka",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/sri-siddhartha-institute-of-medical-sciencest",
+                      },
+                      {
+                        name: "Sri Siddhartha Medical College",
+                        location: "Tumkur, Karnataka",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/sri-siddhartha-medical-college-tumkur",
+                      },
+                      {
+                        name: "SRM Medical College Hospital & Research Centre",
+                        location: "Kanchipuram, Tamil Nadu",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/srm-medical-college-hospitaland-research",
+                      },
+                      {
+                        name: "Symbiosis Medical College for Women",
+                        location: "Pune, Maharashtra",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/symbiosis-medical-college-for-women-pune",
+                      },
+                      {
+                        name: "VELS Medical College & Hospital",
+                        location: "Chennai, Tamil Nadu",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/vels-medical-college-hospital-chennai",
+                      },
+                      {
+                        name: "Vinayaka Missions Kirupananda Variyar Medical College",
+                        location: "Pondicherry",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/vinayaka-missions-medical-college-karaikal",
+                      },
+                      {
+                        name: "Vinayaka Missions Medical College",
+                        location: "Salen Tamil Nadu",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/vinayaka-missions-kirupananda-variyar-medical",
+                      },
+                      {
+                        name: "Yenepoya Medical College",
+                        location: "Mangalore, Karnataka",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/yenepoya-medical-college",
+                      },
+                      {
+                        name: "AB Shetty Memorial Institute of Dental Sciences",
+                        location: "Mangalore, Karnataka",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/a-b-shetty-memorial-institute-of-dental-sciences-mangalore",
+                      },
+                      {
+                        name: "Amrita School of Dentistry",
+                        location: "Kochi, Kerala",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/amrita-school-of-dentistry-kochi-kerala",
+                      },
+                      {
+                        name: "Thaimoogambigai Dental College and Hospital",
+                        location: "Chennai, Tamil Nadu",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/thai-moogambigai-dental-college-chennai",
+                      },
+                      {
+                        name: "Bharati Vidyapeeth Dental College and Hospital",
+                        location: "Pune, Maharashtra",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/bharati-vidyapeeth-dental-college-and-hospital-pune",
+                      },
+                      {
+                        name: "Bharati Vidyapeeth Dental College and Hospital",
+                        location: "Navi Mumbai, Maharashtra",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/bharati-vidyapeeth-dental-college-and-hospital-navi-mumbai",
+                      },
+                      {
+                        name: "Bharati Vidyapeeth Dental College and Hospital",
+                        location: "Sangli, Maharashtra",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/bharati-vidyapeeth-dental-college-and-hospital-sangli",
+                      },
+                      {
+                        name: "Dr. DY Patil Dental College and and Hospital",
+                        location: "Pune, Maharashtra",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/dr-d-y-patil-dental-college-and-hospital-pune",
+                      },
+                      {
+                        name: "Dr. DY Patil Dental College and and Hospital",
+                        location: "Navi Mumbai, Maharashtra",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/padmashree-dr-d-y-patil-dental-college-and-hospital-navi-mumbai",
+                      },
+                      {
+                        name: "Indira Gandhi Institute of Dental Sciences",
+                        location: "Pondicherry",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/indira-gandhi-institute-of-dental-sciences",
+                      },
+                      {
+                        name: "Institute of Dental Sciences",
+                        location: "Bhubaneshwar, Odisha",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/institute-of-dental-sciences-bhubaneswar",
+                      },
+                      {
+                        name: "JSS Dental College and Hospital",
+                        location: "Mysore, Karnataka",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/jss-dental-college-and-hospital-mysuru",
+                      },
+                      {
+                        name: "K M Shah Dental College",
+                        location: "Vadodara, Gujrat",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/k-m-shah-dental-college-and-hospital-vadodara",
+                      },
+                      {
+                        name: "Kalinga Institute of Dental Sciences",
+                        location: "Bhubaneshwar, Odisha",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/kalinga-institute-of-dental-sciences",
+                      },
+                      {
+                        name: "KLE VK Inst. of Dental Sciences",
+                        location: "Belagavi, Karnataka",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/kle-vishwanath-katti-institute-of-dental-sciences-belgaum",
+                      },
+                      {
+                        name: "Manav Rachna Dental College and Hospital",
+                        location: "Faridabad, Haryana",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/manav-rachana-dental-college-faridabad-haryana",
+                      },
+                      {
+                        name: "Manipal College of Dental Science",
+                        location: "Manipal, Karnatak",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/manipal-college-of-dental-sciences-manipal",
+                      },
+                      {
+                        name: "Manipal College of Dental Science",
+                        location: "Mangalore, Karnataka",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/manipal-college-of-dental-sciences-mangalore",
+                      },
+                      {
+                        name: "Meenakshi Ammal Dental College and Hospital",
+                        location: "Chennai, Tamil Nadu",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/meenakshi-ammal-dental-college-and-hospital-chennai",
+                      },
+                      {
+                        name: "MM College of Dental Sciences & Research",
+                        location: "Mullana, Haryana",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/m-m-college-of-dental-sciences-and-research-mullana",
+                      },
+                      {
+                        name: "Rural Dental College",
+                        location: "Loni, Maharashtra",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/rural-dental-college-loni",
+                      },
+                      {
+                        name: "Santosh Dental College and Hospital",
+                        location: "Ghaziabad, Uttar Pradesh",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/santosh-dental-college-and-hospital-ghaziabad",
+                      },
+                      {
+                        name: "Sathyabama Univ. Dental College and Hospital",
+                        location: "Chennai, Tamil Nadu",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/sathyabama-university-dental-college-and-hospital-chennai",
+                      },
+                      {
+                        name: "Saveetha Dental College",
+                        location: "Chennai, Tamil Nadu",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/saveetha-dental-college-and-hospital-chennai",
+                      },
+                      {
+                        name: "School of Dental Sciences and KIMSDU",
+                        location: "Karad, Maharashtra",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/school-of-dental-sciences-kimsdu-karad",
+                      },
+                      {
+                        name: "Sharad Pawar Dental College and Hospital",
+                        location: "",
+                        logo: "",
+                        url: "",
+                      },
+                      {
+                        name: "Sree Balaji Dental College and Hospital",
+                        location: "Chennai, Tamil Nadu",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/sree-balaji-dental-college-chennai",
+                      },
+                      {
+                        name: "Sri Ramachandra Dental College and Hospital",
+                        location: "Chennai, Tamil Nadu",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/sri-ramachandra-dental-college-and-hospital-chennai",
+                      },
+                      {
+                        name: "Sri Siddhartha Dental College and Hospital",
+                        location: "Tumkur, Karnataka",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/sri-siddhartha-dental-college-tumkur",
+                      },
+                      {
+                        name: "SRM Dental College and Hospital",
+                        location: "Chennai, Tamil Nadu",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/srm-kattankulathur-dental-college-and-hospital-chennai",
+                      },
+                      {
+                        name: "SRM Katt. Dental College and Hospital",
+                        location: "Chennai, Tamil Nadu",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/srm-kattankulathur-dental-college-and-hospital-chennai",
+                      },
+                      {
+                        name: "Thaimoogambigai Dental College and Hospital",
+                        location: "Chennai, Tamil Nadu",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/thai-moogambigai-dental-college-chennai",
+                      },
+                      {
+                        name: "VMS Dental College and Hospital",
+                        location: "Salem, Tamil Nadu",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/vms-dental-college-salem",
+                      },
+                      {
+                        name: "Yenepoya Dental College",
+                        location: "Yenepoya, Karnataka",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/yenepoya-dental-college-karnataka",
+                      },
+                      {
+                        name: "Malla Reddy Dental College for Women",
+                        location: "Hyderabad, Telangana",
+                        logo: "",
+                        url: "https://radicaleducation.in/malla-reddy-institute-of-dental-science/",
+                      },
+                      {
+                        name: "Malla Reddy Institute of Dental Science",
+                        location: "Hyderabad, Telangana",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/malla-reddy-institute-of-dental-science",
+                      },
+                      {
+                        name: "Padamshri Dr. DY Patil College of Ayurved and Research Institute",
+                        location: "Mumbai, Maharashtra",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/padamshri-dr-dy-patil-college-of-ayurved",
+                      },
+                      {
+                        name: "B.V.D.U. College of Ayurved (Bharati Vidyapeeth Educational Campus)",
+                        location: "Pune",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/bharati-vidyapeeth-deemed-university",
+                      },
+                      {
+                        name: "Mahatma Gandhi Ayurved College, Hospital and Research Centre",
+                        location: "Maharashtra",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/mahatma-gandhi-ayurved-college-and-hospital",
+                      },
+                      {
+                        name: "Pravara Rural Ayurveda College (PRAVARA INSTITUTE OF MEDICAL SCIENCES)",
+                        location: "Maharashtra",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/pravara-medical-trusts-ayurved-college",
+                      },
+                      {
+                        name: "Dr. D. Y. Patil College of Ayurved and Research Centre",
+                        location: "Maharashtra",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/dr-d-y-patil-college-of-ayurved-and-research",
+                      },
+                      {
+                        name: "Sri Jayendra Saraswati Ayurved College",
+                        location: "Chennai",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/shri-jayendra-saraswati-ayurved-college",
+                      },
+                      {
+                        name: "KLE University Shri.BM Kankanawadi Ayurveda Mahavidyalaya Post Graduate Studies and Research Centre",
+                        location: "Karnataka",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/kle-university-shri-bm-kankanawadi-ayurveda",
+                      },
+                      {
+                        name: "Yenepoya Ayurveda Medical College",
+                        location: "Karnataka",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/yenepoya-ayurveda-medical-college-mangaluru",
+                      },
+                      {
+                        name: "Amrita School of Ayurveda",
+                        location: "Kerala",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/amrita-school-of-ayurveda-kerala",
+                      },
+                      {
+                        name: "Sumandeep Ayurved Medical college and Hospital",
+                        location: "Gujarat",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/sumandeep-ayurved-medical-college",
+                      },
+                      {
+                        name: "Bharati Vidyapeeth Homoeopathic Medical College and Hospital",
+                        location: "Pune",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/bharati-vidyapeeth-homoeopathic-medical-college",
+                      },
+                      {
+                        name: "Dr. DY Patil Homoeopathic Medical College and Research Centre",
+                        location: "Pune",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/dr-dy-patil-homoeopathic-medical-college",
+                      },
+                      {
+                        name: "Vinayaka Missions Homoeopathic Medical College",
+                        location: "Tamil Nadu",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/vinayaka-missions-homoeopathic-medical-college",
+                      },
+                      {
+                        name: "KLE Homoeopathic Medical College and Hospital",
+                        location: "Karnataka",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/kle-university-homoeopathic-medical-college",
+                      },
+                      {
+                        name: "Yenepoya Homoeopathic Medical College and Hospital",
+                        location: "Karnataka",
+                        logo: "",
+                        url: "https://www.radicaleducation.in/yenopoya-homoeopathic-medical-college",
+                      },
                     ].map((college, index) => (
                       <tr key={index} className="hover:bg-white-50">
                         <td className="border border-gray-300 font-normal px-2 sm:px-3 lg:px-4 py-2">
@@ -358,14 +934,20 @@ export default function MBBSDeemedCollegesPage() {
                         </td>
                         <td className="border border-gray-300 font-normal px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2">
                           <div className="flex items-center gap-1 sm:gap-2 min-w-0">
-                            <div className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full overflow-hidden flex-shrink-0">
-                              <Image
-                                src={college.logo}
-                                alt={`${college.name} logo`}
-                                width={32}
-                                height={32}
-                                className="w-full h-full object-cover"
-                              />
+                            <div className="w-5 h-5 sm:w-6 sm:h-6 md:w-8 md:h-8 rounded-full overflow-hidden flex-shrink-0 bg-blue-100 flex items-center justify-center text-blue-600 font-bold">
+                              {college.logo ? (
+                                <Image
+                                  src={college.logo}
+                                  alt={`${college.name} logo`}
+                                  width={32}
+                                  height={32}
+                                  className="w-full h-full object-cover"
+                                />
+                              ) : (
+                                <span className="text-[10px] sm:text-xs md:text-sm">
+                                  {college.name.charAt(0).toUpperCase()}
+                                </span>
+                              )}
                             </div>
                             <span className="text-[10px] sm:text-xs md:text-sm leading-tight truncate">
                               {college.name}
@@ -374,19 +956,23 @@ export default function MBBSDeemedCollegesPage() {
                         </td>
                         <td className="border border-gray-300 font-normal px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 whitespace-normal break-words sm:whitespace-nowrap">
                           <span className="block leading-tight">
-                            {college.location}
+                            {college.location || "N/A"}
                           </span>
                         </td>
                         <td className="border border-gray-300 font-semibold px-1.5 sm:px-2 md:px-3 lg:px-4 py-1.5 sm:py-2 text-center sm:text-left">
-                          <Link
-                            href={college.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-flex w-full justify-center text-blue-600 hover:underline text-[10px] sm:text-xs md:text-sm whitespace-nowrap sm:justify-start"
-                          >
-                            <span className="hidden sm:inline">Click Here</span>
-                            <span className="sm:hidden">View</span>
-                          </Link>
+                          {college.url ? (
+                            <Link
+                              href={college.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex w-full justify-center text-blue-600 hover:underline text-[10px] sm:text-xs md:text-sm whitespace-nowrap sm:justify-start"
+                            >
+                              <span className="hidden sm:inline">Click Here</span>
+                              <span className="sm:hidden">View</span>
+                            </Link>
+                          ) : (
+                            <span className="text-gray-400 text-[10px] sm:text-xs md:text-sm whitespace-nowrap">N/A</span>
+                          )}
                         </td>
                       </tr>
                     ))}
