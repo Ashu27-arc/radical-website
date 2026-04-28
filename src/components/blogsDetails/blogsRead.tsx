@@ -446,7 +446,7 @@ const BlogsRead = ({ slug }: BlogsReadProps) => {
 
                                     {/* Blog Title - responsive typography */}
                                     <h1 className="text-lg min-[400px]:text-xl sm:text-2xl md:text-2xl lg:text-3xl font-bold text-gray-800 mb-2 wrap-break-word leading-tight">
-                                        {blog.title}
+                                        {blog?.title?.replace(/&amp;/g, '&')}
                                     </h1>
 
                                     {/* Blog Meta - wraps on small screens */}

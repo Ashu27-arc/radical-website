@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Dialog } from 'primereact/dialog';
 import { Button } from 'primereact/button';
 import { Toast } from 'primereact/toast';
@@ -15,6 +15,14 @@ import { Navigation, Autoplay, Pagination } from 'swiper/modules';
 
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+
+interface Post {
+  id: number;
+  slug: string;
+  title: { rendered: string };
+  date: string;
+  _embedded?: any;
+}
 
 
 const sliderData = [
@@ -68,6 +76,37 @@ const cardsData = [
 ];
 
 export default function EnquireButton() {
+
+
+
+const [posts, setPosts] = useState<Post[]>([]);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const res = await fetch(
+          "https://news.radicaleducation.in/wp-json/wp/v2/posts?_embed&per_page=10"
+        );
+        const data = await res.json();
+        setPosts(data);
+      } catch (err) {
+        console.error("Error fetching posts:", err);
+      }
+    };
+
+    fetchPosts();
+  }, []);
+
+
+
+
+
+
+
+
+
+
+
   const [visible, setVisible] = useState(false);
   const [showSuccess, setShowSuccess] = useState(false);
   const toast = useRef<Toast>(null);
@@ -363,35 +402,57 @@ export default function EnquireButton() {
                     <Swiper
                       modules={[Navigation, Autoplay]}
                       navigation={{
-                        prevEl: '.swiper-prev-btn',
-                        nextEl: '.swiper-next-btn',
+                        prevEl: ".swiper-prev-btn",
+                        nextEl: ".swiper-next-btn",
                       }}
-                      autoplay={{ delay: 3000, disableOnInteraction: false, }}
-                      loop
-                      className="px-2! flotingFormSlider"
+                      autoplay={{
+                        delay: 3000,
+                        disableOnInteraction: false,
+                      }}
+                      loop={true}
+                      spaceBetween={10}
+                      slidesPerView={1}
+                      breakpoints={{
+                        640: { slidesPerView: 1 },
+                        768: { slidesPerView: 1 },
+                      }}
+                      className="flotingFormSlider"
                     >
-                      {sliderData.map((item) => (
-                        <SwiperSlide key={item.id}>
-                          <Link className='' href={item.link}>
-                            <div className="flex items-center gap-4 cursor-pointer">
-                              <div className="w-20 md:w-24 h-14 md:h-16 relative shrink-0 flex items-center">
-                                <Image
-                                  src={item.image}
-                                  alt={item.title}
-                                  className="object-cover rounded-md shadow-sm"
-                                />
-                              </div>
+                      {posts.map((post) => {
+                        const image =
+                          post._embedded?.["wp:featuredmedia"]?.[0]?.source_url ||
+                          "/images/blogs/card.webp";
 
-                              <div className="min-w-0">
-                                <h3 className="font-semibold text-gray-800 mb-1 text-sm md:text-base line-clamp-1">
-                                  {item.title}
-                                </h3>
-                                <p className="text-[10px] md:text-xs text-gray-500 font-medium">{item.date}</p>
+                        return (
+                          <SwiperSlide key={post.id}>
+                            <Link href={`/${post.slug}`}>
+                              <div className="flex items-center gap-4 cursor-pointer">
+                                <div className="w-14 h-14 shrink-0 overflow-hidden rounded-md eqalheightwidth">
+                                  <Image
+                                  src={image}
+                                  alt={post.title.rendered}
+                                  width="56"
+                                  height="56"
+                                  className="object-cover w-full h-full rounded-md"
+                                />
+                                </div>
+
+                                <div className="min-w-0">
+                                  <h3
+                                    className="font-semibold text-gray-800 text-sm md:text-base line-clamp-1"
+                                    dangerouslySetInnerHTML={{
+                                      __html: post.title.rendered,
+                                    }}
+                                  />
+                                  <p className="text-[10px] md:text-xs text-gray-500">
+                                    {new Date(post.date).toLocaleDateString("en-IN")}
+                                  </p>
+                                </div>
                               </div>
-                            </div>
-                          </Link>
-                        </SwiperSlide>
-                      ))}
+                            </Link>
+                          </SwiperSlide>
+                        );
+                      })}
                     </Swiper>
                   </div>
 

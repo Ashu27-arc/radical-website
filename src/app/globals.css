@@ -496,3 +496,8 @@ body {
 /* Sequential Scroll - Simple but effective */
 .scroll-order-1 { z-index: 10; }
 .scroll-order-2 { z-index: 5; }
+.eqalheightwidth img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
