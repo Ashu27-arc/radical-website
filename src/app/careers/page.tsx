@@ -610,6 +610,7 @@ export default function CareersPage() {
                       className="appearance-none h-[49px] w-full px-3 md:px-4 py-2.5 md:py-3 text-sm md:text-base rounded-[5px] bg-white border border-gray-300 focus:ring-2 focus:ring-blue-400 focus:outline-none text-gray-700 pr-10"
                     >
                       <option value=""></option>
+                      <option value="Future Opening">Future Opening</option>
                       {jobsData.map((job, index) => (
                         <option key={index} value={job.title}>
                           {job.title}
@@ -685,7 +686,7 @@ export default function CareersPage() {
                       htmlFor="career-consent"
                       className="text-[11px] font-normal text-white/90 leading-[1.6] cursor-pointer"
                     >
-                      I hereby consent to the processing Of my personal
+                      I hereby consent to the processing of my personal
                       information for recruitment and other relevant
                       opportunities.
                     </label>
