@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const Kyrgyzstan = () => {
   return (
-    <div className="min-h-screen bg-gray-50 pb-20">
+    <div className="min-h-screen pb-20">
       <FloatingWhatsApp />
       {/* Hero Section */}
       <div

@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 const Bangladesh = () => {
   return (
-    <div className="min-h-screen bg-gray-50 pb-20">
+    <div className="min-h-screen pb-20">
       <FloatingWhatsApp />
       {/* Hero Section */}
       <div className="relative text-white py-15 md:py-32 lg:py-50 px-4 md:px-6 overflow-hidden flex items-center" style={{
@@ -210,8 +210,7 @@ const Bangladesh = () => {
       </div>
 
       {/* Banner Section */}
-      <section>
-        <div className="container px-4 md:px-6">
+        <section className="container px-4 md:px-6">
           <div className="relative w-full aspect-[1240/350] rounded-2xl overflow-hidden shadow-lg cursor-pointer">
             {/* Base Banner Link */}
             <Link
@@ -260,8 +259,7 @@ const Bangladesh = () => {
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
     </div>
   );
 };
