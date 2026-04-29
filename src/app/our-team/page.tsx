@@ -227,7 +227,7 @@ export default function OurTeam() {
                         <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#005A8B]"></span>
                       </span>
                       <span className="text-xs text-[#005A8B] truncate md:whitespace-normal md:overflow-visible md:text-[11px] lg:text-xs lg:truncate">
-                        Student Counselled: {getCounselledCount(member.studentCounselled, index)}
+                        Student Counselled: {getCounselledCount(member.studentCounselled, index)}+
                       </span>
                     </div>
                     <div className="flex items-center gap-1">
