@@ -114,15 +114,15 @@ export default function StudyAbroadPage() {
             </section>
 
             <section className="mb-10 lg:mb-20">
-                <div className="bg-white py-12 md:py-16">
-                    <div className="container mx-auto px-4 text-center">
-                        <div className="mb-10">
+                <div className="bg-white py-12 md:py-16 border-y border-gray-200">
+                    <div className="w-full text-center">
+                        <div className="container mx-auto px-4 md:px-6 lg:px-8 mb-10">
                             <h2 className="text-3xl md:text-[16px] font-medium font-weight-500 text-gray-900 mb-4 text-left">Our Students are Everywhere.</h2>
                         </div>
-                        <div className="study-abroadCuntrySlider overflow-hidden">
+                        <div className="study-abroadCuntrySlider overflow-hidden w-full">
                             <Swiper
                                 modules={[Autoplay, Pagination]}
-                                spaceBetween={10}
+                                spaceBetween={8}
                                 loop={true}
                                 slidesPerGroup={3}
                                 pagination={{
@@ -137,6 +137,9 @@ export default function StudyAbroadPage() {
                                 breakpoints={{
                                     0: {
                                         slidesPerView: 3,
+                                    },
+                                    360: {
+                                        slidesPerView: 4,
                                     },
                                     480: {
                                         slidesPerView: 5,
@@ -158,7 +161,7 @@ export default function StudyAbroadPage() {
                                                 className="block group"
                                             >
                                                 <div className="transition-all hover:scale-110 duration-300 p-2">
-                                                    <div className="w-[68px] h-[68px] rounded-[10px] overflow-hidden shadow-lg mx-auto bg-white relative border border-gray-100 flex items-center justify-center">
+                                                    <div className="w-[52px] h-[52px] sm:w-[58px] sm:h-[58px] md:w-[64px] md:h-[64px] lg:w-[68px] lg:h-[68px] rounded-[10px] overflow-hidden shadow-lg mx-auto bg-white relative border border-gray-100 flex items-center justify-center">
                                                         <Image
                                                             src={country.flag}
                                                             alt={`${country.name} flag`}
@@ -169,7 +172,7 @@ export default function StudyAbroadPage() {
                                                     </div>
                                                 </div>
                                             </Link>
-                                            <h3 className="font-semibold text-gray-800 mt-0 md:mt-1 text-xs md:text-sm">
+                                            <h3 className="font-semibold text-gray-800 mt-0 md:mt-1 text-[10px] sm:text-xs md:text-sm">
                                                 {country.name}
                                             </h3>
                                         </div>
