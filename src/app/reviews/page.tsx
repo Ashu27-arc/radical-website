@@ -154,10 +154,19 @@ export default function TestimonialsPage() {
         { id: 4, title: 'Anhad Kaur, SGRDIMSR, Amristar', youtubeId: '7t81QLx4TeM' },
         { id: 5, title: 'Prabhat Soni, GMC, Jhunjhunu', youtubeId: 'XYZPevx_UE0' },
         { id: 6, title: 'Aditya Maan, GMC, Sirohi', youtubeId: 'QdpT-kOvM2g' },
-        { id: 7, title: '', youtubeId: '6DJoje1YFI4' },
-        { id: 8, title: 'Aseem, Kazakhstan', youtubeId: 'E0-uSX-dabA' },
+        { id: 7, title: 'Riddhi Singh,  KSMU,  Russia', youtubeId: '6DJoje1YFI4' },
+        { id: 8, title: 'Aseem, Asfendiyarov Kazakh National Medical University, Kazakhstan', youtubeId: 'E0-uSX-dabA' },
         { id: 9, title: '', youtubeId: 'd6xSZh_IBCc' },
-        // { id: 7, title: 'Annant, MMC, Muzaffarnagar', youtubeId: '6lhfvUFUoQM' },
+
+        { id: 10, title: 'Arush Loomba, KD Medical College, Mathura', youtubeId: '5cGL3vAHVgY' },
+        { id: 11, title: 'Etshamul Haque, National Capital Region Institute of Medical Sciences, Uttar Pradesh', youtubeId: '_voXIMBO5kE' },
+        { id: 12, title: 'Tanish Bhatiya, GMC, Washim', youtubeId: 'LGz27v7iCf0' },
+        { id: 13, title: 'Saubhagya Agrawal, NIMS, Noida', youtubeId: 'lHUOtZmHvng' },
+        { id: 14, title: 'Sherya Jain, TMU, Moradabad', youtubeId: 'Ltk485g1cEw' },
+        { id: 15, title: 'Kumar Amlendu, Government Medical College, Ariyalur', youtubeId: 'TRLNAiSqDqY' },
+        { id: 16, title: 'Abhishek Sharma, NIIMS, Gr. Noida', youtubeId: 'UxIt6DyD4CE' },
+        { id: 17, title: 'Prabhleen Kaur, GDC, Amritsar', youtubeId: '0GAQQwIU8n0' },
+        { id: 18, title: 'Mohammed Athar, FHMC, Agra', youtubeId: 'nvZ7duCvCLw' },
     ];
     return (
         <div className="w-full bg-white">

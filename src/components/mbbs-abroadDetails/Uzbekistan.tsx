@@ -27,12 +27,12 @@ const universities = [
   {
     name: "Tashkent Medical Academy",
     logo: "/images/study-abroad/logos/u-5.webp",
-    link: ""
+    link: "https://www.radicaleducation.in/tashkent-medical-academy-uzbekistan"
   },
   {
     name: "Karshi State medical Unviersity",
     logo: "/images/study-abroad/logos/u-6.webp",
-    link: ""
+    link: "https://www.radicaleducation.in/karshi-state-medical-university"
   }
 ];
 
