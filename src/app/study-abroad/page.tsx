@@ -153,7 +153,7 @@ export default function StudyAbroadPage() {
                                 }}
                                 className="!ease-linear"
                             >
-                                {[...countries, ...countries.slice(0, 3)].map((country, index) => (
+                                {[...countries, ...countries].map((country, index) => (
                                     <SwiperSlide key={index}>
                                         <div className="text-center flex flex-col items-center">
                                             <Link
@@ -184,6 +184,16 @@ export default function StudyAbroadPage() {
                 </div>
                 {/* Custom Pagination outside white section */}
                 <div className="swiper-pagination-custom flex justify-center mt-6 !static"></div>
+                <style dangerouslySetInnerHTML={{__html: `
+                    .swiper-pagination-custom .swiper-pagination-bullet:nth-child(n+5) {
+                        display: none !important;
+                    }
+                    .swiper-pagination-custom:has(.swiper-pagination-bullet:nth-child(5).swiper-pagination-bullet-active) .swiper-pagination-bullet:nth-child(1),
+                    .swiper-pagination-custom:has(.swiper-pagination-bullet:nth-child(6).swiper-pagination-bullet-active) .swiper-pagination-bullet:nth-child(2) {
+                        opacity: var(--swiper-pagination-bullet-opacity, 1) !important;
+                        background: var(--swiper-pagination-color, var(--swiper-theme-color)) !important;
+                    }
+                `}} />
             </section>
 
 
