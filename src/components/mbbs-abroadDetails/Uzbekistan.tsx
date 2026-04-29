@@ -160,7 +160,7 @@ const Uzbekistan = () => {
       </div>
 
       {/* Banner Section */}
-      <section className="bg-[#F4F7F8]">
+      <section>
         <div className="container px-4 md:px-6">
           <div className="relative w-full aspect-[1240/350] rounded-2xl overflow-hidden shadow-lg cursor-pointer">
             {/* Base Banner Link */}
