@@ -203,11 +203,11 @@ const videos = [
         title: 'Ayush Kushwaha, Hapur',
         youtubeId: 'hwYjHX5pk9w',
     },
-    {
-        id: 25,
-        title: 'Utkarshika, CSAMC, Etah',
-        youtubeId: 'jfq8RbTIrtI',
-    },
+    // {
+    //     id: 25,
+    //     title: 'Utkarshika, CSAMC, Etah',
+    //     youtubeId: 'jfq8RbTIrtI',
+    // },
 ];
 
 export default function NeetUgIndiaAdmissionPage() {
