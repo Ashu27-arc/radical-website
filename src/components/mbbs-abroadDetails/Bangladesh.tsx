@@ -99,52 +99,87 @@ const Bangladesh = () => {
           </h2>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-8 max-w-6xl mx-auto">
-            {/* Row 1 */}
-            <Link href="https://www.radicaleducation.in/popular-medical-collegebangladesh" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
-              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/b.webp" alt="Popular Medical College, Bangladesh" width={190} height={190} className="object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-xs lg:text-sm">
-                Popular Medical College, Bangladesh
-              </h3>
-            </Link>
-
-            <Link href="https://www.radicaleducation.in/dhaka-national-medical-college-bangladesh" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
-              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/b-1.webp" alt="Dhaka National Medical College, Bangladesh" width={190} height={190} className="object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-xs lg:text-sm">
-                Dhaka National Medical College, Bangladesh
-              </h3>
-            </Link>
-
-            <Link href="https://www.radicaleducation.in/tairnunnessa-memorial-medical-college" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
-              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/b-2.webp" alt="Tairunnessa Memorial Medical College, Bangladesh" width={190} height={190} className="object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-xs lg:text-sm">
-                Tairunnessa Memorial Medical College, Bangladesh
-              </h3>
-            </Link>
-
-            <Link href="https://www.radicaleducation.in/holy-family-red-crescent-medical-college" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
-              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/b-3.webp" alt="Holy Family Red Crescent Medical College, Bangladesh" width={190} height={190} className="object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-xs lg:text-sm">
-                Holy Family Red Crescent Medical College, Bangladesh
-              </h3>
-            </Link>
-
-            {/* Row 2 */}
-            <Link href="https://www.radicaleducation.in/bangladesh-university-of-professional-studies" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
-              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/b-4.webp" alt="Bangladesh University of Professionals, Bangladesh" width={190} height={190} className="object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-xs lg:text-sm">
-                Bangladesh University of Professionals, Bangladesh
-              </h3>
-            </Link>
+            {[
+              {
+                name: "Popular Medical College, Bangladesh",
+                url: "https://www.radicaleducation.in/popular-medical-collegebangladesh",
+                logo: "/images/study-abroad/logos/b.webp"
+              },
+              {
+                name: "Dhaka National Medical College, Bangladesh",
+                url: "https://www.radicaleducation.in/dhaka-national-medical-college-bangladesh",
+                logo: "/images/study-abroad/logos/b-1.webp"
+              },
+              {
+                name: "Tairunnessa Memorial Medical College, Bangladesh",
+                url: "https://www.radicaleducation.in/tairnunnessa-memorial-medical-college",
+                logo: "/images/study-abroad/logos/b-2.webp"
+              },
+              {
+                name: "Holy Family Red Crescent Medical College, Bangladesh",
+                url: "https://www.radicaleducation.in/holy-family-red-crescent-medical-college",
+                logo: "/images/study-abroad/logos/b-3.webp"
+              },
+              {
+                name: "Bangladesh University of Professionals, Bangladesh",
+                url: "https://www.radicaleducation.in/bangladesh-university-of-professional-studies",
+                logo: "/images/study-abroad/logos/b-4.webp"
+              },
+              {
+                name: "Anwer Khan Modern Medical College, Dhaka",
+                url: "https://www.radicaleducation.in/anwer-khan-modern-medical-college-dhaka-2025",
+                logo: "/images/study-abroad/logos/b-5.webp"
+              },
+              {
+                name: "Delta Medical College, Dhaka",
+                url: "https://www.radicaleducation.in/delta-medical-college-dhaka",
+                logo: "/images/study-abroad/logos/b-6.webp"
+              },
+              {
+                name: "Dr. Sirajul Islam Medical College, Dhaka",
+                url: "https://www.radicaleducation.in/dr-sirajul-islam-medical-college",
+                logo: "/images/study-abroad/logos/b-7.webp"
+              },
+              {
+                name: "East West Medical College, Dhaka",
+                url: "https://www.radicaleducation.in/east-west-medical-college-dhaka-2025-2026",
+                logo: "/images/study-abroad/logos/b-8.webp"
+              },
+              {
+                name: "Eastern Medical College, Comilla",
+                url: "https://www.radicaleducation.in/bangladesh-university-of-professional-studies",
+                logo: "/images/study-abroad/logos/b-9.webp"
+              },
+              {
+                name: "International Medical College, Tongi",
+                url: "https://www.radicaleducation.in/international-medical-college-tongi",
+                logo: "/images/study-abroad/logos/b-10.webp"
+              },
+              {
+                name: "Medical College for Women, Dhaka",
+                url: "https://www.radicaleducation.in/medical-college-for-women-dhaka-2025-2026",
+                logo: "/images/study-abroad/logos/b-11.webp"
+              },
+              {
+                name: "Monowara Sikdar Medical College, Shariatpur",
+                url: "https://www.radicaleducation.in/monowara-sikdar-medical-college-shariatpur-2025-2026-fees-structure-cutoff-admission-process",
+                logo: "/images/study-abroad/logos/b-12.webp"
+              },
+              {
+                name: "US–Bangla Medical College, Tarabo",
+                url: "https://www.radicaleducation.in/us-bangla-medical-college-tarabo-2025",
+                logo: "/images/study-abroad/logos/b-13.webp"
+              }
+            ].map((college, index) => (
+              <Link key={index} href={college.url} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
+                <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
+                  <Image src={college.logo} alt={college.name} width={190} height={190} className="object-contain" />
+                </div>
+                <h3 className="text-blue-600 font-semibold text-center text-xs lg:text-sm">
+                  {college.name}
+                </h3>
+              </Link>
+            ))}
           </div>
         </div>
       </div>

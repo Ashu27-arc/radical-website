@@ -100,89 +100,127 @@ const Nepal = () => {
           </h2>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-6xl mx-auto">
-            {/* Row 1 */}
-            <Link href="https://www.radicaleducation.in/birat-medical-college-bmc-nepal-2025-26" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
-              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/1.webp" alt="Birat Medical College" width={190} height={190} className="object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-xs md:text-sm px-2">
-                Birat Medical College
-              </h3>
-            </Link>
-
-            <Link href="https://www.radicaleducation.in/college-of-medical-sciences-cmc-nepal" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
-              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/2.webp" alt="College of Medical Sciences" width={190} height={190} className="object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-xs md:text-sm px-2">
-                College of Medical Sciences
-              </h3>
-            </Link>
-
-            <Link href="https://www.radicaleducation.in/devdaha-medical-college-dmc-nepal" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
-              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/3.webp" alt="Devdaha Medical College" width={190} height={190} className="object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-xs md:text-sm px-2">
-                Devdaha Medical College
-              </h3>
-            </Link>
-
-            <Link href="https://www.radicaleducation.in/kathmandu-medical-college-kmc-nepal" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
-              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/4.webp" alt="Kathmandu Medical College" width={190} height={190} className="object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-xs md:text-sm px-2">
-                Kathmandu Medical College
-              </h3>
-            </Link>
-
-            {/* Row 2 */}
-            <Link href="https://www.radicaleducation.in/national-medical-college-private-limited-nepal" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
-              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/nepal.png" alt="Kathmandu National Medical College" width={190} height={190} className="object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-xs md:text-sm px-2">
-                Kathmandu National Medical College
-              </h3>
-            </Link>
-
-            <Link href="https://www.radicaleducation.in/nepal-medical-college-nmc-nepal-2025-26-update" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
-              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/6.webp" alt="Nepal Medical College" width={190} height={190} className="object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-xs md:text-sm px-2">
-                Nepal Medical College
-              </h3>
-            </Link>
-
-            <Link href="https://www.radicaleducation.in/nepalgunj-medical-college-nepal-2025-26-update" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
-              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/7.webp" alt="Nepalgunj Medical College" width={190} height={190} className="object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-xs md:text-sm px-2">
-                Nepalgunj Medical College
-              </h3>
-            </Link>
-
-            <Link href="https://www.radicaleducation.in/manipal-college-of-medical-science-nepal-2025" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
-              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/8.webp" alt="Manipal College of Medical Sciences" width={190} height={190} className="object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-xs md:text-sm px-2">
-                Manipal College of Medical Sciences
-              </h3>
-            </Link>
-
-            {/* Row 3 - Single centered item */}
-            <Link href="https://www.radicaleducation.in/lumbini-medical-college-nepal-2025-26" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
-              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/9.webp" alt="Lumbini Medical College" width={190} height={190} className="object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-xs md:text-sm px-2">
-                Lumbini Medical College
-              </h3>
-            </Link>
+            {[
+              {
+                name: "Birat Medical College",
+                url: "https://www.radicaleducation.in/birat-medical-college-bmc-nepal-2025-26",
+                logo: "/images/study-abroad/logos/1.webp"
+              },
+              {
+                name: "College of Medical Sciences",
+                url: "https://www.radicaleducation.in/college-of-medical-sciences-cmc-nepal",
+                logo: "/images/study-abroad/logos/2.webp"
+              },
+              {
+                name: "Devdaha Medical College",
+                url: "https://www.radicaleducation.in/devdaha-medical-college-dmc-nepal",
+                logo: "/images/study-abroad/logos/3.webp"
+              },
+              {
+                name: "Kathmandu Medical College",
+                url: "https://www.radicaleducation.in/kathmandu-medical-college-kmc-nepal",
+                logo: "/images/study-abroad/logos/4.webp"
+              },
+              {
+                name: "Kathmandu National Medical College",
+                url: "https://www.radicaleducation.in/national-medical-college-private-limited-nepal",
+                logo: "/images/study-abroad/logos/nepal.png"
+              },
+              {
+                name: "Nepal Medical College",
+                url: "https://www.radicaleducation.in/nepal-medical-college-nmc-nepal-2025-26-update",
+                logo: "/images/study-abroad/logos/6.webp"
+              },
+              {
+                name: "Nepalgunj Medical College",
+                url: "https://www.radicaleducation.in/nepalgunj-medical-college-nepal-2025-26-update",
+                logo: "/images/study-abroad/logos/7.webp"
+              },
+              {
+                name: "Manipal College of Medical Sciences",
+                url: "https://www.radicaleducation.in/manipal-college-of-medical-science-nepal-2025",
+                logo: "/images/study-abroad/logos/8.webp"
+              },
+              {
+                name: "Lumbini Medical College",
+                url: "https://www.radicaleducation.in/lumbini-medical-college-nepal-2025-26",
+                logo: "/images/study-abroad/logos/9.webp"
+              },
+              {
+                name: "B & C Medical College, Jhapa",
+                url: "https://www.radicaleducation.in/bc-medical-college-teaching-hospital",
+                logo: "/images/study-abroad/logos/10.webp"
+              },
+              {
+                name: "Chitwan Medical College, Bharatpur",
+                url: "https://www.radicaleducation.in/chitwan-medical-college-cmc-nepal-2025-2026",
+                logo: "/images/study-abroad/logos/11.webp"
+              },
+              {
+                name: "Gandaki Medical College, Pokhara",
+                url: "https://www.radicaleducation.in/gandaki-medical-college-teaching-hospital-gmc",
+                logo: "/images/study-abroad/logos/12.webp"
+              },
+              {
+                name: "Janaki Medical College, Janakpur",
+                url: "https://www.radicaleducation.in/janaki-medical-college-and-teaching-hospital",
+                logo: "/images/study-abroad/logos/13.webp"
+              },
+              {
+                name: "Karnali Academy of Health Science, Jumla",
+                url: "https://www.radicaleducation.in/karnali-academy-of-health-science-nepal",
+                logo: "/images/study-abroad/logos/14.webp"
+              },
+              {
+                name: "Kathmandu University School of Medical Sciences, Dhulikhel",
+                url: "https://www.radicaleducation.in/kathmandu-university-school-of-medical",
+                logo: "/images/study-abroad/logos/15.webp"
+              },
+              {
+                name: "KIST Medical College, Lalitpur",
+                url: "https://www.radicaleducation.in/kist-medical-college-nepal",
+                logo: "/images/study-abroad/logos/16.webp"
+              },
+              {
+                name: "National Medical College, Birgunj",
+                url: "https://www.radicaleducation.in/national-medical-college-private-limited-nepal",
+                logo: "/images/study-abroad/logos/17.webp"
+              },
+              {
+                name: "Nepalese Army Institute of Health Science, Kathmandu",
+                url: "https://www.radicaleducation.in/nepalese-army-institute-of-health-science",
+                logo: "/images/study-abroad/logos/18.webp"
+              },
+              {
+                name: "Nobel Medical College, Biratnagar",
+                url: "https://www.radicaleducation.in/nobel-medical-college-nepal",
+                logo: "/images/study-abroad/logos/19.webp"
+              },
+              {
+                name: "Patan Academy of Health Sciences, Lalitpur",
+                url: "https://www.radicaleducation.in/patan-academy-of-health-sciences-nepal",
+                logo: "/images/study-abroad/logos/20.webp"
+              },
+              {
+                name: "Pokhara Academy of Health Sciences, Pokhara",
+                url: "https://www.radicaleducation.in/pokhara-academy-of-health-sciences-nepal",
+                logo: "/images/study-abroad/logos/21.webp"
+              },
+              {
+                name: "Universal College of Medical Sciences, Bhairahawa",
+                url: "https://www.radicaleducation.in/universal-college-of-medical-sciences-ucms",
+                logo: "/images/study-abroad/logos/22.webp"
+              }
+            ].map((college, index) => (
+              <Link key={index} href={college.url} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
+                <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
+                  <Image src={college.logo} alt={college.name} width={190} height={190} className="object-contain" />
+                </div>
+                <h3 className="text-blue-600 font-semibold text-center text-xs md:text-sm px-2">
+                  {college.name}
+                </h3>
+              </Link>
+            ))}
           </div>
         </div>
       </section>

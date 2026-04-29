@@ -6,18 +6,33 @@ import Link from 'next/link';
 const universities = [
   {
     name: "Bukhara State Medical University, Uzbekistan",
-    logo: "/images/study-abroad/logos/u-2.webp",
+    logo: "/images/study-abroad/logos/u-1.webp",
     link: "https://www.radicaleducation.in/bukhara-state-medical-college"
   },
   {
     name: "Samarkand State Medical University, Uzbekistan",
-    logo: "/images/study-abroad/logos/u-1.webp",
+    logo: "/images/study-abroad/logos/u-2.webp",
     link: "https://www.radicaleducation.in/samarkand-state-medical-college"
   },
   {
     name: "Tashkent Pediatric Medical Institute, Uzbekistan",
-    logo: "/images/study-abroad/logos/u.webp",
+    logo: "/images/study-abroad/logos/u-3.webp",
     link: "https://www.radicaleducation.in/tashkent-pediatric-medical-institute-uzbekistan"
+  },
+  {
+    name: "Monno Medical College, Gilondo",
+    logo: "/images/study-abroad/logos/u-4.webp",
+    link: "https://www.radicaleducation.in/monno-medical-college-gilondo-2025-2026"
+  },
+  {
+    name: "Tashkent Medical Academy",
+    logo: "/images/study-abroad/logos/u-5.webp",
+    link: ""
+  },
+  {
+    name: "Karshi State medical Unviersity",
+    logo: "/images/study-abroad/logos/u-6.webp",
+    link: ""
   }
 ];
 

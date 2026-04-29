@@ -127,6 +127,61 @@ const universities = [
     name: "Synergy University Russia",
     logo: "/images/study-abroad/logos/r-25.webp",
     link: "https://www.radicaleducation.in/synergy-university"
+  },
+  {
+    name: "Amur State Medical University, Amur Oblast",
+    logo: "/images/study-abroad/logos/r-26.webp",
+    link: "https://www.radicaleducation.in/amur-state-medical-university-admission-2025"
+  },
+  {
+    name: "Astrakhan State Medical University, Astrakhan",
+    logo: "/images/study-abroad/logos/r-27.webp",
+    link: "https://www.radicaleducation.in/astrakhan-state-medical-university-russia"
+  },
+  {
+    name: "Chita State Medical University, Chita",
+    logo: "/images/study-abroad/logos/r-28.webp",
+    link: "https://www.radicaleducation.in/chita-state-medical-university-russia"
+  },
+  {
+    name: "Crimean Federal University, Simferopol",
+    logo: "/images/study-abroad/logos/r-29.webp",
+    link: "https://www.radicaleducation.in/crimean-federal-university-simferopol-russia"
+  },
+  {
+    name: "Kuban State Medical University, Krasnodar",
+    logo: "/images/study-abroad/logos/r-30.webp",
+    link: "https://www.radicaleducation.in/kuban-state-medical-university-russia"
+  },
+  {
+    name: "Mephi Obninsk, Obninsk",
+    logo: "/images/study-abroad/logos/r-31.webp",
+    link: "https://www.radicaleducation.in/mephi-obninsk-russia-admission-2025"
+  },
+  {
+    name: "Northwestern State Medical University, St Petersburg",
+    logo: "/images/study-abroad/logos/r-32.webp",
+    link: "https://www.radicaleducation.in/north-western-state-medical-university-russia"
+  },
+  {
+    name: "Privolzhsky Research Medical University, Nizhny Novgorod",
+    logo: "/images/study-abroad/logos/r-33.webp",
+    link: "https://www.radicaleducation.in/privoizhky-research-medical-university"
+  },
+  {
+    name: "Saint Petersburg State University of Veterinary Medicine",
+    logo: "/images/study-abroad/logos/r-34.webp",
+    link: "https://www.radicaleducation.in/saint-petersburg-state-university"
+  },
+  {
+    name: "Tambov State Medical University, Tambov",
+    logo: "/images/study-abroad/logos/r-35.webp",
+    link: "https://www.radicaleducation.in/tambov-state-medical-university-russia"
+  },
+  {
+    name: "Vyatka State Medical University, Kirov",
+    logo: "/images/study-abroad/logos/r-36.webp",
+    link: "https://www.radicaleducation.in/vyatka-state-medical-university-russia"
   }
 ];
 
@@ -229,7 +284,13 @@ const Russia = () => {
               uni.link ? (
                 <Link key={index} href={uni.link} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center group">
                   <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4 transition-transform duration-300 group-hover:scale-105">
-                    <Image src={uni.logo} alt={uni.name} width={190} height={190} className="object-contain" />
+                    {uni.logo ? (
+                      <Image src={uni.logo} alt={uni.name} width={190} height={190} className="object-contain" />
+                    ) : (
+                      <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 flex items-center justify-center bg-blue-50 rounded-full border border-blue-200 shadow-sm">
+                        <span className="text-4xl md:text-5xl font-bold text-blue-500">{uni.name.charAt(0).toUpperCase()}</span>
+                      </div>
+                    )}
                   </div>
                   <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2 group-hover:text-blue-800 transition-colors">
                     {uni.name}
@@ -238,7 +299,13 @@ const Russia = () => {
               ) : (
                 <div key={index} className="flex flex-col items-center">
                   <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                    <Image src={uni.logo} alt={uni.name} width={190} height={190} className="object-contain" />
+                    {uni.logo ? (
+                      <Image src={uni.logo} alt={uni.name} width={190} height={190} className="object-contain" />
+                    ) : (
+                      <div className="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 flex items-center justify-center bg-blue-50 rounded-full border border-blue-200 shadow-sm">
+                        <span className="text-4xl md:text-5xl font-bold text-blue-500">{uni.name.charAt(0).toUpperCase()}</span>
+                      </div>
+                    )}
                   </div>
                   <h3 className="text-blue-600 font-semibold text-center text-[10px] md:text-xs lg:text-sm px-1 md:px-2">
                     {uni.name}

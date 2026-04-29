@@ -99,89 +99,62 @@ const Georgia = () => {
           </h2>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 lg:gap-8 max-w-6xl mx-auto">
-            {/* Row 1 */}
-            <Link href="https://www.radicaleducation.in/batumi-shota-rustaveli-state-university" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
-              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/g.webp" alt="Batumi Shota Rustaveli State Medical University Georgia" width={190} height={190} className="object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-xs lg:text-sm">
-                Batumi Shota Rustaveli State Medical University, Georgia
-              </h3>
-            </Link>
-
-            <Link href="https://www.radicaleducation.in/caucasus-international-university" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
-              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/g-1.webp" alt="Caucasus International University, Georgia" width={190} height={190} className="object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-xs lg:text-sm">
-                Caucasus International University, Georgia
-              </h3>
-            </Link>
-
-            <Link href="https://www.radicaleducation.in/east-european-university-georgia-2" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
-              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/g-2.webp" alt="European University, Georgia" width={190} height={190} className="object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-xs lg:text-sm">
-                European University, Georgia
-              </h3>
-            </Link>
-
-            <Link href="https://www.radicaleducation.in/georgian-national-university-seu" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
-              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/g-3.webp" alt="Georgian National University SEU, Georgia" width={190} height={190} className="object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-xs lg:text-sm">
-                Georgian National University SEU, Georgia
-              </h3>
-            </Link>
-
-            {/* Row 2 */}
-            <Link href="https://www.radicaleducation.in/grigol-robakidze-university" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
-              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/g-4.webp" alt="Gruni Grigol Robakidze University, Georgia" width={190} height={190} className="object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-xs lg:text-sm">
-                Gruni Grigol Robakidze University, Georgia
-              </h3>
-            </Link>
-
-            <Link href="https://www.radicaleducation.in/tbilisi-medical-academy" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
-              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/g-5.webp" alt="Tbilisi Medical Academy, Georgia" width={190} height={190} className="object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-xs lg:text-sm">
-                Tbilisi Medical Academy, Georgia
-              </h3>
-            </Link>
-
-            <Link href="https://www.radicaleducation.in/tbilisi-state-medical-university-georgia" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
-              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/g-6.webp" alt="Tbilisi State Medical University, Georgia" width={190} height={190} className="object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-xs lg:text-sm">
-                Tbilisi State Medical University, Georgia
-              </h3>
-            </Link>
-
-            <Link href="https://www.radicaleducation.in/university-of-georgia-2" target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
-              <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
-                <Image src="/images/study-abroad/logos/g-7.webp" alt="University of Georgia" width={190} height={190} className="object-contain" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-xs lg:text-sm">
-                University of Georgia, Georgia
-              </h3>
-            </Link>
-
-            {/* Row 3 - Single centered item */}
-            {/* <div className="flex flex-col items-center col-span-2 md:col-span-4 md:col-start-2 md:col-end-3">
-              <div className="w-24 h-24 lg:w-32 lg:h-32 rounded-full border-4 border-cyan-300 bg-white flex items-center justify-center mb-4">
-                <Image src="/images/russia-uni-9.webp" alt="Smolensk State Medical University" width={80} height={80} className="object-contain w-14 h-14 lg:w-20 lg:h-20" />
-              </div>
-              <h3 className="text-blue-600 font-semibold text-center text-xs lg:text-sm">
-                Smolensk State Medical University
-              </h3>
-            </div> */}
+            {[
+              {
+                name: "Batumi Shota Rustaveli State Medical University, Georgia",
+                url: "https://www.radicaleducation.in/batumi-shota-rustaveli-state-university",
+                logo: "/images/study-abroad/logos/g.webp"
+              },
+              {
+                name: "Caucasus International University, Georgia",
+                url: "https://www.radicaleducation.in/caucasus-international-university",
+                logo: "/images/study-abroad/logos/g-1.webp"
+              },
+              {
+                name: "European University, Georgia",
+                url: "https://www.radicaleducation.in/east-european-university-georgia-2",
+                logo: "/images/study-abroad/logos/g-2.webp"
+              },
+              {
+                name: "Georgian National University SEU, Georgia",
+                url: "https://www.radicaleducation.in/georgian-national-university-seu",
+                logo: "/images/study-abroad/logos/g-3.webp"
+              },
+              {
+                name: "Gruni Grigol Robakidze University, Georgia",
+                url: "https://www.radicaleducation.in/grigol-robakidze-university",
+                logo: "/images/study-abroad/logos/g-4.webp"
+              },
+              {
+                name: "Tbilisi Medical Academy, Georgia",
+                url: "https://www.radicaleducation.in/tbilisi-medical-academy",
+                logo: "/images/study-abroad/logos/g-5.webp"
+              },
+              {
+                name: "Tbilisi State Medical University, Georgia",
+                url: "https://www.radicaleducation.in/tbilisi-state-medical-university-georgia",
+                logo: "/images/study-abroad/logos/g-6.webp"
+              },
+              {
+                name: "University of Georgia, Georgia",
+                url: "https://www.radicaleducation.in/university-of-georgia-2",
+                logo: "/images/study-abroad/logos/g-7.webp"
+              },
+              {
+                name: "BAU International University, Batumi",
+                url: "https://www.radicaleducation.in/bau-international-university",
+                logo: "/images/study-abroad/logos/g-8.webp"
+              }
+            ].map((college, index) => (
+              <Link key={index} href={college.url} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center">
+                <div className="w-[152px] h-[152px] md:w-[190px] md:h-[190px] flex items-center justify-center mb-2 md:mb-4">
+                  <Image src={college.logo} alt={college.name} width={190} height={190} className="object-contain" />
+                </div>
+                <h3 className="text-blue-600 font-semibold text-center text-xs lg:text-sm">
+                  {college.name}
+                </h3>
+              </Link>
+            ))}
           </div>
         </div>
       </div>
