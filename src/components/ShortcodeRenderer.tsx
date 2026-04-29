@@ -65,12 +65,38 @@ display:none !important;
 }
 .blgdtlsfrmhdr {
 display: flex;
-align-items:center; 
-gap:4px;
+    align-items: center;
+    gap: 0;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+    line-height: 1.3;
 }
+    .blgdtlsfrmhdr big{
+    font-size:26px;
+    font-weight: normal;
+    }
+    .wpforms-form .wpforms-label-hide{
+    display:none !important;
+    }
+   .wpforms-form .wpforms-field-payment-checkbox fieldset{
+   padding:0;
+   border:none;
+   }
+   .wpforms-form .wpforms-field-payment-checkbox fieldset legend{
+   display:none !important;
+   }
+   .wpforms-form .wpforms-field-payment-checkbox ul.wpforms-field-required{
+   padding:0 !important;
+   margin:0 !important;
+   color:#fff !important;
+       list-style: none;
+   }
 .blgdtlsfrmhdr h4{
 margin:0;
 paddng:0;
+font-size:30px;
+font-weight: bold;
 }
 .blog-content-wrapper h1 strong, .blog-content-wrapper h2 strong, .blog-content-wrapper h3 strong{
 font-weight:600;
@@ -80,11 +106,11 @@ font-weight:600;
   width: 100% !important;
   margin: 1.5rem auto !important;
   padding: 1.5rem !important;
-  background: #ffffff;
+  background: #0b77b6;
   border: 1px solid var(--wp-border);
   border-radius: 20px;
-  max-width: 100% !important;
   box-sizing: border-box !important;
+  max-width:500px;
 }
 
 .wpforms-form {
