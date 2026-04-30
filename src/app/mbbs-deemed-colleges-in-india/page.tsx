@@ -770,7 +770,7 @@ export default function MBBSDeemedCollegesPage() {
                 <button
                   type="submit"
                   disabled={isSubmitting || !consent}
-                  className="w-full bg-[#023E8A] hover:bg-[#03045E] text-white py-4 rounded-xl font-bold text-lg tracking-wider transition-all shadow-md active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full bg-[#005A8B] hover:bg-[#0b77b6] text-[#FFFFFF] py-4 rounded-xl font-bold text-lg tracking-wider transition-all shadow-md active:scale-[0.98] disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? "SUBMITTING..." : "GET STARTED FOR FREE"}
                 </button>
