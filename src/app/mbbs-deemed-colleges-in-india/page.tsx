@@ -623,9 +623,9 @@ export default function MBBSDeemedCollegesPage() {
                       },
                       {
                         name: "Mahatma Gandhi Missions Medical College",
-                        location: "Navi Mumbai",
+                        location: "Panvel",
                         logo: "",
-                        url: "https://www.radicaleducation.in/mgm-navi-mumbai"
+                        url: ""
                       },
                       {
                         name: "D. Y. Patil University, School Of Medicine",
