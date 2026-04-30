@@ -701,6 +701,88 @@ export default function MBBSDeemedCollegesPage() {
                 practical exposure.
               </p>
             </div>
+            {/* NEET 2026 Updates Form */}
+            <div className="my-8 bg-[#0077B6] rounded-2xl p-6 sm:p-8 text-white shadow-lg max-w-md mx-auto">
+              <div className="text-center mb-6">
+                <p className="text-lg font-medium opacity-90">Get</p>
+                <h2 className="text-3xl sm:text-4xl font-bold my-1">NEET – 2026</h2>
+                <p className="text-xl font-medium opacity-90">Updates</p>
+              </div>
+
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  className="w-full p-3 rounded-xl bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300"
+                  required
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  className="w-full p-3 rounded-xl bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300"
+                  required
+                />
+                <input
+                  type="tel"
+                  name="mobile"
+                  placeholder="Phone*"
+                  value={formData.mobile}
+                  onChange={handleInputChange}
+                  className="w-full p-3 rounded-xl bg-white text-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-300"
+                  required
+                  pattern="[0-9]{10}"
+                />
+                <select
+                  name="course"
+                  value={formData.course}
+                  onChange={handleInputChange}
+                  className="w-full p-3 rounded-xl bg-white text-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-300 appearance-none cursor-pointer"
+                  required
+                >
+                  <option value="" disabled>Course</option>
+                  <option value="MBBS Abroad">MBBS Abroad</option>
+                  <option value="MBBS India">MBBS India</option>
+                  <option value="BDS">BDS</option>
+                  <option value="BAMS">BAMS</option>
+                  <option value="MD/MS">MD/MS</option>
+                </select>
+
+                <div className="flex items-start gap-3 py-2">
+                  <input
+                    type="checkbox"
+                    id="neet-2026-consent"
+                    checked={consent}
+                    onChange={(e) => setConsent(e.target.checked)}
+                    required
+                    className="mt-1 w-4 h-4 rounded cursor-pointer accent-white"
+                  />
+                  <label htmlFor="neet-2026-consent" className="text-sm font-medium leading-tight cursor-pointer">
+                    By submitting this form you agree to our Privacy Policy and TC
+                  </label>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isSubmitting || !consent}
+                  className="w-full bg-[#023E8A] hover:bg-[#03045E] text-white py-4 rounded-xl font-bold text-lg tracking-wider transition-all shadow-md active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  {isSubmitting ? "SUBMITTING..." : "GET STARTED FOR FREE"}
+                </button>
+              </form>
+
+              {submitMessage && (
+                <div className={`mt-4 p-3 rounded-lg text-center text-sm ${submitMessage.type === "success" ? "bg-green-100/20 text-white" : "bg-red-100/20 text-white"}`}>
+                  {submitMessage.text}
+                </div>
+              )}
+            </div>
+
             {/* Government Colleges Table */}
             <div className="overflow-x-auto -mx-1 sm:mx-0 max-w-full rounded-lg border border-gray-200">
               <table className="w-full border-collapse border border-gray-300 text-[10px] sm:text-xs md:text-sm min-w-[320px] sm:min-w-0">
