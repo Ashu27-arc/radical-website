@@ -1,8 +1,34 @@
 "use client";
 
+import { useState } from "react";
 import FloatingWhatsApp from "@/components/FloatingWhatsApp";
 
 export default function AboutUsPage() {
+  const [videoPopup, setVideoPopup] = useState<{ id: number; title: string; youtubeId: string } | null>(null);
+
+  const videos = [
+    { id: 1, title: 'Utkarshika Gupta, CSAMC, Etah', youtubeId: 'jfq8RbTIrtI' },
+    { id: 2, title: 'Ayush Kushwaha, GSAMC, Hapur', youtubeId: 'hwYjHX5pk9w' },
+    { id: 3, title: 'Sangam Yadav, MGAMC, Lucknow', youtubeId: 'CxDL_T4CWs8' },
+    { id: 4, title: 'Anhad Kaur, SGRDIMSR, Amristar', youtubeId: '7t81QLx4TeM' },
+    { id: 5, title: 'Prabhat Soni, GMC, Jhunjhunu', youtubeId: 'XYZPevx_UE0' },
+    { id: 6, title: 'Aditya Maan, GMC, Sirohi', youtubeId: 'QdpT-kOvM2g' },
+    { id: 7, title: 'Riddhi Singh,  KSMU,  Russia', youtubeId: '6DJoje1YFI4' },
+    { id: 8, title: 'Aseem, Asfendiyarov Kazakh National Medical University, Kazakhstan', youtubeId: 'E0-uSX-dabA' },
+    { id: 9, title: '', youtubeId: 'd6xSZh_IBCc' },
+    { id: 10, title: 'Arush Loomba, KD Medical College, Mathura', youtubeId: '5cGL3vAHVgY' },
+    { id: 11, title: 'Etshamul Haque, National Capital Region Institute of Medical Sciences, Uttar Pradesh', youtubeId: '_voXIMBO5kE' },
+    { id: 12, title: 'Tanish Bhatiya, GMC, Washim', youtubeId: 'LGz27v7iCf0' },
+    { id: 13, title: 'Saubhagya Agrawal, NIMS, Noida', youtubeId: 'lHUOtZmHvng' },
+    { id: 14, title: 'Sherya Jain, TMU, Moradabad', youtubeId: 'Ltk485g1cEw' },
+    { id: 15, title: 'Kumar Amlendu, Government Medical College, Ariyalur', youtubeId: 'TRLNAiSqDqY' },
+    { id: 16, title: 'Abhishek Sharma, NIIMS, Gr. Noida', youtubeId: 'UxIt6DyD4CE' },
+    { id: 17, title: 'Prabhleen Kaur, GDC, Amritsar', youtubeId: '0GAQQwIU8n0' },
+    { id: 18, title: 'Mohammed Athar, FHMC, Agra', youtubeId: 'nvZ7duCvCLw' },
+  ];
+
+
+
   const whoWeAreData = {
     title: "Who We Are",
     paragraph:
@@ -533,6 +559,98 @@ shadow-[0_11px_21px_rgba(102,187,229,0.1)]"
               />
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Video Reviews Section */}
+      <section className="py-20 bg-[#F4F7F8]">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-semibold text-[#0B2E3C]">
+              What Our Students Say
+            </h2>
+            <div className="w-24 h-1 bg-[#00CFB2] mx-auto mt-4 rounded"></div>
+          </div>
+
+          <div className="fadeUp">
+            <div className="grid gap-6 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+              {videos.map((video) => (
+                <button
+                  key={video.id}
+                  type="button"
+                  onClick={() => setVideoPopup(video)}
+                  className="relative w-full h-[260px] rounded-xl overflow-hidden shadow-lg text-left focus:outline-none focus:ring-2 focus:ring-[#287FC4] focus:ring-offset-2 group cursor-pointer block"
+                >
+                  <img
+                    src={`https://img.youtube.com/vi/${video.youtubeId}/hqdefault.jpg`}
+                    alt={video.title}
+                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
+                  {/* Play icon overlay */}
+                  <span className="absolute inset-0 flex items-center justify-center">
+                    <span className="w-14 h-14 rounded-full bg-black/60 flex items-center justify-center group-hover:bg-red-600 transition-colors duration-300">
+                      <svg className="w-6 h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M8 5v14l11-7z" />
+                      </svg>
+                    </span>
+                  </span>
+
+                  <span className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent px-3 py-2 text-white text-sm font-medium">
+                    {video.title}
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {videoPopup && (
+            <div
+              className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60"
+              onClick={() => setVideoPopup(null)}
+              role="dialog"
+              aria-modal="true"
+              aria-label="Video player"
+            >
+              <div
+                className="relative w-full max-w-4xl rounded-2xl overflow-hidden bg-white shadow-2xl"
+                onClick={(e) => e.stopPropagation()}
+              >
+                <div className="p-3 bg-[#F4F7F8]">
+                  <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-black">
+                    <button
+                      type="button"
+                      onClick={() => setVideoPopup(null)}
+                      className="absolute top-3 right-3 z-10 w-9 h-9 rounded-full bg-black/50 hover:bg-black/70 text-white flex items-center justify-center transition-colors"
+                      aria-label="Close"
+                    >
+                      <svg
+                        className="w-5 h-5"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M6 18L18 6M6 6l12 12"
+                        />
+                      </svg>
+                    </button>
+
+                    <iframe
+                      className="absolute inset-0 w-full h-full"
+                      src={`https://www.youtube.com/embed/${videoPopup.youtubeId}`}
+                      title={videoPopup.title}
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </section>
     </div>
