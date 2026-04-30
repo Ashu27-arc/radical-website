@@ -23,7 +23,7 @@ export const mainMenuData: MenuItem[] = [
             { label: 'Santosh Medical College, Ghaziabad, Uttar Pradesh', url: '/santosh-medical-college-smc-ghaziabad-2025-26/' },
             { label: 'Hamdard Institute of Medical Sciences and Research, New Delhi, Delhi', url: '/hamdard-institute-of-medical-sciences-2025-26/' },
             { label: 'Maharishi Markandeshwar Institute Of Medical Sciences & Research, Mullana, Ambala, Haryana', url: '/maharishi-markandeshwar-institute-of-medica/' },
-            { label: 'Amrita School of Medicine, Faridabad, Uttar Pradesh', url: '/amrita-school-of-medicine-faridabad-asm/' },
+            { label: 'Amrita School of Medicine, Faridabad, Haryana', url: '/amrita-school-of-medicine-faridabad-asm/' },
             { label: 'Graphic Era Institute of Medical Science, Dehradun, Uttarakhand', url: '/graphic-era-institute-of-medical-science-2025/' },
             { label: 'B.L.D.E University, Bijapur, Karnataka', url: '/b-l-d-e-university-bijapur-karnataka-2025-26/' },
             { label: 'Jagadguru Gangadhar Mahaswamigalu Moorusavirmath Medical College, Hubballi, Karnataka', url: '/jagadguru-gangadhar-medical-college-2025-26/' },
