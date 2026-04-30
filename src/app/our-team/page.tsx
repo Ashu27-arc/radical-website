@@ -262,14 +262,14 @@ export default function OurTeam() {
               className="block w-full h-full"
             >
               <Image
-                src="/images/packages-nb-banner.webp"
+                src="/images/our-team-nb-banner.webp"
                 alt="NEET UG Banner"
                 fill
                 className="object-cover"
               />
             </Link>
 
-            <div className="flex gap-2 absolute left-[7.3%] bottom-3 md:bottom-7 lg:bottom-10 xl:bottom-14 w-[135px] md:w-[200px] lg:w-[250px] xl:w-[300px]">
+            <div className="flex gap-2 absolute left-[7.3%] bottom-3 md:bottom-6 lg:bottom-8 xl:bottom-10 w-[135px] md:w-[200px] lg:w-[250px] xl:w-[300px]">
               <div className="hover:scale-105 transition-transform w-full">
                 <Link
                   href="https://play.google.com/store/apps/details?id=com.kaveka.NeetBhaiya"
