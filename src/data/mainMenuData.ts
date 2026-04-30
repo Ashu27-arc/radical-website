@@ -331,6 +331,8 @@ export const mainMenuData: MenuItem[] = [
           { label: 'Monno Medical College, Gilondo', url: '/monno-medical-college-gilondo-2025-2026/' },
           { label: 'Samarkand State Medical College, Samarkand', url: '/samarkand-state-medical-college/' },
           { label: 'Tashkent Pediatric Medical Institute, Tashkent', url: '/tashkent-pediatric-medical-institute-uzbekistan/' },
+          { label: 'Tashkent Medical Academy', url: 'https://www.radicaleducation.in/tashkent-medical-academy-uzbekistan' },
+          { label: 'Karshi State medical Unviersity', url: 'https://www.radicaleducation.in/karshi-state-medical-university' },
         ],
       },
 
