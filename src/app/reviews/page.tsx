@@ -29,7 +29,7 @@ const reviewtestimonials = [
         text: "The entire admission process—from counselling to visa—was handled professionally by Radical Education. Choosing Radical Education was the right decision for my MBBS abroad journey. Highly recommended for students planning to study in Kyrgyzstan.",
         tag: "MBBS",
         status: "OIMU",
-        avatar: "/images/reviews/user2.webp",
+        avatar: "/images/reviews/daksh-moom.webp",
         logo: "/images/reviews/university2.webp",
     },
     // {
