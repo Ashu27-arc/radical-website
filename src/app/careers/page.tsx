@@ -179,7 +179,18 @@ export default function CareersPage() {
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (e.target.files && e.target.files[0]) {
-      setResumeFile(e.target.files[0]);
+      const file = e.target.files[0];
+      if (file.type !== "application/pdf" && !file.name.toLowerCase().endsWith(".pdf")) {
+        setSubmitMessage({
+          type: "error",
+          text: "Please upload your resume in PDF format only",
+        });
+        setResumeFile(null);
+        e.target.value = "";
+      } else {
+        setSubmitMessage(null);
+        setResumeFile(file);
+      }
     }
   };
 
@@ -188,11 +199,21 @@ export default function CareersPage() {
     setIsSubmitting(true);
     setSubmitMessage(null);
 
+    if (!resumeFile) {
+      setSubmitMessage({
+        type: "error",
+        text: "Please upload your resume",
+      });
+      setIsSubmitting(false);
+      return;
+    }
+
     if (!consent) {
       setSubmitMessage({
         type: "error",
         text: "Please accept the consent to proceed",
       });
+      setIsSubmitting(false);
       return;
     }
 
@@ -644,16 +665,34 @@ export default function CareersPage() {
                       className="hidden"
                       id="resume-upload"
                       onChange={handleFileChange}
-                      accept=".pdf,.doc,.docx"
+                      accept=".pdf"
                     />
-                    <label
-                      htmlFor="resume-upload"
-                      className="w-full px-3 md:px-4 py-2.5 md:py-3 font-normal text-sm md:text-base rounded-[5px] bg-black/15 backdrop-blur-md text-white cursor-pointer flex items-center justify-center border-2 border-dashed border-white border-opacity-50 transition-all"
-                    >
-                      <span>
-                        {resumeFile ? resumeFile.name : "Upload Your Resume"}
-                      </span>
-                    </label>
+                    {resumeFile ? (
+                      <div className="w-full px-3 md:px-4 py-2.5 md:py-3 font-normal text-sm md:text-base rounded-[5px] bg-black/15 backdrop-blur-md text-white flex items-center justify-between border-2 border-solid border-[#00CFB2] transition-all">
+                        <span className="truncate pr-2">{resumeFile.name}</span>
+                        <button
+                          type="button"
+                          onClick={() => {
+                            setResumeFile(null);
+                            const fileInput = document.getElementById("resume-upload") as HTMLInputElement;
+                            if (fileInput) fileInput.value = "";
+                          }}
+                          className="text-white hover:text-red-400 transition-colors flex-shrink-0"
+                          aria-label="Remove resume"
+                        >
+                          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                          </svg>
+                        </button>
+                      </div>
+                    ) : (
+                      <label
+                        htmlFor="resume-upload"
+                        className="w-full px-3 md:px-4 py-2.5 md:py-3 font-normal text-sm md:text-base rounded-[5px] bg-black/15 backdrop-blur-md text-white cursor-pointer flex items-center justify-center border-2 border-dashed border-white border-opacity-50 transition-all hover:border-opacity-100"
+                      >
+                        <span>Upload Your Resume (PDF only) <span className="text-red-500">*</span></span>
+                      </label>
+                    )}
                   </div>
 
                   <div className="flex items-start gap-3 mt-2">
@@ -694,10 +733,10 @@ export default function CareersPage() {
 
                   <button
                     type="submit"
-                    disabled={isSubmitting || !consent}
+                    disabled={isSubmitting || !consent || !resumeFile}
                     className={`
                        opacity-80 cursor-pointer w-full text-white font-semibold py-2.5 md:py-3 text-sm md:text-base rounded-lg shadow-lg
-                                ${!consent
+                                ${(!consent || !resumeFile)
                         ? "bg-[#ccc] text-white !cursor-not-allowed"
                         : "bg-[linear-gradient(270deg,#287FC4_0%,#00CFB2_100%)]"
                       }
